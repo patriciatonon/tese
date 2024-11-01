@@ -1,0 +1,260 @@
+\documentclass[tese_patricia.tex]{subfiles}
+\begin{document}
+
+% ----------------------------------------------------------
+% Introducao
+% ----------------------------------------------------------
+\chapter[Introdução]{Introdução}\label{capitulo:introducao}
+% ----------------------------------------------------------
+
+A interação fluido-estrutura caracteriza-se por ser uma classe de problemas em que existe uma interdependência nos comportamentos do fluido e da estrutura. O comportamento do fluido depende do formato da estrutura e sua movimentação, assim como, o movimento e a deformação da estrutura dependem das forças que provém do fluido.
+
+A modelagem numérica dos problemas da engenharia estrutural é um ramo vastamente desenvolvido, sendo a análise de estruturas por elementos finitos em softwares comerciais uma prática corrente entre os engenheiros. Entretanto, quando fala-se de interação fluido-estrutura (IFE), esses softwares encontram-se muito longe de atender à demanda dos engenheiros. 
+
+Problemas que envolvem a interação entre fluido e estrutura estão presentes em diversas áreas da engenharia, pode-se citar, por exemplo, a ação do vento sobre edifícios, aerodinâmica de modelos automotivos, problemas de \textit{flutter} em estruturas aeronáuticas e de pontes, ou ainda problemas de escoamento de sangue sobre vasos sanguíneos e órgãos, entre muitos outros. A análise experimental de tais problemas, em geral, é muito custosa e envolve muito tempo, desta forma, é de interesse o desenvolvimento de métodos numéricos que representem adequadamente tais análises e que possibilitem que sejam realizadas dentro de um tempo razoável. O crescimento da informática tem auxiliado nesse processo, embora, ainda muitas análises somente sejam possíveis de serem realizadas em grandes \textit{clusters}, e algumas, devido à complexidade dos problemas, não possam ser simuladas sem grandes simplificações.
+
+A análise computacional dos problemas de IFE envolvem basicamente três partes: dinâmica dos fluidos computacional, mecânica dos sólidos computacional e acoplamento entre os meios fluido e sólido. Uma das maiores dificuldades encontrada nessa área diz respeito ao acoplamento entre fluido e sólido visto que para fluidos aplica-se, em geral, uma descrição matemática Euleriana, e para sólidos, Lagrangiana. O processo de acoplamento é realizado basicamente utilizando-se duas possíveis técnicas: método de malhas adaptadas e os métodos de malhas não-adaptadas. 
+
+Nos métodos de malhas adaptadas, uma porção do contorno da malha de fluido deforma-se de maneira a acomodar a mudança de configuração que a estrutura sofre. Nesse tipo de metodologia uma descrição Lagrangiana-Euleriana arbitrária pode ser aplicada ao fluido, permitindo a movimentação do domínio computacional de maneira independente do domínio do fluido. Essa técnica é adequada para problemas em que a estrutura sofre deslocamentos em pequenas escalas comparados à configuração inicial da estrutura, sem que haja mudança topológica do domínio do fluido, visto que grandes distorções do domínio fluido, em geral, acarretam na necessidade de técnicas de remalhamento, que apresentam um custo computacional muito elevado.
+
+No método de malhas não-adaptadas se utiliza uma malha fixa para o fluido, na qual o sólido se encontra imerso. Um dos aspectos importantes desse método diz respeito à localização do contorno da estrutura dentro da malha do fluido, podendo ser resolvido por exemplo com o uso de uma função \textit{level-set} baseada na distância assinalada ao contorno. Essa técnica, embora possa ser aplicada para grandes deslocamentos, em geral não é adequada para levar em consideração efeitos localizados que precisem de um maior precisão da malha, como por exemplo, em regiões de camada limite na vizinhança da estrutura. 
+
+Em trabalhos atuais, o uso do método dos elementos finitos para a dinâmica dos fluidos tem sido largamente abordado. Mais recentemente, a análise isogeométrica, que tem como principal objetivo permitir a integração análise-projeto, também encontrou seu lugar na mecânica dos fluidos computacional. Ambas as técnicas de discretização são baseadas nos mesmos conceitos e possuem vantagens e desvantagens, podendo ser mais adequadas a casos particulares.
+
+Nesta proposta de doutorado, para análise dos problemas IFE, propõe-se o desenvolvimento de uma técnica de partição de domínio com malhas sobrepostas no intuito de unir as vantagens das metodologias de malhas adaptadas e de malhas não-adaptadas e ao mesmo tempo proporcionar a combinação de discretizações isogeométrica e por elementos finitos. Propõe-se o uso de duas discretizações espaciais para o fluido, uma malha global maior, menos refinada e fixa no espaço, e uma malha local menor, mais refinada, em contato com a estrutura e que se move para acomodar as deformações da estrutura. Uma das discretizações pode ser isogeométrica, enquanto a outra em elementos finitos tradicional. Como consequência, caso seja necessária a realização de remalhamento, o mesmo pode ser realizado apenas na malha local, diminuindo o custo computacional. As malhas serão acopladas através da modificação do espaço das funções base em uma zona de sobreposição, de maneira a preservar a independência linear das funções e a partição da unidade. 
+
+Neste capítulo são apresentados o estado da arte dos principais assuntos envolvidos no desenvolvimento deste projeto, os objetivos, e a metodologia a ser aplicada.
+
+
+\section{Apresentação do texto}
+
+Este texto está dividido em 6 capítulos os quais serão descritos sucintamente na continuação.
+
+No \textit{Capítulo 1} introduz-se e contextualiza-se o tema de pesquisa. Na sequência, no estado da arte, faz-se uma breve apresentação de algumas das técnicas mais utilizadas para a solução dos problemas que envolvem a interação fluido-estrutura e dos métodos a serem aplicados nesta pesquisa. Por fim, apresentam-se os objetivos, a metodologia, justificativa e o cronograma de atividades do Doutorado.
+
+O \textit{Capítulo 2} compreende a descrição da solução numérica para o problema de dinâmica dos fluidos computacional. Apresentam-se inicialmente as equações governantes em sua forma forte na descrição Euleriana, posteriormente, é apresentada a obtenção da descrição Euleriana-Lagrangiana arbitrária. Na sequência, a formulação fraca é obtida através da aplicação do método dos resíduos ponderados utilizando a técnica clássica de Galerkin. Após isso, descrevem-se as estabilizações utilizadas para contornar as instabilidades que ocorrem nesse tipo de discretização, seguida da técnica de integração temporal do conjunto de equações. Ao final, o algoritmo da implementação computacional é apresentado e alguns exemplos são avaliados para a verificação do programa.
+
+No \textit{Capítulo 3}, apresenta-se a análise isogeométrica. Descrevem-se as funções NURBS e sua aplicação na discretização das geometrias e variáveis em substituição às tradicionais funções polinomiais de Lagrange empregadas no método dos elementos finitos clássico. Por fim, verifica-se o código computacional da DFC com análise isogeométrica por meio de exemplos numéricos.
+
+O \textit{Capítulo 4} apresenta uma breve revisão sobre a mecânica dos sólidos voltada ao equilíbrio de corpos deformáveis em descrição Lagrangiana.  Na sequência, apresentam-se os conceitos do método dos elementos finitos posicional e o elemento finito de casca a ser utilizado nesse projeto. Por fim, um exemplo de problema dinâmico é apresentado.
+
+No \textit{Capítulo 5} a técnica de decomposição de domínios é apresentada. Descreve-se a obtenção do novo espaço de funções na zona de sobreposição entre malhas global e local, e apresenta-se por fim um exemplo de verificação voltado à dinâmica dos fluidos computacional.
+
+No \textit{Capítulo 5} apresenta-se a metodologia adotada para o acoplamento fluido-estrutura. Primeiramente são apresentadas as condições de acoplamento, na sequência, desenvolve-se a técnica de movimentação de malhas a ser aplicada no modelo local do fluido. Ao final, descreve-se o algoritmo a ser utilizado para o acoplamento particionado forte do tipo bloco-iterativo.
+
+No \textit{Capítulo 6} são apresentadas conclusões parciais acerca do que foi desenvolvido até momento, bem como considerações sobre o plano de trabalho e resultados esperados ao final do Doutorado.
+
+
+\section[Estado da Arte]{Estado da Arte}\label{section:estado_da_arte}
+
+Nesta seção apresenta-se uma breve contextualização das teorias e técnicas mais importantes relacionadas à metodologia aplicada neste projeto para a resolução dos problemas de interação fluido-estrutura. Assim, aborda-se brevemente o estado da arte da mecânica dos fluidos computacional aplicada a problemas de contornos móveis, mecânica dos sólidos computacional aplicada a problemas dinâmicos com grandes deslocamentos, técnicas de acoplamento numérico fluido-estrutura, análise isogeométrica e técnicas de partição de domínio com sobreposição de malhas.
+
+\subsection{Dinâmica dos fluidos computacional}
+\label{cfdsection}
+
+Na dinâmica dos fluidos computacional (DFC) técnicas numéricas são aplicadas para obtenção de uma solução aproximada para o conjunto de equações que descreve o comportamento dos fluidos no espaço e no tempo, visto que a solução analítica para esses problemas é conhecida para poucos e simples casos. Os principais tópicos abordados aqui são referentes às diferentes metodologias aplicadas no que  diz respeito a: discretização espacial, métodos de estabilização e modelagem de escoamentos turbulentos. 
+
+No que diz respeito à discretização espacial a DFC desenvolveu-se inicialmente no âmbito do método das diferenças finitas e do método dos volumes finitos (ver, por exemplo, \citeonline{Chung:2002} e \citeonline{Anderson:1995}). O método dos elementos finitos (MEF), por sua vez, popularizou-se inicialmente em análises de estruturas na década de 50, com problemas baseados em princípios variacionais. Alguns anos depois, passou a ser usado também em problemas da DFC, visto que o mesmo apresenta algumas propriedades vantajosas, como por exemplo, a capacidade de discretizar geometrias complexas com o uso de malhas não estruturadas arbitrárias e a facilidade de aplicação de condições de contorno em geometrias complexas e de alta ordem \cite{ZienkiewiczTN:2005,ReddyG:2000}.
+
+Umas das dificuldades encontradas na aplicação do MEF à dinâmica dos fluidos computacional é o fato de que, ao adotar-se o método clássico de Galerkin na discretização espacial das equações que descrevem o comportamento dos fluidos, obtém-se matrizes assimétricas e, em escoamentos com convecção dominante, surgem variações espúrias nas variáveis transportadas. Esse problema pode ser amenizado à medida que a malha de elementos finitos é refinada, entretanto, é desejável que o método escolhido apresente resultados mesmo em malhas mais grosseiras.
+
+Para resolver tal dificuldade, algumas técnicas de estabilização foram propostas, a exemplo da metodologia \textit{Stream-Upwind/Petrov-Galerkin} - SUPG \cite{BrooksH:1982}, \textit{Galerkin Least-Squares}-GLS \cite{HughesFH:1989} , \textit{Sub-Grid Scale}-SGS \cite{Hughes:1995}, ou ainda, \textit{Consistent Approximate Upwind}-CAU \cite{GaleaoC:1988}. Todas essas técnicas baseiam-se na introdução de termos estabilizantes ao problema, contendo as variações espúrias que ocorrem em problemas com convecção dominante. Outra possibilidade, diz respeito ao uso do método Taylor-Galerkin (T-G), introduzido por \citeonline{Donea:1984} onde a estabilização é obtida pela introdução de termos de mais alta ordem para a expansão em série de Taylor no processo de discretização temporal.
+
+Uma das metodologias mais difundidas para estabilização dos termos convectivos, é a técnica SUPG, a ser aplicada neste trabalho, que consiste em adicionar à forma fraca da equação da quantidade de movimento, o resíduo da equação da quantidade de movimento ponderado por uma função especialmente escolhida para adicionar difusão na direção das linhas de corrente. Diversos autores contribuíram para consolidação dessa técnica, dentre os quais pode-se citar, \citeonline{HughesT:1984}, \citeonline{Tezduyar:1992d}, \citeonline{CatabrigaC:2002}. O parâmetro adimensional estabilizador cuja função é aplicar uma escala na parcela adicionada, ainda possui sua obtenção discutida em diversos trabalhos tais como os \citeonline{TakizawaTO:2018} e \citeonline{OtoguroTT:2020}.
+
+Outra dificuldade da DFC diz respeito aos escoamentos incompressíveis. Ao levar-se em conta a incompressibilidade do escoamento, obtém-se a chamada equação da continuidade, onde tem-se apenas o termo do divergente do vetor velocidade. Do ponto de vista computacional, esse aspecto traz problemas na obtenção do campo de pressão. Nesses casos, a utilização da pressão e da velocidade como variáveis primárias aproximadas por funções de forma de mesmo grau pode conduzir instabilidades na resolução do sistema. Essas instabilidades podem ser contornadas utilizando elementos que respeitem a restrição de \textit{Ladyzhenskaya-Babuška-Brezzi} ou LBB, onde a pressão é interpolada por funções de forma de ordem menor, sendo tais elementos conhecidos como Taylor-Hood \cite{BrezziF:1991,ZienkiewiczTN:2005,StrangF:2008}.
+
+Uma metodologia de estabilização semelhante à técnica SUPG foi também desenvolvida para contornar esse problema \cite{HughesFB:1986,TezduyarMRS:1992a}. Essa metodologia é conhecida como PSPG (\textit{Pressure stabilized Petrov-Galerkin}) e consiste em adicionar à forma fraca da equação da continuidade o resíduo da equação da quantidade de movimento ponderado pelo gradiente da equação da continuidade multiplicado por uma constante estabilizadora.
+
+Outro aspecto relevante nas simulações numéricas diz respeito à reprodução de escoamentos turbulentos. As equações de Navier-Stokes descrevem tanto escoamentos laminares como turbulentos, entretanto, a utilização da chamada Simulação Direta de Turbulência leva a custos computacionais elevados, visto que requer uma malha refinada de maneira a representar adequadamente todas as escalas de turbulência. Para contornar esse problema, diferentes técnicas podem ser empregadas, como por exemplo, modelos algébricos de turbulência, baseados na hipótese de Reynolds, simulações de grandes vórtices (LES) \cite{LaunderS:1972,Wilcox:1993} e também métodos multiescalas \cite{Hughesetal:2001,Sondak:2015}.
+
+\subsection{Dinâmica de estruturas computacional considerando grandes deslocamentos}
+\label{csdsection}
+
+A análise de interação fluido estrutura recai muitas vezes em problemas onde é necessário a consideração da não linearidade geométrica da estrutura devida aos grandes deslocamentos ou a efeitos acoplados de membrana e flexão. Dentro desse grupo de problemas pode-se citar \textit{flutter} de grande amplitude, sistemas de desaceleração (paraquedas), aplicações biomédicas, entre outros.
+
+A solução numérica de problemas estruturais é realizada tradicionalmente aplicando-se o método dos elementos finitos. Dentro do contexto da análise não-linear de estruturas utilizando MEF, a formulação co-rotacional proposta por \citeonline{Truesdell:1955} é muito popular e propõe a representação cinemática de algumas estruturas submetidas a grandes deslocamentos através da representação de deformações em termos de deslocamentos nodais e rotações. Essa formulação, aplicada para pórticos, treliças e cascas, pode ser vista nos trabalhos de \citeonline{HughesL:1981a,HughesL:1981b,Argyris:1982,SimoF:1989,Ibrahimbegovic:2002,BattiniP:2006}.
+
+A formulação co-rotacional, ao descrever rotações como parâmetros nodais, apresenta uma limitação para grandes deslocamentos, visto que não se pode aplicar a propriedade comutativa a essa grandeza. Para resolver este problema, utilizam-se formulações linearizadas de Euler-Rodrigues para aproximação das rotações, conforme pode ser visto em \citeonline{CodaP:2010}.
+
+A conservação da energia nessa formulação é um assunto muito controverso em problemas de dinâmica não-linear de estruturas. Isso porque no uso da formulação co-rotacional, as rotações finitas, que são parâmetros nodais, apresentam objetividade apenas para pequenos incrementos, além disso, a aplicação da formulação resulta em matriz de massa variável, proibindo o uso de algumas processos de integração temporal bem estabelecidos. 
+
+Motivado por \citeonline{Bonet:2000}, \citeonline{Coda:2003} introduz uma formulação baseada em posições, sem rotações como parâmetros nodais. Essa formulação tem sido aplicada com sucesso para problemas de pórticos e cascas \cite{CodaG:2004,CodaP:2010,CarrazedoC:2010,CodaP:2011}, incluindo problemas de interação fluido-estrutura \cite{SanchesC:2013,SanchesC:2014,FernandesCS:2019}.
+
+Em \citeonline{SanchesC:2014}, os autores utilizam o integrador temporal de Newmark para análise de problemas dinâmicos não-lineares de estruturas de cascas no contexto da IFE com grandes deslocamentos e rotações de corpo rígido. Nesse trabalho, os autores apresentam a prova da conservação da quantidade de movimento linear e angular no uso dessa metodologia, e testam a estabilidade e conservação de energia para problemas com pequenas deformações. 
+
+Baseado no último trabalho citado, neste projeto, aplica-se a formulação Lagrangiana total para elementos de cascas baseada em posições e vetores generalizados, o que evita o uso de aproximações para grandes rotações e permite o uso do integrador de Newmark nos problemas dinâmicos da IFE que apresentam grandes deslocamentos e rotações.
+
+\subsection{Acoplamento fluido-estrutura}
+\label{couplingsection}
+
+
+O problema de interação fluido-estrutura pode ser descrito como um conjunto de equações diferenciais e condições de contornos associadas ao fluido e a estrutura que precisam ser satisfeitas ao mesmo tempo. Os domínios do fluido e da estrutura não se sobrepõe e devem ser acoplados na interface fluido-estrutura. 
+
+Como sólidos e fluidos geralmente apresentam descrições matemáticas diferentes, sendo os sólidos tradicionalmente analisados por descrições Lagrangianas e os fluidos por descrições Eulerianas, um dos desafios da análise computacional de IFE é o acoplamento entre os dois meios. A solução a ser aplicada pode ser classificada em dois tipos de metodologias: métodos de rastreamento de interface (\textit{interface tracking}) ou método de malhas adaptadas e métodos de captura de interface (\textit{interface capturing}) ou método de malhas não-adaptadas \cite{Houetal:2012,BazilevsTT:2013b}.
+
+Nos métodos de rastreamento de interface, à medida em que a interface move, o domínio espacial do fluido muda seu formato, e a malha do fluido é movimentada para acomodar a mudança da interface. Nesse tipo de metodologia duas possíveis técnicas podem ser aplicadas na modelagem do domínio fluido: a descrição Lagrangiana-Euleriana arbitrária \cite{HughesLZ:1981,DoneaGH:1982,BazilevsCZH:2006a} ou a formulação Espaço-Tempo (\textit{Space-Time - ST}) \cite{TezduyarBML:1992b,TezduyarBL:1992c,TakizawaT:2012}, sendo que ambas permitem a movimentação arbitrária da discretização espacial. A principal vantagem do método de malhas adaptadas é a capacidade de controlar a dimensão da malha próxima a interface, bem como a conformidade dos domínios, e como consequência, garantir a precisão dos resultados nessa região.
+
+A técnica empregada para movimentação de malhas é muito importante nesse tipo de problemas, pois deve ser eficiente de maneira a resultar em elementos que possuam uma mínima distorção e alteração de volume, e de forma a evitar que a malha necessite ser reconstruída. Diversos trabalhos sobre movimentação de malhas para interação fluido-estrutura podem ser vistos na literatura, tais como: \citeonline{JohnsonT:1994,KanchiM:2007,FarhatLL:1998,SteinTB:2004,Lefrancois:2008,FernandesCS:2019}. Nos métodos de malha adaptada no entanto, em alguns casos o remalhamento torna-se inevitável, como em problemas com grandes distorções do domínio ou em problemas com mudanças topológicas, fazendo com que o custo computacional se torne muito elevado.
+
+Por sua vez, os métodos de captura de interface são capazes de lidar com mudanças topológicas e grandes deslocamentos. Para isso, utilizam-se os chamados métodos de contornos imersos, introduzido por \citeonline{Peskin:1972}, nos quais mantém-se a malha do fluido fixa e permite-se que a estrutura mova-se dentro dessa malha. Nesses métodos é necessário que as posições da estrutura sejam identificadas dentro da malha do fluido a cada passo de tempo \cite{WangRGF:2011,MittalI:2005}. Isso pode ser feito por uma função distância assinalada do contorno da estrutura (método \textit{level-set}), como pode ser visto nos trabalhos de \citeonline{CirakR:2005,SanchesC:2014,AkkermanBBFK:2012}. A principal desvantagem desse tipo de metodologia é que a resolução da discretização na camada limite fica limitada a discretização da malha de elementos finitos onde a interface estiver posicionada no instante de análise.
+
+
+A resolução dos problemas da IFE pode ser realizada através de duas variações principais: Métodos particionados \cite{BazilevsHKWB:2011,RouxG:2009, SanchesC:2013,SanchesC:2014,FernandesCS:2019} e métodos monolíticos \cite{Blom:1998,Hubneretal:2004,HronM:2007}. No primeiro grupo, as equações para fluido, estrutura e de movimentação de malha são resolvidas separadamente, cada um podendo utilizar formulação ou técnica de integração temporal diferentes, sendo as condições de acoplamento transmitidas, em geral em termos de condições de Neumann e Dirichlet, de um meio para o outro, enquanto no segundo, fluido e estrutura são tratados como entidade única, sendo um único sistema de equações gerado para fluido e estrutura.
+
+As técnicas de acoplamento particionado podem ainda ser fracas, ou explícitas, onde as equações são resolvidas de uma maneira desacoplada e só no passo de tempo seguinte as forças do fluido são transferidas para o sólido e os deslocamentos do sólido para o fluido e para a movimentação da malha do fluido, ou fortes, ou implícitas, onde usa-se de processos iterativos de acoplamento dentro de um passo de tempo. Esse tipo de metodologia facilita a solução dos problemas de IFE devido ao total desacoplamento entre os \textit{solvers} de estrutura e de fluido, entretanto, problemas de convergência podem ser encontrados em situações específicas.
+
+\citeonline{BazilevsTT:2013b} apresentam uma classificação das técnicas de acoplamento segundo a forma de se resolver o sistema não linear de equações resultantes. São estabelecidas três categorias: técnica direta, técnica bloco-iterativa e técnica quase-direta. 
+
+Na técnica direta, equivalente aos métodos monolíticos, ao se aplicar o método de Newton Raphson, obtém-se uma matriz tangente que considera a variação das equações do fluido, do sólido e da malha, em relação às variáveis nodais dos 3 problemas: fluido, sólido e malha. Isso gera um único sistema a ser resolvido em cada iteração do método de Newton-Raphson e conduz a boa convergência, entretanto, devido aos grandes sistemas algébricos resultantes ocorre um aumento no custo computacional.
+
+Na técnica bloco iterativa, na obtenção da matriz tangente do método de Newton Raphson, considera-se que o fluido dependa apenas de suas próprias variáveis, que o sólido dependa apenas de suas variáveis e que a malha dependa apenas de suas variáveis, o que gera uma matriz com 3 blocos que podem ser resolvidos independentemente. No entanto, no cálculo do resíduo, a cada iteração, as dependências das variáveis dos outros meios é considerada. Nota-se que o que ocorre é apenas uma modificação da matriz tangente, assim, a resposta não é alterada, no entanto a convergência pode ser afetada.
+
+Em alguns problemas onde a massa do fluido envolvida é semelhante ou superior a massa da estrutura, pode-se ter uma divergência dos resultados da técnica de bloco-iterativa, nesses casos, pode-se utilizar a metodologia introduzida por \citeonline{TezduyarBL:1992c}, chamada de \textit{augmented mass} que consiste em multiplicar a massa da matriz tangente respectiva à estrutura por um fator que dependerá do tipo de problema em análise. Outra técnica que pode ser utilizada é a alteração do esquema de acoplamento do tipo Dirichlet-Neumann para condições de contorno de Robin, que consiste em uma combinação linear das condições de Dirichlet e Neumann, ver por exemplo, \citeonline{BadiaNV:2008}. Pode-se utilizar ainda a relaxação de Aitken, proposto por \citeonline{IronsT:1969}, e que demonstra-se muito eficiente e trabalhos sequentes \cite{KuttlerW:2008,FernandesCS:2019}.
+
+A técnica acoplamento quase-direto, garante boa convergência independente da magnitude das variáveis do fluido e da estrutura. Nessa metodologia, ao calcular a matriz tangente, considera-se que o fluido e o sólido dependem ambos das variáveis nodais do fluido e do sólido, e que a malha depende apenas de suas próprias variáveis. Assim, obtém-se uma matriz com dois blocos independentes, um composto pelos parcelas do fluido e estrutura, que serão resolvidos em um único sistema algébrico, e o outro composto pelas parcelas da movimentação da malha. O processo de solução entre os dois blocos é iterativo, com a movimentação da malha sendo executada a cada iteração a partir dos dados provenientes do primeiro bloco \cite{TezduyarSKS:2006,TezduyarSS:2006}.
+
+
+\subsection{Análise Isogeométrica}
+\label{igasection}
+
+A Análise Isogeométrica (IGA - \textit{Isogeometric Analysis}) é uma metodologia para análise numérica de problemas descritos por equações diferenciais e foi introduzida primeiramente por \citeonline{HughesCB:2005}. Pode-se dizer que se trata de uma generalização do método dos elementos finitos clássico, a partir do uso de funções base especiais, e sua formulação foi consolidada através de inúmeros trabalhos sequentes, como por exemplo, \citeonline{BazilevsCZH:2006a,Bazilevsetal:2007,BazilevsBCHS:2006b,CottrellRBH:2006,CottrellHR:2007,ZhangBGBH:2007}.
+
+Na análise isogeométrica, as funções base utilizadas são aquelas aplicadas nos sistemas CAD (\textit{Computed Aided Desing}), ou seja, nas tecnologias aplicadas na engenharia de \textit{design}, animação, artes gráficas e visualização.  Dentro das possibilidades de funções, as mais conhecidas são as funções NURBS \cite{PiegT:1996}, fazendo que esse seja um ponto de partida para os estudos sobre IGA.
+
+Um dos principais objetivos do desenvolvimento dessa ferramenta é a integração entre os sistemas CAD e as técnicas numéricas baseadas em elementos finitos, as quais requerem a geração de malhas baseadas nos dados obtidos em programas CAD. 
+
+Uma das principais vantagens do uso dessa metodologia é representação exata de geometrias mesmo em malhas pouco refinadas, visto que elas são capazes de representar exatamente seções cônicas, círculos, cilindros, esferas e elipsoides. Essa característica é muito atrativa, por exemplo, em problemas de flambagem de cascas, os quais são extremamente sensíveis a imperfeições geométricas, além disso, as funções NURBS são continuas $p-1$ vezes entre os elementos, sendo $p$ o grau da função base, o que pode ser uma característica interessante para esse tipo de problema que requer continuidade $C^1$ entre elementos. Trabalhos como os de \citeonline{BensonBHH:2010,KiendlBLW:2009} demonstram a aplicabilidade da IGA na análise de problemas de cascas.
+
+A descrição exata das geometria das funções NURBS é uma característica desejável também em problemas que envolvem fenômenos de camada limite, os quais dependem fortemente da precisão geométrica da superfície do corpo imerso no escoamento. Alguns problemas envolvendo escoamentos turbulentos e interação fluido-estrutura, podem ser consultados em: \citeonline{Bazilevsetal:2007,BazilevsMCH:2010,BazilevsA:2010,ZhangBGBH:2007,BazilevsCH:2008}.
+
+Outras metodologias aplicando diretamente funções \textit{B-Splines} também tem se mostrado eficiente para a análise de problemas da dinâmica dos fluidos computacional, como pode ser visto nos trabalhos de \citeonline{HolligRW:2001,BazilevsTT:2013,BazilevsTT:2014}.
+
+Neste projeto, a aproximação IGA, baseada em funções NURBS, é aplicada parcialmente à malha de fluidos utilizada nas análises de interação entre fluido estrutura, como será visto em mais detalhes na sequência.
+
+
+ 
+\subsection{Técnica de partição de domínios}
+\label{arlequinsection}
+
+Em diversas áreas da engenharia se faz necessário levar em consideração efeitos localizados, geralmente de menor escala, em um modelo global. Dentro da análise estrutural pode-se citar problemas de fissuras, orifícios, imperfeições; na mecânica dos fluidos, problemas de camada limite, a interface entre dois fluidos; e na interação fluido-estrutura a interface entre estrutura-fluido, entre outros.
+
+Para uma solução precisa desse tipo de problemas, faz-se necessário a aplicação de técnicas que levem em consideração os efeitos locais, mas ao mesmo tempo não tornem a simulação inviável devido ao seu custo computacional.
+
+O método dos elementos finitos, tradicionalmente aplicado para as análises numéricas de equações diferenciais, foi desenvolvido a partir de um modelo mecânico de meio contínuo, apresentando pouca flexibilidade para a consideração desses efeitos. Os refinamentos \textit{p} e \textit{h} são metodologias eficientes, entretanto, para alguns problemas dinâmicos, demandam técnicas de remalhamento, e podem ser muito caros computacionalmente.
+
+Buscando uma melhoria nesse aspecto do MEF, muitas propostas têm sido realizadas para melhorar a flexibilidade de problemas multiescala, como pode-se citar por exemplo, o caso dos elementos finitos difusos \cite{NayrolesTV:1992} onde o conceito de partículas foi introduzido, resultando em uma generalização do método dos elementos finitos sem malha, ou o método de Galerkin livre de elementos que é combinação entre elementos sem malha e o MEF, ver \citeonline{Belytschko:1995}. Com esse mesmo intuito pode-se citar o método de Partição da Unidade \cite{MelenkB:1996}, o método dos elementos finitos generalizado \cite{StrouboulisCB:2001} ou o método dos elementos finitos estendido \cite{FarhatHF:2001}, os quais introduzem o enriquecimento à base aproximadora por meio de funções capazes de capturar efeitos localizados.
+
+Dentro do contexto da mecânica dos fluidos, \citeonline{TezduyarAB:1998,TezduyarA:2000} introduziram a técnica \textit{EDICT} (\textit{Enhanced-Discretization Interface-Capturing Technique}) para captura de interface com aprimoramento da discretização para problemas bifásicos ou com superfície livre. Para isso, nessa região de interface definem-se um subconjunto de elementos (sub-malhas), que posteriormente são refinados sucessivamente, de modo a melhorar a precisão da solução. Como resultado obtém-se uma discretização melhorada para capturar a interface, entretanto, as sub-malhas provenientes, não representam com exatidão descontinuidades na interface. Uma versão mais eficiente dessa técnica foi proposta em \citeonline{TezduyarS:2005}, na qual um método iterativo multinível é projetado para a captura de efeitos do escoamento em pequenas escalas, permitindo a simulação de problemas mais complexos.
+
+Outro grupo de métodos é proposta para flexibilizar o MEF em problemas com efeitos locais, que são os baseados em superposição de um domínio local a um domínio global. A técnica Chimera definida por \citeonline{BenekSDB:1986} traz a introdução de orifícios na região de superposição dos modelos, definindo um contorno artificial para o modelo global, e a transmissão de dados ocorre através desses contornos artificiais gerados. O método S \cite{Fish:1992} trata o modelo local como um enriquecimento ao global, e a solução é obtida através da soma dos campos de interesse de cada domínio.
+
+O método Arlequin \cite{Dhia:1998,DhiaR:2001}, por sua vez também baseia-se na superposição de modelos de modo a combinar um modelo local mais refinado a um global, no entanto, esse processo é realizado através do cruzamento e colagem entre os modelos em uma zona de superposição e fazendo-se o uso para tal de multiplicadores de Lagrange. A desvantagem do método de Arlequin, é a introdução mais variáveis ao sistema, e como consequência um sistema mais difícil de ser tratado. Uma formulação estabilizada do método Arlequin é desenvolvida e aplicada à escoamentos incompressíveis por \citeonline{FernandesEtAll:2020}.No contexto da interação fluido-estrutura, \citeonline{Fernandes:2020} aplicou o método Arlequin à problemas de interação fluido-estrutura considerando problemas bidimensionais. 
+
+
+\section[Objetivos]{Objetivos}
+
+O objetivo principal desse trabalho é construir um código computacional capaz de realizar simulações de problemas da interação fluido-estrutura combinando aproximações por elementos finitos clássico e análise isogeométrica.
+
+Para alcançar o objetivo principal, os seguintes objetivos secundários precisam ser atingidos:
+
+\begin{itemize}
+	\item Expandir um código de MEF bidimensional de dinâmica dos fluidos pré-existente para um código que também analise problemas tridimensionais e que contemple uma discretização através de análise isogeométrica;
+	\item Implementar uma técnica de partição de domínios e sobreposição de malhas para levar em conta efeitos locais no código de dinâmica dos fluidos computacional;
+	\item Estudar um código para análise não-linear geométrica de estruturas de cascas utilizando o MEF posicional previamente desenvolvido;
+	\item Realizar o acoplamento entre os códigos da dinâmica dos fluidos computacional com o código de estruturas através de uma técnica de acoplamento particionado forte usando um acoplamento do tipo bloco-iterativo;
+	\item  Validar os códigos anteriores através da simulação de problemas da dinâmica dos fluidos, dinâmica das estruturas e problemas IFE.
+\end{itemize}
+
+% ----------------------------------------------------------
+% Metodologia
+% ----------------------------------------------------------
+\section[Metodologia]{Metodologia} 
+% ----------------------------------------------------------
+
+Em função da complexidade envolvida na implementação computacional dos códigos desenvolvidos optou-se pelo uso da linguagem de programação C++ orientada a objetos, visto que esta linguagem já vem sendo utilizada com sucesso no grupo de trabalho da presente estudante de doutorado. Além disso, a programação orientada a objetos proporciona uma maior modularidade dos códigos desenvolvidos e uma maior facilidade para o acoplamento entre módulos distintos.  Todas as implementações são realizadas utilizando bibliotecas, compiladores e softwares livres ou de código aberto, em ambiente Linux.
+
+O projeto de pesquisa iniciou-se tendo como base um código de dinâmica dos fluidos computacional para análises bidimensionais desenvolvido por \citeonline{Fernandes:2016,Fernandes:2020} em seus trabalhos de mestrado e doutorado. Primeiramente, ampliou-se o código pré-existente de maneira que o mesmo contemplasse análises de problemas tridimensionais. Na sequência, incluiu-se a este código baseado em MEF para análises 2D e 3D da DFC a técnica de análise isogeométrica.
+
+A partir desse ponto, iniciou-se o processo de estudo da metodologia de sobreposição de malhas de modelos locais à malhas de modelos globais, e sua implementação foi realizada primeiramente para problemas bidimensionais. Na continuação desse projeto esse código será expandido para contemplar também problemas tridimensionais.
+
+Para a análise dos problemas não-lineares geométricos de estruturas de cascas baseado no MEF posicional, estudaram-se os textos apresentados em \citeonline{Coda:2018,SanchesC:2010a,SanchesC:2010b}, e será empregado um código cedido pelo professor Humberto Breves Coda em linguagem FORTRAN e com paralelização em protocolo em MPI.
+
+Na sequência deste projeto, será realizado o acoplamento entre os códigos de fluidos e de estrutura, utilizando-se a metodologia de acoplamento particionado forte através de bloco-iterativo e empregando a estratégia de relaxação de Aitken com o objetivo de acelerar a convergência do processo iterativo.
+
+Para maior eficiência na resolução dos problemas, os códigos da DFC e de IFE também apresentam paralelização em protocolo MPI (\textit{Message passing interface}). O processamento paralelo acontece a partir da divisão do domínio de elementos finitos entre os processos, o qual é realizado através da biblioteca METIS\footnote{Disponível em: \url{http://glaros.dtc.umn.edu/gkhome/metis/metis/overview}}. O METIS proporciona divisão do domínio de elementos finitos em número semelhantes de elementos entre os processos e agrupando-os por proximidade geométrica.
+
+É importante ressaltar que os códigos contam com a interface e implementações do pacote PETSc\footnote{Disponível em: \url{http://https://www.mcs.anl.gov/petsc/}}. Essa biblioteca é desenvolvida em código aberto e possui uma grande quantidade de método iterativos e diretos para solução de sistemas algébricos e também de pré-condicionadores. Além do mais, o PETSc possui uma interface bem desenvolvida com outras bibliotecas, como por exemplo, com o METIS citado anteriormente. No âmbito da resolução dos problemas algébricos nesta primeira fase foi utilizada a biblioteca MUMPS\footnote{Disponível em: \url{ http://mumps.enseeiht.fr/}} que trata-se um método direto de solução de sistemas lineares e é uma biblioteca em código aberto.
+
+As malhas de elementos finitos utilizadas nas análises são obtidas através do software GMSH\footnote{Disponível em:\url{ https://gmsh.info/}} e a etapa de pós-processamento e visualização é realizada no PARAVIEW\footnote{Disponível em:\url{ http://https://www.paraview.org/}}. Para problemas aplicando a análise isogeométrica, a etapa de pré-processamento é realizada com um código desenvolvido pela autora desse trabalho em seu trabalho de mestrado.
+
+No que diz respeito à infraestrutura, utiliza-se o \textit{cluster} disponível no Laboratório de Informática e de Mecânica Computacional (LIMC) do SET para a simulação de problemas mais complexos, e um computador pessoal para a simulação de problemas mais simples.
+
+\vspace{-0.8cm}
+
+ \section[Justificativa]{Justificativa}
+
+Os problemas de interação fluido-estrutura estão presentes em todas as partes, na engenharia, nas ciências, na medicina e também no dia-a-dia das pessoas.
+O projeto de estruturas cada vez mais esbeltas, a necessidade de obtenção de energia elétrica a partir de fontes de energia limpa, como as usinas eólicas, o estudo de \textit{airbags}, o bombeamento do sangue pelos ventrículos do coração humano e o abrir e fechar das válvulas do coração, são apenas alguns dos exemplos que demonstram a necessidade de se aprofundar nos estudos da interação fluido-estrutura computacional.
+
+Enquanto que no campo engenharia estrutural os pacotes comerciais baseados em MEF estão em constante evolução, e podem resolver uma grande gama de problemas, os softwares que tratam de problemas da dinâmica dos fluidos computacional e de problemas multifísicos, como os problemas da IFE, ainda precisam evoluir muito para suprirem a demanda dos pesquisadores. A simulação numérica de problemas reais de IFE é ainda muito difícil de ser realizada em função do elevado custo computacional, e muitas vezes, devido a grande complexidade dos problemas, ainda é impossível simulá-los sem que sejam realizadas grandes simplificações. Dessa forma, os ensaios experimentais, ainda são em grande parte das vezes, a melhor forma de se estudar o comportamento de IFE, embora, sejam muito custosos e demorados.
+
+Dentro desse contexto, muitos pesquisadores tem se esforçado para que a análise de problemas da IFE computacionalmente seja possível e eficiente. Com essa mesma proposta, nesse projeto pretende-se desenvolver uma ferramenta computacional eficiente para análise tridimensional de problemas de interação fluido-estrutura utilizando uma combinação entre método dos elementos finitos e análise isogeométrica.  Nesse trabalho, será aplicada uma técnica de sobreposição de malhas com método multiescala ao modelo do fluido, com uma malha local mais refinada e deformável em contato com a superfície da estrutura sobreposta a uma malha global fixa e com discretização mais grosseira. Dessa forma, ainda que a estrutura mude drasticamente, não se faz necessário o remalhamento de toda a malha que compõe o fluido, diminuindo assim o custo computacional. Esta proposta compartilha as vantagens dos métodos de malhas adaptadas e de malhas não adaptadas, possuindo a possibilidade de alcançar uma ótima convergência.
+
+
+\section[Cronograma]{Cronograma de Atividades}
+
+
+As atividades relativas ao presente trabalho de doutorado, as quais foram desenvolvidas ou estão em processo de desenvolvimento, são divididas nos seguintes grupos:
+
+\begin{enumerate}
+	\item Cumprimento dos créditos mínimos obrigatórios para a obtenção do título de Doutor em Engenharia de Estruturas;
+	\item Estudo das teorias necessárias para o desenvolvimento dos códigos computacionais;
+	\item Ampliação de um código computacional 2D de dinâmica dos fluidos previamente desenvolvido para um código que possibilite a análise de problemas tridimensionais;
+	\item Desenvolvimento de um código computacional que possibilite a análise de problemas da dinâmica dos fluidos computacional utilizando uma aproximação por análise isogeométrica;
+	\item Estágio de doutorado sanduíche;
+	\item Desenvolvimento de um programa para movimentação de malhas baseado na teoria da elasticidade;
+	\item Desenvolvimento de um artigo em parceria com o orientador no exterior sobre movimentação de malhas;
+	\item Ampliação do código da dinâmica dos fluidos computacional para que contemple a técnica de sobreposição de malhas para problemas 2D;
+	\item Escrita do texto de qualificação;
+	\item Estudo de um código pré-existente de análise não-linear geométrica utilizando MEF posicional e elementos de cascas;
+	\item Ampliação do código de dinâmica dos fluidos computacional com sobreposição de malhas para contemplar problemas 3D;
+	\item Acoplamento entre os códigos de dinâmica dos fluidos e do código de estruturas de cascas e validação do mesmo através da avaliação de alguns problemas;
+	\item Desenvolvimento da tese de doutorado.
+\end{enumerate}
+
+Na Tab. \ref{tab:desenvolvimento} apresentam-se o cronograma de execução das atividades de doutorado.
+
+\begin{center}
+\begin{table}[h!]
+	\caption{Cronograma de atividades do trabalho de doutorado}
+	\centering
+	\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}\hline
+		& \multicolumn{9}{c|}{Período (Ano/Semestre)}\\ \cline{2-10}
+		\raisebox{1.5ex}{Atividade} & 18/01 & 18/02 & 19/01 & 19/02 & 20/01 & 20/02 & 21/01 & 21/02 & 22/01 \\  \hline
+	
+		1 & \cellcolor{blue!60} & \cellcolor{blue!60} & & & & & & & \\ \hline
+		2 & \cellcolor{red!50} &  \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} & \cellcolor{red!50} \\ \hline
+		3 & & & \cellcolor{green!50}	& \cellcolor{green!50}  & & & & &	\\ \hline
+		4 & & & & \cellcolor{yellow!30} & \cellcolor{yellow!30} & &  &  &\\ \hline
+		5 & & & & & \cellcolor{orange!50} & \cellcolor{orange!50} & &  & \\ \hline
+		6 & & & & & \cellcolor{black!20} & \cellcolor{black!20} & & &\\ \hline
+		7 & & & & & & \cellcolor{pink!70} & &  & \\ \hline
+		8 & & & & & \cellcolor{blue!30} & \cellcolor{blue!30} & \cellcolor{blue!30} & & \\ \hline
+		9 & & & & & & \cellcolor{green!20} & \cellcolor{green!20} & & \\ \hline
+		10 & & & & & & & \cellcolor{cyan!100} & & \\ \hline
+		11 & & & & & & & \cellcolor{magenta!80} & & \\ \hline
+		12 & & & & & & & & \cellcolor{red!70} & \cellcolor{red!70}\\ \hline
+	    13 & & & & & & \cellcolor{blue!70} & \cellcolor{blue!70} & \cellcolor{blue!70}  & \cellcolor{blue!70} \\ \hline
+	\end{tabular}
+	\label{tab:desenvolvimento}
+\end{table}
+\end{center}
+
+
+%
+%\clearpage
+%
+%\textcolor{white}{ }
+
+\end{document}

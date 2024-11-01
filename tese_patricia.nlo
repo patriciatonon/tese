@@ -1,0 +1,37 @@
+\nomenclatureentry{C,01$p$@[{$p$}]\begingroup Grau das funções base na direção paramétrica $\xi$;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,02$\Xi$@[{$\Xi$}]\begingroup Vetor de \textit{knots} na direção paramétrica $\xi$;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,03$\xi$@[{$\xi$}]\begingroup Uma das direções paramémtricas nas quais as funções base são definidas;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,04$n$@[{$n$}]\begingroup Número de funções base na direção paramétrica $\xi$ ;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,05$N$@[{$N$}]\begingroup Função base \textit {B-Spline} na direção paramétrica $\xi$ ;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,06$\CP$@[{$\CP$}]\begingroup Pontos de controle que descrevem a geometria \textit{B-Spline} ou NURBS;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,07$\mathbf{C}$@[{$\mathbf{C}$}]\begingroup Curva \textit {B-Spline} ou NURBS;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,08$m$@[{$m$}]\begingroup Grau das funções base na direção paramétrica $\eta$;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,09$\mathcal{H}$@[{$\mathcal{H}$}]\begingroup Vetor de \textit{knots} na direção paramétrica $\eta$;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,10$q$@[{$q$}]\begingroup Número de funções base na direção paramétrica $\eta$ ;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,11$\eta$@[{$\eta$}]\begingroup Uma das direções paramémtricas nas quais as funções base são definidas;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,12$M$@[{$M$}]\begingroup Função base \textit {B-Spline} na direção paramétrica $\eta$ ;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,13$\mathbf{S}$@[{$\mathbf{S}$}]\begingroup Superfície \textit {B-Spline} ou NURBS;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,14$\hat{N}$@[{$\hat{N}$}]\begingroup Função \textit {B-Spline} fruto do produto tensorial entre funções base descritas em um espaço paramétrico qualquer;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,15$L$@[{$L$}]\begingroup Função base \textit {B-Spline} na direção paramétrica $\zeta$ ;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,16$r$@[{$r$}]\begingroup Grau das funções base na direção paramétrica $\zeta$;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,17$\mathcal{Z}$@[{$\mathcal{Z}$}]\begingroup Vetor de \textit{knots} na direção paramétrica $\zeta$;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,18$\zeta$@[{$\zeta$}]\begingroup Uma das direções paramémtricas nas quais as funções base são definidas;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,19$l$@[{$l$}]\begingroup Número de funções base na direção paramétrica $\zeta$ ;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,20$\mathbf{T}$@[{$\mathbf{T}$}]\begingroup Sólido \textit {B-Spline} ou NURBS;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,21$\mathbf{C}^{w}$@[{$\mathbf{C}^{w}$}]\begingroup Curva \textit{B-Spline} no $\realspace^{d+1}$ cuja projeção transformativa gera uma curva \mathbf{C} no $\realspace^{d}$;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,22$R$@[{$R$}]\begingroup Função base NURBS;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,23$w$@[{$w$}]\begingroup Peso respectivo a um ponto de controle;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,24$\mathbf{\hat{\xi}}$@[{$\mathbf{\hat{\xi}}$}]\begingroup Coordenadas do espaço parental, no qual realiza-se a integração numérica;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,25$\hat{\xi}$@[{$\hat{\xi}$}]\begingroup Uma das direções do espaço parental;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,26$\hat{\eta}$@[{$\hat{\eta}$}]\begingroup Uma das direções do espaço parental;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,27$\hat{\zeta}$@[{$\hat{\zeta}$}]\begingroup Uma das direções do espaço parental;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,28$\tilde{\Omega^{e}}$@[{$\tilde{\Omega^{e}}$}]\begingroup Domínio de uma célula no espaço paramétrico;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,29$\hat{\Omega^{e}}$@[{$\hat{\Omega^{e}}$}]\begingroup Domínio de um uma célula o no espaço parental;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,30$h$@[{$h$}]\begingroup Dimensão na direção $y$ da entrada do perfil parabólico no problema do escoamento sobre canal com degrau;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,31$s$@[{$s$}]\begingroup Dimensão  na direção $y$ do degrau que compõe o problema do escoamento sobre canal com degrau;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,32$x_{e}$@[{$x_{e}$}]\begingroup Dimensão na direção $x$  do degrau que compõe o problema do escoamento sobre canal com degrau;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,33$x_{f}$@[{$x_{f}$}]\begingroup Dimensão na direção $x$  do \textit{patch} $P1$ do problema do escoamento sobre canal com degrau;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,34$x_{t}$@[{$x_{t}$}]\begingroup Dimensão do canal após o degrau na direção $x$ do problema do escoamento sobre canal com degrau;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,35$V_{max}$@[{$V_{max}$}]\begingroup Velocidade máxima do perfil parabólico na entrada do problema do escoamento sobre canal com degrau;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,36$x_{r}$@[{$x_{r}$}]\begingroup Dimensão do vórtice primário que se forma no problema de escoamento sobre canal com degrau;\nomeqref {3.0}|nompageref}{51}
+\nomenclatureentry{C,37$P_{i}$@[{$P_{i}$}]\begingroup Patch de número $i$;\nomeqref {3.0}|nompageref}{51}
