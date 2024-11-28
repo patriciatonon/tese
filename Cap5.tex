@@ -5,166 +5,202 @@
 % ---------------------------------------------------------- 
 % Métodos de malhas sobrepostas
 % ----------------------------------------------------------
-\chapter[Acoplamento Fluido-Estrutura]{Interação Fluido-Estrutura} \label{capitulo:Cap5}
+\chapter[Técnica de decomposição de domínios]{Técnica de decomposição de domínios} \label{capitulo:Cap5}
 % ----------------------------------------------------------
 
- O acoplamento entre Fluido e Estrutura proposto nesse trabalho é do tipo particionado forte através da técnica de bloco iterativo. O acoplamento foi resultado do desenvolvimento computacional dos modelos matemáticos apresentados nos capítulos anteriores deste trabalho, ou seja, das equações que descrevem o comportamento do fluido, do \textit{Capítulo 1} e \textit{Capítulo 2}, juntamente com a técnica de decomposição de domínios baseada no método Arlequin para o modelo de fluido apresentada no \textit{Capítulo 4}, e,  também, a metodologia de análise não linear de estruturas de casca pelo método dos elementos finitos posicional vista no \textit{Capítulo 3}.
- 
- Nesse contexto, para o acoplamento, utiliza-se a técnica de rastreamento de interface para a malha local do fluido em contato com a estrutura, na qual aplica-se uma descrição Lagrangiana-Euleriana arbitrária, fazendo com que o domínio computacional local possa ser movido independentemente do movimento do fluido. 
- 
- No texto a seguir apresentam-se inicialmente as condições de acoplamento que possibilitam a resolução dos problemas da IFE, o tipo de acoplamento utilizado e, por fim, a técnica de movimentação de malhas aplicada.
+Muitas aplicações de engenharia envolvem efeitos localizados, são os casos, por exemplo, de fissuras na mecânica dos sólidos, interface entre dois tipos diferentes de fluidos na mecânica dos fluidos, ou ainda, a camada limite na interface entre sólido e fluido, entre outros. Para uma análise computacional realística desses problemas, os efeitos locais devem ser apropriadamente representados e a um custo computacional razoável. 
 
-\section{Condições de acoplamento}
+Neste trabalho aplica-se um método decomposição de domínios que permite utilizar uma malha local mais refinada sobreposta a uma malha global com discretização mais grosseira com o intuito de melhorar a precisão local da análise numérica ou simplesmente representar a geometria local e as condições de contorno adequadamente. A malha local pode ter uma escala diferente de discretização, ou até mesmo uma aproximação numérica diferente, como no caso deste trabalho em que se utiliza o método dos elementos finitos em conjunto com a análise isogeométrica.
 
-Os problemas de IFE são caracterizados pela interdependência entre o fluido e a estrutura, visto que o comportamento do escoamento depende do formato e do movimento da estrutura, enquanto que o movimento da estrutura e sua deformação dependem das forças do fluido que atuam sobre ela. Matematicamente pode-se dizer que os problemas de IFE são conjuntos de equações e condições de contorno associadas ao fluido e a estrutura que devem ser satisfeitas simultaneamente.
+\section{Combinação de espaços de funções}
 
-O domínio computacional para a análise de problemas de interação fluido-estrutura (Fig. \ref{fig:dominios}), denominado de $\Omega_{IFE}$, é composto pela união entre os domínios da estrutura $\Omega_E$ e do fluido $\Omega_F$, ou seja, $\Omega_{IFE} = \Omega_F \cup \Omega_E$, com $\Gamma_{IFE}$ o sendo o contorno que define a interface fluido-estrutura.
+Para o entendimento da técnica de sobreposição de malhas define-se inicialmente um dom\'inio global $\Omega_G$, de acordo com a Fig. \ref{fig:global_domain}, e um dom\'inio local, $\Omega_L$, apresentado na Fig. \ref{fig:local_domain}, menor que o dom\'inio global e que cont\'em a regi\~ao com efeitos localizados. O dom\'inio total de estudo \'e ent\~ao composto por: $\Omega = \Omega_G \cup \Omega_L$.
 
-\begin{figure}[htb!]
-	\centering 
-	%\vspace{-1em} % Diminui o espaço antes da figura
-	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0.0cm, clip=true]{Imagens/Cap5/dominio.pdf}	
-	\caption{Domínios do Fluido e da Estrutura.}
-	\label{fig:dominios}
-	%\vspace{-1em} % Diminui o espaço antes da figura
+Adicionalmente definem-se os contornos desses dom\'inios, conforme Fig. \ref{fig:overlap_domain}, como: $\Gamma_{G}$ contorno f\'isico de $\Omega$ determinado pelo dom\'inio global; $\Gamma_{L}$ contorno f\'isico de $\Omega$ pertencente ao dom\'inio local; $(\Gamma_{G})_{B}$ contorno que define a regi\~ao de sobreposi\c{c}\~ao pertencente ao dom\'inio global e $(\Gamma_{L})_{B}$ contorno que define a regi\~ao de sobreposi\c{c}\~ao pertencente ao dom\'inio local. \'E importante observar que os dom\'inios ditos f\'isicos podem ou n\~ao estarem presentes nos problemas de sobreposi\c{c}\~ao. A zona dita de sobreposi\c{c}\~ao $\Omega_{B} = \Omega_G \cap \Omega_L$ \'e definida pelos contornos $(\Gamma_{L})_{B}$ e $(\Gamma_{G})_{B}$.
+
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[\label{fig:global_domain} Domínio Global]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominioglobal.pdf}} 
+	\subfloat[\label{fig:local_domain} Domínio Local]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominiolocal.pdf}} \\
+	\subfloat[\label{fig:overlap_domain} Domínios sobrepostos]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominiosobreposto.pdf}} 
+	\caption{Definição dos domínios global,local e de sobreposição. }
+	\label{fig:domains}
 \end{figure}
 
-O domínio computacional não se sobrepõe, por isso, é necessário que em $\Gamma_{IFE}$ existam condições físicas adicionais para se realizar o acoplamento. \citeonline{richter2017fluid} cita que o acoplamento é realizado através de 3 diferentes princípios no contorno $\Gamma_{IFE}$ : condição cinemática, condição dinâmica e condição geométrica.
-
-A condição cinemática refere-se ao fato de que a velocidade do fluido e do sólido na interface devem ser iguais, ou seja:
-
-\begin{align}
-\velocityh = \solidVel^h \ \textrm{no contorno} \ \Gamma_{IFE}
-\end{align}
-
-A condição dinâmica, preescreve o balanço da tensão normal no contorno, ao que diz respeito à ação e reação, conforme a equação abaixo:
+O espa\c{c}o de fun\c{c}\~oes tentativa global $u_{G}(\mathbf{x})$ \'e definido como $\usolution^{G}$, e o espa\c{c}o das fun\c{c}\~oes tentativa local $u_{L}(\mathbf{x})$ por $\usolution^{L}$, com funções peso global $w_{G}(\mathbf{x})$ e local $w_{L}(\mathbf{x})$ definidas nos espa\c{c}o $\uweighting^{G}$ e $\uweighting^{L}$ respectivamente. A uni\~ao direta dos espaços de funções na zona de sobreposição obviamente não resulta em um espaço que respeita a partição da unidade. 
+Dessa forma, utiliza-se uma fun\c{c}\~ao ponderadora de combinação $b(\mathbf{x})$, de maneira a criar um novo espaço de funções tentativa e peso definidas por:
 
 \begin{align}
-\mathbf{\sigma}_{E}\mathbf{n}_{E} + \mathbf{\sigma}_{F}\mathbf{n}_{F} = 0 \ \textrm{no contorno} \ \Gamma_{IFE},
+u(\mathbf{x}) = b(\mathbf{x})u_{G}(\mathbf{x}) + (1-b(\mathbf{x}))u_{L}(\mathbf{x}),\\
+w(\mathbf{x}) = b(\mathbf{x})w_{G}(\mathbf{x}) + (1-b(\mathbf{x}))w_{L}(\mathbf{x}),
 \end{align}
 
-\noindent na qual, $\mathbf{\sigma}_{E}$ representa as tensões de Cauchy da estrutura, $\mathbf{\sigma}_{F}$ as tensões de Cauchy no fluido, e $\mathbf{n}_E$ e $\mathbf{n}_F$ representam o vetor normal no contorno $\Gamma_{IFE}$ respectivamente apontando para o fluido e para a estrutura.
+\noindent com a função $b(\mathbf{x})$ apresentando valor unitário sobre o domínio global livre (sem sobreposições), e valor zero no domínio local livre, e com uma transição suave na região de sobreposição. 
 
-Já a condição geométrica está relacionada ao fato que os domínios computacionais $\Omega_E$ da estrutura e $\Omega_F$ do fluido devem sempre coincidir em $\Gamma_{IFE}$, ou seja, não devem existir superposições ou frestas nessa interface.
-
-
-\section{Técnica de Acoplamento - Bloco-Iterativo}
-
-Nessa seção se apresenta a técnica de acoplamento de Bloco-Iterativo, conforme \citeonline{BazilevsTT:2013}. As equações completas discretizadas da formumação de IFE conduzem a um sistema equações não-lineares que devem ser resolvidas a cada passo de tempo e podem ser representadas da seguinte maneira:
+Os espaços enriquecidos na região de sobreposição de malhas, s\~ao definidos por $\mathcal{S}_{enr}^{h}$ e $\mathcal{V}_{enr}^{h}$, correspondentes às fun\c{c}\~oes tentativa e teste respectivamente. A solu\c{c}\~ao de um problema de valor de contorno recai em encontrar $u^{h} \in \mathcal{S}_{enr}^{h}$ tal que $\forall$ $ w^{h} \in \mathcal{V}_{enr}^{h}$: 
 
 \begin{align}
-	\mathbf{N}_{1}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = 0,\\
-	\mathbf{N}_{2}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = 0,\\
-	\mathbf{N}_{3}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = 0,
+B(u^{h},w^{h}) = F(w^{h}),
 \end{align}
 
-\noindent em que $\mathbf{{N}_{1}}$, $\mathbf{{N}_{2}}$ e $\mathbf{{N}_{3}}$ representam as equações que descrevem o fluido, a estrutura e a malha respectivamente, e, $\mathbf{{d}_{1}}$, $\mathbf{{d}_{2}}$, $\mathbf{{d}_{3}}$ são vetores com as variáveis nodais de cada meio. 
-A resolução dessas equações através do método de Newton-Raphson conduz ao seguinte sistema linear de equações:
+\noindent com $B(\bullet,\bullet)$ e $F(\bullet)$ sendo operadores bilineares e lineares respectivamente. A discretiza\c{c}\~ao de $u(\mathbf{x})$ e $w(\mathbf{x})$ no contexto dos elementos finitos \'e obtida atrav\'es das seguintes rela\c{c}\~oes:
 
 \begin{align}
-\mathbf{A_{11}}\mathbf{x_{1}} + \mathbf{A_{12}}\mathbf{x_{2}} + \mathbf{A_{13}}\mathbf{x_{3}} = \mathbf{b_{1}}\\
-\mathbf{A_{21}}\mathbf{x_{1}} + \mathbf{A_{22}}\mathbf{x_{2}} + \mathbf{A_{23}}\mathbf{x_{3}} = \mathbf{b_{2}}\\
-\mathbf{A_{31}}\mathbf{x_{1}} + \mathbf{A_{32}}\mathbf{x_{2}} + \mathbf{A_{33}}\mathbf{x_{3}} = \mathbf{b_{3}}
+u^{h}(\mathbf{x}) = \sum_{A = 1}^{(n_{np})_G} (u_{G})_{A}b(\mathbf{x})(N_{G})_{A}(\mathbf{x}) + \sum_{A = 1}^{(n_{np})_L} (u_{L})_{A}(1-b(\mathbf{x}))(N_{L})_{A}(\mathbf{x}),\\
+w^{h}(\mathbf{x}) = \sum_{A = 1}^{(n_{np})_G} (w_{G})_{A}b(\mathbf{x})(N_{G})_{A}(\mathbf{x}) + \sum_{A = 1}^{(n_{np})_L} (w_{L})_{A}(1-b(\mathbf{x}))(N_{L})_{A}(\mathbf{x}),
 \end{align}
 
-\noindent sendo $\mathbf{b_{1}} = - \mathbf{N}_{1}$, $\mathbf{b_{2}} = - \mathbf{N}_{2}$, $\mathbf{b_{3}} = - \mathbf{N}_{3}$. $\mathbf{x_{1}}$, $\mathbf{x_{2}}$ e $\mathbf{x_{3}}$ são os incrementos às soluções $\mathbf{d}_{1}$, $\mathbf{d}_{2}$ e $\mathbf{d}_{3}$ respectivamente e $\mathbf{A_{ij}} = \frac{\partial\mathbf{N}_{i}}{\partial\mathbf{d}_{j}}$. 
+\noindent com $N_{G}$ e $N_{L}$ sendo as fun\c{c}\~oes de forma global e local; e $(n_{np})_G$ e $(n_{np})_L$ o n\'umero de fun\c{c}\~oes de forma nas discretiza\c{c}\~oes global e local respectivamente. 
 
-Quando se utiliza o acoplamento forte do tipo bloco iterativo, para cada passo de iteração se resolve sequencialmente cada um dos três blocos, conforme apresentado a seguir:
+\subsection{Função ponderadora de combinação}
 
+De maneira a se obter uma solu\c{c}\~ao  \'unica deseja-se que as fun\c{c}\~oes $b(\mathbf{x})(N_{G})$ e $(1-b(\mathbf{x}))(N_{L})$ sejam linearmente independentes sobre $\Omega_{B}$. Esta não é uma questão simples de ser garantida de forma geral. Considerando que as fun\c{c}\~oes base local e global possuem grau polinomial $p$ e s\~ao linearmente independentes, e que $b(\mathbf{x})$ e $(1-b(\mathbf{x}))$ s\~ao linearmente independentes, adota-se $b(\mathbf{x})$ com grau polinomial 1 vez superior as fun\c{c}\~oes base ($p+1$). Isso resulta um espaço enriquecido onde o número de funções de forma em cada ponto da zona de superposição é compatível com o grau do polinômio.  
+
+Nesse trabalho aplicam-se funções de forma locais e globais de grau polinomial quadrático. Dessa forma, a função de combinação foi definida como cúbica e é expressa por:
 
 \begin{align}
-	\left .\frac{\partial\mathbf{N}_{1}}{\partial\mathbf{d}_{1}}\right|_{\left(\mathbf{d}_{1}^{i},\mathbf{d}_{2}^{i},\mathbf{d}_{3}^{i}\right)} \Delta\mathbf{d}_{1}^{i} = - \mathbf{N}_{1}\left(\mathbf{d}_{1}^{i},\mathbf{d}_{2}^{i},\mathbf{d}_{3}^{i}\right)\\
-	\mathbf{d}_{1}^{i+1} =  \mathbf{d}_{1}^{i} + \Delta\mathbf{d}_{1}^{i}	\\
-	\left.\frac{\partial\mathbf{N}_{2}}{\partial\mathbf{d}_{2}}\right|_{\left(\mathbf{d}_{1}^{i+1},\mathbf{d}_{2}^{i},\mathbf{d}_{3}^{i}\right)} \Delta\mathbf{d}_{2}^{i} = - \mathbf{N}_{2}\left(\mathbf{d}_{1}^{i+1},\mathbf{d}_{2}^{i},\mathbf{d}_{3}^{i}\right)\\
-	\mathbf{d}_{2}^{i+1} =  \mathbf{d}_{2}^{i} + \Delta\mathbf{d}_{2}^{i} \\
-	\left.\frac{\partial\mathbf{N}_{3}}{\partial\mathbf{d}_{3}}\right|_{\left(\mathbf{d}_{1}^{i+1},\mathbf{d}_{2}^{i+1},\mathbf{d}_{3}^{i}\right)} \Delta\mathbf{d}_{3}^{i} = - \mathbf{N}_{3}\left(\mathbf{d}_{1}^{i+1},\mathbf{d}_{2}^{i+1},\mathbf{d}_{3}^{i}\right)\\
-	\mathbf{d}_{3}^{i+1} =  \mathbf{d}_{3}^{i} + \Delta\mathbf{d}_{3}^{i} 
+b(\mathbf{x}) =  \begin{cases} 2\left(\frac{X_{L}(\mathbf{x})}{\delta\mathbf(x)}\right)^3  -   3\left(\frac{X_{L}(\mathbf{x})}{\delta\mathbf(x)}\right)^2   \mbox{se } X_{G}(\mathbf{x})> 0 \ e \ X_{L}(\mathbf{x})> 0 \\
+1  \ X_{L}(\mathbf{x}) \leq 0  \\
+0  \ X_{G}(\mathbf{x}) \leq 0 \end{cases},
 \end{align}
 
+\noindent com $X_{L}(\mathbf{x})$ a função distância assinalada medida a partir de $(\Gamma_{L})_{B}$, com valores positivos dentro do domínio local e negativos fora, e $X_{G}(\mathbf{x})$ a função distância assinalada medida a partir de $(\Gamma_{G})_{B}$, sendo positivo se o ponto pertence à $\Omega_{G}$ e negativos caso contr\'ario. Nota-se que os pontos em que ambas funções distância assinalada são positivos estão contidos dentro da zona de sobreposição. O parâmetro $\delta$ \'e obtido por $\delta(\mathbf{x}) = X_{L}(\mathbf{x}) + X_{G}(\mathbf{x})$, e coincide com a espessura da zona de sobreposi\c{c}\~ao quando $(\Gamma_{L})_{B}$ e $(\Gamma_{G})_{B}$ s\~ao paralelos.
 
-Nas resoluções de problemas IFE, quando a estrutura é leve, a resposta estrutural torna-se muito sensível para pequenas mudanças nas forças proveninetes do fluido. Para resolver esse problema, utilizou-se a técnica apresentada em \citeonline{Tezduyar:2003d}, onde para corrigir o deslocamento estrutural durante a resolução a matriz de massa em $\mathbf{A_{22}}$ é aumentada. Isso ocorre sem que $\mathbf{b_{1}}$, $\mathbf{b_{2}}$ e $\mathbf{b_{3}}$ sejam alterados, ou seja, sem que ocorra uma mudança nas equações não lineares. Isso faz com que quando a solução por bloco iterativo converge, ela converge sem que seja alterada a massa estrutural real do problema.
+Na pr\'atica, considera-se que o dom\'inio global tem o tamanho do dom\'inio total, ficando a defini\c{c}\~ao de $(\Gamma_{G})_{B}$ para uma etapa posterior, baseado na forma do modelo local, e os elementos e n\'os sem suporte f\'isico ap\'os a obten\c{c}\~ao do novo espa\c{c}o de fun\c{c}\~oes s\~ao desativados da an\'alise.
 
-\section{Discretizações não coincidentes entre os meios}
-
-Na maioria dos casos a discretização das malhas do fluido e da estrutura são não-coincidentes e podem inclusive ter aproximações matemáticas distintas. Dessa forma, uma metodologia que possibilita a aplicação de condições de contorno em caso de discretizações com nós não coincidentes, é imprescindível. Para isso, uma técnica aplicada em \citeonline {Fernandes:2020} foi utilizada.
-
-Esse procedimento pode ser entendido a partir da Fig. \ref{fig:contornoIFE}. Nele, durante o pré-processamento, cada nó do contorno da estrutura $\mathbf{x_E}$ é projetado sobre o contorno do fluido, e busca-se a coordenada paramétrica relativa a este ponto definida como $\boldsymbol{\xi_{F}}(\mathbf{x_E})$. Da mesma forma, cada nó do contorno do fluido $\mathbf{x_F}$ é projetado sobre o contorno da estrutura, e encontra-se uma coordenada paramétrica equivalente $\boldsymbol{\xi_{E}}(\mathbf{x_F})$. 
+O contorno $(\Gamma_{G})_{B}$ pode ser obtido atrav\'es de uma r\'eplica do contorno $(\Gamma_{L})_{B}$ a uma dist\^ancia paralela $\delta$ do mesmo.  Na Fig. \ref{fig:ZonadeSobreposicao} apresenta-se um exemplo do espaço de funções obtido para um caso unidimensional a partir de funções base Lagrangianas quadráticas para os domínios global e local.
 
 
-\begin{figure}[htb!]
-	\centering 
-	\includegraphics[scale=0.9,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/contornoIFE.pdf}	
-	\caption{Contorno IFE}
-	\label{fig:contornoIFE}
+\begin{figure}[!htb]
+	\centering
+	\subfloat[\label{fig:overlap1} Funções Globais e função ponderadora ($b$).]{\includegraphics[scale=0.4, trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/Overlap1.png}} \\
+	\subfloat[\label{fig:verlap2} Funções locais e função ponderadora ($1-b$) ]{\includegraphics[scale=0.4,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/Overlap2.png}} \\
+	\subfloat[\label{overlap3} Novo espaço de funções]{\includegraphics[scale=0.4,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/Overlap3.png}} 
+	\caption{Zona de sobreposição - Problema unidimensional. }
+	\label{fig:ZonadeSobreposicao}
 \end{figure}
 
-Dessa forma, as informações que serão transmitidas ao fluido pela estrutura são interpoladas na malha da estrutura em cada uma das coordenadas paramétricas que possuem um nó equivalente na malha de fluido, e após isso aplicadas a este nó. O equivalente ocorre quando os dados são provenientes do fluido e serão transmitidos a estrutura.
 
-\section{Movimentação da Malha}
-
-Nos métodos de malhas adaptadas, à medida em que a interface $\Gamma_{IFE}$ se move, a malha do fluido deve mover-se para ajustar-se ao novo formado e se adaptar à estrutura. Nessa metodologia demanda-se maior controle da resolução da malha próxima a interface dos meios fluidos e sólidos, possibilitando o uso de uma melhor discretização para representar os efeitos de camada limite, e como consequência, a obtenção de soluções mais acuradas nessas regiões críticas.
-
-Para possibilitar esse controle, neste trabalho será utilizada a técnica de movimentação de malhas introduzida em \citeonline{TezduyarBSJ:1992f} e \citeonline{TezduyarABJ:1993} conhecida como MJBS (\textit{Mesh-Jacobian Based Stiffening}).
-
-O movimento da malha é determinado usando um problema da elasticidade de Dirichlet fictício, descrito como:
+Após a definição $(\Gamma_{G})_{B}$ é necessária uma metodologia eficiente para determinação das funções base globais com pequena influência dentro da zona de sobreposição, visto que essas podem levar a um sistema mal condicionado. Para resolver esse problema, utiliza-se, para todos os n\'os globais A da análise, uma variável definida como:
 
 \begin{align}
-	\int_{\domaintt} \straintensor \left(\testfunction\right) : \stresstensor \left(\displacementmesh - \displacementmesh_{\tilde{t}}\right) d\domaintt = 0,
-	\label{eq:elasticityequation}
+(M_{G})_{AA} = \int_{\Omega}b(\bm{\xi})N_{A}(\bm{\xi})b(\bm{\xi})N_{A}(\bm{\xi})d\Omega, \label{eq:influence}
 \end{align}
 
-\noindent na qual $\straintensor$ e $\stresstensor$ representam o tensor de deformação linear infinitesimal e o tensor de tensões de Cauchy respectivamente. $\testfunction$ é a função peso respectiva ao deslocamento da malha  $\displacementmesh$, medido a partir de uma configuração de referência até a configuração atual $\currentcoordinates$ e 
-$\displacementmesh_{\tilde{t}}$ representa o deslocamento da configuração de referência até a malha no tempo ${\tilde{t}}$, ou $\currentcoordinates_{\tilde{t}}$. 
-A escolha para ${\tilde{t}}$ é geralmente ${\tilde{t}} = {t_{n}}$ quando se calcula a configuração da malha no tempo ${t_{n+1}}$ (ver \citeonline{Tononetal:2021} para maiores detalhes). O índice $h$ refere-se à discretização das variáveis por uma aproximação matemática em elementos finitos ou isogeométrica.
+\noindent e define-se um valor $M_{min}$ para $(M_{G})_{AA}$. Os n\'os globais s\~ao desativados se $(M_{G})_{AA} < M_{min}$.
 
-O tensor de tensões é calculado através da seguinte relação:
+Os parâmetros de estabilização utilizados nesta formulação ainda necessitam um estudo mais aprofundado. No presente trabalho, faz-se a combinação dos parâmetros calculados em cada discretização:
 
 \begin{align}
-	\stresstensor(\disp)
-	&=
-	\frac{E}{1+\poisonsRatio}
-	\left(
-	\frac{\poisonsRatio}{(1 - 2 \poisonsRatio)}
-	\trace\left(\straintensor(\disp)\right)\unittensor
-	+
-	\straintensor(\disp)
-	\right)
+\SUPG(\mathbf{x}) =  b(\mathbf{x})\SUPG^{G}(\mathbf{x}) + (1-b(\mathbf{x}))\SUPG^{L}(\mathbf{x}),\\
+\PSPG(\mathbf{x}) =  b(\mathbf{x})\PSPG^{G}(\mathbf{x}) + (1-b(\mathbf{x}))\PSPG^{L}(\mathbf{x}),\\
+\LSIC(\mathbf{x}) =  b(\mathbf{x})\LSIC^{G}(\mathbf{x}) + (1-b(\mathbf{x}))\LSIC^{L}(\mathbf{x}),
 \end{align}
 
-\noindent com $E$ e $\poisonsRatio$ o módulo de Elasticidade e o coeficiente de Poisson respectivamente.
-
-Para fazer com que na deformação da malha se leve em conta o tamanho dos elementos, enrijecendo os menores mais do que os maiores, no método MJBS a equação da elasticidade fica descrita ao final como:
-
-\begin{align}
-	\int_{\domaintt} \straintensor \left(\testfunction\right) : \stresstensor \left(\displacementmesh- \displacementmesh_{\tilde{t}}\right) \left(\frac{J_M}{\left({J_M}\right)_0}\right)^{-\chi} d\domaintt = 0, 
-	\label{eq:MJBS}
-\end{align}
-
-\noindent onde $J_M$ é o Jacobiano da malha, $(J_M)_0$ é um parâmetro livre e $\chi$ determina a ordem pela qual os elementos menores serão enrijecidos mais do que os maiores.  $\chi$ é adotado correntemente como 1. E o Jacobiano da malha calculado da forma que se segue:
-
-\begin{align}
-	J_M = det\left(\frac{\partial\currentcoordinates_{\tilde{t}}}{\partial\adimensionalcoordinates}\right), 
-	\label{eq:3}
-\end{align}
-
-\noindent onde $\adimensionalcoordinates$ são as coordenadas paramétricas do elemento.
+\noindent com $\SUPG^{G}$, $\PSPG^{G}$ e $\LSIC^{G}$ sendo os parâmetros de estabilização na malha global e $\SUPG^{L}$, $\PSPG^{L}$ e  $\LSIC^{L}$ sendo os parâmetros de estabilização na malha local.
 
 
-\section{Cavidade com fundo flexível - 2D}
+\section{Implementação Computacional}
 
-\begin{figure}[htb!]
-	\centering 
-	\includegraphics[scale=1.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/cav2d.pdf}	
-	\caption{Geometria Cavidade Fundo Flexível 2D}
-	\label{fig:cavidadeFF2d}
+O algoritmo de partição de domínios foi implementado para a solução de escoamentos incompressíveis seguindo a formulação apresentada nos capítulos \ref{capitulo:Cap1} e \ref{capitulo:Cap2}. Nesse código, após a leitura dos dados respectivos às malhas global e local, segue-se com a definição da distância assinalada respectiva a todos os nós da malha global e da malha local com respeito aos contornos $(\Gamma_{G})_{B}$ e $(\Gamma_{L})_{B}$. O contorno  $(\Gamma_{G})_{B}$ é obtido a partir dos dados de entrada, onde define-se a espessura da zona de sobreposição. De posse da distância assinalada e espessura da zona de sobreposição, são definidos quais elementos das malhas local e global fazem parte da zona de sobreposição. Qualquer elemento que possua 1 ou mais nós dentro da zona de sobreposição é considerado como um elemento pertencente a ela.
+
+As equações na região de sobreposição são integradas sobre o elemento local, dessa forma, num processo prévio à solução, os pontos de integração da malha local são projetados sobre a malha global e o elemento e coordenadas locais a que pertencem são armazenados. 
+
+Determinam-se também os nós inativos da malha global, sejam porque encontram-se fora da zona de sobreposição, ou, porque possuem pequena influência dentro da mesma, de acordo com a Eq. \ref{eq:influence}.
+
+Finalmente, o processo de marcha no tempo se inicia da maneira explicitada no Item \ref{subsection:DFCComputationalCode} levando-se em consideração que as funções tentativa e peso, e os parâmetros de estabilização são modificados de acordo com o apresentado neste capítulo.
+
+O algoritmo que descreve esse processo de solução das equações da DFC considerando a partição de domínios pode ser visualizado no Alg. \ref{alg:overlap}.
+
+
+\begin{algorithm}
+	\caption{Algoritmo para problemas de dinâmica dos fluidos computacional com sobreposição de malhas}
+	\label{alg:overlap}
+	\begin{algorithmic}[1]
+		\State Cálculo da distância assinalada dos nós e pontos de controle aos contornos;
+		\State Determinação dos elementos e células da zona de sobreposição;
+		\State Busca dos pontos de integração na malha global equivalentes aos definidos para à malha local;
+		\State Definição dos nós inativos da malha global;
+		\For {o passo de tempo $0$ até \timeInterval} 
+		\State $i=0$;
+		\State Predição da solução: aplicação das Eq. \eqref{eq:Pred1}, Eq. \eqref{eq:Pred2} e Eq. \eqref{eq:Pred3};
+		\While{($\epsilon$ < tolerância)}
+		\State $i$++;
+		\State Interpolação das variáveis do problema: aplicação da Eq. \eqref{eq:approx_accelerationI}, Eq. \eqref {eq:approx_velocityI} e Eq. \eqref{eq:approx_pressI};
+		\State Cálculo do incremento nas variáveis do problema: $\Acceleration_{n+1}$ e $\Press_{n+1}$ de acordo com as Eq. \eqref{eq:NR1} e Eq. \eqref{eq:NR2};
+		\State Atualização da solução: calculadas de acordo com Eq. \eqref{update1}, Eq. \eqref{update2} e Eq. \eqref{update3}.
+		\State Cálculo do erro:
+		\begin{align}
+		\epsilon =\left\| \NNSM^i \right\|_{L^2}
+		\end{align}
+		\EndWhile
+		\EndFor
+	\end{algorithmic}
+\end{algorithm}
+
+
+\section{Exemplo de aplicação}
+
+Para verificar a metodologia de partição de domínios com sobreposição de malhas, neste item apresenta-se a solução estacionária do problema de Navier Stokes para a cavidade 2D.
+
+A geometria do problema e suas condições contorno são apresentadas na Fig. \ref{fig:CavBoundary}. O problema foi avaliado para um número de Reynolds = 100, calculado de acordo com Eq. \eqref{eq:Reynolds} e $\rho = 1,0$.
+
+\begin{figure}[!htb]
+	\centering
+	{\includegraphics[scale=1.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/cavidade.pdf}}
+	\caption{Cavidade 2D: Condições de contorno.} 
+	\label{fig:CavBoundary}
 \end{figure}
-\section{Cavidade com fundo flexível - 3D}
 
-\begin{figure}[htb!]
-	\centering 
-	\includegraphics[scale=0.9,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/cav3d.pdf}	
-	\caption{Geometria Cavidade Fundo Flexível 3D}
-	\label{fig:cavidadeFF3d}
+Sabe-se que nas paredes da cavidade podem haver efeitos de camada limite, dessa forma, definiu-se uma malha local que circunda a cavidade de acordo com a Fig. \ref{fig:CavLocal}. A malha local foi discretizada através de uma aproximação isogeométrica e foi definida com 1440 pontos de controle que foram divididos em 8 diferentes \textit{patches}, chamados de $P_{1},P_{2},...,P_{8}$. Os \textit{patches} $P_{1},P_{3},P_{6}$ e $P_{6}$ possuem 64 células e os $P_{2},P_{4},P_{5}$ e $P_{7}$ 192 células.
+
+A malha global por sua vez é definida para toda a seção da cavidade, sendo composta por 800 elementos triangulares quadráticos e 1681 nós, de acordo com Fig. \ref{fig:CavGlobal}.
+
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[\label{fig:CavLocal} Malha Local.]{\includegraphics[scale=0.2, trim=9cm 3cm 9cm 3cm, clip=true]{Imagens/Cap5/malhaLocal.pdf}} 
+	\subfloat[\label{fig:CavGlobal} Malha Global ]{\includegraphics[scale=0.15,trim=9cm 3cm 9cm 3cm, clip=true]{Imagens/Cap5/malhaGlobal.png}}
+	\caption{Cavidade 2D: Malhas Global e Local.}
+	\label{fig:CavOverlap}
 \end{figure}
+
+Definiu-se uma espessura para a zona de sobreposição de 0,1 medida paralelamente ao contorno fictício local $(\Gamma_{L})_{B}$, e, a partir desse dado, os elementos globais sob o domínio local $(\Omega_{L})$ e fora da zona de sobreposição $(\Omega_{B})$ foram desativados. As células e elementos pertencentes à zona de sobreposição, tanto para a malha local quanto para a malha global, podem ser vistos nas Fig. \ref{fig:blendzoneLocal} e Fig. \ref{fig:blendzoneGlobal} respectivamente.
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[\label{fig:blendzoneLocal} Malha Local]{\includegraphics[scale=0.15, trim=9cm 3cm 9cm 3cm, clip=true]{Imagens/Cap5/blendzone.png}} 
+	\subfloat[\label{fig:blendzoneGlobal} Malha Global ]{\includegraphics[scale=0.15,trim=9cm 3cm 9cm 3cm, clip=true]{Imagens/Cap5/blendzoneMG.png}}]]
+    \caption{Cavidade 2D: Zona de sobreposição.}
+	\label{fig:OverlapRegion}
+\end{figure}
+
+Os campos de velocidade e pressão obtidos são apresentados nas Fig. \ref{fig:CampoVelocidade} e Fig. \ref{fig:CampoPressao}.
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[\label{fig:CampoVelocidade} Campo de Velocidade]{\includegraphics[scale=0.15, trim=9cm 3cm 9cm 3cm, clip=true]{Imagens/Cap5/VelocityMagnitude.png}} 
+	\subfloat[\label{fig:CampoPressao} Campo de Pressão ]{\includegraphics[scale=0.34,trim=0cm 3cm 6cm 0cm, clip=true]{Imagens/Cap5/PressureMagnitude.png}}
+	\caption{Cavidade 2D: Solução do problema de Navier Stokes para $Re = 100$.}
+	\label{fig:RespostasOverlap}
+\end{figure}
+
+Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) horizontal e vertical ao longo de duas linhas centrais nas direções $x$ e $y$ da cavidade são apresentados na Fig. \ref{fig:cavidade_graficos_overlap} e comparados com os resultados de \citeonline{GhiaGS:1982}.
+
+\begin{figure}[!htb]
+	\centering
+	{\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/cavidade_Re100.eps}}\\
+	{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/legenda.pdf}}
+	\caption{Cavidade 2D: Perfis de velocidade.} 
+	\label{fig:cavidade_graficos_overlap}
+\end{figure}
+
+De acordo com os resultados obtidos, a metodologia se mostrou muito eficiente, com características promissoras para as próximas aplicações que serão realizadas neste projeto.
+%
+%\clearpage
+%
+%\textcolor{white}{ }
+
 
 \end{document}

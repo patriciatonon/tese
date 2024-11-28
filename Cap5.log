@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.23)  1 NOV 2024 17:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.23)  4 NOV 2024 16:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1775,78 +1775,78 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 8
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [1
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<Imagens/Cap5/dominio.pdf, id=18, 251.20718pt x 118.05885pt>
+)
+<Imagens/Cap5/dominio.pdf, id=8, 251.20718pt x 118.05885pt>
 File: Imagens/Cap5/dominio.pdf Graphic file (type pdf)
 <use Imagens/Cap5/dominio.pdf>
-Package pdftex.def Info: Imagens/Cap5/dominio.pdf  used on input line 26.
+Package pdftex.def Info: Imagens/Cap5/dominio.pdf  used on input line 24.
 (pdftex.def)             Requested size: 251.20656pt x 118.05855pt.
 
 
-LaTeX Warning: Citation `richter2017fluid' on page 2 undefined on input line 32
+LaTeX Warning: Citation `richter2017fluid' on page 1 undefined on input line 30
 .
 
-
-Overfull \hbox (4.56541pt too wide) in paragraph at lines 51--51
-[]\T1/lmr/bx/n/20.74 (-20) Técnica de Aco-pla-mento - Bloco-Iterativo 
- []
+[1
 
 
-LaTeX Warning: Citation `BazilevsTT:2013' on page 2 undefined on input line 53.
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
+LaTeX Warning: Citation `TezduyarBSJ:1992f' on page 2 undefined on input line 5
+2.
+
+
+LaTeX Warning: Citation `TezduyarABJ:1993' on page 2 undefined on input line 52
+.
 
 [2pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.55 \begin{align}
-                   <./Imagens/Cap5/dominio.pdf>]
+l.54 O
+       movimento da malha Ã© determinado usando um problema da elasticidade ...
+ <./Imagens/Cap5/dominio.pdf>]
 
-LaTeX Warning: Citation `Tezduyar:2003d' on page 3 undefined on input line 85.
-
-
-LaTeX Warning: Citation `Fernandes:2020' on page 3 undefined on input line 89.
+LaTeX Warning: Citation `Tononetal:2021' on page 3 undefined on input line 63.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+LaTeX Warning: Citation `Fernandes:2020' on page 3 undefined on input line 99.
 
- [3]
-<Imagens/Cap5/contornoIFE.pdf, id=81, 454.2428pt x 167.17279pt>
+[3]
+<Imagens/Cap5/contornoIFE.pdf, id=76, 454.2428pt x 167.17279pt>
 File: Imagens/Cap5/contornoIFE.pdf Graphic file (type pdf)
 <use Imagens/Cap5/contornoIFE.pdf>
-Package pdftex.def Info: Imagens/Cap5/contornoIFE.pdf  used on input line 96.
+Package pdftex.def Info: Imagens/Cap5/contornoIFE.pdf  used on input line 106.
 (pdftex.def)             Requested size: 408.81474pt x 150.4541pt.
 
+Overfull \hbox (4.56541pt too wide) in paragraph at lines 114--114
+[]\T1/lmr/bx/n/20.74 (-20) Técnica de Aco-pla-mento - Bloco-Iterativo 
+ []
 
-LaTeX Warning: Citation `TezduyarBSJ:1992f' on page 4 undefined on input line 1
-07.
 
-
-LaTeX Warning: Citation `TezduyarABJ:1993' on page 4 undefined on input line 10
-7.
+LaTeX Warning: Citation `BazilevsTT:2013' on page 4 undefined on input line 117
+.
 
 [4pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2}
 ) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.108 
+l.127 
        <./Imagens/Cap5/contornoIFE.pdf>]
 
-LaTeX Warning: Citation `Tononetal:2021' on page 5 undefined on input line 118.
+LaTeX Warning: Citation `Tezduyar:2003d' on page 5 undefined on input line 149.
 
 
-<Imagens/Cap5/cav2d.pdf, id=108, 202.41864pt x 147.77809pt>
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 157.
+<Imagens/Cap5/cav2d.pdf, id=111, 202.41864pt x 147.77809pt>
 File: Imagens/Cap5/cav2d.pdf Graphic file (type pdf)
 <use Imagens/Cap5/cav2d.pdf>
-Package pdftex.def Info: Imagens/Cap5/cav2d.pdf  used on input line 157.
+Package pdftex.def Info: Imagens/Cap5/cav2d.pdf  used on input line 192.
 (pdftex.def)             Requested size: 263.14418pt x 192.11148pt.
-<Imagens/Cap5/cav3d.pdf, id=110, 267.14294pt x 220.81848pt>
+<Imagens/Cap5/cav3d.pdf, id=113, 267.14294pt x 220.81848pt>
 File: Imagens/Cap5/cav3d.pdf Graphic file (type pdf)
 <use Imagens/Cap5/cav3d.pdf>
-Package pdftex.def Info: Imagens/Cap5/cav3d.pdf  used on input line 165.
+Package pdftex.def Info: Imagens/Cap5/cav3d.pdf  used on input line 200.
 (pdftex.def)             Requested size: 240.4264pt x 198.73479pt.
 
 AED: lastpage setting LastPage
@@ -1854,43 +1854,44 @@ AED: lastpage setting LastPage
 1.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.170 \end{document}
-                    pdfTeX warning (ext4): destination with the same identifier
- (name{figure.1.4}) has been already used, duplicate ignored
+l.205 \end{document}
+                     <./Imagens/Cap5/cav2d.pdf>] [7pdfTeX warning (ext4): desti
+nation with the same identifier (name{figure.1.4}) has been already used, dupli
+cate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.170 \end{document}
-                     <./Imagens/Cap5/cav2d.pdf> <./Imagens/Cap5/cav3d.pdf>]
-(./Cap5.aux)
+l.205 \end{document}
+                     <./Imagens/Cap5/cav3d.pdf>] (./Cap5.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 38461 strings out of 480154
- 727155 string characters out of 5893788
- 1226801 words of memory out of 5000000
- 55489 multiletter control sequences out of 15000+600000
- 528310 words of font info for 150 fonts, out of 8000000 for 9000
+ 38525 strings out of 480154
+ 728049 string characters out of 5893788
+ 1231321 words of memory out of 5000000
+ 55530 multiletter control sequences out of 15000+600000
+ 539492 words of font info for 162 fonts, out of 8000000 for 9000
  61 hyphenation exceptions out of 8191
- 130i,12n,123p,1001b,366s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/s
-hare/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/l
-m/lm-ec.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib
+ 130i,12n,123p,1001b,386s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+-mathex.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib
 10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fon
-ts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb
-></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/
-share/texmf/fonts/type1/public/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/pub
-lic/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/t
-exmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
-i12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fo
-nts/type1/public/lm/lmsy8.pfb>
-Output written on Cap5.pdf (6 pages, 293517 bytes).
+ts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pf
+b></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/ty
+pe1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></us
+r/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/pub
+lic/lm/lmmib10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/shar
+e/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fo
+nts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.p
+fb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
+Output written on Cap5.pdf (7 pages, 339539 bytes).
 PDF statistics:
- 313 PDF objects out of 1000 (max. 8388607)
- 227 compressed objects within 3 object streams
- 36 named destinations out of 1000 (max. 500000)
- 40561 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 344 PDF objects out of 1000 (max. 8388607)
+ 253 compressed objects within 3 object streams
+ 39 named destinations out of 1000 (max. 500000)
+ 46713 words of extra memory for PDF output out of 51595 (max. 10000000)
 

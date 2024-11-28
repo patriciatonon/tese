@@ -1,397 +1,758 @@
-% !TeX spellcheck = pt_BR
-\documentclass[tese_patricia]{subfiles}
+\documentclass[tese_patricia]{subfiles}% !TeX spellcheck = pt_BR
+
 \begin{document}
+\nomenclature[B,01]{$\domainT$}{Domínio computacional de um escoamento em um instante de tempo arbitrário $t$;}
+\nomenclature[B,02]{$n_{sd}$}{Dimensão espacial;}
+%\nomenclature[B,03]{$\boundaryT$}{Contorno do domínio computacional de um escoamento em um instante de tempo arbitrário $t$;}
+%\nomenclature[B,04]{$t$}{Instante de tempo arbitrário;}
+%\nomenclature[B,05]{$\totalTime$}{Intervalo de tempo total da análise;}
+%\nomenclature[B,06]{$\density$}{Massa específica do fluido;}
+%\nomenclature[B,07]{$\velocity$}{Campo de velocidades de um escoamento;}
+%\nomenclature[B,08]{$\sbodyforce$}{Força de domínio em um escoamento;}
+%\nomenclature[B,09]{$\stresstensor$}{Tensor das tensões de Cauchy;}
+%\nomenclature[B,10]{$\press$}{Campo de pressões de um escoamento;}
+%\nomenclature[B,11]{$\viscosity$}{Viscosidade dinâmica do fluido;}
+%\nomenclature[B,12]{$\strainratetensor(\bullet)$}{Tensor taxa de deformação de um campo escalar ou vetorial;}
+%\nomenclature[B,13]{$\mathbf{g}$}{Condições de contorno de Dirichlet;}
+%\nomenclature[B,14]{$\mathbf{h}$}{Condições de contorno de Neumann;}
+%\nomenclature[B,15]{$\left(\boundaryT\right)_{\mathbf{g}$}}{Porção do contorno com condições de contorno de Dirichlet;}
+%\nomenclature[B,16]{$\left(\boundaryT\right)_{\mathbf{h}$}}{Porção do contorno com condições de contorno de Neumann;}
+%\nomenclature[B,17]{$\normal$}{Vetor normal ao contorno do domínio computacional;}
+%\nomenclature[B,18]{$\Omega_X$}{Domínio computacional inicial ou material;}
+%\nomenclature[B,19]{$\mathbf{X}$}{Coordenadas no domínio inicial ou material de um ponto arbitrário;}
+%\nomenclature[B,20]{$\Omega_x$}{Domínio computacional atual;}
+%\nomenclature[B,21]{$\pos$}{Coordenadas atuais de um ponto arbitrário;}
+%\nomenclature[B,22]{$\Omega_{\bar{x}}$}{Domínio computacional de referência;}
+%\nomenclature[B,23]{$\posAle$}{Coordenadas de referência de um ponto arbitrário;}
+%\nomenclature[B,24]{${\mathbf{\Phi}}$}{Função mudança de configuração do domínio computacional material para o domínio computacional atual;}
+%\nomenclature[B,25]{$\bar{\mathbf{\Phi}}$}{Função mudança de configuração do domínio computacional de referência para o domínio computacional atual;}
+%\nomenclature[B,26]{$\velocityALE$}{Velocidade dos pontos de referência;}
+%\nomenclature[B,27]{$\usolution$}{Espaço vetorial das funções aproximadoras do campo de velocidades;}
+%\nomenclature[B,28]{$\psolution$}{Espaço vetorial das funções aproximadoras do campo de pressões;}
+%\nomenclature[B,29]{$\uweighting$}{Espaço vetorial das funções ponderadoras do campo de velocidades;}
+%\nomenclature[B,30]{$\pweighting$}{Espaço vetorial das funções ponderadoras do campo de pressões;}
+%\nomenclature[B,31]{$\utest$}{Função ponderadora pertencente ao espaço $\uweighting$;}
+%\nomenclature[B,32]{$\ptest$}{Função ponderadora pertencente ao espaço $\pweighting$;}
+%\nomenclature[B,33]{$(\bullet)^h$}{O superscrito $h$ indica, em todos os casos, a discretização em elementos finitos da variável;}
+%\nomenclature[B,34]{$\domain^{e}$}{Domínio computacional de um elemento finito;}
+%\nomenclature[B,35]{$\nel$}{Número de subdomínios do domínio discreto;}
+%\nomenclature[B,36]{$N_nos$}{Número de nós ou pontos de controle do domínio discreto;}
+%\nomenclature[B,37]{$N$}{Função de forma da discretização do domínio;}
+%\nomenclature[B,38]{$(\bullet)_A$}{O subscrito $A$ indica, em todos os casos, que se trata da variável respectiva ao nó $A$ da malha de elementos finitos;}
+%\nomenclature[B,39]{$\SUPG$}{Parâmetro de estabilização do método \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG);}
+%\nomenclature[B,40]{$\PSPG$}{Parâmetro de estabilização do método \textit{Pressure-Stabilizing/Petrov-Galerkin} (PSPG);}
+%\nomenclature[B,41]{$\LSIC$}{Parâmetro de estabilização do método \textit{Least-Squares on the Incompressibility Constraint} (LSIC);}
+%\nomenclature[B,42]{$\resMom$}{Resíduo da equação da quantidade de movimento;}
+%\nomenclature[B,43]{$\resPre$}{Resíduo da equação da continuidade;}
+%\nomenclature[B,44]{$\NNSM$}{Resíduo do vetor discreto da equação da quantidade de movimento;}
+%\nomenclature[B,45]{$\NNSC$}{Resíduo do vetor discreto da equação da continuidade;}
+%\nomenclature[B,46]{$\Acceleration$}{Vetor nodal dos graus de liberdade respectivo a aceleração;}
+%\nomenclature[B,47]{$\Velocity$}{Vetor nodal dos graus de liberdade respectivo a velocidade;}
+%\nomenclature[B,48]{$\Press$}{Vetor nodal dos graus de liberdade respectivo a pressão;}
+%\nomenclature[B,49]{$\matrixQ$}{Tensor métrico do elemento;}
+%\nomenclature[B,50]{$\coordAdimen$}{Coordenadas adimensionais do elemento onde são definidas as funções de forma;}
+%\nomenclature[B,51]{$\matrixD$}{Matriz que escalona o tensor métrico do elemento;}
+%\nomenclature[B,52]{$\matrixQhat$}{Tensor métrico do elemento escalonado;}
+%\nomenclature[B,53]{$\bar{\coordAdimen}$}{Coordenadas adimensionais do espaço preferido;}
+%\nomenclature[B,54]{$\mathbf{C}$}{Tensor de transformação de Bezier;}
+%\nomenclature[B,55]{$\RGN$}{Comprimento de escala do elemento finito;}
+%\nomenclature[B,56]{$\rRGN$}{Vetor unitário no sentido da velocidade do fluido no elemento finito;}
+%\nomenclature[B,57]{$\matrixG$}{Matriz auxiliar para o cálculo do comprimento direcional do elemento;}
+%\nomenclature[B,58]{$h_{min}$}{Mínimo comprimento de escala do elemento finito;}
+%\nomenclature[B,59]{$h_{max}$}{Máximo comprimento de escala do elemento finito;}
+%\nomenclature[B,60]{$\SUGNi,\SUGNii,\SUGNiii$}{Parâmetros da estabilização SUPG/PSPG/LSIC correspondentes aos termos convectivos, inerciais e viscosos, respectivamente;}
+%\nomenclature[B,61]{$\timeStep$}{sub-intervalo de tempo $t$;}
+%\nomenclature[B,62]{$\rRGN_{reg}$}{Vetor unitário no sentido da velocidade do fluido modificado de maneira a evitar problemas numéricos devido divisão por zero;}
+%\nomenclature[B,63]{$\varepsilon$}{Constante pequena utilizada no cálculo de $\rRGN_{reg}$;}
+%\nomenclature[B,64]{$t_{n}$}{extremidade menor de tempo do sub-intervalo $\timeStep$;}
+%\nomenclature[B,65]{$t_{n+1}$}{extremidade maior de tempo do sub-intervalo $\timeStep$;}
+%\nomenclature[B,66]{$\alpham, \alphaf, \gamma$}{Parâmetros reais do esquema de integração temporal $\alpha$-generalizado;}
+%\nomenclature[B,67]{$\specRadius$}{Raio espectral da matriz de amplificação;}
+%\nomenclature[B,68]{$\Reynolds$}{Número de Reynolds;}
+%\nomenclature[B,69]{$\velocinfty$}{Velocidade de referência;}
+%\nomenclature[B,70]{$L$}{Comprimento característico/de referência do escoamento;}
+%\nomenclature[B,71]{$\kviscosity$}{Viscosidade cinemática do fluido;}
+%\nomenclature[B,72]{$u_x$}{Velocidade do escoamento na direção $x$;}
+%\nomenclature[B,73]{$u_y$}{Velocidade do escoamento na direção $y$;}
+%\nomenclature[B,74]{$u_n$}{Velocidade do escoamento na direção normal ao contorno;}
+%\nomenclature[B,75]{$F_L, F_D$}{Forças de sustentação e arrasto, respectivamente;}
+%\nomenclature[B,76]{$C_L, C_D$}{Coeficiente de sustentação e arrasto, respectivamente;}
+%\nomenclature[B,77]{$\Strouhal$}{Número de Strouhal;}
+%\nomenclature[B,78]{$f_V$}{Frequência de desprendimento dos vórtices;}
 
 % ---------------------------------------------------------- 
-% Métodos de malhas sobrepostas
+% Métodos de \part{\part{malhas}} sobrepostas
 % ----------------------------------------------------------
-\chapter[Análise isogeométrica aplicada à Mecânica dos Fluidos]{Análise isogeométrica aplicada à Mecânica dos Fluidos} \label{capitulo:Cap2}
+\chapter[Dinâmica dos fluidos computacional]{Dinâmica dos fluidos computacional}
+\label{capitulo:Cap2}
 % ----------------------------------------------------------
 
-\nomenclature[C,01]{$p$}{Grau das funções base na direção paramétrica $\xi$;}
-\nomenclature[C,02]{$\Xi$}{Vetor de \textit{knots} na direção paramétrica $\xi$;}
-\nomenclature[C,03]{$\xi$}{Uma das direções paramémtricas nas quais as funções base são definidas;}
-\nomenclature[C,04]{$n$}{Número de funções base na direção paramétrica $\xi$ ;}
-\nomenclature[C,05]{$N$}{Função base \textit {B-Spline} na direção paramétrica $\xi$ ;}
-\nomenclature[C,06]{$\CP$}{Pontos de controle que descrevem a geometria \textit{B-Spline} ou NURBS;}
-\nomenclature[C,07]{$\mathbf{C}$}{Curva \textit {B-Spline} ou NURBS;}
-\nomenclature[C,08]{$m$}{Grau das funções base na direção paramétrica $\eta$;}
-\nomenclature[C,09]{$\mathcal{H}$}{Vetor de \textit{knots} na direção paramétrica $\eta$;}
-\nomenclature[C,10]{$q$}{Número de funções base na direção paramétrica $\eta$ ;}
-\nomenclature[C,11]{$\eta$}{Uma das direções paramémtricas nas quais as funções base são definidas;}
-\nomenclature[C,12]{$M$}{Função base \textit {B-Spline} na direção paramétrica $\eta$ ;}
-\nomenclature[C,13]{$\mathbf{S}$}{Superfície \textit {B-Spline} ou NURBS;}
-\nomenclature[C,14]{$\hat{N}$}{Função \textit {B-Spline} fruto do produto tensorial entre funções base descritas em um espaço paramétrico qualquer;}
-\nomenclature[C,15]{$L$}{Função base \textit {B-Spline} na direção paramétrica $\zeta$ ;}
-\nomenclature[C,16]{$r$}{Grau das funções base na direção paramétrica $\zeta$;}
-\nomenclature[C,17]{$\mathcal{Z}$}{Vetor de \textit{knots} na direção paramétrica $\zeta$;}
-\nomenclature[C,18]{$\zeta$}{Uma das direções paramémtricas nas quais as funções base são definidas;}
-\nomenclature[C,19]{$l$}{Número de funções base na direção paramétrica $\zeta$ ;}
-\nomenclature[C,20]{$\mathbf{T}$}{Sólido \textit {B-Spline} ou NURBS;}
-\nomenclature[C,21]{$\mathbf{C}^{w}$}{Curva \textit{B-Spline} no $\realspace^{d+1}$ cuja projeção transformativa gera uma curva \mathbf{C} no $\realspace^{d}$;}
-\nomenclature[C,22]{$R$}{Função base NURBS;}
-\nomenclature[C,23]{$w$}{Peso respectivo a um ponto de controle;}
-\nomenclature[C,24]{$\mathbf{\hat{\xi}}$}{Coordenadas do espaço parental, no qual realiza-se a integração numérica;}
-\nomenclature[C,25]{$\hat{\xi}$}{Uma das direções do espaço parental;}
-\nomenclature[C,26]{$\hat{\eta}$}{Uma das direções do espaço parental;}
-\nomenclature[C,27]{$\hat{\zeta}$}{Uma das direções do espaço parental;}
-\nomenclature[C,28]{$\tilde{\Omega^{e}}$}{Domínio de uma célula no espaço paramétrico;}
-\nomenclature[C,29]{$\hat{\Omega^{e}}$}{Domínio de um uma célula o no espaço parental;}
-\nomenclature[C,30]{$h$}{Dimensão na direção $y$ da entrada do perfil parabólico no problema do escoamento sobre canal com degrau;}
-\nomenclature[C,31]{$s$}{Dimensão  na direção $y$ do degrau que compõe o problema do escoamento sobre canal com degrau;}
-\nomenclature[C,32]{$x_{e}$}{Dimensão na direção $x$  do degrau que compõe o problema do escoamento sobre canal com degrau;}
-\nomenclature[C,33]{$x_{f}$}{Dimensão na direção $x$  do \textit{patch} $P1$ do problema do escoamento sobre canal com degrau;}
-\nomenclature[C,34]{$x_{t}$}{Dimensão do canal após o degrau na direção $x$ do problema do escoamento sobre canal com degrau;}
-\nomenclature[C,35]{$V_{max}$}{Velocidade máxima do perfil parabólico na entrada do problema do escoamento sobre canal com degrau;}
-\nomenclature[C,36]{$x_{r}$}{Dimensão do vórtice primário que se forma no problema de escoamento sobre canal com degrau;}
-\nomenclature[C,37]{$P_{i}$}{Patch de número $i$;}
+O escoamento isotérmico de um fluido newtoniano é governado pelas equações advindas da conservação da quantidade de movimento, ou de Navier-Stokes, e da conservação de massa. Nos casos em que ocorram variações significativas no campo de temperatura, ou em escoamentos compressíveis, a equação da conservação de energia deve ser adicionada ao sistema. Essas equações governantes, juntamente com as relações constitutivas, resultam em um sistema de equações diferenciais não lineares que descrevem o comportamento do escoamento no tempo e no espaço. 
+
+Neste trabalho são analisados escoamentos incompressíveis isotérmicos e com contornos móveis. Nas próximas seções, são apresentadas as principais técnicas utilizadas na solução desse tipo de problema e sua implementação computacional. Uma descrição Euleriana-Lagrangiana arbitrária é utilizada para as equações e a discretização espacial se dá através da método dos elementos finitos (FEM) ou da análise isogeométrica (IGA). Para resolver os problemas numéricos típicos desse sistema de equações, como as oscilações espúrias que ocorrem em problemas com convecção dominante quando aplicado o método dos resíduos ponderados baseado na técnica de Galerkin clássica, a metodologia SUPG é utilizada. Além disso, para contornar a restrição de \textit{Ladyzhenskaya-Babuška-Brezzi} ou LBB a técnica de estabilização PSPG é aplicada. A integração temporal das equações é realizada pelo método $\alpha$-generalizado. No final deste capítulo, apresenta-se um algoritmo que descreve o esquema de solução computacional dos problemas da DFC seguido da solução de alguns problemas clássicos da DFC para sua verificação.
+
+\section{Forma forte das equações governantes} 
+
+As equações de Navier-Stokes são derivadas da segunda lei de Newton, e são obtidas através do balanço entre a resultante das forças externas que atuam em um elemento infinitesimal de fluido e a sua variação temporal da quantidade de movimento, resultando:
+
+\begin{align}
+\density\left(\frac{\partial\velocity}{\partial t} + \velocity\cdot\nabla\velocity - \externalforce \right) - \nabla \cdot \stresstensor &= \mathbf{0} , \label{eq:Navier-Stokes} 
+\end{align}
+
+\noindent onde $\density$, $\velocity$ e $\externalforce$ são respectivamente a densidade, a velocidade e a forças de domínio por unidade de massa. O tensor de tensões de Cauchy $\stresstensor$ é definido para fluidos newtonianos incompressíveis pela seguinte relação constitutiva:
+
+\begin{align}
+\stresstensor &= -p\unittensor + 2\viscosity\strainratetensor(\velocity),\label{eq:StressTensor}
+\end{align}
+
+\noindent onde $p$ representa a pressão, $\viscosity$ a viscosidade dinâmica do fluido e $\strainratetensor$ é o tensor taxa de deformação, definido como:
+
+\begin{align}
+\strainratetensor\left(\velocity\right) = \frac{1}{2}\left(\nabla\left(\velocity\right) + \nabla\left(\velocity\right)^{T}\right). 
+\label{eq:StrainTensor}
+\end{align}
+
+A equação de conservação da massa realiza um balanço em um volume de controle infinitesimal entre as parcelas de massa que entram e saem por unidade de tempo, definindo a variação da densidade. Para um escoamento incompressível a variação da densidade é nula, de modo que a equação se resume a:
+
+\begin{align}
+\nabla \cdot \velocity &= 0. 
+\end{align}
+
+As condições de contorno essenciais, ou de Dirichlet, e as condições de contorno naturais, ou de Neumann, são necessárias para completar as equações da mecânica dos fluidos, e são descritas respectivamente por:
+
+\begin{align}
+\velocity = \mathbf{g} \textrm { em} \left(\boundaryT\right)_{\mathbf{g}} \label{eq:Dir},\\
+\stresstensor \cdot \snormal = \mathbf{h} \textrm{ em} \left(\boundaryT\right)_{\mathbf{h}}, \label{eq:Neu}
+\end{align}
+
+\noindent sendo $\left(\boundaryT\right)_{\mathbf{g}}$ a porção do contorno com condições de contorno de Dirichlet, representadas pelo vetor $\mathbf{g}$, e $\left(\boundaryT\right)_{h}$ aquela com condições de contorno de Neumann, descritas por $\mathbf{h}$. A variável $\snormal$ representa o vetor unitário normal ao contorno em análise.
 
 
-A Análise Isogeométrica é uma técnica numérica introduzida por \cite{HughesCB:2005} para obtenção de soluções aproximadas de equações diferenciais. O método pode ser entendido como uma generalização do método dos elementos finitos clássicos a partir do uso de funções base especiais. 
+\section{Descrição Euleriana-Lagrangiana arbitrária (ALE)} \label{Capítulo2:ALE}
 
-Na Análise Isogeométrica, as funções base escolhidas na discretização da geometria do problema e de suas variáveis são aquelas utilizadas nos sistemas CAD, sendo as funções do tipo NURBS as mais aplicadas (ver, por exemplo, \citeonline{PiegT:1996}). O grande impulso para o desenvolvimento da técnica foi proporcionar a integração entre a engenharia de \textit{design}, com modelos baseado em CAD (\textit{Computed Aided Design}), e as simulações numéricas, com modelos principalmente baseados no MEF, de forma que ambas trabalhem com somente um modelo geométrico.
+A descrição Lagrangiana-Euleriana arbitrária \cite{DoneaGH:1982} representa uma generalização da descrição puramente Lagrangiana e da descrição puramente Euleriana do movimento do contínuo. A descrição Lagrangiana fixa a atenção em pontos materiais do contínuo, enquanto que na descrição Euleriana considera-se uma porção fixa do espaço ocupada pelo contínuo, e analisam-se os pontos materiais que passam por essa porção ao longo do tempo. Como consequência, na descrição puramente Lagrangiana a malha computacional move-se com o contínuo, enquanto que na Euleriana a malha computacional mantém-se fixa. Por sua vez, na descrição Lagrangiana-Euleriana arbitrária, trabalha-se com pontos de referência que podem movimentar-se, mas de maneira independente do movimento dos pontos materiais do contínuo analisado.
 
-Além disso, a IGA se apresenta vantajosa por propiciar a representação exata de muitas geometrias comuns, como seções cônicas, e por possuir muitos algoritmos eficientes e estáveis para geração de objetos NURBS. Ressalta-se que as funções NURBS apresentam muitas características matemáticas que as tornam uma boa opção a ser aplicada, como por exemplo, suavidade das funções, que apresentam continuidade $p-1$ sobre a interface dos elementos, sendo $p$ o grau das funções, boa aproximação e habilidade de refinamento através da inserção de \textit{knots}, que são coordenadas do espaço paramétrico onde as funções são definidas.
+Para a aplicação dessa metodologia às equações governantes da mecânica dos fluidos é importante a definição de três domínios, de acordo com a Fig. \ref{fig:Ale}. O domínio inicial, chamado de \textbf{domínio material} ($\Omega_X$), que é definido pelas coordenadas dos pontos materiais $\mathbf{X}$; O domínio atual, chamado de \textbf{domínio espacial} ($\Omega_x$), definido pelas coordenadas $\pos$; e por fim, o \textbf{domínio de referência} ($\Omega_{\bar{x}}$) com coordenadas dos pontos de referência $\posALE$. 
 
-Nesse capítulo apresenta-se uma breve introdução sobre a IGA, o processo de obtenção das geometrias NURBS e seu uso na descrição das variáveis discretas nas simulações numéricas. Por fim, são apresentados alguns exemplos de sua aplicação em problemas da DFC.
+As coordenadas no domínio atual do contínuo podem ser mapeadas a partir do domínio inicial ou a partir do domínio de referência utilizando as seguintes funções de mapeamento:  
 
-\vspace{-0.1cm}
-
-\section{Noções Gerais de IGA}
-
-No contexto do MEF isoparamétrico tem-se apenas uma noção de malha e de elemento, com os elementos finitos representados tanto no espaço físico quanto no espaço paramétrico. Os elementos são definidos por suas coordenadas nodais, com os graus de liberdade do problema os valores interpolados das funções base nesses nós.
-
-Dentro da IGA têm-se duas noções de malha: uma malha de pontos de controle e uma malha física. A malha de pontos de controle é muito semelhante a uma malha de elementos finitos, entretanto, ela não define a geometria, ela é apenas um esqueleto que controla o formato da geometria (ver Fig. \ref{fig:espacos}), devido ao fato de que as funções de forma baseadas em \textit{B-Splines} não são necessariamente interpolatórias. Assim, os graus de liberdade nodais do problema são definidos sobre os pontos de controle, e não coincidem necessariamente com a forma representada.
+\begin{align}
+\pos = \mathbf{\Phi}(\mathbf{X},t) = \bar{\mathbf{\Phi}}(\bar{\mathbf{x}},t). \label{eq:Pos}
+\end{align}
 
 \begin{figure}[htb!]
-	\centering 
-	\includegraphics[scale=1.0,trim=1cm 4cm 0cm 0cm, clip=true]{Imagens/Cap2/espacosNURBS.pdf}	
-	\caption{NURBS: espaço paramétrico, espaço indicial, espaço parental, malha de pontos de controle e malha física. Fonte: Adaptado de \citeonline{CottrelHB:2009}}
-	\label{fig:espacos}
+	\centering
+	\includegraphics[scale=1.0]{Imagens/Cap2/ALE.pdf}	
+	\caption{Domínios utilizados para a descrição Lagrangiana-Euleriana arbitrária}
+	\label{fig:Ale}
 \end{figure}
 
-
-A malha física representa a geometria discretizada, e dentro da malha física podem ainda ser definidos dois tipos de elementos, um macro-elemento, denominado de \textit{patch}, e o \textit{knot span}, que é o equivalente a um elemento finito e será denominado célula ao longo deste texto. Cada \textit{patch} é composto por um conjunto de células. Muitas geometrias simples podem ser discretizadas apenas com um \textit{patch}, entretanto, a depender da complexidade da mesma, se torna necessário o uso de um conjunto de \textit{patches}. As células são representações geométricas de linhas, superfícies e volumes nos espaços físicos unidimensional, bidimensional e tridimensional respectivamente.
-
-Cada \textit{patch} e suas respectivas células possuem uma representação ainda no espaço paramétrico, que é o espaço onde as funções base são definidas. O espaço paramétrico, para os casos unidimensionais, é definido por um \textit{knot vector}, aqui denominado de vetor de \textit{knots}, que é um conjunto de coordenadas paramétricas. As células são constituídos pelo espaço entre duas coordenadas paramétricas ou dois \textit{knots}. O espaço onde se representam todos as células ou \textit{knot spans}, inclusive os nulos (quando mais de um \textit{knot} ocupa a mesma posição), é chamado de espaço indicial.
-
-Por fim, na análise isogeométrica conta-se ainda com o espaço parental, que é o espaço de integração numérica das funções base, em geral, definido de forma adimensional de -1 a 1 dentro de uma célula. Na Fig. \ref{fig:espacos} pode-se observar os espaços relatados para uma superfície 3D construída por funções base quadráticas e apenas um \textit{patch}. 
-
-
-
-\section{Re\-pre\-sen\-ta\-ção ge\-o\-mé\-tri\-ca u\-ti\-li\-zan\-do \newline{NURBS}}
-
-\subsection{Vetor de \textit{knots}}
-
-As funções \textit{B-Splines}, que são utilizadas na construção das NURBS, são definidas em um espaço paramétrico que é comum a um conjunto de células ou \textit{patch}. Um vetor de \textit{knots} em uma dimensão é um conjunto não decrescente de coordenadas no espaço paramétrico definido como: $\Xi=\left[\xi_{0},\xi_{1},...,\xi_{n+p+1}\right]$,  com $\xi_{i}\in \realspace$ representando a coordenada paramétrica do \textit{knot} $i$, $n$ é o número de funções base na direção paramétrica e $p$ o grau das mesmas.
-
-Um \textit{knot} pode possuir multiplicidade maior do que um, e esse fato, implica em importantes mudanças nas funções base, que serão tratadas posteriormente. Os vetores de \textit{knots} conhecidos como abertos, são frequentemente utilizados nas literaturas de CAD, e caracterizam-se por ter a primeira e a última coordenada paramétrica repetidas $p+1$ vezes. Este fato garante que as funções unidirecionais sejam interpolatórias nos extremos do espaço paramétrico, proporcionando por exemplo a homogeneidade com respeito às condições de contorno essenciais. 
-
-\subsection{\textit{B-Splines}}
-
-As funções \textit{B-Splines} são definidas a partir de um vetor de \textit{knots}.  As funções podem ser obtidas recursivamente, sendo que para $p=0$ são escritas através da seguinte relação:
+\noindent a velocidade, por sua vez, para os pontos materiais ($\velocity$) no instante $t$ é obtida pela derivada do vetor posição $\pos$ mantendo $\mathbf{X}$ fixo:
 
 \begin{align}
-N_{i,0}(\xi) = \begin{cases} 1 &\mbox{if } \xi_i\leq\xi<\xi_{i+1} \\
-0 & \mbox{caso contrário } \end{cases},
+\velocity = \left. \frac{\partial\pos\left(\mathbf{X},t\right)}{\partial t} \right|_\mathbf{X}, \label{eq:vel}
 \end{align}
 
-\noindent enquanto que para funções com $p\geq1$ são definidas como:
+\noindent e a velocidade do contínuo nos pontos de referência $\velocityALE$ é descrita como:
 
 \begin{align}
-N_{i,p}(\xi)=\frac{\xi-\xi_{i}}{\xi_{i+p}-\xi_{i}}N_{i,p-1}(\xi) + 
-\frac{\xi_{i+p+1}-\xi}{\xi_{i+p+1}-\xi_{i+1}}N_{i+1,p-1}(\xi).
+\velocityALE = \left. \frac{\partial\pos\left({\posALE},t\right)}{\partial t} \right| _{\posALE}. \label{eq:velALE}
 \end{align}
 
-Na Fig.\ref{fig:b-splines}, pode-se observar funções \textit{B-Splines} quadráticas construídas sobre o vetor de \textit{Knots} aberto $\Xi=\left[0,0,0,1,2,3,3,4,4,4\right]$. Pode-se observar que, devido à repetição dos \textit{Knots}  $p+1$ vezes nos extremos do vetor de \textit{knots}, as funções são interpoladoras nesses pontos, por outro lado a base passa a ser não uniforme. Além disso, devido o $knot$ $\xi = 3$ ter multiplicidade igual a 2, nota-se a perda da ordem de continuidade da função de forma nessa coordenada, passando a não apresentar derivada contínua sobre o \textit{knot}. A regra geral para a determinação da continuidade das funções é definida então como o grau das função ($p$) menos o número de vezes que uma coordenada paramétrica se repete.
-
-\begin{figure}[htb!]
-	\centering 
-	\includegraphics[scale=0.7,trim=0cm 11cm 0cm 12cm, clip=true]{Imagens/Cap2/B-splines1.pdf}	
-	\caption{\textit{B-Splines}}
-	\label{fig:b-splines}
-\end{figure}
-
-As principais propriedades das funções \textit{B-Splines} são:
-
-\begin{itemize}
-	\item \textbf{Partição da Unidade}: $\sum_{i=0}^{n}N_{i,p}(\xi)=1 $;
-	\item \textbf{Positividade}: Todas as funções base são positivas, ou seja, $N_{i,p}\geq0$, $\forall\xi$;
-	\item \textbf{Suavidade}: função de ordem $p$ é, em geral, $p-1$ vezes continua no contorno das células;
-	\item \textbf{Suporte Compacto}: O suporte de cada $N_{i,p}$ está contido no intervalo $\left[\xi_i,\xi_{i+p+1}\right]$, ou seja, em cada célula, apenas $p+1$ funções são não nulas. % Deve-se notar no entanto que, ao se extenderem por vários elementos, o suporte é menos compacto do que para bases formadas por polinômios de lagrange definidos em elementos finitos.
-\end{itemize}
-
-A derivada de uma função de forma \textit{B-Spline} é calculada de acordo com a seguinte equação recursiva:
+Para expressar as equações da dinâmica dos fluidos em descrição Lagrangiana-Euleriana arbitrária, parte-se do conceito de \textit{derivada material}. A derivada material de uma propriedade qualquer $F$ do contínuo é definida como a variação por unidade de tempo sentida por um observador movendo-se junto com os pontos materiais e é escrita como $\frac{DF}{Dt}$. A derivada material da velocidade, variável de interesse para as equações da mecânica dos fluídos, quando representada pelo domínio espacial é definida como:
 
 \begin{align}
-N_{i,p}^d = p\left(\frac{N_{i,p-1}^{(d-1)}}{\xi_{i+p} - \xi_{i}} - \frac{N_{i+1,p-1}^{(d-1)}}{\xi_{i+p+1} - \xi_{i+1}}\right),
+\frac{D\velocity}{Dt} = \left. \frac{\partial\velocity\left(\pos,t\right)}{\partial t} \right|_\mathbf{x} + \left. \frac{\partial\velocity\left(\pos,t\right)}{\partial \pos} \right|_{t} \left. \frac{\partial\pos}{\partial t} \right|_{\mathbf{X}}. \label{eq:MatDerEulerian}
 \end{align}
 
-\noindent sendo $d$ a d-ésima derivada da função $N_{i,p}$.
-
-Uma curva \textit{B-Spline} é construída a partir da combinação linear entre funções base e um conjunto de pontos de controle. Considerando um conjunto de $n$ funções base, $N_{i,p}$, com $i = 0,1,...,n$ e pontos de controle $\CP_i$ $\in \realspace$ e $i = 0,1,...,n$, uma curva polinomial por partes \textit{B-Spline} unidimensional é definida como:
+Aplicando-se a Eq. \eqref{eq:vel} à Eq. \eqref{eq:MatDerEulerian} pode-se reescrevê-la como:
 
 \begin{align}
-\mathbf{C} =\pos\left(\xi\right) = \sum_{i=0}^{n}N_{i,p}(\xi)\CP_i,
+\frac{D\velocity}{Dt} = \left. \frac{\partial\velocity\left(\pos,t\right)}{\partial t} \right|_\mathbf{x} + \velocity \left. \frac{\partial\velocity\left(\pos,t\right)}{\partial \pos} \right|_{t}. \label{eq:MatDerEulerianUp}
 \end{align}
 
-\noindent com $x$, $y$ e $z$ sendo as coordenadas físicas de um espaço cartesiano. Utilizando as funções \textit{B-Splines} apresentadas na Fig.\ref{fig:b-splines} e uma malha de pontos de controle qualquer, obtém-se a curva apresentada na Fig.\ref{fig:curva1}. Na Fig.\ref{fig:curva2} pode-se observar as células físicas equivalentes a essa combinação.
-
-\begin{figure}[!htb]
-	\centering	
-	\subfloat[Malha de pontos de controle.\label{fig:curva1}]{\includegraphics[scale=0.4,trim=1cm 7cm 1cm 9cm, clip=true]{Imagens/Cap2/B-splines2.pdf}}
-	\subfloat[Representação física das células. \label{fig:curva2}]{\includegraphics[scale=0.4,trim=1cm 7cm 1cm 9cm, clip=true]{Imagens/Cap2/B-splines3.pdf}}
-	\caption{Curva \textit{B-Spline}}
-\end{figure}
-
-A partir da Fig.\ref{fig:curva1} pode-se constatar que a curva \textit{B-Spline} interpola o primeiro e o último ponto de controle, que é uma característica das curvas construídas com funções descritas a partir de vetores de nós abertos. Adicionalmente nota-se que, devido à multiplicidade do \textit{knot} de coordenada paramétrica $3$, existe um ponto de controle intermediário também interpolando a curva. Coordenadas paramétricas com multiplicidade igual ou superior ao grau do polinômio $p$ resultam em pontos de controle interpoladores. Por fim, observa-se ainda, que a multiplicidade de $\xi = 3$ resultou na perda da ordem de continuidade da curva sobre esse ponto, que passa a não ter derivada contínua.
-
-Conforme observado  Fig.\ref{fig:curva1}, muitas das características das curvas \textit{B-Splines} são consequências das propriedades das funções \textit{B-splines}. Outra importante propriedade dessas curvas é a \textit{Transformação Afim}, significando que uma transformação na curva é obtida  se aplicarmos uma transformação afim aos pontos de controle. Devido ao suporte compacto das funções base, as curvas \textit{B-Splines} possuem característica denominada de \textit{localidade}, que significa que, movendo-se um ponto de controle, afeta-se não mais do que $p+1$ células na curva.
-
-Uma superfície \textit{B-spline} é obtida analogamente. Dado uma rede de pontos de controle $\CP_{i,j}$, com $i = 0,1,...,n$ e $j = 0,1,..., m$, e vetores de \textit{knots} $\Xi = \left[\xi_{0},\xi_{1},...,\xi_{p+n+1}\right]$, $\mathcal{H} = \left[\eta_{0},\eta_{1},...,\eta_{q+m+1}\right]$, a superfície é obtida através do produto tensorial entre $n$ funções unidirecionais $N_{i,p}$ e $m$ funções unidirecionais $M_{j,q}$ da seguinte forma:
+Baseado nessa última expressão as equações de Navier-Stokes para escoamento incompressível podem ser apresentadas, em termo da derivada material, da seguinte forma:
 
 \begin{align}
-\mathbf{S} = \pos\left(\xi,\eta\right)  = \sum_{i=0}^{n}\sum_{j=0}^{m}N_{i,p}(\xi)M_{j,q}(\eta)\CP_{i,j},
+\density\left(\frac{D\velocity}{Dt} - \externalforce \right) - \nabla \cdot \stresstensor &= \mathbf{0}. \label{Navier-Stokes-MatDerEuleriana}
 \end{align}
 
-\noindent onde $q$ representa o grau das funções na direção paramétrica $\eta$. Devido à natureza do produto tensorial, as superfícies \textit{B-Splines} herdam as características citadas anteriormente para as curvas, sendo o suporte, por exemplo, de uma função bivariada $\hat{N}_{i,j:p,q}\left(\xi,\eta\right) = N_{i,p}(\xi)M_{j,q}(\eta)$ equivalente à: $\left[\xi_{i},\xi_{i+p+1}\right]\times\left[\eta_{j},\eta_{j+q+1}\right]$
-
-Por fim, um sólido \textit{B-Splines} é obtido através do produto tensorial entre funções unidirecionais $N_{i,p}$, $M_{j,q}$, $L_{k,r}$, construídas sobre os vetores de \textit{knots} $\Xi = \left[\xi_{0},\xi_{1},...,\xi_{p+n+1}\right]$, $\mathcal{H} = \left[\eta_{0},\eta_{1},...,\eta_{q+m+1}\right]$ e $\mathcal{Z} = \left[\zeta_{0},\zeta_{1},...,\zeta_{l+r+1}\right]$ respectivamente, e um conjunto de pontos de controle  $\CP_{i,j,k}$ com $i = 0,1,...,n$, $j = 0,1,..., m$, $k = 0,1,..., m$, da seguinte forma:
+Utilizando-se agora o domínio de referência $\Omega_{\bar{x}}$, para expressar a derivada material chega-se à seguinte expressão:
 
 \begin{align}
-\mathbf{T} = \pos\left(\xi,\eta,\zeta\right)  = \sum_{i=0}^{n}\sum_{j=0}^{m}\sum_{k=0}^{l}N_{i,p}(\xi)M_{j,q}(\eta)L_{k,r}(\zeta)\CP_{i,j,k},
+\frac{D\velocity}{Dt} = \left. \frac{\partial\velocity\left(\posALE,t\right)}{\partial t} \right|_{\posALE} + \left. \frac{\partial\velocity\left(\posALE,t\right)}{\partial \posALE} \right|_{t} \left. \frac{\partial\posALE}{\partial t} \right|_{\mathbf{X}}. \label{eq:MatDerALE}
+\end{align}
+%
+
+Derivando-se \eqref{eq:Pos} no tempo com $\mathbf{X}$ fixo, é possível escrever:
+
+\begin{align}
+\left. \frac{\partial \pos}{\partial t} \right|_{\mathbf{X}} = \left . \frac{\partial \mathbf{\Phi}}{\partial t} \right|_{\mathbf{X}} =   \left . \frac{\partial \bar{\mathbf{\Phi}}}{\partial t} \right|_{\posALE} + \left . \frac{\partial \bar{\mathbf{\Phi}}}{\partial \posALE} \right|_{t} \left . \frac{\partial \posALE}{\partial t} \right|_{\mathbf{X}},
 \end{align}
 
-\noindent na qual $l$ e $r$ representam o número de funções e o grau das funções na direção paramétrica $\zeta$. Um sólido \textit{B-Spline} herda as características das respectivas curvas que o deram origem. Além disso, o suporte de uma função trivariada $\hat{N}_{i,j,k:p,q,r}\left(\xi,\eta,\zeta\right) = N_{i,p}(\xi)M_{j,q}(\eta)L_{k,r}(\zeta)$ está contido no intervalo $\left[\xi_{i},\xi_{i+p+1}\right]\times\left[\eta_{j},\eta_{j+q+1}\right]\times\left[\zeta_{k},\zeta_{k+r+1}\right]$.
-
-
-\subsection{\textit{B-Splines} não-uniformes racionais e análise isogeométrica}
-
-Uma entidade NURBS no $\realspace^{d}$ pode ser entendida, de ponto de vista geométrico, como a projeção transformativa de uma entidade \textit{B-Spline} no $\realspace^{d+1}$. Geometrias cônicas podem ser construídas exatamente pela projeção transformativa de curvas por partes quadráticas (para maiores detalhes sobre projeção transformativa, ver \citeonline{Farin:1999}). Na Fig. \ref{fig:circunferencia}, apresenta-se uma curva NURBS $\mathbf{C}\left(\xi\right)$, que representa, de forma exata, uma circunferência, sendo essa obtida a partir da projeção de uma curva \textit{B-Spline} $\mathbf{C}^{w}\left(\xi\right)$.
-
-\begin{figure}[htb!]
-	\centering 
-	\includegraphics[scale=0.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/transformacaoprojetiva.png}	
-	\caption{Projeção transformativa para obtenção circunferência. Fonte: \citeonline{CottrelHB:2009}}
-	\label{fig:circunferencia}
-\end{figure}
-
-Matematicamente, uma função NURBS é obtida pela racionalização de uma função \textit{B-Spline}. A racionalização dessa função ocorre através da razão entre dois polinômios. Uma função racional NURBS $\left(R\right)$ é construída através da seguinte expressão:
+\noindent onde o termo $\left. \frac{\partial \bar{\mathbf{\Phi}}}{\partial t} \right|_{\posALE}$ representa a velocidade do domínio de referência (malha de elementos finitos), em relação ao domínio espacial, representada por $\velocityALE$, permitindo escrever: 
 
 \begin{align}
-R_{i}^{p}(\xi) = \frac{N_{i,p}(\xi)w_i}{\sum_{\hat{i}=0}^{n}N_{\hat{i},p}(\xi)w_{\hat{i}}}
+\velocity = \velocityALE + \left . \frac{\partial \pos}{\partial \posALE} \right|_{t} \left . \frac{\partial \posALE}{\partial t} \right|_{\mathbf{X}},
 \end{align}
 
-\noindent onde $w_i$ e $w_{\hat{i}}$ $\in \realspace$, com $i = \hat{i} =  0, 1, ... , n$ , correspondem aos pesos relativos as funções $N_{i,p}\left(\xi\right)$ e $N_{\hat{i},p}\left(\xi\right)$ respectivamente. 
-
-A $d$-ésima derivada de $R_{i}$ (onde suprimiu-se o índice $p$ para facilitar a representação), é obtida da seguinte forma:
+\noindent ou ainda:
 
 \begin{align}
-R_{i}^{d}(\xi) = \frac{N_{i}^{d}(\xi)w_i - \sum_{l=1}^{d}\left[\binom{d}{l}\sum_{j=1}^{n}N_{j}^{l}(\xi)w_{j}R_{i}^{d-l}(\xi)\right]}{\sum_{{j}=0}^{n}N_{{j}}(\xi)w_{{j}}},
+\left . \frac{\partial \posALE}{\partial t} \right|_{\mathbf{X}} = \left( \velocity - \velocityALE \right) \left. \frac{\partial \posALE}{\partial \pos} \right |_{t}. \label{eq:velRel}
+ \end{align}
+ 
+Utilizando-se das expressões Eq. \eqref{eq:velRel} e Eq. \eqref{eq:MatDerALE} obtêm-se que: 
+ 
+\begin{align}
+\frac{D\velocity}{Dt} = \left. \frac{\partial\velocity\left(\posALE,t\right)}{\partial t} \right|_{\posALE} +  \left( \velocity - \velocityALE \right) \left. \frac{\partial\velocity\left(\posALE,t\right)}{\partial \pos} \right|_{t}. \label{eq:MatDerALEUp}
 \end{align}
 
-\noindent em que:
+Por fim, aplicando-se a Eq. \eqref{eq:MatDerALEUp} em Eq. \ref{Navier-Stokes-MatDerEuleriana}, chega-se à equação da conservação da quantidade de movimento para escoamentos incompressíveis em descrição Lagrangiana-Euleriana arbitrária:
+
 \begin{align}
-\binom{d}{l} = \frac{d!}{l!\left(d-l\right)!}.
+\density \left . \left(\frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE\right)\cdot\nabla\velocity - \externalforce \right) - \nabla \cdot \stresstensor &= \mathbf{0}.  \label{eq:Navier-Stokes-ALE} 
 \end{align}
 
-Uma curva NURBS é obtida por:
+Já para o caso incompressível, a equação da continuidade 
 
 \begin{align}
-\mathbf{C} = \pos\left(\xi\right) = \sum_{i=0}^{n}R_{i}^{p}(\xi)\CP_i, \label{eq:curveNURBS}
+\nabla \cdot \velocity &= 0 \label{eq:Continuity}
 \end{align}
 
-\noindent sendo os pesos selecionados de maneira a se obter a geometria desejada. Analogamente uma superfície NURBS é obtida através das seguintes relações:
+\noindent continua válida para a descrição ALE.
+
+
+\section{Forma Fraca e discretização espacial} \label{capitulo:Cap2:FormaFraca}
+
+Tomando-se a forma forte das equações governantes, aplica-se o método de resíduos ponderados para se chegar à forma fraca e proceder com a discretização espacial. Os espaços de dimensão finita das funções tentativa que descrevem a velocidade e a pressão são chamados de $\usolution$ e $\psolution$ respectivamente, e definidos como:
 
 \begin{align}
-R_{i,j}^{p,q}(\xi,\eta) = \frac{N_{i,p}(\xi)M_{j,q}(\eta)w_{i,j}}{\sum_{\hat{i}=0}^{n}\sum_{\hat{j}=0}^{m}N_{\hat{i},p}(\xi)M_{\hat{j},q}(\eta)w_{\hat{i},\hat{j}}},
-\end{align}
-
-\begin{align}
-\mathbf{S} = \pos\left(\xi,\eta\right) = \sum_{i=0}^{n}\sum_{j=0}^{m}R_{i,j}^{p,q}(\xi,\eta)\CP_{i,j}, \label{eq:surfaceNURBS}
-\end{align}
-
-\noindent com $w_{i,j}$ e $w_{\hat{i},\hat{j}}$ $\in \realspace$, sendo $i = \hat{i} =  0, 1, ... , n$ e  $j = \hat{j} =  0, 1, ... , m$ , correspondem aos pesos relativos às funções $\left(N_{i,p}\left(\xi\right)M_{j,q}\left(\eta\right)\right)$ e $\left(N_{\hat{i},p}\left(\xi\right)M_{\hat{j},q}\left(\eta\right)\right)$ respectivamente. Por fim, um sólido NURBS é obtido por:
-
-\begin{align}
-R_{i,j,k}^{p,q,r}(\xi,\eta,\zeta) = \frac{N_{i,p}(\xi)M_{j,q}(\eta)L_{k,r}(\zeta)w_{i,j,k}}
-{\sum_{\hat{i}=0}^{n}\sum_{\hat{j}=0}^{m}\sum_{\hat{k}=0}^{l}N_{\hat{i},p}(\xi)M_{\hat{j},q}(\eta)L_{\hat{k},r}(\zeta)w_{\hat{i},\hat{j},\hat{k}}},
-\end{align}
-
-\begin{align}
-\mathbf{T} = \pos\left(\xi,\eta,\zeta\right) = \sum_{i=0}^{n}\sum_{j=0}^{m}\sum_{k=0}^{l}R_{i,j,k}^{p,q,r}(\xi,\eta,\zeta)\CP_{i,j,k}, \label{eq:solidNURBS}
-\end{align}
-
-\noindent onde $w_{i,j,k}$ e $w_{\hat{i},\hat{j},\hat{k}}$ $\in \realspace$, sendo $i = \hat{i} =  0, 1, ... , n$, $j = \hat{j} =  0, 1, ... , m$ e $k = \hat{k} =  0, 1, ... , l$, correspondem aos pesos relativos às funções $\left(N_{i,p}\left(\xi\right)M_{j,q}\left(\eta\right)L_{k,r}\left(\zeta\right)\right)$ e $(N_{\hat{i},p}\left(\xi\right)M_{\hat{j},q}\left(\eta\right)L_{\hat{k},r}\left(\zeta\right))$ respectivamente.
-
-Na aplicação da IGA, as funções tentativa para velocidade e pressão, e as funções peso associadas a elas, apresentadas nas Eq. \eqref{eq:vel} à Eq. \eqref{eq:ptest} como $N$, são equivalentes à $R_{i}^{p}(\xi)$, $R_{i,j}^{p,q}(\xi,\eta)$ e $R_{i,j,k}^{p,q,r}(\xi,\eta,\zeta)$ para os casos unidimensional, bidimensional e tridimensional respectivamente. E a geometria é representada pelas Eq. \eqref{eq:curveNURBS}, Eq. \eqref{eq:surfaceNURBS} e Eq. \eqref{eq:solidNURBS} dependendo da dimensão do problema em análise. 
-
-A integração numérica nas células é realizada através da quadratura Gaussiana. Considerando o domínio paramétrico de uma célula $\tilde{\domain}^{e}$ e o domínio parental $\hat{\domain}^{e}$  apresentados na Fig.\ref{fig:espacos}, definidos respectivamente em um espaço tridimensional pelas coordenadas $\coordAdimen\left(\xi,\eta,\zeta\right)$ e $\hat{\coordAdimen}(\hat{\xi},\hat{\eta},\hat{\zeta})$, a matriz jacobiana do mapeamento do espaço físico, com coordenadas $\mathbf{x} \left(x,y,z\right)$,  para o espaço de quadratura, é definida por:
-
-\begin{align}
-\frac{d\pos}{d\hat{\coordAdimen}} = \frac{d\pos}{d\coordAdimen} \frac{d\coordAdimen}{d\hat{\coordAdimen}} \label{eq:integ}
-\end{align}
-
-O primeiro termo à direita da igualdade da Eq. \eqref{eq:integ} é calculado a partir das derivadas de Eq. \eqref{eq:curveNURBS}, Eq. \eqref{eq:surfaceNURBS} e Eq. \eqref{eq:solidNURBS} e o segundo termo, considerando a célula $\tilde{\domain}^{e} = [\xi_{i},\xi_{i+1}] \times [\eta_{j},\eta_{j+1}] \times [\zeta_{k},\zeta_{k+1}]$, calcula-se $\xi,\eta, \zeta$ $\in \tilde{\domain}^{e}$ a partir de $\hat{\xi},\hat{\eta}, \hat{\zeta}$ $\in \hat{\domain}^{e}$ através das seguintes relações: 
-
-
-\begin{align}
-\xi = \xi_{i} + \left(\hat{\xi}+1\right) \left(\frac{\xi_{i+1}-\xi_{i}}{2}\right),
-\end{align}
-
-\begin{align}
-\eta = \eta_{i} + \left(\hat{\eta}+1\right) \left(\frac{\eta_{i+1}-\eta_{i}}{2}\right)
+\usolution = \left\{\velocity \left . \right| \velocity \left(\cdot,t\right) \in \left(H^{1}\left(\domainT\right)\right)^{n_{sd}}, u_{i} = g_{i} \textrm { em} \left(\boundaryT\right)_{g_i} \right\}
 \end{align}
 
 \noindent e
 
 \begin{align}
-\zeta = \zeta_{i} + \left(\hat{\zeta}+1\right) \left(\frac{\zeta_{i+1}-\zeta_{i}}{2}\right).
+\psolution = \left\{\press \left . \right| \press \left(\cdot\right) \in L^{2}\left(\domainT\right), \int_{\domainT}\press \textrm { } d\domain = 0 \textrm { se } \boundaryT =\left(\boundaryT\right)_{\mathbf{g}} \right\},
+\end{align}
+
+\noindent sendo $L^{2}\left(\domainT\right)$ o espaço de funções escalares que são de quadrado integrável sobre $\domainT$; e $\left(H^{1}\left(\domainT\right)\right)^{n_{sd}}$ é o espaço de funções vetoriais com derivadas de quadrado integrável sobre $\domainT$.
+
+O espaço das funções teste ou funções peso das equações da quantidade de movimento e da continuidade são definidos respectivamente por:
+
+\begin{align}
+\uweighting = \left\{\utest \left . \right| \utest \left(\cdot\right) \in \left(H^{1}\left(\domainT\right)\right)^{n_{sd}}, w_{i} = 0 \textrm { em} \left(\boundaryT\right)_{g_i} \right\},
 \end{align}
 
 
-\section{Verificação e aplicações}
+\begin{align}
+\pweighting = \psolution.
+\end{align}
 
-Para aplicação da IGA em problemas da DFC seguiu-se o mesmo procedimento matemático descrito ao longo do Cap. \ref{capitulo:Cap1}, sendo que a implementação computacional seguiu o roteiro apresentado no Alg. \ref{alg:fluid_temporalIntegration}. Os exemplos escolhidos para a verificação do código computacional foram o escoamento sobre um cilindro 3D e o problema de escoamento sobre um canal com degrau utilizando células 3D. Os resultados obtidos são apresentados nas seções subsequentes.
+Aplicando-se o método dos resíduos ponderados sobre as equações Eq. \eqref{eq:Navier-Stokes-ALE} e Eq. \eqref{eq:Continuity}, integrando-se por partes o termo referente ao tensor de tensões de Cauchy, empregando-se o teorema da divergência e levando-se em consideração a condição de homogeneidade da função $\utest$ sobre o contorno $\left(\boundaryT\right)_{\mathbf{g}}$, obtém-se a forma fraca. A solução do problema consiste então em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de tal modo que $\forall$ $\utest \in \uweighting$ e $\ptest \in \pweighting$, as seguintes expressões sejam verdadeiras:
 
-\subsection {Escoamento sobre um cilindro - 3D}
 
-Na geração da geometria NURBS, correspondente ao problema do escoamento sobre um cilindro, utilizou-se um código previamente desenvolvido pela estudante durante seu mestrado \cite{Tonon:2016}. Por tratar-se de uma geometria de pequena complexidade, pôde-se gerá-la com um único \textit{patch}, o qual é composto por um cubo com um cilindro inserido em seu centro.
-O processo de geração da malha, simplificadamente, consiste em se escolher vetores de $knots$, pontos de controle, e pesos adequados para a descrição de tal geometria.
+\begin{align}
+\int_{\domainT} \utest \cdot \density \left . \left(\frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE\right)\cdot\nabla\velocity - \externalforce \right) d\domain + \int_{\domainT} \strainratetensor(\utest) : \stresstensor  d\domain - \int_{\left(\boundaryT\right)_h} \utest \cdot \mathbf{h} \  &= 0,  \label{eq:NSWeakForm1} 
+\end{align}
 
-O código previamente desenvolvido, baseia-se na quantidade mínima de pontos de controle necessários para gerar uma circunferência completa (ver Fig. \ref{fig:pontosdecontroleInicias}). Para a obtenção exata de uma circunferência utilizam-se funções quadráticas e o vetor de \textit {knots} na direção paramétrica $\xi$ inicial é composto por: $\Xi=\left[0,0,0,1/4,1/4,1/2,1/2,3/4,3/4,1,1,1\right]$. A posição dos pontos de controle da circunferência e seus respectivos pesos foram obtidos de acordo com \citeonline {PiegT:1996}. 
+\begin{align}
+\int_{\domainT} \ptest \left(\nabla \cdot \velocity\right) d \domain &= 0. \label{eq:CWeakForm1} 
+\end{align}
 
-A obtenção da curva respectiva ao quadrado, que é descrita no espaço paramétrico correspondente a direção $\xi$, é consequência das escolhas realizadas para gerar a circunferência, logo, a curva possui o mesmo vetor de \textit{knots} e funções quadráticas. Os pontos de controle para a formação do quadrado foram posicionados, no espaço físico, de forma a ser obtida a dimensão requerida à seção transversal quadrada que compõe a geometria do cubo, e de forma que os mesmos ficassem alinhados com os pontos de controle da circunferência na direção radial. Os pesos respectivos ao pontos de controle do retângulo são unitários. Na Fig. \ref{fig:pontosdecontroleInicias} pode-se observar a posição dos pontos de controle respectivos à circunferência e ao quadrado e as curvas resultantes desta discretização em linha vermelho pontilhado.
+A discretização espacial tanto pelo método dos elementos finitos como pela técnica de análise isogeométrica consiste em, dado um problema com domínio $\domain$ dividi-lo em subdomínios $\domain^{e}$, também chamados de elementos ou células, de forma que:
 
-Na sequência o código realiza o procedimento de refinamento por inserção sucessiva de \textit{knots} no vetor de \textit{knots}. O algoritmo utilizado para este procedimento pode ser encontrado em \citeonline {PiegT:1996}. Na Fig. \ref{fig:pontosdecontroleInicias2} apresenta-se um exemplo de pontos de controle gerados após a inserção de um novo \textit{knot} no centro de cada \textit{knot span} do espaço paramétrico inicial. A quantidade de \textit{knots} a ser inserida depende da discretização necessária a análise numérica.
+\begin{align}
+\domain \approx \domain^{h} = {\bigcup_{e = 1}^{nel}} \domain^{e},
+\end{align}
+
+\noindent onde $\domain^{h}$ é o domínio discretizado por subdomínios, o índice $h$ se refere ao tamanho representativo dos elementos, e $nel$ representa o número total de elementos.
+
+Os espaços de função tentativa para velocidade e pressão, bem como as funções teste para o domínio e contorno são agora dados pela combinação linear de parâmetros nodais com funções de forma definidas sobre cada subdomínio, atendendo à partição da unidade, de forma que o problema da dinâmica dos fluidos fica definido como: encontrar $\velocityh \in \usolutionh$ e $\pressh \in \psolutionh$, de tal modo que $\forall$ $\utesth \in \uweightingh$ e $\ptesth \in \pweightingh$ a seguinte expressão seja verdadeira:
+
+
+\begin{align}
+\begin{split}
+&\int_{\domainT} \utesth \cdot \density \left . \left(\frac{\partial\velocityh}{\partial t} \right|_{\posALE} + \left(\velocityh - \velocityALEh\right)\cdot\nabla\velocityh - \externalforce^{h}\right) d\domain + \int_{\domainT} \strainratetensor(\utesth) : \stresstensor\left(\velocityh,\pressh \right)  d\domain\\ &\qquad- \int_{\left(\boundaryT\right)_h} \utesth \cdot \mathbf{h}^{h} + \int_{\domainT} \ptesth \left(\nabla \cdot \velocityh\right) d \domain = 0,  \label{eq:NSWeakForm2} 
+\end{split}
+\end{align}
+
+\noindent onde:
+
+\begin{align}
+\velocity^{h}(\pos,t) = \sum_{A = 1}^{N_{nos}} \velocity_{A}(t)N_{A}(x), \label{eq:dis_vel}
+\end{align}
+
+\begin{align}
+\press^{h}(\pos,t)  = \sum_{A = 1}^{N_{nos}} \press_{A}(t)N_{A}(x),
+\end{align}
+
+\begin{align}
+\utest^{h}(\pos)  = \sum_{A = 1}^{N_{nos}} \utest_{A}N_{A}(x), \label{eq:utest}
+\end{align}
+
+\begin{align}
+\ptest^{h}(\pos)  = \sum_{A = 1}^{N_{nos}} \ptest_{A}N_{A}(x), \label{eq:ptest} 
+\end{align}
+
+\noindent sendo que $N$ representa as funções de forma da discretização, o subscrito $A$ refere-se a variável discreta do nó ou ponto de controle $A$ e $N_{nos}$ é o número total de nós no contexto dos elementos finitos ou pontos de controle em análise isogeométrica da malha discreta. As variáveis $\utest_{A}$ e $\ptest_{A}$ são arbitrárias nas aproximações.
+
+No entanto, as formulações obtidas pelo método de Galerkin são conhecidas por apresentarem oscilações espúrias em escoamentos dominados pela convecção. Uma das formas de se lidar com esse problema é a utilização de métodos estabilizados, como \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG) aplicado nesse trabalho \cite{BrooksH:1982, HughesT:1984}. Essa metodologia consiste em adicionar à equação da quantidade de movimento, o seu resíduo ponderado por $\SUPG \left(\left(\velocityh- \velocityALEh\right) \cdot \nabla\utesth\right)$, onde $\SUPG$ é um parâmetro de estabilização. Do ponto de vista numérico esse termo age de maneira a eliminar as oscilações espúrias na direção das linhas de corrente e garantir a estabilidade em problemas com convecção dominante. 
+
+Para os problemas de escoamentos incompressíveis aqui analisados, deve-se levar em conta que os campos de velocidade e pressão não podem ser aproximados arbitrariamente, podendo levar à ocorrência de oscilações espúrias no campo de pressão. Para evitar isso, podem ser escolhidos elementos Taylor-Hood que obedeçam, à condição de \textit{Ladyzhenskaya-Babuška-Brezzi} ou LBB \cite{BrezziF:1991,ZienkiewiczTN:2005,StrangF:2008}, ou pode-se recorrer a um método estabilizado. 
+
+Para estabilizar a pressão, neste trabalho emprega-se a técnica \textit{Pressure Stabilization Petrov Galerkin} (PSPG)   \cite{HughesFB:1986,TezduyarMRS:1992a}. Essa técnica consiste em adicionar à equação da continuidade, o resíduo da equação da quantidade de movimento ponderada pela função $\PSPG \left(\frac{\nabla \ptesth}{\density}\right)$, onde $\PSPG$ é um parâmetro de estabilização. Essa estabilização cria termos dependentes da pressão na equação da continuidade, responsáveis pela flexibilização do campo de pressão e por contornar a condição LBB.
+
+Por fim, para prover maior estabilização em problemas com formação de vórtices, adiciona-se à equação da quantidade de movimento o resíduo da equação da continuidade ponderado por $\density \LSIC \nabla \cdot \utesth$ \cite{TezduyarO:2000}, sendo $\LSIC$ um parâmetro de estabilização. Esse termo está baseado no método dos mínimos quadrados na restrição de incompressibilidade. 
+
+Nota-se que a consistência da formulação estabilizada é garantida, uma vez que são adicionados às equações seus resíduos ponderados.
+
+Os parâmetros de estabilização $\SUPG$, $\PSPG$ e $\LSIC$ têm função de proporcionar uma solução estável e otimizar a convergência durante o refinamento de malha. A obtenção dos parâmetros estabilizadores será discutida em \ref{subsec:taus}. 
+
+Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\velocityh \in \usolutionh$ e $\pressh \in \psolutionh$, de tal modo que $\forall$ $\utesth \in \uweightingh$ e $\ptesth \in \pweightingh$ as seguintes expressões sejam verdadeiras:
+
+\begin{align}
+\begin{split}
+&\int_{\domain} \utesth \cdot \density\left(\left.\frac{\partial\velocityh}{\partial t}\right|_{\posALE}+(\velocityh-\velocityALEh)\cdot \nabla\velocityh - \sbodyforce^h\right) d\domain +\int_{\domain} \strainratetensor \left(\utesth\right) : \stresstensor \left(\velocityh,\pressh\right)\ d\domain\\ &\qquad+ 
+\int_{\domain}\ptesth \nabla \cdot \velocityh \ d\domain 
+- \int_{\boundaryH}\utesth \cdot \straction^h\ d\boundaryH \\ 
+&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG \left(\left(\velocityh- \velocityALEh\right) \cdot \nabla\utesth\right) \cdot \resMom\left(\velocityh,\pressh \right)\  d\domain\\
+&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla \ptesth}{\density}\right) \cdot \resMom\left(\velocityh,\pressh\right) \  d\domain\\
+&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \density \LSIC \nabla \cdot \utesth \resPre\left(\velocityh\right)\  d\domain = 0,
+\label{eq:FinalSystem}
+\end{split}
+\end{align}
+
+\noindent e
+
+\begin{align}
+	\begin{split}
+	&\int_{\domain}\ptesth \nabla \cdot \velocityh \ d\domain \\ 
+	&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla \ptesth}{\density}\right) \cdot \resMom\left(\velocityh,\pressh\right) \  d\domain = 0,
+	\label{eq:RC}
+	\end{split}
+	\end{align}
+
+\noindent onde $\resMom$ e $\resPre$ são os resíduos da equação da quantidade de movimento e da equação da continuidade, respectivamente, dados por:
+
+\begin{align}
+\resMom\left(\velocityh,\pressh\right)&=\density\left(\left.\frac{\partial\velocityh}{\partial t}\right|_{\posALE}+(\velocityh-\velocityALEh)\cdot \nabla\velocityh - \sbodyforce^h\right) - \nabla \cdot \stresstensor\left(\velocityh,\pressh\right),
+\end{align}
+
+\noindent
+
+\begin{align}
+\resPre\left(\velocityh\right)&=\nabla \cdot \velocityh.
+\end{align}
+
+Considerando $\Acceleration$, $\Velocity$ e $\Press$ os vetores nodais dos graus de liberdade respectivos a velocidade, aceleração e pressão, pode-se escrever o problema da DFC como: Encontrar $\Acceleration$, $\Velocity$ e $\Press$ de maneira que
+
+\begin{align}
+\NNSM(\Acceleration,\Velocity,\Press) = \mathbf{0},\label{eq:momentum_residual}
+\end{align}
+
+\noindent e
+
+\begin{align}
+\NNSC(\Acceleration,\Velocity,\Press) = \mathbf{0}. \label{eq:continuity_residual}
+\end{align}
+
+
+\subsection{Parâmetros de estabilização}\label{subsec:taus}
+
+Considerando que nesse trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em IGA, adotam-se os parâmetros propostos por \citeonline{TakizawaTO:2018} e \citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. Para essa opção é necessário definir-se inicialmente o tensor métrico do elemento:
+
+\begin{align}
+\matrixQ&=\left(\frac{\partial\pos}{\partial\coordAdimen}\right),
+\end{align}
+
+\noindent onde $\matrixQ$ representa a matriz Jacobiana e $\coordAdimen$ representa as coordenadas do espaço paramétrico dos elementos, no qual as funções de forma são descritas. Para que a ordem polinomial seja levada em consideração na determinação dos parâmetros de estabilização, aplica-se uma mudança de escala na matriz $\matrixQ$ conforme:
+
+\begin{align}
+\matrixQhat&=\matrixQ\matrixD^{-1}.
+\end{align}
+
+\noindent onde $\matrixQhat$ é o novo tensor métrico e $\matrixD$, para elementos finitos com funções de forma Lagrangianas, e espaço paramétrico $-1\leq\xi_i\leq1$, é definida como:
+
+\begin{align}
+\matrixD&=\begin{bmatrix}
+p_{1} & 0 & 0\\
+0 & p_{2} & 0 \\
+0 & 0 & p_{3}
+\end{bmatrix},
+\end{align}
+
+\noindent com $p$ representado a ordem das funções de forma em cada direção do espaço paramétrico. 
+
+Para discretização utilizando IGA adota-se:
+
+\begin{align}
+\matrixD&=\left(\frac{\partial\bar{\coordAdimen}}{\partial\coordAdimen}\right),
+\end{align}
+
+\noindent com $\bar{\coordAdimen}$ representando as coordenadas do chamado espaço paramétrico preferido. 
+
+Para problemas em 1D, $\matrixD$ é definido como:
+
+\begin{align}
+D&=\frac{\Delta\bar{\coordAdimen}}{\min_{a=1,...,p} \Delta\coordAdimen_{a}},
+\end{align}
+
+\noindent onde $\Delta\bar{\coordAdimen}$ é o comprimento do elemento de Bézier no espaço paramétrico (espaço preferido), $p$ é o grau polinomial das funções base e $\Delta\coordAdimen_{a}$ é:
+
+\begin{align}
+\Delta\coordAdimen_{a}&=\frac{\Delta\bar{\coordAdimen}}{p}\sum_{b=0}^{p} \left({\matrixCinv}_{ba} - \matrixCinv_{ba-1}\right),
+\end{align}
+
+\noindent a matriz $\matrixCinv$ é o tensor de transformação de Bézier. Para múltiplas dimensões têm-se $\matrixD_{ij} = D^i \delta_{ij} $, com $D^i$ o valor de $D$ na direção $i$.
+
+A partir disso, o comprimento direcional do elemento é definido como:
+
+\begin{align}
+\RQD &=2\left(\rRGN\rRGN : \matrixG \right)^{-\frac{1}{2}},
+\end{align}
+
+\noindent sendo $\rRGN$ o vetor direção unitário da velocidade no elemento e $\matrixG$ uma matriz auxiliar, os quais são representados respectivamente como:
+
+\begin{align}
+\rRGN&=\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert} \label{eq:erRGN}
+\end{align}
+
+\noindent e
+
+\begin{align}
+\matrixG &= \matrixQhat^{-T} \cdot \matrixQhat^{-1}. 
+\end{align}
+
+O comprimento do elemento é limitado pelos mínimos e máximos valores representados abaixo:
+
+\begin{align}
+h_{min} \equiv 2\min_{r}\left((\rRGN:\matrixG)^{-\frac{1}{2}} \right), \\
+h_{max} \equiv 2\max_{r}\left((\rRGN:\matrixG)^{-\frac{1}{2}} \right).
+\end{align}
+
+Os parâmetros de estabilização são dados por:
+
+\begin{align}
+\SUPG = \PSPG =\left(\frac{1}{\SUGNi^2} + \frac{1}{\SUGNii^2} + \frac{1}{\SUGNiii^2} \right)^{-\frac{1}{2}},
+\end{align}
+
+\begin{align}
+\LSIC = \frac{\RQD^2}{\SUPG},
+\end{align}
+
+\noindent onde:
+
+\begin{align}
+\SUGNi^{-2} = \left(\velocityh - \velocityALEh \right) \left(\velocityh - \velocityALEh \right) : \matrixG ,
+\end{align}
+
+\begin{align}
+\SUGNii&=\frac{\Delta t}{2},
+\end{align}
+
+\noindent e
+
+\begin{align}
+\SUGNiii^{-1} = \kviscosity \left(\rRGN_{reg}\rRGN_{reg} : \matrixG + \left(1 - \rRGN_{reg}^2)4h_{min}^{-2} \right)\right) ,
+\end{align}
+
+\noindent sendo $\rRGN_{reg}$ definido como:
+
+\begin{align}
+\rRGN_{reg} =\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert + \varepsilon\left(\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert\right)_0},
+\end{align}
+
+\noindent com $\varepsilon$ uma constante pequena e $\left(\lVert \nabla \lVert\velocityh- \velocityALEh\rVert\rVert\right)_0$ um valor de referência. Os termos $\SUGNi$, $\SUGNii$ e $\SUGNiii$ são parâmetros correspondentes aos termos convectivos, inerciais e viscosos, respectivamente.
+
+
+\section{Integração Temporal}\label{sec:IntegTemp}
+
+Para a integração temporal das equações governantes, utiliza-se o método $\alpha$-generalizado. Esse método, no contexto das equações de Navier-Stokes em escoamentos incompressíveis para domínios fixos foi utilizado inicialmente por \citeonline{JansenWH:2000}.
+
+Considerando que o tempo da análise do problema é definido por um intervalo de $[0,T]$, o qual é particionado em subintervalos $\Delta t_{n} = t_{n+1} - t_{n}$, com $t_{n}$ e $t_{n+1}$ os instantes anterior e atual, respectivamente. A solução do problema consiste em: conhecida a solução nos graus de liberdade nodais ($\Acceleration$, $\Velocity$ e $\Press$) no passo de tempo $n$, encontrar a solução no passo de tempo $n+1$ de forma que:
+
+\begin{align}
+\NNSM(\Acceleration_{n+\alpham},\Velocity_{n+\alphaf},\Press_{n+1}) = \mathbf{0}, \label{eq:momentum_residual_alpha}\\
+\NNSC(\Acceleration_{n+\alpham},\Velocity_{n+\alphaf},\Press_{n+1}) = \mathbf{0}, \label{eq:continuity_residual_alpha}
+\end{align}
+
+\noindent com:
+
+\begin{gather}
+\Acceleration_{n+\alpham} = \Acceleration_n + \alpham \left( \Acceleration_{n+1} - \Acceleration_n \right), \label{eq:approx_acceleration}\\
+\Velocity_{n+\alphaf} = \Velocity_n + \alphaf \left( \Velocity_{n+1} - \Velocity_n \right), \label{eq:approx_velocity}
+\end{gather}
+
+\noindent sendo $\Acceleration_{n+\alpham}$ e $\Velocity_{n+\alphaf}$ valores intermediários entre $t_{n}$ e $t_{n+1}$ do vetor aceleração e velocidade. A relação entre os valores nodais de aceleração e velocidade são calculados de acordo com fórmula discreta de Newmark (ver, por exemplo, \cite{Hughes:1976}):
+
+\begin{gather}
+\Velocity_{n+1} = \Velocity_n + \timeStep\left(\left(1-\gamma\right)\Acceleration_n + \gamma\Acceleration_{n+1} \right). \label{eq:newmark}
+\end{gather}
+
+Os parâmetros que definem o instante intermediário, no qual as variáveis serão calculadas, são determinados de forma a proporcionarem estabilidade e precisão ao método. Seguindo a metodologia proposta por \citeonline{JansenWH:2000}, uma precisão de segunda ordem é obtida desde que: 
+
+\begin{gather}
+\gamma = 1/2 + \alpham - \alphaf,\label{eq:gamma}
+\end{gather}
+
+\noindent enquanto que a estabilidade do problema é incondicional com:
+
+\begin{gather}
+\alpham \ge \alphaf \ge 1/2.
+\end{gather}
+
+Para proporcionar a precisão de segunda-ordem de convergência e estabilidade da solução, pode-se calcular o parâmetro $\gamma$ de acordo com Eq. \ref {eq:gamma} e $\alpham$, $\alphaf$, através de \cite{Hughes:2000}:
+
+
+\begin{gather}
+\alpham = \frac{1}{2}\left(\frac{3 - \specRadius}{1+\specRadius}\right)\label{eq:alpha_m_fluid}\\
+\end{gather}
+
+\noindent e
+
+\begin{gather}
+\alphaf = \frac{1}{1+\specRadius}\label{eq:alpha_f_fluid}.
+\end{gather}
+
+O parâmetro $\specRadius$ é conhecido como raio espectral da matriz de amplificação quando $\Delta t_{n} \rightarrow \infty$. Esse parâmetro controla a dissipação numérica em altas frequências realizada pelo processo de integração e está contido no intervalo de $[0,1]$. Para $\specRadius = 0$ a dissipação é máxima e para $\specRadius = 1$ não há introdução de difusão numérica ao método.
+
+Para a solução do sistema de equações não lineares compostas por Eq. \eqref{eq:momentum_residual_alpha} e Eq. \eqref{eq:continuity_residual_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva.
+
+Na primeira etapa, conhecida a solução em um passo de tempo $n$, prediz-se a solução em $n+1$ com as seguintes equações:
+
+\begin{align}
+\Acceleration_{n+1}^{0} = \frac{\gamma-1}{\gamma}\Acceleration_{n} \label{eq:Pred1},
+\end{align}
+
+\begin{align}
+\Velocity_{n+1}^{0} = \Velocity_{n}, \label{eq:Pred2}
+\end{align}
+
+\begin{align}
+\Press_{n+1}^{0} = \Press_{n},\label{eq:Pred3}
+\end{align}
+
+\noindent onde o índice $0$ representa a iteração de número zero. 
+
+Na etapa iterativa corretiva, itera-se sobre a Eq. \eqref{eq:momentum_residual_alpha} e Eq. \eqref{eq:continuity_residual_alpha} até que elas sejam satisfeitas, considerando uma tolerância prescrita, ou até que se alcance uma quantidade máxima de iterações pré-estabelecida. Essa etapa é composta por três fases. A fase 1 consiste em determinar os valores no instante intermediário para as variáveis nodais na iteração $i$:
+
+\begin{align}
+\Acceleration_{n+\alpham}^{i} = \Acceleration_n + \alpham \left( \Acceleration_{n+1} - \Acceleration_n \right), \label{eq:approx_accelerationI}\\
+\Velocity_{n+\alphaf}^{i} = \Velocity_n + \alphaf \left( \Velocity_{n+1} - \Velocity_n \right), \label{eq:approx_velocityI}\\
+\Press_{n+1}^{i} = \Press_{n+1}^{i} \label{eq:approx_pressI}.
+\end{align}
+
+Na fase 2, com os valores intermediários das variáveis nodais resolve-se o sistema linear resultante da linearização das equações Eq. \eqref{eq:momentum_residual_alpha} e Eq. \eqref{eq:continuity_residual_alpha} com respeito às variáveis de interesse $\Press_{n+1}$ e $\Acceleration_{n+1}$:
+
+\begin{align}
+\left .\frac{\partial\NNSM}{\partial\Acceleration_{n+1}}\right|_{i} \Delta \Acceleration_{n+1}^{i} + \left .\frac{\partial\NNSM}{\partial\Press_{n+1}}\right|_{i} \Delta \Press_{n+1}^{i} = -\NNSM^{i}, \label{eq:NR1} \\
+\left .\frac{\partial\NNSC}{\partial\Acceleration_{n+1}}\right|_{i} \Delta \Acceleration_{n+1}^{i} + \left .\frac{\partial\NNSC}{\partial\Press_{n+1}}\right|_{i} \Delta \Press_{n+1}^{i} = -\NNSC^{i}.\label{eq:NR2}
+\end{align}
+
+Por fim, na fase 3 atualiza-se a solução através das seguintes relações:
+
+\begin{align}
+\Acceleration_{n+1}^{i+1} = \Acceleration_{n+1}^{i} + \Delta\Acceleration_{n+1}^{i},\label{update1} \\ 
+\Velocity_{n+1}^{i+1} = \Velocity_{n+1}^{i} + \Delta\Velocity_{n+1}^{i},\label{update2}\\
+\Press_{n+1}^{i+1} = \Press_{n+1}^{i} + \Delta\Press_{n+1}^{i}.\label{update3}
+\end{align}
+
+Na utilização do método $\alpha$-generalizado as integrais das equações Eq. \eqref{eq:momentum_residual_alpha} e Eq. \eqref{eq:continuity_residual_alpha} são avaliadas no instante $t = t_{n+\alpha_{f}}$, de forma que:
+
+\begin{align}
+\int_{\domain_{t}} \left(.\right) d\domain = \int_{\domain_{t_{n+\alpha_{f}}}} \left(.\right) d\domain
+\end{align}
+
+\begin{align}
+\domainALEN = \left\{\posh \  |\  \posh(\posALEh,t_{(n+\alphaf)}) = \alphaf \posh(\posALEh,t_{n+1}) + (1-\alphaf) \posh(\posALEh,t_n)  \right\}.
+\end{align}
+
+\section{Método dos elementos finitos aplicado à Mecânica dos Fluidos}
+
+
+No contexto do método dos elementos finitos, o contínuo é decomposto em um conjunto de subdomínios chamados de elementos, que compreendem um arranjo de pontos denominados nós. As variáveis de interesse do problema, que incluem a geometria na abordagem isoparamétrica, são aproximadas pela combinação linear de um número finito de funções associadas aos nós, chamadas funções de forma, multiplicadas por variáveis chamadas parâmetros nodais.
+
+A aproximação das variáveis nodais é realizada, em geral através dos polinômios de Lagrange, sendo os parâmetros nodais iguais ao valor interpolado da respectiva variável na posição dos nós da malha de elementos finitos. A técnica de elementos finitos pode ser estudada nos diversos livros disponíveis sobre o assunto, tais como \citeonline{ZienkiewiczT:2005a,Reddy:2006}.
+
+Nesse trabalho são utilizadas funções de forma quadráticas do tipo polinômios de Lagrange, sendo empregados elementos isoparamétricos triangulares para o caso 2D e tetraédricos para o caso 3D. Na Fig. \ref{fig:elementofinito2d} e Fig. \ref{fig:elementofinito3d}, pode-se observar os elementos finitos 2d e 3d respectivamente bem como os espaços paramétricos adimensionais adotados para definir as funções de forma. 
+
+Adotar a abordagem isoparamétrica implica que a geometria do problema é descrita também pela combinação entre funções de forma e as coordenadas nodais da malha:
+
+\begin{align}
+\pos^{h} = \sum_{A = 1}^{N_{nos}} \pos_{A}(t)N_{A}(x),
+\end{align}
+
+\noindent permitindo desta forma a representação de formas curvas.
 
 \begin{figure}[!htb]
 	\centering	
-	\subfloat[Pontos de controle inicias.\label{fig:pontosdecontroleInicias}]{\includegraphics[scale=0.4,trim=1cm 1cm 0.5cm 1cm, clip=true]{Imagens/Cap2/escoamentosobrecilindro.pdf}}
-	\subfloat[Pontos de controle após inserção de \textit{knots}.\label{fig:pontosdecontroleInicias2}]{\includegraphics[trim=1cm 1cm 0.5cm 1cm,clip,scale=0.4]{Imagens/Cap2/escoamentosobrecilindro2.pdf}}
-	\caption{Cilindro 3D: Geração curva NURBS}
+	\subfloat[Elemento Finito 2d.\label{fig:elementofinito2d}]{\includegraphics[scale=0.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/element2d.pdf}}\\
+	\subfloat[Elemento Finito 3d.\label{fig:elementofinito3d}]{\includegraphics[trim=0 0 0 0,clip,scale=0.65]{Imagens/Cap2/element3d.pdf}}
+	\caption{Elementos Finitos: representação espacial e paramétrica}
 \end{figure}
 
-Para a obtenção de uma seção transversal da geometria em questão, gera-se uma superfície a partir da discretização na direção $\eta$ do espaço paramétrico. O código utiliza um vetor de \textit{knots} aberto, com os 
-\textit{knots} distribuídos uniformemente, e funções de forma quadráticas. Os pontos de controle são distribuídos radialmente no espaço físico através de uma progressão geométrica unidirecional e seus pesos são determinados a partir de uma interpolação linear entre os pesos dos pontos de controle da circunferência e os pontos do quadrado. A quantidade mínima de pontos de controle respectiva à direção $\eta$ é de $q+1$ pontos, sendo a quantidade final definida em função da análise numérica. Na Fig. \ref{fig:superficieNURBcilindro}, apresenta-se um exemplo de uma rede de pontos de controle, obtida a partir das curvas apresentadas em Fig. \ref {fig:pontosdecontroleInicias2} com 9 pontos de controle na direção $\eta$. Na figura em questão omitiu-se a nomenclatura dos pontos de controle intermediários às curvas da circunferência e do quadrado para evitar a sobreposição da nomenclatura na figura.
+\clearpage
 
 
-\begin{figure}[htb!]
-	\centering 
-	\includegraphics[scale=0.4,trim=1cm 1cm 5cm 4cm, clip=true]{Imagens/Cap2/escoamentosobrecilindro3.pdf}	
-	\label{fig:superficieNURBcilindro}
-	\caption{Cilindro 3D: Geração superfície NURBS.}
-\end{figure}
 
-Nessa primeira etapa do trabalho, a direção paramétrica $\zeta$, respectiva à direção $z$ da geometria física, foi discretizada com apenas uma célula, utilizando-se para isso vetor de \textit{knots} abertos com distribuição uniforme de \textit{knots}, e funções base quadráticas.
+\subsection{Implementação Computacional} \label{subsection:DFCComputationalCode}
 
-Visando a verificação do código de IGA 3D analisa-se o problema do escoamento sobre o cilindro para $\Reynolds$ =40 ,100 e 1000 (Eq. \eqref{eq:Reynolds}). Para isso, gera-se uma malha com 101 x 71 x 3 pontos de controle nas direções paramétricas $\xi$, $\eta$ e $\zeta$ respectivamente, resultando em 6624 células. Na Fig. \ref{fig:cilindrogeometria} apresentam-se as dimensões da geometria em questão, bem como as condições de contorno aplicadas, e na Fig. \ref{fig:cilindromalha} apresenta-se a malha física resultante da discretização.
 
+O Algoritmo que descreve a implementação computacional tanto de problemas utilizando o método dos elementos finitos, quanto para problemas utilizando a análise Isogeométrica, é apresentado no Alg. \ref{alg:fluid_temporalIntegration}.
+
+\begin{algorithm}
+	\caption{Algoritmo para problemas de dinâmica dos fluidos computacional}
+	\label{alg:fluid_temporalIntegration}
+	\begin{algorithmic}[1]
+		\For {o passo de tempo $0$ até \timeInterval} 
+		\State $i=0$;
+		\State Predição da solução: aplicação das Eq. \eqref{eq:Pred1}, Eq. \eqref{eq:Pred2} e Eq. \eqref{eq:Pred3};
+		\While{($\epsilon$ < tolerância)}
+		\State $i$++;
+		\State Interpolação das variáveis do problema: aplicação da Eq. \eqref{eq:approx_accelerationI}, Eq. \eqref {eq:approx_velocityI} e Eq. \eqref{eq:approx_pressI};
+		\State Cálculo do incremento nas variáveis do problema: $\Acceleration_{n+1}$ e $\Press_{n+1}$ de acordo com as Eq. \eqref{eq:NR1} e Eq. \eqref{eq:NR2};
+		\State Atualização da solução: calculadas de acordo com Eq. \eqref{update1}, Eq. \eqref{update2} e Eq. \eqref{update3}.
+		\State Cálculo do erro:
+		\begin{align}
+		\epsilon =\left\| \NNSM^i \right\|_{L^2}
+		\end{align}
+		\EndWhile
+		\EndFor
+	\end{algorithmic}
+\end{algorithm}
+
+\section{Verificação e Aplicações}
+
+Para a verificação dos códigos baseados no método dos elementos finitos, adotam-se 2 exemplos muito populares nas bibliografias: Escoamento sobre um cilindro 2D e o problema da cavidade quadrada 3D, os quais são apresentados na subseções sequentes.
+
+\subsection{Escoamento sobre um cilindro - 2D} \label{subsection:escoamentocil2d}
+
+O estudo do problema de um escoamento sobre um cilindro 2D teve como principal intuito a análise dos coeficientes aerodinâmicos medidos ao longo do tempo e verificar consequentemente se o modelo é capaz de reproduzir os fenômenos relacionados à formação e desprendimento de vórtices característicos desse problema. Para isso, diferentes números de Reynolds ($\Reynolds$) foram estudados, $\Reynolds$ = 40, 100 e 1000, os quais são calculados de acordo com a seguinte equação:
+
+\begin{align}
+	\Reynolds = \frac{\rho L \lVert\velocinfty\lVert}{\viscosity} = \frac{L \lVert \velocinfty \lVert}{\kviscosity}, \label{eq:Reynolds}
+\end{align}
+
+\noindent com $L$ a dimensão característica do problema, sendo nesse caso o diâmetro do cilindro, e $\kviscosity$ a viscosidade cinemática do fluido. 
 
 \begin{figure}[!htb]
 	\centering
-	\subfloat[\label{fig:cilindrogeometria}Geometria]{\includegraphics[scale=0.48,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cylinderISO3d.pdf}} 
-	\subfloat[\label{fig:cilindromalha} Malha de células físicas]{\includegraphics[scale=0.2,trim=5cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/malhacilindro.eps}} 
-	\caption{Cilindro 3D: Geometria e malha de células físicas}
-	\label{fig:cilindro_geoemalha}
+	\subfloat[Geometria e condições de contorno.\label{fig:cilindro2d_geometria}]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro2d.pdf}}\\
+	\subfloat[Discretização espacial.\label{fig:cilindro2d_malha}]{\includegraphics[trim=170 120 170 130,clip,scale=0.2]{Imagens/Cap2/MeshCylinder2D.eps}}
+	\caption{Cilindro 2D: Geometria, condições de contorno e malha de elementos finitos.}
 \end{figure}
 
-Adicionalmente, prescrevem-se nas paredes frontal e posterior, condição de parede lisa ($u_{z} = 0$), e na \textit{Saída} do escoamento condição de força de superfície nula ($\stresstensor \normal = \mathbf{0}$). O problema é simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\rho = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$, sendo a viscosidade variada de acordo com o número de Reynolds desejado.  Para o cálculo dos coeficientes aerodinâmicos $C_{D}$, $C_{L}$ e do número de Strouhal ($\Strouhal$) utilizam-se as equações apresentadas no Item \ref{subsection:escoamentocil2d}. 
 
-Nas Figs. \ref{fig:cilindro_Cd3d} e \ref{fig:cilindro_Cl3d}, apresentam-se a variação ao longo do tempo dos coeficientes $C_{D}$ e $C_{L}$. Os valores obtidos com a malha isogeométrica 3D estão muito próximos ao obtidos com a malha de elementos finitos 2D (Item \ref{subsection:escoamentocil2d}) para Reynolds 40 e 100. Para Reynolds 1000, nota-se que a variação ao longo do tempo dos valores de $C_{D}$ e $C_{L}$ para IGA resulta em valores mais elevados do que os obtidos com MEF. Tal diferença ainda deverá ser investigada, sendo que tanto as diferenças nas dimensões das malhas como a diferença que pode haver na convergência dos resultados ou a efeitos de 3D de vorticidade podem contribuir para isso. Os resultados obtidos para o histórico de $C_{D}$ e $C_{L}$ por \citeonline{Henderson:1997} para $Re = 1000$ em análises tridimensionais baseadas em MEF, foram menores do que os 2D. Essa disparidade entre os resultados obtidos nesse trabalho e de \citeonline{Henderson:1997} podem estar relacionados com o fato de que a dimensão escolhida da malha na direção $z$ foi muito pequena de maneira a impossibilitar que os efeitos tridimensionais do escoamento fossem adequadamente capturados.
+A geometria e condições de contorno são apresentadas na Fig. \ref{fig:cilindro2d_geometria}. Como pode-se observar trata-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nas paredes superior e inferior (velocidade normal à parede $u_{n}$ = 0). No contorno denominado como \textit{saída}, não se conhece o comportamento do escoamento, desta forma, determina-se sua posição no domínio computacional a uma distância grande o suficiente de maneira a não interferir no comportamento do escoamento. Além disso, prescreve-se uma condição de contorno dita artificial, que consiste em $\stresstensor \normal = \mathbf{0}$.
 
-Para o número de Strouhal, o valor obtido para $\Reynolds = 100$ foi de 0,1681 e para $\Reynolds = 1000$ de 0,2395. Nota-se que, embora os valores de $C_{D}$ e $C_{L}$ apresentem diferenças entre os resultados 2d baseados em elementos finitos e a malha 3D baseada em IGA, a frequência do desprendimento de vórtices obtida foi muito semelhante.
+Na Fig. \ref{fig:cilindro2d_malha} pode-se observar a malha não-estruturada de elementos finitos utilizada para esse problema, composta por 3122 elementos triangulares quadráticos e 6376 nós. O problema foi simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\rho = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$. 
+
+Para o cálculo dos coeficientes aerodinâmicos é necessário definir-se primeiramente as forças de arrasto - horizontal ($F_D$) e de sustentação - vertical ($F_L$), que são induzidas por tensões desviadores e hidrostáticas e são calculadas pelas seguintes equações:
+
+\begin{align}
+F_D = \int_{\boundary_{c}} \stresstensor_{1j}n_{j} d\boundary_{c},
+\end{align}
+
+\begin{align}
+F_L = \int_{\boundary_{c}} \stresstensor_{2j}n_{j} d\boundary_{c},
+\end{align}
+
+\noindent nas quais o símbolo $\boundary_{c}$ representa o contorno do cilindro e $n$ é o vetor normal à essa superfície. Os coeficientes de arrasto e sustentação são definidos respectivamente por:
+
+\begin{align}
+	C_D = \frac{F_D}{0,5\rho \lVert \velocity \lVert^{2} L},
+\end{align}
+
+\begin{align}
+	C_L = \frac{F_L}{0,5\rho \lVert \velocity \lVert^{2} L},
+\end{align}.
+
+Devido ao fenômeno de desprendimento de vórtices que ocorre a partir de determinado número de Reynolds do escoamento, é usual determinar-se a frequência deste fenômeno através do número adimensional de Strouhal ($\Strouhal$), dado por:
+
+\begin{align}
+	\Strouhal = \frac{f_{V}L}{\lVert \velocity \lVert},
+\end{align}.
+
+\noindent com $f_{V}$ sendo a frequência de desprendimento dos vórtices.
+
+Como pode-se observar na Fig. \ref{fig:cilindro_coeficientes} para $\Reynolds = 40$, os coeficientes de arrasto e de sustentação, após o escoamento entrar em fase estacionária, se mantém constantes ao longo de todo o tempo de análise. Isso ocorre, visto que para Reynolds entre 5 à 50, aproximadamente, formam-se dois vórtices simétricos e estacionários na região logo após o cilindro. Posteriormente, o par de vórtices se quebra e passa existir a chamada esteira de Von Karmán, que ocorre devido à formação de vórtices de maneira alternada entre as regiões superior e inferior do cilindro, o que pode ser notado também na Fig. \ref{fig:cilindro_coeficientes}  para $Re = 100$ e $Re=1000$. Os valores do coeficiente de Strouhal, para $Re = 100$ e $Re=1000$, foram de 0,1716 e 0,2454 respectivamente. Os valores obtidos para os coeficientes aerodinâmicos foram os esperados para o problema em questão (ver, por exemplo, \citeonline{Tonon:2016,Henderson:1997}).
 
 \begin{figure}[!htb]
 	\centering
-	\subfloat[\label{fig:cilindro_Cd3d}Coeficiente de arrasto $ C_D$.]{\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/DragRe.eps}} 
-	\subfloat[\label{fig:cilindro_Cl3d}Coeficiente de sustentação $C_L$.]{\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/LiftRe.eps}}\\ 
+	\subfloat[\label{fig:cilindro_Cd}Coeficiente de arrasto $ C_D$.]{\includegraphics[scale=1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/DragRe.eps}}\\ 
+	\subfloat[\label{fig:cilindro_Cl}Coeficiente de sustentação $C_L$.]{\includegraphics[scale=1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/LiftRe.eps}}\\ 
 	{\includegraphics[scale=1.3]{Imagens/Cap2/Legenda.pdf}}
-	\caption{Cilindro 3D: Coeficientes aerodinâmicos. }
-	\label{fig:cilindro_coeficientes3d}
+	\caption{Cilindro 2D: Coeficientes aerodinâmicos. }
+	\label{fig:cilindro_coeficientes}
 \end{figure}
 
-
-\subsection {Escoamento em um canal com degrau}
-
-Este exemplo é amplamento utilizado na verificação de códigos para escoamentos incompressíveis, sendo sua geometria apresentada na Fig. \ref{fig:degrau_geo}.  O problema consiste em prescrever-se um perfil parabólico de escoamento na entrada do canal, e condição de aderência ($\velocity = 0$) nas demais paredes que estão contidas nos planos $xz$ e $yz$, exceto na saída do canal, a qual possui como condição $\stresstensor\normal = \mathbf{0}$. Para as paredes dos planos $xy$, frontal e posterior, prescreveu-se condição de parede lisa ($u_{z}=0$). 
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[scale=1.2,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/degrau.pdf}
-	\caption{Degrau 3D: Geometria.}
-	\label{fig:degrau_geo}
-\end{figure}
-
-
-As dimensões selecionadas para o canal foram $h = 1,0m$, $s = 0,94m$, $x_{e}= 1,0m$, $x_{f}= 15m$ e $x_{t} = 30m$ e dimensão na direção $z$ de $0,1m$. Adicionalmente, o perfil de velocidade na entrada do canal é descrito pela seguinte relação:
-
-\begin{align}
-u_{x} = V_{max} \left(1-\left(\frac{\left(y-s\right)-h/2}{h/2}\right)^{2}\right),
-\end{align}
-
-\noindent com velocidade $V_{max} = 10 m/s$ e $u_{y} = u_{z} = 0$.
-
-O escoamento sobre o degrau é caracterizado por produzir áreas de recirculação onde o fluido se separa e forma vórtices. A distância entre o degrau e o ponto de recolamento do vórtice principal $x_{r}$ é uma das principais características verificadas nesse problema. A dimensão dos vórtices varia em função do número de $\Reynolds$, a qual é calculada de acordo com \citeonline {ArmalyDP:1983}, sendo expressa por:
-
-\begin{align}
-\Reynolds =\frac{\rho\left(\frac{2V_{max}}{3}\right)2h}{\viscosity},
-\end{align}
-
-\noindent com $\rho = 1kg/m^{3}$. Foram selecionados para as análises 3 diferentes número de Reynolds: $100$, $400$ e $800$, variando-se a viscosidade do fluido.
-
-Para a geração da geometria NURBS, discretiza-se o canal em 5 \textit{patches}, os quais são denominados $P_{0},P_{1},P_{2},P_{3}$ e $P_{4}$, e podem ser observados na Fig. \ref{fig:degrau_geo}. Todas as direções paramétricas são discretizadas com vetores de \textit{knots} abertos e com \textit{knots} igualmente espaçados no interior do vetor, além de funções de forma quadráticas. Os pontos de controle para os \textit{patches} $0,1$ e $2$ foram distribuídos no espaço físico, direções $x,y$ e $z$ de maneira a se obter células igualmente espaçados. Para os \textit{patches} $3$ e $4$, na direção do espaço físico $y$ e $z$, os pontos são posicionadas de maneira a gerar células uniformes, e, na direção $x$, são distribuídos de maneira a se resultar numa progressão geométrica do tamanho das células, com as células aumentando de tamanho da esquerda para a direita, conforme pode ser observado na Fig. \ref{fig:degrau_malha}. Na Tab. \ref{tab:numberPCpatches} podem ser observados os números de pontos de controle utilizados em cada direção dos espaços paramétricos para cada \textit{patch}, resultando em 60795 pontos de controle e 4800 células.
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[scale=0.3,trim=1cm 14cm 1cm 14cm, clip=true]{Imagens/Cap2/malhadegrau.eps}
-	\caption{Degrau 3D: Geometria e malha de células físicas}
-	\label{fig:degrau_malha}
-\end{figure}
-
-\begin{center}
-	\begin{table}[h!]
-		\caption{Número de pontos de controle por \textit{patch}}
-		\centering
-		\begin{tabular}{|c | c | c| c|} 
-			\hline
-			\textit{Patch} & $\xi$ & $\eta$ & $\zeta$ \\ 
-			\hline
-			0 & 22 & 12 & 3 \\ 
-			\hline
-			1 & 152 & 12 & 3\\
-			\hline
-			2 & 152 & 12 & 3\\
-			\hline
-			3 & 82 & 12 & 3\\
-			\hline
-			4 & 82 & 12 & 3\\
-			\hline
-		\end{tabular}
-		\label{tab:numberPCpatches}
-	\end{table}
-\end{center}
-
-
-Na Fig. \ref{fig:degrau_com_recl} são apresentados os comprimentos de recolamento do vórtice primário adimensionalizados ($x_{r}/s$), juntamente com os resultados adaptados dos ensaios experimentais de \citeonline{ArmalyDP:1983} e os resultados de análises 2d de \citeonline{WilliamsB:1999}. Nota-se que os resultados obtidos estão próximos das referências para $\Reynolds = 100$ e $\Reynolds =400$, entretanto, para $\Reynolds = 800$ nota-se um afastamento do presente trabalho, e do referente à análise 2D com relação ao experimento realizado por \citeonline{ArmalyDP:1983}. Isto ocorre, visto que o ensaio experimental foi realizado com um canal com $2m$ de comprimento na direção $z$, e a simulação atual com apenas uma célula nessa direção é incapaz de captar os fenômenos tridimensionais que ocorrem a medida que o número de Reynolds cresce. Na Fig.\ref {fig:degrau_vortices} pode-se observar o campo de velocidade para os Reynolds estudados, e o aspecto do vórtice primário desenvolvido.
-
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[scale=1.2,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/comvort.eps}
-	\caption{Degrau 3D: Comprimento de recolamento do v\'ortice principal}
-	\label{fig:degrau_com_recl}
-\end{figure}
-
+Nas Fig. \ref{fig:cilindro_2d_pressao} e Fig. \ref{fig:cilindro_2d_velocidade} podem ser observados os campos de pressão e velocidade em um tempo $t=11,5$ da análise para $Re = 100$. Pode-se notar nessas imagens, a formação e os desprendimentos de vórtices na esteira de Von Karmán, característico do escoamento para o número de Reynolds simulado.
 
 \begin{figure}[!htb]
 	\centering
-	\subfloat[\label{fig:vortice_re100} $\Reynolds= 100$]{\includegraphics[scale=0.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/degrau100.pdf}} \\
-	\subfloat[\label{fig:vortice_re400} $\Reynolds= 400$]{\includegraphics[scale=0.36,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/degrau400.pdf}}\\ 
-	\subfloat[\label{fig:vortice_re800}$\Reynolds= 800$]{\includegraphics[scale=0.36,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/degrau800.pdf}}\\
-	{\includegraphics[scale=0.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/legendadegrau.pdf}}
-	\caption{Degrau 3D: Campo de velocidade. }
-	\label{fig:degrau_vortices}
+	\subfloat[\label{fig:cilindro_2d_pressao}Campo de pressão]{\includegraphics[scale=0.2,trim=15cm 9cm 14cm 9cm, clip=true]{Imagens/Cap2/pressaoRe100.png}}\\ 
+	\subfloat[\label{fig:cilindro_2d_velocidade}Campo de velocidade]{\includegraphics[scale=0.2,trim=15cm 1cm 14cm 9cm, clip=true]{Imagens/Cap2/velocitymagnitude.png}}
+	\caption{Cilindro 2D: Campos de pressão e de velocidade para um escoamento com $Re = 100$ }
+	\label{fig:cilindro_campos}
 \end{figure}
+
+
+\subsection{Cavidade Quadrada - 3D}
+
+Para a verificação do código 3D utilizando elementos finitos o problema de uma cavidade quadrada com velocidade prescrita $u_{\infty}$ em sua parede superior foi estudado. A geometria do problema em questão e o conjunto de suas condições de contorno são apresentadas na Fig. \ref{fig:cavidade_geometria}. As paredes da cavidade são rígidas, com paredes laterais e do fundo com condição de aderência, e adicionalmente, velocidade $u_{z}=0$, condição de parede lisa, nas paredes das faces frontal e posterior. A cavidade possui na direção $z$ uma espessura de 0,03. A discretização espacial em elementos finitos utilizada é apresentada na Fig.  \ref{fig:cavidade_malha}, a qual consiste em 7252 elementos tetraédricos quadráticos e 14727 nós.
+
+O problema é estudado para os números de Reynolds: 100, 400 e 1000. O número de Reynolds foi calculado de acordo com Eq. \eqref{eq:Reynolds}, com $L$ equivalente ao comprimento do lado da cavidade. O problema foi simulado para uma velocidade na parede superior de $\velocity_{\infty} = 1,0$, $\rho = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0$, sendo a viscosidade do fluido variada de modo a alterar o número de Reynolds. A simulação foi mantida até que se atingiu o estado estacionário de escoamento. 
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[Geometria e condições de contorno.\label{fig:cavidade_geometria}]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cavidade.pdf}} \quad
+	\subfloat[Discretização espacial.\label{fig:cavidade_malha}]{\includegraphics[trim=170 120 850 130,clip,scale=0.15]{Imagens/Cap2/cavitymesh.png}}
+	\caption{Cavidade quadrada: Geometria, condições de contorno e malha de elementos finitos.}
+\end{figure}
+
+Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) horizontal e vertical ao longo de duas linhas centrais nas direções $x$ e $y$ posicionadas no centro da espessura na direção $z$ da cavidade são apresentados na Fig. \ref{fig:cavidade_graficos} e comparados com a referência de \citeonline{GhiaGS:1982}.
+
+
+\begin{figure}[!t]
+	\centering
+	\subfloat[\label{fig:cavidade_g_Re100}$Re$=100.]{\includegraphics[scale=.8,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re100.eps}} \subfloat[\label{fig:cavidade_g_Re400}$Re$=400.]{\includegraphics[scale=.8,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re400.eps}}\\ 
+	\subfloat[\label{fig:cavidade_g_Re1000}$Re$=1000.]{\includegraphics[scale=.8,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re1000.eps}} \\
+	\subfloat{\includegraphics[scale=1.]{Imagens/Cap2/legenda.pdf}} 
+	\caption{Cavidade quadrada: Perfis de velocidade adimensionalizados nas direções $x$ e $y$ . }
+	\label{fig:cavidade_graficos}
+\end{figure}
+
+Os campos de velocidade e de pressão são apresentados nas figuras Fig \ref{fig:cav3d-vel} e \ref{fig:cav3d-press} respectivamente. Ressalta-se que para a solução do problema, por se tratar de um problema com todos os contornos com condição de Dirichlet impostos, a pressão torna-se indefinida. Por esse motivo, prescreveu-se uma pressão $\press = \press_{ref} =  0$ no canto superior direito da cavidade. 
+
+
+\begin{figure}[!t]
+	\centering
+	\setlength{\lineskip}{-10pt}
+	\subfloat[\label{fig:cavidade_Vel_Re100}$Re$=100.]{\includegraphics[scale=0.15,trim=15cm 7cm 15cm 7cm, clip=true]{Imagens/Cap2/velocity-Re100.png}} \subfloat[\label{fig:cavidade_Vel_Re400}$Re$=400.]{\includegraphics[scale=0.15,trim=15cm 7cm 15cm 7cm, clip=true]{Imagens/Cap2/velocity-Re400.png}}\\ 
+	\subfloat[\label{fig:cavidade_Vel_Re1000}$Re$=1000.]{\includegraphics[scale=0.15,trim=15cm 7cm 15cm 7cm, clip=true]{Imagens/Cap2/velocity-Re1000.png}} \\
+	%	\subfloat[\label{fig:cavidade_g_Re10000}$Re$=10000.]{\includegraphics[scale=1.1,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re10000.eps}}\\
+	\subfloat{\includegraphics[scale=0.2]{Imagens/Cap2/legandaCavidadeVel.pdf}} 
+	\caption{Cavidade quadrada: campos de velocidade. }
+	\label{fig:cav3d-vel}
+\end{figure}
+
+\begin{figure}[!t]
+	\centering
+	\setlength{\lineskip}{-10pt}
+	\subfloat[\label{fig:cavidade_Press_Re100}$Re$=100.]{\includegraphics[scale=0.15,trim=15cm 0cm 15cm 7cm, clip=true]{Imagens/Cap2/pressao100.png}} \subfloat[\label{fig:cavidade_Press_Re400}$Re$=400.]{\includegraphics[scale=0.15,trim=15cm 0cm 15cm 7cm, clip=true]{Imagens/Cap2/pressao400.png}}\\ 
+	\subfloat[\label{fig:cavidade_Press_Re1000}$Re$=1000.]{\includegraphics[scale=0.15,trim=15cm 0cm 15cm 7cm, clip=true]{Imagens/Cap2/pressao1000.png}} \\
+	%	\subfloat[\label{fig:cavidade_g_Re10000}$Re$=10000.]{\includegraphics[scale=1.1,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re10000.eps}}\\
+	\caption{Cavidade quadrada: campos de pressão. }
+	\label{fig:cav3d-press}
+\end{figure}
+
+
+%
+%\clearpage[e ]
+%
+%\textcolor{white}{ }
+
 
 \end{document}

@@ -64,11 +64,6 @@
 \counterwithin{table}{chapter} 
 %\usepackage[hyphenbreaks]{breakurl}
 
-
-%\usepackage{algorithm}
-%\usepackage{algorithm}
-%\usepackage[ruled,lined]{algorithm2e}
-%\usepackage[ruled, lined, longend, linesnumbered]{algorithm2e}
 \usepackage{tikz}
 \usetikzlibrary{calc,arrows}
 \usetikzlibrary{positioning,shapes}
@@ -80,29 +75,25 @@
 \newtheorem{lemma}[theorem]{Lema}
 \newtheorem{definition}[theorem]{Definição}
 
-%Sobre técnicas de superposição de modelo
 %
-%
-%Desenvolvimento de técnica multiescala local/global estabilizada para análise de interação fluido-estrutura
-
-
 \makeatletter
 \setlength{\@fptop}{0pt}
 \makeatother
 
 \makenomenclature
 \renewcommand{\nomname}{Lista de Símbolos}
-
 \renewcommand{\nompreamble}{Nesta seção são apresentados os principais símbolos matemáticos, operadores e variáveis utilizadados neste trabalho. De um modo geral, símbolos em negrito denotam grandezas vetoriais ou tensoriais, enquanto os escritos em estilo de formatação normal ou itálico representam grandezas escalares. Os casos omissos são descritos ao longo do texto.}
-%
+
+\RequirePackage{ifthen}
+\renewcommand{\nomgroup}[1]{%
+	\ifthenelse{\equal{#1}{B}}{\item[]\textbf{Capítulo \ref{capitulo:Cap2} - \nameref{capitulo:Cap2}}}
+}
+
 \makeatletter
 \renewcommand{\ALG@name}{Algoritmo}
 \makeatother
 
-\RequirePackage{ifthen}
-\renewcommand{\nomgroup}[1]{%
-	\ifthenelse{\equal{#1}{C}}{\item[\textbf{Capítulo \ref{capitulo:Cap1} - \nameref{capitulo:Cap1} }]}{
-}}
+
 
 
 % Algoritmos com Declaracoes em Português
@@ -560,11 +551,12 @@
 \textual
 
 \subfile{introducao}
-\subfile{Cap1}
 \subfile{Cap2}
 \subfile{Cap3}
 \subfile{Cap4}
 \subfile{Cap5}
+\subfile{Cap6}
+\subfile{Cap7}
 \subfile{ConclusoesParciais}
 
 % ----------------------------------------------------------

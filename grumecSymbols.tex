@@ -119,15 +119,17 @@
 %Overlapping Zone
 \newcommand{\overlappingZone}{\Omega_s}
 %Weighting function
-\newcommand{\arlequinWF}{\varrho}
+\newcommand{\arlequinWF}{\alpha}
 %weigthing function local model
-\newcommand{\arlequinWFLocal}{\varrho_1}
+\newcommand{\arlequinWFLocal}{\alpha_1}
 %weighting function global model
-\newcommand{\arlequinWFGlobal}{\varrho_0}
+\newcommand{\arlequinWFGlobal}{\alpha_0}
 %local velocity
 \newcommand{\ulocal}{\mathbf{u}_1}
 %global velocity
 \newcommand{\uglobal}{\mathbf{u}_0}
+%velocity Arleq. i
+\newcommand{\uArlqi}{\mathbf{u}_i^{h}}
 %local velocity
 \newcommand{\ulocalh}{\mathbf{u}_1^h}
 %global velocity
@@ -140,6 +142,8 @@
 \newcommand{\wglobalh}{\mathbf{w}_0^h}
 %local velocity weight function
 \newcommand{\wlocalh}{\mathbf{w}_1^h}
+
+\newcommand{\wArlqi}{\mathbf{w}_i^h}
 %Lagrange multiplier
 \newcommand{\lagrangeMultiplier}{\boldsymbol{\lambda}}
 \newcommand{\LagrangeMultiplier}{\boldsymbol{\Lambda}}
@@ -153,6 +157,8 @@
 \newcommand{\pglobal}{p_0}
 %local velocity weight function
 \newcommand{\plocal}{p_1}
+%pressure Arlqi
+\newcommand{\pArlqi}{p_i^{h}}
 %global pressure
 \newcommand{\pglobalh}{p_0^h}
 %local velocity weight function
@@ -165,6 +171,8 @@
 \newcommand{\qglobalh}{q_0^h}
 %local pressure weight function
 \newcommand{\qlocalh}{q_1^h}
+
+\newcommand{\qArlqi}{q_i^h}
 %Solution space global model - velocity
 \newcommand{\uGlobalSolution}{\mathcal{S}_{u0}^h}
 %Solution space local model - velocity
@@ -179,6 +187,9 @@
 \newcommand{\uArlequinTest}{\mathcal{V}_{ui}^h}
 %Arlequin Stabilization Parameter
 \newcommand{\tauArlequin}{\tau_{ARLQ}}
+\newcommand{\tauArlequini}{\tau_{ARLQi}}
+\newcommand{\tauArlequinGlobal}{\tau_{ARLQ0}}
+\newcommand{\tauArlequinLocal}{\tau_{ARLQ1}}
 %Number of subdomains
 \newcommand{\nSubDomains}{n_{dom}}
 
@@ -200,10 +211,12 @@
 %Solution space global model - lagrange multiplier
 \newcommand{\lagTest}{\mathcal{Q}^h}
 
-\newcommand{\resMomGlobal}{\mathbf{r}_{\mathrm{M0}}}
-\newcommand{\resMomLocal}{\mathbf{r}_{\mathrm{M1}}}
-\newcommand{\resPreGlobal}{r_{\mathrm{C0}}}
-\newcommand{\resPreLocal}{r_{\mathrm{C1}}}
+\newcommand{\resMomGlobal}{\mathbf{r}_{\mathrm{M0}}^{h}}
+\newcommand{\resMomI}{\mathbf{r}_{\mathrm{Mi}}^{h}}
+\newcommand{\resMomLocal}{\mathbf{r}_{\mathrm{M1}}^{h}}
+\newcommand{\resPreGlobal}{r_{\mathrm{C0}}^{h}}
+\newcommand{\resPreI}{r_{\mathrm{Ci}}^{h}}
+\newcommand{\resPreLocal}{r_{\mathrm{C1}}^{h}}
 
 \newcommand{\NNSL}{\mathrm{R}_\mathrm{L}}
 \newcommand{\NNSMLocal}{\mathrm{R}_\mathrm{M1}}
@@ -238,8 +251,9 @@
 \newcommand{\stif}{\mathbf{K}}
 \newcommand{\domainref}{\Omega_{ref}}
 
-
+% Fluid Problem
 \newcommand{\density}{\rho}
+
 \newcommand{\vorticity}{\boldsymbol{\omega}}
 
 \newcommand{\velocity}{\mathbf{u}}
