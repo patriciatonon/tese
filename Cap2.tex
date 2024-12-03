@@ -539,8 +539,8 @@ Na primeira etapa, conhecida a solução em um passo de tempo $n$, prediz-se a s
 Na etapa iterativa corretiva, itera-se sobre a Eq. \eqref{eq:momentum_residual_alpha} e Eq. \eqref{eq:continuity_residual_alpha} até que elas sejam satisfeitas, considerando uma tolerância prescrita, ou até que se alcance uma quantidade máxima de iterações pré-estabelecida. Essa etapa é composta por três fases. A fase 1 consiste em determinar os valores no instante intermediário para as variáveis nodais na iteração $i$:
 
 \begin{align}
-\Acceleration_{n+\alpham}^{i} = \Acceleration_n + \alpham \left( \Acceleration_{n+1} - \Acceleration_n \right), \label{eq:approx_accelerationI}\\
-\Velocity_{n+\alphaf}^{i} = \Velocity_n + \alphaf \left( \Velocity_{n+1} - \Velocity_n \right), \label{eq:approx_velocityI}\\
+\Acceleration_{n+\alpham}^{i} = \Acceleration_n + \alpham \left( \Acceleration_{n+1}^{i} - \Acceleration_n \right), \label{eq:approx_accelerationI}\\
+\Velocity_{n+\alphaf}^{i} = \Velocity_n + \alphaf \left( \Velocity_{n+1}^{i} - \Velocity_n \right), \label{eq:approx_velocityI}\\
 \Press_{n+1}^{i} = \Press_{n+1}^{i} \label{eq:approx_pressI}.
 \end{align}
 
@@ -622,6 +622,10 @@ O Algoritmo que descreve a implementação computacional tanto de problemas util
 		\EndFor
 	\end{algorithmic}
 \end{algorithm}
+
+
+Escrever sobre c++ e petsc.
+
 
 \section{Verificação e Aplicações}
 

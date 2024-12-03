@@ -53,20 +53,21 @@
 \contentsline {section}{\numberline {6.1}Método Arlequin}{95}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{97}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{101}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Parâmetro de estabilização $\tau _{ARLQ}$}{104}{subsection.6.3.1}%
-\contentsline {section}{\numberline {6.4}Superposição de modelos móveis}{105}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Implementação Computacional}{106}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Exemplos}{106}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Escoamento sobre um aerofólio NACA 0012}{106}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{106}{subsection.6.6.2}%
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {Acoplamento Fluido-Estrutura}}{111}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Condições de acoplamento}{111}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Movimentação da Malha}{112}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Discretizações não coincidentes entre os meios}{113}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Técnica de Acoplamento - Bloco-Iterativo}{114}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Implementação Computacional}{115}{subsection.7.4.1}%
-\contentsline {section}{\numberline {7.5}Cavidade com fundo flexível - 2D}{116}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Cavidade com fundo flexível - 3D}{116}{section.7.6}%
-\contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase {Conclusões Parciais}}{119}{chapter.8}%
+\contentsline {subsection}{\numberline {6.3.1}Integração Temporal}{103}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Parâmetro de estabilização $\tau _{ARLQ}$}{105}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Superposição de modelos móveis}{107}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Implementação Computacional}{108}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Exemplos}{109}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Escoamento sobre um aerofólio NACA 0012}{109}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{110}{subsection.6.6.2}%
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {Acoplamento Fluido-Estrutura}}{115}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Condições de acoplamento}{115}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Movimentação da Malha}{116}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Discretizações não coincidentes entre os meios}{117}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Técnica de Acoplamento - Bloco-Iterativo}{118}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Implementação Computacional}{119}{subsection.7.4.1}%
+\contentsline {section}{\numberline {7.5}Cavidade com fundo flexível - 2D}{120}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Cavidade com fundo flexível - 3D}{120}{section.7.6}%
+\contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase {Conclusões Parciais}}{123}{chapter.8}%
 \vspace {\cftbeforechapterskip }
-\contentsline {chapter}{\MakeTextUppercase {Refer\^encias}}{121}{section*.9}%
+\contentsline {chapter}{\MakeTextUppercase {Refer\^encias}}{125}{section*.9}%
