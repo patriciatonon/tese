@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.23)  19 NOV 2024 10:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2024.4.23)  13 FEB 2025 09:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1795,18 +1795,18 @@ LaTeX Warning: Citation `Dhia:1998' on page 1 undefined on input line 24.
 LaTeX Warning: Citation `DhiaR:2005' on page 1 undefined on input line 26.
 
 
-LaTeX Warning: Reference `DomLocalGlobal' on page 1 undefined on input line 26.
+Underfull \vbox (badness 1708) has occurred while \output is active []
 
-
-[1
+ [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<Imagens/Cap6/dominio.pdf, id=19, 251.20718pt x 118.05885pt>
-File: Imagens/Cap6/dominio.pdf Graphic file (type pdf)
-<use Imagens/Cap6/dominio.pdf>
-Package pdftex.def Info: Imagens/Cap6/dominio.pdf  used on input line 37.
-(pdftex.def)             Requested size: 251.20656pt x 118.05855pt.
+<Imagens/Cap6/dominioArlequin.pdf, id=17, 314.38916pt x 141.35797pt>
+File: Imagens/Cap6/dominioArlequin.pdf Graphic file (type pdf)
+<use Imagens/Cap6/dominioArlequin.pdf>
+Package pdftex.def Info: Imagens/Cap6/dominioArlequin.pdf  used on input line 3
+7.
+(pdftex.def)             Requested size: 314.38838pt x 141.35762pt.
 
 
 LaTeX Warning: Citation `DhiaR:2002' on page 2 undefined on input line 59.
@@ -1820,108 +1820,332 @@ t line 67.
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.68 
-      <./Imagens/Cap6/dominio.pdf>]
+      <./Imagens/Cap6/dominioArlequin.pdf>]
 
 LaTeX Warning: Citation `FernandesEtAll:2020' on page 3 undefined on input line
  69.
 
 
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 80.
+LaTeX Warning: Command \textbackslash invalid in math mode on input line 82.
 
 
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 80.
+LaTeX Warning: Command \textbackslash invalid in math mode on input line 82.
 
 
-LaTeX Warning: Citation `Dhia:2008' on page 3 undefined on input line 82.
+LaTeX Warning: Citation `Dhia:2008' on page 3 undefined on input line 84.
 
-File: Imagens/Cap6/dominio.pdf Graphic file (type pdf)
-<use Imagens/Cap6/dominio.pdf>
-Package pdftex.def Info: Imagens/Cap6/dominio.pdf  used on input line 88.
-(pdftex.def)             Requested size: 251.20656pt x 118.05855pt.
+<Imagens/Cap6/ponderadora.pdf, id=62, 638.76337pt x 288.03796pt>
+File: Imagens/Cap6/ponderadora.pdf Graphic file (type pdf)
+<use Imagens/Cap6/ponderadora.pdf>
+Package pdftex.def Info: Imagens/Cap6/ponderadora.pdf  used on input line 90.
+(pdftex.def)             Requested size: 383.26097pt x 172.8241pt.
 
-LaTeX Warning: Citation `JamondD:2013' on page 3 undefined on input line 97.
+LaTeX Warning: Citation `JamondD:2013' on page 3 undefined on input line 99.
 
-[3pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2}
-) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.98 
-     ]
-
-LaTeX Warning: Citation `JamondD:2013' on page 4 undefined on input line 99.
-
+[3]
 
 LaTeX Warning: Citation `JamondD:2013' on page 4 undefined on input line 101.
 
 
-LaTeX Warning: Reference `capitulo:Cap2' on page 4 undefined on input line 103.
+LaTeX Warning: Reference `capitulo:Cap2' on page 4 undefined on input line 105.
 
 
 
-LaTeX Warning: Reference `capitulo:Cap3' on page 4 undefined on input line 103.
+LaTeX Warning: Reference `capitulo:Cap3' on page 4 undefined on input line 105.
 
 
 
 LaTeX Warning: Reference `capitulo:Cap2:FormaFraca' on page 4 undefined on inpu
-t line 105.
+t line 107.
 
 
-LaTeX Warning: Reference `eq:FinalSystem' on page 4 undefined on input line 105
+LaTeX Warning: Reference `eq:FinalSystem' on page 4 undefined on input line 107
 .
 
 
-LaTeX Warning: Reference `eq:RC' on page 4 undefined on input line 105.
+LaTeX Warning: Reference `eq:RC' on page 4 undefined on input line 107.
 
-
-Underfull \vbox (badness 1990) has occurred while \output is active []
-
- [4]
+[4pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2}
+) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.108 
+       <./Imagens/Cap6/ponderadora.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
 
 LaTeX Warning: Citation `GuidaultAndBelytschko2007' on page 6 undefined on inpu
-t line 218.
+t line 221.
 
 
-LaTeX Warning: Reference `capitulo:Cap2' on page 6 undefined on input line 220.
+LaTeX Warning: Reference `capitulo:Cap2' on page 6 undefined on input line 223.
 
 
 
 LaTeX Warning: Citation `FernandesEtAll:2020' on page 6 undefined on input line
- 222.
+ 223.
 
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [6]
+
+LaTeX Warning: Citation `FernandesEtAll:2020' on page 7 undefined on input line
+ 228.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [7]
+
+LaTeX Warning: Citation `FernandesEtAll:2020' on page 8 undefined on input line
+ 323.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
+
+LaTeX Warning: Reference `sec:IntegTemp' on page 9 undefined on input line 385.
+
+
+
+Overfull \hbox (2.59425pt too wide) in paragraph at lines 385--386
+[]\T1/lmr/m/n/12 (-20) Quanto ao pro-ce-di-mento de in-te-gra-ção tem-po-ral, u
+tilizou-se o mé-todo $\OML/lmm/m/it/12 $\T1/lmr/m/n/12 (-20) -generalizado.
+ []
+
+[9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+
+LaTeX Warning: Reference `sec:IntegTemp' on page 11 undefined on input line 471
+.
+
+
+LaTeX Warning: Citation `TezduyarO:2000' on page 11 undefined on input line 478
+.
+
+
+LaTeX Warning: Citation `TezduyarS:2003' on page 11 undefined on input line 478
+.
+
+[11]
+Underfull \vbox (badness 1163) has occurred while \output is active []
+
+ [12]
+
+LaTeX Warning: Reference `CapÃ­tulo2:ALE' on page 13 undefined on input line 57
+8.
+
+<Imagens/Cap6/dominioArlequinMoving.pdf, id=233, 484.72723pt x 249.60571pt>
+File: Imagens/Cap6/dominioArlequinMoving.pdf Graphic file (type pdf)
+<use Imagens/Cap6/dominioArlequinMoving.pdf>
+Package pdftex.def Info: Imagens/Cap6/dominioArlequinMoving.pdf  used on input 
+line 612.
+(pdftex.def)             Requested size: 484.72604pt x 249.60509pt.
+
+Overfull \hbox (29.72604pt too wide) in paragraph at lines 612--613
+ [][] 
+ []
+
+
+LaTeX Warning: Citation `TezduyarBSJ:1992f' on page 13 undefined on input line 
+617.
+
+
+LaTeX Warning: Reference `section:MovMalha' on page 13 undefined on input line 
+617.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+Overfull \hbox (10.56326pt too wide) in paragraph at lines 625--626
+[]\T1/lmr/m/n/12 (-20) O uso da téc-nica Ar-le-quin en-volve a re-a-li-za-ção d
+e al-gu-mas eta-pas de pré-processamento
+ []
+
+
+Underfull \vbox (badness 1033) has occurred while \output is active []
+
+ [14pdfTeX warning (ext4): destination with the same identifier (name{figure.1.
+3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.633 U
+       ma das maiores dificuldades da tÃ©cnica de Arlequin diz respeito Ã  i...
+ <./Imagens/Cap6/dominioArlequinMoving.pdf>]
+
+LaTeX Warning: Reference `capitulo:Cap2' on page 15 undefined on input line 637
+.
+
+Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
+put line 640.
+
+LaTeX Warning: Citation `MittalT:1994' on page 15 undefined on input line 677.
+
+<Imagens/Cap6/aerofolio.pdf, id=303, 330.31477pt x 175.78535pt>
+File: Imagens/Cap6/aerofolio.pdf Graphic file (type pdf)
+<use Imagens/Cap6/aerofolio.pdf>
+Package pdftex.def Info: Imagens/Cap6/aerofolio.pdf  used on input line 681.
+(pdftex.def)             Requested size: 330.31395pt x 175.78491pt.
+<Imagens/Cap6/MeshCoarseFine.pdf, id=305, 236.28276pt x 157.89992pt>
+File: Imagens/Cap6/MeshCoarseFine.pdf Graphic file (type pdf)
+<use Imagens/Cap6/MeshCoarseFine.pdf>
+Package pdftex.def Info: Imagens/Cap6/MeshCoarseFine.pdf  used on input line 68
+9.
+(pdftex.def)             Requested size: 354.42325pt x 236.84927pt.
+Package epstopdf Info: Source file: <Imagens/Cap6/DragRe.eps>
+(epstopdf)                    date: 2024-11-29 16:42:55
+(epstopdf)                    size: 40346 bytes
+(epstopdf)             Output file: <Imagens/Cap6/DragRe-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-11-29 16:45:23
+(epstopdf)                    size: 16337 bytes
+(epstopdf)             Command: <repstopdf --outfile=Imagens/Cap6/DragRe-eps-co
+nverted-to.pdf Imagens/Cap6/DragRe.eps>
+(epstopdf)             \includegraphics on input line 698.
+Package epstopdf Info: Output file is already uptodate.
+<Imagens/Cap6/DragRe-eps-converted-to.pdf, id=307, 397.485pt x 255.95625pt>
+File: Imagens/Cap6/DragRe-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap6/DragRe-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap6/DragRe-eps-converted-to.pdf  used on inpu
+t line 698.
+(pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
+Package epstopdf Info: Source file: <Imagens/Cap6/LiftRe.eps>
+(epstopdf)                    date: 2024-11-29 16:42:10
+(epstopdf)                    size: 40284 bytes
+(epstopdf)             Output file: <Imagens/Cap6/LiftRe-eps-converted-to.pdf>
+(epstopdf)                    date: 2024-11-29 16:45:23
+(epstopdf)                    size: 16489 bytes
+(epstopdf)             Command: <repstopdf --outfile=Imagens/Cap6/LiftRe-eps-co
+nverted-to.pdf Imagens/Cap6/LiftRe.eps>
+(epstopdf)             \includegraphics on input line 707.
+Package epstopdf Info: Output file is already uptodate.
+<Imagens/Cap6/LiftRe-eps-converted-to.pdf, id=309, 397.485pt x 255.95625pt>
+File: Imagens/Cap6/LiftRe-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap6/LiftRe-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap6/LiftRe-eps-converted-to.pdf  used on inpu
+t line 707.
+(pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
+<Imagens/Cap6/aerofolioMov.pdf, id=311, 306.24475pt x 175.78535pt>
+File: Imagens/Cap6/aerofolioMov.pdf Graphic file (type pdf)
+<use Imagens/Cap6/aerofolioMov.pdf>
+Package pdftex.def Info: Imagens/Cap6/aerofolioMov.pdf  used on input line 719.
+
+(pdftex.def)             Requested size: 306.244pt x 175.78491pt.
+Package epstopdf Info: Source file: <Imagens/Cap6/DragMov.eps>
+(epstopdf)                    date: 2024-11-29 16:39:19
+(epstopdf)                    size: 38847 bytes
+(epstopdf)             Output file: <Imagens/Cap6/DragMov-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2024-11-29 16:45:23
+(epstopdf)                    size: 15090 bytes
+(epstopdf)             Command: <repstopdf --outfile=Imagens/Cap6/DragMov-eps-c
+onverted-to.pdf Imagens/Cap6/DragMov.eps>
+(epstopdf)             \includegraphics on input line 728.
+Package epstopdf Info: Output file is already uptodate.
+<Imagens/Cap6/DragMov-eps-converted-to.pdf, id=313, 397.485pt x 255.95625pt>
+File: Imagens/Cap6/DragMov-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap6/DragMov-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap6/DragMov-eps-converted-to.pdf  used on inp
+ut line 728.
+(pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
+Package epstopdf Info: Source file: <Imagens/Cap6/LiftMov.eps>
+(epstopdf)                    date: 2024-11-29 16:44:24
+(epstopdf)                    size: 37889 bytes
+(epstopdf)             Output file: <Imagens/Cap6/LiftMov-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2024-11-29 16:45:23
+(epstopdf)                    size: 14770 bytes
+(epstopdf)             Command: <repstopdf --outfile=Imagens/Cap6/LiftMov-eps-c
+onverted-to.pdf Imagens/Cap6/LiftMov.eps>
+(epstopdf)             \includegraphics on input line 735.
+Package epstopdf Info: Output file is already uptodate.
+<Imagens/Cap6/LiftMov-eps-converted-to.pdf, id=315, 397.485pt x 255.95625pt>
+File: Imagens/Cap6/LiftMov-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap6/LiftMov-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap6/LiftMov-eps-converted-to.pdf  used on inp
+ut line 735.
+(pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
 
 AED: lastpage setting LastPage
-[6] (./Cap6.aux)
+[15] [16pdfTeX warning (ext4): destination with the same identifier (name{figur
+e.1.4}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.740 \end{document}
+                     <./Imagens/Cap6/aerofolio.pdf>] [17pdfTeX warning (ext4): 
+destination with the same identifier (name{figure.1.5}) has been already used, 
+duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.740 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{figure.1.6}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.740 \end{document}
+                     <./Imagens/Cap6/MeshCoarseFine.pdf> <./Imagens/Cap6/DragRe
+-eps-converted-to.pdf>] [18pdfTeX warning (ext4): destination with the same ide
+ntifier (name{figure.1.7}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.740 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{figure.1.8}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.740 \end{document}
+                     <./Imagens/Cap6/LiftRe-eps-converted-to.pdf> <./Imagens/Ca
+p6/aerofolioMov.pdf>] [19pdfTeX warning (ext4): destination with the same ident
+ifier (name{figure.1.9}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.740 \end{document}
+                    pdfTeX warning (ext4): destination with the same identifier
+ (name{figure.1.10}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.740 \end{document}
+                     <./Imagens/Cap6/DragMov-eps-converted-to.pdf> <./Imagens/C
+ap6/LiftMov-eps-converted-to.pdf>] (./Cap6.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 38422 strings out of 480154
- 726302 string characters out of 5893788
- 1233306 words of memory out of 5000000
- 55470 multiletter control sequences out of 15000+600000
- 521204 words of font info for 137 fonts, out of 8000000 for 9000
+ 38710 strings out of 480154
+ 731744 string characters out of 5893788
+ 1242840 words of memory out of 5000000
+ 55622 multiletter control sequences out of 15000+600000
+ 533288 words of font info for 159 fonts, out of 8000000 for 9000
  61 hyphenation exceptions out of 8191
- 130i,21n,123p,1002b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}{/usr/s
-hare/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/l
-m/lm-ts1.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/s
-hare/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/publi
-c/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
-6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/
-type1/public/lm/lmsy10.pfb>
-Output written on Cap6.pdf (6 pages, 201665 bytes).
+ 130i,21n,123p,1001b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
+ips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
+-mathex.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}</usr/share/texlive
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx
+12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx6.pfb></usr/share/texmf/font
+s/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/typ
+e1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/publ
+ic/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/t
+exmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr
+8.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/font
+s/type1/public/lm/lmsy8.pfb>
+Output written on Cap6.pdf (19 pages, 15046300 bytes).
 PDF statistics:
- 184 PDF objects out of 1000 (max. 8388607)
- 138 compressed objects within 2 object streams
- 35 named destinations out of 1000 (max. 500000)
- 32310 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 601 PDF objects out of 1000 (max. 8388607)
+ 468 compressed objects within 5 object streams
+ 121 named destinations out of 1000 (max. 500000)
+ 38611 words of extra memory for PDF output out of 42996 (max. 10000000)
 

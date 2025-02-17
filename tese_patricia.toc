@@ -14,7 +14,7 @@
 \contentsline {section}{\numberline {1.6}Cronograma}{26}{section.1.6}%
 \contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase {Dinâmica dos fluidos computacional}}{29}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Forma forte das equações governantes}{30}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Descrição Euleriana-Lagrangiana arbitrária (ALE)}{30}{section.2.2}%
+\contentsline {section}{\numberline {2.2}Descrição Euleriana-Lagrangiana arbitrária (ALE)}{31}{section.2.2}%
 \contentsline {section}{\numberline {2.3}Forma Fraca e discretização espacial}{33}{section.2.3}%
 \contentsline {subsection}{\numberline {2.3.1}Parâmetros de estabilização}{36}{subsection.2.3.1}%
 \contentsline {section}{\numberline {2.4}Integração Temporal}{38}{section.2.4}%
@@ -51,23 +51,23 @@
 \contentsline {section}{\numberline {5.3}Exemplo de aplicação}{90}{section.5.3}%
 \contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Método de Arlequin estabilizado}}{95}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Método Arlequin}{95}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{97}{section.6.2}%
+\contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{98}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{101}{section.6.3}%
 \contentsline {subsection}{\numberline {6.3.1}Integração Temporal}{103}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Parâmetro de estabilização $\tau _{ARLQ}$}{105}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.2}Parâmetro de estabilização para técnica RBSAM}{105}{subsection.6.3.2}%
 \contentsline {section}{\numberline {6.4}Superposição de modelos móveis}{107}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Implementação Computacional}{108}{section.6.5}%
 \contentsline {section}{\numberline {6.6}Exemplos}{109}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Escoamento sobre um aerofólio NACA 0012}{109}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{110}{subsection.6.6.2}%
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {Acoplamento Fluido-Estrutura}}{115}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Condições de acoplamento}{115}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Movimentação da Malha}{116}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Discretizações não coincidentes entre os meios}{117}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Técnica de Acoplamento - Bloco-Iterativo}{118}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Implementação Computacional}{119}{subsection.7.4.1}%
-\contentsline {section}{\numberline {7.5}Cavidade com fundo flexível - 2D}{120}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Cavidade com fundo flexível - 3D}{120}{section.7.6}%
-\contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase {Conclusões Parciais}}{123}{chapter.8}%
+\contentsline {subsection}{\numberline {6.6.1}Escoamento sobre um aerofólio NACA 0012}{110}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{111}{subsection.6.6.2}%
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {Acoplamento Fluido-Estrutura}}{119}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Condições de acoplamento}{119}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Movimentação da Malha}{120}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Discretizações não coincidentes entre os meios}{121}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Técnica de Acoplamento - Bloco-Iterativo}{122}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Implementação Computacional}{123}{subsection.7.4.1}%
+\contentsline {section}{\numberline {7.5}Cavidade com fundo flexível - 2D}{124}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Cavidade com fundo flexível - 3D}{124}{section.7.6}%
+\contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase {Conclusões Parciais}}{127}{chapter.8}%
 \vspace {\cftbeforechapterskip }
-\contentsline {chapter}{\MakeTextUppercase {Refer\^encias}}{125}{section*.9}%
+\contentsline {chapter}{\MakeTextUppercase {Refer\^encias}}{129}{section*.9}%

@@ -107,6 +107,8 @@ As equações de Navier-Stokes são derivadas da segunda lei de Newton, e são o
 
 \noindent onde $p$ representa a pressão, $\viscosity$ a viscosidade dinâmica do fluido e $\strainratetensor$ é o tensor taxa de deformação, definido como:
 
+VER SOBRE A DEFINIÇÃO DE TAXA LÁ NO CAPÍTULO 6
+
 \begin{align}
 \strainratetensor\left(\velocity\right) = \frac{1}{2}\left(\nabla\left(\velocity\right) + \nabla\left(\velocity\right)^{T}\right). 
 \label{eq:StrainTensor}
@@ -224,6 +226,8 @@ Já para o caso incompressível, a equação da continuidade
 
 
 \section{Forma Fraca e discretização espacial} \label{capitulo:Cap2:FormaFraca}
+
+LEMBRAR DE ORGANIZAR PARA DEIXAR COMPATÍVEL COM O QUE FOI ESCRITO NO CAPÍTULO 6.
 
 Tomando-se a forma forte das equações governantes, aplica-se o método de resíduos ponderados para se chegar à forma fraca e proceder com a discretização espacial. Os espaços de dimensão finita das funções tentativa que descrevem a velocidade e a pressão são chamados de $\usolution$ e $\psolution$ respectivamente, e definidos como:
 
@@ -624,7 +628,7 @@ O Algoritmo que descreve a implementação computacional tanto de problemas util
 \end{algorithm}
 
 
-Escrever sobre c++ e petsc.
+Escrever sobre c++ e petsc, MUMPS
 
 
 \section{Verificação e Aplicações}
