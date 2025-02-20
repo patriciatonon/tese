@@ -88,35 +88,38 @@
 \contentsline {figure}{\numberline {6.1}{\ignorespaces Domínio local e global.}}{96}{figure.6.1}%
 \contentsline {figure}{\numberline {6.2}{\ignorespaces Função Ponderadora}}{98}{figure.6.2}%
 \contentsline {figure}{\numberline {6.3}{\ignorespaces Domínio Arlequin móvel}}{108}{figure.6.3}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Aerofólio 2D: Geometria}}{110}{figure.6.4}%
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Aerofólio 2D: Discretização das malhas}}{111}{figure.6.5}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Discretização da malha global (IGA) e local(MEF)}}}{111}{subfigure.5.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Discretização próxima ao aerofólio}}}{111}{subfigure.5.2}%
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Aerofólio 2D: Malha Global (MEF) }}{112}{figure.6.6}%
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Aerofólio 2D: Malha Monomodelo (MEF) }}{112}{figure.6.7}%
-\contentsline {figure}{\numberline {6.8}{\ignorespaces Aerofólio 2D: Campo de pressão em $t=32$}}{113}{figure.6.8}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Domínio total }}}{113}{subfigure.8.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Domínio próximo ao aerofólio}}}{113}{subfigure.8.2}%
-\contentsline {figure}{\numberline {6.9}{\ignorespaces Aerofólio 2D: Campo de em $t=32$}}{114}{figure.6.9}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Domínio total }}}{114}{subfigure.9.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Domínio próximo ao aerofólio}}}{114}{subfigure.9.2}%
-\contentsline {figure}{\numberline {6.10}{\ignorespaces Coeficiente de Arrasto}}{114}{figure.6.10}%
-\contentsline {figure}{\numberline {6.11}{\ignorespaces Coeficiente de Sustentação}}{115}{figure.6.11}%
-\contentsline {figure}{\numberline {6.12}{\ignorespaces Aerofólio Mov. 2D: Geometria}}{115}{figure.6.12}%
-\contentsline {figure}{\numberline {6.13}{\ignorespaces Aerofólio Mov. 2D: Campos de velocidade}}{116}{figure.6.13}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$t = 8.04 $}}}{116}{subfigure.13.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$t = 8.22 $}}}{116}{subfigure.13.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$t = 8.38 $}}}{116}{subfigure.13.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$t = 8.72 $}}}{116}{subfigure.13.4}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$t = 9.04 $}}}{116}{subfigure.13.5}%
-\contentsline {figure}{\numberline {6.14}{\ignorespaces Aerofólio Mov. 2D: Campos de pressão}}{117}{figure.6.14}%
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Aerofólio 2D: Geometria}}{111}{figure.6.4}%
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Aerofólio 2D: Malha Monomodelo (MEF) }}{111}{figure.6.5}%
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Aerofólio 2D: Discretização das malhas}}{112}{figure.6.6}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Discretização da malha global (IGA) e local (MEF)}}}{112}{subfigure.6.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Discretização próxima ao aerofólio }}}{112}{subfigure.6.2}%
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Aerofólio 2D: Coeficiente de Arrasto}}{113}{figure.6.7}%
+\contentsline {figure}{\numberline {6.8}{\ignorespaces Aerofólio 2D: Coeficiente de Sustentação}}{113}{figure.6.8}%
+\contentsline {figure}{\numberline {6.9}{\ignorespaces Aerofólio 2D: Campo de velocidade}}{114}{figure.6.9}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{114}{subfigure.9.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/4$}}}{114}{subfigure.9.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/2 $}}}{114}{subfigure.9.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + 3T_n/4$}}}{114}{subfigure.9.4}%
+\contentsline {figure}{\numberline {6.10}{\ignorespaces Aerofólio 2D: Campo de pressão}}{114}{figure.6.10}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{114}{subfigure.10.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/4$}}}{114}{subfigure.10.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/2 $}}}{114}{subfigure.10.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + 3T_n/4$}}}{114}{subfigure.10.4}%
+\contentsline {figure}{\numberline {6.11}{\ignorespaces Aerofólio Mov. 2D: Geometria}}{115}{figure.6.11}%
+\contentsline {figure}{\numberline {6.12}{\ignorespaces Aerofólio Mov. 2D: Coeficiente de Arrasto}}{116}{figure.6.12}%
+\contentsline {figure}{\numberline {6.13}{\ignorespaces Aerofólio Mov. 2D: Coeficiente de Sustentação}}{116}{figure.6.13}%
+\contentsline {figure}{\numberline {6.14}{\ignorespaces Aerofólio Mov. 2D: Campos de velocidade}}{117}{figure.6.14}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$t = 8.04 $}}}{117}{subfigure.14.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$t = 8.22 $}}}{117}{subfigure.14.2}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$t = 8.38 $}}}{117}{subfigure.14.3}%
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$t = 8.72 $}}}{117}{subfigure.14.4}%
 \contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$t = 9.04 $}}}{117}{subfigure.14.5}%
-\contentsline {figure}{\numberline {6.15}{\ignorespaces Aerofólio Mov. 2D: Coeficiente de Arrasto}}{118}{figure.6.15}%
-\contentsline {figure}{\numberline {6.16}{\ignorespaces Aerofólio Mov. 2D: Coeficiente de Sustentação}}{118}{figure.6.16}%
+\contentsline {figure}{\numberline {6.15}{\ignorespaces Aerofólio Mov. 2D: Campos de pressão}}{118}{figure.6.15}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$t = 8.04 $}}}{118}{subfigure.15.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$t = 8.22 $}}}{118}{subfigure.15.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$t = 8.38 $}}}{118}{subfigure.15.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$t = 8.72 $}}}{118}{subfigure.15.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$t = 9.04 $}}}{118}{subfigure.15.5}%
 \contentsline {figure}{\numberline {7.1}{\ignorespaces Domínios do Fluido e da Estrutura.}}{120}{figure.7.1}%
 \contentsline {figure}{\numberline {7.2}{\ignorespaces Contorno IFE}}{122}{figure.7.2}%
 \contentsline {figure}{\numberline {7.3}{\ignorespaces Geometria Cavidade Fundo Flexível 2D}}{124}{figure.7.3}%

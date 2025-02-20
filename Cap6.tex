@@ -672,82 +672,102 @@ O Algoritmo que descreve a implementação computacional é apresentado no Alg. 
 
 Para a validação da método Arlequin estabilizado, dois exemplos amplamente explorados nas bibliografias, serão avaliados. O primeiro exemplo, trata-se de um problema de escoamento sobre um aerofólio NACA 0012, e o segundo, com intuito de validação da técnica de movimentação de domínios, consistirá no aerofólio NACA 0012 com um movimento de arfagem prescrito. 
 
-\subsection{Escoamento sobre um aerofólio NACA 0012}
+\subsection{Escoamento sobre um aerofólio NACA 0012} \label{subsec:EX1NACA0012}
 
-\citeonline{MittalT:1994}
-
-
+Para simulação do problema de escoamento sobre um aerofólio NACA 0012, com 1 unidade de corda de dimensão e ângulo de ataque de $10^{\circ}$, utilizou-se o domínio apresentado na Fig. \ref{fig:aerofolio2d_geometria}. O contorno da entrada de fluxo está localizado a 6 cordas (C) do bordo de ataque do aerofólio, com velocidade de entrada $u_\infty$. Os contornos superior e inferior da geometria, com condições de contorno de parede lisa, também estão afastados do aerofólio em 6 unidades de corda. O contorno direito do domínio é localizado a 20 unidades de corda a jusante do bordo de fuga do aerofólio. 
 
 \begin{figure}[htb!]
 	\centering 
 	{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio.pdf}}	
 	\caption{Aerofólio 2D: Geometria}
-	\label{fig:aerofolio2d-geometria}
+	\label{fig:aerofolio2d_geometria}
 \end{figure}
 
+A análise é realizada para um número de Reynolds ($\Reynolds$) 1000 calculado a partir da dimensão do aerofólio e da velocidade de entrada do escoamento. Foram utilizados ainda como parâmetros de análise: $u_{\infty} = 1,0$,  $\rho = 1,0$,  $\timeStep = 0,02$, e $\specRadius = 0,75$.
 
-\begin{figure}[!htb]
-	\centering
-	\subfloat[Discretização da malha global (IGA) e local(MEF)]{\includegraphics[scale=1.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/MeshCoarseFine.pdf}}\\
-	\subfloat[Discretização próxima ao aerofólio]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.8]{Imagens/Cap6/DetalheFine.pdf}}
-	\caption{Aerofólio 2D: Discretização das malhas}
-	\label{fig:aerofolio2d_malhasepatches}
-\end{figure}
+Para validação da teoria apresentada nesse capítulo, compararam-se os resultados de coeficientes de arrasto e sustentação ao longo do tempo para duas discretizações distintas: 1. Monomodelo; 2. Combinação de duas malhas através do método Arlequin estabilizado.
+
+O monomodelo foi discretizado através de elementos finitos (Fig. \ref{fig:aerofolio2d_malhamonomodelomef}), com malha constituída de 9240 elementos triangulares quadráticos e 18792 nós. 
 
 \begin{figure}[htb!]
 	\centering 
-	{\includegraphics[scale=1.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/MalhaCoarseFEM4.pdf}}	
-	\caption{Aerofólio 2D: Malha Global (MEF) }
-	\label{fig:aerofolio2d_malhaglobalmef}
-\end{figure}
-
-
-\begin{figure}[htb!]
-	\centering 
-	{\includegraphics[scale=1.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/MalhaMono.pdf}}	
+	{\includegraphics[scale=2.5,trim=0cm 0.9cm 0cm 0.8cm, clip=true]{Imagens/Cap6/malhaMonoEstatica.pdf}}	
 	\caption{Aerofólio 2D: Malha Monomodelo (MEF) }
 	\label{fig:aerofolio2d_malhamonomodelomef}
 \end{figure}
 
-\begin{figure}[htb!]
+
+Para o método Arlequin, duas malhas foram utilizadas, uma malha global em elementos isogeométricos (IGA) e uma malha local, mais refinada, em elementos finitos (MEF). Uma visão global da composição do domínio é apresentada na Fig. \ref{fig:aerofolio2d_dominioglobal}. Uma vista aproximada do aerofólio e da malha local pode ser visualizada na Fig. \ref{fig:aerofolio2d_dominiolocal}.
+
+\begin{figure}[!htb]
 	\centering
-	\subfloat[Domínio total ]{\includegraphics[scale=1.55,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/pressaoStatic.pdf}}\\
-	\subfloat[Domínio próximo ao aerofólio]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.4]{Imagens/Cap6/pressaoStaticZoom.pdf}}
-	\caption{Aerofólio 2D: Campo de pressão em $t=32$}
-	\label{fig:aerofolio2d_pressaoestatica}
+	\subfloat[Discretização da malha global (IGA) e local (MEF)\label{fig:aerofolio2d_dominioglobal}]{\includegraphics[scale=3.0,trim=0cm 1cm 0cm 0.6cm, clip=true]{Imagens/Cap6/malhaCoarseFinePatch.pdf}}\\
+	\subfloat[Discretização próxima ao aerofólio \label{fig:aerofolio2d_dominiolocal}]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.5]{Imagens/Cap6/DetalheFine.pdf}}
+	\caption{Aerofólio 2D: Discretização das malhas}
+	\label{fig:aerofolio2d_malhasepatches}
 \end{figure}
 
+A malha global em elementos isogeométricos quadráticos foi obtida através da utilização de 9 $patches$, que totalizaram 15561 pontos de controle. A malha local por sua vez é composta por 5214 elementos triangulares quadráticos e 10670 nós. 
 
-\begin{figure}[htb!]
-	\centering
-	\subfloat[Domínio total ]{\includegraphics[scale=1.55,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/velocidadeStatic.pdf}}\\
-	\subfloat[Domínio próximo ao aerofólio]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.4]{Imagens/Cap6/velocidadeStaticZoom.pdf}}
-	\caption{Aerofólio 2D: Campo de  em $t=32$}
-	\label{fig:aerofolio2d_velocidadeestatica}
-\end{figure}
+Na Fig. \ref{fig:aerofolio2d_dominiolocal} pode observar em vermelho os elementos que fazem parte da zona de colagem. A espessura da zona de colagem foi definida como $0,2$, totalizando 628 elementos triangulares quadráticos e 1428 nós nessa região. A constante do operador de acoplamento $L^{2}$ foi definida como $k_{0} = 10$. 
 
+
+Nesse problema observa-se o surgimento de uma esteira de vórtices a jusante do aerofólio, que resulta em um número de Strouhal ($\Strouhal$) equivalente a 0,877. Esse valor encontra-se em concordância com o obtido por \citeonline{MittalT:1994} de 0,862. 
+
+Nas Fig. \ref{fig:aerofolio2d_aeroDrag} e Fig. \ref{fig:aerofolio2d_aeroLift} apresentam-se os resultados de coeficiente de arrasto e sustentação obtidos para as análises realizadas. Pode-se observar que os resultados obtidos com o modelo baseado no método Arlequin estabilizados estão de acordo com os obtidos para o modelo usando monomodelo.
 
 
 \begin{figure}[htb!]
 	\centering 
 	{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/DragRe.eps}}	
-	\caption{Coeficiente de Arrasto}
-	\label{fig:AeroDrag}
+	\caption{Aerofólio 2D: Coeficiente de Arrasto}
+	\label{fig:aerofolio2d_aeroDrag}
 \end{figure}
-
-
 
 \begin{figure}[htb!]
 	\centering 
 	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/LiftRe.eps}	
-	\caption{Coeficiente de Sustentação}
-	\label{fig:AeroLift}
+	\caption{Aerofólio 2D: Coeficiente de Sustentação}
+	\label{fig:aerofolio2d_aeroLift}
 \end{figure}
 
+Nas Fig. \ref{fig:aerofolio2d_velocidadeestatica} e Fig. \ref{fig:aerofolio2d_pressaoestatica} estão apresentados os campos de velocidade e pressão respectivamente para um período de um ciclo das curvas referentes aos coeficientes de arrasto e sustentação. 
+
+\begin{figure}[htb!]
+	\centering
+	\subfloat[$T_n$]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/velTn.pdf}} \ \
+	\subfloat[$T_n + T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/velTn4.pdf}} \\
+	\subfloat[$T_n + T_n/2 $]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/velTn2.pdf}} \ \
+	\subfloat[$T_n + 3T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.04]{Imagens/Cap6/velTn34.pdf}}
+	\caption{Aerofólio 2D: Campo de velocidade}
+	\label{fig:aerofolio2d_velocidadeestatica}
+\end{figure}
+
+\begin{figure}[htb!]
+	\centering
+	\subfloat[$T_n$]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/pressTn.pdf}} \ \
+	\subfloat[$T_n + T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/pressTn4.pdf}} \\
+	\subfloat[$T_n + T_n/2 $]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/pressTn2.pdf}} \ \
+	\subfloat[$T_n + 3T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/pressTn34.pdf}}
+	\caption{Aerofólio 2D: Campo de pressão}
+	\label{fig:aerofolio2d_pressaoestatica}
+\end{figure}
 
 
 \subsection{Aerofólio com movimento de arfagem prescrito}
 
+
+Para a validação computacional da técnica Arlequin estabilizada em domínios móveis  utilizou-se um problema envolvendo um aerofólio NACA 0012, semelhante ao apresentado na subseção anterior \ref{subsec:EX1NACA0012}, aplicando-se, entretanto, um movimento de arfagem ao mesmo. O aerofólio apresenta variação do ângulo de ataque em $20^{\circ}$, iniciando o movimento em $10^{\circ}$ e finalizando-o em $30^{\circ}$. 
+
+Para descrever-se tal movimento aplica-se, tendo como centro a corda média do aerofólio, o movimento de rotação de corpo rígido através da seguinte relação:
+
+\begin{align}
+	\theta = \frac{\theta_{max}+\theta_{min}}{2} - \frac{\theta_{max}-\theta_{min}}{2}\cos{\omega_{f}t} ,
+\end{align}
+
+\noindent com $\omega_{f} = 2\pi f_{f}$, sendo $f_{f}$ a frequência de oscilação, adotada nesse estudo como 1.0, $\theta_{max} = 30^{\circ}$ e $\theta_{min} = 10^{\circ}$.
+
+As dimensões da geometria do domínio computacional são alteradas (ver Fig. \ref{fig:AerofolioMoving}) para capturar os efeitos dos desprendimentos de vórtices, que para esse problema, se desprendem em uma faixa mais ampla. Os demais parâmetros de análise foram mantidos iguais aos apresentados no exemplo da subseção \ref{subsec:EX1NACA0012}. 
 
 \begin{figure}[htb!]
 	\centering 
@@ -756,29 +776,12 @@ Para a validação da método Arlequin estabilizado, dois exemplos amplamente ex
 	\label{fig:AerofolioMoving}
 \end{figure}
 
+Novamente são analisadas 2 discretizações: 1. Monomodelo; 2. Combinação de duas malhas através do método Arlequin estabilizado.
+O monomodelo consiste em uma malha com 12438 elementos triangulares quadráticos e 25188 elementos. As malhas global e local do método Arlequin mantiveram-se com a mesma discretização do problema da subseção \ref{subsec:EX1NACA0012}, incluindo a quantidade de elementos na zona de colagem.
 
-\begin{figure}[htb!]
-	\centering
-	\subfloat[$t = 8.04 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/vel804.pdf}} \
-	\subfloat[$t = 8.22 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel822.pdf}}\\
-	\subfloat[$t = 8.38 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/vel838.pdf}} \
-	\subfloat[$t = 8.72 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel872.pdf}}\\
-	\subfloat[$t = 9.04 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel904.pdf}}
-	\caption{Aerofólio Mov. 2D: Campos de velocidade}
-	\label{fig:aerofolio2dMov_velocidade}
-\end{figure}
+É importante ressaltar que para a simulação desse exemplo, utilizou-se como campo inicial de velocidade e pressão, valores obtidos em uma solução de longo termo do aerofólio na condição de repouso.
 
-\begin{figure}[htb!]
-	\centering
-	\subfloat[$t = 8.04 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/press804.pdf}} \
-	\subfloat[$t = 8.22 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press822.pdf}}\\
-	\subfloat[$t = 8.38 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/press838.pdf}} \
-	\subfloat[$t = 8.72 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press872.pdf}}\\
-	\subfloat[$t = 9.04 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press904.pdf}}
-	\caption{Aerofólio Mov. 2D: Campos de pressão}
-	\label{fig:aerofolio2dMov_pressao}
-\end{figure}
-
+A variação dos coeficientes de arrasto e sustentação ao longo do tempo são apresentados nas Fig. \ref{fig:AeroDragMov} e Fig. \ref{fig:AeroLiftMov}. Nota-se nas imagens que o monomodelo e o modelo Arlequin estão consistentes em suas respostas. Soluções semelhantes podem ser observados no trabalho de \citeonline{Fernandes:2020}.
 
 \begin{figure}[htb!]
 	\centering 
@@ -792,6 +795,30 @@ Para a validação da método Arlequin estabilizado, dois exemplos amplamente ex
 	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/LiftMov.eps}	
 	\caption{Aerofólio Mov. 2D: Coeficiente de Sustentação}
 	\label{fig:AeroLiftMov}
+\end{figure}
+
+Nas figuras Fig. \ref{fig:aerofolio2dMov_velocidade} e Fig. \ref{fig:aerofolio2dMov_pressao} são apresentados os campos de velocidade e pressão em alguns instantes para um ciclo do movimento oscilatório preescrito.
+
+\begin{figure}[htb!]
+	\centering
+	\subfloat[$t = 8,04 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/vel804.pdf}} \
+	\subfloat[$t = 8,22 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel822.pdf}}\\
+	\subfloat[$t = 8,38 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/vel838.pdf}} \
+	\subfloat[$t = 8,72 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel872.pdf}}\\
+	\subfloat[$t = 9,04 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel904.pdf}}
+	\caption{Aerofólio Mov. 2D: Campos de velocidade}
+	\label{fig:aerofolio2dMov_velocidade}
+\end{figure}
+
+\begin{figure}[htb!]
+	\centering
+	\subfloat[$t = 8,04 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/press804.pdf}} \
+	\subfloat[$t = 8,22 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press822.pdf}}\\
+	\subfloat[$t = 8,38 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/press838.pdf}} \
+	\subfloat[$t = 8,72 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press872.pdf}}\\
+	\subfloat[$t = 9,04 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press904.pdf}}
+	\caption{Aerofólio Mov. 2D: Campos de pressão}
+	\label{fig:aerofolio2dMov_pressao}
 \end{figure}
 
 \end{document}
