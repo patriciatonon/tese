@@ -4,7 +4,35 @@
 
 
 \begin{comment}
-	\nomenclature[F,01]{$\Omega_{x}$}{Domínio inicial de um sólido deformável;}
+	\nomenclature[F,01]{$\Omega$}{Domínio computacional;}
+	\nomenclature[F,02]{$\globalModel$}{Domínio computacional global;}
+	\nomenclature[F,03]{$\localModel$}{Domínio computacional local;}
+	\nomenclature[F,04]{$\overlappingZone$}{Zona de superposição;}
+	\nomenclature[F,05]{$\gluingZone$}{Zona de colagem;}
+	\nomenclature[F,06]{$\freeZone$}{Zona livre;}
+	\nomenclature[F,07]{$\lagrangeMultiplier$}{Campo de multiplicadores de Lagrange;}
+	\nomenclature[F,08]{$k_{0},k_{1}$}{Constantes dos operadores de acoplamento;}
+	\nomenclature[F,09]{$L^{2}$}{Operador de acoplamento de ordem 0;}
+	\nomenclature[F,10]{$H^{1}$}{Operador de acoplamento de ordem 1;}
+	\nomenclature[F,11]{$\arlequinWF$}{Função ponderadora;}
+	\nomenclature[F,12]{$k_{a}$}{Constante arbitrária do método de Arlequin;}
+	\nomenclature[F,13]{$\lagSolution$}{Espaço vetorial das funções aproximadoras do campo de multiplicadores de Lagrange;}
+	\nomenclature[F,14]{$\lagTest$}{Espaço vetorial das funções ponderadoras do campo de multiplicadores de Lagrange;}
+	\nomenclature[F,15]{$\lagrangeMultiplierWFh$}{Função ponderadora pertencente ao espaço $\lagTest$;}
+	\nomenclature[F,16]{$\chi$}{Função lógica para determinação do pertencimento de um ponto à $\gluingZone$;}
+	\nomenclature[F,17]{$\tauArlequin$}{Parâmetro de estabilização da técnica RBSAM;}
+	\nomenclature[F,18]{$\mathbf{R}_{L}$}{Resíduo da versão semidoscreta da equação de restrição}
+	\nomenclature[F,19]{$\LagrangeMultiplier$}{Vetor nodal dos graus de liberdade respectivo aos multiplicadores de Lagrange}
+	\nomenclature[F,20]{$\tau_{A},\tau_{A}^{0},\tau_{A}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+	\nomenclature[F,21]{$\tau_{B},\tau_{B}^{0},\tau_{B}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+	\nomenclature[F,22]{$\tau_{C},\tau_{C}^{0},\tau_{C}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+	\nomenclature[F,23]{$\tau_{D},\tau_{D}^{0},\tau_{D}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+	\nomenclature[F,24]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+	\nomenclature[F,25]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}	
+	\nomenclature[F,26]{$\mathbf{M_{\lambda}},\mathbf{t}, \mathbf{j}, \mathbf{k}, \mathbf{p}, \mathbf{\boundary}$}{Matrizes elementares da formulação usadas na definição de $\tauArlequin$, com base dos termos de acoplamento, convectivos, inerciais, viscosos, pressão e de acoplamento (?) respectivamente;}
+	\nomenclature[F,27]{$C$}{Corda: distância entre o bordo ataque e de fuga do aerofólio;}	
+	\nomenclature[F,28]{$\theta, \theta_{max}, \theta_{min}$}{Ângulo de ataque; Ângulo de ataque máximo; Ângulo de ataque mínimo;}	
+	\nomenclature[F,29]{$f_{f}$}{Frequência de oscilação;}
 
 	
 \end{comment}
@@ -801,22 +829,22 @@ Nas figuras Fig. \ref{fig:aerofolio2dMov_velocidade} e Fig. \ref{fig:aerofolio2d
 
 \begin{figure}[htb!]
 	\centering
-	\subfloat[$t = 8,04 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/vel804.pdf}} \
-	\subfloat[$t = 8,22 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel822.pdf}}\\
-	\subfloat[$t = 8,38 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/vel838.pdf}} \
-	\subfloat[$t = 8,72 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel872.pdf}}\\
-	\subfloat[$t = 9,04 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel904.pdf}}
+	\subfloat[$t = 8,0 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/vel400.pdf}} \
+	\subfloat[$t = 8,3 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel413.pdf}}\\
+	\subfloat[$t = 8,5 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/vel425.pdf}} \
+	\subfloat[$t = 8,8 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel438.pdf}}\\
+	\subfloat[$t = 9,0 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel450.pdf}}
 	\caption{Aerofólio Mov. 2D: Campos de velocidade}
 	\label{fig:aerofolio2dMov_velocidade}
 \end{figure}
 
 \begin{figure}[htb!]
 	\centering
-	\subfloat[$t = 8,04 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/press804.pdf}} \
-	\subfloat[$t = 8,22 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press822.pdf}}\\
-	\subfloat[$t = 8,38 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/press838.pdf}} \
-	\subfloat[$t = 8,72 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press872.pdf}}\\
-	\subfloat[$t = 9,04 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press904.pdf}}
+	\subfloat[$t = 8,0 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/press400.pdf}} \
+	\subfloat[$t = 8,3 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press413.pdf}}\\
+	\subfloat[$t = 8,5 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/press425.pdf}} \
+	\subfloat[$t = 8,8 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press438.pdf}}\\
+	\subfloat[$t = 9,0 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press450.pdf}}
 	\caption{Aerofólio Mov. 2D: Campos de pressão}
 	\label{fig:aerofolio2dMov_pressao}
 \end{figure}
