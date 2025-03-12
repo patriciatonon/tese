@@ -45,7 +45,7 @@
 
 Com intuito de superar as dificuldades encontrados com a técnica de decomposição de domínios apresentada no Cap. \ref{capitulo:Cap5}, neste capítulo será apresentado o método multiescala Arlequin que permite também levar em conta efeitos localizados através do uso de um modelo local mais refinado superposto a um modelo global com discretização mais grosseira. No método Arlequin, o processo é realizado através do cruzamento e colagem entre os modelos em uma zona de colagem através da utilização de um operador de acoplamento.
 
-A primeira parte deste capítulo será dedicada a descrever o método clássico de Arlequin, introduzido por \citeonline{Dhia:1998}. Na sequência será apresentada  a técnica de estabilização (RBSAM) introduzida por \citeonline{FernandesEtAll:2020} para o método de Arlequin no contexto de escoamentos incompressíveis. Na sucessão do capítulo, a extensão de tal metodologia para problemas de contorno móveis será exibida. E, por fim, exemplos de validação serão avaliados.
+A primeira parte deste capítulo será dedicada a descrever o método clássico de Arlequin, introduzido por \citeonline{Dhia:1998}. Na sequência será apresentada  a técnica de estabilização (RBSAM) introduzida por \citeonline{FernandesEtAll:2020} para o método de Arlequin no contexto de escoamentos incompressíveis. Na sucessão do capítulo, a extensão de tal metodologia para problemas de contorno móveis será exibida. E, por fim, o algoritmo da implementação computacional será exibido, bem como, exemplos de validação serão avaliados.
 
 \section{Método Arlequin}
 
@@ -410,7 +410,7 @@ Considerando $\Acceleration_{i}$, $\Velocity_{i}$, $\Press_i$ e $\LagrangeMultip
 \subsection{Integração Temporal}
 
 
-Quanto ao procedimento de integração temporal, utilizou-se o método $\alpha$-generalizado. Conforme a metodologia apresentado na seção \ref{sec:IntegTemp}, para a solução do sistema de equações não lineares compostas por Eq. \eqref{eq:NLinear1} à Eq. \eqref{eq:NLinear5} utiliza-se o método de Newton-Raphson. A solução resulta em uma etapa preditiva e outra iterativa corretiva.
+Quanto ao procedimento de integração temporal, utilizou-se o método $\alpha$-generalizado. Conforme a metodologia apresentado na Seção \ref{sec:IntegTemp}, para a solução do sistema de equações não lineares compostas por Eq. \eqref{eq:NLinear1} à Eq. \eqref{eq:NLinear5} utiliza-se o método de Newton-Raphson. A solução resulta em uma etapa preditiva e outra iterativa corretiva.
 
 Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a solução no passo seguinte ($n+1$) através das seguintes relações:
 
@@ -642,7 +642,7 @@ Além da consideração da descrição ALE para o modelo local, deve-se ressalta
 	\label{fig:ArlquinMóvel}
 \end{figure}
 
-A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho é conhecida como MJBS (Mesh-Jacobian Based Stiffening) introduzida por \citeonline{TezduyarBSJ:1992f} e será abordada na Seção \ref{section:MovMalha}.
+A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho é conhecida como MJBS (Mesh-Jacobian Based Stiffening) introduzida por \citeonline{TezduyarBSJ:1992f} e será abordada na Subseção \ref{subsec:MovMalha}.
 
 
 \section{Implementação Computacional}
@@ -735,7 +735,7 @@ Para o método Arlequin, duas malhas foram utilizadas, uma malha global em eleme
 	\label{fig:aerofolio2d_malhasepatches}
 \end{figure}
 
-A malha global em elementos isogeométricos quadráticos foi obtida através da utilização de 9 $patches$, que totalizaram 15561 pontos de controle. A malha local por sua vez é composta por 5214 elementos triangulares quadráticos e 10670 nós. 
+A malha global em elementos isogeométricos quadráticos foi obtida através da utilização de 9 $patches$, que totalizaram 15561 pontos de controle e 14025 elementos. A malha local por sua vez é composta por 5214 elementos triangulares quadráticos e 10670 nós. 
 
 Na Fig. \ref{fig:aerofolio2d_dominiolocal} pode observar em vermelho os elementos que fazem parte da zona de colagem. A espessura da zona de colagem foi definida como $0,2$, totalizando 628 elementos triangulares quadráticos e 1428 nós nessa região. A constante do operador de acoplamento $L^{2}$ foi definida como $k_{0} = 10$. 
 
@@ -785,7 +785,7 @@ Nas Fig. \ref{fig:aerofolio2d_velocidadeestatica} e Fig. \ref{fig:aerofolio2d_pr
 \subsection{Aerofólio com movimento de arfagem prescrito}
 
 
-Para a validação computacional da técnica Arlequin estabilizada em domínios móveis  utilizou-se um problema envolvendo um aerofólio NACA 0012, semelhante ao apresentado na subseção anterior \ref{subsec:EX1NACA0012}, aplicando-se, entretanto, um movimento de arfagem ao mesmo. O aerofólio apresenta variação do ângulo de ataque em $20^{\circ}$, iniciando o movimento em $10^{\circ}$ e finalizando-o em $30^{\circ}$. 
+Para a validação computacional da técnica Arlequin estabilizada em domínios móveis  utilizou-se um problema envolvendo um aerofólio NACA 0012, semelhante ao apresentado na Subseção anterior \ref{subsec:EX1NACA0012}, aplicando-se, entretanto, um movimento de arfagem ao mesmo. O aerofólio apresenta variação do ângulo de ataque em $20^{\circ}$, iniciando o movimento em $10^{\circ}$ e finalizando-o em $30^{\circ}$. 
 
 Para descrever-se tal movimento aplica-se, tendo como centro a corda média do aerofólio, o movimento de rotação de corpo rígido através da seguinte relação:
 
@@ -795,7 +795,7 @@ Para descrever-se tal movimento aplica-se, tendo como centro a corda média do a
 
 \noindent com $\omega_{f} = 2\pi f_{f}$, sendo $f_{f}$ a frequência de oscilação, adotada nesse estudo como 1.0, $\theta_{max} = 30^{\circ}$ e $\theta_{min} = 10^{\circ}$.
 
-As dimensões da geometria do domínio computacional são alteradas (ver Fig. \ref{fig:AerofolioMoving}) para capturar os efeitos dos desprendimentos de vórtices, que para esse problema, se desprendem em uma faixa mais ampla. Os demais parâmetros de análise foram mantidos iguais aos apresentados no exemplo da subseção \ref{subsec:EX1NACA0012}. 
+As dimensões da geometria do domínio computacional são alteradas (ver Fig. \ref{fig:AerofolioMoving}) para capturar os efeitos dos desprendimentos de vórtices, que para esse problema, se desprendem em uma faixa mais ampla. Os demais parâmetros de análise foram mantidos iguais aos apresentados no exemplo da Subseção \ref{subsec:EX1NACA0012}. 
 
 \begin{figure}[htb!]
 	\centering 
@@ -805,7 +805,7 @@ As dimensões da geometria do domínio computacional são alteradas (ver Fig. \r
 \end{figure}
 
 Novamente são analisadas 2 discretizações: 1. Monomodelo; 2. Combinação de duas malhas através do método Arlequin estabilizado.
-O monomodelo consiste em uma malha com 12438 elementos triangulares quadráticos e 25188 elementos. As malhas global e local do método Arlequin mantiveram-se com a mesma discretização do problema da subseção \ref{subsec:EX1NACA0012}, incluindo a quantidade de elementos na zona de colagem.
+O monomodelo consiste em uma malha com 12438 elementos triangulares quadráticos e 25188 elementos. As malhas global e local do método Arlequin mantiveram-se com a mesma discretização do problema da Subseção \ref{subsec:EX1NACA0012}, incluindo a quantidade de elementos na zona de colagem.
 
 É importante ressaltar que para a simulação desse exemplo, utilizou-se como campo inicial de velocidade e pressão, valores obtidos em uma solução de longo termo do aerofólio na condição de repouso.
 

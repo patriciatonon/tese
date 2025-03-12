@@ -8,59 +8,67 @@
 \chapter[Acoplamento Fluido-Estrutura]{Interação Fluido-Estrutura} \label{capitulo:Cap7}
 % ----------------------------------------------------------
 
- O acoplamento entre Fluido e Estrutura proposto nesse trabalho é do tipo particionado forte através da técnica de bloco iterativo. O acoplamento foi resultado do desenvolvimento computacional dos modelos matemáticos apresentados nos capítulos anteriores deste trabalho, ou seja, das equações que descrevem o comportamento do fluido, do \textit{Capítulo 1} e \textit{Capítulo 2}, juntamente com a técnica de decomposição de domínios baseada no método Arlequin para o modelo de fluido apresentada no \textit{Capítulo 4}, e,  também, a metodologia de análise não linear de estruturas de casca pelo método dos elementos finitos posicional vista no \textit{Capítulo 3}.
+
+Ao longo deste trabalho, conforme apresentado nos capítulos anteriores, foi desenvolvido um código computacional para análise de fluidos incompressíveis que permite a decomposição do domínio para capturar efeitos localizados por meio da técnica Arlequin estabilizada. Além disso, para esta pesquisa, foi disponibilizado por um pesquisador do grupo de pesquisas em Mecânica Computacional do Departamento de Engenharia de Estruturas da Escola de Engenharia de São Carlos, no qual a presente aluna está inserida, um código computacional para a análise não linear de estruturas pelo método dos elementos finitos posicional. Com base nesses desenvolvimentos, optou-se por um esquema de acoplamento particionado forte entre fluido e estrutura. Essa abordagem foi escolhida por proporcionar um total desacoplamento entre os \textit{solvers} de fluido e de estrutura, o que facilita a solução dos problemas que aqui serão propostos.
+
+Nesse contexto, para o acoplamento, utiliza-se a técnica de malhas adaptadas para a malha local do fluido em contato com a estrutura, aplicando-se uma descrição ALE. Vale ressaltar que, embora a malha local possa se mover, a malha global permanece fixa com descrição Euleriana, fazendo com que o método de acoplamento possa ser classificado como uma técnica híbrida.
  
- Nesse contexto, para o acoplamento, utiliza-se a técnica de rastreamento de interface para a malha local do fluido em contato com a estrutura, na qual aplica-se uma descrição Lagrangiana-Euleriana arbitrária, fazendo com que o domínio computacional local possa ser movido independentemente do movimento do fluido. 
- 
- No texto a seguir apresentam-se inicialmente as condições de acoplamento que possibilitam a resolução dos problemas de IFE, a técnica de movimentação de malhas utilizada, o procedimento adotado em malhas não coincidentes de fluido e estrutura na interface fluido-estrutura, e, por fim, o tipo de acoplamento adotado.
+No texto a seguir descrevem-se as condições de acoplamento necessárias a solução de um problema IFE, a técnica de movimentação de malha utilizada nesse estudo, e a metodologia de transferência de condições de contorno (Dirichlet-Neumann) em uma interface de fluido e sólido com malha não coincidente. Discorre-se na continuação sobre os detalhes a cerca do esquema de acoplamento particionado forte adotado. Por fim, o algoritmo de implementação computacional será apresentado, e exemplos de validação serão exibidos na sequência.
 
 \section{Condições de acoplamento}
 
-O domínio computacional para a análise de problemas de interação fluido-estrutura (Fig. \ref{fig:dominios}), denominado de $\Omega_{IFE}$, é composto pela união entre os domínios da estrutura $\Omega_E$ e do fluido $\Omega_F$, ou seja, $\Omega_{IFE} = \Omega_F \cup \Omega_E$, com $\Gamma_{IFE}$ o sendo o contorno que define a interface fluido-estrutura.
+O domínio computacional para a análise de problemas de interação fluido-estrutura (Fig. \ref{fig:dominios}), denominado de $\Omega_{IFE}$, é composto pela união entre os domínios da estrutura $\Omega_E$ e do fluido $\Omega_F$, ou seja, $\Omega_{IFE} = \Omega_F \cup \Omega_E$, com $\Gamma_{IFE}$ representando o contorno que define a interface fluido-estrutura.
 
 \begin{figure}[htb!]
 	\centering 
 	%\vspace{-1em} % Diminui o espaço antes da figura
 	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0.0cm, clip=true]{Imagens/Cap7/dominio.pdf}	
-	\caption{Domínios do Fluido e da Estrutura.}
+	\caption{Domínios Computacional para análise de problemas de IFE.}
 	\label{fig:dominios}
 	%\vspace{-1em} % Diminui o espaço antes da figura
 \end{figure}
 
 O domínio computacional não se sobrepõe, por isso, é necessário que em $\Gamma_{IFE}$ existam condições físicas adicionais para se realizar o acoplamento. \citeonline{richter2017fluid} cita que o acoplamento é realizado através de 3 diferentes princípios no contorno $\Gamma_{IFE}$ : condição cinemática, condição dinâmica e condição geométrica.
 
-A condição cinemática refere-se ao fato de que a velocidade do fluido e do sólido na interface devem ser iguais, ou seja:
+A condição cinemática refere-se ao fato de que a velocidade do fluido e do sólido na interface devem ser iguais. A condição dinâmica, refere-se à existência de continuidade do vetor tensão de Cauchy na direção normal ao contorno $\Gamma_{IFE}$.
+
+Em esquemas de acoplamento monolítico, as condições cinemática e dinâmica são atendidas de maneira implícita, visto que os meios são tratados no mesmo contexto matemático. Para esquemas particionadas, como o desse estudo, essas condições são atendidas através da transferência de condições de contorno apropriadas entre os meios.
+
+Para a condição cinemática têm-se:
 
 \begin{align}
-\velocityh = \solidVel^h \ \textrm{no contorno} \ \Gamma_{IFE}
+	\velocityh = \solidVel^h \ \textrm{no contorno} \ \Gamma_{IFE},
 \end{align}
+
+\noindent atendida através da aplicação dos valores de $\solidVel^h$ nos nós (ou pontos de controle) que compõe a malha do fluido na interface entre os meios.
 
 A condição dinâmica, preescreve o balanço da tensão normal no contorno, ao que diz respeito à ação e reação, conforme a equação abaixo:
 
 \begin{align}
-\mathbf{\sigma}_{E}\mathbf{n}_{E} + \mathbf{\sigma}_{F}\mathbf{n}_{F} = 0 \ \textrm{no contorno} \ \Gamma_{IFE},
+	\mathbf{\sigma}_{E}\mathbf{n}_{E} + \mathbf{\sigma}_{F}\mathbf{n}_{F} = 0 \ \textrm{no contorno} \ \Gamma_{IFE},
 \end{align}
 
-\noindent na qual, $\mathbf{\sigma}_{E}$ representa as tensões de Cauchy da estrutura, $\mathbf{\sigma}_{F}$ as tensões de Cauchy no fluido, e $\mathbf{n}_E$ e $\mathbf{n}_F$ representam o vetor normal no contorno $\Gamma_{IFE}$ respectivamente apontando para o fluido e para a estrutura.
+\noindent na qual, $\mathbf{\sigma}_{E}$ representa as tensões de Cauchy da estrutura, $\mathbf{\sigma}_{F}$ as tensões de Cauchy no fluido, e $\mathbf{n}_E$ e $\mathbf{n}_F$ representam o vetor normal no contorno $\Gamma_{IFE}$ respectivamente apontando para o fluido e para a estrutura. Essa condição é atendida através da aplicação de $\mathbf{\sigma}_{F}\mathbf{n}_{F}$ aos nós da malha da estrutura na interface entre os meios.
 
-Já a condição geométrica está relacionada ao fato que os domínios computacionais $\Omega_E$ da estrutura e $\Omega_F$ do fluido devem sempre coincidir em $\Gamma_{IFE}$, ou seja, não devem existir superposições ou frestas nessa interface.
+Já a condição geométrica está relacionada ao fato que os domínios computacionais $\Omega_E$ da estrutura e $\Omega_F$ do fluido devem sempre coincidir em $\Gamma_{IFE}$, ou seja, não devem existir superposições ou frestas nessa interface. No contexto desse estudo essa condição é atendida através de uma movimentação adequada da malha local (Método Arlequin), que se deforma para acomodar a mudança de configuração da estrutura. A técnica de movimentação de malha adotada será apresentada na Subseção \ref{subsec:MovMalha}.
 
-\section{Movimentação da Malha} \label{section:MovMalha}
+\subsection{Movimentação da Malha} \label{subsec:MovMalha}
 
-Nos métodos de malhas adaptadas, à medida em que a interface $\Gamma_{IFE}$ se move, a malha do fluido deve mover-se para ajustar-se ao novo formado e se adaptar à estrutura. Nessa metodologia demanda-se maior controle da resolução da malha próxima a interface dos meios fluidos e sólidos, possibilitando o uso de uma melhor discretização para representar os efeitos de camada limite, e como consequência, a obtenção de soluções mais acuradas nessas regiões críticas.
+Para a satisfação da condição geométrica nos problemas de IFE desse trabalho, uma técnica adequada de movimentação de malha deve ser aplicada. É necessário que o método de movimentação de malha seja robusto o suficiente para que garanta ao longo de toda a análise dos problemas uma discretização de qualidade.
 
-Para possibilitar esse controle, neste trabalho será utilizada a técnica de movimentação de malhas introduzida em \citeonline{TezduyarBSJ:1992f} e \citeonline{TezduyarABJ:1993} conhecida como MJBS (\textit{Mesh-Jacobian Based Stiffening}).
+Dentre as técnicas desenvolvidas até o momento, destacam-se aquelas que impõem os deslocamentos da estrutura na malha do fluido ao longo do contorno $\Gamma_{IFE}$, determinando o campo de deslocamentos na malha do fluido por meio da resolução de um problema de valor de contorno (PVC). Neste trabalho, será adotada essa abordagem, formulando o problema com base na equivalência entre a movimentação da malha à um problema de mecânica dos sólidos, e aplicando-se a técnica de movimentação de malhas introduzida em \citeonline{TezduyarBSJ:1992f} e \citeonline{TezduyarABJ:1993} conhecida como MJBS (\textit{Mesh-Jacobian Based Stiffening}).
 
-O movimento da malha é determinado usando um problema da elasticidade de Dirichlet fictício, descrito como:
+Nesse método, o movimento da malha é determinado usando um problema da elasticidade de Dirichlet fictício, descrito como:
 
 \begin{align}
-	\int_{\domaintt} \straintensor \left(\testfunction\right) : \stresstensor \left(\displacementmesh - \displacementmesh_{\tilde{t}}\right) d\domaintt = 0,
+	\int_{\domaintt} \straintensor \left(\testfunction\right) : \stresstensor \left(\displacementmesh - \displacementmesh_{\tilde{t}}\right) d\Omega = 0,
 	\label{eq:elasticityequation}
 \end{align}
 
-\noindent na qual $\straintensor$ e $\stresstensor$ representam o tensor de deformação linear infinitesimal e o tensor de tensões de Cauchy respectivamente. $\testfunction$ é a função peso respectiva ao deslocamento da malha  $\displacementmesh$, medido a partir de uma configuração de referência até a configuração atual $\currentcoordinates$ e 
+
+\noindent na qual $\testfunction$ é a função peso respectiva ao deslocamento da malha  $\displacementmesh$, medido a partir de uma configuração de referência até a configuração atual $\currentcoordinates$ e 
 $\displacementmesh_{\tilde{t}}$ representa o deslocamento da configuração de referência até a malha no tempo ${\tilde{t}}$, ou $\currentcoordinates_{\tilde{t}}$. 
-A escolha para ${\tilde{t}}$ é geralmente ${\tilde{t}} = {t_{n}}$ quando se calcula a configuração da malha no tempo ${t_{n+1}}$ (ver \citeonline{Tononetal:2021} para maiores detalhes). O índice $h$ refere-se à discretização das variáveis por uma aproximação matemática em elementos finitos ou isogeométrica.
+A escolha para ${\tilde{t}}$ é geralmente ${\tilde{t}} = {t_{n}}$ quando se calcula a configuração da malha no tempo ${t_{n+1}}$ (ver \citeonline{Tononetal:2021} para maiores detalhes). 
 
 O tensor de tensões é calculado através da seguinte relação:
 
@@ -78,10 +86,10 @@ O tensor de tensões é calculado através da seguinte relação:
 
 \noindent com $E$ e $\poisonsRatio$ o módulo de Elasticidade e o coeficiente de Poisson respectivamente.
 
-Para fazer com que na deformação da malha se leve em conta o tamanho dos elementos, enrijecendo os menores mais do que os maiores, no método MJBS a equação da elasticidade fica descrita ao final como:
+Nos problemas de IFE, demanda-se maior controle da resolução da malha próxima a interface dos meios fluidos e sólidos, para representar os efeitos de camada limite, e como consequência, a obtenção de soluções mais acuradas nessas regiões críticas. Para fazer com que na deformação da malha se leve em conta o tamanho dos elementos, enrijecendo os menores mais do que os maiores, no método MJBS a equação da elasticidade fica descrita ao final como:
 
 \begin{align}
-	\int_{\domaintt} \straintensor \left(\testfunction\right) : \stresstensor \left(\displacementmesh- \displacementmesh_{\tilde{t}}\right) \left(\frac{J_M}{\left({J_M}\right)_0}\right)^{-\chi} d\domaintt = 0, 
+	\int_{\domaintt} \straintensor \left(\testfunction\right) : \stresstensor \left(\displacementmesh- \displacementmesh_{\tilde{t}}\right) \left(\frac{J_M}{\left({J_M}\right)_0}\right)^{-\chi} d\Omega = 0, 
 	\label{eq:MJBS}
 \end{align}
 
@@ -96,44 +104,65 @@ Para fazer com que na deformação da malha se leve em conta o tamanho dos eleme
 
 \section{Discretizações não coincidentes entre os meios}
 
-Na maioria dos casos a discretização das malhas do fluido e da estrutura são não-coincidentes e podem inclusive ter aproximações matemáticas distintas. Dessa forma, uma metodologia que possibilita a aplicação de condições de contorno em caso de discretizações com nós não coincidentes, é imprescindível. Para isso, uma técnica aplicada em \citeonline {Fernandes:2020} foi utilizada.
+Na maioria dos casos a discretização das malhas do fluido e da estrutura são não-coincidentes no contorno $\Gamma_{IFE}$ e podem inclusive ter aproximações matemáticas distintas. Dessa forma, uma metodologia que possibilita a aplicação de condições de contorno em caso de discretizações com nós não coincidentes, é imprescindível. 
 
-Esse procedimento pode ser entendido a partir da Fig. \ref{fig:contornoIFE}. Nele, durante o pré-processamento, cada nó do contorno da estrutura $\mathbf{x_E}$ é projetado sobre o contorno do fluido, e busca-se a coordenada paramétrica relativa a este ponto definida como $\boldsymbol{\xi_{F}}(\mathbf{x_E})$. Da mesma forma, cada nó do contorno do fluido $\mathbf{x_F}$ é projetado sobre o contorno da estrutura, e encontra-se uma coordenada paramétrica equivalente $\boldsymbol{\xi_{E}}(\mathbf{x_F})$. 
+O procedimento adotado nesse trabalho pode ser entendido a partir da Fig. \ref{fig:contornoIFE}. Nele, durante o pré-processamento do código computacional, cada nó do contorno da estrutura $\mathbf{x_E}$ é projetado sobre o contorno do fluido, e busca-se a coordenada paramétrica relativa a este ponto definida como $\boldsymbol{\xi_{F}}(\mathbf{x_E})$. Da mesma forma, cada nó do contorno do fluido $\mathbf{x_F}$ é projetado sobre o contorno da estrutura, e encontra-se uma coordenada paramétrica equivalente $\boldsymbol{\xi_{E}}(\mathbf{x_F})$. 
 
 
 \begin{figure}[htb!]
 	\centering 
 	\includegraphics[scale=0.9,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/contornoIFE.pdf}	
-	\caption{Contorno IFE}
+	\caption{Discretizações não-coincidentes no contorno IFE}
 	\label{fig:contornoIFE}
 \end{figure}
 
 Dessa forma, as informações que serão transmitidas ao fluido pela estrutura são interpoladas na malha da estrutura em cada uma das coordenadas paramétricas que possuem um nó equivalente na malha de fluido, e após isso aplicadas a este nó. O equivalente ocorre quando os dados são provenientes do fluido e serão transmitidos a estrutura.
 
 
-\section{Técnica de Acoplamento - Bloco-Iterativo}
+\section{Acoplamento Particionado Forte - Bloco-Iterativo}
 
-Os problemas de IFE são caracterizados pela interdependência entre o fluido e a estrutura, visto que o comportamento do escoamento depende do formato e do movimento da estrutura, enquanto que o movimento da estrutura e sua deformação dependem das forças do fluido que atuam sobre ela. Matematicamente pode-se dizer que os problemas de IFE são conjuntos de equações e condições de contorno associadas ao fluido e a estrutura que devem ser satisfeitas simultaneamente
-Nessa seção se apresenta a técnica de acoplamento de Bloco-Iterativo, conforme \citeonline{BazilevsTT:2013}. As equações completas discretizadas da formumação de IFE conduzem a um sistema equações não-lineares que devem ser resolvidas a cada passo de tempo e podem ser representadas da seguinte maneira:
+Os problemas de IFE são caracterizados pela interdependência entre o fluido e a estrutura, visto que o comportamento do escoamento depende do formato e do movimento da estrutura, enquanto que o movimento da estrutura e sua deformação dependem das forças do fluido que atuam sobre ela. Matematicamente pode-se dizer que os problemas de IFE são conjuntos de equações e condições de contorno associadas ao fluido e a estrutura que devem ser satisfeitas simultaneamente.
+
+As equações completas discretizadas da formulação IFE conduzem a um sistema de equações não-lineares que devem ser resolvidas a cada passo de tempo e podem ser representadas da seguinte maneira \cite{BazilevsTT:2013}:
 
 \begin{align}
-	\mathbf{N}_{1}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = 0,\\
-	\mathbf{N}_{2}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = 0,\\
-	\mathbf{N}_{3}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = 0,
+	\mathbf{N}_{1}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = 0, \label{eq:N1}\\ 
+	\mathbf{N}_{2}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = 0,\label{eq:N2}\\
+	\mathbf{N}_{3}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = 0 \label{eq:N3},
 \end{align}
 
 \noindent em que $\mathbf{{N}_{1}}$, $\mathbf{{N}_{2}}$ e $\mathbf{{N}_{3}}$ representam as equações que descrevem o fluido, a estrutura e a malha respectivamente, e, $\mathbf{{d}_{1}}$, $\mathbf{{d}_{2}}$, $\mathbf{{d}_{3}}$ são vetores com as variáveis nodais de cada meio. 
 A resolução dessas equações através do método de Newton-Raphson conduz ao seguinte sistema linear de equações:
 
 \begin{align}
-\mathbf{A_{11}}\mathbf{x_{1}} + \mathbf{A_{12}}\mathbf{x_{2}} + \mathbf{A_{13}}\mathbf{x_{3}} = \mathbf{b_{1}}\\
-\mathbf{A_{21}}\mathbf{x_{1}} + \mathbf{A_{22}}\mathbf{x_{2}} + \mathbf{A_{23}}\mathbf{x_{3}} = \mathbf{b_{2}}\\
-\mathbf{A_{31}}\mathbf{x_{1}} + \mathbf{A_{32}}\mathbf{x_{2}} + \mathbf{A_{33}}\mathbf{x_{3}} = \mathbf{b_{3}}
-\end{align}
+	\begin{bmatrix}
+		\mathbf{A_{11}} & \mathbf{A_{12}} & \mathbf{A_{13}} \\
+		\mathbf{A_{21}} & \mathbf{A_{22}} & \mathbf{A_{23}} \\
+		\mathbf{A_{31}} & \mathbf{A_{32}} & \mathbf{A_{33}} 
+	\end{bmatrix}
+	\begin{bmatrix}
+		\mathbf{x_{1}} \\
+		\mathbf{x_{2}} \\
+		\mathbf{x_{3}}
+	\end{bmatrix}
+	&=
+	\begin{bmatrix}
+		\mathbf{b_{1}} \\
+		\mathbf{b_{2}} \\
+		\mathbf{b_{3}}
+	\end{bmatrix}.
+	\label{eq:SistLinear}
+\end{align}	
 
 \noindent sendo $\mathbf{b_{1}} = - \mathbf{N}_{1}$, $\mathbf{b_{2}} = - \mathbf{N}_{2}$, $\mathbf{b_{3}} = - \mathbf{N}_{3}$. $\mathbf{x_{1}}$, $\mathbf{x_{2}}$ e $\mathbf{x_{3}}$ são os incrementos às soluções $\mathbf{d}_{1}$, $\mathbf{d}_{2}$ e $\mathbf{d}_{3}$ respectivamente e $\mathbf{A_{ij}} = \frac{\partial\mathbf{N}_{i}}{\partial\mathbf{d}_{j}}$. 
 
-Quando se utiliza o acoplamento forte do tipo bloco iterativo, para cada passo de iteração se resolve sequencialmente cada um dos três blocos, conforme apresentado a seguir:
+Conforme exposto anteriormente, \citeonline{BazilevsTT:2013} apresentam uma classificação da metodologia de acoplamento segundo a forma de resolver essas equações não-lineares. As categorias definidas pelos autores são: técnica direta, técnica bloco-iterativa e técnica quase-direta. 
+
+A técnica direta seria equivalente aos esquemas de solução monolíticos citados ao longo do texto, e consiste na resolução a cada iteração de Newton-Raphson do sistema apresentado na Eq. \refeq{eq:SistLinear}. Essa técnica apresenta boa convergência, entretanto, devido aos grandes sistemas lineares gerados, ocorre um aumento do custo computacional.
+
+Nesse contexto, e buscando proporcionar um total desacoplamento entre os \textit{solvers} de fluido e de estrutura, adotou-se o um esquema de acoplamento do tipo particionado forte. Dentro da classificação dos autores \citeonline{BazilevsTT:2013} seria equivalente a técnica de acoplamento do tipo bloco iterativo.
+
+Quando se utiliza um acoplamento do tipo bloco iterativo, os sistemas do fluido, da estrutura e da malha são tratados em blocos separados, e para cada iteração dentro de um passo de tempo, se resolve sequencialmente o seguinte conjunto de equações:
 
 
 \begin{align}
@@ -145,8 +174,9 @@ Quando se utiliza o acoplamento forte do tipo bloco iterativo, para cada passo d
 	\mathbf{d}_{3}^{i+1} =  \mathbf{d}_{3}^{i} + \Delta\mathbf{d}_{3}^{i}  \label{eq:upMalha}
 \end{align}
 
+Nota-se que o ocorre é apenas uma modificação da matriz tangente com relação ao método direto. Este fato, faz com que a resposta não seja alterada, entretanto, a convergência do problema pode ser afetada. 
 
-Nas resoluções de problemas IFE, quando a estrutura é leve, a resposta estrutural torna-se muito sensível para pequenas mudanças nas forças proveninetes do fluido. Para resolver esse problema, utilizou-se a técnica apresentada em \citeonline{Tezduyar:2003d}, onde para corrigir o deslocamento estrutural durante a resolução a matriz de massa em $\mathbf{A_{22}}$ é aumentada. Isso ocorre sem que $\mathbf{b_{1}}$, $\mathbf{b_{2}}$ e $\mathbf{b_{3}}$ sejam alterados, ou seja, sem que ocorra uma mudança nas equações não lineares. Isso faz com que quando a solução por bloco iterativo converge, ela converge sem que seja alterada a massa estrutural real do problema.
+Em certos problemas envolvendo estruturas leves, a resposta estrutural pode tornar-se extremamente sensível a pequenas variações nas forças provenientes do fluido. Esse fenômeno pode levar à divergência da técnica de bloco iterativo. Para contornar essa dificuldade, adotou-se a estratégia proposta por \citeonline{Tezduyar:2003d}, na qual a matriz de massa em $\mathbf{A_{22}}$ é aumentada por um fator dependente do tipo de problema em análise. Essa modificação ocorre sem alterar $\mathbf{b_{1}}$, $\mathbf{b_{2}}$ e $\mathbf{b_{3}}$, ou seja, sem modificar as equações não lineares. Dessa forma, quando a solução pelo método de bloco iterativo converge, a massa estrutural real do problema permanece inalterada.
 
 \subsection{Implementação Computacional} 
 
@@ -154,27 +184,30 @@ Nas resoluções de problemas IFE, quando a estrutura é leve, a resposta estrut
 O Algoritmo que descreve a implementação computacional do problema de IFE de acordo com a técnica de acoplamento forte do tipo bloco-iterativo é apresentada no Alg. \ref{alg:IFE}.
 
 \begin{algorithm}
-	\caption{Algoritmo para problemas IFE}
+	\caption{Algoritmo para solução de problemas IFE}
 	\label{alg:IFE}
 	\begin{algorithmic}[1]
+		\State Busca por coordenadas paramétricas correspondentes aos nós da malha do fluido na malha da estrutura;
+		\State Busca por coordenadas paramétricas correspondentes aos nós da malha da estrutura na malha do fluido;
 		\For {o passo de tempo $t=0$ até $t=\timeInterval$} 
-		\State Atualiza as variáveis do fluido, estrutura e malha no passo de tempo $t-1$;
-		\For {número de iterações de Newton Raphson $it=0$ até $it=Nit$}
+		\State Atualiza as variáveis do fluido, estrutura e malha no passo de tempo $t = t-1$;
+		\For {número de iterações de Newton Raphson $it=0$ até $it=N_{it}$}
 		\State \textbf{Fluido}
-		\State Resolve o problema do fluido (Eq. \eqref{eq:Fluido}) ;
+		\State Realiza os passos das linhas 1., 2., 3. e 4. do Algoritmo \ref{alg:fluid_temporalIntegrationARLQ};
+		\State Resolve o problema do fluido (Eq. \eqref{eq:Fluido});
 		\State Atualiza as variáveis do fluido na iteração $it$ através da eq. \ref{eq:upFluido};
-		\State Calcula medida de convergência $\epsilon_F$
-		\State Atualiza as forças de superfície no contorno  $\Gamma_{IFE}$: $t^{E} = -\sigma_{F} \cdot n_{F}$ ;
+		\State Calcula medida de convergência $\epsilon_F$;
+		\State Atualiza as forças de superfície no contorno  $\Gamma_{IFE}$ ($\boldsymbol{t^{E}} = -\boldsymbol{\sigma_{F}} \cdot \boldsymbol{n_{F}}$) ;
 		\State \textbf{Estrutura}
 		\State Resolve o problema da estrutura (Eq. \eqref{eq:Estrutura});
 		\State Atualiza as variáveis da estrutura na iteração $it$ através da eq. \eqref{eq:upEstrutura};
-		\State Calcula medida de convergência $\epsilon_E$
+		\State Calcula medida de convergência $\epsilon_E$;
 		\State Atualiza velocidade e acelerações no fluido no contorno  $\Gamma_{IFE}$;
-		\State Atualiza velocidade e acelerações na malha no contorno  $\Gamma_{IFE}$;
+		\State Atualiza posição da interface da malha no contorno  $\Gamma_{IFE}$;
 		\State \textbf{Malha}
 		\State Resolve o problema de malha Eq. \eqref{eq:Malha};
 		\State Atualiza as variáveis da malha na iteração $it$ através da eq. \eqref{eq:upMalha};
-		\State Calcula medida de convergência $\epsilon_M$
+		\State Calcula medida de convergência $\epsilon_M$;
 		\If    {$\epsilon_F$, $\epsilon_E$ e $\epsilon_M$ < $tol$ } 
 		\State Sair do loop;
 		\EndIf
@@ -183,19 +216,98 @@ O Algoritmo que descreve a implementação computacional do problema de IFE de a
 	\end{algorithmic}
 \end{algorithm}
 
-CITAR O QUE SÃO OS SÍMBOLOS que estão no algoritmo e não foram escritos no texto. FAZER lista de símbolos e deixar comentada?
+No algoritmo apresentado $\boldsymbol{t^{E}}$ representa as forças de superfície no contorno $\Gamma_{IFE}$ aplicadas à estrutura, e as medidas de convergência $\epsilon_F$, $\epsilon_E$ e $\epsilon_M$ são normas vetoriais $L_2$ aplicadas sobre o resíduo das respectivas equações diferenciais.
 
 
+\section{Exemplos}
 
-\section{Cavidade com fundo flexível - 2D}
+Para a validação da metodologia de análise de problemas de IFE, apresentada nesse capítulo, alguns exemplos serão estudados e analisados.
+
+Os dois primeiros exemplos dizem respeito a uma cavidade com um fundo flexível composto por uma chapa, com velocidade oscilatória aplicada em seu topo. Esses exemplos são uma extensão do típico problema da DFC de uma cavidade quadrada (apresentado, por exemplo, na Seção \ref{subsec:CavQua3d}) e serão apresentados em uma versão bidimensional e tridimensional.
+
+O seguinte exemplo consiste em...
+
+\subsection{Cavidade com fundo flexível - 2D}
+
+O problema da cavidade com fundo flexível trata-se de uma extensão do típico problema da DFC de uma cavidade quadrada com velocidade prescrita em sua parede superior. Sua simulação computacional já foi realizada por diversos autores, como por exemplo, \citeonline{GerbeauV:2003} e \citeonline{FernandezMV:2013}, e  por isso, será utilizada no processo de validação da metodologia nesta tese apresentada.
+
+A cavidade com fundo flexível (geometria apresentada na Fig. \ref{fig:cavidadeFF2d:Geo}) consiste em uma cavidade composta por paredes laterais rígidas e um fundo flexível composto por uma chapa fina de 0,002. No seu topo uma velocidade oscilatória horizontal $u_x(t)=1-cos(0,4 \pi t)$ é aplicada, sendo as demais velocidades ($u_y$ e $u_z$) nulas. Condições de contorno de não deslizamento são aplicadas as paredes laterais. Esse modelo de cavidade apresenta duas aberturas de 0,1 no topo de suas laterais com condições homogêneas de Neumann. Como o problema apresenta comportamento bidimensional o mesmo será analisado utilizando-se inicialmente uma espessura de 0,1 de profundidade. As velocidades perpendiculares ao plano da cavidade são fixadas como zero em $y=0,0$ e $y=0,1$. Na Fig. \ref{fig:cavidadeFF2d:Geo} são apresentadas também as propriedades físicas do fluido e da estrutura necessárias a análise.
 
 \begin{figure}[htb!]
 	\centering 
 	\includegraphics[scale=1.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/cav2d.pdf}	
-	\caption{Geometria Cavidade Fundo Flexível 2D}
-	\label{fig:cavidadeFF2d}
+	\caption{Cavidade fundo flexível 2D: geometria}
+	\label{fig:cavidadeFF2d:Geo}
 \end{figure}
-\section{Cavidade com fundo flexível - 3D}
+
+A chapa fina possui como condições de contorno engastamento em ambas a laterais, e na direção perpendicular ao plano da cavidade o vetor generalizado, nesta direção, é prescrito como zero em $y=0,0$ e $y=0,1$.
+
+No que diz respeito a integração temporal utilizou-se $\timeStep = 0,1$, e $\specRadius = 0,0$. A escolha por uma integração temporal com máxima dissipação se deu por conta do trabalho de \citeonline{Forsteretal:2007} que reporta que a regra trapezoidal de integração leva a resultados instáveis para esse problema.
+
+Foram utilizadas nas análises três diferentes discretizações para o modelo Arlequin, sendo as malhas globais em elementos isogeométricos quadráticos (IGA) e as malhas locais, mais refinadas, em elementos finitos (MEF) tetraédricos quadráticos. Além disso, os resultados foram comparados com uma discretização somente em elementos finitos tetraédricos quadráticos, chamada de monomodelo. A quantidade de nós, ou pontos de controle (PC), e de elementos para cada cada uma dessas discretizações é apresentada na Tab. \ref{tab:CF2DD}, assim como detalhes da discretização da placa, na qual foram utilizados elementos triangulares quadráticos. Na tabela ML e MG são abreviações para malha local e malha global respectivamente.
+	
+	\begin{center}
+		\begin{table}[h!]
+			\caption{Discretizações}
+			\centering
+			\begin{tabular}{|c | c | c| c| c|} 
+				\hline
+				\ &  Nós/PC ML & Elementos ML & Nós/PC MG & Elementos MG  \\ 
+				\hline
+				Arlequin - Malha 0 & 777 & 370 & 504 & 100 \\ 
+				\hline
+				Arlequin - Malha 1 & 1625 & 778 & 1584 & 400\\
+				\hline
+				Arlequin - Malha 2 & 6156 & 3040 & 5544 & 1600\\
+				\hline
+				Monomodelo & - & - & 11789 & 5750\\
+				\hline
+				Estrutura - Malha 0 & - & - &  103 & 40\\
+				\hline
+				Estrutura - Malha 1 & - & - &  203 & 80\\
+				\hline
+				Estrutura - Malha 2 & - & - &  883 & 400\\
+				\hline
+			\end{tabular}
+			\label{tab:CF2DD}
+		\end{table}
+	\end{center}
+
+
+A malha isogeométrica utilizada foi composta por 2 \textit{patches} (observar Fig. \ref{fig:cavidadeFF2d:Malhas}). Essa discretização usando 2 \textit{patches} foi necessária para gerar pontos de controle que estivessem posicionados na linha que separa as paredes laterais das aberturas, possibilitando a adequada aplicação das condições de contorno. Na Fig. \ref{fig:cavidadeFF2d:Malhas} pode ser observada também a composição do modelo Arlequin. A região em vermelho da malha local corresponde aos elementos que fazem parte da zona de colagem.  A espessura da zona de colagem foi definida como $0,2$. A constante do operador de acoplamento $L^{2}$ foi especificada como $k_{0} = 10$. 
+
+\begin{figure}[htb!]
+	\centering
+	{\includegraphics[scale=0.3,trim=0cm 2cm 0cm 0cm, clip=true]{Imagens/Cap7/Cav2dMesh.pdf}} 
+	\caption{Cavidade fundo flexível 2D: Discretização para modelo Arlequin - malha 2}
+	\label{fig:cavidadeFF2d:Malhas}
+\end{figure}
+
+Na Fig. \ref{Cav2dDisplacementArlq.eps} são apresentados os deslocamentos da chapa no ponto A (ver Fig. \ref{fig:cavidadeFF2d:Geo}) para os modelos Arlequin (malha 0, malha 1 e malha 2). Para a comparação com as referências e com o monomodelo, utilizou-se o modelo Arlquin composto pela malha 2, mais refinida, e os resultados são apresesentados na Fig. \ref{fig:cavidadeFF2d:DeslocamentoA1}. Pode-se observar nessa última figura, que os dados obtidos com o modelo Arlequin são compatíveis com os obtidos com o monomodelo. As diferenças encontradas entre a amplitude dos deslocamentos obtidos nesse trabalho com as referências podem ser atribuídas para as diferentes formulações adotadas para a modelagem do fluido e da chapa.
+
+\begin{figure}[htb!]
+	\centering 
+	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/Cav2dDisplacementArlq.eps}	
+	\caption{Cavidade fundo flexível 2D: Deslocamento em A para malhas do modelo Arlequin}
+	\label{Cav2dDisplacementArlq.eps}
+\end{figure}
+
+\begin{figure}[htb!]
+	\centering 
+	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/Cav2dDisplacementArlqMono.eps}	
+	\caption{Cavidade fundo flexível 2D: Deslocamento em A comparado com as referências e monomodelo}
+	\label{fig:cavidadeFF2d:DeslocamentoA1}
+\end{figure}
+
+
+
+
+
+
+
+
+
+\subsection{Cavidade com fundo flexível - 3D}
 
 \begin{figure}[htb!]
 	\centering 

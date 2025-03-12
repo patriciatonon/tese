@@ -1,4 +1,4 @@
-This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: tese_patricia.aux
 The style file: abntex2-alf.bst
@@ -11,7 +11,7 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-Reallocated field_info (elt_size=4) to 14108 items from 5000.
+Reallocated field_info (elt_size=4) to 14315 items from 5000.
 Database file #1: abntex2-options.bib
 Database file #2: referencias.bib
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -23,44 +23,44 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 132 entries,
+You've used 135 entries,
             6714 wiz_defined-function locations,
-            2042 strings with 32154 characters,
-and the built_in function-call counts, 124280 in all, are:
-= -- 9368
-> -- 4835
-< -- 549
-+ -- 2042
-- -- 1421
-* -- 9429
-:= -- 15707
-add.period$ -- 435
-call.type$ -- 133
-change.case$ -- 1576
-chr.to.int$ -- 489
-cite$ -- 129
-duplicate$ -- 6636
-empty$ -- 8193
-format.name$ -- 6897
-if$ -- 29236
+            2059 strings with 32776 characters,
+and the built_in function-call counts, 127284 in all, are:
+= -- 9585
+> -- 4972
+< -- 558
++ -- 2093
+- -- 1461
+* -- 9669
+:= -- 16080
+add.period$ -- 444
+call.type$ -- 136
+change.case$ -- 1617
+chr.to.int$ -- 501
+cite$ -- 132
+duplicate$ -- 6780
+empty$ -- 8381
+format.name$ -- 7084
+if$ -- 29947
 int.to.chr$ -- 3
 int.to.str$ -- 3
-missing$ -- 2464
-newline$ -- 662
-num.names$ -- 646
-pop$ -- 3038
+missing$ -- 2520
+newline$ -- 677
+num.names$ -- 661
+pop$ -- 3113
 preamble$ -- 1
-purify$ -- 553
+purify$ -- 567
 quote$ -- 0
-skip$ -- 7080
+skip$ -- 7238
 stack$ -- 1
-substring$ -- 5760
-swap$ -- 3599
-text.length$ -- 258
+substring$ -- 5907
+swap$ -- 3680
+text.length$ -- 264
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 15
 warning$ -- 0
-while$ -- 992
+while$ -- 1016
 width$ -- 0
-write$ -- 2130
+write$ -- 2178
