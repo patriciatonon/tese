@@ -24,6 +24,7 @@ Warning--I didn't find a database entry for "Tezduyar:2003d"
 Warning--I didn't find a database entry for "GerbeauV:2003"
 Warning--I didn't find a database entry for "FernandezMV:2013"
 Warning--I didn't find a database entry for "Forsteretal:2007"
+Warning--I didn't find a database entry for "Mok:2001"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
@@ -35,7 +36,7 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 0 entries,
             6714 wiz_defined-function locations,
-            1213 strings with 9583 characters,
+            1215 strings with 9599 characters,
 and the built_in function-call counts, 679 in all, are:
 = -- 182
 > -- 0

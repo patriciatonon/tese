@@ -176,7 +176,7 @@ Quando se utiliza um acoplamento do tipo bloco iterativo, os sistemas do fluido,
 
 Nota-se que o ocorre é apenas uma modificação da matriz tangente com relação ao método direto. Este fato, faz com que a resposta não seja alterada, entretanto, a convergência do problema pode ser afetada. 
 
-Em certos problemas envolvendo estruturas leves, a resposta estrutural pode tornar-se extremamente sensível a pequenas variações nas forças provenientes do fluido. Esse fenômeno pode levar à divergência da técnica de bloco iterativo. Para contornar essa dificuldade, adotou-se a estratégia proposta por \citeonline{Tezduyar:2003d}, na qual a matriz de massa em $\mathbf{A_{22}}$ é aumentada por um fator dependente do tipo de problema em análise. Essa modificação ocorre sem alterar $\mathbf{b_{1}}$, $\mathbf{b_{2}}$ e $\mathbf{b_{3}}$, ou seja, sem modificar as equações não lineares. Dessa forma, quando a solução pelo método de bloco iterativo converge, a massa estrutural real do problema permanece inalterada.
+Em certos problemas envolvendo estruturas leves, a resposta estrutural pode tornar-se extremamente sensível a pequenas variações nas forças provenientes do fluido. Esse fenômeno pode levar à divergência da técnica de bloco iterativo. Para contornar essa dificuldade, adotou-se a estratégia proposta por \citeonline{Tezduyar:2003d}, chamada de \textit{Augmented A22} na qual a matriz de massa em $\mathbf{A_{22}}$ é aumentada por um fator dependente do tipo de problema em análise. Essa modificação ocorre sem alterar $\mathbf{b_{1}}$, $\mathbf{b_{2}}$ e $\mathbf{b_{3}}$, ou seja, sem modificar as equações não lineares. Dessa forma, quando a solução pelo método de bloco iterativo converge, a massa estrutural real do problema permanece inalterada.
 
 \subsection{Implementação Computacional} 
 
@@ -201,7 +201,7 @@ O Algoritmo que descreve a implementação computacional do problema de IFE de a
 		\State \textbf{Estrutura}
 		\State Resolve o problema da estrutura (Eq. \eqref{eq:Estrutura});
 		\State Atualiza as variáveis da estrutura na iteração $it$ através da eq. \eqref{eq:upEstrutura};
-		\State Calcula medida de convergência $\epsilon_E$;
+		\State Calcula medida de convergênci0cma $\epsilon_E$;
 		\State Atualiza velocidade e acelerações no fluido no contorno  $\Gamma_{IFE}$;
 		\State Atualiza posição da interface da malha no contorno  $\Gamma_{IFE}$;
 		\State \textbf{Malha}
@@ -223,15 +223,15 @@ No algoritmo apresentado $\boldsymbol{t^{E}}$ representa as forças de superfíc
 
 Para a validação da metodologia de análise de problemas de IFE, apresentada nesse capítulo, alguns exemplos serão estudados e analisados.
 
-Os dois primeiros exemplos dizem respeito a uma cavidade com um fundo flexível composto por uma chapa, com velocidade oscilatória aplicada em seu topo. Esses exemplos são uma extensão do típico problema da DFC de uma cavidade quadrada (apresentado, por exemplo, na Seção \ref{subsec:CavQua3d}) e serão apresentados em uma versão bidimensional e tridimensional.
+Os dois primeiros exemplos dizem respeito a uma cavidade com um fundo flexível composto por uma chapa, com velocidade oscilatória aplicada em seu topo. Esses exemplos são uma extensão do típico problema da DFC de uma cavidade quadrada (apresentado, por exemplo, na Seção \ref{subsec:CavQua3d} em sua versão 3D) e serão apresentados em uma versão bidimensional e tridimensional.
 
 O seguinte exemplo consiste em...
 
 \subsection{Cavidade com fundo flexível - 2D}
 
-O problema da cavidade com fundo flexível trata-se de uma extensão do típico problema da DFC de uma cavidade quadrada com velocidade prescrita em sua parede superior. Sua simulação computacional já foi realizada por diversos autores, como por exemplo, \citeonline{GerbeauV:2003} e \citeonline{FernandezMV:2013}, e  por isso, será utilizada no processo de validação da metodologia nesta tese apresentada.
+O problema da cavidade com fundo flexível trata-se de uma extensão do típico problema da DFC de uma cavidade quadrada com velocidade prescrita em sua parede superior. Sua simulação computacional já foi realizada por diversos autores, como por exemplo, \citeonline{GerbeauV:2003} e \citeonline{Yokomizo:2024}, e  por isso, será utilizada no processo de validação da metodologia nesta tese apresentada.
 
-A cavidade com fundo flexível (geometria apresentada na Fig. \ref{fig:cavidadeFF2d:Geo}) consiste em uma cavidade composta por paredes laterais rígidas e um fundo flexível composto por uma chapa fina de 0,002. No seu topo uma velocidade oscilatória horizontal $u_x(t)=1-cos(0,4 \pi t)$ é aplicada, sendo as demais velocidades ($u_y$ e $u_z$) nulas. Condições de contorno de não deslizamento são aplicadas as paredes laterais. Esse modelo de cavidade apresenta duas aberturas de 0,1 no topo de suas laterais com condições homogêneas de Neumann. Como o problema apresenta comportamento bidimensional o mesmo será analisado utilizando-se inicialmente uma espessura de 0,1 de profundidade. As velocidades perpendiculares ao plano da cavidade são fixadas como zero em $y=0,0$ e $y=0,1$. Na Fig. \ref{fig:cavidadeFF2d:Geo} são apresentadas também as propriedades físicas do fluido e da estrutura necessárias a análise.
+A cavidade com fundo flexível (geometria apresentada na Fig. \ref{fig:cavidadeFF2d:Geo}) consiste em uma cavidade composta por paredes laterais rígidas e um fundo flexível composto por uma placa fina de 0,002. No seu topo uma velocidade oscilatória horizontal $u_x(t)=1-cos(0,4 \pi t)$ é aplicada, sendo as demais velocidades ($u_y$ e $u_z$) nessa parede nulas. Condições de contorno de não deslizamento são aplicadas as paredes laterais. Esse modelo de cavidade apresenta duas aberturas de 0,1 no topo de suas laterais com condições homogêneas de Neumann. Como o problema apresenta comportamento bidimensional o mesmo será analisado utilizando-se uma discretização 3D com uma espessura de 0,1 de profundidade. As velocidades perpendiculares ao plano da cavidade são fixadas como zero em $y=0,0$ e $y=0,1$. Na Fig. \ref{fig:cavidadeFF2d:Geo} são apresentadas também as propriedades físicas do fluido e da estrutura necessárias a análise.
 
 \begin{figure}[htb!]
 	\centering 
@@ -240,7 +240,7 @@ A cavidade com fundo flexível (geometria apresentada na Fig. \ref{fig:cavidadeF
 	\label{fig:cavidadeFF2d:Geo}
 \end{figure}
 
-A chapa fina possui como condições de contorno engastamento em ambas a laterais, e na direção perpendicular ao plano da cavidade o vetor generalizado, nesta direção, é prescrito como zero em $y=0,0$ e $y=0,1$.
+A placa fina possui condições de deslocamentos nulos em suas laterais esquerda e direita, e, na direção perpendicular ao plano da cavidade o vetor generalizado e os deslocamentos, nesta direção, são prescritos como zero em $y=0,0$ e $y=0,1$.
 
 No que diz respeito a integração temporal utilizou-se $\timeStep = 0,1$, e $\specRadius = 0,0$. A escolha por uma integração temporal com máxima dissipação se deu por conta do trabalho de \citeonline{Forsteretal:2007} que reporta que a regra trapezoidal de integração leva a resultados instáveis para esse problema.
 
@@ -274,46 +274,96 @@ Foram utilizadas nas análises três diferentes discretizações para o modelo A
 	\end{center}
 
 
-A malha isogeométrica utilizada foi composta por 2 \textit{patches} (observar Fig. \ref{fig:cavidadeFF2d:Malhas}). Essa discretização usando 2 \textit{patches} foi necessária para gerar pontos de controle que estivessem posicionados na linha que separa as paredes laterais das aberturas, possibilitando a adequada aplicação das condições de contorno. Na Fig. \ref{fig:cavidadeFF2d:Malhas} pode ser observada também a composição do modelo Arlequin. A região em vermelho da malha local corresponde aos elementos que fazem parte da zona de colagem.  A espessura da zona de colagem foi definida como $0,2$. A constante do operador de acoplamento $L^{2}$ foi especificada como $k_{0} = 10$. 
+A malha isogeométrica utilizada foi composta por 2 \textit{patches} (observar Fig. \ref{fig:cavidadeFF2d:Malhas}). Essa discretização usando 2 \textit{patches} foi necessária para gerar pontos de controle interpolatórios posicionados na linha que separa as paredes laterais das aberturas, possibilitando a adequada aplicação das condições de contorno. Na Fig. \ref{fig:cavidadeFF2d:Malhas} pode ser observada também a composição do modelo Arlequin. A região em vermelho da malha local corresponde aos elementos que fazem parte da zona de colagem.  A espessura da zona de colagem foi definida como $0,2$. A constante do operador de acoplamento $L^{2}$ foi especificada como $k_{0} = 10$. A quantidade de elementos na zona de colagem para malha 0, 1 e 2  foram respectivamente de 185, 390, 1569, e de nós 400, 915 e 3372.
 
 \begin{figure}[htb!]
 	\centering
-	{\includegraphics[scale=0.3,trim=0cm 2cm 0cm 0cm, clip=true]{Imagens/Cap7/Cav2dMesh.pdf}} 
-	\caption{Cavidade fundo flexível 2D: Discretização para modelo Arlequin - malha 2}
+	{\includegraphics[scale=0.2,trim=0cm 2cm 0cm 0cm, clip=true]{Imagens/Cap7/Cav2dMesh.pdf}} 
+	\caption{Cavidade fundo flexível 2D: Vista frontal da discretização para modelo Arlequin - malha 2}
 	\label{fig:cavidadeFF2d:Malhas}
 \end{figure}
 
-Na Fig. \ref{Cav2dDisplacementArlq.eps} são apresentados os deslocamentos da chapa no ponto A (ver Fig. \ref{fig:cavidadeFF2d:Geo}) para os modelos Arlequin (malha 0, malha 1 e malha 2). Para a comparação com as referências e com o monomodelo, utilizou-se o modelo Arlquin composto pela malha 2, mais refinida, e os resultados são apresesentados na Fig. \ref{fig:cavidadeFF2d:DeslocamentoA1}. Pode-se observar nessa última figura, que os dados obtidos com o modelo Arlequin são compatíveis com os obtidos com o monomodelo. As diferenças encontradas entre a amplitude dos deslocamentos obtidos nesse trabalho com as referências podem ser atribuídas para as diferentes formulações adotadas para a modelagem do fluido e da chapa.
+
+Nesse problema foi necessário para atingir a convergência a utilização da técnica \textit{Augmented A22}, multiplicando-se a parcela da matriz tangente referente à matriz de massa da estrutura por um fator 2,0.
+
+Na Fig. \ref{fig:cavidadeFF2d_DeslocamentoArlq} são apresentados os deslocamentos da placa no ponto A (ver Fig. \ref{fig:cavidadeFF2d:Geo}) para os modelos Arlequin (malha 0, malha 1 e malha 2). Para a comparação com as referências e com o monomodelo, utilizou-se o modelo Arlquin composto pela malha 2, mais refinida, e os resultados são apresesentados na Fig. \ref{fig:cavidadeFF2d:DeslocamentoA1}. Pode-se observar nessa última figura, que os dados obtidos com o modelo Arlequin são compatíveis com os obtidos com o monomodelo. As diferenças encontradas entre a amplitude dos deslocamentos obtidos nesse trabalho com as referências podem ser atribuídas para as diferentes formulações adotadas para a modelagem do fluido e da chapa.
 
 \begin{figure}[htb!]
 	\centering 
 	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/Cav2dDisplacementArlq.eps}	
 	\caption{Cavidade fundo flexível 2D: Deslocamento em A para malhas do modelo Arlequin}
-	\label{Cav2dDisplacementArlq.eps}
+	\label{fig:cavidadeFF2d_DeslocamentoArlq}
 \end{figure}
 
 \begin{figure}[htb!]
 	\centering 
 	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/Cav2dDisplacementArlqMono.eps}	
 	\caption{Cavidade fundo flexível 2D: Deslocamento em A comparado com as referências e monomodelo}
-	\label{fig:cavidadeFF2d:DeslocamentoA1}
+	\label{fig:cavidadeFF2d_DeslocamentoA1}
 \end{figure}
 
+Na Fig \ref{fig:cavidadeFF2d_velocidade} são apresentados os campos de velocidade em diferentes tempos da análise. São plotadas nessas figuras a deformada da malha local que comporta a movimentação da estrutura. Na Fig. \ref{fig:cavidadeFF2d_pressao} são apresentados o campos de pressão nesses mesmos tempos de análise.
 
+\begin{figure}[htb!]
+	\centering
+	\subfloat[$t = 3,5 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/vel400.pdf}} \
+	\subfloat[$t = 8,0 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel413.pdf}}\\
+	\subfloat[$t = 14,0 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/vel425.pdf}} \
+	\subfloat[$t = 21,0 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/vel438.pdf}}\\
+	\caption{Cavidade fundo flexível 2D: Campos de velocidade}
+	\label{fig:cavidadeFF2d_velocidade}
+\end{figure}
 
-
-
-
-
+\begin{figure}[htb!]
+	\centering
+	\subfloat[$t = 3,5 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/press400.pdf}} \
+	\subfloat[$t = 8,0 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press413.pdf}}\\
+	\subfloat[$t = 14,0 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/press425.pdf}} \
+	\subfloat[$t = 21,0 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/press438.pdf}}\\
+	\caption{Cavidade fundo flexível 2D: Campos de pressão}
+	\label{fig:cavidadeFF2d_pressao}
+\end{figure}
 
 
 \subsection{Cavidade com fundo flexível - 3D}
 
+O problema da cavidade tridimensional com fundo flexível foi proposto inicialmente por \citeonline{Mok:2001} e é muito semelhante ao 2D, entretanto, nessa variação a profundidade da cavidade possui dimensão unitária, conforme pode ser visualizado na Fig. \ref{fig:cavidadeFF3d}, além disso a chapa possui restrição de deslocamentos em todos os 4 bordos. Os demais dados necessários à análise são idênticos ao do problema 2D.
+
 \begin{figure}[htb!]
 	\centering 
 	\includegraphics[scale=0.9,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/cav3d.pdf}	
-	\caption{Geometria Cavidade Fundo Flexível 3D}
-	\label{fig:cavidadeFF3d}
+	\caption{Cavidade fundo flexível 3D: Geometria}
+	\label{fig:cavidadeFF3d_Geometria}
+\end{figure}
+
+Foram utilizadas nas análises desse problema duas diferentes discretizações: 1. Modelo Arlequin (ver Fig. \ref{fig:cavidadeFF2d_MalhaArlequin}), sendo as malhas globais em elementos isogeométricos quadráticos (IGA) e as malhas locais, mais refinadas, em elementos finitos (MEF) tetraédricos quadráticos; 2 . Monomodelo discretizado elementos finitos tetraédricos quadráticos.
+
+\begin{figure}[htb!]
+	\centering 
+	\includegraphics[angle=180, scale=0.5,trim=0cm 1cm 2cm 6cm, clip=true]{Imagens/Cap7/cavidade3Dmesh.pdf}	
+	\caption{Cavidade fundo flexível 3D: Malhas do modelo Arlequin}
+	\label{fig:cavidadeFF2d_MalhaArlequin}
+\end{figure}
+
+A modelo Arlequin foi composto por uma malha global discretizada com 2 \textit{patches} que totalizam 8000 ele mentos e 11616 pontos de controle. A malha local possui 9090 elementos e 14997 nós. A zona de colagem (ver área vermelha da Fig. \ref {fig:cavidadeFF2d_MalhaArlequin}) foi composta por 4523 elementos e 8566 nós. O monomodelo foi discretizado com 15899 elementos e 25127 nós.
+
+Na Fig. \ref{fig:cavidadeFF2d_DeslocamentoemA} (PROVAVELMENTE SERÁ TROCADA ESSA) pode se observar o deslocamento no ponto A que fica no centro da placa flexível para os modelos Arlequin e monomodelo, assim como algumas referências são apresentadas. As diferenças encontradas entre a amplitude dos deslocamentos obtidos nesse trabalho com as referências podem ser atribuídas para as diferentes formulações adotadas para a modelagem do fluido e da chapa.
+
+\begin{figure}[htb!]
+	\centering 
+	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/Cav3dDisplacement.eps}	
+	\caption{Cavidade fundo flexível 3D: Deslocamento em A}
+	\label{fig:cavidadeFF2d_DeslocamentoemA}
+\end{figure}
+
+
+\subsection{\textit{Flutter} em painel flexível}
+
+\begin{figure}[htb!]
+	\centering 
+	\includegraphics[scale=0.3,trim=0cm 11cm 2cm 0cm, clip=true]{Imagens/Cap7/prismaPF.pdf}	
+	\caption{Painel Flexível: Composição malhas Arlequin}
+	\label{fig:Painel:ComposiçãoMalha}
 \end{figure}
 
 \end{document}
