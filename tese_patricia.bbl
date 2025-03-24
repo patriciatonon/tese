@@ -12,6 +12,14 @@
   hydrodynamics.
 \emph{Journal of Applied Mechanics}, v.~79, p. doi:10.1115/1.4005072, 01 2012.}
 
+\bibitem[Alfonsi 2009]{Alfonsi2009}
+\abntrefinfo{Alfonsi}{ALFONSI}{2009}
+{ALFONSI, G. Reynolds-averaged navier–stokes equations for turbulence
+  modeling.
+\emph{Applied Mechanics Reviews}, v.~62, n.~4, p. 040802, 06 2009.
+ISSN 0003-6900.
+Dispon{\'\i}vel em: \url{https://doi.org/10.1115/1.3124648}.}
+
 \bibitem[Anderson 1995]{Anderson:1995}
 \abntrefinfo{Anderson}{ANDERSON}{1995}
 {ANDERSON, J.~D. \emph{Computational fluid dynamic - the basics with
@@ -35,6 +43,20 @@
 {ARMALY, B.~F.; F.DURST; PEREIRA, J. C.~F.; SCH\"ONUNG, B. Experimental and
   theoretical investigation of backward-facing step flow.
 \emph{Journal of Fluid Mechanics}, v.~127, p. 473--496, 1983.}
+
+\bibitem[Avancini 2023]{Avancini:2023}
+\abntrefinfo{Avancini}{AVANCINI}{2023}
+{AVANCINI, G.
+\emph{Formula\c{c}\~ao unificada para an\'alise tridimensional de
+  intera\c{c}\~ao fluido-estrutura com escoamento de superf\'cie livre: Uma
+  abordagem Lagrangiana baseada em posi\c{c}\~oes}.
+Tese (Doutorado) --- SET-EESC-USP, São Carlos, São Paulo, Brasil, 2023.}
+
+\bibitem[Avancini e Sanches 2020]{AvanciniS:2020}
+\abntrefinfo{Avancini e Sanches}{AVANCINI; SANCHES}{2020}
+{AVANCINI, G.; SANCHES, R.~A. A total lagrangian position-based finite element
+  formulation for free-surface incompressible flows.
+\emph{Finite Elements in Analysis and Design}, v.~169, p. 103348, 2020.}
 
 \bibitem[Badia, Nobile e Vergara 2008]{BadiaNV:2008}
 \abntrefinfo{Badia, Nobile e Vergara}{BADIA; NOBILE; VERGARA}{2008}
@@ -179,6 +201,12 @@ ISSN 0045-7825.}
   p. 579--595, 2000.
 ISSN 0045-7828.}
 
+\bibitem[Bottasso, Detomi e Serra 2005]{BottassoDS:2005}
+\abntrefinfo{Bottasso, Detomi e Serra}{BOTTASSO; DETOMI; SERRA}{2005}
+{BOTTASSO, C.~L.; DETOMI, D.; SERRA, R. The ball-vertex method: a new simple
+  spring analogy method for unstructured dynamic meshes.
+\emph{Comput. Methods Appl. Mech. Engrg.}, v.~194, n.~39, p. 4244--4264, 2005.}
+
 \bibitem[Brezzi e Fortin 1991]{BrezziF:1991}
 \abntrefinfo{Brezzi e Fortin}{BREZZI; FORTIN}{1991}
 {BREZZI, F.; FORTIN, M. Mixed and hybrid finite element methods. In:
@@ -314,18 +342,17 @@ ISBN 9780470748732.}
 \emph{Computer Methods in Applied Mechanics and Engineering}, v.~190, n.~48, p.
   6455--6479, 2001.}
 
-\bibitem[Farhat, Lesoinne e LeTallec 1998]{FarhatLL:1998}
-\abntrefinfo{Farhat, Lesoinne e LeTallec}{FARHAT; LESOINNE; LETALLEC}{1998}
-{FARHAT, C.; LESOINNE, M.; LETALLEC, P. Load and motion transfer algorithms for
-  fluid/structure interaction problems with non-matching discrete interfaces:
-  Momentum and energy conservation, optimal discretization and application to
-  aeroelasticity.
-\emph{Comput. Methods Appl. Mech. Engrg.}, v.~157, p. 95--114, 1998.}
-
 \bibitem[Farin 1999]{Farin:1999}
 \abntrefinfo{Farin}{FARIN}{1999}
 {FARIN, G. \emph{Curves and Surfaces for CAGD, A Practical Guide}. Fifth.
   [S.l.]: Morgan Kaufmann Publishers, 1999.}
+
+\bibitem[Felippa, Park e Farhat 2001]{FelippaPF:2001}
+\abntrefinfo{Felippa, Park e Farhat}{FELIPPA; PARK; FARHAT}{2001}
+{FELIPPA, C.~A.; PARK, K.~C.; FARHAT, C. Partitioned analysis of coupled
+  mechanical systems.
+\emph{Computer Methods in Applied Mechanics and Engineering}, v.~190, n. 24-25,
+  p. 3247--3270, 2001.}
 
 \bibitem[Fernandes 2016]{Fernandes:2016}
 \abntrefinfo{Fernandes}{FERNANDES}{2016}
@@ -360,14 +387,6 @@ Dispon{\'\i}vel em:
   shell finite element}.
 \emph{Computational Mechanics}, v.~63, n.~3, p. 555--569, 2019.}
 
-\bibitem[Fern{\'a}ndez, Mullaert e Vidrascu 2013]{FernandezMV:2013}
-\abntrefinfo{Fern{\'a}ndez, Mullaert e Vidrascu}{FERN{\'A}NDEZ; MULLAERT;
-  VIDRASCU}{2013}
-{FERN{\'A}NDEZ, M.~A.; MULLAERT, J.; VIDRASCU, M. Explicit {Robin-Neumann}
-  schemes for the coupling of incompressible fluids with thin-walled
-  structures.
-\emph{Comput. Methods Appl. Mech. Engrg.}, v.~267, p. 566--593, 2013.}
-
 \bibitem[Fish 1992]{Fish:1992}
 \abntrefinfo{Fish}{FISH}{1992}
 {FISH, J. {The s-version of the finite element method}.
@@ -380,20 +399,20 @@ Dispon{\'\i}vel em:
   viscous flows.
 \emph{Comput. Methods Appl. Mech. Engrg.}, v.~196, p. 1278--1293, 2007.}
 
-\bibitem[Gale{\~a}o e Carmo 1988]{GaleaoC:1988}
-\abntrefinfo{Gale{\~a}o e Carmo}{GALE{\~A}O; CARMO}{1988}
-{GALE{\~A}O, A.~C.; CARMO, E. G.~D. do. {A consistent approximate upwind
-  Petrov-Galerkin method for convection-dominated problems}.
-\emph{Computer Methods in Applied Mechanics and Engineering}, v.~68, n.~1, p.
-  83 -- 95, 1988.
-ISSN 0045-7825.}
-
 \bibitem[Gerbeau e Vidrascu 2003]{GerbeauV:2003}
 \abntrefinfo{Gerbeau e Vidrascu}{GERBEAU; VIDRASCU}{2003}
 {GERBEAU, J.~F.; VIDRASCU, M. A quasi-newton algorithmm based on a reduced
   model for fluid-structure interaction problems in blood flows.
 \emph{ESAIM: Mathematical Modelling and Numerical Analysis}, v.~37, p.
   631--647, 2003.}
+
+\bibitem[Germano et al. 1991]{Germano1991}
+\abntrefinfo{Germano et al.}{GERMANO et al.}{1991}
+{GERMANO, M.; PIOMELLI, U.; MOIN, P.; CABOT, W.~H. A dynamic subgrid‐scale
+  eddy viscosity model.
+\emph{Physics of Fluids A: Fluid Dynamics}, v.~3, n.~7, p. 1760--1765, 07 1991.
+ISSN 0899-8213.
+Dispon{\'\i}vel em: \url{https://doi.org/10.1063/1.857955}.}
 
 \bibitem[Ghia, Ghia e Shin 1982]{GhiaGS:1982}
 \abntrefinfo{Ghia, Ghia e Shin}{GHIA; GHIA; SHIN}{1982}
@@ -407,6 +426,13 @@ ISSN 0045-7825.}
   deflection {2D} frame analysis based on position description.
 \emph{Computer Methods in Applied Mechanics and Engineering}, v.~193, p.
   3541--3557, 2004.}
+
+\bibitem[Gruttmann, Sauer e Wagner 2000]{GruttmanSW:2000}
+\abntrefinfo{Gruttmann, Sauer e Wagner}{GRUTTMANN; SAUER; WAGNER}{2000}
+{GRUTTMANN, F.; SAUER, R.; WAGNER, W. Theory and numerics of three-dimensional
+  beams with elastoplastic material behaviour.
+\emph{International Journal for Numerical Methods in Engineering}, v.~48,
+  n.~12, p. 1675--1702, 2000.}
 
 \bibitem[Guidault e Belytschko 2007]{GuidaultAndBelytschko2007}
 \abntrefinfo{Guidault e Belytschko}{GUIDAULT; BELYTSCHKO}{2007}
@@ -502,6 +528,12 @@ ISSN 0045-7825.}
   finite elements, NURBS, exact geometry and mesh refinement }.
 \emph{Computer Methods in Applied Mechanics and Engineering}, v.~194, p.
   4135--4195, 2005.}
+
+\bibitem[Hughes et al. 1998]{Hughesetal:1998}
+\abntrefinfo{Hughes et al.}{HUGHES et al.}{1998}
+{HUGHES, T. J.~R.; FEIJ{\'O}O, G.~R.; MAZZEI, L.; QUINCY, J.~B. The variational
+  multiscale method - a paradimg for computational mechanics.
+\emph{Comput. Methods Appl. Mech. Engrg}, v.~166, p. 3--24, 1998.}
 
 \bibitem[Hughes e Liu 1981]{HughesL:1981a}
 \abntrefinfo{Hughes e Liu}{HUGHES; LIU}{1981a}
@@ -659,6 +691,14 @@ Tese (Doutorado) --- Institut f{\"u}r Baustatik der Universit{\"a}t Stuttgart,
 {PIEGL, L.; TILLER, W. \emph{The NURBS Book}. second. New York, NY, USA:
   Springer-Verlag, 1996.}
 
+\bibitem[Piomelli 1999]{PIOMELLI1999}
+\abntrefinfo{Piomelli}{PIOMELLI}{1999}
+{PIOMELLI, U. Large-eddy simulation: achievements and challenges.
+\emph{Progress in Aerospace Sciences}, v.~35, n.~4, p. 335--362, 1999.
+ISSN 0376-0421.
+Dispon{\'\i}vel em:
+  \url{https://www.sciencedirect.com/science/article/pii/S0376042198000141}.}
+
 \bibitem[Reddy 2006]{Reddy:2006}
 \abntrefinfo{Reddy}{REDDY}{2006}
 {REDDY, J.~N. \emph{An Introduction to the Finite Element Method}. 3. ed.
@@ -712,18 +752,28 @@ ISBN 9783319639703. Dispon{\'\i}vel em:
   solver.
 \emph{Applied Mathematical Modelling}, v.~38, p. 3401--3418, 2014.}
 
+\bibitem[Sanches e Coda 2016]{SanchesC:2016}
+\abntrefinfo{Sanches e Coda}{SANCHES; CODA}{2016}
+{SANCHES, R. A.~K.; CODA, H.~B. {Flexible multibody dynamics finite element
+  formulation applied to structural progressive collapse analysis}.
+\emph{Latin American Journal of Solids and Structures}, v.~13, n.~16, p.
+  52--71, 2016.}
+
 \bibitem[Simo e Fox 1989]{SimoF:1989}
 \abntrefinfo{Simo e Fox}{SIMO; FOX}{1989}
 {SIMO, J.~C.; FOX, D.~D. {On a stress resultant geometrically exact shell
   model. Part I: formulation and optimal parametrization}.
 \emph{Comput. Methods Appl. Mech. Engrg.}, v.~72, p. 267--304, 1989.}
 
-\bibitem[Sondak et al. 2015]{Sondak:2015}
-\abntrefinfo{Sondak et al.}{SONDAK et al.}{2015}
-{SONDAK, D.; SHADID, J.~N.; OBERAI, A.~A.; PAWLOWSKI, R.~P.; CYR, E.~C.; SMITH,
-  T.~M. {A new class of finite element variational multiscale turbulence models
-  for incompressible magnetohydrodynamics}.
-\emph{Journal of Computational Physics}, v.~295, p. 596--616, 2015.}
+\bibitem[Speziale 1991]{Speziale1991}
+\abntrefinfo{Speziale}{SPEZIALE}{1991}
+{SPEZIALE, C.~G. Analytical methods for the development of reynolds-stress
+  closures in turbulence.
+\emph{Annual Review of Fluid Mechanics}, Annual Reviews, v.~23, n. Volume 23,
+  1991, p. 107--157, 1991.
+ISSN 1545-4479.
+Dispon{\'\i}vel em:
+  \url{https://www.annualreviews.org/content/journals/10.1146/annurev.fl.23.010191.000543}.}
 
 \bibitem[Stein, Tezduyar e Benney 2004]{SteinTB:2004}
 \abntrefinfo{Stein, Tezduyar e Benney}{STEIN; TEZDUYAR; BENNEY}{2004}
@@ -757,6 +807,12 @@ ISBN 9783319639703. Dispon{\'\i}vel em:
   finite element and isogeometric discretizations}.
 \emph{Computational Mechanics}, v.~62, n.~5, p. 1169--1186, 2018.}
 
+\bibitem[Tallec e Mouro 2001]{TallecM:2001}
+\abntrefinfo{Tallec e Mouro}{TALLEC; MOURO}{2001}
+{TALLEC, P.~L.; MOURO, J. Fluid structure interaction with large structural
+  displacements.
+\emph{Comput. Methods Appl. Mech. Engrg.}, v.~190, p. 3039--3067, 2001.}
+
 \bibitem[Tezduyar 1992]{Tezduyar:1992d}
 \abntrefinfo{Tezduyar}{TEZDUYAR}{1992}
 {TEZDUYAR, T. Stabilized finite element formulations for incompressible flow
@@ -784,13 +840,6 @@ ISBN 9783319639703. Dispon{\'\i}vel em:
 \emph{Journal of Computational and Applied Mechanics}, v.~4, n.~1, p. 71--88,
   2003.}
 
-\bibitem[Tezduyar et al. 2006]{TezduyarSKS:2006}
-\abntrefinfo{Tezduyar et al.}{TEZDUYAR et al.}{2006}
-{TEZDUYAR, T.; SATHE, S.; KEEDY, R.; STEIN, K. Space-time finite element
-  techniques for computation of fluid-structure interactions.
-\emph{Computer Methods in Applied Mechanics and Engineering}, v.~195, p.
-  2002--2027, 03 2006.}
-
 \bibitem[Tezduyar 2003]{Tezduyar:2003d}
 \abntrefinfo{Tezduyar}{TEZDUYAR}{2003}
 {TEZDUYAR, T.~E. Stabilized ﬁnite element methods for ﬂows with moving
@@ -805,21 +854,21 @@ ISBN 9783319639703. Dispon{\'\i}vel em:
 \emph{Computer Methods in Applied Mechanics and Engineering}, v.~190, p.
   403--410, 2000.}
 
-\bibitem[Tezduyar, Behr e Liou 1992c]{TezduyarBL:1992c}
-\abntrefinfo{Tezduyar, Behr e Liou}{TEZDUYAR; BEHR; LIOU}{1992c}
+\bibitem[Tezduyar, Behr e Liou 1992b]{TezduyarBL:1992b}
+\abntrefinfo{Tezduyar, Behr e Liou}{TEZDUYAR; BEHR; LIOU}{1992b}
 {TEZDUYAR, T.~E.; BEHR, M.; LIOU, J. {A new strategy for finite element
   computations involving moving boundaries and interfaces - the
   deforming-spatial-domain/space-time procedure: I. The concept and the
   preliminary numerical tests}.
-\emph{Comput. Methods Appl. Mech. Engrg.}, v.~94, p. 339--351, 1992c.}
+\emph{Comput. Methods Appl. Mech. Engrg.}, v.~94, p. 339--351, 1992b.}
 
-\bibitem[Tezduyar et al. 1992b]{TezduyarBML:1992b}
-\abntrefinfo{Tezduyar et al.}{TEZDUYAR et al.}{1992b}
+\bibitem[Tezduyar et al. 1992c]{TezduyarBML:1992c}
+\abntrefinfo{Tezduyar et al.}{TEZDUYAR et al.}{1992c}
 {TEZDUYAR, T.~E.; BEHR, M.; MITTAL, S.; LIOU, J. {A new strategy for finite
   element computations involving moving boundaries and interfaces - the
   deforming-spatial-domain/space-time procedure: II. Computation of
   free-surface flows, two-loquid flows, and flows with drifting cylinders}.
-\emph{Comput. Methods Appl. Mech. Engrg.}, v.~94, p. 353--371, 1992b.}
+\emph{Comput. Methods Appl. Mech. Engrg.}, v.~94, p. 353--371, 1992c.}
 
 \bibitem[Tezduyar et al. 1992f]{TezduyarBSJ:1992f}
 \abntrefinfo{Tezduyar et al.}{TEZDUYAR et al.}{1992f}
@@ -850,14 +899,6 @@ ISBN 9783319639703. Dispon{\'\i}vel em:
 \emph{International Journal for Numerical Methods in Fluids}, v.~47, p.
   633--654, 2005.}
 
-\bibitem[Tezduyar, Sathe e Stein 2006]{TezduyarSS:2006}
-\abntrefinfo{Tezduyar, Sathe e Stein}{TEZDUYAR; SATHE; STEIN}{2006}
-{TEZDUYAR, T.~E.; SATHE, S.; STEIN, K. {Solution Techniques for the
-  Fully-Discretized Equations in Computation of Fluid--Structure Interactions
-  with the Space--Time Formulations}.
-\emph{Computer Methods in Applied Mechanics and Engineering}, v.~195, p.
-  5743--5753, 2006.}
-
 \bibitem[Tonon 2016]{Tonon:2016}
 \abntrefinfo{Tonon}{TONON}{2016}
 {TONON, P.
@@ -878,6 +919,20 @@ Disserta\c{c}\~{a}o (Mestrado) --- PPGEC-UFRGS, Porto Alegre, Rio Grande do
 {TRUESDELL, C.~A. Hypo-elasticity.
 \emph{J. Rational Mech. Anal.}, v.~4, p. 83--133, 1955.}
 
+\bibitem[V{\'azquez} 2007]{Vazquez:2007}
+\abntrefinfo{V{\'azquez}}{V{\'AZQUEZ}}{2007}
+{V{\'AZQUEZ}, J. G.~V.
+\emph{Nonlinear analysis of orthotropic membrane and shell structures including
+  fluid-structure interaction}.
+Tese (Doutorado) --- Universitat Politecnica de Catalunya, Barcelona, Espanha,
+  2007.}
+
+\bibitem[Wall e Ramm 1998]{WallR:1998}
+\abntrefinfo{Wall e Ramm}{WALL; RAMM}{1998}
+{WALL, W.~A.; RAMM, E. Fluid structure interaction based upon a stabilized
+  {(ALE)} finite element method. In:  IDELSHON, S. et al. (Ed.).
+  \emph{Computational Mechanics}. Barcelona: CIMNE, 1998.}
+
 \bibitem[Wang et al. 2011]{WangRGF:2011}
 \abntrefinfo{Wang et al.}{WANG et al.}{2011}
 {WANG, K.; RALLU, A.; GERBEAU, J.-F.; FARHAT, C. {Algorithms for interface
@@ -897,6 +952,14 @@ Disserta\c{c}\~{a}o (Mestrado) --- PPGEC-UFRGS, Porto Alegre, Rio Grande do
   backward-facing step.
 \emph{International Journal for Numerical Methods in Fluids}, v.~24, p.
   1159--1183, 1999.}
+
+\bibitem[Yokomizo 2024]{Yokomizo:2024}
+\abntrefinfo{Yokomizo}{YOKOMIZO}{2024}
+{YOKOMIZO, M.~H.
+\emph{An\'alise num\'erica de problemas de intera\c{c}\~ao fluido-estrutura com
+  vorticidade}.
+Disserta\c{c}\~{a}o (Mestrado) --- SET-EESC-USP, São Carlos, São Paulo,
+  Brasil, 2024.}
 
 \bibitem[Zhang et al. 2007]{ZhangBGBH:2007}
 \abntrefinfo{Zhang et al.}{ZHANG et al.}{2007}

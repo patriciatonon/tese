@@ -5,8 +5,7 @@
 
 \begin{comment}
 	\nomenclature[F,01]{$\Omega$}{Domínio computacional;}
-	\nomenclature[F,02]{$\globalModel$}{Domínio computacional global;}
-	\nomenclature[F,03]{$\localModel$}{Domínio computacional local;}
+	\nomenclature[F,02]{$._{0}, ._{1}$}{Subíndices que designam o modelo Global e o modelo Local respectivamente;}
 	\nomenclature[F,04]{$\overlappingZone$}{Zona de superposição;}
 	\nomenclature[F,05]{$\gluingZone$}{Zona de colagem;}
 	\nomenclature[F,06]{$\freeZone$}{Zona livre;}
@@ -32,7 +31,7 @@
 	\nomenclature[F,26]{$\mathbf{M_{\lambda}},\mathbf{t}, \mathbf{j}, \mathbf{k}, \mathbf{p}, \mathbf{\boundary}$}{Matrizes elementares da formulação usadas na definição de $\tauArlequin$, com base dos termos de acoplamento, convectivos, inerciais, viscosos, pressão e de acoplamento (?) respectivamente;}
 	\nomenclature[F,27]{$C$}{Corda: distância entre o bordo ataque e de fuga do aerofólio;}	
 	\nomenclature[F,28]{$\theta, \theta_{max}, \theta_{min}$}{Ângulo de ataque; Ângulo de ataque máximo; Ângulo de ataque mínimo;}	
-	\nomenclature[F,29]{$f_{f}$}{Frequência de oscilação;}
+	\nomenclature[F,29]{$f_{o}$}{Frequência de oscilação;}
 
 	
 \end{comment}
@@ -87,7 +86,7 @@ Dessa forma, o domínio computacional do problema é definido por:
 Umas das formas mais comuns de se realizar o acoplamento entre os modelos na zona de colagem $\gluingZone$ é através da aplicação de campos de multiplicadores de Lagrange. Uma forma generalizada de representar os operadores de acoplamento é apresentada em \citeonline{DhiaR:2002}, da maneira que se segue:
 
 \begin{align}
-	(\lagrangeMultiplier,\Delta u) =  \int_{\gluingZone} k_{0}[\lagrangeMultiplier \cdot \Delta \mathbf{u} ] + k_{1}[\straintensor (\lagrangeMultiplier) : \straintensor (\Delta \mathbf{u})] \ d\Omega_{c},
+	(\lagrangeMultiplier,\Delta \mathbf{u}) =  \int_{\gluingZone} k_{0}[\lagrangeMultiplier \cdot \Delta \mathbf{u} ] + k_{1}[\straintensor (\lagrangeMultiplier) : \straintensor (\Delta \mathbf{u})] \ d\Omega_{c},
 \end{align}
 
 \noindent onde $\lagrangeMultiplier$ é o campo de multiplicadores de Lagrange, $\Delta \mathbf{u} = \uglobal |_{\gluingZone} - \ulocal |_{\gluingZone}$ é a diferença entre os campos acoplados na zona de colagem. $k_{0}$ e $k_{1}$ são constantes estritamente positivas. 
@@ -96,7 +95,7 @@ Quando $k_{0} > 0$ e $k_{1} = 0 $ têm-se o operador de acoplamento $L^{2}$. Ess
 
 O sucesso do método, indiferente do tipo de operador adotado, depende da escolha apropriada dos parâmetros $k_{0}$ e $k_{1}$. Para o acoplamento utilizando $L^{2}$, devido a simplicidade da aplicação da restrição dos campos compatibilizados na zona de colagem, o condicionamento do sistema depende fortemente da adoção do parâmetro $k_{0}$, sendo esta uma das razões pela qual a maioria dos trabalhos realizados utilizando o método Arlequin aplica o operador $H^{1}$. A obtenção de parâmetros ótimos para o método pode ser uma tarefa difícil, sendo esse um dos fatores que levaram \citeonline{FernandesEtAll:2020} ao desenvolvimento da técnica RBSAM que será discutida na próxima seção.
 
-A definição do espaço de funções para os operadores de Lagrange é muito importante. O método apresenta flexibilidade para usar uma discretização diferente da zona de colagem, entretanto, usualmente se adota um subconjunto do espaço de funções de um dos modelos sobrepostos. A escolha por um modelo ou outro pode conduzir a um maior ou menor acoplamento, sendo a escolha definida em função da aplicação desejada. (PERGUNTAR RODOLFO!))  
+A definição do espaço de funções para os operadores de Lagrange é muito importante. O método apresenta flexibilidade para usar uma discretização diferente da zona de colagem, entretanto, usualmente se adota um subconjunto do espaço de funções de um dos modelos sobrepostos. A escolha por um modelo ou outro pode conduzir a um maior ou menor acoplamento, sendo a escolha definida em função da aplicação desejada. 
 
 Por fim, para que o método não adicione energia ao sistema, é necessário que seja definida uma função ponderadora, denominada ($\arlequinWF$), que garanta a distribução da energia do sistema ao longo dos modelos sobrepostos. Em geral, essa função é definida da seguinte forma:
 
@@ -132,7 +131,11 @@ A solução proposta pelos autores nesse trabalho foi a aplicação da condiçã
 
 Por esse motivo, e pelas pesquisas anteriores já realizadas pela presente autora e seu grupo de pesquisa, optou-se pela adoção de elementos estabilizados, os quais já foram retratos nos capítulos anteriores (Cap. \ref{capitulo:Cap2} e Cap. \ref{capitulo:Cap3}).
 
-Para a construção do método de Arlequin clássico precisamos retomar às equações para um monomodelo apresentadas na seção \ref{capitulo:Cap2:FormaFraca} que representam a forma fraca discretizada espacialmente e estabilizada das equações da quantidade de movimento (Eq. \ref{eq:FinalSystem}) e da continuidade (Eq. \ref{eq:RC}). MUDAR AS EQUAÇÕES NO CAPÍTULO DE FLUIDOS PARA DEIXAR SEM O TERMO ALE INICIALMENTE. E ALTERAR AS EQUAÇÕES PARA FICAR COM A MESMA SIMBOLOGIA DE CONTORNO DAQUI.
+Para a construção do método de Arlequin clássico precisamos retomar às equações para um monomodelo apresentadas na seção \ref{capitulo:Cap2:FormaFraca} que representam a forma fraca discretizada espacialmente e estabilizada das equações da quantidade de movimento (Eq. \ref{eq:FinalSystem}) e da continuidade (Eq. \ref{eq:RC}). 
+
+
+\textcolor{red}{VER AQUI}
+MUDAR AS EQUAÇÕES NO CAPÍTULO DE FLUIDOS PARA DEIXAR SEM O TERMO ALE INICIALMENTE. E ALTERAR AS EQUAÇÕES PARA FICAR COM A MESMA SIMBOLOGIA DE CONTORNO DAQUI. Verificar se deixo tudo com o superíndice h na definição dos espaços de tentativa e teste.
 
 Vamos considera os espaços de dimensão finita das funções tentativa que descrevem a velocidade ($\uArlequinSolution$) e a pressão ($\pArlequinSolution$) e seus respectivos espaços de funções testes $\uArlequinTest$ e $\pArlequinTest$, com $i = 0,1$ indicando o índice do modelo, definidos como:
 
@@ -346,7 +349,7 @@ O sistema resultante pode ser reescrito em notação matricial como:
 	\label{eq:sistema_linear}
 \end{align}	
 
-Como poderia chamar essas matrizes?
+\textcolor{red}{Como poderia chamar essas matrizes?}
 
 Note que na estabilização Arlequin baseada no resíduo (RBSAM) não existem elementos zeros na diagonal da matriz, diferente do mesmo problema na formulação clássica Arlequin. No trabalho de \citeonline{FernandesEtAll:2020} pode-se encontrar a análise de estabilidade dessa técnica e testes numéricos que avaliam o condicionamento do sistema algébrico e a convergência do método.
 
@@ -793,7 +796,7 @@ Para descrever-se tal movimento aplica-se, tendo como centro a corda média do a
 	\theta = \frac{\theta_{max}+\theta_{min}}{2} - \frac{\theta_{max}-\theta_{min}}{2}\cos{\omega_{f}t} ,
 \end{align}
 
-\noindent com $\omega_{f} = 2\pi f_{f}$, sendo $f_{f}$ a frequência de oscilação, adotada nesse estudo como 1.0, $\theta_{max} = 30^{\circ}$ e $\theta_{min} = 10^{\circ}$.
+\noindent com $\omega_{f} = 2\pi f_{o}$, sendo $f_{o}$ a frequência de oscilação, adotada nesse estudo como 1.0, $\theta_{max} = 30^{\circ}$ e $\theta_{min} = 10^{\circ}$.
 
 As dimensões da geometria do domínio computacional são alteradas (ver Fig. \ref{fig:AerofolioMoving}) para capturar os efeitos dos desprendimentos de vórtices, que para esse problema, se desprendem em uma faixa mais ampla. Os demais parâmetros de análise foram mantidos iguais aos apresentados no exemplo da Subseção \ref{subsec:EX1NACA0012}. 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.5)  6 MAR 2025 15:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  24 MAR 2025 08:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -537,16 +537,16 @@ Language: english 2017/06/06 v3.3r English support from the babel system
 Package babel Info: Hyphen rules for 'canadian' set to \l@english
 (babel)             (\language0). Reported on input line 102.
 Package babel Info: Hyphen rules for 'australian' set to \l@ukenglish
-(babel)             (\language88). Reported on input line 105.
+(babel)             (\language60). Reported on input line 105.
 Package babel Info: Hyphen rules for 'newzealand' set to \l@ukenglish
-(babel)             (\language88). Reported on input line 108.
+(babel)             (\language60). Reported on input line 108.
 )
 (/usr/share/texlive/texmf-dist/tex/generic/babel-french/french.ldf
 Language: french 2023-12-19 v3.5r French support from the babel system
 Package babel Info: Hyphen rules for 'acadian' set to \l@french
-(babel)             (\language16). Reported on input line 91.
+(babel)             (\language47). Reported on input line 91.
 Package babel Info: Hyphen rules for 'canadien' set to \l@french
-(babel)             (\language16). Reported on input line 92.
+(babel)             (\language47). Reported on input line 92.
 \FB@stdchar=\count328
 Package babel Info: Making : an active character on input line 420.
 Package babel Info: Making ; an active character on input line 421.
@@ -581,7 +581,7 @@ Package babel Info: Making > an active character on input line 722.
 (/usr/share/texlive/texmf-dist/tex/generic/babel-portuges/brazil.ldf
 Language: portuges 2021/07/09 v1.2t Portuguese support from the babel system
 Package babel Info: Hyphen rules for 'brazil' set to \l@portuguese
-(babel)             (\language71). Reported on input line 111.
+(babel)             (\language7). Reported on input line 111.
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
 Package babel Info: Importing font and identification data for spanish
@@ -1859,443 +1859,490 @@ dvips/lm/lm-ec.enc}]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[3]
 
- [3]
-
-LaTeX Warning: Citation `Chung:2002' on page 4 undefined on input line 57.
+LaTeX Warning: Citation `Chung:2002' on page 4 undefined on input line 60.
 
 
-LaTeX Warning: Citation `Anderson:1995' on page 4 undefined on input line 57.
+LaTeX Warning: Citation `Anderson:1995' on page 4 undefined on input line 60.
 
 
 LaTeX Warning: Citation `ZienkiewiczTN:2005' on page 4 undefined on input line 
-57.
+60.
 
 
-LaTeX Warning: Citation `ReddyG:2000' on page 4 undefined on input line 57.
-
-
-LaTeX Warning: Citation `BrooksH:1982' on page 4 undefined on input line 61.
-
-
-LaTeX Warning: Citation `HughesFH:1989' on page 4 undefined on input line 61.
-
-
-LaTeX Warning: Citation `Hughes:1995' on page 4 undefined on input line 61.
-
-
-LaTeX Warning: Citation `GaleaoC:1988' on page 4 undefined on input line 61.
-
-
-LaTeX Warning: Citation `Donea:1984' on page 4 undefined on input line 61.
+LaTeX Warning: Citation `ReddyG:2000' on page 4 undefined on input line 60.
 
 [4]
 
-LaTeX Warning: Citation `HughesT:1984' on page 5 undefined on input line 63.
+LaTeX Warning: Citation `BrooksH:1982' on page 5 undefined on input line 64.
 
 
-LaTeX Warning: Citation `Tezduyar:1992d' on page 5 undefined on input line 63.
+LaTeX Warning: Citation `HughesFH:1989' on page 5 undefined on input line 64.
 
 
-LaTeX Warning: Citation `CatabrigaC:2002' on page 5 undefined on input line 63.
+LaTeX Warning: Citation `Hughes:1995' on page 5 undefined on input line 64.
+
+
+LaTeX Warning: Citation `Donea:1984' on page 5 undefined on input line 64.
+
+
+LaTeX Warning: Citation `HughesT:1984' on page 5 undefined on input line 66.
+
+
+LaTeX Warning: Citation `Tezduyar:1992d' on page 5 undefined on input line 66.
+
+
+LaTeX Warning: Citation `CatabrigaC:2002' on page 5 undefined on input line 66.
 
 
 
-LaTeX Warning: Citation `TakizawaTO:2018' on page 5 undefined on input line 63.
+LaTeX Warning: Citation `TakizawaTO:2018' on page 5 undefined on input line 66.
 
 
 
-LaTeX Warning: Citation `OtoguroTT:2020' on page 5 undefined on input line 63.
+LaTeX Warning: Citation `OtoguroTT:2020' on page 5 undefined on input line 66.
 
 
-LaTeX Warning: Citation `BrezziF:1991' on page 5 undefined on input line 65.
+LaTeX Warning: Citation `BrezziF:1991' on page 5 undefined on input line 68.
 
 
 LaTeX Warning: Citation `ZienkiewiczTN:2005' on page 5 undefined on input line 
-65.
+68.
 
 
-LaTeX Warning: Citation `StrangF:2008' on page 5 undefined on input line 65.
+LaTeX Warning: Citation `StrangF:2008' on page 5 undefined on input line 68.
 
 
-LaTeX Warning: Citation `HughesFB:1986' on page 5 undefined on input line 67.
+LaTeX Warning: Citation `HughesFB:1986' on page 5 undefined on input line 70.
 
 
-LaTeX Warning: Citation `TezduyarMRS:1992a' on page 5 undefined on input line 6
-7.
+LaTeX Warning: Citation `TezduyarMRS:1992a' on page 5 undefined on input line 7
+0.
 
 
-LaTeX Warning: Citation `LaunderS:1972' on page 5 undefined on input line 69.
+LaTeX Warning: Citation `Speziale1991' on page 5 undefined on input line 72.
 
 
-LaTeX Warning: Citation `Wilcox:1993' on page 5 undefined on input line 69.
+LaTeX Warning: Citation `Alfonsi2009' on page 5 undefined on input line 72.
 
 
-LaTeX Warning: Citation `Hughesetal:2001' on page 5 undefined on input line 69.
+LaTeX Warning: Citation `LaunderS:1972' on page 5 undefined on input line 72.
+
+
+LaTeX Warning: Citation `Germano1991' on page 5 undefined on input line 72.
+
+
+LaTeX Warning: Citation `Wilcox:1993' on page 5 undefined on input line 72.
+
+
+LaTeX Warning: Citation `PIOMELLI1999' on page 5 undefined on input line 72.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5]
+
+LaTeX Warning: Citation `Hughes:1995' on page 6 undefined on input line 76.
+
+
+LaTeX Warning: Citation `Hughesetal:1998' on page 6 undefined on input line 76.
 
 
 
-LaTeX Warning: Citation `Sondak:2015' on page 5 undefined on input line 69.
+LaTeX Warning: Citation `Hughesetal:2001' on page 6 undefined on input line 76.
 
 
-Overfull \hbox (2.01585pt too wide) in paragraph at lines 71--71
+
+LaTeX Warning: Citation `BazilevsTT:2013' on page 6 undefined on input line 76.
+
+
+
+Overfull \hbox (2.01585pt too wide) in paragraph at lines 79--79
 []\T1/lmr/bx/it/14.4 (-20) Dinâmica de es-tru-tu-ras com-pu-ta-ci-o-nal con-si-
 de-rando gran-
  []
 
 
-Underfull \vbox (badness 1406) has occurred while \output is active []
-
- [5]
-
-LaTeX Warning: Citation `Truesdell:1955' on page 6 undefined on input line 76.
+LaTeX Warning: Citation `Truesdell:1955' on page 6 undefined on input line 84.
 
 
-LaTeX Warning: Citation `HughesL:1981a' on page 6 undefined on input line 76.
+LaTeX Warning: Citation `HughesL:1981a' on page 6 undefined on input line 84.
 
 
-LaTeX Warning: Citation `HughesL:1981b' on page 6 undefined on input line 76.
+LaTeX Warning: Citation `HughesL:1981b' on page 6 undefined on input line 84.
 
 
-LaTeX Warning: Citation `Argyris:1982' on page 6 undefined on input line 76.
+LaTeX Warning: Citation `Argyris:1982' on page 6 undefined on input line 84.
 
 
-LaTeX Warning: Citation `SimoF:1989' on page 6 undefined on input line 76.
+LaTeX Warning: Citation `SimoF:1989' on page 6 undefined on input line 84.
 
 
 LaTeX Warning: Citation `Ibrahimbegovic:2002' on page 6 undefined on input line
- 76.
+ 84.
 
 
-LaTeX Warning: Citation `BattiniP:2006' on page 6 undefined on input line 76.
+LaTeX Warning: Citation `BattiniP:2006' on page 6 undefined on input line 84.
 
 
-LaTeX Warning: Citation `CodaP:2010' on page 6 undefined on input line 78.
+Underfull \vbox (badness 1406) has occurred while \output is active []
+
+ [6]
+
+LaTeX Warning: Citation `CodaP:2010' on page 7 undefined on input line 86.
 
 
-LaTeX Warning: Citation `Bonet:2000' on page 6 undefined on input line 82.
-
-
-LaTeX Warning: Citation `Coda:2003' on page 6 undefined on input line 82.
-
-
-LaTeX Warning: Citation `CodaG:2004' on page 6 undefined on input line 82.
-
-
-LaTeX Warning: Citation `CodaP:2010' on page 6 undefined on input line 82.
-
-
-LaTeX Warning: Citation `CarrazedoC:2010' on page 6 undefined on input line 82.
+LaTeX Warning: Citation `GruttmanSW:2000' on page 7 undefined on input line 86.
 
 
 
-LaTeX Warning: Citation `CodaP:2011' on page 6 undefined on input line 82.
+LaTeX Warning: Citation `SanchesC:2013' on page 7 undefined on input line 88.
 
 
-LaTeX Warning: Citation `SanchesC:2013' on page 6 undefined on input line 82.
+LaTeX Warning: Citation `Bonet:2000' on page 7 undefined on input line 90.
 
 
-LaTeX Warning: Citation `SanchesC:2014' on page 6 undefined on input line 82.
+LaTeX Warning: Citation `Coda:2003' on page 7 undefined on input line 90.
 
 
-LaTeX Warning: Citation `FernandesCS:2019' on page 6 undefined on input line 82
+LaTeX Warning: Citation `CodaG:2004' on page 7 undefined on input line 90.
+
+
+LaTeX Warning: Citation `CodaP:2010' on page 7 undefined on input line 90.
+
+
+LaTeX Warning: Citation `CarrazedoC:2010' on page 7 undefined on input line 90.
+
+
+
+LaTeX Warning: Citation `CodaP:2011' on page 7 undefined on input line 90.
+
+
+LaTeX Warning: Citation `SanchesC:2016' on page 7 undefined on input line 90.
+
+
+LaTeX Warning: Citation `SanchesC:2013' on page 7 undefined on input line 90.
+
+
+LaTeX Warning: Citation `SanchesC:2014' on page 7 undefined on input line 90.
+
+
+LaTeX Warning: Citation `FernandesCS:2019' on page 7 undefined on input line 90
 .
 
 
-LaTeX Warning: Citation `SanchesC:2014' on page 6 undefined on input line 84.
+LaTeX Warning: Citation `AvanciniS:2020' on page 7 undefined on input line 90.
 
 
-LaTeX Warning: Citation `Houetal:2012' on page 6 undefined on input line 94.
+LaTeX Warning: Citation `SanchesC:2013' on page 7 undefined on input line 92.
 
 
-LaTeX Warning: Citation `BazilevsTT:2013b' on page 6 undefined on input line 94
+LaTeX Warning: Citation `Houetal:2012' on page 7 undefined on input line 100.
+
+
+LaTeX Warning: Citation `BazilevsTT:2013b' on page 7 undefined on input line 10
+0.
+
+
+LaTeX Warning: Citation `HughesLZ:1981' on page 7 undefined on input line 102.
+
+
+LaTeX Warning: Citation `DoneaGH:1982' on page 7 undefined on input line 102.
+
+
+LaTeX Warning: Citation `KanchiM:2007' on page 7 undefined on input line 102.
+
+
+LaTeX Warning: Citation `TezduyarBL:1992b' on page 7 undefined on input line 10
+2.
+
+
+LaTeX Warning: Citation `TezduyarBML:1992c' on page 7 undefined on input line 1
+02.
+
+
+LaTeX Warning: Citation `TakizawaT:2012' on page 7 undefined on input line 102.
+
+
+[7]
+
+LaTeX Warning: Citation `BottassoDS:2005' on page 8 undefined on input line 104
 .
 
-[6]
 
-LaTeX Warning: Citation `HughesLZ:1981' on page 7 undefined on input line 96.
-
-
-LaTeX Warning: Citation `DoneaGH:1982' on page 7 undefined on input line 96.
+LaTeX Warning: Citation `JohnsonT:1994' on page 8 undefined on input line 104.
 
 
-LaTeX Warning: Citation `BazilevsCZH:2006a' on page 7 undefined on input line 9
+LaTeX Warning: Citation `SteinTB:2004' on page 8 undefined on input line 104.
+
+
+LaTeX Warning: Citation `KanchiM:2007' on page 8 undefined on input line 104.
+
+
+LaTeX Warning: Citation `DoneaGH:1982' on page 8 undefined on input line 106.
+
+
+LaTeX Warning: Citation `TezduyarABJ:1993' on page 8 undefined on input line 10
 6.
 
 
-LaTeX Warning: Citation `TezduyarBML:1992b' on page 7 undefined on input line 9
+LaTeX Warning: Citation `SanchesC:2014' on page 8 undefined on input line 106.
+
+
+LaTeX Warning: Citation `Lefrancois:2008' on page 8 undefined on input line 106
+.
+
+
+LaTeX Warning: Citation `FernandesCS:2019' on page 8 undefined on input line 10
 6.
 
 
-LaTeX Warning: Citation `TezduyarBL:1992c' on page 7 undefined on input line 96
-.
+LaTeX Warning: Citation `Peskin:1972' on page 8 undefined on input line 110.
 
 
-LaTeX Warning: Citation `TakizawaT:2012' on page 7 undefined on input line 96.
+LaTeX Warning: Citation `MittalI:2005' on page 8 undefined on input line 110.
 
 
-LaTeX Warning: Citation `JohnsonT:1994' on page 7 undefined on input line 98.
+LaTeX Warning: Citation `WangRGF:2011' on page 8 undefined on input line 110.
 
 
-LaTeX Warning: Citation `KanchiM:2007' on page 7 undefined on input line 98.
+LaTeX Warning: Citation `CirakR:2005' on page 8 undefined on input line 110.
 
 
-LaTeX Warning: Citation `FarhatLL:1998' on page 7 undefined on input line 98.
+LaTeX Warning: Citation `SanchesC:2014' on page 8 undefined on input line 110.
 
 
-LaTeX Warning: Citation `SteinTB:2004' on page 7 undefined on input line 98.
+LaTeX Warning: Citation `AkkermanBBFK:2012' on page 8 undefined on input line 1
+10.
 
 
-LaTeX Warning: Citation `Lefrancois:2008' on page 7 undefined on input line 98.
+LaTeX Warning: Citation `RouxG:2009' on page 8 undefined on input line 113.
 
 
-
-LaTeX Warning: Citation `FernandesCS:2019' on page 7 undefined on input line 98
-.
-
-
-LaTeX Warning: Citation `Peskin:1972' on page 7 undefined on input line 100.
+LaTeX Warning: Citation `BazilevsHKWB:2011' on page 8 undefined on input line 1
+13.
 
 
-LaTeX Warning: Citation `WangRGF:2011' on page 7 undefined on input line 100.
+LaTeX Warning: Citation `SanchesC:2013' on page 8 undefined on input line 113.
 
 
-LaTeX Warning: Citation `MittalI:2005' on page 7 undefined on input line 100.
-
-
-LaTeX Warning: Citation `CirakR:2005' on page 7 undefined on input line 100.
-
-
-LaTeX Warning: Citation `SanchesC:2014' on page 7 undefined on input line 100.
-
-
-LaTeX Warning: Citation `AkkermanBBFK:2012' on page 7 undefined on input line 1
-00.
-
-
-LaTeX Warning: Citation `BazilevsHKWB:2011' on page 7 undefined on input line 1
-03.
-
-
-LaTeX Warning: Citation `RouxG:2009' on page 7 undefined on input line 103.
-
-
-LaTeX Warning: Citation `SanchesC:2013' on page 7 undefined on input line 103.
-
-
-LaTeX Warning: Citation `SanchesC:2014' on page 7 undefined on input line 103.
-
-
-LaTeX Warning: Citation `FernandesCS:2019' on page 7 undefined on input line 10
-3.
-
-
-LaTeX Warning: Citation `Blom:1998' on page 7 undefined on input line 103.
-
-
-LaTeX Warning: Citation `Hubneretal:2004' on page 7 undefined on input line 103
-.
-
-
-LaTeX Warning: Citation `HronM:2007' on page 7 undefined on input line 103.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-
-LaTeX Warning: Citation `BazilevsTT:2013b' on page 8 undefined on input line 10
-7.
-
-
-LaTeX Warning: Citation `TezduyarBL:1992c' on page 8 undefined on input line 11
-3.
-
-
-LaTeX Warning: Citation `BadiaNV:2008' on page 8 undefined on input line 113.
-
-
-LaTeX Warning: Citation `IronsT:1969' on page 8 undefined on input line 113.
-
-
-LaTeX Warning: Citation `KuttlerW:2008' on page 8 undefined on input line 113.
+LaTeX Warning: Citation `SanchesC:2014' on page 8 undefined on input line 113.
 
 
 LaTeX Warning: Citation `FernandesCS:2019' on page 8 undefined on input line 11
 3.
 
 
-LaTeX Warning: Citation `TezduyarSKS:2006' on page 8 undefined on input line 11
-5.
+LaTeX Warning: Citation `Blom:1998' on page 8 undefined on input line 113.
 
 
-LaTeX Warning: Citation `TezduyarSS:2006' on page 8 undefined on input line 115
+LaTeX Warning: Citation `Hubneretal:2004' on page 8 undefined on input line 113
 .
+
+
+LaTeX Warning: Citation `HronM:2007' on page 8 undefined on input line 113.
+
+
+LaTeX Warning: Citation `Avancini:2023' on page 8 undefined on input line 113.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
 
-LaTeX Warning: Citation `HughesCB:2005' on page 9 undefined on input line 121.
-
-
-LaTeX Warning: Citation `BazilevsCZH:2006a' on page 9 undefined on input line 1
-21.
-
-
-LaTeX Warning: Citation `Bazilevsetal:2007' on page 9 undefined on input line 1
-21.
-
-
-LaTeX Warning: Citation `BazilevsBCHS:2006b' on page 9 undefined on input line 
-121.
-
-
-LaTeX Warning: Citation `CottrellRBH:2006' on page 9 undefined on input line 12
-1.
-
-
-LaTeX Warning: Citation `CottrellHR:2007' on page 9 undefined on input line 121
+LaTeX Warning: Citation `BazilevsTT:2013' on page 9 undefined on input line 115
 .
 
 
-LaTeX Warning: Citation `ZhangBGBH:2007' on page 9 undefined on input line 121.
+LaTeX Warning: Citation `FelippaPF:2001' on page 9 undefined on input line 117.
 
 
 
-LaTeX Warning: Citation `PiegT:1996' on page 9 undefined on input line 123.
+LaTeX Warning: Citation `TallecM:2001' on page 9 undefined on input line 117.
 
 
-LaTeX Warning: Citation `BensonBHH:2010' on page 9 undefined on input line 127.
+LaTeX Warning: Citation `BadiaNV:2008' on page 9 undefined on input line 119.
 
 
-
-LaTeX Warning: Citation `KiendlBLW:2009' on page 9 undefined on input line 127.
-
-
-
-LaTeX Warning: Citation `Bazilevsetal:2007' on page 9 undefined on input line 1
-29.
-
-
-LaTeX Warning: Citation `BazilevsMCH:2010' on page 9 undefined on input line 12
+LaTeX Warning: Citation `TezduyarBL:1992b' on page 9 undefined on input line 11
 9.
 
 
-LaTeX Warning: Citation `BazilevsA:2010' on page 9 undefined on input line 129.
+LaTeX Warning: Citation `IronsT:1969' on page 9 undefined on input line 119.
 
 
-
-LaTeX Warning: Citation `ZhangBGBH:2007' on page 9 undefined on input line 129.
-
+LaTeX Warning: Citation `KuttlerW:2008' on page 9 undefined on input line 119.
 
 
-LaTeX Warning: Citation `BazilevsCH:2008' on page 9 undefined on input line 129
+LaTeX Warning: Citation `FernandesCS:2019' on page 9 undefined on input line 11
+9.
+
+
+LaTeX Warning: Citation `HughesCB:2005' on page 9 undefined on input line 125.
+
+
+LaTeX Warning: Citation `BazilevsCZH:2006a' on page 9 undefined on input line 1
+25.
+
+
+LaTeX Warning: Citation `Bazilevsetal:2007' on page 9 undefined on input line 1
+25.
+
+
+LaTeX Warning: Citation `BazilevsBCHS:2006b' on page 9 undefined on input line 
+125.
+
+
+LaTeX Warning: Citation `CottrellRBH:2006' on page 9 undefined on input line 12
+5.
+
+
+LaTeX Warning: Citation `CottrellHR:2007' on page 9 undefined on input line 125
 .
 
 
-LaTeX Warning: Citation `HolligRW:2001' on page 9 undefined on input line 131.
+LaTeX Warning: Citation `ZhangBGBH:2007' on page 9 undefined on input line 125.
 
 
-LaTeX Warning: Citation `BazilevsTT:2013' on page 9 undefined on input line 131
+
+LaTeX Warning: Citation `PiegT:1996' on page 9 undefined on input line 127.
+
+[9]
+
+LaTeX Warning: Citation `BensonBHH:2010' on page 10 undefined on input line 131
 .
 
 
-LaTeX Warning: Citation `BazilevsTT:2014' on page 9 undefined on input line 131
-.
-
-[9{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/en
-c/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}]
-
-LaTeX Warning: Citation `NayrolesTV:1992' on page 10 undefined on input line 14
-6.
-
-
-LaTeX Warning: Citation `Belytschko:1995' on page 10 undefined on input line 14
-6.
-
-
-LaTeX Warning: Citation `MelenkB:1996' on page 10 undefined on input line 146.
-
-
-LaTeX Warning: Citation `StrouboulisCB:2001' on page 10 undefined on input line
- 146.
-
-
-LaTeX Warning: Citation `FarhatHF:2001' on page 10 undefined on input line 146.
-
-
-
-LaTeX Warning: Citation `TezduyarAB:1998' on page 10 undefined on input line 14
-8.
-
-
-LaTeX Warning: Citation `TezduyarA:2000' on page 10 undefined on input line 148
+LaTeX Warning: Citation `KiendlBLW:2009' on page 10 undefined on input line 131
 .
 
 
-LaTeX Warning: Citation `TezduyarS:2005' on page 10 undefined on input line 148
+LaTeX Warning: Citation `Bazilevsetal:2007' on page 10 undefined on input line 
+133.
+
+
+LaTeX Warning: Citation `BazilevsMCH:2010' on page 10 undefined on input line 1
+33.
+
+
+LaTeX Warning: Citation `BazilevsA:2010' on page 10 undefined on input line 133
 .
 
 
-LaTeX Warning: Citation `BenekSDB:1986' on page 10 undefined on input line 150.
+LaTeX Warning: Citation `ZhangBGBH:2007' on page 10 undefined on input line 133
+.
+
+
+LaTeX Warning: Citation `BazilevsCH:2008' on page 10 undefined on input line 13
+3.
+
+
+LaTeX Warning: Citation `HolligRW:2001' on page 10 undefined on input line 135.
 
 
 
-LaTeX Warning: Citation `Fish:1992' on page 10 undefined on input line 150.
-
-[10]
-
-LaTeX Warning: Citation `Dhia:1998' on page 11 undefined on input line 152.
+LaTeX Warning: Citation `BazilevsTT:2013' on page 10 undefined on input line 13
+5.
 
 
-LaTeX Warning: Citation `DhiaR:2001' on page 11 undefined on input line 152.
+LaTeX Warning: Citation `BazilevsTT:2014' on page 10 undefined on input line 13
+5.
+
+[10{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/e
+nc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}]
+
+LaTeX Warning: Citation `NayrolesTV:1992' on page 11 undefined on input line 15
+0.
+
+
+LaTeX Warning: Citation `Belytschko:1995' on page 11 undefined on input line 15
+0.
+
+
+LaTeX Warning: Citation `MelenkB:1996' on page 11 undefined on input line 150.
+
+
+LaTeX Warning: Citation `StrouboulisCB:2001' on page 11 undefined on input line
+ 150.
+
+
+LaTeX Warning: Citation `FarhatHF:2001' on page 11 undefined on input line 150.
+
+
+
+LaTeX Warning: Citation `TezduyarAB:1998' on page 11 undefined on input line 15
+2.
+
+
+LaTeX Warning: Citation `TezduyarA:2000' on page 11 undefined on input line 152
+.
+
+
+LaTeX Warning: Citation `TezduyarS:2005' on page 11 undefined on input line 152
+.
+
+
+LaTeX Warning: Citation `BenekSDB:1986' on page 11 undefined on input line 154.
+
+
+
+LaTeX Warning: Citation `Fish:1992' on page 11 undefined on input line 154.
+
+
+LaTeX Warning: Citation `Dhia:1998' on page 11 undefined on input line 156.
+
+
+LaTeX Warning: Citation `DhiaR:2001' on page 11 undefined on input line 156.
 
 
 LaTeX Warning: Citation `FernandesEtAll:2020' on page 11 undefined on input lin
-e 152.
+e 156.
 
 
-LaTeX Warning: Citation `Fernandes:2020' on page 11 undefined on input line 152
+LaTeX Warning: Citation `Fernandes:2020' on page 11 undefined on input line 156
 .
 
 
-Underfull \vbox (badness 1584) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [11{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
+ [11]
 
-LaTeX Warning: Citation `Fernandes:2016' on page 12 undefined on input line 177
+LaTeX Warning: Citation `Fernandes:2016' on page 12 undefined on input line 181
 .
 
 
-LaTeX Warning: Citation `Fernandes:2020' on page 12 undefined on input line 177
+LaTeX Warning: Citation `Fernandes:2020' on page 12 undefined on input line 181
+.
+
+[12{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}]
+
+LaTeX Warning: Citation `Coda:2018' on page 13 undefined on input line 185.
+
+
+LaTeX Warning: Citation `SanchesC:2010a' on page 13 undefined on input line 185
 .
 
 
-LaTeX Warning: Citation `Coda:2018' on page 12 undefined on input line 181.
-
-
-LaTeX Warning: Citation `SanchesC:2010a' on page 12 undefined on input line 181
-.
-
-
-LaTeX Warning: Citation `SanchesC:2010b' on page 12 undefined on input line 181
+LaTeX Warning: Citation `SanchesC:2010b' on page 13 undefined on input line 185
 .
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 185.
+(Font)              <10> on input line 189.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 185.
+(Font)              <7> on input line 189.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 185.
-[12] [13] [14] [15
+(Font)              <5> on input line 189.
+[13] [14]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[15] [16
 pdfTeX warning (ext4): destination with the same identifier (name{table.1.1}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.260 \end{document}
+l.264 \end{document}
                     ] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./introducao.aux)
@@ -2309,23 +2356,23 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 40414 strings out of 474222
- 756456 string characters out of 5748734
- 1947975 words of memory out of 5000000
- 61606 multiletter control sequences out of 15000+600000
- 635814 words of font info for 217 fonts, out of 8000000 for 9000
+ 40433 strings out of 474222
+ 756818 string characters out of 5748733
+ 1946975 words of memory out of 5000000
+ 61622 multiletter control sequences out of 15000+600000
+ 635937 words of font info for 218 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 130i,11n,124p,1104b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 130i,11n,124p,1547b,625s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/ty
 pe1/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></
 usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/p
 ublic/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share
 /texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/l
 mri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb>
-Output written on introducao.pdf (15 pages, 235770 bytes).
+Output written on introducao.pdf (16 pages, 238214 bytes).
 PDF statistics:
- 224 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
- 47 named destinations out of 1000 (max. 500000)
+ 228 PDF objects out of 1000 (max. 8388607)
+ 187 compressed objects within 2 object streams
+ 48 named destinations out of 1000 (max. 500000)
  48237 words of extra memory for PDF output out of 51595 (max. 10000000)
 
