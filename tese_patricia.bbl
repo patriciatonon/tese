@@ -72,6 +72,13 @@ Tese (Doutorado) --- SET-EESC-USP, São Carlos, São Paulo, Brasil, 2023.}
   44-47, p. 6362--6377, 2006.
 ISSN 0045-7825.}
 
+\bibitem[Bauman et al. 2008]{BaumanDEOP:2008}
+\abntrefinfo{Bauman et al.}{BAUMAN et al.}{2008}
+{BAUMAN, P.~T.; BEN{ }DHIA, H.; ELKHODJA, N.; ODEN, J.~T.; PRUDHOMME, S. On the
+  application of the {Arlequin} method to the coupling of particle and
+  continuum models.
+\emph{Comput. Mech.}, v.~42, p. 511--530, 2008.}
+
 \bibitem[Bazilevs e Akkerman 2010]{BazilevsA:2010}
 \abntrefinfo{Bazilevs e Akkerman}{BAZILEVS; AKKERMAN}{2010}
 {BAZILEVS, Y.; AKKERMAN, I. Large eddy simulation of turbulent taylor–couette
@@ -79,12 +86,6 @@ ISSN 0045-7825.}
   multiscale method.
 \emph{Journal of Computational Physics}, v.~229, n.~9, p. 3402 -- 3414, 2010.
 ISSN 0021-9991.}
-
-\bibitem[Bazilevs et al. 2006a]{BazilevsCZH:2006a}
-\abntrefinfo{Bazilevs et al.}{BAZILEVS et al.}{2006a}
-{BAZILEVS, Y.; CALO, V.; ZHANG, Y.; HUGHES, T. Isogeometric fluid–structure
-  interaction analysis with applications to arterial blood flow.
-\emph{Computational Mechanics}, v.~38, p. 310 -- 322, 2006a.}
 
 \bibitem[Bazilevs et al. 2007]{Bazilevsetal:2007}
 \abntrefinfo{Bazilevs et al.}{BAZILEVS et al.}{2007}
@@ -138,14 +139,6 @@ ISSN 0045-7825.}
 \emph{Archives of Computational Methods in Engineering}, v.~21, p. 359--398,
   2014.}
 
-\bibitem[Bazilevs et al. 2006b]{BazilevsBCHS:2006b}
-\abntrefinfo{Bazilevs et al.}{BAZILEVS et al.}{2006b}
-{BAZILEVS, Y.; VEIGA, L.~B. da; COTTRELL, J.~A.; HUGHES, T.; SANGALLI, G.
-  Isogeometric analysis: Approximation, stability and error estimates for
-  h-refined meshes.
-\emph{Mathematical Models and Methods in Applied Sciences}, v.~16, n.~07, p.
-  1031--1090, 2006b.}
-
 \bibitem[Belytschko et al. 1995]{Belytschko:1995}
 \abntrefinfo{Belytschko et al.}{BELYTSCHKO et al.}{1995}
 {BELYTSCHKO, T.; LU, Y.~Y.; GU, L.; TABBARA, M. {Element-free Galerkin methods
@@ -177,13 +170,13 @@ ISSN 0045-7825.}
   grid-embedding technique}.
 [S.l.], 1986.}
 
-\bibitem[Benson et al. 2010]{BensonBHH:2010}
-\abntrefinfo{Benson et al.}{BENSON et al.}{2010}
-{BENSON, D.; BAZILEVS, Y.; HSU, M.; HUGHES, T. Isogeometric shell analysis: The
-  reissner–mindlin shell.
-\emph{Computer Methods in Applied Mechanics and Engineering}, v.~199, n.~5, p.
-  276 -- 289, 2010.
-ISSN 0045-7825.}
+\bibitem[Biscani et al. 2016]{BiscaniGBHC:2016}
+\abntrefinfo{Biscani et al.}{BISCANI et al.}{2016}
+{BISCANI, F.; GIUNTA, G.; BELOUETTAR, S.; HU, H.; CARRERA, E. Mixed-dimensional
+  modeling by means of solid and higher-order multi-layered plate finite
+  elements.
+\emph{Mechanics of Advanced Materials and Structures}, v.~23, n.~9, p.
+  960--970, 2016.}
 
 \bibitem[Blom 1998]{Blom:1998}
 \abntrefinfo{Blom}{BLOM}{1998}
@@ -220,6 +213,13 @@ ISSN 0045-7828.}
   Navier-Stokes equations}.
 \emph{Computer Methods in Applied Mechanics and Engineering}, v.~32, n.~1-3, p.
   199--259, 1982.}
+
+\bibitem[Caleyron et al. 2013]{CaleyronCFP:2013}
+\abntrefinfo{Caleyron et al.}{CALEYRON et al.}{2013}
+{CALEYRON, F.; COMBESCURE, A.; FAUCHER, V.; POTAPOV, S. {SPH} modeling of
+  fluid-solid interaction for dynamic failure analysis of fluid-filled thin
+  shells.
+\emph{Journal of Fluids and Structures}, v.~39, p. 126--153, 2013.}
 
 \bibitem[Carrazedo e Coda 2010]{CarrazedoC:2010}
 \abntrefinfo{Carrazedo e Coda}{CARRAZEDO; CODA}{2010}
@@ -287,27 +287,18 @@ Tese (Tese para concurso de professor titular) --- SET-EESC-USP, São Carlos,
   unconstrained vectors applied to non-linear dynamic of {3D} frames.
 \emph{Finite Elements in Analysis and Design}, v.~47, n.~4, p. 319--333, 2011.}
 
-\bibitem[Cottrell, Hughes e Reali 2007]{CottrellHR:2007}
-\abntrefinfo{Cottrell, Hughes e Reali}{COTTRELL; HUGHES; REALI}{2007}
-{COTTRELL, J.; HUGHES, T.; REALI, A. Studies of refinement and continuity in
-  isogeometric structural analysis.
-\emph{Computer Methods in Applied Mechanics and Engineering}, v.~196, n.~41, p.
-  4160 -- 4183, 2007.
-ISSN 0045-7825.}
-
-\bibitem[Cottrell et al. 2006]{CottrellRBH:2006}
-\abntrefinfo{Cottrell et al.}{COTTRELL et al.}{2006}
-{COTTRELL, J.; REALI, R.; BAZILEVS, Y.; HUGHES, T. Isogeometric analysis of
-  structural vibrations.
-\emph{Computer Methods in Applied Mechanics and Engineering}, v.~195, n.~41, p.
-  5257--5296, 2006.
-ISSN 0045-7825.}
-
 \bibitem[Cottrell, Hughes e Bazilevs 2009]{CottrelHB:2009}
 \abntrefinfo{Cottrell, Hughes e Bazilevs}{COTTRELL; HUGHES; BAZILEVS}{2009}
 {COTTRELL, J.~A.; HUGHES, T. J.~R.; BAZILEVS, Y. \emph{Isogeometric Analysis:
   Toward Integration of CAD and FEA}. first. [S.l.]: Wiley, 2009.
 ISBN 9780470748732.}
+
+\bibitem[Dhia e Jamond 2010]{DhiaJ:2010}
+\abntrefinfo{Dhia e Jamond}{DHIA; JAMOND}{2010}
+{DHIA, H.; JAMOND, O. {On the use of XFEM within the Arlequin framework for the
+  simulation of crack propagation}.
+\emph{Computer Methods in Applied Mechanics and Engineering}, v.~199, n. 21-22,
+  p. 1403--1414, 2010.}
 
 \bibitem[Dhia e Rateau 2005]{DhiaR:2005}
 \abntrefinfo{Dhia e Rateau}{DHIA; RATEAU}{2005}
@@ -315,6 +306,13 @@ ISBN 9780470748732.}
   tool.
 \emph{International Journal for Numerical Methods in Engineering}, v.~62,
   n.~11, p. 1442--1462, 2005.}
+
+\bibitem[Dhia e Torkhani 2011]{DhiaT:2011}
+\abntrefinfo{Dhia e Torkhani}{DHIA; TORKHANI}{2011}
+{DHIA, H.; TORKHANI, M. Modeling and computation of fretting wear of structures
+  under sharp contact.
+\emph{International Journal for Numerical Methods in Engineering}, v.~85, p.
+  61--83, 2011.}
 
 \bibitem[Dhia e Rateau 2002]{DhiaR:2002}
 \abntrefinfo{Dhia e Rateau}{DHIA; RATEAU}{2002}
@@ -387,6 +385,13 @@ Dispon{\'\i}vel em:
   shell finite element}.
 \emph{Computational Mechanics}, v.~63, n.~3, p. 555--569, 2019.}
 
+\bibitem[Fernier, Faucher e Jamond 2020]{fernier:hal-03991421}
+\abntrefinfo{Fernier, Faucher e Jamond}{FERNIER; FAUCHER; JAMOND}{2020}
+{FERNIER, A.; FAUCHER, V.; JAMOND, O. {Multi-model Arlequin approaches for fast
+  transient, FSI-oriented, fluid dynamics with explicit time integration}.
+\emph{{Computers and Fluids}}, {Elsevier}, v.~199, p. 104428, mar. 2020.
+Dispon{\'\i}vel em: \url{https://hal.science/hal-03991421}.}
+
 \bibitem[Fish 1992]{Fish:1992}
 \abntrefinfo{Fish}{FISH}{1992}
 {FISH, J. {The s-version of the finite element method}.
@@ -442,6 +447,13 @@ Dispon{\'\i}vel em: \url{https://doi.org/10.1063/1.857955}.}
   p. 322--350, 2007.
 Dispon{\'\i}vel em:
   \url{https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.1882}.}
+
+\bibitem[Hansbo e Hansbo 2002]{HansboH:2002}
+\abntrefinfo{Hansbo e Hansbo}{HANSBO; HANSBO}{2002}
+{HANSBO, A.; HANSBO, P. {An unfitted finite element method, based on Nitsche's
+  method, for elliptic interface problems}.
+\emph{Computer Methods in Applied Mechanics and Engineering}, v.~191, n.
+  47–48, p. 5537--5552, 2002.}
 
 \bibitem[Henderson 1997]{Henderson:1997}
 \abntrefinfo{Henderson}{HENDERSON}{1997}
@@ -605,14 +617,6 @@ ISSN 0045-7825.}
 \emph{International Journal for Numerical Methods in Fluids}, v.~54, p.
   923--944, 2007.}
 
-\bibitem[Kiendl et al. 2009]{KiendlBLW:2009}
-\abntrefinfo{Kiendl et al.}{KIENDL et al.}{2009}
-{KIENDL, J.; BLETZINGER, K.-U.; LINHARD, J.; WüCHNER, R. Isogeometric shell
-  analysis with kirchhoff–love elements.
-\emph{Computer Methods in Applied Mechanics and Engineering}, v.~198, n.~49, p.
-  3902 -- 3914, 2009.
-ISSN 0045-7825.}
-
 \bibitem[Kuhl e Ramm 1999]{KuhlR:1999}
 \abntrefinfo{Kuhl e Ramm}{KUHL; RAMM}{1999}
 {KUHL, D.; RAMM, E. Generalized energy-momentum method for non-linear
@@ -655,6 +659,13 @@ ISSN 0045-7825.}
 \emph{Computer Methods in Applied Mechanics and Engineering}, v.~112, n.~1, p.
   253 -- 282, 1994.
 ISSN 0045-7825.}
+
+\bibitem[Mo{\"{e}}s et al. 2003]{Moes:2003}
+\abntrefinfo{Mo{\"{e}}s et al.}{MO{\"{E}}S et al.}{2003}
+{MO{\"{E}}S, N.; CLOIREC, M.; CARTRAUD, P.; REMACLE, J.-F. {A computational
+  approach to handle complex microstructure geometries}.
+\emph{Computer Methods in Applied Mechanics and Engineering}, v.~192, n.
+  28–30, p. 3163--3177, 2003.}
 
 \bibitem[Mok 2001]{Mok:2001}
 \abntrefinfo{Mok}{MOK}{2001}
@@ -716,6 +727,15 @@ Dispon{\'\i}vel em:
   Computational Science and Engineering).
 ISBN 9783319639703. Dispon{\'\i}vel em:
   \url{https://books.google.com.br/books?id=hsEyDwAAQBAJ}.}
+
+\bibitem[Rosa 2021]{Rosa:2021}
+\abntrefinfo{Rosa}{ROSA}{2021}
+{ROSA, R. J.~R.
+\emph{T\'ecnica de parti\c{c}\~ao de dom\'inio para an\'alise num\'erica de
+  s\'olidos bidimensionais fraturados combinando an\'alise isogeom\'etrica e
+  elementos finitos}.
+Disserta\c{c}\~{a}o (Mestrado) --- SET-EESC-USP, São Carlos, São Paulo,
+  Brasil, 2021.}
 
 \bibitem[Roux e Garaud 2009]{RouxG:2009}
 \abntrefinfo{Roux e Garaud}{ROUX; GARAUD}{2009}
