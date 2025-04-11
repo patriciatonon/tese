@@ -249,6 +249,113 @@ O primeiro termo à direita da igualdade da Eq. \eqref{eq:integ} é calculado a 
 \zeta = \zeta_{i} + \left(\hat{\zeta}+1\right) \left(\frac{\zeta_{i+1}-\zeta_{i}}{2}\right).
 \end{align}
 
+\subsection{Parâmetros de estabilização}\label{subsec:taus2}
+
+Considerando que nesse trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em IGA, adotam-se os parâmetros propostos por \citeonline{TakizawaTO:2018} e \citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. 
+
+Para essa opção é necessário definir-se o tensor métrico do elemento no espaço. Para isso, inicia-se com a definição da matriz Jacobiana $\matrixQ$, dada por:
+
+\begin{align}
+	\matrixQ&=\left(\frac{\partial\pos}{\partial\coordAdimen}\right),
+\end{align}
+
+\noindent com $\coordAdimen$ representando as coordenadas do espaço paramétrico. Para que a ordem polinomial seja levada em consideração na determinação dos parâmetros de estabilização, aplica-se uma mudança de escala na matriz $\matrixQ$, através da matriz $\matrixD$, conforme a seguinte expressão:
+
+\begin{align}
+	\matrixQhat&=\matrixQ\matrixD^{-1}.
+\end{align}
+
+Para elementos finitos com funções de forma polinomiais Lagrangianas de ordem $p_i$, definidas na direção $i$ do espaço paramétrico, com $-1\leq\xi_i\leq1$, a matriz $\matrixD$ é definida como:
+
+\begin{align}
+	\matrixD&=\begin{bmatrix}
+		p_{1} & 0 & 0\\
+		0 & p_{2} & 0 \\
+		0 & 0 & p_{3}
+	\end{bmatrix}.
+\end{align}
+
+
+Para discretização utilizando IGA adota-se:
+
+\begin{align}
+	\matrixD&=\left(\frac{\partial\bar{\coordAdimen}}{\partial\coordAdimen}\right),
+\end{align}
+
+\noindent com $\bar{\coordAdimen}$ representando as coordenadas do chamado espaço paramétrico preferido. 
+
+Para problemas em 1D, $\matrixD$ é definido como:
+
+\begin{align}
+	D&=\frac{\Delta\bar{\coordAdimen}}{\min_{a=1,...,p} \Delta\coordAdimen_{a}},
+\end{align}
+
+\noindent onde $\Delta\bar{\coordAdimen}$ é o comprimento do elemento de Bézier no espaço paramétrico (espaço preferido), $p$ é o grau polinomial das funções base e $\Delta\coordAdimen_{a}$ é:
+
+\begin{align}
+	\Delta\coordAdimen_{a}&=\frac{\Delta\bar{\coordAdimen}}{p}\sum_{b=0}^{p} \left({\matrixCinv}_{ba} - \matrixCinv_{ba-1}\right),
+\end{align}
+
+\noindent a matriz $\matrixCinv$ é o tensor de transformação de Bézier. Para múltiplas dimensões têm-se $\matrixD_{ij} = D^i \delta_{ij} $, com $D^i$ o valor de $D$ na direção $i$.
+
+A partir disso, o comprimento direcional do elemento é definido como:
+
+\begin{align}
+	\RQD &=2\left(\rRGN\rRGN : \matrixG \right)^{-\frac{1}{2}},
+\end{align}
+
+\noindent sendo $\rRGN$ o vetor direção unitário da velocidade no elemento e $\matrixG$ uma matriz auxiliar, os quais são representados respectivamente como:
+
+\begin{align}
+	\rRGN&=\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert} \label{eq:erRGN}
+\end{align}
+
+\noindent e
+
+\begin{align}
+	\matrixG &= \matrixQhat^{-T} \cdot \matrixQhat^{-1}. 
+\end{align}
+
+O comprimento do elemento é limitado pelos mínimos e máximos valores representados abaixo:
+
+\begin{align}
+	h_{min} \equiv 2\min_{r}\left((\rRGN:\matrixG)^{-\frac{1}{2}} \right), \\
+	h_{max} \equiv 2\max_{r}\left((\rRGN:\matrixG)^{-\frac{1}{2}} \right).
+\end{align}
+
+Os parâmetros de estabilização são dados por:
+
+\begin{align}
+	\SUPG = \PSPG =\left(\frac{1}{\SUGNi^2} + \frac{1}{\SUGNii^2} + \frac{1}{\SUGNiii^2} \right)^{-\frac{1}{2}},
+\end{align}
+
+\begin{align}
+	\LSIC = \frac{\RQD^2}{\SUPG},
+\end{align}
+
+\noindent onde:
+
+\begin{align}
+	\SUGNi^{-2} = \left(\velocityh - \velocityALEh \right) \left(\velocityh - \velocityALEh \right) : \matrixG ,
+\end{align}
+
+\begin{align}
+	\SUGNii&=\frac{\Delta t}{2},
+\end{align}
+
+\noindent e
+
+\begin{align}
+	\SUGNiii^{-1} = \kviscosity \left(\rRGN_{reg}\rRGN_{reg} : \matrixG + \left(1 - \rRGN_{reg}^2)4h_{min}^{-2} \right)\right) ,
+\end{align}
+
+\noindent sendo $\rRGN_{reg}$ definido como:
+
+\begin{align}
+	\rRGN_{reg} =\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert + \varepsilon\left(\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert\right)_0},
+\end{align}
+
+\noindent com $\varepsilon$ uma constante pequena e $\left(\lVert \nabla \lVert\velocityh- \velocityALEh\rVert\rVert\right)_0$ um valor de referência. Os termos $\SUGNi$, $\SUGNii$ e $\SUGNiii$ são parâmetros correspondentes aos termos convectivos, inerciais e viscosos, respectivamente.
 
 \section{Verificação e aplicações}
 

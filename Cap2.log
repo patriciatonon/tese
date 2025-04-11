@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  8 APR 2025 17:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  10 APR 2025 15:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1686,14 +1686,7 @@ LaTeX Font Info:    Trying to load font information for T1+lmr on input line 3.
 
  (/usr/share/texmf/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) (./Cap2.aux
-
-LaTeX Warning: Label `eq:FinalSystem' multiply defined.
-
-
-LaTeX Warning: Label `eq:RC' multiply defined.
-
-)
+) (./Cap2.aux)
 \openout1 = `Cap2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
@@ -1717,7 +1710,8 @@ LaTeX Font Info:    ... okay on input line 3.
 Package hyperref Info: Link coloring ON on input line 3.
 LaTeX Info: Redefining \degres on input line 3.
 LaTeX Info: Redefining \up on input line 3.
- (/usr/share/texlive/texmf-dist/tex/latex/tools/hhline.sty
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/hhline.sty
 Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
 )
 \myptabbox=\box150
@@ -1866,171 +1860,211 @@ dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/conserMassa.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/conserMassa.pdf, id=18, 198.44092pt x 178.81703pt>
+<Imagens/Cap2/conserMassa.pdf, id=18, 127.63338pt x 112.24612pt>
 File: Imagens/Cap2/conserMassa.pdf Graphic file (type pdf)
 <use Imagens/Cap2/conserMassa.pdf>
 Package pdftex.def Info: Imagens/Cap2/conserMassa.pdf  used on input line 110.
-(pdftex.def)             Requested size: 297.66061pt x 161.52731pt.
-[2{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}
+(pdftex.def)             Requested size: 191.44955pt x 168.36874pt.
+
+Underfull \vbox (badness 1189) has occurred while \output is active []
+
+ [2{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.141 \begin{align}
-                   {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/sha
-re/texmf/fonts/enc/dvips/lm/lm-mathex.enc} <./Imagens/Cap2/conserMassa.pdf>]
+l.141 \end{align}
+                 {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share
+/texmf/fonts/enc/dvips/lm/lm-mathex.enc} <./Imagens/Cap2/conserMassa.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/tensão.pdf): PDF inclus
 ion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/tensão.pdf, id=52, 118.96382pt x 99.26598pt>
+<Imagens/Cap2/tensão.pdf, id=49, 109.72237pt x 100.86786pt>
 File: Imagens/Cap2/tensão.pdf Graphic file (type pdf)
 <use Imagens/Cap2/tensão.pdf>
-Package pdftex.def Info: Imagens/Cap2/tensão.pdf  used on input line 191.
-(pdftex.def)             Requested size: 178.44527pt x 148.89857pt.
-[3] [4
+Package pdftex.def Info: Imagens/Cap2/tensão.pdf  used on input line 166.
+(pdftex.def)             Requested size: 164.58313pt x 151.30139pt.
+[3
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.235 
-       <./Imagens/Cap2/tensão.pdf>]
+l.174 \begin{align}
+                    <./Imagens/Cap2/tensão.pdf>]
 
-pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/dominiofluido.pdf): PDF 
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/conserQtdeMov.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/dominiofluido.pdf, id=92, 99.46231pt x 53.87814pt>
-File: Imagens/Cap2/dominiofluido.pdf Graphic file (type pdf)
-<use Imagens/Cap2/dominiofluido.pdf>
-Package pdftex.def Info: Imagens/Cap2/dominiofluido.pdf  used on input line 239
+<Imagens/Cap2/conserQtdeMov.pdf, id=72, 140.0786pt x 110.12924pt>
+File: Imagens/Cap2/conserQtdeMov.pdf Graphic file (type pdf)
+<use Imagens/Cap2/conserQtdeMov.pdf>
+Package pdftex.def Info: Imagens/Cap2/conserQtdeMov.pdf  used on input line 221
 .
-(pdftex.def)             Requested size: 198.9241pt x 107.75598pt.
-[5
+(pdftex.def)             Requested size: 210.11737pt x 165.19345pt.
+[4
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.278 \end{align}
-                  <./Imagens/Cap2/dominiofluido.pdf>]
+l.229 \begin{align}
+                    <./Imagens/Cap2/conserQtdeMov.pdf>]
 
-LaTeX Warning: Citation `BrooksH:1982' on page 6 undefined on input line 322.
-
-
-LaTeX Warning: Citation `HughesT:1984' on page 6 undefined on input line 322.
-
-[6]
-
-LaTeX Warning: Citation `BrezziF:1991' on page 7 undefined on input line 324.
-
-
-LaTeX Warning: Citation `ZienkiewiczTN:2005' on page 7 undefined on input line 
-324.
-
-
-LaTeX Warning: Citation `StrangF:2008' on page 7 undefined on input line 324.
-
-
-LaTeX Warning: Citation `HughesFB:1986' on page 7 undefined on input line 326.
-
-
-LaTeX Warning: Citation `TezduyarMRS:1992a' on page 7 undefined on input line 3
-26.
-
-
-LaTeX Warning: Citation `TezduyarO:2000' on page 7 undefined on input line 328.
-
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [7]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [8]
-
-LaTeX Warning: Citation `TakizawaTO:2018' on page 9 undefined on input line 411
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/dominiofluido.pdf): PDF 
+inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap2/dominiofluido.pdf, id=99, 99.46231pt x 53.87814pt>
+File: Imagens/Cap2/dominiofluido.pdf Graphic file (type pdf)
+<use Imagens/Cap2/dominiofluido.pdf>
+Package pdftex.def Info: Imagens/Cap2/dominiofluido.pdf  used on input line 269
 .
+(pdftex.def)             Requested size: 298.38615pt x 161.63397pt.
 
+LaTeX Warning: Citation `DoneaGH:1982' on page 5 undefined on input line 277.
 
-LaTeX Warning: Citation `OtoguroTT:2020' on page 9 undefined on input line 411.
+[5]
 
-
-[9]
-
-LaTeX Warning: Citation `DoneaGH:1982' on page 10 undefined on input line 519.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10]
-<Imagens/Cap2/ALE.pdf, id=192, 214.51929pt x 222.78723pt>
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/ALE.pdf): PDF inclusion:
+ found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap2/ALE.pdf, id=114, 214.51927pt x 222.78722pt>
 File: Imagens/Cap2/ALE.pdf Graphic file (type pdf)
 <use Imagens/Cap2/ALE.pdf>
-Package pdftex.def Info: Imagens/Cap2/ALE.pdf  used on input line 531.
-(pdftex.def)             Requested size: 214.51875pt x 222.78668pt.
+Package pdftex.def Info: Imagens/Cap2/ALE.pdf  used on input line 292.
+(pdftex.def)             Requested size: 214.51874pt x 222.78667pt.
+LaTeX Font Info:    Trying to load font information for U+euf on input line 302
+.
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/ueuf.fd
+File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-euf.cfg
+File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [11]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [12
+) [6
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.589 \end{align}
-                  <./Imagens/Cap2/ALE.pdf>]
-
-LaTeX Warning: Citation `JansenWH:2000' on page 13 undefined on input line 641.
-
-
-[13]
-
-LaTeX Warning: Citation `Hughes:1976' on page 14 undefined on input line 657.
-
-
-LaTeX Warning: Citation `JansenWH:2000' on page 14 undefined on input line 663.
-
-
-
-LaTeX Warning: Citation `Hughes:2000' on page 14 undefined on input line 675.
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [14]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15]
-
-LaTeX Warning: Citation `ZienkiewiczT:2005a' on page 16 undefined on input line
- 746.
-
-
-LaTeX Warning: Citation `Reddy:2006' on page 16 undefined on input line 746.
-
-<Imagens/Cap2/element2d.pdf, id=301, 315.19049pt x 273.18808pt>
-File: Imagens/Cap2/element2d.pdf Graphic file (type pdf)
-<use Imagens/Cap2/element2d.pdf>
-Package pdftex.def Info: Imagens/Cap2/element2d.pdf  used on input line 760.
-(pdftex.def)             Requested size: 157.59485pt x 136.59369pt.
-<Imagens/Cap2/element3d.pdf, id=303, 304.42851pt x 213.64893pt>
-File: Imagens/Cap2/element3d.pdf Graphic file (type pdf)
-<use Imagens/Cap2/element3d.pdf>
-Package pdftex.def Info: Imagens/Cap2/element3d.pdf  used on input line 761.
-(pdftex.def)             Requested size: 197.87617pt x 138.87015pt.
-[16] [17
+l.311 
+       <./Imagens/Cap2/dominiofluido.pdf>] [7
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.765 \clearpage
-                 <./Imagens/Cap2/element2d.pdf> <./Imagens/Cap2/element3d.pdf>]
+l.377 
+       <./Imagens/Cap2/ALE.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [8]
+[9]
+
+LaTeX Warning: Reference `capitulo:Cap3' on page 10 undefined on input line 528
+.
+
+
+LaTeX Warning: Citation `ZienkiewiczT:2005a' on page 10 undefined on input line
+ 544.
+
+
+LaTeX Warning: Citation `Reddy:2006' on page 10 undefined on input line 544.
+
+[10]
+<Imagens/Cap2/element2d.pdf, id=230, 315.19049pt x 273.18808pt>
+File: Imagens/Cap2/element2d.pdf Graphic file (type pdf)
+<use Imagens/Cap2/element2d.pdf>
+Package pdftex.def Info: Imagens/Cap2/element2d.pdf  used on input line 550.
+(pdftex.def)             Requested size: 157.59485pt x 136.59369pt.
+<Imagens/Cap2/element3d.pdf, id=232, 304.42851pt x 213.64893pt>
+File: Imagens/Cap2/element3d.pdf Graphic file (type pdf)
+<use Imagens/Cap2/element3d.pdf>
+Package pdftex.def Info: Imagens/Cap2/element3d.pdf  used on input line 551.
+(pdftex.def)             Requested size: 197.87617pt x 138.87015pt.
+
+Underfull \vbox (badness 3302) has occurred while \output is active []
+
+ [11
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.6}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.569 
+       <./Imagens/Cap2/element2d.pdf> <./Imagens/Cap2/element3d.pdf>]
+
+LaTeX Warning: Citation `BrooksH:1982' on page 12 undefined on input line 596.
+
+
+LaTeX Warning: Citation `HughesT:1984' on page 12 undefined on input line 596.
+
+
+LaTeX Warning: Citation `BrezziF:1991' on page 12 undefined on input line 598.
+
+
+LaTeX Warning: Citation `ZienkiewiczTN:2005' on page 12 undefined on input line
+ 598.
+
+
+LaTeX Warning: Citation `StrangF:2008' on page 12 undefined on input line 598.
+
+
+LaTeX Warning: Citation `HughesFB:1986' on page 12 undefined on input line 600.
+
+
+
+LaTeX Warning: Citation `TezduyarMRS:1992a' on page 12 undefined on input line 
+600.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [12]
+
+LaTeX Warning: Citation `TezduyarO:2000' on page 13 undefined on input line 602
+.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+
+LaTeX Warning: Citation `TakizawaTO:2018' on page 14 undefined on input line 68
+7.
+
+
+LaTeX Warning: Citation `OtoguroTT:2020' on page 14 undefined on input line 687
+.
+
+[14]
+
+LaTeX Warning: Reference `subsec:taus2' on page 15 undefined on input line 716.
+
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]
+
+LaTeX Warning: Citation `JansenWH:2000' on page 16 undefined on input line 788.
+
+
+
+LaTeX Warning: Citation `Hughes:1976' on page 16 undefined on input line 804.
+
+[16]
+
+LaTeX Warning: Citation `JansenWH:2000' on page 17 undefined on input line 810.
+
+
+
+LaTeX Warning: Citation `Hughes:2000' on page 17 undefined on input line 822.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [17]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 775.
-<Imagens/Cap2/cilindro2d.pdf, id=376, 273.3418pt x 161.49152pt>
+put line 898.
+
+[18]
+<Imagens/Cap2/cilindro2d.pdf, id=401, 273.3418pt x 161.49152pt>
 File: Imagens/Cap2/cilindro2d.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro2d.pdf>
-Package pdftex.def Info: Imagens/Cap2/cilindro2d.pdf  used on input line 815.
+Package pdftex.def Info: Imagens/Cap2/cilindro2d.pdf  used on input line 938.
 (pdftex.def)             Requested size: 273.34113pt x 161.4911pt.
 Package epstopdf Info: Source file: <Imagens/Cap2/MeshCylinder2D.eps>
 (epstopdf)                    date: 2025-02-26 08:36:08
@@ -2041,35 +2075,36 @@ to.pdf>
 (epstopdf)                    size: 104443 bytes
 (epstopdf)             Command: <repstopdf --outfile=Imagens/Cap2/MeshCylinder2
 D-eps-converted-to.pdf Imagens/Cap2/MeshCylinder2D.eps>
-(epstopdf)             \includegraphics on input line 816.
+(epstopdf)             \includegraphics on input line 939.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/MeshCylinder2D-eps-conve
 rted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5>
  allowed
-<Imagens/Cap2/MeshCylinder2D-eps-converted-to.pdf, id=378, 1366.10374pt x 1005.
+<Imagens/Cap2/MeshCylinder2D-eps-converted-to.pdf, id=403, 1366.10374pt x 1005.
 7575pt>
 File: Imagens/Cap2/MeshCylinder2D-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap2/MeshCylinder2D-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap2/MeshCylinder2D-eps-converted-to.pdf  used
- on input line 816.
+ on input line 939.
 (pdftex.def)             Requested size: 204.96194pt x 150.9612pt.
-[18
+[19]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-] [19
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.6}) 
+ [20
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.7}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.829 \end{align}
-                  <./Imagens/Cap2/cilindro2d.pdf> <./Imagens/Cap2/MeshCylinder2
-D-eps-converted-to.pdf>]
+l.970 \begin{align}
+                    <./Imagens/Cap2/cilindro2d.pdf> <./Imagens/Cap2/MeshCylinde
+r2D-eps-converted-to.pdf>]
 
-LaTeX Warning: Citation `Tonon:2016' on page 20 undefined on input line 853.
+LaTeX Warning: Citation `Tonon:2016' on page 21 undefined on input line 976.
 
 
-LaTeX Warning: Citation `Henderson:1997' on page 20 undefined on input line 853
+LaTeX Warning: Citation `Henderson:1997' on page 21 undefined on input line 976
 .
 
 Package epstopdf Info: Source file: <Imagens/Cap2/DragRe.eps>
@@ -2080,25 +2115,25 @@ Package epstopdf Info: Source file: <Imagens/Cap2/DragRe.eps>
 (epstopdf)                    size: 35812 bytes
 (epstopdf)             Command: <repstopdf --outfile=Imagens/Cap2/DragRe-eps-co
 nverted-to.pdf Imagens/Cap2/DragRe.eps>
-(epstopdf)             \includegraphics on input line 857.
+(epstopdf)             \includegraphics on input line 980.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/DragRe-eps-converted-to.
 pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 
-<Imagens/Cap2/DragRe-eps-converted-to.pdf, id=462, 255.95625pt x 255.95625pt>
+<Imagens/Cap2/DragRe-eps-converted-to.pdf, id=488, 255.95625pt x 255.95625pt>
 File: Imagens/Cap2/DragRe-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap2/DragRe-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap2/DragRe-eps-converted-to.pdf  used on inpu
-t line 857.
+t line 980.
 (pdftex.def)             Requested size: 255.95561pt x 255.95561pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 857.
+(Font)              <10> on input line 980.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 857.
+(Font)              <7> on input line 980.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 857.
+(Font)              <5> on input line 980.
 Package epstopdf Info: Source file: <Imagens/Cap2/LiftRe.eps>
 (epstopdf)                    date: 2025-02-26 08:36:08
 (epstopdf)                    size: 89334 bytes
@@ -2107,61 +2142,48 @@ Package epstopdf Info: Source file: <Imagens/Cap2/LiftRe.eps>
 (epstopdf)                    size: 34307 bytes
 (epstopdf)             Command: <repstopdf --outfile=Imagens/Cap2/LiftRe-eps-co
 nverted-to.pdf Imagens/Cap2/LiftRe.eps>
-(epstopdf)             \includegraphics on input line 858.
+(epstopdf)             \includegraphics on input line 981.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/LiftRe-eps-converted-to.
 pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 
-<Imagens/Cap2/LiftRe-eps-converted-to.pdf, id=464, 255.95625pt x 255.95625pt>
+<Imagens/Cap2/LiftRe-eps-converted-to.pdf, id=490, 255.95625pt x 255.95625pt>
 File: Imagens/Cap2/LiftRe-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap2/LiftRe-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap2/LiftRe-eps-converted-to.pdf  used on inpu
-t line 858.
+t line 981.
 (pdftex.def)             Requested size: 255.95561pt x 255.95561pt.
-<Imagens/Cap2/Legenda.pdf, id=466, 194.40463pt x 22.38222pt>
+<Imagens/Cap2/Legenda.pdf, id=492, 194.40463pt x 22.38222pt>
 File: Imagens/Cap2/Legenda.pdf Graphic file (type pdf)
 <use Imagens/Cap2/Legenda.pdf>
-Package pdftex.def Info: Imagens/Cap2/Legenda.pdf  used on input line 859.
+Package pdftex.def Info: Imagens/Cap2/Legenda.pdf  used on input line 982.
 (pdftex.def)             Requested size: 252.72597pt x 29.09686pt.
-<Imagens/Cap2/pressaoRe100.png, id=469, 2007.5pt x 1454.43375pt>
+<Imagens/Cap2/pressaoRe100.png, id=495, 2007.5pt x 1454.43375pt>
 File: Imagens/Cap2/pressaoRe100.png Graphic file (type png)
 <use Imagens/Cap2/pressaoRe100.png>
-Package pdftex.def Info: Imagens/Cap2/pressaoRe100.png  used on input line 868.
+Package pdftex.def Info: Imagens/Cap2/pressaoRe100.png  used on input line 991.
 
 (pdftex.def)             Requested size: 236.46983pt x 188.45349pt.
-<Imagens/Cap2/velocitymagnitude.png, id=471, 2007.5pt x 1454.43375pt>
+<Imagens/Cap2/velocitymagnitude.png, id=497, 2007.5pt x 1454.43375pt>
 File: Imagens/Cap2/velocitymagnitude.png Graphic file (type png)
 <use Imagens/Cap2/velocitymagnitude.png>
 Package pdftex.def Info: Imagens/Cap2/velocitymagnitude.png  used on input line
- 869.
+ 992.
 (pdftex.def)             Requested size: 236.46983pt x 233.9771pt.
-[20]
-Underfull \vbox (badness 2277) has occurred while \output is active []
-
- [21
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.7}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.879 O
-        problema é estudado para os números de Reynolds: 100, 400 e 1000. ...
- <./Imagens/Cap2/Legenda.pdf> <./Imagens/Cap2/DragRe-eps-converted-to.pdf> <./I
-magens/Cap2/LiftRe-eps-converted-to.pdf>]
-<Imagens/Cap2/cavidade.pdf, id=522, 179.29573pt x 181.46022pt>
+<Imagens/Cap2/cavidade.pdf, id=502, 179.29573pt x 181.46022pt>
 File: Imagens/Cap2/cavidade.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade.pdf>
-Package pdftex.def Info: Imagens/Cap2/cavidade.pdf  used on input line 883.
+Package pdftex.def Info: Imagens/Cap2/cavidade.pdf  used on input line 1006.
 (pdftex.def)             Requested size: 179.29527pt x 181.45976pt.
-<Imagens/Cap2/cavitymesh.png, id=524, 2007.5pt x 1472.50125pt>
+<Imagens/Cap2/cavitymesh.png, id=504, 2007.5pt x 1472.50125pt>
 File: Imagens/Cap2/cavitymesh.png Graphic file (type png)
 <use Imagens/Cap2/cavitymesh.png>
-Package pdftex.def Info: Imagens/Cap2/cavitymesh.png  used on input line 884.
+Package pdftex.def Info: Imagens/Cap2/cavitymesh.png  used on input line 1007.
 (pdftex.def)             Requested size: 147.54451pt x 183.22656pt.
 
-
-LaTeX Warning: Citation `GhiaGS:1982' on page 22 undefined on input line 888.
+LaTeX Warning: Citation `GhiaGS:1982' on page 21 undefined on input line 1011.
 
 Package epstopdf Info: Source file: <Imagens/Cap2/cavidade_Re100.eps>
 (epstopdf)                    date: 2025-02-26 08:36:08
@@ -2172,19 +2194,19 @@ to.pdf>
 (epstopdf)                    size: 5699 bytes
 (epstopdf)             Command: <repstopdf --outfile=Imagens/Cap2/cavidade_Re10
 0-eps-converted-to.pdf Imagens/Cap2/cavidade_Re100.eps>
-(epstopdf)             \includegraphics on input line 893.
+(epstopdf)             \includegraphics on input line 1016.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cavidade_Re100-eps-conve
 rted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5>
  allowed
-<Imagens/Cap2/cavidade_Re100-eps-converted-to.pdf, id=527, 255.95625pt x 255.95
+<Imagens/Cap2/cavidade_Re100-eps-converted-to.pdf, id=507, 255.95625pt x 255.95
 625pt>
 File: Imagens/Cap2/cavidade_Re100-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_Re100-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap2/cavidade_Re100-eps-converted-to.pdf  used
- on input line 893.
+ on input line 1016.
 (pdftex.def)             Requested size: 185.41727pt x 188.8318pt.
 Package epstopdf Info: Source file: <Imagens/Cap2/cavidade_Re400.eps>
 (epstopdf)                    date: 2025-02-26 08:36:08
@@ -2195,19 +2217,19 @@ to.pdf>
 (epstopdf)                    size: 14964 bytes
 (epstopdf)             Command: <repstopdf --outfile=Imagens/Cap2/cavidade_Re40
 0-eps-converted-to.pdf Imagens/Cap2/cavidade_Re400.eps>
-(epstopdf)             \includegraphics on input line 893.
+(epstopdf)             \includegraphics on input line 1016.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cavidade_Re400-eps-conve
 rted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5>
  allowed
-<Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf, id=529, 255.95625pt x 255.95
+<Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf, id=509, 255.95625pt x 255.95
 625pt>
 File: Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf  used
- on input line 893.
+ on input line 1016.
 (pdftex.def)             Requested size: 185.41727pt x 188.8318pt.
 Package epstopdf Info: Source file: <Imagens/Cap2/cavidade_Re1000.eps>
 (epstopdf)                    date: 2025-02-26 08:36:08
@@ -2218,107 +2240,118 @@ Package epstopdf Info: Source file: <Imagens/Cap2/cavidade_Re1000.eps>
 (epstopdf)                    size: 15111 bytes
 (epstopdf)             Command: <repstopdf --outfile=Imagens/Cap2/cavidade_Re10
 00-eps-converted-to.pdf Imagens/Cap2/cavidade_Re1000.eps>
-(epstopdf)             \includegraphics on input line 894.
+(epstopdf)             \includegraphics on input line 1017.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cavidade_Re1000-eps-conv
 erted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5
 > allowed
-<Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf, id=531, 255.95625pt x 255.9
+<Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf, id=511, 255.95625pt x 255.9
 5625pt>
 File: Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf  use
-d on input line 894.
+d on input line 1017.
 (pdftex.def)             Requested size: 185.41727pt x 188.8318pt.
-<Imagens/Cap2/legenda.pdf, id=533, 122.34311pt x 27.63289pt>
+<Imagens/Cap2/legenda.pdf, id=513, 122.34311pt x 27.63289pt>
 File: Imagens/Cap2/legenda.pdf Graphic file (type pdf)
 <use Imagens/Cap2/legenda.pdf>
-Package pdftex.def Info: Imagens/Cap2/legenda.pdf  used on input line 895.
+Package pdftex.def Info: Imagens/Cap2/legenda.pdf  used on input line 1018.
 (pdftex.def)             Requested size: 122.34279pt x 27.6328pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1867) has occurred while \output is active []
+
+ [21]
+Underfull \vbox (badness 2277) has occurred while \output is active []
 
  [22
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.8}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.901 
-       <./Imagens/Cap2/pressaoRe100.png (PNG copy)> <./Imagens/Cap2/velocitymag
-nitude.png (PNG copy)>]
-<Imagens/Cap2/velocity-Re100.png, id=545, 2007.5pt x 1472.50125pt>
+l.1024 
+        <./Imagens/Cap2/Legenda.pdf> <./Imagens/Cap2/DragRe-eps-converted-to.pd
+f> <./Imagens/Cap2/LiftRe-eps-converted-to.pdf>]
+<Imagens/Cap2/velocity-Re100.png, id=563, 2007.5pt x 1472.50125pt>
 File: Imagens/Cap2/velocity-Re100.png Graphic file (type png)
 <use Imagens/Cap2/velocity-Re100.png>
-Package pdftex.def Info: Imagens/Cap2/velocity-Re100.png  used on input line 90
-6.
+Package pdftex.def Info: Imagens/Cap2/velocity-Re100.png  used on input line 10
+29.
 (pdftex.def)             Requested size: 173.08012pt x 161.11745pt.
-<Imagens/Cap2/velocity-Re400.png, id=547, 2007.5pt x 1472.50125pt>
+<Imagens/Cap2/velocity-Re400.png, id=565, 2007.5pt x 1472.50125pt>
 File: Imagens/Cap2/velocity-Re400.png Graphic file (type png)
 <use Imagens/Cap2/velocity-Re400.png>
-Package pdftex.def Info: Imagens/Cap2/velocity-Re400.png  used on input line 90
-6.
+Package pdftex.def Info: Imagens/Cap2/velocity-Re400.png  used on input line 10
+29.
 (pdftex.def)             Requested size: 173.08012pt x 161.11745pt.
-<Imagens/Cap2/velocity-Re1000.png, id=549, 2007.5pt x 1472.50125pt>
+<Imagens/Cap2/velocity-Re1000.png, id=567, 2007.5pt x 1472.50125pt>
 File: Imagens/Cap2/velocity-Re1000.png Graphic file (type png)
 <use Imagens/Cap2/velocity-Re1000.png>
-Package pdftex.def Info: Imagens/Cap2/velocity-Re1000.png  used on input line 9
-07.
+Package pdftex.def Info: Imagens/Cap2/velocity-Re1000.png  used on input line 1
+030.
 (pdftex.def)             Requested size: 173.08012pt x 161.11745pt.
-<Imagens/Cap2/legandaCavidadeVel.pdf, id=551, 656.60793pt x 216.48633pt>
+<Imagens/Cap2/legandaCavidadeVel.pdf, id=569, 656.60793pt x 216.48633pt>
 File: Imagens/Cap2/legandaCavidadeVel.pdf Graphic file (type pdf)
 <use Imagens/Cap2/legandaCavidadeVel.pdf>
 Package pdftex.def Info: Imagens/Cap2/legandaCavidadeVel.pdf  used on input lin
-e 909.
+e 1032.
 (pdftex.def)             Requested size: 131.31926pt x 43.2965pt.
-<Imagens/Cap2/pressao100.png, id=552, 2007.5pt x 1472.50125pt>
+<Imagens/Cap2/pressao100.png, id=570, 2007.5pt x 1472.50125pt>
 File: Imagens/Cap2/pressao100.png Graphic file (type png)
 <use Imagens/Cap2/pressao100.png>
-Package pdftex.def Info: Imagens/Cap2/pressao100.png  used on input line 917.
+Package pdftex.def Info: Imagens/Cap2/pressao100.png  used on input line 1040.
 (pdftex.def)             Requested size: 173.08012pt x 190.99155pt.
-<Imagens/Cap2/pressao400.png, id=554, 2007.5pt x 1472.50125pt>
+<Imagens/Cap2/pressao400.png, id=572, 2007.5pt x 1472.50125pt>
 File: Imagens/Cap2/pressao400.png Graphic file (type png)
 <use Imagens/Cap2/pressao400.png>
-Package pdftex.def Info: Imagens/Cap2/pressao400.png  used on input line 917.
+Package pdftex.def Info: Imagens/Cap2/pressao400.png  used on input line 1040.
 (pdftex.def)             Requested size: 173.08012pt x 190.99155pt.
-<Imagens/Cap2/pressao1000.png, id=556, 2007.5pt x 1472.50125pt>
+<Imagens/Cap2/pressao1000.png, id=574, 2007.5pt x 1472.50125pt>
 File: Imagens/Cap2/pressao1000.png Graphic file (type png)
 <use Imagens/Cap2/pressao1000.png>
-Package pdftex.def Info: Imagens/Cap2/pressao1000.png  used on input line 918.
+Package pdftex.def Info: Imagens/Cap2/pressao1000.png  used on input line 1041.
+
 (pdftex.def)             Requested size: 173.08012pt x 190.99155pt.
  [23
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.9}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.931 \end{document}
-                     <./Imagens/Cap2/cavidade.pdf> <./Imagens/Cap2/cavitymesh.p
-ng (PNG copy)>] [24
+l.1054 \end{document}
+                      <./Imagens/Cap2/pressaoRe100.png (PNG copy)> <./Imagens/C
+ap2/velocitymagnitude.png (PNG copy)>] [24
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.10})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.931 \end{document}
-                     <./Imagens/Cap2/legenda.pdf> <./Imagens/Cap2/cavidade_Re10
-0-eps-converted-to.pdf> <./Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf> <.
-/Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf>] [25
+l.1054 \end{document}
+                      <./Imagens/Cap2/cavidade.pdf> <./Imagens/Cap2/cavitymesh.
+png (PNG copy)>] [25
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.11})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.931 \end{document}
-                     <./Imagens/Cap2/legandaCavidadeVel.pdf> <./Imagens/Cap2/ve
-locity-Re100.png (PNG copy)> <./Imagens/Cap2/velocity-Re400.png (PNG copy)> <./
-Imagens/Cap2/velocity-Re1000.png (PNG copy)>] [26
+l.1054 \end{document}
+                      <./Imagens/Cap2/legenda.pdf> <./Imagens/Cap2/cavidade_Re1
+00-eps-converted-to.pdf> <./Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf> <
+./Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf>] [26
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.12})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.931 \end{document}
-                     <./Imagens/Cap2/pressao100.png (PNG copy)> <./Imagens/Cap2
-/pressao400.png (PNG copy)> <./Imagens/Cap2/pressao1000.png (PNG copy)>]
+l.1054 \end{document}
+                      <./Imagens/Cap2/legandaCavidadeVel.pdf> <./Imagens/Cap2/v
+elocity-Re100.png (PNG copy)> <./Imagens/Cap2/velocity-Re400.png (PNG copy)> <.
+/Imagens/Cap2/velocity-Re1000.png (PNG copy)>] [27
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.13})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1054 \end{document}
+                      <./Imagens/Cap2/pressao100.png (PNG copy)> <./Imagens/Cap
+2/pressao400.png (PNG copy)> <./Imagens/Cap2/pressao1000.png (PNG copy)>]
 
 enddocument/afterlastpage: lastpage setting LastPage.
 (./Cap2.aux)
@@ -2330,37 +2363,36 @@ L3 programming layer <2020/03/25>
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: There were multiply-defined labels.
-
  ) 
 Here is how much of TeX's memory you used:
- 40730 strings out of 474222
- 765055 string characters out of 5748733
- 1947975 words of memory out of 5000000
- 61779 multiletter control sequences out of 15000+600000
- 654012 words of font info for 229 fonts, out of 8000000 for 9000
+ 40802 strings out of 474222
+ 766453 string characters out of 5748733
+ 1948975 words of memory out of 5000000
+ 61821 multiletter control sequences out of 15000+600000
+ 655828 words of font info for 240 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 130i,18n,124p,1020b,636s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 130i,19n,124p,1020b,639s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
-re/texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/
-lm/lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/te
-xmf/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lm
-mi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/f
-onts/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pf
-b></usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/typ
-e1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/
-share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public
-/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/tex
-mf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lms
-y10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/font
-s/type1/public/tex-gyre/qtmr.pfb>
-Output written on Cap2.pdf (26 pages, 2614457 bytes).
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb></usr/share/
+texmf/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/
+lmbx8.pfb></usr/share/texmf/fonts/type1/public/lm/lmbxi10.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi1
+0.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/font
+s/type1/public/lm/lmmi6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb><
+/usr/share/texmf/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/
+public/lm/lmr10.pfb></usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/sha
+re/texmf/fonts/type1/public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm
+/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/
+fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10
+.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/
+type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb
+>
+Output written on Cap2.pdf (27 pages, 2651957 bytes).
 PDF statistics:
- 844 PDF objects out of 1000 (max. 8388607)
- 649 compressed objects within 7 object streams
- 176 named destinations out of 1000 (max. 500000)
- 60811 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 877 PDF objects out of 1000 (max. 8388607)
+ 675 compressed objects within 7 object streams
+ 187 named destinations out of 1000 (max. 500000)
+ 60822 words of extra memory for PDF output out of 61914 (max. 10000000)
 

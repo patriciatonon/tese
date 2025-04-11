@@ -102,12 +102,12 @@ Ao final deste capítulo, é apresentado um algoritmo que detalha o esquema comp
 \subsection{Equação da conservação da massa}
 
 
-Considere um volume de controle infinitesimal fixo no espaço, permeável a matéria e submetido a uma escoamento de velocidade $\velocity$, com componentes $u_x, u_y$, e $u_z$ (conforme fig. \ref{fig:VolInfi}).Para um intervalo de tempo infinitesimal $dt$, a conservação da massa impõe que o fluxo líquido de massa que deixa o volume seja igual à redução de massa em seu interior, podendo ser expressa através da seguinte equação:
+Considere um volume de controle infinitesimal fixo no espaço, permeável a matéria e submetido a uma escoamento de velocidade $\velocity$, com componentes $u_1, u_2$, e $u_3$ (conforme fig. \ref{fig:VolInfi}).Para um intervalo de tempo infinitesimal $dt$, a lei da conservação da massa impõe que a variação de massa dentro do volume de controle seja igual ao fluxo de massa que atravessa suas fronteiras, que pode ser expresso matematicamente da seguinte forma:
 
 \begin{figure}[htb!]
 	\centering 
 	%\vspace{-1em} % Diminui o espaço antes da figura
-	\includegraphics[scale=1.5,trim=0cm 2.5cm 0cm 0.0cm, clip=true]{Imagens/Cap2/conserMassa.pdf}	
+	\includegraphics[scale=1.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/conserMassa.pdf}	
 	\caption{Volume de controle infinitesimal: Fluxo de massa}
 	\label{fig:VolInfi}
 	%\vspace{-1em} % Diminui o espaço antes da figura
@@ -116,97 +116,121 @@ Considere um volume de controle infinitesimal fixo no espaço, permeável a mat�
 
 \begin{align}
 	\begin{split}
-	\frac{\partial \density}{\partial t}dxdydz &= -\left(\density \velocity \cdot \mathbf{dA_{x1}}  +  \density \velocity \cdot \mathbf{dA_{y1}} + \velocity \cdot \mathbf{dA_{z1}}  \left(\rho \velocity + \frac{\partial \rho \velocity}{\partial x}dx \right)\cdot \mathbf{dA_{x2}} \right. + \\&\qquad  \left.\left(\rho \velocity + \frac{\partial \rho \velocity}{\partial y}dy \right)\cdot \mathbf{dA_{y2}} + \left(\rho \velocity + \frac{\partial \rho \velocity}{\partial z}dz \right)\cdot \mathbf{dA_{z2}}\right), \label{eq:conserMassa1} 
+	\frac{\partial \density}{\partial t}dV =& \left(\density u_1 dA_{1}  +  \density u_2 dA_{2} + \density u_3  dA_{3} \right) - \\  &\left(\left(\rho u_1 + \frac{\partial \rho u_1}{\partial y_1}dy_1 \right)dA_{1} + \left(\rho u_2+ \frac{\partial \rho u_2}{\partial y_2}dy_2 \right) dA_{2} + \left(\rho u_3 + \frac{\partial \rho u_3}{\partial y_3}dy_3 \right) dA_{3}\right), \label{eq:conserMassa1} 
 	\end{split}
 \end{align}
 
-\noindent com $\density$ a massa específica do fluido e $\mathbf{dA_{x1}}$, $\mathbf{dA_{x2}}$, $\mathbf{dA_{y1}}$, $\mathbf{dA_{y2}}$, $\mathbf{dA_{z1}}$ e $\mathbf{dA_{z2}}$ são os vetores de áreas referentes à primeira e à segunda face ortogonal aos eixos x, y e z.  Resolvendo os produtos internos apresentados na Eq. \ref{eq:conserMassa1} e considerando que o vetor de área tem apenas a componente da direção normal à sua face não nula, denominada $dA$, pode-se reescrever essa equação da seguinte forma:	
+\noindent com $\density$ a massa específica do fluido e $dA_{i}$ a área referente à face ortogonal ao eixo $y_i$. Considerando que $dV = dy_1dA_1 = dy_2dA_2 = dy_3dA_3 $  e manipulando-se algebricamente a Eq. \ref{eq:conserMassa1} chega-se a seguinte expressão:
 
 \begin{align}
-	\begin{split}
-		\frac{\partial \density}{\partial t}dxdydz &= (\density u_{x} + \density u_{y} + \density u_{z})dA  +  \\&  \left(\density u_{x} + \frac{\partial \density u_{x}}{\partial x} dx + \density u_{y} + \frac{\partial \density u_{y}}{\partial y} dy + \density u_{z} + \frac{\partial \density u_{z}}{\partial z} dz\right)(-dA). 
-		\label{eq:conserMassaFin} 
-	\end{split}
+	\frac{\partial \density}{\partial t} = - \frac{\partial \density u_{1}}{\partial y_1} - \frac{\partial \density u_{2}}{\partial y_2}- \frac{\partial \density u_{3}}{\partial y_3}.
+	\label{eq:conserMassa} 
 \end{align}
 
-
-Por fim, manipulando-se algebricamente a Eq. \ref{eq:conserMassaFin} chega-se a seguinte expressão:
-
-\begin{align}
-	\frac{\partial \density}{\partial t} = - \frac{\partial \density u_{x}}{\partial x} - \frac{\partial \density u_{y}}{\partial y}- \frac{\partial \density u_{z}}{\partial z}.
-\end{align}
-
-Para escoamentos incompressíveis, quando $\density$ constante ao longo do tempo, a equação fica reduzida a:
+Para escoamentos incompressíveis, quando $\density$ é constante ao longo do tempo, a equação fica reduzida a:
 
 \begin{align}
-	 \frac{\partial u_{x}}{\partial x} + \frac{\partial u_{y}}{\partial y} + \frac{\partial u_{z}}{\partial z} = 0. 
-	 \label{eq:conserMassaIncom} 
+	 \frac{\partial u_{1}}{\partial y_1} + \frac{\partial u_{2}}{\partial y_2} + \frac{\partial u_{3}}{\partial y_3} = 0, 
 \end{align} 
 
+\noindent ou ainda:
+
+\begin{align}
+	\nabla_y \cdot \velocity = 0.
+	\label{eq:conserMassaIncom} 
+\end{align} 
 
 \subsection{Equação da quantidade de movimento}
 
-De acordo com a segunda Lei de Newton têm-se que a soma das forças externas que atuam em um sistema infinitesimal é igual à variação temporal (derivada material) da quantidade de movimento do mesmo:
+
+Para um volume de controle infinitesimal, a lei da conservação da quantidade de movimento afirma que a variação temporal da quantidade de movimento no interior do volume é determinada pela diferença entre o fluxo de quantidade de movimento que entra e o que sai pelas suas fronteiras, somada à resultante das forças aplicadas sobre o volume de controle.
+
+Para chegar-se à equação da quantidade de movimento em sua forma conservativa partindo desse princípio, inicia-se com a avaliação das forças que atuam sobre um volume de controle infinitesimal no instante atual. Considerando o equilíbrio das forças externas e internas na direção $y_1$, de acordo o volume apresentado na Fig. \ref{fig:VolInfiFor}, chega-se na seguinte relação:
 
 
 \begin{align}
-	\frac{D \left(m \cdot \velocity\right)}{D t} = \sum{\mathbf{F_s}} + \sum{\mathbf{F_c}}, 
-	\label{eq:2LeiNewon} 
-\end{align} 
-
-\noindent com $m$, $\mathbf{F_s}$,  $\mathbf{F_c}$ representando massa, forças de superfície e forças de campo respectivamente.
-
-Considerando o volume infinitesimal da Fig. \ref{fig:VolInfi}, e, realizando-se o balanço da quantidade de movimento na direção do eixo $x$, têm-se a sua derivada material nessa direção quantificada por:
-
- 
- \begin{align}
- 	\begin{split}
- 		\frac{D \left(m u_{x}\right)}{D t} &= \frac{\partial (\density u_{x})}{\partial t} dxdydz + \density u_{x}\left(\velocity \cdot \mathbf{dA_{x1}}\right) +
- 		\density u_{x}\left(\velocity \cdot \mathbf{dA_{y1}}\right) + \density u_{x}\left(\velocity \cdot \mathbf{dA_{z1}}\right) + \\&\quad
- 		\left(\density u_{x} \velocity + \frac{\partial \left(\density u_{x} \velocity\right) }{\partial x}dx \right) \cdot \mathbf{dA_{x2}} + 
- 		\left(\density u_{x} \velocity + \frac{\partial \left(\density u_{x} \velocity\right) }{\partial y}dy \right) \cdot \mathbf{dA_{y2}} + \\&\quad
- 		\left(\density u_{x} \velocity + \frac{\partial \left(\density u_{x} \velocity\right) }{\partial z}dz \right) \cdot \mathbf{dA_{z2}},
- 		 \label{eq:QtdeMovx} 
- 	\end{split}
- \end{align}
-
-\noindent manipulando-se algebricamente a  Eq. \ref{eq:QtdeMovx} e considerando a relação expressa na Eq. \ref{eq:2LeiNewon}, chega-se a seguinte representação para a segunda Lei de Newton:
-
-\begin{align}
-	\frac{\partial\left(\density u_{x}\right)}{\partial t} + \frac{\partial\left(u_{x}\density u_{x}\right)}{\partial x} 	\frac{\partial\left(u_{y}\density u_{x}\right)}{\partial y} +\frac{\partial\left(u_{z}\density u_{x}\right)}{\partial z} = \frac{1}{dxdydz}\left(\sum{F_{sx}} + \sum{F_{cx}}\right)	
-\end{align}
-
-Para obter uma expressão para as forças externas, parte-se da terceira Lei de Newton, a qual estabelece que essas forças devem equilibrar as forças internas. Assim, partindo o volume infinitesimal representado na Fig. \ref{fig:VolInfiFor}, e escrevendo o equilíbrio das forças internas a partir das tensões de Cauchy, chega-se na seguinte relação:
-
-
-\begin{align}
-	\frac{1}{dxdydz}\left(\sum{F_{sx}} + \sum{F_{cx}}\right) = g_x \density + \frac{\partial \sigma_{xx}}{\partial x} + \frac{\partial \sigma_{xy}}{\partial y} + \frac{\partial \sigma_{xz}}{\partial z} 
+	\begin{split}
+	F_1 =& -\left(\sigma_{11}dy_2dy_3 + \sigma_{12}dy_1dy_3 + \sigma_{13}dy_1dy_2\right) + \\ & \left(\left(\sigma_{11} + \frac{\partial \sigma_{11}}{\partial y_1}dy_1 \right)dy_2dy_3 + \left(\sigma_{12}+ \frac{\partial \sigma_{12}}{\partial y_2}dy_2\right)dy_1dy_3 + \left(\sigma_{13}+ \frac{\partial \sigma_{13}}{\partial y_3}dy_3\right)dy_1dy_2\right) + \\& b_{1}dy_1dy_2dy_3, \label{eq:ResultFor} 
+	\end{split}
 \end{align}	
 
-\noindent na qual $g_x$ representa a constante de forças de campo na direção $x$.
+\noindent onde $F_1$ representa a resultante das forças externas na direção $y_1$; $\sigma_{ij}$ são as componentes $ij$ do tensor de tensões Cauchy ($\cauchyStress$); e $b_1$ representa a componente na direção $y_1$ do vetor força de campo por unidade de volume $\ebodyLoad$. Dividindo-se Eq. \ref{eq:ResultFor} por $dV$ e efetuando as subtrações, têm-se a força resultante por unidade de volume ($q_1$) dada por:
+
+\begin{align}
+		q_1 =\frac{\partial \sigma_{11}}{\partial y_1} + \frac{\partial \sigma_{12}}{\partial y_2} + \frac{\partial \sigma_{13}}{\partial y_3} + b_{1}.\label{eq:ForçasIntx1} 
+\end{align}	
 
 \begin{figure}[htb!]
 	\centering 
 	%\vspace{-1em} % Diminui o espaço antes da figura
 	\includegraphics[scale=1.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/tensão.pdf}	
-	\caption{Volume de controle infinitesimal: Componentes de tensão e força na direção $x$}
+	\caption{Volume de controle infinitesimal: Componentes de tensão e força na direção $y_1$}
 	\label{fig:VolInfiFor}
 	%\vspace{-1em} % Diminui o espaço antes da figura
 \end{figure}
 
-Por fim, pode-se escrever a equação da quantidade de movimento na direção $x$, como:
+Considerando-se o equilíbrio das forças nas direções $y_2$ e $y_3$, pode-se escrever também:
 
 \begin{align}
-	\frac{\partial\left(\density u_{x}\right)}{\partial t} + \frac{\partial\left(u_{x}\density u_{x}\right)}{\partial x} 	\frac{\partial\left(u_{y}\density u_{x}\right)}{\partial y} +\frac{\partial\left(u_{z}\density u_{x}\right)}{\partial z} = g_x \density + \frac{\partial \sigma_{xx}}{\partial x} + \frac{\partial \sigma_{xy}}{\partial y} + \frac{\partial \sigma_{xz}}{\partial z} 
-\end{align}
-
-Realizando-se o balanço da quantidade de movimento nas direções $y$ e $z$, pode-se escrever a equação da quantidade de movimento em sua forma vetorial, chamada também de equações de Navier-Stokes, da forma que se segue:
+	q_2 =\frac{\partial \sigma_{21}}{\partial y_1} + \frac{\partial \sigma_{22}}{\partial y_2} + \frac{\partial \sigma_{23}}{\partial y_3} + b_{2}\label{eq:ForçasIntx2},
+\end{align}	
 
 \begin{align}
-\density\left(\frac{\partial\velocity}{\partial t} + \velocity\cdot\nabla\velocity - \externalforce \right) - \nabla \cdot \stresstensor &= \mathbf{0} , \label{eq:Navier-Stokes} 
+	q_3 =\frac{\partial \sigma_{31}}{\partial y_1} + \frac{\partial \sigma_{32}}{\partial y_2} + \frac{\partial \sigma_{33}}{\partial y_3} + b_{3}\label{eq:ForçasIntx3},
 \end{align}
 
-\noindent com $\externalforce$ o vetor de forças de campo com componentes $g_x, g_y \ e \ g_z$. O tensor de tensões de Cauchy $\stresstensor$ é definido para fluidos newtonianos incompressíveis pela seguinte relação constitutiva:
+\noindent ou ainda:
+
+\begin{align}
+	\mathbf{q} = \mathbf{\nabla_y} \cdot \cauchyStress + \ebodyLoad.
+\end{align}
+
+
+Realizando-se o balanço da quantidade de movimento no volume de controle infinitesimal da Fig. \ref{fig:VolInfiQtdeMov} e aplicando-se a lei da conservação da quantidade de movimento, pode-se chegar a seguinte equação:
+
+
+\begin{align}
+	\begin{split}
+	\frac{\partial \density \velocity}{\partial t}dV =& u_1\density \velocity dA_1 + u_2\density \velocity dA_2 + u_3 \density \velocity dA_3 - \\
+	 & \left(\left(u_1 \density \velocity + \frac{\partial u_1 \density \velocity}{\partial y_1}dy_1 \right)dA_1 + \left(u_2 \density \velocity + \frac{\partial u_2 \density \velocity}{\partial y_2}dy_2 \right)dA_2 \right. + \\ & \left.   \left(u_3 \density \velocity + \frac{\partial u_3 \density \velocity}{\partial y_3}dy_3 \right)dA_3\right) + \mathbf{q} dV,
+	\label{eq:QtdeMov0} 
+	\end{split}
+\end{align}	
+
+\noindent dividindo-se a Eq. \ref{eq:QtdeMov0} por $dV$ e efetuando-se as subtrações, chega-se a:
+
+\begin{align}
+		\frac{\partial \density \velocity}{\partial t} = 
+		-\frac{\partial u_1 \density \velocity}{\partial y_1} +
+		-\frac{\partial u_2 \density \velocity}{\partial y_2} + 
+		-\frac{\partial u_3 \density \velocity}{\partial y_3} + \mathbf{q},
+		\label{eq:QtdeMov1} 
+\end{align}
+
+ou ainda:
+
+\begin{align}
+	\density\left(\frac{\partial\velocity}{\partial t} + \nabla_y \cdot \left(\velocity\otimes\velocity\right) - \sbodyforce \right) - \nabla_y \cdot \stresstensor  &= \mathbf{0}, \label{eq:QtdeMov2} 
+\end{align}
+
+\noindent com $\sbodyforce = \density \ebodyLoad$ que representa a força de campo por unidade de massa.
+
+\begin{figure}[htb!]
+	\centering 
+	%\vspace{-1em} % Diminui o espaço antes da figura
+	\includegraphics[scale=1.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/conserQtdeMov.pdf}	
+	\caption{Volume de controle infinitesimal: Fluxo de quantidade de Movimento}
+	\label{fig:VolInfiQtdeMov}
+	%\vspace{-1em} % Diminui o espaço antes da figura
+\end{figure}
+
+Da consideração da equação da continuidade, a Eq. \ref{eq:QtdeMov2} pode ser rescrita ainda em sua forma convectiva como:
+
+\begin{align}
+	\density\left(\frac{\partial\velocity}{\partial t} + \left( \velocity \cdot \nabla_y \right)  \velocity  - \sbodyforce \right) - \nabla_y \cdot \stresstensor = \mathbf{0}. \label{eq:Navier-Stokes} 
+\end{align}
+
+O tensor de tensões de Cauchy $\stresstensor$ é definido para fluidos newtonianos incompressíveis pela seguinte relação constitutiva:
 
 \begin{align}
 \stresstensor &= -p\unittensor + 2\viscosity\straintensor(\velocity),\label{eq:StressTensor}
@@ -216,7 +240,7 @@ Realizando-se o balanço da quantidade de movimento nas direções $y$ e $z$, po
 
 
 \begin{align}
-\straintensor\left(\velocity\right) = \frac{1}{2}\left(\nabla\velocity + \nabla\velocity^{T}\right). 
+\straintensor\left(\velocity\right) = \frac{1}{2}\left(\nabla_y\velocity + \nabla_y\velocity^{T}\right). 
 \label{eq:StrainTensor}
 \end{align}
 
@@ -224,37 +248,254 @@ Realizando-se o balanço da quantidade de movimento nas direções $y$ e $z$, po
 
 Seja $\domain \in \realspace^{nsd}$, com $\nsd = 2,3$, o domínio espacial que define o escoamento do fluido com contorno $\boundary = \boundary_D \cup \boundary_N$, no instante $t \in (0,T)$ (ver Fig. \ref{fig:DomFluid}).
 
-Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pelas equações de Navier-Stokes (Eq. \ref{eq:Navier-Stokes}) e da conservação de massa (Eq. \ref{eq:conserMassaIncom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas, sendo elas definidas respectivamente como:
+Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pela equação da quantidade de movimento, ou equações de Navier-Stokes (Eq. \ref{eq:Navier-Stokes}) e da conservação de massa (Eq. \ref{eq:conserMassaIncom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas. Dessa forma, o escoamento é governado pelo seguinte conjunto de equações:
 
-\begin{align}
-	\velocity = \velocityD \ \textrm{em} \ \GammaD \label{eq:Dir},\\
-	\stresstensor \cdot \snormal = \surfaceLoad \ \textrm{em} \ \GammaN, \label{eq:Neu}
-\end{align}
+\begin{equation}
+	\left\{
+	\begin{array}{l}
+		\density\left(\frac{\partial\velocity}{\partial t} + \velocity\cdot\nabla_y\velocity - \sbodyforce \right) - \nabla_y \cdot \stresstensor = \mathbf{0} \textrm{em} \ \domain\\
+		\nabla_y \cdot \velocity = 0 \textrm{em} \ \domain\\
+		\velocity = \velocityD \ \textrm{em} \ \GammaD \\
+		\stresstensor \cdot \snormal = \surfaceLoad \ \textrm{em} \ \GammaN,
+	\end{array}
+	\right.
+\end{equation}
 
 \noindent sendo $\GammaD$ a porção do contorno com condições de contorno de Dirichlet, representadas pelo campo de velocidades $\velocityD$, e $\GammaN$ aquela com condições de contorno de Neumann, descritas pelas forças de superfície $\mathbf{h}$. A variável $\snormal$ representa o vetor unitário normal ao contorno $\Gamma_{N}$.
 
 \begin{figure}[htb!]
 	\centering 
 	%\vspace{-1em} % Diminui o espaço antes da figura
-	\includegraphics[scale=2.0,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/dominiofluido.pdf}	
+	\includegraphics[scale=3.0,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/dominiofluido.pdf}	
 	\caption{Domínio para o problema da dinâmica dos fluidos computacional}
 	\label{fig:DomFluid}
 	%\vspace{-1em} % Diminui o espaço antes da figura
 \end{figure}
 
+\section{Descrição Euleriana-Lagrangiana arbitrária (ALE)} \label{Capítulo2:ALE}
 
-\subsection{Forma Fraca das equações governantes} \label{capitulo:Cap2:FormaFraca}
+A descrição Lagrangiana-Euleriana arbitrária \cite{DoneaGH:1982} representa uma generalização da descrição puramente Lagrangiana e da descrição puramente Euleriana do movimento do contínuo. A descrição Lagrangiana fixa a atenção em pontos materiais do contínuo, enquanto que na descrição Euleriana considera-se uma porção fixa do espaço ocupada pelo contínuo, e analisam-se os pontos materiais que passam por essa porção ao longo do tempo. Como consequência, na descrição puramente Lagrangiana a malha computacional move-se com o contínuo, enquanto que na Euleriana a malha computacional mantém-se fixa. Por sua vez, na descrição Lagrangiana-Euleriana arbitrária, trabalha-se com pontos de referência que podem movimentar-se, mas de maneira independente do movimento dos pontos materiais do contínuo analisado.
+
+Para a aplicação dessa metodologia às equações governantes da mecânica dos fluidos é importante a definição de três domínios, de acordo com a Fig. \ref{fig:Ale}. O domínio inicial, chamado de \textbf{domínio material} ($\Omega_0$), que é definido pelas coordenadas dos pontos materiais $\mathbf{x}$; O domínio atual, chamado de \textbf{domínio espacial} ($\Omega$), definido pelas coordenadas $\pos$; e por fim, o \textbf{domínio de referência} ($\Omega_{\bar{x}}$) com coordenadas dos pontos de referência $\posALE$. 
+
+Considera-se nesse texto, o domínio de referência, $\Omega_{\bar{x}}$, como sendo a configuração inicial da malha, enquanto que a configuração atual da malha e do contínuo consistem ambas na referência espacial $\Omega$.
+
+As coordenadas no domínio atual do contínuo, $\Omega$, podem ser mapeadas a partir do domínio inicial ($\Omega_0$) ou a partir do domínio de referência ($\Omega_{\bar{x}}$) utilizando as seguintes funções de mapeamento:  
+
+\begin{align}
+	\pos = \mathbf{f}(\mathbf{x},t) = \bar{\mathbf{f}}(\posALE,t).
+	\label{eq:Pos}
+\end{align}
+
+\begin{figure}[htb!]
+	\centering
+	\includegraphics[scale=1.0]{Imagens/Cap2/ALE.pdf}	
+	\caption{Domínios utilizados para a descrição Lagrangiana-Euleriana arbitrária}
+	\label{fig:Ale}
+\end{figure}
+
+Da mesma forma, o domínio de referência, pode ser mapeado a partir do domínio inicial por:
+
+\begin{align}
+	\posALE = \mathfrak{f}(\mathbf{x},t).
+	\label{eq:PosALE}
+\end{align}
+
+A velocidade dos pontos da malha é calcula por:
+
+\begin{align}
+	\velocityALE = \left. \frac{\partial \bar{\mathbf{f}}(\posALE,t)}{\partial t} \right|_{\bar{\mathbf{x}}},
+\end{align}
+
+\noindent e a velocidade dos pontos materiais no instante $t$ é obtida pela derivada do vetor posição $\pos$ mantendo $\mathbf{x}$ fixo:
+
+\begin{align}
+	\velocity = \left. \frac{\partial \mathbf{f}(\mathbf{x},t)}{\partial t} \right|_{\mathbf{x}} = \left. \frac{\partial \pos(\mathbf{x},t)}{\partial t} \right|_{\mathbf{x}}.
+\end{align}
+
+
+As matrizes jacobianas dos mapeamentos considerando a depedência do espaço e do tempo são dadas por:
+
+\begin{equation} \label{eq:ALEJac1}
+	\mathbf{F} = \frac{\partial \left(\mathbf{f}(\mathbf{x},t),t\right)}{\partial (\mathbf{x},t)}=
+	\begin{bmatrix}
+		\frac{\partial {\pos}}{\partial {\mathbf{x}}} & \velocity \\
+		\mathbf{0}^T & 1 \\
+	\end{bmatrix}
+	\text{,}
+\end{equation}
+
+\begin{equation} \label{eq:ALEJac2}
+	\bar{\mathbf{F}} = \frac{\partial \left(\bar{\mathbf{f}}(\posALE,t),t\right)}{\partial (\posALE,t)}=
+	\begin{bmatrix}
+		\frac{\partial {\pos}}{\partial {\posALE}} & \velocityALE \\
+		\mathbf{0}^T & 1 \\
+	\end{bmatrix}
+	\text{,}
+\end{equation}
+
+e
+
+\begin{equation} \label{eq:ALEJac3}
+	\mathfrak{F} = \frac{\partial \left({\mathfrak{f}}(\mathbf{x},t),t\right)}{\partial (\mathbf{x},t)}=
+	\begin{bmatrix}
+		\frac{\partial {\posALE}}{\partial {\mathbf{x}}} & \mathbf{w} \\
+		\mathbf{0}^T & 1 \\
+	\end{bmatrix}
+	\text{,}
+\end{equation}
+
+\noindent sendo $\mathbf{w} = \left. \frac{\partial \posALE}{\partial t} \right|_{\mathbf{x}}$.
+
+
+Considerando que $\mathbf{f}\left(\mathbf{x},t\right) = \bar{\mathbf{f}} \circ \mathfrak{f}$, pode-se escrever:
+
+\begin{align}
+	\frac{\partial(\mathbf{f}(\mathbf{x},t),t)}{\partial(\mathbf{x},t)} = \frac{\partial(\bar{\mathbf{f}}(\posALE,t),t)}{\partial(\posALE,t)} \cdot \frac{\partial(\mathfrak{f}(\mathbf{x},t),t)}{\partial(\mathbf{x},t)},
+\end{align}
+
+\noindent que pode ser rescrita como:
+
+\begin{align}
+	\begin{bmatrix}
+		\frac{\partial {\pos}}{\partial {\mathbf{x}}} & \velocity \\
+		\mathbf{0}^T & 1 \\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\frac{\partial {\pos}}{\partial {\posALE}} & \velocityALE \\
+		\mathbf{0}^T & 1 \\
+	\end{bmatrix}
+	\cdot
+	\begin{bmatrix}
+		\frac{\partial {\posALE}}{\partial {\mathbf{x}}} & \mathbf{w} \\
+		\mathbf{0}^T & 1 \\
+	\end{bmatrix} .
+\end{align}
+
+Dessa forma, pode-se estabelecer uma relação entre a velocidade da malha e a velocidade do ponto material:
+
+\begin{align}
+	\velocity = \velocityALE + \frac{\partial{\pos}}{\partial{\posALE}}\cdot \mathbf{w} \label{eq:velRel}
+\end{align}
+
+Supondo agora uma grandeza física escalar, denominada de $g(\pos,t)$ na configuração espacial, de $g^{*}(\posALE,t)$ na configuração de referência, e $g^{**}(\mathbf{x},t)$ na configuração material. Pode-se escrever então:
+
+\begin{align}
+	g^{**}(\mathbf{x},t) = g(\mathbf{f}(\mathbf{x},t),t), 
+\end{align}
+
+\noindent ou:
+
+\begin{align}
+	g^{**} = g  \circ \mathbf{f},
+\end{align}
+
+\noindent o que permite escrever o seguinte gradiente:
+
+\begin{align}
+	\frac{\partial g^{**}(\mathbf{x},t)}{\partial (\mathbf{x},t)} = \frac{\partial g(\pos,t)}{\partial (\pos,t)} \frac{\partial \mathbf{f}(\mathbf{x},t)}{\partial (\mathbf{x},t)},
+\end{align}
+
+\noindent que em forma matricial é apresentado como:
+
+\begin{align}
+	\begin{bmatrix}
+		\frac{\partial {g^{**}}}{\partial {\mathbf{x}}} & \frac{\partial {g^{**}}}{\partial t} \\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\frac{\partial {g}}{\partial \pos} & \frac{\partial {g}}{\partial t} 
+	\end{bmatrix}
+	\cdot
+	\begin{bmatrix}
+		\frac{\partial {\pos}}{\partial {\mathbf{x}}} & \velocity \\
+		\mathbf{0}^T & 1 \\
+	\end{bmatrix} .
+\end{align}
+
+Essa expressão nos permite escrever a derivada temporal da variável na configuração material:
+
+\begin{align}
+	\frac{\partial g^{**}}{\partial t} = \frac{\partial g}{\partial t} + \frac{\partial g}{\partial \pos} \cdot \velocity, 
+\end{align}
+
+\noindent que é justamente a derivada material de g. Para facilitar a visualização pode tirar os sobrescritos $**$, e então:
+
+\begin{align}
+	\frac{Dg}{Dt} = \left . \frac{\partial g}{\partial t} \right|_{\mathbf{x}} = \left . \frac{\partial g}{\partial t} \right|_{\pos} + \velocity \cdot \nabla_y g. \label{eq:derMat}
+\end{align}
+
+Usando essa mesma metodologia pode-se escrever a transformação de $g^{*}(\bar{\mathbf{x}},t)$ para a referência material da seguinte forma:
+
+
+\begin{align}
+	g^{**} = g^{*}  \circ \mathfrak{f},
+\end{align}
+
+\noindent que resulta no seguinte gradiente
+
+\begin{align}
+	\begin{bmatrix}
+		\frac{\partial {g^{**}}}{\partial {\mathbf{x}}} & \frac{\partial {g^{**}}}{\partial t} \\
+	\end{bmatrix}
+	=
+	\begin{bmatrix}
+		\frac{\partial {g^*}}{\partial \posALE} & \frac{\partial {g*}}{\partial t} 
+	\end{bmatrix}
+	\cdot
+	\begin{bmatrix}
+		\frac{\partial {\posALE}}{\partial {\mathbf{x}}} & \mathbf{w} \\
+		\mathbf{0}^T & 1 \\
+	\end{bmatrix},
+\end{align}
+
+
+\noindent com a segunda coluna resultando em:
+
+\begin{align}
+	\frac{\partial g^{**}}{\partial t} = \frac{\partial g^*}{\partial t} + \frac{\partial g*}{\partial \posALE} \cdot \mathbf{w}. \label{eq:refMat}
+\end{align}
+
+Utilizando-se a expressão apresenta na Eq. \ref{eq:velRel} e substituindo-a em \ref{eq:refMat}, resulta em:
+
+\begin{align}
+	\frac{\partial g^{**}}{\partial t} = \frac{\partial g^*}{\partial t} + \frac{\partial g*}{\partial \pos} \cdot \left(\velocity - \velocityALE \right). 
+\end{align}
+
+Removendo-se os sobrescritos (**) e (*), chega-se a equação fundamental para os desenvolvimentos utilizando a metodologia ALE:
+
+\begin{align}
+	\frac{Dg}{Dt} = \left . \frac{\partial g}{\partial t} \right|_{\mathbf{x}} = \left . \frac{\partial g}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right) \cdot \nabla_y g. \label{eq:DerMatALE}
+\end{align}
+
+Utilizando-se a definição de derivada material da Eq. \ref{eq:derMat} e comparando com a Eq. \ref{eq:Navier-Stokes}, pode-se rescrever a equação da quantidade de movimento da seguinte forma:
+
+\begin{align}
+	\density\left(\frac{D\velocity}{Dt} - \sbodyforce \right) - \nabla_y \cdot \stresstensor &= \mathbf{0}. \label{Navier-Stokes-MatDerEuleriana}
+\end{align}
+
+Para expressar então a equação da quantidade de movimento em uma descrição Euleriana-Lagrangeana, basta substituir na Eq. \ref{Navier-Stokes-MatDerEuleriana} a definição de derivada material apresentada na Eq. \ref{eq:DerMatALE}, e têm-se finalmente:
+
+\begin{align}
+	\density\left(\left. \frac{\partial\velocity}{\partial t} \right|_{\bar{\mathbf{x}}} + \left(\velocity - \velocityALE \right) \cdot \nabla_y  \velocity  - \sbodyforce \right) - \nabla_y \cdot \stresstensor = \mathbf{0}. \label{eq:Navier-StokesALE} 
+\end{align}
+
+A equação da continuidade independe da movimentação da malha. Dessa forma a Eq. \ref{eq:conserMassaIncom} se mantém a mesma para as análises usando uma descrição ALE.
+
+
+\section{Forma Fraca das equações governantes} \label{capitulo:Cap2:FormaFraca}
 
 Tomando-se a forma forte das equações governantes, aplica-se o método de resíduos ponderados para se chegar à forma fraca e proceder com a discretização espacial. Os espaços de dimensão finita das funções tentativa que descrevem a velocidade e a pressão são chamados de $\usolution$ e $\psolution$ respectivamente, e definidos como:
 
 \begin{align}
-\usolution = \left\{\velocity \left . \right| \velocity \left(\cdot,t\right) \in \left(H^{1}\left(\domain\right)\right)^{n_{sd}}, \velocity = \velocity_D \textrm { em} \boundary_D \right\}
+\usolution = \left\{\velocity \left . \right| \velocity \left(\cdot,t\right) \in \left(H^{1}\left(\domain\right)\right)^{n_{sd}}, \velocity = \velocity_D \textrm { em} \GammaD \right\}
 \end{align}
 
 \noindent e
 
 \begin{align}
-\psolution = \left\{\press \left . \right| \press \left(\cdot\right) \in L^{2}\left(\domain\right), \int_{\domainT}\press \textrm { } d\domain = 0 \textrm { se } \boundary = \boundary_N \right\},
+\psolution = \left\{\press \left . \right| \press \left(\cdot\right) \in L^{2}\left(\domain\right), \int_{\domainT}\press \textrm { } d\domain = 0 \textrm { se } \boundary = \GammaN \right\},
 \end{align}
 
 \noindent sendo $\left(H^{1}\left(\domain\right)\right)^{n_{sd}}$ o espaço de funções vetoriais com derivadas de quadrado integrável sobre $\domain$ e $L^{2}\left(\domain\right)$ o espaço de funções escalares que são de quadrado integrável sobre $\domain$.
@@ -262,7 +503,7 @@ Tomando-se a forma forte das equações governantes, aplica-se o método de res�
 O espaço das funções teste ou funções peso das equações da quantidade de movimento e da continuidade são definidos respectivamente por:
 
 \begin{align}
-\uweighting = \left\{\utest \left . \right| \utest \left(\cdot\right) \in \left(H^{1}\left(\domain\right)\right)^{n_{sd}}, \mathbf{w} = 0 \textrm { em} \boundary_D \right\},
+\uweighting = \left\{\utest \left . \right| \utest \left(\cdot\right) \in \left(H^{1}\left(\domain\right)\right)^{n_{sd}}, \mathbf{w} = 0 \textrm { em} \ \GammaD \right\},
 \end{align}
 
 
@@ -274,52 +515,85 @@ Aplicando-se o método dos resíduos ponderados sobre as equações Eq. \eqref{e
 
 
 \begin{align}
-\int_{\domain} \utest \cdot \density  \left(\frac{\partial\velocity}{\partial t}  + \velocity\cdot\nabla\velocity - \externalforce \right) d\domain + \int_{\domain} \straintensor(\utest) : \stresstensor  d\domain - \int_{\boundary_N} \utest \cdot \mathbf{h} \  &= 0,  \label{eq:NSWeakForm1} 
+\int_{\domain} \utest \cdot \density  \left(\frac{\partial\velocity}{\partial t}  + \velocity\cdot\nabla\velocity - \sbodyforce \right) d\domain + \int_{\domain} \straintensor(\utest) : \stresstensor  d\domain - \int_{\GammaN} \utest \cdot \mathbf{h} \  &= 0,  \label{eq:NSWeakForm1} 
 \end{align}
 
 \begin{align}
 \int_{\domain} \ptest \left(\nabla \cdot \velocity\right) d \domain &= 0. \label{eq:CWeakForm1} 
 \end{align}
 
-\subsection{Discretização Espacial} \label{capitulo:Cap2:DiscEspacial}
 
-A discretização espacial tanto pelo método dos elementos finitos, como pela técnica de análise isogeométrica, consiste em, dado um problema com domínio $\domain$ dividi-lo em subdomínios $\domain^{e}$, também chamados de elementos ou células, de forma que:
+\subsection{Método dos elementos finitos aplicado à Mecânica dos Fluidos}
+
+Antes de prosseguir com a discretização espacial da forma fraca do conjunto de equações da Mecânica dos Fluidos, é fundamental compreender os princípios básicos do Método dos Elementos Finitos.  A discretização espacial tanto pelo método dos elementos finitos, como pela técnica de análise isogeométrica (Cap. \ref{capitulo:Cap3}), consiste em, dado um problema com domínio $\domain$, dividi-lo em subdomínios $\domain^{e}$, também chamados de elementos ou células, de forma que:
 
 \begin{align}
-\domain \approx \domain^{h} = {\bigcup_{e = 1}^{nel}} \domain^{e},
+	\domain \approx \domain^{h} = {\bigcup_{e = 1}^{nel}} \domain^{e},
 \end{align}
 
 \noindent onde $\domain^{h}$ é o domínio discretizado por subdomínios, com o índice $h$ se referindo ao tamanho representativo dos elementos, e $nel$ representando o número total de elementos.
 
-Os espaços de função tentativa para velocidade e pressão, bem como as funções teste são agora dados pela combinação linear de parâmetros nodais com funções de forma definidas sobre cada subdomínio, atendendo à partição da unidade, de forma que o problema da dinâmica dos fluidos fica definido como: encontrar $\velocityh \in \usolutionh$ e $\pressh \in \psolutionh$, de tal modo que $\forall$ $\utesth \in \uweightingh$ e $\ptesth \in \pweightingh$ a seguinte expressão seja verdadeira:
+Da mesma forma o contorno do domínio também é discretizado da seguinte forma:
+
+\begin{align}
+	\boundary \approx \boundary^{h} = {\bigcup_{b = 1}^{neb}} \boundary^{b},
+\end{align}
+
+\noindent onde $neb$ representa o número de elementos que formam o contorno.
+
+No Método dos Elementos Finitos, cada subdomínio, denominado elemento, é composto por um conjunto de pontos, chamados nós. As variáveis de interesse do problema, que incluem a geometria na abordagem isoparamétrica, são aproximadas pela combinação linear de um número finito de funções associadas aos nós, chamadas funções de forma, multiplicadas por variáveis chamadas parâmetros nodais. As funções de forma utilizadas no Método dos Elementos Finitos satisfazem, em geral, a propriedade de partição da unidade, ou seja, a soma das funções de forma associadas a todos os nós de um elemento resulta em 1 para qualquer ponto dentro do domínio paramétrico do elemento. A técnica de elementos finitos pode ser estudada nos diversos livros disponíveis sobre o assunto, tais como \citeonline{ZienkiewiczT:2005a,Reddy:2006}.
+
+Nesse trabalho são utilizadas funções de forma quadráticas do tipo polinômios de Lagrange, sendo empregados elementos isoparamétricos triangulares para o caso 2D e tetraédricos para o caso 3D. Na Fig. \ref{fig:elementofinito2d} e Fig. \ref{fig:elementofinito3d}, pode-se observar os elementos finitos 2D e 3D respectivamente bem como os espaços paramétricos adimensionais adotados para definir as funções de forma. 
+
+\begin{figure}[!htb]
+	\centering	
+	\subfloat[Elemento Finito 2d.\label{fig:elementofinito2d}]{\includegraphics[scale=0.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/element2d.pdf}}\\
+	\subfloat[Elemento Finito 3d.\label{fig:elementofinito3d}]{\includegraphics[trim=0 0 0 0,clip,scale=0.65]{Imagens/Cap2/element3d.pdf}}
+	\caption{Elementos Finitos: representação espacial e paramétrica}
+\end{figure}
+
+Adotar a abordagem isoparamétrica implica que a geometria do problema é descrita também pela combinação entre funções de forma e as coordenadas nodais da malha, conforme equação abaixo:
+
+\begin{align}
+	\pos^{h} = \sum_{A = 1}^{N_{nos}} \pos_{A}N_{A}(\pos),
+\end{align}
+
+\noindent sendo que para uma geometria tridimensional o vetor $\pos$ possui coordenadas $x,y$ e $z$, as quais representam as posições físicas do domínio; $A$ representa o índice dos nós da malha, $N_{nos}$ o número total de nós e $N$ as funções de forma da discretização.
+
+A discretização das variáveis de interesse para DFC no contexto do método dos elementos finitos serão apresentados no Cap. \ref{capitulo:Cap2:DiscEspacial}.
+
+
+\subsection{Discretização Espacial} \label{capitulo:Cap2:DiscEspacial}
+
+Os espaços de função tentativa para velocidade e pressão, bem como as funções teste, no contexto dos método dos elementos finitos, são dados pela combinação linear de parâmetros nodais com funções de forma definidas sobre cada subdomínio, atendendo à partição da unidade, de forma que o problema da dinâmica dos fluidos fica definido como: encontrar $\velocityh \in \usolutionh$ e $\pressh \in \psolutionh$, de tal modo que $\forall$ $\utesth \in \uweightingh$ e $\ptesth \in \pweightingh$ a seguinte expressão seja verdadeira:
 
 \begin{align}
 	\begin{split}
-		&\int_{\domain} \utesth \cdot \density \left(\frac{\partial\velocityh}{\partial t} + \velocityh\cdot\nabla\velocityh - \externalforce^{h}\right) d\domain + \int_{\domain} \straintensor(\utesth) : \stresstensor\left(\velocityh,\pressh \right)  d\domain\\ & - \int_{\boundary_N} \utesth \cdot \mathbf{h}^{h} + \int_{\domain} \ptesth \left(\nabla \cdot \velocityh\right) d \domain = 0,  \label{eq:NSWeakForm2} 
+		&\int_{\domain} \utesth \cdot \density \left(\frac{\partial\velocityh}{\partial t} + \velocityh\cdot\nabla\velocityh - \sbodyforce^{h}\right) d\domain + \int_{\domain} \straintensor(\utesth) : \stresstensor\left(\velocityh,\pressh \right)  d\domain\\ & - \int_{\GammaN} \utesth \cdot \mathbf{h}^{h} + \int_{\domain} \ptesth \left(\nabla \cdot \velocityh\right) d \domain = 0,  \label{eq:NSWeakForm2} 
 	\end{split}
 \end{align}
 
 \noindent onde:
 
 \begin{align}
-\velocity^{h}(\pos,t) = \sum_{A = 1}^{N_{nos}} \velocity_{A}(t)N_{A}(x), \label{eq:dis_vel}
+\velocity^{h}(\pos,t) = \sum_{A = 1}^{N_{nos}} \velocity_{A}(t)N_{A}(\pos), \label{eq:dis_vel}
 \end{align}
 
 \begin{align}
-\press^{h}(\pos,t)  = \sum_{A = 1}^{N_{nos}} \press_{A}(t)N_{A}(x),
+\press^{h}(\pos,t)  = \sum_{A = 1}^{N_{nos}} \press_{A}(t)N_{A}(\pos),
 \end{align}
 
 \begin{align}
-\utest^{h}(\pos)  = \sum_{A = 1}^{N_{nos}} \utest_{A}N_{A}(x), \label{eq:utest}
+\utest^{h}(\pos)  = \sum_{A = 1}^{N_{nos}} \utest_{A}N_{A}(\pos), \label{eq:utest}
 \end{align}
 
 \begin{align}
-\ptest^{h}(\pos)  = \sum_{A = 1}^{N_{nos}} \ptest_{A}N_{A}(x), \label{eq:ptest} 
+\ptest^{h}(\pos)  = \sum_{A = 1}^{N_{nos}} \ptest_{A}N_{A}(\pos), \label{eq:ptest} 
 \end{align}
 
-\noindent sendo que $N$ representa as funções de forma da discretização, o subscrito $A$ refere-se a variável discreta do nó ou ponto de controle $A$ e $N_{nos}$ é o número total de nós no contexto dos elementos finitos ou pontos de controle em análise isogeométrica da malha discreta. As variáveis $\utest_{A}$ e $\ptest_{A}$ são arbitrárias nas aproximações.
+\noindent sendo as variáveis $\utest_{A}$ e $\ptest_{A}$ arbitrárias nas aproximações.
 
-No entanto, as formulações obtidas pelo método de Galerkin são conhecidas por apresentarem oscilações espúrias em escoamentos dominados pela convecção. Uma das formas de se lidar com esse problema é a utilização de métodos estabilizados, como \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG) \cite{BrooksH:1982, HughesT:1984}, aplicado nesse trabalho. Essa metodologia consiste em adicionar à equação da quantidade de movimento, o seu resíduo ponderado por $\SUPG \left(\velocityh \cdot \nabla\utesth\right)$, onde $\SUPG$ é um parâmetro de estabilização. Do ponto de vista numérico a aplicação de $\SUPG \left(\velocityh \cdot \nabla\utesth\right)$ sobre o termo convectivo da equação da quantidade de movimento, dá origem a um termo difusivo adicional, cuja viscosidade tem magnitude $\SUPG$, e é responsável por garantir a estabilidade numérica em problemas com convecção dominante.
+No entanto, as formulações obtidas pelo método de Galerkin são conhecidas por apresentarem oscilações espúrias em escoamentos dominados pela convecção. Uma das formas de se lidar com esse problema é a utilização de métodos estabilizados, como \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG) \cite{BrooksH:1982, HughesT:1984}, aplicado nesse trabalho. Essa metodologia consiste em adicionar à equação da quantidade de movimento, o seu resíduo ponderado por $\SUPG \left(\velocityh \cdot \nabla\utesth\right)$, onde $\SUPG$ é um parâmetro de estabilização. Do ponto de vista numérico a aplicação de $\SUPG \left(\velocityh \cdot \nabla\utesth\right)$ sobre o termo convectivo da equação da quantidade de movimento dá origem a um termo difusivo adicional, cuja viscosidade tem magnitude $\SUPG$, e é responsável por garantir a estabilidade numérica em problemas com convecção dominante.
 
 Para os problemas de escoamentos incompressíveis aqui analisados, deve-se levar em conta que os campos de velocidade e pressão não podem ser aproximados arbitrariamente, podendo levar à ocorrência de oscilações espúrias no campo de pressão. Para evitar isso, podem ser escolhidos elementos Taylor-Hood que obedeçam, à condição de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB) \cite{BrezziF:1991,ZienkiewiczTN:2005,StrangF:2008}, ou pode-se recorrer a um método estabilizado. 
 
@@ -327,14 +601,14 @@ Neste trabalho, para estabilização da pressão, emprega-se a técnica \textit{
 
 Por fim, para prover maior estabilização em problemas com formação de vórtices, adiciona-se à equação da quantidade de movimento o resíduo da equação da continuidade ponderado por $ \LSIC \density \left(\nabla \cdot \utesth\right)$ \cite{TezduyarO:2000}, sendo $\LSIC$ um parâmetro de estabilização. A estabilização  $\LSIC$ dá origem a um termo do tipo mínimos quadrados, e que também introduz na formulação uma difusão artificial.
 
-Nota-se que a consistência da formulação estabilizada é garantida, uma vez que são adicionados às equações seus resíduos ponderados. Os parâmetros de estabilização $\SUPG$, $\PSPG$ e $\LSIC$ têm função de proporcionar uma solução estável e otimizar a convergência durante o refinamento de malha. A obtenção dos parâmetros estabilizadores será discutida em \ref{subsec:taus}. 
+Nota-se que a consistência da formulação estabilizada é garantida, uma vez que são adicionados às equações seus resíduos ponderados. Os parâmetros de estabilização $\SUPG$, $\PSPG$ e $\LSIC$ têm função de proporcionar uma solução estável e otimizar a convergência durante o refinamento de malha. A obtenção dos parâmetros estabilizadores será discutida na Seção \ref{sec:taus}. 
 
 Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\velocityh \in \usolutionh$ e $\pressh \in \psolutionh$, de tal modo que $\forall$ $\utesth \in \uweightingh$ e $\ptesth \in \pweightingh$ as seguintes expressões sejam verdadeiras:
 
 \begin{align}
 \begin{split}
 &\int_{\domain} \utesth \cdot \density\left(\frac{\partial\velocityh}{\partial t}+\velocityh\cdot \nabla\velocityh - \sbodyforce^h\right) d\domain +\int_{\domain} \straintensor \left(\utesth\right) : \stresstensor \left(\velocityh,\pressh\right)\ d\domain\\ &
-- \int_{\boundary_N}\utesth \cdot \straction^h\ d\boundary_N \\ 
+- \int_{\boundary_N}\utesth \cdot \straction^h\ d\GammaN \\ 
 &+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG \left(\velocityh \cdot \nabla\utesth\right) \cdot \resMom\left(\velocityh,\pressh \right)\  d\domain\\
 &+ \sum_{e=1}^{\nel} \int_{\domainE} \density \LSIC \nabla \cdot \utesth \resPre\left(\velocityh\right)\  d\domain = 0,
 \label{eq:FinalSystem}
@@ -363,7 +637,7 @@ Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\v
 \resPre\left(\velocityh\right)&=\nabla \cdot \velocityh.
 \end{align}
 
-Visto que existe funções teste separadas para a velocidade e pressão, pode-se definir dois vetores residuais correspondentes a equação da quantidade de movimento ($\NNSM$) e a equação da continuidade ($\NNSC$). Considerando a arbitrariedade de $\utest_{A}$ e $\ptest_{A}$, têm-se:
+Visto que existem funções teste separadas para a velocidade e pressão, pode-se definir dois vetores residuais correspondentes a equação da quantidade de movimento ($\NNSM$) e a equação da continuidade ($\NNSC$). Considerando a arbitrariedade de $\utest_{A}$ e $\ptest_{A}$, têm-se:
 
 \begin{align}
 \NNSM  = [\left(\NNSM\right)_{A,i}],
@@ -378,7 +652,7 @@ Visto que existe funções teste separadas para a velocidade e pressão, pode-se
 \begin{align}
 	\begin{split}
 	\left(\NNSM\right)_{A,i} =&\int_{\domain} N_{A}\mathbf{e_i} \cdot \density\left(\frac{\partial\velocityh}{\partial t}+\velocityh\cdot \nabla\velocityh - \sbodyforce^h\right) d\domain +\int_{\domain} \straintensor \left(N_{A}\mathbf{e_i}\right) : \stresstensor \left(\velocityh,\pressh\right)\ d\domain\\ &
-	- \int_{\boundary_N}N_{A}\mathbf{e_i} \cdot \straction^h\ d\boundary_N\\ 
+	- \int_{\boundary_N}N_{A}\mathbf{e_i} \cdot \straction^h\ d\GammaN\\ 
 	&+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG \left(\velocityh \cdot \nabla N_{A}\mathbf{e_i}\right) \cdot \resMom\left(\velocityh,\pressh \right)\  d\domain\\
 	&+ \sum_{e=1}^{\nel} \int_{\domainE} \density \LSIC \left(\nabla \cdot N_{A}\mathbf{e_i}\right) \resPre\left(\velocityh\right)\  d\domain  ,
 	\end{split}
@@ -388,8 +662,8 @@ Visto que existe funções teste separadas para a velocidade e pressão, pode-se
 
 \begin{align}
 	\begin{split}
-	\left(\NNSC\right)_{A} = &\int_{\domain} N_a \nabla \cdot \velocityh \ d\domain \\ 
-	&+ \sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla N_a}{\density}\right) \cdot \resMom\left(\velocityh,\pressh\right) \  d\domain.
+	\left(\NNSC\right)_{A} = &\int_{\domain} N_A \nabla \cdot \velocityh \ d\domain \\ 
+	&+ \sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla N_A}{\density}\right) \cdot \resMom\left(\velocityh,\pressh\right) \  d\domain.
 	\end{split}
 \end{align}
 		
@@ -406,235 +680,108 @@ Considerando $\Acceleration$, $\Velocity$ e $\Press$ os vetores nodais dos graus
 \end{align}
 
 
-\subsection{Parâmetros de estabilização}\label{subsec:taus}
 
-Considerando que nesse trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em IGA, adotam-se os parâmetros propostos por \citeonline{TakizawaTO:2018} e \citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. Para essa opção é necessário definir-se inicialmente o tensor métrico do elemento:
+
+\section{Parâmetros de estabilização}\label{sec:taus}
+
+Considerando que nesse trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em IGA, adotam-se os parâmetros propostos por \citeonline{TakizawaTO:2018} e \citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. 
+
+Para essa opção é necessário definir-se o tensor métrico do elemento no espaço. Para isso, inicia-se com a definição da matriz Jacobiana $\matrixQ$, dada por:
 
 \begin{align}
-\matrixQ&=\left(\frac{\partial\pos}{\partial\coordAdimen}\right),
+	\matrixQ&=\left(\frac{\partial\pos}{\partial\coordAdimen}\right),
 \end{align}
 
-\noindent onde $\matrixQ$ representa a matriz Jacobiana e $\coordAdimen$ representa as coordenadas do espaço paramétrico dos elementos, no qual as funções de forma são descritas. Para que a ordem polinomial seja levada em consideração na determinação dos parâmetros de estabilização, aplica-se uma mudança de escala na matriz $\matrixQ$ conforme:
+\noindent com $\coordAdimen$ representando as coordenadas do espaço paramétrico, com componentes $\xi, \eta$ e $\zeta$.
+
+Para que a ordem polinomial seja levada em consideração na determinação dos parâmetros de estabilização, aplica-se uma mudança de escala na matriz $\matrixQ$, através da matriz $\matrixD$, conforme a seguinte expressão:
 
 \begin{align}
-\matrixQhat&=\matrixQ\matrixD^{-1}.
+	\matrixQhat&=\matrixQ\matrixD^{-1}.
 \end{align}
 
-\noindent onde $\matrixQhat$ é o novo tensor métrico e $\matrixD$, para elementos finitos com funções de forma Lagrangianas, e espaço paramétrico $-1\leq\xi_i\leq1$, é definida como:
+Para elementos finitos com funções de forma polinomiais de Lagrange de ordem $p_{\xi}$, $p_{\eta}$ e  $p_{\zeta}$, definidas nas direções $\xi$, $\eta$ e $\zeta$ do espaço paramétrico respectivamente, com $-1\leq\xi, \eta, \zeta\leq1$, a  matriz $\matrixD$ é definida como:
+
+
+\textcolor{red}{e se a variação for de 0,1 ? tem alguma diferença}
 
 \begin{align}
-\matrixD&=\begin{bmatrix}
-p_{1} & 0 & 0\\
-0 & p_{2} & 0 \\
-0 & 0 & p_{3}
-\end{bmatrix},
+	\matrixD&=\begin{bmatrix}
+		p_{\xi} & 0 & 0\\
+		0 & p_{\eta} & 0 \\
+		0 & 0 & p_{\zeta}
+	\end{bmatrix}.
 \end{align}
 
-\noindent com $p$ representado a ordem das funções de forma em cada direção do espaço paramétrico. 
+A definição da matriz $\matrixD$ para elementos isogeométricos será descrita na Subseção \ref{subsec:taus2}.
 
-Para discretização utilizando IGA adota-se:
+O comprimento direcional do elemento é definido como:
 
 \begin{align}
-\matrixD&=\left(\frac{\partial\bar{\coordAdimen}}{\partial\coordAdimen}\right),
+	\RQD &=2\left(\rRGN\rRGN : \matrixG \right)^{-\frac{1}{2}},
 \end{align}
 
-\noindent com $\bar{\coordAdimen}$ representando as coordenadas do chamado espaço paramétrico preferido. 
-
-Para problemas em 1D, $\matrixD$ é definido como:
+\noindent sendo $\rRGN$ o vetor unitário na direção do gradiente da intensidade da velocidade e $\matrixG$ é denominada de tensor métrico do elemento, os quais são representados respectivamente como:
 
 \begin{align}
-D&=\frac{\Delta\bar{\coordAdimen}}{\min_{a=1,...,p} \Delta\coordAdimen_{a}},
-\end{align}
-
-\noindent onde $\Delta\bar{\coordAdimen}$ é o comprimento do elemento de Bézier no espaço paramétrico (espaço preferido), $p$ é o grau polinomial das funções base e $\Delta\coordAdimen_{a}$ é:
-
-\begin{align}
-\Delta\coordAdimen_{a}&=\frac{\Delta\bar{\coordAdimen}}{p}\sum_{b=0}^{p} \left({\matrixCinv}_{ba} - \matrixCinv_{ba-1}\right),
-\end{align}
-
-\noindent a matriz $\matrixCinv$ é o tensor de transformação de Bézier. Para múltiplas dimensões têm-se $\matrixD_{ij} = D^i \delta_{ij} $, com $D^i$ o valor de $D$ na direção $i$.
-
-A partir disso, o comprimento direcional do elemento é definido como:
-
-\begin{align}
-\RQD &=2\left(\rRGN\rRGN : \matrixG \right)^{-\frac{1}{2}},
-\end{align}
-
-\noindent sendo $\rRGN$ o vetor direção unitário da velocidade no elemento e $\matrixG$ uma matriz auxiliar, os quais são representados respectivamente como:
-
-\begin{align}
-\rRGN&=\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert} \label{eq:erRGN}
+	\rRGN&=\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert} \label{eq:erRGN}
 \end{align}
 
 \noindent e
 
 \begin{align}
-\matrixG &= \matrixQhat^{-T} \cdot \matrixQhat^{-1}. 
+	\matrixG &= \matrixQhat^{-T} \cdot \matrixQhat^{-1}. 
 \end{align}
 
 O comprimento do elemento é limitado pelos mínimos e máximos valores representados abaixo:
 
 \begin{align}
-h_{min} \equiv 2\min_{r}\left((\rRGN:\matrixG)^{-\frac{1}{2}} \right), \\
-h_{max} \equiv 2\max_{r}\left((\rRGN:\matrixG)^{-\frac{1}{2}} \right).
+	h_{min} \equiv 2\min_{r}\left((\rRGN\rRGN:\matrixG)^{-\frac{1}{2}} \right), \\
+	h_{max} \equiv 2\max_{r}\left((\rRGN\rRGN:\matrixG)^{-\frac{1}{2}} \right),
 \end{align}
+
+\noindent que podem ser reescritos como:
+
+\begin{align}
+	h_{min} = 2\left(\lambda_{max}\matrixG\right)^{\frac{-1}{2}}, \\
+	h_{max} = 2\left(\lambda_{min}\matrixG\right)^{\frac{-1}{2}},
+\end{align}
+
+\noindent onde $\lambda_{max}$ e $\lambda_{min}$ representam os máximos e mínimos autovalores da matriz $\matrixG$. 
 
 Os parâmetros de estabilização são dados por:
 
 \begin{align}
-\SUPG = \PSPG =\left(\frac{1}{\SUGNi^2} + \frac{1}{\SUGNii^2} + \frac{1}{\SUGNiii^2} \right)^{-\frac{1}{2}},
+	\SUPG = \PSPG =\left(\frac{1}{\SUGNi^2} + \frac{1}{\SUGNii^2} + \frac{1}{\SUGNiii^2} \right)^{-\frac{1}{2}},
 \end{align}
 
 \begin{align}
-\LSIC = \frac{\RQD^2}{\SUPG},
+	\LSIC = \frac{\RQD^2}{\SUPG},
 \end{align}
 
 \noindent onde:
 
 \begin{align}
-\SUGNi^{-2} = \left(\velocityh - \velocityALEh \right) \left(\velocityh - \velocityALEh \right) : \matrixG ,
+	\SUGNi^{-2} = \left(\velocityh - \velocityALEh \right) \left(\velocityh - \velocityALEh \right) : \matrixG ,
 \end{align}
 
 \begin{align}
-\SUGNii&=\frac{\Delta t}{2},
+	\SUGNii&=\frac{\Delta t}{2},
 \end{align}
 
 \noindent e
 
 \begin{align}
-\SUGNiii^{-1} = \kviscosity \left(\rRGN_{reg}\rRGN_{reg} : \matrixG + \left(1 - \rRGN_{reg}^2)4h_{min}^{-2} \right)\right) ,
+	\SUGNiii^{-1} = \kviscosity \left(\rRGN_{reg}\rRGN_{reg} : \matrixG + \left(1 - \rRGN_{reg}^2)4h_{min}^{-2} \right)\right) ,
 \end{align}
 
 \noindent sendo $\rRGN_{reg}$ definido como:
 
 \begin{align}
-\rRGN_{reg} =\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert + \varepsilon\left(\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert\right)_0},
+	\rRGN_{reg} =\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert + \varepsilon\left(\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert\right)_0},
 \end{align}
 
 \noindent com $\varepsilon$ uma constante pequena e $\left(\lVert \nabla \lVert\velocityh- \velocityALEh\rVert\rVert\right)_0$ um valor de referência. Os termos $\SUGNi$, $\SUGNii$ e $\SUGNiii$ são parâmetros correspondentes aos termos convectivos, inerciais e viscosos, respectivamente.
-
-
-\section{Descrição Euleriana-Lagrangiana arbitrária (ALE)} \label{Capítulo2:ALE}
-
-A descrição Lagrangiana-Euleriana arbitrária \cite{DoneaGH:1982} representa uma generalização da descrição puramente Lagrangiana e da descrição puramente Euleriana do movimento do contínuo. A descrição Lagrangiana fixa a atenção em pontos materiais do contínuo, enquanto que na descrição Euleriana considera-se uma porção fixa do espaço ocupada pelo contínuo, e analisam-se os pontos materiais que passam por essa porção ao longo do tempo. Como consequência, na descrição puramente Lagrangiana a malha computacional move-se com o contínuo, enquanto que na Euleriana a malha computacional mantém-se fixa. Por sua vez, na descrição Lagrangiana-Euleriana arbitrária, trabalha-se com pontos de referência que podem movimentar-se, mas de maneira independente do movimento dos pontos materiais do contínuo analisado.
-
-Para a aplicação dessa metodologia às equações governantes da mecânica dos fluidos é importante a definição de três domínios, de acordo com a Fig. \ref{fig:Ale}. O domínio inicial, chamado de \textbf{domínio material} ($\Omega_X$), que é definido pelas coordenadas dos pontos materiais $\mathbf{X}$; O domínio atual, chamado de \textbf{domínio espacial} ($\Omega_x$), definido pelas coordenadas $\pos$; e por fim, o \textbf{domínio de referência} ($\Omega_{\bar{x}}$) com coordenadas dos pontos de referência $\posALE$. 
-
-As coordenadas no domínio atual do contínuo podem ser mapeadas a partir do domínio inicial ou a partir do domínio de referência utilizando as seguintes funções de mapeamento:  
-
-\begin{align}
-	\pos = \mathbf{\Phi}(\mathbf{X},t) = \bar{\mathbf{\Phi}}(\bar{\mathbf{x}},t). \label{eq:Pos}
-\end{align}
-
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[scale=1.0]{Imagens/Cap2/ALE.pdf}	
-	\caption{Domínios utilizados para a descrição Lagrangiana-Euleriana arbitrária}
-	\label{fig:Ale}
-\end{figure}
-
-\noindent a velocidade, por sua vez, para os pontos materiais ($\velocity$) no instante $t$ é obtida pela derivada do vetor posição $\pos$ mantendo $\mathbf{X}$ fixo:
-
-\begin{align}
-	\velocity = \left. \frac{\partial\pos\left(\mathbf{X},t\right)}{\partial t} \right|_\mathbf{X}, \label{eq:vel}
-\end{align}
-
-\noindent e a velocidade do contínuo nos pontos de referência $\velocityALE$ é descrita como:
-
-\begin{align}
-	\velocityALE = \left. \frac{\partial\pos\left({\posALE},t\right)}{\partial t} \right| _{\posALE}. \label{eq:velALE}
-\end{align}
-
-Para expressar as equações da dinâmica dos fluidos em descrição Lagrangiana-Euleriana arbitrária, parte-se do conceito de \textit{derivada material}. A derivada material de uma propriedade qualquer $F$ do contínuo é definida como a variação por unidade de tempo sentida por um observador movendo-se junto com os pontos materiais e é escrita como $\frac{DF}{Dt}$. A derivada material da velocidade, variável de interesse para as equações da mecânica dos fluídos, quando representada pelo domínio espacial é definida como:
-
-\begin{align}
-	\frac{D\velocity}{Dt} = \left. \frac{\partial\velocity\left(\pos,t\right)}{\partial t} \right|_\mathbf{x} + \left. \frac{\partial\velocity\left(\pos,t\right)}{\partial \pos} \right|_{t} \left. \frac{\partial\pos}{\partial t} \right|_{\mathbf{X}}. \label{eq:MatDerEulerian}
-\end{align}
-
-Aplicando-se a Eq. \eqref{eq:vel} à Eq. \eqref{eq:MatDerEulerian} pode-se reescrevê-la como:
-
-\begin{align}
-	\frac{D\velocity}{Dt} = \left. \frac{\partial\velocity\left(\pos,t\right)}{\partial t} \right|_\mathbf{x} + \velocity \left. \frac{\partial\velocity\left(\pos,t\right)}{\partial \pos} \right|_{t}. \label{eq:MatDerEulerianUp}
-\end{align}
-
-Baseado nessa última expressão as equações de Navier-Stokes para escoamento incompressível podem ser apresentadas, em termo da derivada material, da seguinte forma:
-
-\begin{align}
-	\density\left(\frac{D\velocity}{Dt} - \externalforce \right) - \nabla \cdot \stresstensor &= \mathbf{0}. \label{Navier-Stokes-MatDerEuleriana}
-\end{align}
-
-Utilizando-se agora o domínio de referência $\Omega_{\bar{x}}$, para expressar a derivada material chega-se à seguinte expressão:
-
-\begin{align}
-	\frac{D\velocity}{Dt} = \left. \frac{\partial\velocity\left(\posALE,t\right)}{\partial t} \right|_{\posALE} + \left. \frac{\partial\velocity\left(\posALE,t\right)}{\partial \posALE} \right|_{t} \left. \frac{\partial\posALE}{\partial t} \right|_{\mathbf{X}}. \label{eq:MatDerALE}
-\end{align}
-%
-
-Derivando-se \eqref{eq:Pos} no tempo com $\mathbf{X}$ fixo, é possível escrever:
-
-\begin{align}
-	\left. \frac{\partial \pos}{\partial t} \right|_{\mathbf{X}} = \left . \frac{\partial \mathbf{\Phi}}{\partial t} \right|_{\mathbf{X}} =   \left . \frac{\partial \bar{\mathbf{\Phi}}}{\partial t} \right|_{\posALE} + \left . \frac{\partial \bar{\mathbf{\Phi}}}{\partial \posALE} \right|_{t} \left . \frac{\partial \posALE}{\partial t} \right|_{\mathbf{X}},
-\end{align}
-
-\noindent onde o termo $\left. \frac{\partial \bar{\mathbf{\Phi}}}{\partial t} \right|_{\posALE}$ representa a velocidade do domínio de referência (malha de elementos finitos), em relação ao domínio espacial, representada por $\velocityALE$, permitindo escrever: 
-
-\begin{align}
-	\velocity = \velocityALE + \left . \frac{\partial \pos}{\partial \posALE} \right|_{t} \left . \frac{\partial \posALE}{\partial t} \right|_{\mathbf{X}},
-\end{align}
-
-\noindent ou ainda:
-
-\begin{align}
-	\left . \frac{\partial \posALE}{\partial t} \right|_{\mathbf{X}} = \left( \velocity - \velocityALE \right) \left. \frac{\partial \posALE}{\partial \pos} \right |_{t}. \label{eq:velRel}
-\end{align}
-
-Utilizando-se das expressões Eq. \eqref{eq:velRel} e Eq. \eqref{eq:MatDerALE} obtêm-se que: 
-
-\begin{align}
-	\frac{D\velocity}{Dt} = \left. \frac{\partial\velocity\left(\posALE,t\right)}{\partial t} \right|_{\posALE} +  \left( \velocity - \velocityALE \right) \left. \frac{\partial\velocity\left(\posALE,t\right)}{\partial \pos} \right|_{t}. \label{eq:MatDerALEUp}
-\end{align}
-
-Por fim, aplicando-se a Eq. \eqref{eq:MatDerALEUp} em Eq. \ref{Navier-Stokes-MatDerEuleriana}, chega-se à equação da conservação da quantidade de movimento para escoamentos incompressíveis em descrição Lagrangiana-Euleriana arbitrária:
-
-\begin{align}
-	\density \left . \left(\frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE\right)\cdot\nabla\velocity - \externalforce \right) - \nabla \cdot \stresstensor &= \mathbf{0}.  \label{eq:Navier-Stokes-ALE} 
-\end{align}
-
-Já para o caso incompressível, a equação da continuidade 
-
-\begin{align}
-	\nabla \cdot \velocity &= 0 \label{eq:Continuity}
-\end{align}
-
-\noindent continua válida para a descrição ALE.
-
-
-\begin{align}
-	\begin{split}
-		&\int_{\domain} \utesth \cdot \density\left(\left.\frac{\partial\velocityh}{\partial t}\right|_{\posALE}+(\velocityh-\velocityALEh)\cdot \nabla\velocityh - \sbodyforce^h\right) d\domain +\int_{\domain} \strainratetensor \left(\utesth\right) : \stresstensor \left(\velocityh,\pressh\right)\ d\domain\\ &\qquad+ 
-		\int_{\domain}\ptesth \nabla \cdot \velocityh \ d\domain 
-		- \int_{\boundaryH}\utesth \cdot \straction^h\ d\boundaryH \\ 
-		&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG \left(\left(\velocityh- \velocityALEh\right) \cdot \nabla\utesth\right) \cdot \resMom\left(\velocityh,\pressh \right)\  d\domain\\
-		&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla \ptesth}{\density}\right) \cdot \resMom\left(\velocityh,\pressh\right) \  d\domain\\
-		&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \density \LSIC \nabla \cdot \utesth \resPre\left(\velocityh\right)\  d\domain = 0,
-		\label{eq:FinalSystem}
-	\end{split}
-\end{align}
-
-\noindent e
-
-\begin{align}
-	\begin{split}
-		&\int_{\domain}\ptesth \nabla \cdot \velocityh \ d\domain \\ 
-		&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla \ptesth}{\density}\right) \cdot \resMom\left(\velocityh,\pressh\right) \  d\domain = 0,
-		\label{eq:RC}
-	\end{split}
-\end{align}
-
-\begin{align}
-	\resMom\left(\velocityh,\pressh\right)&=\density\left(\left.\frac{\partial\velocityh}{\partial t}\right|_{\posALE}+(\velocityh-\velocityALEh)\cdot \nabla\velocityh - \sbodyforce^h\right) - \nabla \cdot \stresstensor\left(\velocityh,\pressh\right),
-\end{align}
-
 
 \section{Integração Temporal}\label{sec:IntegTemp}
 
@@ -738,31 +885,7 @@ Na utilização do método $\alpha$-generalizado as integrais das equações Eq.
 \domainALEN = \left\{\posh \  |\  \posh(\posALEh,t_{(n+\alphaf)}) = \alphaf \posh(\posALEh,t_{n+1}) + (1-\alphaf) \posh(\posALEh,t_n)  \right\}.
 \end{align}
 
-\section{Método dos elementos finitos aplicado à Mecânica dos Fluidos}
 
-
-No contexto do método dos elementos finitos, o contínuo é decomposto em um conjunto de subdomínios chamados de elementos, que compreendem um arranjo de pontos denominados nós. As variáveis de interesse do problema, que incluem a geometria na abordagem isoparamétrica, são aproximadas pela combinação linear de um número finito de funções associadas aos nós, chamadas funções de forma, multiplicadas por variáveis chamadas parâmetros nodais.
-
-A aproximação das variáveis nodais é realizada, em geral através dos polinômios de Lagrange, sendo os parâmetros nodais iguais ao valor interpolado da respectiva variável na posição dos nós da malha de elementos finitos. A técnica de elementos finitos pode ser estudada nos diversos livros disponíveis sobre o assunto, tais como \citeonline{ZienkiewiczT:2005a,Reddy:2006}.
-
-Nesse trabalho são utilizadas funções de forma quadráticas do tipo polinômios de Lagrange, sendo empregados elementos isoparamétricos triangulares para o caso 2D e tetraédricos para o caso 3D. Na Fig. \ref{fig:elementofinito2d} e Fig. \ref{fig:elementofinito3d}, pode-se observar os elementos finitos 2d e 3d respectivamente bem como os espaços paramétricos adimensionais adotados para definir as funções de forma. 
-
-Adotar a abordagem isoparamétrica implica que a geometria do problema é descrita também pela combinação entre funções de forma e as coordenadas nodais da malha:
-
-\begin{align}
-\pos^{h} = \sum_{A = 1}^{N_{nos}} \pos_{A}(t)N_{A}(x),
-\end{align}
-
-\noindent permitindo desta forma a representação de formas curvas.
-
-\begin{figure}[!htb]
-	\centering	
-	\subfloat[Elemento Finito 2d.\label{fig:elementofinito2d}]{\includegraphics[scale=0.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/element2d.pdf}}\\
-	\subfloat[Elemento Finito 3d.\label{fig:elementofinito3d}]{\includegraphics[trim=0 0 0 0,clip,scale=0.65]{Imagens/Cap2/element3d.pdf}}
-	\caption{Elementos Finitos: representação espacial e paramétrica}
-\end{figure}
-
-\clearpage
 
 
 
