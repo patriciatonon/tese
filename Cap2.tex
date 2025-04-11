@@ -102,7 +102,7 @@ Ao final deste capítulo, é apresentado um algoritmo que detalha o esquema comp
 \subsection{Equação da conservação da massa}
 
 
-Considere um volume de controle infinitesimal fixo no espaço, permeável a matéria e submetido a uma escoamento de velocidade $\velocity$, com componentes $u_1, u_2$, e $u_3$ (conforme fig. \ref{fig:VolInfi}).Para um intervalo de tempo infinitesimal $dt$, a lei da conservação da massa impõe que a variação de massa dentro do volume de controle seja igual ao fluxo de massa que atravessa suas fronteiras, que pode ser expresso matematicamente da seguinte forma:
+Considere um volume de controle infinitesimal fixo no espaço, permeável a matéria e submetido a uma escoamento de velocidade $\velocity$, com componentes $u_1, u_2$, e $u_3$ (conforme fig. \ref{fig:VolInfi}).Para um intervalo de tempo infinitesimal $dt$, a lei da conservação da massa impõe que a variação de massa dentro do volume de controle seja igual ao fluxo líquido de massa que atravessa suas fronteiras, que pode ser expresso matematicamente da seguinte forma:
 
 \begin{figure}[htb!]
 	\centering 
@@ -186,7 +186,7 @@ Considerando-se o equilíbrio das forças nas direções $y_2$ e $y_3$, pode-se 
 \end{align}
 
 
-Realizando-se o balanço da quantidade de movimento no volume de controle infinitesimal da Fig. \ref{fig:VolInfiQtdeMov} e aplicando-se a lei da conservação da quantidade de movimento, pode-se chegar a seguinte equação:
+Realizando-se o balanço da quantidade de movimento no volume de controle infinitesimal da Fig. \ref{fig:VolInfiQtdeMov}, e aplicando-se a lei da conservação da quantidade de movimento, pode-se chegar a seguinte equação:
 
 
 \begin{align}
@@ -201,8 +201,8 @@ Realizando-se o balanço da quantidade de movimento no volume de controle infini
 
 \begin{align}
 		\frac{\partial \density \velocity}{\partial t} = 
-		-\frac{\partial u_1 \density \velocity}{\partial y_1} +
-		-\frac{\partial u_2 \density \velocity}{\partial y_2} + 
+		-\frac{\partial u_1 \density \velocity}{\partial y_1} 
+		-\frac{\partial u_2 \density \velocity}{\partial y_2}  
 		-\frac{\partial u_3 \density \velocity}{\partial y_3} + \mathbf{q},
 		\label{eq:QtdeMov1} 
 \end{align}
@@ -253,11 +253,11 @@ Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrit
 \begin{equation}
 	\left\{
 	\begin{array}{l}
-		\density\left(\frac{\partial\velocity}{\partial t} + \velocity\cdot\nabla_y\velocity - \sbodyforce \right) - \nabla_y \cdot \stresstensor = \mathbf{0} \textrm{em} \ \domain\\
-		\nabla_y \cdot \velocity = 0 \textrm{em} \ \domain\\
+		\density\left(\frac{\partial\velocity}{\partial t} + \velocity\cdot\nabla_y\velocity - \sbodyforce \right) - \nabla_y \cdot \stresstensor = \mathbf{0} \ \textrm{em} \ \domain\\
+		\nabla_y \cdot \velocity = 0 \ \textrm{em} \ \domain\\
 		\velocity = \velocityD \ \textrm{em} \ \GammaD \\
 		\stresstensor \cdot \snormal = \surfaceLoad \ \textrm{em} \ \GammaN,
-	\end{array}
+	\end{array} \label{eq:ConjDFC}
 	\right.
 \end{equation}
 
@@ -481,21 +481,32 @@ Para expressar então a equação da quantidade de movimento em uma descrição 
 	\density\left(\left. \frac{\partial\velocity}{\partial t} \right|_{\bar{\mathbf{x}}} + \left(\velocity - \velocityALE \right) \cdot \nabla_y  \velocity  - \sbodyforce \right) - \nabla_y \cdot \stresstensor = \mathbf{0}. \label{eq:Navier-StokesALE} 
 \end{align}
 
-A equação da continuidade independe da movimentação da malha. Dessa forma a Eq. \ref{eq:conserMassaIncom} se mantém a mesma para as análises usando uma descrição ALE.
+A equação da continuidade independe da movimentação da malha. Dessa forma a Eq. \ref{eq:conserMassaIncom} se mantém a mesma para as análises usando uma descrição ALE. Assim, reescrevendo o conjunto de equações da DFC apresenta na Eq. \ref{eq:ConjDFC} para um descrição ALE, têm-se:
+
+\begin{equation}
+	\left\{
+	\begin{array}{l}
+		\density\left( \left. \frac{\partial\velocity}{\partial t} \right|_{\posALE}  + \left(\velocity - \velocityALE \right)\cdot\nabla_y\velocity - \sbodyforce \right) - \nabla_y \cdot \stresstensor = \mathbf{0}  \ \textrm{em} \ \domain\\
+		\nabla_y \cdot \velocity = 0  \ \textrm{em} \ \domain\\
+		\velocity = \velocityD \ \textrm{em} \ \GammaD \\
+		\stresstensor \cdot \snormal = \surfaceLoad \ \textrm{em} \ \GammaN,
+	\end{array} \label{eq:ConjDFCALE}
+	\right.
+\end{equation}
 
 
-\section{Forma Fraca das equações governantes} \label{capitulo:Cap2:FormaFraca}
+\section{Forma fraca e discretização espacial das equações governantes} \label{capitulo:Cap2:FormaFraca}
 
-Tomando-se a forma forte das equações governantes, aplica-se o método de resíduos ponderados para se chegar à forma fraca e proceder com a discretização espacial. Os espaços de dimensão finita das funções tentativa que descrevem a velocidade e a pressão são chamados de $\usolution$ e $\psolution$ respectivamente, e definidos como:
+Tomando-se a forma forte das equações governantes da DFC em descrição ALE, aplica-se o método de resíduos ponderados para se chegar à forma fraca e proceder com a discretização espacial. Os espaços de dimensão finita das funções tentativa que descrevem a velocidade e a pressão são chamados de $\usolution$ e $\psolution$ respectivamente, e definidos como:
 
 \begin{align}
-\usolution = \left\{\velocity \left . \right| \velocity \left(\cdot,t\right) \in \left(H^{1}\left(\domain\right)\right)^{n_{sd}}, \velocity = \velocity_D \textrm { em} \GammaD \right\}
+\usolution = \left\{\velocity \left . \right| \velocity \left(\cdot,t\right) \in \left(H^{1}\left(\domain\right)\right)^{n_{sd}}, \velocity = \velocity_D \ \textrm {em} \ \GammaD \right\}
 \end{align}
 
 \noindent e
 
 \begin{align}
-\psolution = \left\{\press \left . \right| \press \left(\cdot\right) \in L^{2}\left(\domain\right), \int_{\domainT}\press \textrm { } d\domain = 0 \textrm { se } \boundary = \GammaN \right\},
+\psolution = \left\{\press \left . \right| \press \left(\cdot\right) \in L^{2}\left(\domain\right), \int_{\domain}\press \textrm { } d\domain = 0 \textrm { se } \boundary = \GammaN \right\},
 \end{align}
 
 \noindent sendo $\left(H^{1}\left(\domain\right)\right)^{n_{sd}}$ o espaço de funções vetoriais com derivadas de quadrado integrável sobre $\domain$ e $L^{2}\left(\domain\right)$ o espaço de funções escalares que são de quadrado integrável sobre $\domain$.
@@ -511,19 +522,19 @@ O espaço das funções teste ou funções peso das equações da quantidade de 
 \pweighting = \psolution.
 \end{align}
 
-Aplicando-se o método dos resíduos ponderados sobre as equações Eq. \eqref{eq:Navier-Stokes} e Eq.\eqref{eq:conserMassaIncom}, integrando-se por partes o termo referente ao tensor de tensões de Cauchy, empregando-se o teorema da divergência e levando-se em consideração a condição de homogeneidade da função $\utest$ sobre o contorno $\boundary_D$, obtém-se a forma fraca. A solução do problema consiste então em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de tal modo que $\forall$ $\utest \in \uweighting$ e $\ptest \in \pweighting$, as seguintes expressões sejam verdadeiras:
+Aplicando-se o método dos resíduos ponderados sobre as equações Eq. \eqref{eq:Navier-StokesALE} e Eq.\eqref{eq:conserMassaIncom}, integrando-se por partes o termo referente ao tensor de tensões de Cauchy, empregando-se o teorema da divergência e levando-se em consideração a condição de homogeneidade da função $\utest$ sobre o contorno $\boundary_D$, obtém-se a forma fraca. A solução do problema consiste então em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de tal modo que $\forall$ $\utest \in \uweighting$ e $\ptest \in \pweighting$, as seguintes expressões sejam verdadeiras:
 
 
 \begin{align}
-\int_{\domain} \utest \cdot \density  \left(\frac{\partial\velocity}{\partial t}  + \velocity\cdot\nabla\velocity - \sbodyforce \right) d\domain + \int_{\domain} \straintensor(\utest) : \stresstensor  d\domain - \int_{\GammaN} \utest \cdot \mathbf{h} \  &= 0,  \label{eq:NSWeakForm1} 
+\int_{\domain} \utest \cdot \density  \left(\left . \frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right)\cdot\nabla_y \velocity - \sbodyforce \right) d\domain + \int_{\domain} \straintensor(\utest) : \stresstensor  d\domain - \int_{\GammaN} \utest \cdot \mathbf{h} \  &= 0,  \label{eq:NSWeakForm1} 
 \end{align}
 
 \begin{align}
-\int_{\domain} \ptest \left(\nabla \cdot \velocity\right) d \domain &= 0. \label{eq:CWeakForm1} 
+\int_{\domain} \ptest \left(\nabla_y \cdot \velocity\right) d \domain &= 0. \label{eq:CWeakForm1} 
 \end{align}
 
 
-\subsection{Método dos elementos finitos aplicado à Mecânica dos Fluidos}
+\subsection{Método dos elementos finitos }
 
 Antes de prosseguir com a discretização espacial da forma fraca do conjunto de equações da Mecânica dos Fluidos, é fundamental compreender os princípios básicos do Método dos Elementos Finitos.  A discretização espacial tanto pelo método dos elementos finitos, como pela técnica de análise isogeométrica (Cap. \ref{capitulo:Cap3}), consiste em, dado um problema com domínio $\domain$, dividi-lo em subdomínios $\domain^{e}$, também chamados de elementos ou células, de forma que:
 
@@ -558,9 +569,9 @@ Adotar a abordagem isoparamétrica implica que a geometria do problema é descri
 	\pos^{h} = \sum_{A = 1}^{N_{nos}} \pos_{A}N_{A}(\pos),
 \end{align}
 
-\noindent sendo que para uma geometria tridimensional o vetor $\pos$ possui coordenadas $x,y$ e $z$, as quais representam as posições físicas do domínio; $A$ representa o índice dos nós da malha, $N_{nos}$ o número total de nós e $N$ as funções de forma da discretização.
+\noindent sendo que para uma geometria tridimensional o vetor $\pos$ possui coordenadas $y_1,y_2$ e $y_3$, as quais representam as posições físicas do domínio; O subíndice "$A$"  representa o índice dos nós da malha, $N_{nos}$ o número total de nós e $N$ as funções de forma da discretização.
 
-A discretização das variáveis de interesse para DFC no contexto do método dos elementos finitos serão apresentados no Cap. \ref{capitulo:Cap2:DiscEspacial}.
+A discretização das variáveis de interesse para DFC no contexto do método dos elementos finitos serão apresentados no seguinte capítulo (Cap. \ref{capitulo:Cap2:DiscEspacial}).
 
 
 \subsection{Discretização Espacial} \label{capitulo:Cap2:DiscEspacial}
@@ -569,7 +580,7 @@ Os espaços de função tentativa para velocidade e pressão, bem como as funç�
 
 \begin{align}
 	\begin{split}
-		&\int_{\domain} \utesth \cdot \density \left(\frac{\partial\velocityh}{\partial t} + \velocityh\cdot\nabla\velocityh - \sbodyforce^{h}\right) d\domain + \int_{\domain} \straintensor(\utesth) : \stresstensor\left(\velocityh,\pressh \right)  d\domain\\ & - \int_{\GammaN} \utesth \cdot \mathbf{h}^{h} + \int_{\domain} \ptesth \left(\nabla \cdot \velocityh\right) d \domain = 0,  \label{eq:NSWeakForm2} 
+		&\int_{\domain} \utesth \cdot \density \left(\left. \frac{\partial\velocityh}{\partial t} \right|_{\posALE} + \left(\velocityh - \velocityALEh \right)\cdot\nabla_y \velocityh - \sbodyforce^{h}\right) d\domain + \int_{\domain} \straintensor(\utesth) : \stresstensor\left(\velocityh,\pressh \right)  d\domain\\ & - \int_{\GammaN} \utesth \cdot \mathbf{h}^{h} + \int_{\domain} \ptesth \left(\nabla_y \cdot \velocityh\right) d \domain = 0,  \label{eq:NSWeakForm2} 
 	\end{split}
 \end{align}
 
@@ -593,24 +604,24 @@ Os espaços de função tentativa para velocidade e pressão, bem como as funç�
 
 \noindent sendo as variáveis $\utest_{A}$ e $\ptest_{A}$ arbitrárias nas aproximações.
 
-No entanto, as formulações obtidas pelo método de Galerkin são conhecidas por apresentarem oscilações espúrias em escoamentos dominados pela convecção. Uma das formas de se lidar com esse problema é a utilização de métodos estabilizados, como \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG) \cite{BrooksH:1982, HughesT:1984}, aplicado nesse trabalho. Essa metodologia consiste em adicionar à equação da quantidade de movimento, o seu resíduo ponderado por $\SUPG \left(\velocityh \cdot \nabla\utesth\right)$, onde $\SUPG$ é um parâmetro de estabilização. Do ponto de vista numérico a aplicação de $\SUPG \left(\velocityh \cdot \nabla\utesth\right)$ sobre o termo convectivo da equação da quantidade de movimento dá origem a um termo difusivo adicional, cuja viscosidade tem magnitude $\SUPG$, e é responsável por garantir a estabilidade numérica em problemas com convecção dominante.
+No entanto, as formulações obtidas pelo método de Galerkin são conhecidas por apresentarem oscilações espúrias em escoamentos dominados pela convecção. Uma das formas de se lidar com esse problema é a utilização de métodos estabilizados, como \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG) \cite{BrooksH:1982, HughesT:1984}, aplicado nesse trabalho. Essa metodologia consiste em adicionar à equação da quantidade de movimento, o seu resíduo ponderado por $\SUPG \left(\left(\velocityh - \velocityALEh \right) \cdot \nabla_y\utesth\right)$, onde $\SUPG$ é um parâmetro de estabilização. Do ponto de vista numérico a aplicação de  sobre o termo convectivo da equação da quantidade de movimento dá origem a um termo difusivo adicional, cuja viscosidade tem magnitude $\SUPG$, e é responsável por garantir a estabilidade numérica em problemas com convecção dominante.
 
 Para os problemas de escoamentos incompressíveis aqui analisados, deve-se levar em conta que os campos de velocidade e pressão não podem ser aproximados arbitrariamente, podendo levar à ocorrência de oscilações espúrias no campo de pressão. Para evitar isso, podem ser escolhidos elementos Taylor-Hood que obedeçam, à condição de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB) \cite{BrezziF:1991,ZienkiewiczTN:2005,StrangF:2008}, ou pode-se recorrer a um método estabilizado. 
 
-Neste trabalho, para estabilização da pressão, emprega-se a técnica \textit{Pressure Stabilization Petrov Galerkin} (PSPG)   \cite{HughesFB:1986,TezduyarMRS:1992a}. Essa técnica consiste em adicionar à equação da continuidade, o resíduo da equação da quantidade de movimento ponderada pela função $\PSPG \left(\frac{\nabla \ptesth}{\density}\right)$, onde $\PSPG$ é um parâmetro de estabilização. Essa estabilização cria termos dependentes da pressão na equação da continuidade, responsáveis pela flexibilização do campo de pressão e por contornar a condição LBB.
+Neste trabalho, para estabilização da pressão, emprega-se a técnica \textit{Pressure Stabilization Petrov Galerkin} (PSPG)   \cite{HughesFB:1986,TezduyarMRS:1992a}. Essa técnica consiste em adicionar à equação da continuidade, o resíduo da equação da quantidade de movimento ponderada pela função $\PSPG \left(\frac{\nabla_y \ptesth}{\density}\right)$, onde $\PSPG$ é um parâmetro de estabilização. Essa estabilização cria termos dependentes da pressão na equação da continuidade, responsáveis pela flexibilização do campo de pressão e por contornar a condição LBB.
 
-Por fim, para prover maior estabilização em problemas com formação de vórtices, adiciona-se à equação da quantidade de movimento o resíduo da equação da continuidade ponderado por $ \LSIC \density \left(\nabla \cdot \utesth\right)$ \cite{TezduyarO:2000}, sendo $\LSIC$ um parâmetro de estabilização. A estabilização  $\LSIC$ dá origem a um termo do tipo mínimos quadrados, e que também introduz na formulação uma difusão artificial.
+Por fim, para prover maior estabilização em problemas com formação de vórtices, adiciona-se à equação da quantidade de movimento o resíduo da equação da continuidade ponderado por $ \LSIC \density \left(\nabla_y \cdot \utesth\right)$ \cite{TezduyarO:2000}, sendo $\LSIC$ um parâmetro de estabilização. A estabilização  $\LSIC$ dá origem a um termo do tipo mínimos quadrados, e que também introduz na formulação uma difusão artificial.
 
-Nota-se que a consistência da formulação estabilizada é garantida, uma vez que são adicionados às equações seus resíduos ponderados. Os parâmetros de estabilização $\SUPG$, $\PSPG$ e $\LSIC$ têm função de proporcionar uma solução estável e otimizar a convergência durante o refinamento de malha. A obtenção dos parâmetros estabilizadores será discutida na Seção \ref{sec:taus}. 
+Nota-se que a consistência da formulação estabilizada é garantida, uma vez que são adicionados às equações seus resíduos ponderados. Os parâmetros de estabilização $\SUPG$, $\PSPG$ e $\LSIC$ têm função de proporcionar uma solução estável e otimizar a convergência durante o refinamento de malha. A obtenção dos parâmetros estabilizadores será discutida na Subseção \ref{subsec:taus}. 
 
 Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\velocityh \in \usolutionh$ e $\pressh \in \psolutionh$, de tal modo que $\forall$ $\utesth \in \uweightingh$ e $\ptesth \in \pweightingh$ as seguintes expressões sejam verdadeiras:
 
 \begin{align}
 \begin{split}
-&\int_{\domain} \utesth \cdot \density\left(\frac{\partial\velocityh}{\partial t}+\velocityh\cdot \nabla\velocityh - \sbodyforce^h\right) d\domain +\int_{\domain} \straintensor \left(\utesth\right) : \stresstensor \left(\velocityh,\pressh\right)\ d\domain\\ &
+&\int_{\domain} \utesth \cdot \density\left(\left. \frac{\partial\velocityh}{\partial t}\right|_{\posALE}+ \left(\velocityh - \velocityALEh \right) \cdot \nabla_y \velocityh - \sbodyforce^h\right) d\domain +\int_{\domain} \straintensor \left(\utesth\right) : \stresstensor \left(\velocityh,\pressh\right)\ d\domain\\ &
 - \int_{\boundary_N}\utesth \cdot \straction^h\ d\GammaN \\ 
-&+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG \left(\velocityh \cdot \nabla\utesth\right) \cdot \resMom\left(\velocityh,\pressh \right)\  d\domain\\
-&+ \sum_{e=1}^{\nel} \int_{\domainE} \density \LSIC \nabla \cdot \utesth \resPre\left(\velocityh\right)\  d\domain = 0,
+&+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG \left(\left(\velocityh - \velocityALEh \right) \cdot \nabla_y \utesth\right) \cdot \resMom\left(\velocityh,\pressh \right)\  d\domain\\
+&+ \sum_{e=1}^{\nel} \int_{\domainE} \density \LSIC \nabla_y \cdot \utesth \resPre\left(\velocityh\right)\  d\domain = 0,
 \label{eq:FinalSystem}
 \end{split}
 \end{align}
@@ -619,8 +630,8 @@ Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\v
 
 \begin{align}
 	\begin{split}
-	&\int_{\domain}\ptesth \nabla \cdot \velocityh \ d\domain \\ 
-	&+ \sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla \ptesth}{\density}\right) \cdot \resMom\left(\velocityh,\pressh\right) \  d\domain = 0,
+	&\int_{\domain}\ptesth \nabla_y \cdot \velocityh \ d\domain \\ 
+	&+ \sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla_y \ptesth}{\density}\right) \cdot \resMom\left(\velocityh,\pressh\right) \  d\domain = 0,
 	\label{eq:RC}
 	\end{split}
 	\end{align}
@@ -628,13 +639,13 @@ Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\v
 \noindent onde $\resMom$ e $\resPre$ são os resíduos da equação da quantidade de movimento e da equação da continuidade, respectivamente, dados por:
 
 \begin{align}
-\resMom\left(\velocityh,\pressh\right)&=\density\left(\frac{\partial\velocityh}{\partial t}+\velocityh\cdot \nabla\velocityh - \sbodyforce^h\right) - \nabla \cdot \stresstensor\left(\velocityh,\pressh\right),
+\resMom\left(\velocityh,\pressh\right)&=\density\left(\left. \frac{\partial\velocityh}{\partial t}\right|_{\posALE}+\left(\velocityh - \velocityALEh \right)\cdot \nabla_y \velocityh - \sbodyforce^h\right) - \nabla_y \cdot \stresstensor\left(\velocityh,\pressh\right),
 \end{align}
 
 \noindent
 
 \begin{align}
-\resPre\left(\velocityh\right)&=\nabla \cdot \velocityh.
+\resPre\left(\velocityh\right)&=\nabla_y \cdot \velocityh.
 \end{align}
 
 Visto que existem funções teste separadas para a velocidade e pressão, pode-se definir dois vetores residuais correspondentes a equação da quantidade de movimento ($\NNSM$) e a equação da continuidade ($\NNSC$). Considerando a arbitrariedade de $\utest_{A}$ e $\ptest_{A}$, têm-se:
@@ -651,10 +662,10 @@ Visto que existem funções teste separadas para a velocidade e pressão, pode-s
 
 \begin{align}
 	\begin{split}
-	\left(\NNSM\right)_{A,i} =&\int_{\domain} N_{A}\mathbf{e_i} \cdot \density\left(\frac{\partial\velocityh}{\partial t}+\velocityh\cdot \nabla\velocityh - \sbodyforce^h\right) d\domain +\int_{\domain} \straintensor \left(N_{A}\mathbf{e_i}\right) : \stresstensor \left(\velocityh,\pressh\right)\ d\domain\\ &
+	\left(\NNSM\right)_{A,i} =&\int_{\domain} N_{A}\mathbf{e_i} \cdot \density\left(\left. \frac{\partial\velocityh}{\partial t}\right|_{\posALE}+\left(\velocityh - \velocityALEh \right)\cdot \nabla_y \velocityh - \sbodyforce^h\right) d\domain +\int_{\domain} \straintensor \left(N_{A}\mathbf{e_i}\right) : \stresstensor \left(\velocityh,\pressh\right)\ d\domain\\ &
 	- \int_{\boundary_N}N_{A}\mathbf{e_i} \cdot \straction^h\ d\GammaN\\ 
-	&+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG \left(\velocityh \cdot \nabla N_{A}\mathbf{e_i}\right) \cdot \resMom\left(\velocityh,\pressh \right)\  d\domain\\
-	&+ \sum_{e=1}^{\nel} \int_{\domainE} \density \LSIC \left(\nabla \cdot N_{A}\mathbf{e_i}\right) \resPre\left(\velocityh\right)\  d\domain  ,
+	&+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG \left(\left(\velocityh - \velocityALEh \right) \cdot \nabla_y N_{A}\mathbf{e_i}\right) \cdot \resMom\left(\velocityh,\pressh \right)\  d\domain\\
+	&+ \sum_{e=1}^{\nel} \int_{\domainE} \density \LSIC \left(\nabla_y \cdot N_{A}\mathbf{e_i}\right) \resPre\left(\velocityh\right)\  d\domain  ,
 	\end{split}
 \end{align}
 
@@ -662,10 +673,12 @@ Visto que existem funções teste separadas para a velocidade e pressão, pode-s
 
 \begin{align}
 	\begin{split}
-	\left(\NNSC\right)_{A} = &\int_{\domain} N_A \nabla \cdot \velocityh \ d\domain \\ 
-	&+ \sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla N_A}{\density}\right) \cdot \resMom\left(\velocityh,\pressh\right) \  d\domain.
+	\left(\NNSC\right)_{A} = &\int_{\domain} N_A \nabla_y \cdot \velocityh \ d\domain \\ 
+	&+ \sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla_y N_A}{\density}\right) \cdot \resMom\left(\velocityh,\pressh\right) \  d\domain,
 	\end{split}
 \end{align}
+
+\noindent com $i=1,2$ para problemas 2D e $i=1,3$ para problemas 3D.
 		
 Considerando $\Acceleration$, $\Velocity$ e $\Press$ os vetores nodais dos graus de liberdade respectivos a velocidade, aceleração e pressão, pode-se escrever a forma semidiscreta do problema da DFC como: Encontrar $\Acceleration$, $\Velocity$ e $\Press$ de maneira que
 
@@ -682,7 +695,7 @@ Considerando $\Acceleration$, $\Velocity$ e $\Press$ os vetores nodais dos graus
 
 
 
-\section{Parâmetros de estabilização}\label{sec:taus}
+\subsection{Parâmetros de estabilização}\label{subsec:taus}
 
 Considerando que nesse trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em IGA, adotam-se os parâmetros propostos por \citeonline{TakizawaTO:2018} e \citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. 
 
@@ -692,7 +705,7 @@ Para essa opção é necessário definir-se o tensor métrico do elemento no esp
 	\matrixQ&=\left(\frac{\partial\pos}{\partial\coordAdimen}\right),
 \end{align}
 
-\noindent com $\coordAdimen$ representando as coordenadas do espaço paramétrico, com componentes $\xi, \eta$ e $\zeta$.
+\noindent com $\coordAdimen$ representando as coordenadas do espaço paramétrico, com componentes $\xi_1, \xi_2$ e $\xi_3$.
 
 Para que a ordem polinomial seja levada em consideração na determinação dos parâmetros de estabilização, aplica-se uma mudança de escala na matriz $\matrixQ$, através da matriz $\matrixD$, conforme a seguinte expressão:
 
@@ -700,16 +713,16 @@ Para que a ordem polinomial seja levada em consideração na determinação dos 
 	\matrixQhat&=\matrixQ\matrixD^{-1}.
 \end{align}
 
-Para elementos finitos com funções de forma polinomiais de Lagrange de ordem $p_{\xi}$, $p_{\eta}$ e  $p_{\zeta}$, definidas nas direções $\xi$, $\eta$ e $\zeta$ do espaço paramétrico respectivamente, com $-1\leq\xi, \eta, \zeta\leq1$, a  matriz $\matrixD$ é definida como:
+Para elementos finitos com funções de forma polinomiais de Lagrange de ordem $p_{i}$, na direções $\xi_i$ do espaço paramétrico , com $-1\leq\xi_i\leq1$, a  matriz $\matrixD$ é definida como:
 
 
 \textcolor{red}{e se a variação for de 0,1 ? tem alguma diferença}
 
 \begin{align}
 	\matrixD&=\begin{bmatrix}
-		p_{\xi} & 0 & 0\\
-		0 & p_{\eta} & 0 \\
-		0 & 0 & p_{\zeta}
+		p_{\xi_1} & 0 & 0\\
+		0 & p_{\xi_2} & 0 \\
+		0 & 0 & p_{\xi_3}
 	\end{bmatrix}.
 \end{align}
 
@@ -721,10 +734,10 @@ O comprimento direcional do elemento é definido como:
 	\RQD &=2\left(\rRGN\rRGN : \matrixG \right)^{-\frac{1}{2}},
 \end{align}
 
-\noindent sendo $\rRGN$ o vetor unitário na direção do gradiente da intensidade da velocidade e $\matrixG$ é denominada de tensor métrico do elemento, os quais são representados respectivamente como:
+\noindent sendo $\rRGN$ o vetor unitário na direção do gradiente da intensidade da velocidade e $\matrixG$ o tensor métrico do elemento, os quais são representados respectivamente como:
 
 \begin{align}
-	\rRGN&=\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert} \label{eq:erRGN}
+	\rRGN&=\frac{\nabla_y \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla_y \lVert\velocityh - \velocityALEh\rVert\rVert} \label{eq:erRGN}
 \end{align}
 
 \noindent e
@@ -743,8 +756,8 @@ O comprimento do elemento é limitado pelos mínimos e máximos valores represen
 \noindent que podem ser reescritos como:
 
 \begin{align}
-	h_{min} = 2\left(\lambda_{max}\matrixG\right)^{\frac{-1}{2}}, \\
-	h_{max} = 2\left(\lambda_{min}\matrixG\right)^{\frac{-1}{2}},
+	h_{min} = 2\left(\lambda_{max}\matrixG\right)^{-\frac{1}{2}}, \\
+	h_{max} = 2\left(\lambda_{min}\matrixG\right)^{-\frac{1}{2}},
 \end{align}
 
 \noindent onde $\lambda_{max}$ e $\lambda_{min}$ representam os máximos e mínimos autovalores da matriz $\matrixG$. 
@@ -778,14 +791,14 @@ Os parâmetros de estabilização são dados por:
 \noindent sendo $\rRGN_{reg}$ definido como:
 
 \begin{align}
-	\rRGN_{reg} =\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert + \varepsilon\left(\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert\right)_0},
+	\rRGN_{reg} =\frac{\nabla_y \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert + \varepsilon\left(\lVert \nabla_y \lVert\velocityh - \velocityALEh\rVert\rVert\right)_0},
 \end{align}
 
-\noindent com $\varepsilon$ uma constante pequena e $\left(\lVert \nabla \lVert\velocityh- \velocityALEh\rVert\rVert\right)_0$ um valor de referência. Os termos $\SUGNi$, $\SUGNii$ e $\SUGNiii$ são parâmetros correspondentes aos termos convectivos, inerciais e viscosos, respectivamente.
+\noindent com $\varepsilon$ uma constante pequena e $\left(\lVert \nabla_y \lVert\velocityh- \velocityALEh\rVert\rVert\right)_0$ um valor de referência. Os termos $\SUGNi$, $\SUGNii$ e $\SUGNiii$ são parâmetros correspondentes aos termos convectivos, inerciais e viscosos, respectivamente.
 
 \section{Integração Temporal}\label{sec:IntegTemp}
 
-Para a integração temporal das equações governantes, utiliza-se o método $\alpha$-generalizado. Esse método, no contexto das equações de Navier-Stokes em escoamentos incompressíveis para domínios fixos foi utilizado inicialmente por \citeonline{JansenWH:2000}.
+Para a integração temporal das equações governantes, utiliza-se o método $\alpha$-generalizado. Esse método foi proposto inicialmente por \citeonline{ChungH:1993} no contexto da mecânica das estruturas, e foi estendido para o contexto da dinâmica dos fluidos computacional por \citeonline{JansenWH:2000}.
 
 Considerando que o tempo da análise do problema é definido por um intervalo de $[0,T]$, o qual é particionado em subintervalos $\Delta t_{n} = t_{n+1} - t_{n}$, com $t_{n}$ e $t_{n+1}$ os instantes anterior e atual, respectivamente. A solução do problema consiste em: conhecida a solução nos graus de liberdade nodais ($\Acceleration$, $\Velocity$ e $\Press$) no passo de tempo $n$, encontrar a solução no passo de tempo $n+1$ de forma que:
 
@@ -807,7 +820,7 @@ Considerando que o tempo da análise do problema é definido por um intervalo de
 \Velocity_{n+1} = \Velocity_n + \timeStep\left(\left(1-\gamma\right)\Acceleration_n + \gamma\Acceleration_{n+1} \right). \label{eq:newmark}
 \end{gather}
 
-Os parâmetros que definem o instante intermediário, no qual as variáveis serão calculadas, são determinados de forma a proporcionarem estabilidade e precisão ao método. Seguindo a metodologia proposta por \citeonline{JansenWH:2000}, uma precisão de segunda ordem é obtida desde que: 
+Os parâmetros que definem o instante intermediário, no qual as variáveis serão calculadas, são determinados de forma a proporcionarem estabilidade e precisão ao método. Seguindo a metodologia proposta por \citeonline{JansenWH:2000}, uma precisão de segunda ordem é obtida, para casos lineares, desde que: 
 
 \begin{gather}
 \gamma = 1/2 + \alpham - \alphaf,\label{eq:gamma}
@@ -834,9 +847,9 @@ Para proporcionar a precisão de segunda-ordem de convergência e estabilidade d
 
 O parâmetro $\specRadius$ é conhecido como raio espectral da matriz de amplificação quando $\Delta t_{n} \rightarrow \infty$. Esse parâmetro controla a dissipação numérica em altas frequências realizada pelo processo de integração e está contido no intervalo de $[0,1]$. Para $\specRadius = 0$ a dissipação é máxima e para $\specRadius = 1$ não há introdução de difusão numérica ao método.
 
-Para a solução do sistema de equações não lineares compostas por Eq. \eqref{eq:momentum_residual_alpha} e Eq. \eqref{eq:continuity_residual_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva.
+Para a solução do sistema de equações não lineares compostas por Eq. \eqref{eq:momentum_residual_alpha} e Eq. \eqref{eq:continuity_residual_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva \cite{BazilevsTT:2013}.
 
-Na primeira etapa, conhecida a solução em um passo de tempo $n$, prediz-se a solução em $n+1$ com as seguintes equações:
+Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a solução em $n+1$ com as seguintes equações:
 
 \begin{align}
 \Acceleration_{n+1}^{0} = \frac{\gamma-1}{\gamma}\Acceleration_{n} \label{eq:Pred1},
@@ -871,7 +884,7 @@ Por fim, na fase 3 atualiza-se a solução através das seguintes relações:
 
 \begin{align}
 \Acceleration_{n+1}^{i+1} = \Acceleration_{n+1}^{i} + \Delta\Acceleration_{n+1}^{i},\label{update1} \\ 
-\Velocity_{n+1}^{i+1} = \Velocity_{n+1}^{i} + \Delta\Velocity_{n+1}^{i},\label{update2}\\
+\Velocity_{n+1}^{i+1} = \Velocity_{n+1}^{i} + \gamma \Delta t \Delta\Velocity_{n+1}^{i},\label{update2}\\
 \Press_{n+1}^{i+1} = \Press_{n+1}^{i} + \Delta\Press_{n+1}^{i}.\label{update3}
 \end{align}
 
@@ -916,8 +929,6 @@ O Algoritmo que descreve a implementação computacional tanto de problemas util
 \end{algorithm}
 
 
-Escrever sobre c++ e petsc, MUMPS
-
 
 \section{Verificação e Aplicações}
 
@@ -941,7 +952,7 @@ O estudo do problema de um escoamento sobre um cilindro 2D teve como principal i
 \end{figure}
 
 
-A geometria e condições de contorno são apresentadas na Fig. \ref{fig:cilindro2d_geometria}. Como pode-se observar trata-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nas paredes superior e inferior (velocidade normal à parede $u_{n}$ = 0). No contorno denominado como \textit{saída}, não se conhece o comportamento do escoamento, desta forma, determina-se sua posição no domínio computacional a uma distância grande o suficiente de maneira a não interferir no comportamento do escoamento. Além disso, prescreve-se uma condição de contorno dita artificial, que consiste em $\stresstensor \normal = \mathbf{0}$.
+A geometria e condições de contorno são apresentadas na Fig. \ref{fig:cilindro2d_geometria}. Como pode-se observar trata-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nas paredes superior e inferior. No contorno denominado como \textit{saída}, não se conhece o comportamento do escoamento, desta forma, determina-se sua posição no domínio computacional a uma distância grande o suficiente de maneira a não interferir no comportamento do escoamento. 
 
 Na Fig. \ref{fig:cilindro2d_malha} pode-se observar a malha não-estruturada de elementos finitos utilizada para esse problema, composta por 3122 elementos triangulares quadráticos e 6376 nós. O problema foi simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\rho = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$. 
 
@@ -955,20 +966,20 @@ F_D = \int_{\boundary_{c}} \stresstensor_{1j}n_{j} d\boundary_{c},
 F_L = \int_{\boundary_{c}} \stresstensor_{2j}n_{j} d\boundary_{c},
 \end{align}
 
-\noindent nas quais o símbolo $\boundary_{c}$ representa o contorno do cilindro e $n$ é o vetor normal à essa superfície. Os coeficientes de arrasto e sustentação são definidos respectivamente por:
+\noindent nas quais o símbolo $\boundary_{c}$ representa o contorno do cilindro e $_jn$ é o vetor normal à essa superfície na direção $j$, com $j=1,2$. Os coeficientes de arrasto e sustentação são definidos respectivamente por:
 
 \begin{align}
-	C_D = \frac{F_D}{0,5\rho \lVert \velocity \lVert^{2} L},
+	C_D = \frac{F_D}{0,5\rho \lVert \velocity_{\infty} \lVert^{2} L},
 \end{align}
 
 \begin{align}
-	C_L = \frac{F_L}{0,5\rho \lVert \velocity \lVert^{2} L},
+	C_L = \frac{F_L}{0,5\rho \lVert \velocity_{\infty} \lVert^{2} L},
 \end{align}.
 
 Devido ao fenômeno de desprendimento de vórtices que ocorre a partir de determinado número de Reynolds do escoamento, é usual determinar-se a frequência deste fenômeno através do número adimensional de Strouhal ($\Strouhal$), dado por:
 
 \begin{align}
-	\Strouhal = \frac{f_{V}L}{\lVert \velocity \lVert},
+	\Strouhal = \frac{f_{V}L}{\lVert \velocity_{\infty} \lVert},
 \end{align}.
 
 \noindent com $f_{V}$ sendo a frequência de desprendimento dos vórtices.
