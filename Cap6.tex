@@ -4,34 +4,41 @@
 
 
 \begin{comment}
-	\nomenclature[F,01]{$\Omega$}{Domínio computacional;}
-	\nomenclature[F,02]{$._{0}, ._{1}$}{Subíndices que designam o modelo Global e o modelo Local respectivamente;}
-	\nomenclature[F,04]{$\overlappingZone$}{Zona de superposição;}
-	\nomenclature[F,05]{$\gluingZone$}{Zona de colagem;}
-	\nomenclature[F,06]{$\freeZone$}{Zona livre;}
-	\nomenclature[F,07]{$\lagrangeMultiplier$}{Campo de multiplicadores de Lagrange;}
-	\nomenclature[F,08]{$k_{0},k_{1}$}{Constantes dos operadores de acoplamento;}
-	\nomenclature[F,09]{$L^{2}$}{Operador de acoplamento de ordem 0;}
-	\nomenclature[F,10]{$H^{1}$}{Operador de acoplamento de ordem 1;}
-	\nomenclature[F,11]{$\arlequinWF$}{Função ponderadora;}
-	\nomenclature[F,12]{$k_{a}$}{Constante arbitrária do método de Arlequin;}
-	\nomenclature[F,13]{$\lagSolution$}{Espaço vetorial das funções aproximadoras do campo de multiplicadores de Lagrange;}
-	\nomenclature[F,14]{$\lagTest$}{Espaço vetorial das funções ponderadoras do campo de multiplicadores de Lagrange;}
-	\nomenclature[F,15]{$\lagrangeMultiplierWFh$}{Função ponderadora pertencente ao espaço $\lagTest$;}
-	\nomenclature[F,16]{$\chi$}{Função lógica para determinação do pertencimento de um ponto à $\gluingZone$;}
-	\nomenclature[F,17]{$\tauArlequin$}{Parâmetro de estabilização da técnica RBSAM;}
-	\nomenclature[F,18]{$\mathbf{R}_{L}$}{Resíduo da versão semidoscreta da equação de restrição}
-	\nomenclature[F,19]{$\LagrangeMultiplier$}{Vetor nodal dos graus de liberdade respectivo aos multiplicadores de Lagrange}
-	\nomenclature[F,20]{$\tau_{A},\tau_{A}^{0},\tau_{A}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-	\nomenclature[F,21]{$\tau_{B},\tau_{B}^{0},\tau_{B}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-	\nomenclature[F,22]{$\tau_{C},\tau_{C}^{0},\tau_{C}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-	\nomenclature[F,23]{$\tau_{D},\tau_{D}^{0},\tau_{D}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-	\nomenclature[F,24]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-	\nomenclature[F,25]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}	
-	\nomenclature[F,26]{$\mathbf{M_{\lambda}},\mathbf{t}, \mathbf{j}, \mathbf{k}, \mathbf{p}, \mathbf{\boundary}$}{Matrizes elementares da formulação usadas na definição de $\tauArlequin$, com base dos termos de acoplamento, convectivos, inerciais, viscosos, pressão e de acoplamento (?) respectivamente;}
-	\nomenclature[F,27]{$C$}{Corda: distância entre o bordo ataque e de fuga do aerofólio;}	
-	\nomenclature[F,28]{$\theta, \theta_{max}, \theta_{min}$}{Ângulo de ataque; Ângulo de ataque máximo; Ângulo de ataque mínimo;}	
-	\nomenclature[F,29]{$f_{o}$}{Frequência de oscilação;}
+	\nomenclature[F,01]{$(\bullet)_{0}, (\bullet)_{1}$}{Subíndices que designam o modelo Global e o modelo Local respectivamente;}
+	\nomenclature[F,02]{$\overlappingZone$}{Zona de superposição;}
+	\nomenclature[F,03]{$\gluingZone$}{Zona de colagem;}
+	\nomenclature[F,04]{$\freeZone$}{Zona livre;}
+	\nomenclature[F,05]{$\lagrangeMultiplier$}{Campo de multiplicadores de Lagrange;}
+	\nomenclature[F,06]{$k_{0},k_{1}$}{Constantes dos operadores de acoplamento;}
+	\nomenclature[F,07]{$L^{2}$}{Operador de acoplamento de ordem 0;}
+	\nomenclature[F,08]{$H^{1}$}{Operador de acoplamento de ordem 1;}
+	\nomenclature[F,09]{$\arlequinWF$}{Função ponderadora;}
+	\nomenclature[F,10]{$k_{a}$}{Constante arbitrária do método de Arlequin;}
+	\nomenclature[F,11]{$\lagSolution$}{Espaço vetorial das funções aproximadoras do campo de multiplicadores de Lagrange;}
+	\nomenclature[F,12]{$\lagTest$}{Espaço vetorial das funções ponderadoras do campo de multiplicadores de Lagrange;}
+	\nomenclature[F,13]{$\lagrangeMultiplierWFh$}{Função ponderadora pertencente ao espaço $\lagTest$;}
+	\nomenclature[F,14]{$\chi$}{Função lógica para determinação do pertencimento de um ponto à $\gluingZone$;}
+	\nomenclature[F,15]{$\tauArlequin$}{Parâmetro de estabilização da técnica RBSAM;}
+	
+	 \nomenclature[F,16]{$\mathbf{K_{i}}$}{Matriz que representa os termos provenientes das matrizes referentes as equações da quantidade de movimento e da continuidade para o modelo $i$;}
+	 \nomenclature[F,17]{$\hat{\mathbf{L}_{i}}$}{Matriz que representa os termos oriundos do acoplamento do modelo $i$;;}
+	 \nomenclature[F,18]{$\mathbf{L}_{i}^{T}$}{Matriz procedente dos termos da equação de restrição e de componentes da estabilização RBSAM do modelo $i$;}
+	 \nomenclature[F,19]{$\mathbf{E}$}{Matriz com termos oriundos da estabilização RBSAM;}
+	 \nomenclature[F,20]{$\mathbf{\bar{U_{i}}}$}{Representa os vetores nodais dos graus de liberdade respectivos a velocidade e pressão do modelo $i$;}
+	 \nomenclature[F,21]{$\LagrangeMultiplier$}{Representa os graus de liberdade respectivos aos multiplicadores de Lagrange;}
+	 \nomenclature[F,22]{$\mathbf{F_{i}}$}{Representam os vetores provenientes das equações da quantidade de movimento e da continuidade do modelo $i$;}
+	 \nomenclature[F,23]{$\mathbf{F_{\LagrangeMultiplier}}$}{Representa os termos vetoriais advindos da estabilização RBSAM;}
+	\nomenclature[F,24]{$\mathbf{R}_{L}$}{Resíduo da versão semidiscreta da equação de restrição}
+	\nomenclature[F,25]{$\tau_{A},\tau_{A}^{0},\tau_{A}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+	\nomenclature[F,26]{$\tau_{B},\tau_{B}^{0},\tau_{B}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+	\nomenclature[F,27]{$\tau_{C},\tau_{C}^{0},\tau_{C}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+	\nomenclature[F,28]{$\tau_{D},\tau_{D}^{0},\tau_{D}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+	\nomenclature[F,29]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+	\nomenclature[F,30]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}	
+	\nomenclature[F,31]{$\mathbf{M_{\lambda}},\mathbf{t}, \mathbf{j}, \mathbf{k}, \mathbf{p}, \mathbf{\boundary}$}{Vetores elementares da formulação usadas na definição de $\tauArlequin$, relativo aos termos de restrição, convectivos, inerciais, viscosos, pressão e de acoplamento respectivamente;}
+	\nomenclature[F,32]{$C$}{Corda: distância entre o bordo ataque e de fuga do aerofólio;}	
+	\nomenclature[F,33]{$\theta, \theta_{max}, \theta_{min}$}{Ângulo de ataque; Ângulo de ataque máximo; Ângulo de ataque mínimo;}	
+	\nomenclature[F,34]{$f_{o}$}{Frequência de oscilação;}
 
 	
 \end{comment}
@@ -44,11 +51,11 @@
 
 Com intuito de superar as dificuldades encontrados com a técnica de decomposição de domínios apresentada no Cap. \ref{capitulo:Cap5}, neste capítulo será apresentado o método multiescala Arlequin que permite também levar em conta efeitos localizados através do uso de um modelo local mais refinado superposto a um modelo global com discretização mais grosseira. No método Arlequin, o processo é realizado através do cruzamento e colagem entre os modelos em uma zona de colagem através da utilização de um operador de acoplamento.
 
-A primeira parte deste capítulo será dedicada a descrever o método clássico de Arlequin, introduzido por \citeonline{Dhia:1998}. Na sequência será apresentada  a técnica de estabilização (RBSAM) introduzida por \citeonline{FernandesEtAll:2020} para o método de Arlequin no contexto de escoamentos incompressíveis. Na sucessão do capítulo, a extensão de tal metodologia para problemas de contorno móveis será exibida. E, por fim, o algoritmo da implementação computacional será exibido, bem como, exemplos de validação serão avaliados.
+A primeira parte deste capítulo descreve o método clássico de Arlequin, introduzido por \citeonline{Dhia:1998}. Em seguida, será apresentada a técnica de estabilização (RBSAM) proposta por \citeonline{FernandesEtAll:2020} para o método de Arlequin no contexto de escoamentos incompressíveis. Na sequência, será discutida a extensão dessa metodologia para problemas com contornos móveis. Por fim, serão apresentados o algoritmo da implementação computacional e exemplos de validação
 
 \section{Método Arlequin}
 
-O método Arlequin, introduzido por \citeonline{Dhia:1998}, consiste na superposição de um domínio local a um domínio global, em região efeitos localizados. Os modelos, local e global, são acoplados em uma zona de colagem através de um operador de acoplamento conveniente.
+O método Arlequin, introduzido por \citeonline{Dhia:1998}, consiste na superposição de um domínio local a um domínio global em uma região de efeitos localizados. Os modelos, local e global, são acoplados em uma zona de colagem através de um operador de acoplamento conveniente.
 
 O  método de Arlequin, de acordo com \citeonline{DhiaR:2005}, é baseado em três principais ideias (ver Fig. \ref{fig:DomLocalGlobal}):
 
@@ -129,13 +136,9 @@ De acordo com os autores \citeonline{JamondD:2013} a principal dificuldade encon
 
 A solução proposta pelos autores nesse trabalho foi a aplicação da condição de incompressibilidade em cada ponto do domínio computacional apenas uma vez. A metodologia consiste então da remoção da condição de incompressibilidade dos elementos total ou parcialmente encontrados na zona de colagem ($\gluingZone$) em um dos modelos. Indiferente do modelo eleito para a remoção da condição de incompressibilidade na zona de colagem, na zona livre, a condição de incompressibilidade é removida do modelo global. Deve-se destacar que no trabalho citado existem algumas recomendações com relação a estabilidade da metodologiam, como, por exemplo, a necessidade de existir pelo menos um elemento global na zona livre. Tal trabalho não explora as possíveis mudanças que acarretariam na estabilidade numérica em caso de sucessivas remoções e inclusões de condição de incompressibilidade no caso de um modelo local móvel.
 
-Por esse motivo, e pelas pesquisas anteriores já realizadas pela presente autora e seu grupo de pesquisa, optou-se pela adoção de elementos estabilizados, os quais já foram retratos nos capítulos anteriores (Cap. \ref{capitulo:Cap2} e Cap. \ref{capitulo:Cap3}).
+Por esse motivo, e pelas pesquisas anteriores já realizadas pela presente autora e seu grupo de pesquisa, optou-se pela adoção de elementos estabilizados, os quais já foram retratos no Cap. \ref{capitulo:Cap2}.
 
-Para a construção do método de Arlequin clássico precisamos retomar às equações para um monomodelo apresentadas na seção \ref{capitulo:Cap2:FormaFraca} que representam a forma fraca discretizada espacialmente e estabilizada das equações da quantidade de movimento (Eq. \ref{eq:FinalSystem}) e da continuidade (Eq. \ref{eq:RC}). 
-
-
-\textcolor{red}{VER AQUI}
-MUDAR AS EQUAÇÕES NO CAPÍTULO DE FLUIDOS PARA DEIXAR SEM O TERMO ALE INICIALMENTE. E ALTERAR AS EQUAÇÕES PARA FICAR COM A MESMA SIMBOLOGIA DE CONTORNO DAQUI. Verificar se deixo tudo com o superíndice h na definição dos espaços de tentativa e teste.
+Para a construção do método de Arlequin clássico precisamos retomar às equações para um monomodelo apresentadas no Cap. \ref{capitulo:Cap2} que representam a forma fraca discretizada espacialmente e estabilizada das equações da quantidade de movimento e da continuidade. Entretanto, será usada inicialmente uma descrição Euleriana dessas equações nesse capítulo.
 
 Considerando os espaços de dimensão finita das funções tentativa que descrevem a velocidade ($\uArlequinSolution$) e a pressão ($\pArlequinSolution$) e seus respectivos espaços de funções testes $\uArlequinTest$ e $\pArlequinTest$, com $i = 0,1$ indicando o índice do modelo, definidos como:
 
@@ -171,16 +174,15 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 
 \begin{align}
 	\begin{split}
-		&\int_{\domain_0} \arlequinWFGlobal \density \wglobalh \cdot \frac{\partial\uglobalh}{\partial t} d\domain_{0} \\ 
-		&\qquad+
-		\int_{\domain_0} \arlequinWFGlobal \density \wglobalh \cdot  \left(\uglobalh \cdot \nabla\right) \uglobalh d\domain_{0}  \\ 
-		&\qquad+	
+		&\int_{\domain_0} \arlequinWFGlobal \density \wglobalh \cdot \frac{\partial\uglobalh}{\partial t} d\domain_{0} +
+		\int_{\domain_0} \arlequinWFGlobal \density \wglobalh \cdot  \left(\uglobalh \cdot \nabla_y \right) \uglobalh d\domain_{0}  \\ 
+		&\quad+	
 		\int_{\domain_{0}} \arlequinWFGlobal \straintensor \left(\wglobalh\right) : \stresstensor \left(\uglobalh,\pglobalh\right)\ d\domain_{0} 
 		 \\ 
-		&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left(\left(\uglobalh \cdot \nabla \right) \wglobalh\right) \cdot \resMomGlobal\left(\uglobalh,\pglobalh \right)\  d\domain_{0} \\ 
-		&\qquad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla \cdot \wglobalh \resPreGlobal 
+		&\quad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left(\left(\uglobalh \cdot \nabla_y \right) \wglobalh\right) \cdot \resMomGlobal\left(\uglobalh,\pglobalh \right)\  d\domain_{0} \\ 
+		&\quad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla_y \cdot \wglobalh \resPreGlobal 
 		 \left(\uglobalh\right)\  d\domain_{0} \\
-		 &\qquad+ \chi_{0} \int_{\domain_c} \wglobalh \cdot \lagrangeMultiplier^{h} d\domain_{c}  = \int_{\domain_0} \arlequinWFGlobal \density \wglobalh \cdot  \sbodyforce_{0}^{h} d\domain_{0} + \int_{\boundary_{0}} \arlequinWFGlobal \uglobalh \cdot \straction_{0}^{h}\ d\boundary_{0},
+		 &\quad+ \chi_{0} \int_{\domain_c} \wglobalh \cdot \lagrangeMultiplier^{h} d\domain_{c}  = \int_{\domain_0} \arlequinWFGlobal \density \wglobalh \cdot  \sbodyforce_{0}^{h} d\domain_{0} + \int_{\boundary_{0}} \arlequinWFGlobal \wglobalh  \cdot \straction_{0}^{h}\ d\boundary_{0},
 		\label{eq:FinalSystem0}
 	\end{split}
 \end{align}
@@ -188,8 +190,8 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 
 \begin{align}
 	\begin{split}
-		&	\int_{\domain_{0}} \arlequinWFGlobal \qglobalh \nabla \cdot \uglobalh \ d\domain_{0} +
-\sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla \qglobalh}{\density}\right) \cdot \resMomGlobal\left(\uglobalh,\pglobalh\right) \  d\domain_{0},
+		&	\int_{\domain_{0}} \arlequinWFGlobal \qglobalh \nabla_y \cdot \uglobalh \ d\domain_{0} +
+\sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla_y \qglobalh}{\density}\right) \cdot \resMomGlobal\left(\uglobalh,\pglobalh\right) \  d\domain_{0},
 		\label{eq:RC0}
 	\end{split}
 \end{align}
@@ -197,16 +199,15 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 
 \begin{align}
 	\begin{split}
-		&\int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot \frac{\partial\ulocalh}{\partial t} d\domain_{1} \\ 
-		&\qquad+
-		\int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \left(\ulocalh \cdot \nabla\right)\ulocalh d\domain_{1}  \\ 
-		&\qquad+	
+		&\int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot \frac{\partial\ulocalh}{\partial t} d\domain_{1} +
+		\int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \left(\ulocalh \cdot \nabla_y \right)\ulocalh d\domain_{1}  \\ 
+		&\quad+	
 		\int_{\domain_{1}} \arlequinWFLocal \straintensor \left(\wlocalh\right) : \stresstensor \left(\ulocalh,\plocalh\right)\ d\domain_{1} 
 		\\ 
-		&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left( \right(\ulocalh \cdot \nabla \left) \wlocalh\right) \cdot \resMomLocal\left(\ulocalh,\plocalh \right)\  d\domain_{1} \\ 
-		&\qquad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla \cdot \wlocalh \resPreLocal
+		&\quad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left( \right(\ulocalh \cdot \nabla_y \left) \wlocalh\right) \cdot \resMomLocal\left(\ulocalh,\plocalh \right)\  d\domain_{1} \\ 
+		&\quad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla_y \cdot \wlocalh \resPreLocal
 		\left(\ulocalh\right)\  d\domain_{1} \\
-		&\qquad+ \chi_{1} \int_{\domain_c} \wlocalh \cdot \lagrangeMultiplier^{h} d\domain_{c}  = \int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \sbodyforce_{1}^{h} d\domain_{1} + \int_{\boundary_{1}} \arlequinWFLocal \ulocalh \cdot \straction_{1}^{h}\ d\boundary_{1},
+		&\quad+ \chi_{1} \int_{\domain_c} \wlocalh \cdot \lagrangeMultiplier^{h} d\domain_{c}  = \int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \sbodyforce_{1}^{h} d\domain_{1} + \int_{\boundary_{1}} \arlequinWFLocal \wlocalh \cdot \straction_{1}^{h}\ d\boundary_{1},
 		\label{eq:FinalSystem1}
 	\end{split}
 \end{align}
@@ -214,14 +215,14 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 
 \begin{align}
 	\begin{split}
-		&	\int_{\domain_{1}} \arlequinWFLocal \qlocalh \nabla \cdot \ulocalh \ d\domain_{1} +
-		\sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla \qlocalh}{\density}\right) \cdot \resMomLocal \left(\ulocalh,\plocalh\right) \  d\domain_{1} = 0,\\
+		&	\int_{\domain_{1}} \arlequinWFLocal \qlocalh \nabla_y \cdot \ulocalh \ d\domain_{1} +
+		\sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla_y \qlocalh}{\density}\right) \cdot \resMomLocal \left(\ulocalh,\plocalh\right) \  d\domain_{1} = 0,
 		\label{eq:RC1}
 	\end{split}
 \end{align}
 
 \begin{align}
-	\int_{\domain_{c}}  \lagrangeMultiplierWFh  \cdot \left(\uglobalh - \ulocalh \right) \ d\domain_{c}, 
+	\int_{\domain_{c}}  \lagrangeMultiplierWFh  \cdot \left(\uglobalh - \ulocalh \right) \ d\domain_{c} = 0, 
 		\label{eq:EqAcopla}
 \end{align}
 
@@ -230,21 +231,21 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 \noindent onde $\resMomI$ e ${\resPreI}$ são os resíduos da equação da quantidade de movimento e da equação da continuidade, com $i=0,1$, respectivamente, dados por:
 
 \begin{align}
-	\resMomI \left(\uArlqi,\pArlqi,\lagrangeMultiplierh \right)&=\arlequinWF_{i} \density\left(\frac{\partial\uArlqi}{\partial t}+ \left( \uArlqi \cdot \nabla \right) \uArlqi - \sbodyforce_i^{h}\right) - \arlequinWF_{i} \nabla \cdot \stresstensor\left(\uArlqi,\pArlqi\right)+ \chi_{i} \lagrangeMultiplierh \label{eq:resMomI},
+	\resMomI \left(\uArlqi,\pArlqi,\lagrangeMultiplierh \right)&=\arlequinWF_{i} \density\left(\frac{\partial\uArlqi}{\partial t}+ \left( \uArlqi \cdot \nabla_y \right) \uArlqi - \sbodyforce_i^{h}\right) - \arlequinWF_{i} \nabla_y \cdot \stresstensor\left(\uArlqi,\pArlqi\right)+ \chi_{i} \lagrangeMultiplierh \label{eq:resMomI},
 \end{align}
 
 \noindent
 
 \begin{align}
-	\resPreI\left(\uArlqi\right)&= \arlequinWF_{i} \nabla \cdot \uArlqi \label{eq:resPreI}, 
+	\resPreI\left(\uArlqi\right)&= \arlequinWF_{i} \nabla_y \cdot \uArlqi \label{eq:resPreI}, 
 \end{align}
 
 \noindent com $\chi_{i}$ descrito da maneira que se segue:
 
 
 \begin{align}
-	\chi_{i} = \begin{cases} (-1)^{i} \ se \ \mathbf{x} \in \domain_{c} \\
-			   0 \ se \ \mathbf{x} \notin \domain_{c}. \end{cases}						. 
+	\chi_{i} = \begin{cases} (-1)^{i} \ se \ \pos \in \domain_{c} \\
+			   0 \ se \ \pos \notin \domain_{c}. \end{cases}						. 
 \end{align}
 
 O problema descrito pelas equações \ref{eq:FinalSystem0} à \ref{eq:EqAcopla} descreve à versão clássica do método de Arlequin para o problema de Navier-Stokes estabilizado pela técnica PSPG/SUPG. Matematicamente trata-se de um problema de ponto de sela decorrente de uma formulação mista. Entretanto, desde que a condição LBB seja satisfeita, existe solução para o problema e ela é única. 
@@ -259,8 +260,8 @@ O problema descrito no método Arlequin clássico é análogo a formulação mis
 Com intuito de superar a condição LBB para o problema de Arlequin, \citeonline{FernandesEtAll:2020} desenvolvem uma técnica de estabilização consistente baseada em resíduo. Para isso, introduz-se uma parcela adicional à equação dos campos de multiplicadores de Lagrange, que leva em conta o gradiente de $\lagrangeMultiplierWFh$ e o resíduo da equação da quantidade de movimento:
 
 \begin{align}
-	\sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinGlobal}{\rho} \nabla \lagrangeMultiplierWFh : \nabla \resMomGlobal\left(\uglobalh,\pglobalh \right) \ d\domain_{c} - 
-	\sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinLocal}{\rho} \nabla \lagrangeMultiplierWFh : \nabla \resMomLocal\left(\ulocalh,\plocalh \right) \ d\domain_{c},
+	\sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinGlobal}{\rho} \nabla_y \lagrangeMultiplierWFh : \nabla_y \resMomGlobal\left(\uglobalh,\pglobalh \right) \ d\domain_{c} - 
+	\sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinLocal}{\rho} \nabla_y \lagrangeMultiplierWFh : \nabla_y \resMomLocal\left(\ulocalh,\plocalh \right) \ d\domain_{c},
 \end{align}
 
 \noindent sendo $\tauArlequinGlobal$ e $\tauArlequinLocal$ parâmetros de estabilização, respectivamente da malha global e local. A obtenção destes parâmetros será abordada na subseção seguinte. 
@@ -270,14 +271,14 @@ Dessa forma, pode-se definir a solução do problema de Navier-Stokes para escoa
 \begin{align}
 	\begin{split}
 		&\int_{\domain_0} \arlequinWFGlobal \density \wglobalh \cdot \frac{\partial\uglobalh}{\partial t} d\domain_{0} +
-		\int_{\domain_0} \arlequinWFGlobal \density \wglobalh \cdot  \left(\uglobalh \cdot \nabla\right)\uglobalh d\domain_{0}  \\ 
-		&\qquad+	
+		\int_{\domain_0} \arlequinWFGlobal \density \wglobalh \cdot  \left(\uglobalh \cdot \nabla_y \right)\uglobalh d\domain_{0}  \\ 
+		&\quad+	
 		\int_{\domain_{0}} \arlequinWFGlobal \straintensor \left(\wglobalh\right) : \stresstensor \left(\uglobalh,\pglobalh\right)\ d\domain_{0} 
 		\\ 
-		&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left(\left(\uglobalh \cdot \nabla \right) \wglobalh\right) \cdot \resMomGlobal\left(\uglobalh,\pglobalh \right)\  d\domain_{0} \\ 
-		&\qquad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla \cdot \wglobalh \resPreGlobal 
+		&\quad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left(\left(\uglobalh \cdot \nabla_y \right) \wglobalh\right) \cdot \resMomGlobal\left(\uglobalh,\pglobalh \right)\  d\domain_{0} \\ 
+		&\quad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla_y \cdot \wglobalh \resPreGlobal 
 		\left(\uglobalh\right)\  d\domain_{0} \\
-		&\qquad+ \chi_{0} \int_{\domain_c} \wglobalh \cdot \lagrangeMultiplier^{h} d\domain_{c}  = \int_{\domain_0} \arlequinWFGlobal \density \wglobalh \cdot  \sbodyforce_{0}^{h} d\domain_{0} + \int_{\boundary_{0}} \arlequinWFGlobal \uglobalh \cdot \straction_{0}^{h}\ d\boundary_{0}, 
+		&\quad+ \chi_{0} \int_{\domain_c} \wglobalh \cdot \lagrangeMultiplier^{h} d\domain_{c}  = \int_{\domain_0} \arlequinWFGlobal \density \wglobalh \cdot  \sbodyforce_{0}^{h} d\domain_{0} + \int_{\boundary_{0}} \arlequinWFGlobal \wglobalh \cdot \straction_{0}^{h}\ d\boundary_{0}, 
 		\label{eq:FinalSystem0est}
 	\end{split}
 \end{align}
@@ -285,8 +286,8 @@ Dessa forma, pode-se definir a solução do problema de Navier-Stokes para escoa
 
 \begin{align}
 	\begin{split}
-		&	\int_{\domain_{0}} \arlequinWFGlobal \qglobalh \nabla \cdot \uglobalh \ d\domain_{0} +
-		\sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla \qglobalh}{\density}\right) \cdot \resMomGlobal\left(\uglobalh,\pglobalh\right) \  d\domain_{0} = 0, 
+		&	\int_{\domain_{0}} \arlequinWFGlobal \qglobalh \nabla_y \cdot \uglobalh \ d\domain_{0} +
+		\sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla_y \qglobalh}{\density}\right) \cdot \resMomGlobal\left(\uglobalh,\pglobalh\right) \  d\domain_{0} = 0, 
 		\label{eq:RC0est}
 	\end{split}
 \end{align}
@@ -295,14 +296,14 @@ Dessa forma, pode-se definir a solução do problema de Navier-Stokes para escoa
 \begin{align}
 	\begin{split}
 		&\int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot \frac{\partial\ulocalh}{\partial t} d\domain_{1} +
-		\int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \left(\ulocalh \cdot \nabla\right)\ulocalh d\domain_{1}  \\ 
-		&\qquad+	
+		\int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \left(\ulocalh \cdot \nabla_y \right)\ulocalh d\domain_{1}  \\ 
+		&\quad+	
 		\int_{\domain_{1}} \arlequinWFLocal \straintensor \left(\wlocalh\right) : \stresstensor \left(\ulocalh,\plocalh\right)\ d\domain_{1} 
 		\\ 
-		&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left( \right(\ulocalh \cdot \nabla \left) \wlocalh\right) \cdot \resMomLocal\left(\ulocalh,\plocalh \right)\  d\domain_{1} \\ 
-		&\qquad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla \cdot \wlocalh \resPreLocal
+		&\quad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left( \right(\ulocalh \cdot \nabla_y \left) \wlocalh\right) \cdot \resMomLocal\left(\ulocalh,\plocalh \right)\  d\domain_{1} \\ 
+		&\quad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla_y \cdot \wlocalh \resPreLocal
 		\left(\ulocalh\right)\  d\domain_{1} \\
-		&\qquad+ \chi_{1} \int_{\domain_c} \wlocalh \cdot \lagrangeMultiplier^{h} d\domain_{c}  = \int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \sbodyforce_{1}^{h} d\domain_{1} + \int_{\boundary_{1}} \arlequinWFLocal \ulocalh \cdot \straction_{1}^{h}\ d\boundary_{1}, 
+		&\quad+ \chi_{1} \int_{\domain_c} \wlocalh \cdot \lagrangeMultiplier^{h} d\domain_{c}  = \int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \sbodyforce_{1}^{h} d\domain_{1} + \int_{\boundary_{1}} \arlequinWFLocal \wlocalh \cdot \straction_{1}^{h}\ d\boundary_{1}, 
 		\label{eq:FinalSystem1est}
 	\end{split}
 \end{align}
@@ -310,8 +311,8 @@ Dessa forma, pode-se definir a solução do problema de Navier-Stokes para escoa
 
 \begin{align}
 	\begin{split}
-		&	\int_{\domain_{1}} \arlequinWFLocal \qlocalh \nabla \cdot \ulocalh \ d\domain_{1}+
-		\sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla \qlocalh}{\density}\right) \cdot \resMomLocal \left(\ulocalh,\plocalh\right) \  d\domain_{1} = 0, 
+		&	\int_{\domain_{1}} \arlequinWFLocal \qlocalh \nabla_y \cdot \ulocalh \ d\domain_{1}+
+		\sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla_y \qlocalh}{\density}\right) \cdot \resMomLocal \left(\ulocalh,\plocalh\right) \  d\domain_{1} = 0, 
 		\label{eq:RC1est}
 	\end{split}
 \end{align}
@@ -319,8 +320,8 @@ Dessa forma, pode-se definir a solução do problema de Navier-Stokes para escoa
 
 \begin{align}
 	\begin{split}
-	&\int_{\domain_{c}}  \lagrangeMultiplierWFh  \cdot \left(\uglobalh - \ulocalh \right) \ d\domain_{c} + \sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinGlobal}{\rho} \nabla \lagrangeMultiplierWFh : \nabla \resMomGlobal\left(\uglobalh,\pglobalh\right) \ d\domain_{c}  \\
-	&\qquad-\sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinLocal}{\rho} \nabla \lagrangeMultiplierWFh : \nabla \resMomLocal \ d\domain_{c},
+	&\int_{\domain_{c}}  \lagrangeMultiplierWFh  \cdot \left(\uglobalh - \ulocalh \right) \ d\domain_{c} + \sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinGlobal}{\rho} \nabla_y \lagrangeMultiplierWFh : \nabla_y \resMomGlobal\left(\uglobalh,\pglobalh\right) \ d\domain_{c}  \\
+	&\quad-\sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinLocal}{\rho} \nabla_y \lagrangeMultiplierWFh : \nabla_y \resMomLocal \ d\domain_{c} = 0,
 	\label{eq:EqAcoplaest}
 \end{split}
 \end{align}
@@ -336,20 +337,20 @@ O sistema resultante pode ser reescrito em notação matricial como:
 		\mathbf{L}_{0}^{T} & -\mathbf{L}_{1}^{T} & \mathbf{E}
 	\end{bmatrix}
 	\begin{bmatrix}
-		\mathbf{U_{0}} \\
-		\mathbf{U_{1}} \\
-		\lagrangeMultiplier
+		\mathbf{\bar{U_{0}}} \\
+		\bar{\mathbf{U_{1}}} \\
+		\LagrangeMultiplier
 	\end{bmatrix}
 	&=
 	\begin{bmatrix}
 		\mathbf{F_{0}} \\
 		\mathbf{F_{1}} \\
-		\mathbf{F_{\lagrangeMultiplier}}
+		\mathbf{F_{\LagrangeMultiplier}}
 	\end{bmatrix}.
 	\label{eq:sistema_linear}
 \end{align}	
 
-\textcolor{red}{Como poderia chamar essas matrizes?}
+Considerando $i=0,1$ designando os modelos global e local respectivamente têm-se a definição dos termos da Eq. \ref{eq:sistema_linear} como: $\mathbf{K_{i}}$ é uma matriz que representa os termos provenientes das matrizes referentes as equações da quantidade de movimento e da continuidade para o modelo $i$; $\hat{\mathbf{L}_{i}}$ matriz que representa os termos de acoplamento do modelo $i$; $\mathbf{L}_{i}^{T}$ matriz procedente dos termos da equação de restrição e de componentes da estabilização RBSAM do modelo $i$; $\mathbf{E}$ apresenta termos oriundos da estabilização RBSAM; $\mathbf{\bar{U_{i}}}$ representa os vetores nodais dos graus de liberdade respectivos a velocidade e pressão do modelo $i$; $\LagrangeMultiplier$ representa os graus de liberdade respectivos aos multiplicadores de Lagrange; $\mathbf{F_{i}}$ representa os vetores provenientes das equações da quantidade de movimento e da continuidade para o modelo $i$; $\mathbf{F_{\LagrangeMultiplier}}$ representa os termos vetoriais advindos da estabilização RBSAM. 
 
 Note que na estabilização Arlequin baseada no resíduo (RBSAM) não existem elementos zeros na diagonal da matriz, diferente do mesmo problema na formulação clássica Arlequin. No trabalho de \citeonline{FernandesEtAll:2020} pode-se encontrar a análise de estabilidade dessa técnica e testes numéricos que avaliam o condicionamento do sistema algébrico e a convergência do método.
 
@@ -358,14 +359,14 @@ O problema de Arlequin não linear apresentado nas equações: Eq. \ref{eq:Final
 \begin{align}
 	\begin{split}
 		&\mathbf{R}_{M,i} = \int_{\domain_i} \arlequinWF_{i} \density \wArlqi \cdot \frac{\partial\uArlqi}{\partial t} d\domain_{i} +
-		\int_{\domain_i} \arlequinWF_{i} \density \wArlqi \cdot  \left(\uArlqi \cdot \nabla\right)\uArlqi d\domain_{i}  \\ 
+		\int_{\domain_i} \arlequinWF_{i} \density \wArlqi \cdot  \left(\uArlqi \cdot \nabla_y \right)\uArlqi d\domain_{i}  \\ 
 		&\qquad+	
 		\int_{\domain_{i}} \arlequinWF_{i} \straintensor \left(\wArlqi\right) : \stresstensor \left(\uArlqi,\pArlqi\right)\ d\domain_{i} 
 		\\ 
 		&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left( \right(\uArlqi \cdot \nabla \left) \wArlqi\right) \cdot \resMomI \left(\uArlqi,\pArlqi \right)\  d\domain_{i} \\ 
-		&\qquad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla \cdot \wArlqi \resPreI
+		&\qquad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla_y \cdot \wArlqi \resPreI
 		\left(\uArlqi\right)\  d\domain_{i} \\
-		&\qquad+ \chi_{i} \int_{\domain_c} \wArlqi \cdot \lagrangeMultiplier^{h} d\domain_{c} - \int_{\domain_i} \arlequinWF_{i} \density \wArlqi \cdot  \sbodyforce_{i}^{h} d\domain_{i} - \int_{\boundary_{i}} \arlequinWF_{i} \uArlqi \cdot \straction_{i}^{h}\ d\boundary_{i},
+		&\qquad+ \chi_{i} \int_{\domain_c} \wArlqi \cdot \lagrangeMultiplier^{h} d\domain_{c} - \int_{\domain_i} \arlequinWF_{i} \density \wArlqi \cdot  \sbodyforce_{i}^{h} d\domain_{i} - \int_{\boundary_{i}} \arlequinWF_{i} \wArlqi \cdot \straction_{i}^{h}\ d\boundary_{i},
 		\label{eq:ResidualMomentum}
 	\end{split}
 \end{align}
@@ -373,16 +374,16 @@ O problema de Arlequin não linear apresentado nas equações: Eq. \ref{eq:Final
 
 \begin{align}
 	\begin{split}
-		&\mathbf{R}_{C,i} = \int_{\domain_{i}} \arlequinWF_{i} \qArlqi \nabla \cdot \uArlqi \ d\domain_{i} +
-		\sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla \qArlqi }{\density}\right) \cdot \resMomI \left(\uArlqi,\pArlqi \right) \  d\domain_{i},
+		&\mathbf{R}_{C,i} = \int_{\domain_{i}} \arlequinWF_{i} \qArlqi \nabla_y \cdot \uArlqi \ d\domain_{i} +
+		\sum_{e=1}^{\nel} \int_{\domainE} \PSPG \left(\frac{\nabla_y \qArlqi }{\density}\right) \cdot \resMomI \left(\uArlqi,\pArlqi \right) \  d\domain_{i},
 		\label{eq:ResidualContinum}
 	\end{split}
 \end{align}
 
 \begin{align}
 	\begin{split}
-		&\mathbf{R}_{L} = \int_{\domain_{c}}  \lagrangeMultiplierWFh  \cdot \left(\uglobalh - \ulocalh \right) \ d\domain_{c} + \sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinGlobal}{\rho} \nabla \lagrangeMultiplierWFh : \nabla \resMomGlobal\left(\uglobalh,\pglobalh\right) \ d\domain_{c}\\
-		&\qquad - \sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinLocal}{\rho} \nabla \lagrangeMultiplierWFh : \nabla \resMomLocal\left(\ulocalh,\plocalh\right) \ d\domain_{c}.
+		&\mathbf{R}_{L} = \int_{\domain_{c}}  \lagrangeMultiplierWFh  \cdot \left(\uglobalh - \ulocalh \right) \ d\domain_{c} + \sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinGlobal}{\rho} \nabla_y \lagrangeMultiplierWFh : \nabla_y \resMomGlobal\left(\uglobalh,\pglobalh\right) \ d\domain_{c}\\
+		&\qquad - \sum_{e=1}^{\nel} \int_{\domainE_{c}} \frac{\tauArlequinLocal}{\rho} \nabla_y \lagrangeMultiplierWFh : \nabla_y \resMomLocal\left(\ulocalh,\plocalh\right) \ d\domain_{c}.
 		\label{eq:ResidualLagrange}
 	\end{split}
 \end{align}
@@ -459,7 +460,7 @@ Na etapa iterativa corretiva, itera-se sobre a Eq. \eqref{eq:NLinear1} à Eq. \e
 	\LagrangeMultiplier_{(n+1)}^{i} = \LagrangeMultiplier_{(n+1)}^{i}. \label{eq:Inter7}
 \end{align}
 
-Na fase 2, com os valores intermediários das variáveis nodais resolve-se o sistema linear resultante da linearização das equações Eq. \eqref{eq:NLinear1} à Eq. \eqref{eq:NLinear1} com respeito às variáveis de interesse $\Acceleration_{0(n+1)}$, $\Press_{0(n+1)}$,  $\Acceleration_{1(n+1)}$, $\Press_{1(n+1)}$ e $\LagrangeMultiplier_{(n+1)}$:
+Na fase 2, com os valores intermediários das variáveis nodais resolve-se o sistema linear resultante da linearização das equações Eq. \eqref{eq:NLinear1} à Eq. \eqref{eq:NLinear5} com respeito às variáveis de interesse $\Acceleration_{0(n+1)}$, $\Press_{0(n+1)}$,  $\Acceleration_{1(n+1)}$, $\Press_{1(n+1)}$ e $\LagrangeMultiplier_{(n+1)}$:
 
 \begin{align}
 	\begin{bmatrix}
@@ -491,10 +492,10 @@ Atualiza-se então na fase 3 a solução através das seguintes relações:
 
 \begin{align}
 	\Acceleration_{0(n+1)}^{i+1} = \Acceleration_{0(n+1)}^{i} + \Delta\Acceleration_{0(n+1)}^{i}, \label{eq:up1} \\ 
-	\Velocity_{0(n+1)}^{i+1} = \Velocity_{0(n+1)}^{i} + \Delta\Velocity_{0(n+1)}^{i},\label{eq:up2}\\
+	\Velocity_{0(n+1)}^{i+1} = \Velocity_{0(n+1)}^{i} + \gamma \Delta t \Delta\Velocity_{0(n+1)}^{i},\label{eq:up2}\\
 	\Press_{0(n+1)}^{i+1} = \Press_{0(n+1)}^{i} + \Delta\Press_{0(n+1)}^{i}, \label{eq:up3} \\
 	\Acceleration_{1(n+1)}^{i+1} = \Acceleration_{1(n+1)}^{i} + \Delta\Acceleration_{1(n+1)}^{i}, \label{eq:up4} \\ 
-	\Velocity_{1(n+1)}^{i+1} = \Velocity_{1(n+1)}^{i} + \Delta\Velocity_{1(n+1)}^{i},\label{eq:up5}\\
+	\Velocity_{1(n+1)}^{i+1} = \Velocity_{1(n+1)}^{i} + \gamma \Delta t \Delta\Velocity_{1(n+1)}^{i},\label{eq:up5}\\
 	\Press_{1(n+1)}^{i+1} = \Press_{0(n+1)}^{i} + \Delta\Press_{1(n+1)}^{i}, \label{eq:up6} \\
 	\LagrangeMultiplier_{1(n+1)}^{i+1} = \LagrangeMultiplier_{0(n+1)}^{i} + \Delta\LagrangeMultiplier_{1(n+1)}^{i}. \label{eq:up7}
 \end{align}
@@ -539,7 +540,7 @@ Propõe-se como critério a obtenção de termos de estabilização com magnitud
 	\tau_{E_{i}} = \left(\frac{1}{\left(\tau_{E_i^{0}}\right)^{2} + \left(\tau_{E_i^{1}}\right)^{2}} \right)^{-\frac{1}{2}},\label{eq:tEi}
 \end{align}
 
-\noindent sendo as variáveis das equacões \refeq{eq:tAi} à \refeq{eq:tAi} as seguintes normas vetoriais:
+\noindent sendo as variáveis das equacões \refeq{eq:tAi} à \refeq{eq:tEi} as seguintes normas vetoriais:
 
 \begin{align}
 	\tau_{A_i^{0}} = \frac{|| \mathbf{M_{\lambda_0}} || }{||\mathbf{t_{i}} ||}; \ \ \ \ \  & \tau_{A_i^{1}} = \frac{|| \mathbf{M_{\lambda_1}} || }{||\mathbf{t_{i}} ||}  ,
@@ -576,23 +577,23 @@ Por fim, os vetores em questão, são definidos através das seguintes relaçõe
 \end{align}
 
 \begin{align}
-	\mathbf{t_{i}} = \int_{\domain_{c}^{e}} \nabla N_{k} : \arlequinWF_{i} \nabla \left( \left( \uArlqi \cdot  \nabla \right) \uArlqi \right)  d\domain_{c}^{e},
+	\mathbf{t_{i}} = \int_{\domain_{c}^{e}} \nabla_y N_{k} : \arlequinWF_{i} \nabla_y \left( \left( \uArlqi \cdot  \nabla_y \right) \uArlqi \right)  d\domain_{c}^{e},
 \end{align}
 
 \begin{align}
-	\mathbf{j_{i}} = \int_{\domain_{c}^{e}} \nabla N_{k} :  \arlequinWF_{i} \nabla \left(\frac{\partial\uArlqi}{\partial t}  \right)  d\domain_{c}^{e},
+	\mathbf{j_{i}} = \int_{\domain_{c}^{e}} \nabla_y N_{k} :  \arlequinWF_{i} \nabla_y \left(\frac{\partial\uArlqi}{\partial t}  \right)  d\domain_{c}^{e},
 \end{align}
 
 \begin{align}
-	\mathbf{k_{i}} = \int_{\domain_{c}^{e}} \nabla^{2} N_{k} : \arlequinWF_{i} 2 \mu \nabla \cdot \straintensor \left(\uArlqi\right)    d\domain_{c}^{e},
+	\mathbf{k_{i}} = \int_{\domain_{c}^{e}} \nabla_y^{2} N_{k} : \arlequinWF_{i} 2 \mu \nabla_y \cdot \straintensor \left(\uArlqi\right)    d\domain_{c}^{e},
 \end{align}
 
 \begin{align}
-	\mathbf{p_{i}} = \int_{\domain_{c}^{e}} \nabla N_{k} : \arlequinWF_{i} \nabla \left(-\nabla p_i^h\right)    d\domain_{c}^{e},
+	\mathbf{p_{i}} = \int_{\domain_{c}^{e}} \nabla_y N_{k} : \arlequinWF_{i} \nabla_y \left(-\nabla_y p_i^h\right)    d\domain_{c}^{e},
 \end{align}
 
 \begin{align}
-	\mathbf{\boundary_{i}} = \int_{\domain_{c}^{e}} \nabla N_{k} : \nabla \left(\chi (i) \lagrangeMultiplierh\right)    d\domain_{c}^{e},
+	\mathbf{\boundary_{i}} = \int_{\domain_{c}^{e}} \nabla_y N_{k} : \nabla_y \left(\chi (i) \lagrangeMultiplierh\right)    d\domain_{c}^{e},
 \end{align}
 
 
@@ -611,16 +612,15 @@ Para análise de domínios móveis do tipo Euleriano-ALE, a Eq. \ref{eq:FinalSys
 
 \begin{align}
 	\begin{split}
-		&\int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot \frac{\partial\ulocalh}{\partial t} d\domain_{1} \\ 
-		&\qquad+
-		\int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \left(\left(\ulocalh - \velocityALEh_{1}\right) \cdot \nabla\ulocalh\right) d\domain_{1}  \\ 
-		&\qquad+	
+		&\int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot \left. \frac{\partial\ulocalh}{\partial t} \right|_{\posALE} d\domain_{1} +
+		\int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \left(\left(\ulocalh - \velocityALEh_{1}\right) \cdot \nabla_y \ulocalh\right) d\domain_{1}  \\ 
+		&\quad+	
 		\int_{\domain_{1}} \arlequinWFLocal \straintensor \left(\wlocalh\right) : \stresstensor \left(\ulocalh,\plocalh\right)\ d\domain_{1} 
 		\\ 
-		&\qquad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left( \right(\ulocalh \cdot \nabla \left) \wlocalh\right) \cdot \resMomLocal\left(\ulocalh,\plocalh \right)\  d\domain_{1} \\ 
-		&\qquad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla \cdot \wlocalh \resPreLocal
+		&\quad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left( \left(\ulocalh - \velocityALEh_{1}\right) \cdot \nabla_y \wlocalh\right) \cdot \resMomLocal\left(\ulocalh,\plocalh \right)\  d\domain_{1} \\ 
+		&\quad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \nabla_y \cdot \wlocalh \resPreLocal
 		\left(\ulocalh\right)\  d\domain_{1} \\
-		&\qquad+  \chi_{1} \int_{\domain_c} \wlocalh \cdot \lagrangeMultiplier^{h} d\domain_{c}  = \int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \sbodyforce_{1}^{h} d\domain_{1} + \int_{\boundary_{1}} \arlequinWFLocal \ulocalh \cdot \straction_{1}^{h}\ d\boundary_{1},
+		&\quad+  \chi_{1} \int_{\domain_c} \wlocalh \cdot \lagrangeMultiplier^{h} d\domain_{c}  = \int_{\domain_1} \arlequinWFLocal \density \wlocalh \cdot  \sbodyforce_{1}^{h} d\domain_{1} + \int_{\boundary_{1}} \arlequinWFLocal \wlocalh \cdot \straction_{1}^{h}\ d\boundary_{1},
 		\label{eq:QtdeMovArlqALE}
 	\end{split}
 \end{align}
@@ -629,7 +629,7 @@ Para análise de domínios móveis do tipo Euleriano-ALE, a Eq. \ref{eq:FinalSys
 
 
 \begin{align}
-	\resMomLocal \left(\ulocalh,\plocalh,\lagrangeMultiplierh \right)&=\arlequinWF_{1} \density\left(\frac{\partial\ulocalh}{\partial t}+ \left(\ulocalh - \velocityALEh_{1}\right) \cdot \nabla\ulocalh  - \sbodyforce_1^{h}\right) - \arlequinWF_{1} \nabla \cdot \stresstensor\left(\ulocalh,\plocalh,\right)+ \chi_{1} \lagrangeMultiplierh \label{eq:resMomARLQALE}.
+	\resMomLocal \left(\ulocalh,\plocalh,\lagrangeMultiplierh \right)&=\arlequinWF_{1} \density\left(\left. \frac{\partial\ulocalh}{\partial t} \right|_{\posALE}+ \left(\ulocalh - \velocityALEh_{1}\right) \cdot \nabla_y\ulocalh  - \sbodyforce_1^{h}\right) - \arlequinWF_{1} \nabla_y \cdot \stresstensor\left(\ulocalh,\plocalh,\right)+ \chi_{1} \lagrangeMultiplierh \label{eq:resMomARLQALE}.
 \end{align}
 
 Além da consideração da descrição ALE para o modelo local, deve-se ressaltar que a função ponderadora $\arlequinWF_{i}$ passa a ser uma variável temporal, ou seja, $\arlequinWF_{i}(t)$ para o modelo global, visto que a zona de superposição $\overlappingZone$ é definida em diferentes posições em cada instante de tempo. Dessa forma, a integração temporal utilizando o método $\alpha$-generalizado deve considerar essa variação através da seguinte interpolação no tempo intermediário:
@@ -655,7 +655,7 @@ Previamente à explicação a cerca da implementação computacional, é importa
 
 O uso da técnica Arlequin envolve a realização de algumas etapas de pré-processamento como parte de sua implementação computacional, que podem ser dividas em 4 etapas: 1. Determinação de distâncias assinaladas; 2. Determinação da zona de colagem;  3. Determinação da função ponderadora; 4. Encontro de correspondência entre pontos dos modelos global e local.
 
-A etapa 1 consiste em determinar a distância assinalada com relação ao contorno $\domain_{1}$ de todos os pontos (nós para malha de elementos finitos ou pontos de controle para malha isogeométrica) que compõe cada um dos modelos.
+A etapa 1 consiste em determinar a distância assinalada com relação ao contorno $\boundary_{1}$ de todos os pontos (nós para malha de elementos finitos ou pontos de controle para malha isogeométrica) que compõe cada um dos modelos.
 
 Na etapa 2, a partir da distância assinalada, são definidos os elementos locais que fazem parte da zona de colagem em função da espessura dessa região que foi previamente indicada pelo usuário do código.
 
@@ -802,7 +802,7 @@ As dimensões da geometria do domínio computacional são alteradas (ver Fig. \r
 
 \begin{figure}[htb!]
 	\centering 
-	{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov.pdf}}	
+	{\includegraphics[scale=2.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov.pdf}}	
 	\caption{Aerofólio Mov. 2D: Geometria}
 	\label{fig:AerofolioMoving}
 \end{figure}

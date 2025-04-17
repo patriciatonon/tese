@@ -15,6 +15,7 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Warning--I didn't find a database entry for "abnt-url-package=url"
 Warning--I didn't find a database entry for "abnt-etal-list=0"
 Warning--I didn't find a database entry for "abnt-etal-cite=3"
+Warning--I didn't find a database entry for "Rosa:2021"
 Warning--I didn't find a database entry for "richter2017fluid"
 Warning--I didn't find a database entry for "TezduyarBSJ:1992f"
 Warning--I didn't find a database entry for "TezduyarABJ:1993"
@@ -39,7 +40,7 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 0 entries,
             6714 wiz_defined-function locations,
-            1221 strings with 9667 characters,
+            1223 strings with 9685 characters,
 and the built_in function-call counts, 679 in all, are:
 = -- 182
 > -- 0

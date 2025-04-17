@@ -24,7 +24,7 @@
 \contentsline {subsection}{\numberline {2.4.1}Implementação Computacional}{47}{subsection.2.4.1}%
 \contentsline {section}{\numberline {2.5}Verificação e Aplicações}{47}{section.2.5}%
 \contentsline {subsection}{\numberline {2.5.1}Escoamento sobre um cilindro - 2D}{47}{subsection.2.5.1}%
-\contentsline {subsection}{\numberline {2.5.2}Cavidade Quadrada - 3D}{50}{subsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.5.2}Cavidade Quadrada}{49}{subsection.2.5.2}%
 \contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Análise isogeométrica aplicada à Mecânica dos Fluidos}}{57}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Noções Gerais de IGA}{58}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Re\discretionary {-}{}{}pre\discretionary {-}{}{}sen\discretionary {-}{}{}ta\discretionary {-}{}{}ção ge\discretionary {-}{}{}o\discretionary {-}{}{}mé\discretionary {-}{}{}tri\discretionary {-}{}{}ca u\discretionary {-}{}{}ti\discretionary {-}{}{}li\discretionary {-}{}{}zan\discretionary {-}{}{}do \newline {NURBS}}{59}{section.3.2}%
@@ -56,13 +56,13 @@
 \contentsline {section}{\numberline {6.1}Método Arlequin}{101}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{104}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{107}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Integração Temporal}{109}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.1}Integração Temporal}{110}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Parâmetro de estabilização para técnica RBSAM}{111}{subsection.6.3.2}%
 \contentsline {section}{\numberline {6.4}Superposição de modelos móveis}{113}{section.6.4}%
 \contentsline {section}{\numberline {6.5}Implementação Computacional}{114}{section.6.5}%
 \contentsline {section}{\numberline {6.6}Exemplos}{115}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}Escoamento sobre um aerofólio NACA 0012}{116}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{118}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{119}{subsection.6.6.2}%
 \contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Acoplamento Fluido-Estrutura}}{125}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Condições de acoplamento}{126}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Movimentação da Malha}{127}{subsection.7.1.1}%
@@ -71,7 +71,7 @@
 \contentsline {subsection}{\numberline {7.3.1}Implementação Computacional}{130}{subsection.7.3.1}%
 \contentsline {section}{\numberline {7.4}Exemplos}{131}{section.7.4}%
 \contentsline {subsection}{\numberline {7.4.1}Cavidade com fundo flexível - 2D}{132}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Cavidade com fundo flexível - 3D}{135}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.2}Cavidade com fundo flexível - 3D}{134}{subsection.7.4.2}%
 \contentsline {subsection}{\numberline {7.4.3}\textit {Flutter} em painel flexível}{136}{subsection.7.4.3}%
 \contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase []{Conclusões Parciais}}{143}{chapter.8}%
 \vspace {\cftbeforechapterskip }

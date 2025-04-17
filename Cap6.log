@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  21 MAR 2025 10:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  15 APR 2025 15:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1791,36 +1791,36 @@ LaTeX Info: Redefining \ohm on input line 3.
 Package gensymb Info: Using \textohm for \ohm on input line 3.
 Package gensymb Info: Using \textmu for \micro on input line 3.
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 4
-2.
+9.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 4
-2.
+9.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-42.
+49.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-42.
+49.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 42.
+(Font)              <12> on input line 49.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 42.
+(Font)              <8> on input line 49.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 42.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 42.
+(Font)              <6> on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1829,7 +1829,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 42.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1838,33 +1838,33 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 42
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 49
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-2.
+9.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-LaTeX Warning: Reference `capitulo:Cap5' on page 1 undefined on input line 45.
+LaTeX Warning: Reference `capitulo:Cap5' on page 1 undefined on input line 52.
 
 
-LaTeX Warning: Citation `Dhia:1998' on page 1 undefined on input line 47.
+LaTeX Warning: Citation `Dhia:1998' on page 1 undefined on input line 54.
 
 
 LaTeX Warning: Citation `FernandesEtAll:2020' on page 1 undefined on input line
- 47.
+ 54.
 
 
-LaTeX Warning: Citation `Dhia:1998' on page 1 undefined on input line 51.
+LaTeX Warning: Citation `Dhia:1998' on page 1 undefined on input line 58.
 
 
-LaTeX Warning: Citation `DhiaR:2005' on page 1 undefined on input line 53.
+LaTeX Warning: Citation `DhiaR:2005' on page 1 undefined on input line 60.
 
 
 Underfull \vbox (badness 1708) has occurred while \output is active []
@@ -1880,15 +1880,15 @@ F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Imagens/Cap6/dominioArlequin.pdf, id=17, 317.23401pt x 137.65445pt>
 File: Imagens/Cap6/dominioArlequin.pdf Graphic file (type pdf)
 <use Imagens/Cap6/dominioArlequin.pdf>
-Package pdftex.def Info: Imagens/Cap6/dominioArlequin.pdf  used on input line 6
-4.
+Package pdftex.def Info: Imagens/Cap6/dominioArlequin.pdf  used on input line 7
+1.
 (pdftex.def)             Requested size: 317.23322pt x 137.6541pt.
 
-LaTeX Warning: Citation `DhiaR:2002' on page 2 undefined on input line 86.
+LaTeX Warning: Citation `DhiaR:2002' on page 2 undefined on input line 93.
 
 
 LaTeX Warning: Citation `GuidaultAndBelytschko2007' on page 2 undefined on inpu
-t line 94.
+t line 101.
 
 [2{/usr/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf/fonts/enc/d
 vips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}
@@ -1896,78 +1896,67 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.95 
-     {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts
-/enc/dvips/lm/lm-mathex.enc} <./Imagens/Cap6/dominioArlequin.pdf>]
+l.102 
+      {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf/font
+s/enc/dvips/lm/lm-mathex.enc} <./Imagens/Cap6/dominioArlequin.pdf>]
 
 LaTeX Warning: Citation `FernandesEtAll:2020' on page 3 undefined on input line
- 96.
+ 103.
 
 
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 109.
+LaTeX Warning: Command \textbackslash invalid in math mode on input line 116.
 
 
-LaTeX Warning: Command \textbackslash invalid in math mode on input line 109.
+LaTeX Warning: Command \textbackslash invalid in math mode on input line 116.
 
 
-LaTeX Warning: Citation `Dhia:2008' on page 3 undefined on input line 111.
+LaTeX Warning: Citation `Dhia:2008' on page 3 undefined on input line 118.
 
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/ponderadora.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/ponderadora.pdf, id=62, 638.76337pt x 288.03796pt>
+<Imagens/Cap6/ponderadora.pdf, id=56, 638.76337pt x 288.03796pt>
 File: Imagens/Cap6/ponderadora.pdf Graphic file (type pdf)
 <use Imagens/Cap6/ponderadora.pdf>
-Package pdftex.def Info: Imagens/Cap6/ponderadora.pdf  used on input line 117.
+Package pdftex.def Info: Imagens/Cap6/ponderadora.pdf  used on input line 124.
 (pdftex.def)             Requested size: 383.26097pt x 172.8241pt.
 
-LaTeX Warning: Citation `JamondD:2013' on page 3 undefined on input line 126.
+LaTeX Warning: Citation `JamondD:2013' on page 3 undefined on input line 133.
 
 [3]
 
-LaTeX Warning: Citation `JamondD:2013' on page 4 undefined on input line 128.
+LaTeX Warning: Citation `JamondD:2013' on page 4 undefined on input line 135.
 
 
-LaTeX Warning: Reference `capitulo:Cap2' on page 4 undefined on input line 132.
-
-
-
-LaTeX Warning: Reference `capitulo:Cap3' on page 4 undefined on input line 132.
+LaTeX Warning: Reference `capitulo:Cap2' on page 4 undefined on input line 139.
 
 
 
-LaTeX Warning: Reference `capitulo:Cap2:FormaFraca' on page 4 undefined on inpu
-t line 134.
+LaTeX Warning: Reference `capitulo:Cap2' on page 4 undefined on input line 141.
 
-
-LaTeX Warning: Reference `eq:FinalSystem' on page 4 undefined on input line 134
-.
-
-
-LaTeX Warning: Reference `eq:RC' on page 4 undefined on input line 134.
 
 [4
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.135 
+l.144 
        <./Imagens/Cap6/ponderadora.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [5]
 
 LaTeX Warning: Citation `GuidaultAndBelytschko2007' on page 6 undefined on inpu
-t line 248.
+t line 253.
 
 
-LaTeX Warning: Reference `capitulo:Cap2' on page 6 undefined on input line 250.
+LaTeX Warning: Reference `capitulo:Cap2' on page 6 undefined on input line 255.
 
 
 
 LaTeX Warning: Citation `FernandesEtAll:2020' on page 6 undefined on input line
- 250.
+ 255.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1975,7 +1964,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [6]
 
 LaTeX Warning: Citation `FernandesEtAll:2020' on page 7 undefined on input line
- 255.
+ 260.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1983,18 +1972,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [7]
 
 LaTeX Warning: Citation `FernandesEtAll:2020' on page 8 undefined on input line
- 350.
+ 355.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
 
-LaTeX Warning: Reference `sec:IntegTemp' on page 9 undefined on input line 412.
+LaTeX Warning: Reference `sec:IntegTemp' on page 9 undefined on input line 417.
 
 
 
-Overfull \hbox (2.59425pt too wide) in paragraph at lines 412--413
+Overfull \hbox (2.59425pt too wide) in paragraph at lines 417--418
 []\T1/lmr/m/n/12 (-20) Quanto ao pro-ce-di-mento de in-te-gra-��o tem-po-ral, u
 tilizou-se o m�-todo $\OML/lmm/m/it/12 $\T1/lmr/m/n/12 (-20) -generalizado.
  []
@@ -2004,103 +1993,106 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [10]
 
-LaTeX Warning: Reference `sec:IntegTemp' on page 11 undefined on input line 498
+LaTeX Warning: Reference `sec:IntegTemp' on page 11 undefined on input line 503
 .
 
 
-LaTeX Warning: Citation `TezduyarO:2000' on page 11 undefined on input line 505
+LaTeX Warning: Citation `TezduyarO:2000' on page 11 undefined on input line 510
 .
 
 
-LaTeX Warning: Citation `TezduyarS:2003' on page 11 undefined on input line 505
+LaTeX Warning: Citation `TezduyarS:2003' on page 11 undefined on input line 510
 .
 
-[11]
-Underfull \vbox (badness 1163) has occurred while \output is active []
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [11]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12]
 
-LaTeX Warning: Reference `Capítulo2:ALE' on page 13 undefined on input line 60
-5.
+LaTeX Warning: Reference `Capítulo2:ALE' on page 13 undefined on input line 61
+0.
 
-<Imagens/Cap6/dominioArlequinMoving.pdf, id=239, 484.72723pt x 249.60571pt>
+<Imagens/Cap6/dominioArlequinMoving.pdf, id=232, 484.72723pt x 249.60571pt>
 File: Imagens/Cap6/dominioArlequinMoving.pdf Graphic file (type pdf)
 <use Imagens/Cap6/dominioArlequinMoving.pdf>
 Package pdftex.def Info: Imagens/Cap6/dominioArlequinMoving.pdf  used on input 
-line 639.
+line 643.
 (pdftex.def)             Requested size: 484.72604pt x 249.60509pt.
 
-Overfull \hbox (29.72604pt too wide) in paragraph at lines 639--640
+Overfull \hbox (29.72604pt too wide) in paragraph at lines 643--644
  [][] 
  []
 
 
 LaTeX Warning: Citation `TezduyarBSJ:1992f' on page 13 undefined on input line 
-644.
+648.
 
 
 LaTeX Warning: Reference `subsec:MovMalha' on page 13 undefined on input line 6
-44.
+48.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
-Overfull \hbox (10.56326pt too wide) in paragraph at lines 652--653
+Overfull \hbox (10.56326pt too wide) in paragraph at lines 656--657
 []\T1/lmr/m/n/12 (-20) O uso da t�c-nica Ar-le-quin en-volve a re-a-li-za-��o d
 e al-gu-mas eta-pas de pr�-processamento
  []
 
-
-Underfull \vbox (badness 1033) has occurred while \output is active []
-
- [14
+[14
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.660 U
-       ma das maiores dificuldades da técnica de Arlequin diz respeito à i...
+l.662 A
+        função ponderadora para os modelos (etapa 3) é  determinada confo...
  <./Imagens/Cap6/dominioArlequinMoving.pdf>]
 
-LaTeX Warning: Reference `capitulo:Cap2' on page 15 undefined on input line 664
+LaTeX Warning: Reference `capitulo:Cap2' on page 15 undefined on input line 668
 .
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 667.
-<Imagens/Cap6/aerofolio.pdf, id=310, 330.31477pt x 173.83626pt>
+put line 671.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio.pdf): PDF incl
+usion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolio.pdf, id=304, 334.8314pt x 173.83626pt>
 File: Imagens/Cap6/aerofolio.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio.pdf>
-Package pdftex.def Info: Imagens/Cap6/aerofolio.pdf  used on input line 708.
-(pdftex.def)             Requested size: 330.31395pt x 173.83583pt.
-[15]
-<Imagens/Cap6/malhaMonoEstatica.pdf, id=321, 144.54pt x 108.405pt>
-File: Imagens/Cap6/malhaMonoEstatica.pdf Graphic file (type pdf)
-<use Imagens/Cap6/malhaMonoEstatica.pdf>
-Package pdftex.def Info: Imagens/Cap6/malhaMonoEstatica.pdf  used on input line
- 721.
-(pdftex.def)             Requested size: 361.34906pt x 150.08815pt.
- [16
+Package pdftex.def Info: Imagens/Cap6/aerofolio.pdf  used on input line 712.
+(pdftex.def)             Requested size: 334.83058pt x 173.83583pt.
+[15] [16
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.724 \end{figure}
-                   <./Imagens/Cap6/aerofolio.pdf>]
-<Imagens/Cap6/malhaCoarseFinePatch.pdf, id=354, 144.54pt x 108.405pt>
+l.720 
+       <./Imagens/Cap6/aerofolio.pdf>]
+<Imagens/Cap6/malhaMonoEstatica.pdf, id=330, 144.54pt x 108.405pt>
+File: Imagens/Cap6/malhaMonoEstatica.pdf Graphic file (type pdf)
+<use Imagens/Cap6/malhaMonoEstatica.pdf>
+Package pdftex.def Info: Imagens/Cap6/malhaMonoEstatica.pdf  used on input line
+ 725.
+(pdftex.def)             Requested size: 361.34906pt x 150.08815pt.
+<Imagens/Cap6/malhaCoarseFinePatch.pdf, id=334, 144.54pt x 108.405pt>
 File: Imagens/Cap6/malhaCoarseFinePatch.pdf Graphic file (type pdf)
 <use Imagens/Cap6/malhaCoarseFinePatch.pdf>
 Package pdftex.def Info: Imagens/Cap6/malhaCoarseFinePatch.pdf  used on input l
-ine 731.
+ine 735.
 (pdftex.def)             Requested size: 433.61888pt x 188.64084pt.
-<Imagens/Cap6/DetalheFine.pdf, id=356, 143.95584pt x 107.60687pt>
+<Imagens/Cap6/DetalheFine.pdf, id=336, 143.95584pt x 107.60687pt>
 File: Imagens/Cap6/DetalheFine.pdf Graphic file (type pdf)
 <use Imagens/Cap6/DetalheFine.pdf>
-Package pdftex.def Info: Imagens/Cap6/DetalheFine.pdf  used on input line 732.
+Package pdftex.def Info: Imagens/Cap6/DetalheFine.pdf  used on input line 736.
 (pdftex.def)             Requested size: 215.93321pt x 161.4099pt.
 
 
-LaTeX Warning: Citation `MittalT:1994' on page 17 undefined on input line 742.
+LaTeX Warning: Citation `MittalT:1994' on page 17 undefined on input line 746.
 
 Package epstopdf Info: Source file: <Imagens/Cap6/DragRe.eps>
 (epstopdf)                    date: 2025-02-26 08:36:08
@@ -2110,13 +2102,13 @@ Package epstopdf Info: Source file: <Imagens/Cap6/DragRe.eps>
 (epstopdf)                    size: 14100 bytes
 (epstopdf)             Command: <repstopdf --outfile=Imagens/Cap6/DragRe-eps-co
 nverted-to.pdf Imagens/Cap6/DragRe.eps>
-(epstopdf)             \includegraphics on input line 749.
+(epstopdf)             \includegraphics on input line 753.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/DragRe-eps-converted-to.pdf, id=361, 397.485pt x 255.95625pt>
+<Imagens/Cap6/DragRe-eps-converted-to.pdf, id=341, 397.485pt x 255.95625pt>
 File: Imagens/Cap6/DragRe-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap6/DragRe-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap6/DragRe-eps-converted-to.pdf  used on inpu
-t line 749.
+t line 753.
 (pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
 Package epstopdf Info: Source file: <Imagens/Cap6/LiftRe.eps>
 (epstopdf)                    date: 2025-02-26 08:36:08
@@ -2126,81 +2118,90 @@ Package epstopdf Info: Source file: <Imagens/Cap6/LiftRe.eps>
 (epstopdf)                    size: 14209 bytes
 (epstopdf)             Command: <repstopdf --outfile=Imagens/Cap6/LiftRe-eps-co
 nverted-to.pdf Imagens/Cap6/LiftRe.eps>
-(epstopdf)             \includegraphics on input line 756.
+(epstopdf)             \includegraphics on input line 760.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/LiftRe-eps-converted-to.pdf, id=363, 397.485pt x 255.95625pt>
+<Imagens/Cap6/LiftRe-eps-converted-to.pdf, id=343, 397.485pt x 255.95625pt>
 File: Imagens/Cap6/LiftRe-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap6/LiftRe-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap6/LiftRe-eps-converted-to.pdf  used on inpu
-t line 756.
+t line 760.
 (pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
-<Imagens/Cap6/velTn.pdf, id=367, 144.54pt x 108.405pt>
+<Imagens/Cap6/velTn.pdf, id=347, 144.54pt x 108.405pt>
 File: Imagens/Cap6/velTn.pdf Graphic file (type pdf)
 <use Imagens/Cap6/velTn.pdf>
-Package pdftex.def Info: Imagens/Cap6/velTn.pdf  used on input line 765.
+Package pdftex.def Info: Imagens/Cap6/velTn.pdf  used on input line 769.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 765.
+(Font)              <10> on input line 769.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 765.
+(Font)              <7> on input line 769.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 765.
-<Imagens/Cap6/velTn4.pdf, id=369, 144.54pt x 108.405pt>
+(Font)              <5> on input line 769.
+<Imagens/Cap6/velTn4.pdf, id=349, 144.54pt x 108.405pt>
 File: Imagens/Cap6/velTn4.pdf Graphic file (type pdf)
 <use Imagens/Cap6/velTn4.pdf>
-Package pdftex.def Info: Imagens/Cap6/velTn4.pdf  used on input line 766.
+Package pdftex.def Info: Imagens/Cap6/velTn4.pdf  used on input line 770.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/velTn2.pdf, id=371, 144.54pt x 108.405pt>
+<Imagens/Cap6/velTn2.pdf, id=351, 144.54pt x 108.405pt>
 File: Imagens/Cap6/velTn2.pdf Graphic file (type pdf)
 <use Imagens/Cap6/velTn2.pdf>
-Package pdftex.def Info: Imagens/Cap6/velTn2.pdf  used on input line 767.
+Package pdftex.def Info: Imagens/Cap6/velTn2.pdf  used on input line 771.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/velTn34.pdf, id=373, 144.54pt x 108.405pt>
+<Imagens/Cap6/velTn34.pdf, id=353, 144.54pt x 108.405pt>
 File: Imagens/Cap6/velTn34.pdf Graphic file (type pdf)
 <use Imagens/Cap6/velTn34.pdf>
-Package pdftex.def Info: Imagens/Cap6/velTn34.pdf  used on input line 768.
+Package pdftex.def Info: Imagens/Cap6/velTn34.pdf  used on input line 772.
 (pdftex.def)             Requested size: 150.32024pt x 112.74017pt.
-<Imagens/Cap6/pressTn.pdf, id=375, 144.54pt x 108.405pt>
+<Imagens/Cap6/pressTn.pdf, id=355, 144.54pt x 108.405pt>
 File: Imagens/Cap6/pressTn.pdf Graphic file (type pdf)
 <use Imagens/Cap6/pressTn.pdf>
-Package pdftex.def Info: Imagens/Cap6/pressTn.pdf  used on input line 775.
+Package pdftex.def Info: Imagens/Cap6/pressTn.pdf  used on input line 779.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/pressTn4.pdf, id=377, 144.54pt x 108.405pt>
+<Imagens/Cap6/pressTn4.pdf, id=357, 144.54pt x 108.405pt>
 File: Imagens/Cap6/pressTn4.pdf Graphic file (type pdf)
 <use Imagens/Cap6/pressTn4.pdf>
-Package pdftex.def Info: Imagens/Cap6/pressTn4.pdf  used on input line 776.
+Package pdftex.def Info: Imagens/Cap6/pressTn4.pdf  used on input line 780.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/pressTn2.pdf, id=379, 144.54pt x 108.405pt>
+<Imagens/Cap6/pressTn2.pdf, id=359, 144.54pt x 108.405pt>
 File: Imagens/Cap6/pressTn2.pdf Graphic file (type pdf)
 <use Imagens/Cap6/pressTn2.pdf>
-Package pdftex.def Info: Imagens/Cap6/pressTn2.pdf  used on input line 777.
+Package pdftex.def Info: Imagens/Cap6/pressTn2.pdf  used on input line 781.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/pressTn34.pdf, id=381, 144.54pt x 108.405pt>
+<Imagens/Cap6/pressTn34.pdf, id=361, 144.54pt x 108.405pt>
 File: Imagens/Cap6/pressTn34.pdf Graphic file (type pdf)
 <use Imagens/Cap6/pressTn34.pdf>
-Package pdftex.def Info: Imagens/Cap6/pressTn34.pdf  used on input line 778.
+Package pdftex.def Info: Imagens/Cap6/pressTn34.pdf  used on input line 782.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-[17
+
+Underfull \vbox (badness 1147) has occurred while \output is active []
+
+ [17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.788 
+l.792 
        <./Imagens/Cap6/malhaMonoEstatica.pdf>]
-<Imagens/Cap6/aerofolioMov.pdf, id=402, 306.24475pt x 175.78535pt>
-File: Imagens/Cap6/aerofolioMov.pdf Graphic file (type pdf)
-<use Imagens/Cap6/aerofolioMov.pdf>
-Package pdftex.def Info: Imagens/Cap6/aerofolioMov.pdf  used on input line 801.
+Underfull \vbox (badness 6691) has occurred while \output is active []
 
-(pdftex.def)             Requested size: 306.244pt x 175.78491pt.
  [18
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.808 
+l.802 
        <./Imagens/Cap6/malhaCoarseFinePatch.pdf> <./Imagens/Cap6/detalheFine.pd
 f>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov.pdf): PDF i
+nclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolioMov.pdf, id=418, 157.38927pt x 93.03482pt>
+File: Imagens/Cap6/aerofolioMov.pdf Graphic file (type pdf)
+<use Imagens/Cap6/aerofolioMov.pdf>
+Package pdftex.def Info: Imagens/Cap6/aerofolioMov.pdf  used on input line 805.
+
+(pdftex.def)             Requested size: 314.77774pt x 186.06915pt.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [19
@@ -2208,19 +2209,36 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1.7})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.811 A
-        variação dos coeficientes de arrasto e sustentação ao longo do t...
-
+l.812 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.8}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.811 A
-        variação dos coeficientes de arrasto e sustentação ao longo do t...
- <./Imagens/Cap6/DragRe-eps-converted-to.pdf> <./Imagens/Cap6/LiftRe-eps-conver
-ted-to.pdf>]
+l.812 
+       <./Imagens/Cap6/DragRe-eps-converted-to.pdf> <./Imagens/Cap6/LiftRe-eps-
+converted-to.pdf>]
+Underfull \vbox (badness 4156) has occurred while \output is active []
 
-LaTeX Warning: Citation `Fernandes:2020' on page 20 undefined on input line 811
+ [20
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.9}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.815 A
+        variação dos coeficientes de arrasto e sustentação ao longo do t...
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.10})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.815 A
+        variação dos coeficientes de arrasto e sustentação ao longo do t...
+ <./Imagens/Cap6/velTn.pdf> <./Imagens/Cap6/velTn4.pdf> <./Imagens/Cap6/velTn2.
+pdf> <./Imagens/Cap6/velTn34.pdf> <./Imagens/Cap6/pressTn.pdf> <./Imagens/Cap6/
+pressTn4.pdf> <./Imagens/Cap6/pressTn2.pdf> <./Imagens/Cap6/pressTn34.pdf>]
+
+LaTeX Warning: Citation `Fernandes:2020' on page 21 undefined on input line 815
 .
 
 Package epstopdf Info: Source file: <Imagens/Cap6/DragMov.eps>
@@ -2232,33 +2250,14 @@ Package epstopdf Info: Source file: <Imagens/Cap6/DragMov.eps>
 (epstopdf)                    size: 15090 bytes
 (epstopdf)             Command: <repstopdf --outfile=Imagens/Cap6/DragMov-eps-c
 onverted-to.pdf Imagens/Cap6/DragMov.eps>
-(epstopdf)             \includegraphics on input line 815.
+(epstopdf)             \includegraphics on input line 819.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/DragMov-eps-converted-to.pdf, id=464, 397.485pt x 255.95625pt>
+<Imagens/Cap6/DragMov-eps-converted-to.pdf, id=500, 397.485pt x 255.95625pt>
 File: Imagens/Cap6/DragMov-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap6/DragMov-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap6/DragMov-eps-converted-to.pdf  used on inp
-ut line 815.
+ut line 819.
 (pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
-
-Underfull \vbox (badness 4156) has occurred while \output is active []
-
- [20
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.9}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.818 \end{figure}
-                  
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.10})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.818 \end{figure}
-                   <./Imagens/Cap6/velTn.pdf> <./Imagens/Cap6/velTn4.pdf> <./Im
-agens/Cap6/velTn2.pdf> <./Imagens/Cap6/velTn34.pdf> <./Imagens/Cap6/pressTn.pdf
-> <./Imagens/Cap6/pressTn4.pdf> <./Imagens/Cap6/pressTn2.pdf> <./Imagens/Cap6/p
-ressTn34.pdf>]
 Package epstopdf Info: Source file: <Imagens/Cap6/LiftMov.eps>
 (epstopdf)                    date: 2025-02-26 08:36:08
 (epstopdf)                    size: 37889 bytes
@@ -2268,89 +2267,89 @@ Package epstopdf Info: Source file: <Imagens/Cap6/LiftMov.eps>
 (epstopdf)                    size: 14770 bytes
 (epstopdf)             Command: <repstopdf --outfile=Imagens/Cap6/LiftMov-eps-c
 onverted-to.pdf Imagens/Cap6/LiftMov.eps>
-(epstopdf)             \includegraphics on input line 822.
+(epstopdf)             \includegraphics on input line 826.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/LiftMov-eps-converted-to.pdf, id=523, 397.485pt x 255.95625pt>
+<Imagens/Cap6/LiftMov-eps-converted-to.pdf, id=502, 397.485pt x 255.95625pt>
 File: Imagens/Cap6/LiftMov-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap6/LiftMov-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap6/LiftMov-eps-converted-to.pdf  used on inp
-ut line 822.
+ut line 826.
 (pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
-<Imagens/Cap6/vel400.pdf, id=527, 144.54pt x 108.405pt>
+<Imagens/Cap6/vel400.pdf, id=506, 144.54pt x 108.405pt>
 File: Imagens/Cap6/vel400.pdf Graphic file (type pdf)
 <use Imagens/Cap6/vel400.pdf>
-Package pdftex.def Info: Imagens/Cap6/vel400.pdf  used on input line 831.
+Package pdftex.def Info: Imagens/Cap6/vel400.pdf  used on input line 835.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/vel413.pdf, id=529, 144.54pt x 108.405pt>
+<Imagens/Cap6/vel413.pdf, id=508, 144.54pt x 108.405pt>
 File: Imagens/Cap6/vel413.pdf Graphic file (type pdf)
 <use Imagens/Cap6/vel413.pdf>
-Package pdftex.def Info: Imagens/Cap6/vel413.pdf  used on input line 832.
+Package pdftex.def Info: Imagens/Cap6/vel413.pdf  used on input line 836.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/vel425.pdf, id=531, 144.54pt x 108.405pt>
+<Imagens/Cap6/vel425.pdf, id=510, 144.54pt x 108.405pt>
 File: Imagens/Cap6/vel425.pdf Graphic file (type pdf)
 <use Imagens/Cap6/vel425.pdf>
-Package pdftex.def Info: Imagens/Cap6/vel425.pdf  used on input line 833.
+Package pdftex.def Info: Imagens/Cap6/vel425.pdf  used on input line 837.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/vel438.pdf, id=533, 144.54pt x 108.405pt>
+<Imagens/Cap6/vel438.pdf, id=512, 144.54pt x 108.405pt>
 File: Imagens/Cap6/vel438.pdf Graphic file (type pdf)
 <use Imagens/Cap6/vel438.pdf>
-Package pdftex.def Info: Imagens/Cap6/vel438.pdf  used on input line 834.
+Package pdftex.def Info: Imagens/Cap6/vel438.pdf  used on input line 838.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/vel450.pdf, id=535, 144.54pt x 108.405pt>
+<Imagens/Cap6/vel450.pdf, id=514, 144.54pt x 108.405pt>
 File: Imagens/Cap6/vel450.pdf Graphic file (type pdf)
 <use Imagens/Cap6/vel450.pdf>
-Package pdftex.def Info: Imagens/Cap6/vel450.pdf  used on input line 835.
+Package pdftex.def Info: Imagens/Cap6/vel450.pdf  used on input line 839.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/press400.pdf, id=537, 144.54pt x 108.405pt>
+<Imagens/Cap6/press400.pdf, id=516, 144.54pt x 108.405pt>
 File: Imagens/Cap6/press400.pdf Graphic file (type pdf)
 <use Imagens/Cap6/press400.pdf>
-Package pdftex.def Info: Imagens/Cap6/press400.pdf  used on input line 842.
+Package pdftex.def Info: Imagens/Cap6/press400.pdf  used on input line 846.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/press413.pdf, id=539, 144.54pt x 108.405pt>
+<Imagens/Cap6/press413.pdf, id=518, 144.54pt x 108.405pt>
 File: Imagens/Cap6/press413.pdf Graphic file (type pdf)
 <use Imagens/Cap6/press413.pdf>
-Package pdftex.def Info: Imagens/Cap6/press413.pdf  used on input line 843.
+Package pdftex.def Info: Imagens/Cap6/press413.pdf  used on input line 847.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/press425.pdf, id=541, 144.54pt x 108.405pt>
+<Imagens/Cap6/press425.pdf, id=520, 144.54pt x 108.405pt>
 File: Imagens/Cap6/press425.pdf Graphic file (type pdf)
 <use Imagens/Cap6/press425.pdf>
-Package pdftex.def Info: Imagens/Cap6/press425.pdf  used on input line 844.
+Package pdftex.def Info: Imagens/Cap6/press425.pdf  used on input line 848.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/press438.pdf, id=543, 144.54pt x 108.405pt>
+<Imagens/Cap6/press438.pdf, id=522, 144.54pt x 108.405pt>
 File: Imagens/Cap6/press438.pdf Graphic file (type pdf)
 <use Imagens/Cap6/press438.pdf>
-Package pdftex.def Info: Imagens/Cap6/press438.pdf  used on input line 845.
+Package pdftex.def Info: Imagens/Cap6/press438.pdf  used on input line 849.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/press450.pdf, id=545, 144.54pt x 108.405pt>
+<Imagens/Cap6/press450.pdf, id=524, 144.54pt x 108.405pt>
 File: Imagens/Cap6/press450.pdf Graphic file (type pdf)
 <use Imagens/Cap6/press450.pdf>
-Package pdftex.def Info: Imagens/Cap6/press450.pdf  used on input line 846.
+Package pdftex.def Info: Imagens/Cap6/press450.pdf  used on input line 850.
 (pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
- [21
+[21
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.11})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.851 \end{document}
+l.855 \end{document}
                     
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.12})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.851 \end{document}
+l.855 \end{document}
                      <./Imagens/Cap6/aerofolioMov.pdf> <./Imagens/Cap6/DragMov-
 eps-converted-to.pdf>] [22
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.13})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.851 \end{document}
+l.855 \end{document}
                      <./Imagens/Cap6/LiftMov-eps-converted-to.pdf>] [23
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.14})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.851 \end{document}
+l.855 \end{document}
                      <./Imagens/Cap6/vel400.pdf> <./Imagens/Cap6/vel413.pdf> <.
 /Imagens/Cap6/vel425.pdf> <./Imagens/Cap6/vel438.pdf> <./Imagens/Cap6/vel450.pd
 f>] [24
@@ -2358,7 +2357,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1.15})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.851 \end{document}
+l.855 \end{document}
                      <./Imagens/Cap6/press400.pdf> <./Imagens/Cap6/press413.pdf
 > <./Imagens/Cap6/press425.pdf> <./Imagens/Cap6/press438.pdf> <./Imagens/Cap6/p
 ress450.pdf>] 
@@ -2374,32 +2373,31 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 40675 strings out of 474222
- 764319 string characters out of 5748733
+ 40671 strings out of 474222
+ 764249 string characters out of 5748733
  1956975 words of memory out of 5000000
- 61764 multiletter control sequences out of 15000+600000
- 648843 words of font info for 220 fonts, out of 8000000 for 9000
+ 61762 multiletter control sequences out of 15000+600000
+ 648753 words of font info for 219 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 130i,21n,124p,1001b,624s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 130i,21n,124p,1088b,624s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts
-/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx6.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr/
-share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/publ
-ic/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share/
-texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/l
-mmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fo
-nts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb>
-</usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
-Output written on Cap6.pdf (24 pages, 18849189 bytes).
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/font
+s/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx6.pfb>
+</usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmbxi10.pfb></usr/share/texmf/fonts/type1/public/lm/lmex10.pfb></usr
+/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/texmf/fonts/type1/pub
+lic/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi6.pfb></usr/share
+/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/
+lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/f
+onts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1
+/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb>
+Output written on Cap6.pdf (24 pages, 18843571 bytes).
 PDF statistics:
- 834 PDF objects out of 1000 (max. 8388607)
- 626 compressed objects within 7 object streams
+ 811 PDF objects out of 1000 (max. 8388607)
+ 611 compressed objects within 7 object streams
  152 named destinations out of 1000 (max. 500000)
  58799 words of extra memory for PDF output out of 61914 (max. 10000000)
 

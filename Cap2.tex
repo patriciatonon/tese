@@ -1,84 +1,92 @@
 \documentclass[tese_patricia]{subfiles}% !TeX spellcheck = pt_BR
 
 \begin{document}
-\nomenclature[B,01]{$\domainT$}{Domínio computacional de um escoamento em um instante de tempo arbitrário $t$;}
-\nomenclature[B,02]{$n_{sd}$}{Dimensão espacial;}
-%\nomenclature[B,03]{$\boundaryT$}{Contorno do domínio computacional de um escoamento em um instante de tempo arbitrário $t$;}
-%\nomenclature[B,04]{$t$}{Instante de tempo arbitrário;}
-%\nomenclature[B,05]{$\totalTime$}{Intervalo de tempo total da análise;}
-%\nomenclature[B,06]{$\density$}{Massa específica do fluido;}
-%\nomenclature[B,07]{$\velocity$}{Campo de velocidades de um escoamento;}
-%\nomenclature[B,08]{$\sbodyforce$}{Força de domínio em um escoamento;}
-%\nomenclature[B,09]{$\stresstensor$}{Tensor das tensões de Cauchy;}
-%\nomenclature[B,10]{$\press$}{Campo de pressões de um escoamento;}
-%\nomenclature[B,11]{$\viscosity$}{Viscosidade dinâmica do fluido;}
-%\nomenclature[B,12]{$\strainratetensor(\bullet)$}{Tensor taxa de deformação de um campo escalar ou vetorial;}
-%\nomenclature[B,13]{$\mathbf{g}$}{Condições de contorno de Dirichlet;}
-%\nomenclature[B,14]{$\mathbf{h}$}{Condições de contorno de Neumann;}
-%\nomenclature[B,15]{$\left(\boundaryT\right)_{\mathbf{g}$}}{Porção do contorno com condições de contorno de Dirichlet;}
-%\nomenclature[B,16]{$\left(\boundaryT\right)_{\mathbf{h}$}}{Porção do contorno com condições de contorno de Neumann;}
-%\nomenclature[B,17]{$\normal$}{Vetor normal ao contorno do domínio computacional;}
-%\nomenclature[B,18]{$\Omega_X$}{Domínio computacional inicial ou material;}
-%\nomenclature[B,19]{$\mathbf{X}$}{Coordenadas no domínio inicial ou material de um ponto arbitrário;}
-%\nomenclature[B,20]{$\Omega_x$}{Domínio computacional atual;}
-%\nomenclature[B,21]{$\pos$}{Coordenadas atuais de um ponto arbitrário;}
-%\nomenclature[B,22]{$\Omega_{\bar{x}}$}{Domínio computacional de referência;}
-%\nomenclature[B,23]{$\posAle$}{Coordenadas de referência de um ponto arbitrário;}
-%\nomenclature[B,24]{${\mathbf{\Phi}}$}{Função mudança de configuração do domínio computacional material para o domínio computacional atual;}
-%\nomenclature[B,25]{$\bar{\mathbf{\Phi}}$}{Função mudança de configuração do domínio computacional de referência para o domínio computacional atual;}
-%\nomenclature[B,26]{$\velocityALE$}{Velocidade dos pontos de referência;}
-%\nomenclature[B,27]{$\usolution$}{Espaço vetorial das funções aproximadoras do campo de velocidades;}
-%\nomenclature[B,28]{$\psolution$}{Espaço vetorial das funções aproximadoras do campo de pressões;}
-%\nomenclature[B,29]{$\uweighting$}{Espaço vetorial das funções ponderadoras do campo de velocidades;}
-%\nomenclature[B,30]{$\pweighting$}{Espaço vetorial das funções ponderadoras do campo de pressões;}
-%\nomenclature[B,31]{$\utest$}{Função ponderadora pertencente ao espaço $\uweighting$;}
-%\nomenclature[B,32]{$\ptest$}{Função ponderadora pertencente ao espaço $\pweighting$;}
-%\nomenclature[B,33]{$(\bullet)^h$}{O superscrito $h$ indica, em todos os casos, a discretização em elementos finitos da variável;}
-%\nomenclature[B,34]{$\domain^{e}$}{Domínio computacional de um elemento finito;}
-%\nomenclature[B,35]{$\nel$}{Número de subdomínios do domínio discreto;}
-%\nomenclature[B,36]{$N_nos$}{Número de nós ou pontos de controle do domínio discreto;}
-%\nomenclature[B,37]{$N$}{Função de forma da discretização do domínio;}
-%\nomenclature[B,38]{$(\bullet)_A$}{O subscrito $A$ indica, em todos os casos, que se trata da variável respectiva ao nó $A$ da malha de elementos finitos;}
-%\nomenclature[B,39]{$\SUPG$}{Parâmetro de estabilização do método \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG);}
-%\nomenclature[B,40]{$\PSPG$}{Parâmetro de estabilização do método \textit{Pressure-Stabilizing/Petrov-Galerkin} (PSPG);}
-%\nomenclature[B,41]{$\LSIC$}{Parâmetro de estabilização do método \textit{Least-Squares on the Incompressibility Constraint} (LSIC);}
-%\nomenclature[B,42]{$\resMom$}{Resíduo da equação da quantidade de movimento;}
-%\nomenclature[B,43]{$\resPre$}{Resíduo da equação da continuidade;}
-%\nomenclature[B,44]{$\NNSM$}{Resíduo do vetor discreto da equação da quantidade de movimento;}
-%\nomenclature[B,45]{$\NNSC$}{Resíduo do vetor discreto da equação da continuidade;}
-%\nomenclature[B,46]{$\Acceleration$}{Vetor nodal dos graus de liberdade respectivo a aceleração;}
-%\nomenclature[B,47]{$\Velocity$}{Vetor nodal dos graus de liberdade respectivo a velocidade;}
-%\nomenclature[B,48]{$\Press$}{Vetor nodal dos graus de liberdade respectivo a pressão;}
-%\nomenclature[B,49]{$\matrixQ$}{Tensor métrico do elemento;}
-%\nomenclature[B,50]{$\coordAdimen$}{Coordenadas adimensionais do elemento onde são definidas as funções de forma;}
-%\nomenclature[B,51]{$\matrixD$}{Matriz que escalona o tensor métrico do elemento;}
-%\nomenclature[B,52]{$\matrixQhat$}{Tensor métrico do elemento escalonado;}
-%\nomenclature[B,53]{$\bar{\coordAdimen}$}{Coordenadas adimensionais do espaço preferido;}
-%\nomenclature[B,54]{$\mathbf{C}$}{Tensor de transformação de Bezier;}
-%\nomenclature[B,55]{$\RGN$}{Comprimento de escala do elemento finito;}
-%\nomenclature[B,56]{$\rRGN$}{Vetor unitário no sentido da velocidade do fluido no elemento finito;}
-%\nomenclature[B,57]{$\matrixG$}{Matriz auxiliar para o cálculo do comprimento direcional do elemento;}
-%\nomenclature[B,58]{$h_{min}$}{Mínimo comprimento de escala do elemento finito;}
-%\nomenclature[B,59]{$h_{max}$}{Máximo comprimento de escala do elemento finito;}
-%\nomenclature[B,60]{$\SUGNi,\SUGNii,\SUGNiii$}{Parâmetros da estabilização SUPG/PSPG/LSIC correspondentes aos termos convectivos, inerciais e viscosos, respectivamente;}
-%\nomenclature[B,61]{$\timeStep$}{sub-intervalo de tempo $t$;}
-%\nomenclature[B,62]{$\rRGN_{reg}$}{Vetor unitário no sentido da velocidade do fluido modificado de maneira a evitar problemas numéricos devido divisão por zero;}
-%\nomenclature[B,63]{$\varepsilon$}{Constante pequena utilizada no cálculo de $\rRGN_{reg}$;}
-%\nomenclature[B,64]{$t_{n}$}{extremidade menor de tempo do sub-intervalo $\timeStep$;}
-%\nomenclature[B,65]{$t_{n+1}$}{extremidade maior de tempo do sub-intervalo $\timeStep$;}
-%\nomenclature[B,66]{$\alpham, \alphaf, \gamma$}{Parâmetros reais do esquema de integração temporal $\alpha$-generalizado;}
-%\nomenclature[B,67]{$\specRadius$}{Raio espectral da matriz de amplificação;}
-%\nomenclature[B,68]{$\Reynolds$}{Número de Reynolds;}
-%\nomenclature[B,69]{$\velocinfty$}{Velocidade de referência;}
-%\nomenclature[B,70]{$L$}{Comprimento característico/de referência do escoamento;}
-%\nomenclature[B,71]{$\kviscosity$}{Viscosidade cinemática do fluido;}
-%\nomenclature[B,72]{$u_x$}{Velocidade do escoamento na direção $x$;}
-%\nomenclature[B,73]{$u_y$}{Velocidade do escoamento na direção $y$;}
-%\nomenclature[B,74]{$u_n$}{Velocidade do escoamento na direção normal ao contorno;}
-%\nomenclature[B,75]{$F_L, F_D$}{Forças de sustentação e arrasto, respectivamente;}
-%\nomenclature[B,76]{$C_L, C_D$}{Coeficiente de sustentação e arrasto, respectivamente;}
-%\nomenclature[B,77]{$\Strouhal$}{Número de Strouhal;}
-%\nomenclature[B,78]{$f_V$}{Frequência de desprendimento dos vórtices;}
+%\nomenclature[B,01]{$\velocity$}{Vetor de velocidade com componentes $u_1$, $u_2$ e $u_3$;}
+%\nomenclature[B,02]{$t$}{Instante de tempo arbitrário;}
+%\nomenclature[B,03]{$\density$}{Massa específica do fluido;}
+%\nomenclature[B,04]{$V$}{Volume de um volume de controle infinitesimal;}
+%\nomenclature[B,05]{$dA_i$}{Área referente à face ortogonal ao eixo $y_i$ do volume de controle infinitesimal;}
+%\nomenclatura[B,06]{$dy_i$}{Dimensão do volume de controle infinitesimal na direção $y_i$;}
+%\nomenclatura[B,07]{$\mathbf{F}$}{Vetor da resultante das forças externas atuando em um volume de controle infinitesimal, com componentes $F_1$, $F_2$ e $F_3$}
+%\nomenclatura[B,08]{$\cauchyStress$}{Tensor de tensões de Cauchy de componentes $\sigma_ij$ com $i,j = 1,2,3$;}
+%\nomenclatura[B,09]{$\mathbf{b}$}{Vetor forças de campo por unidade de volume com componentes $b_1$, $b_2$ e $b_3$;}
+%\nomenclatura[B,10]{$\mathbf{q}$}{Vetor resultante das forças externas por unidade de volume com componentes $q_1$, $q_2$ e $q_3$;}
+%\nomenclatura[B,11]{$\sbodyforce$}{Vetor que representa a força de campo por unidade de massa, com componentes $f_1$, $f_2$ e $f_3$;}
+%\nomenclature[B,12]{$\press$}{Campo de pressões de um escoamento;}
+%\nomenclature[B,13]{$\viscosity$}{Viscosidade dinâmica do fluido;}
+%\nomenclature[B,14]{$\straintensor(\bullet)$}{Tensor taxa de deformação infinitesimal;}
+%\nomenclature[B,15]{$\domain$}{Domínio espacial ou domínio atual do escoamento do fluido;}
+%\nomenclature[B,16]{$n_{sd}$}{Dimensão espacial;}
+%\nomenclature[B,17]{$\boundary$}{Contorno do domínio espacial que define o escoamento do fluido;}
+%\nomenclature[B,18]{$\GammaD$}{Porção do contorno com condições de contorno de Dirichlet;}
+%\nomenclature[B,19]{$\GammaN$}{Porção do contorno com condições de contorno de Neumann;}
+%\nomenclature[B,20]{$\totalTime$}{Intervalo de tempo total da análise;}
+%\nomenclature[B,21]{$\velocityD$}{Vetor de velocidades prescritas;}
+%\nomenclature[B,22]{$\surfaceLoad$}{Forças de superfície prescritas;}
+%\nomenclature[B,23]{$\normal$}{Vetor normal ao contorno do domínio computacional;}
+%\nomenclature[B,24]{$\Omega_0$}{Domínio inicial ou material do escoamento do fluido;}
+%\nomenclature[B,25]{$\mathbf{x}$}{Vetor das coordenadas dos pontos materiais de um ponto arbitrário;}
+%\nomenclature[B,26]{$\pos$}{Vetor das coordenadas atuais de um ponto arbitrário;}
+%\nomenclature[B,27]{$\Omega_{\bar{x}}$}{Domínio de referência do escoamento do fluido;}
+%\nomenclature[B,28]{$\posAle$}{Vetor das coordenadas de referência de um ponto arbitrário;}
+%\nomenclature[B,29]{$\mathbf{f}(\mathbf{x},t)$}{Função mudança de configuração do domínio material para o domínio espacial;}
+%\nomenclature[B,30]{$\mathbf{\bar{f}}(\mathbf{\bar{x}},t)$}{Função mudança de configuração do domínio de referência para o domínio espacial;}
+%\nomenclature[B,31]{$\mathfrak{f}(\mathbf{x},t)$}{Função mudança de configuração do domínio material para o domínio de referência;}	
+%\nomenclature[B,32]{$\velocityALE$}{Velocidade dos pontos de referência;}
+%\nomenclature[B,33]{$\mathbf{F}$}{Matriz jacobiana da função de mapeamento $\mathbf{f}(\mathbf{x},t)$;}
+%\nomenclature[B,34]{$\mathbf{\bar{F}}$}{Matriz jacobiana da função de mapeamento $\mathbf{\bar{f}}(\mathbf{\bar{x}},t)$;}
+%\nomenclature[B,35]{$\mathfrak{F}$}{Matriz jacobiana da função de mapeamento $\mathfrak{f}(\mathbf{x},t)$;}
+%\nomenclature[B,36]{$g,g^{*},g^{**}$}{Grandeza física escalar na configuração espacial, de referência e material respectivamente;}
+%\nomenclature[B,37]{$\usolution$}{Espaço vetorial das funções aproximadoras do campo de velocidades;}
+%\nomenclature[B,38]{$\psolution$}{Espaço vetorial das funções aproximadoras do campo de pressões;}
+%\nomenclature[B,39]{$\uweighting$}{Espaço vetorial das funções ponderadoras do campo de velocidades;}
+%\nomenclature[B,40]{$\pweighting$}{Espaço vetorial das funções ponderadoras do campo de pressões;}
+%\nomenclature[B,41]{$\utest$}{Função ponderadora pertencente ao espaço $\uweighting$;}
+%\nomenclature[B,42]{$\ptest$}{Função ponderadora pertencente ao espaço $\pweighting$;}
+%\nomenclature[B,43]{$(\bullet)^h$}{O superscrito $h$ indica, em todos os casos, a discretização em elementos finitos da variável;}
+%\nomenclature[B,44]{$\domain^{e}$}{Domínio computacional de um elemento finito;}
+%\nomenclature[B,45]{$\nel$}{Número de subdomínios do domínio discreto;}
+%\nomenclature[B,46]{$N_nos$}{Número de nós ou pontos de controle do domínio discreto;}
+%\nomenclature[B,47]{$\boundary^{b}$}{Domínio computacional de um elemento finito no contorno;}
+%\nomenclature[B,48]{$\neb$}{Número de subdomínios do domínio discreto no contorno;}
+%\nomenclature[B,49]{$N$}{Função de forma da discretização do domínio;}
+%\nomenclature[B,50]{$(\bullet)_A$}{O subscrito $A$ indica, em todos os casos, que se trata da variável respectiva ao nó $A$ da malha de elementos finitos;}
+%\nomenclature[B,51]{$\SUPG$}{Parâmetro de estabilização do método \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG);}
+%\nomenclature[B,52]{$\PSPG$}{Parâmetro de estabilização do método \textit{Pressure-Stabilizing/Petrov-Galerkin} (PSPG);}
+%\nomenclature[B,53]{$\LSIC$}{Parâmetro de estabilização do método \textit{Least-Squares on the Incompressibility Constraint} (LSIC);}
+%\nomenclature[B,54]{$\resMom$}{Resíduo da equação da quantidade de movimento;}
+%\nomenclature[B,55]{$\resPre$}{Resíduo da equação da continuidade;}
+%\nomenclature[B,56]{$\NNSM$}{Resíduo do vetor discreto da equação da quantidade de movimento;}
+%\nomenclature[B,57]{$\NNSC$}{Resíduo do vetor discreto da equação da continuidade;}
+%\nomenclature[B,58]{$\Acceleration$}{Vetor nodal dos graus de liberdade respectivo a aceleração;}
+%\nomenclature[B,59]{$\Velocity$}{Vetor nodal dos graus de liberdade respectivo a velocidade;}
+%\nomenclature[B,60]{$\Press$}{Vetor nodal dos graus de liberdade respectivo a pressão;}
+%\nomenclature[B,61]{$\matrixQ$}{Matriz Jacobiana do elemento;}
+%\nomenclature[B,62]{$\coordAdimen$}{Vetor das coordenadas paramétricas adimensionais do elemento;}
+%\nomenclature[B,63]{$\matrixD$}{Matriz que realiza mudança de escala em $\matrixQ$ para levar em conta o grau polinomial das funções de forma;}
+%\nomenclature[B,64]{$\matrixQhat$}{Matriz jacobiana escalonada;}
+%\nomenclature[B,65]{$\RGN$}{Comprimento direcional do elemento finito;}
+%\nomenclature[B,66]{$\rRGN$}{Vetor unitário no sentido do gradiente da intensidade da velocidade;}
+%\nomenclature[B,67]{$\matrixG$}{Tensor métrico do elemento;}
+%\nomenclature[B,68]{$h_{min}$}{Mínimo comprimento de escala do elemento finito;}
+%\nomenclature[B,69]{$h_{max}$}{Máximo comprimento de escala do elemento finito;}
+%\nomenclature[B,70]{$\lambda_{min},\lambda_{max}$}{mínimo e máximo autovalor da matriz $\matrixG$;}
+%\nomenclature[B,71]{$\SUGNi,\SUGNii,\SUGNiii$}{Parâmetros da estabilização SUPG/PSPG/LSIC correspondentes aos termos convectivos, inerciais e viscosos, respectivamente;}
+%\nomenclature[B,72]{$\rRGN_{reg}$}{Vetor unitário no sentido do gradiente da intensidade da velocidade do fluido modificado de maneira a evitar problemas numéricos devido divisão por zero;}
+%\nomenclature[B,73]{$\varepsilon$}{Constante pequena utilizada no cálculo de $\rRGN_{reg}$;}
+%\nomenclature[B,74]{$t_{n}$}{é o tempo atual, ou seja, o instante n-ésimo no qual a solução foi calculada.;}
+%\nomenclature[B,75]{$t_{n+1}$}{é o próximo instante de tempo, ou seja, o instante $n+1$ no qual solução será calculada;}
+%\nomenclature[B,76]{$\alpham, \alphaf, \gamma$}{Parâmetros reais do esquema de integração temporal $\alpha$-generalizado;}
+%\nomenclature[B,77]{$\specRadius$}{Raio espectral da matriz de amplificação;}
+%\nomenclature[B,78]{$\Reynolds$}{Número de Reynolds;}
+%\nomenclature[B,79]{$\velocinfty$}{Velocidade de referência;}
+%\nomenclature[B,80]{$L$}{Comprimento característico/de referência do escoamento;}
+%\nomenclature[B,81]{$\kviscosity$}{Viscosidade cinemática do fluido;}
+%\nomenclature[B,82]{$u_n$}{Velocidade do escoamento na direção normal ao contorno;}
+%\nomenclature[B,83]{$F_L, F_D$}{Forças de sustentação e arrasto, respectivamente;}
+%\nomenclature[B,84]{$C_L, C_D$}{Coeficiente de sustentação e arrasto, respectivamente;}
+%\nomenclature[B,85]{$\Strouhal$}{Número de Strouhal;}
+%\nomenclature[B,86]{$f_V$}{Frequência de desprendimento dos vórtices;}
 
 % ---------------------------------------------------------- 
 % Métodos de \part{\part{malhas}} sobrepostas
@@ -236,11 +244,11 @@ O tensor de tensões de Cauchy $\stresstensor$ é definido para fluidos newtonia
 \stresstensor &= -p\unittensor + 2\viscosity\straintensor(\velocity),\label{eq:StressTensor}
 \end{align}
 
-\noindent onde $p$ representa a pressão, $\viscosity$ a viscosidade dinâmica do fluido e $\straintensor$ é o tensor taxa de deformação, definido como:
+\noindent onde $p$ representa a pressão, $\viscosity$ a viscosidade dinâmica do fluido e $\straintensor(\bullet)$ é o tensor taxa de deformação infinitesimal, definido como:
 
 
 \begin{align}
-\straintensor\left(\velocity\right) = \frac{1}{2}\left(\nabla_y\velocity + \nabla_y\velocity^{T}\right). 
+\straintensor(\bullet) = \frac{1}{2}\left(\nabla_y (\bullet) + \nabla_y (\bullet)^{T}\right). 
 \label{eq:StrainTensor}
 \end{align}
 
@@ -314,7 +322,7 @@ A velocidade dos pontos da malha é calcula por:
 \end{align}
 
 
-As matrizes jacobianas dos mapeamentos considerando a depedência do espaço e do tempo são dadas por:
+As matrizes jacobianas dos mapeamentos considerando a dependência do espaço e do tempo são dadas por:
 
 \begin{equation} \label{eq:ALEJac1}
 	\mathbf{F} = \frac{\partial \left(\mathbf{f}(\mathbf{x},t),t\right)}{\partial (\mathbf{x},t)}=
@@ -558,8 +566,8 @@ Nesse trabalho são utilizadas funções de forma quadráticas do tipo polinômi
 
 \begin{figure}[!htb]
 	\centering	
-	\subfloat[Elemento Finito 2d.\label{fig:elementofinito2d}]{\includegraphics[scale=0.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/element2d.pdf}}\\
-	\subfloat[Elemento Finito 3d.\label{fig:elementofinito3d}]{\includegraphics[trim=0 0 0 0,clip,scale=0.65]{Imagens/Cap2/element3d.pdf}}
+	\subfloat[Elemento Finito 2d\label{fig:elementofinito2d}]{\includegraphics[scale=0.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/element2d.pdf}}\\
+	\subfloat[Elemento Finito 3d\label{fig:elementofinito3d}]{\includegraphics[trim=0 0 0 0,clip,scale=0.65]{Imagens/Cap2/element3d.pdf}}
 	\caption{Elementos Finitos: representação espacial e paramétrica}
 \end{figure}
 
@@ -647,6 +655,8 @@ Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\v
 \begin{align}
 \resPre\left(\velocityh\right)&=\nabla_y \cdot \velocityh.
 \end{align}
+
+A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho é conhecida como MJBS (Mesh-Jacobian Based Stiffening) introduzida por \citeonline{TezduyarBSJ:1992f} e será abordada na Subseção \ref{subsec:MovMalha}.
 
 Visto que existem funções teste separadas para a velocidade e pressão, pode-se definir dois vetores residuais correspondentes a equação da quantidade de movimento ($\NNSM$) e a equação da continuidade ($\NNSC$). Considerando a arbitrariedade de $\utest_{A}$ e $\ptest_{A}$, têm-se:
 
@@ -944,17 +954,16 @@ O estudo do problema de um escoamento sobre um cilindro 2D teve como principal i
 
 \noindent com $L$ a dimensão característica do problema, sendo nesse caso o diâmetro do cilindro, e $\kviscosity$ a viscosidade cinemática do fluido. 
 
-\begin{figure}[!htb]
-	\centering
-	\subfloat[Geometria e condições de contorno.\label{fig:cilindro2d_geometria}]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro2d.pdf}}\\
-	\subfloat[Discretização espacial.\label{fig:cilindro2d_malha}]{\includegraphics[trim=170 120 170 130,clip,scale=0.2]{Imagens/Cap2/MeshCylinder2D.eps}}
-	\caption{Cilindro 2D: Geometria, condições de contorno e malha de elementos finitos.}
-\end{figure}
-
-
 A geometria e condições de contorno são apresentadas na Fig. \ref{fig:cilindro2d_geometria}. Como pode-se observar trata-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nas paredes superior e inferior. No contorno denominado como \textit{saída}, não se conhece o comportamento do escoamento, desta forma, determina-se sua posição no domínio computacional a uma distância grande o suficiente de maneira a não interferir no comportamento do escoamento. 
 
 Na Fig. \ref{fig:cilindro2d_malha} pode-se observar a malha não-estruturada de elementos finitos utilizada para esse problema, composta por 3122 elementos triangulares quadráticos e 6376 nós. O problema foi simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\rho = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$. 
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[Geometria e condições de contorno\label{fig:cilindro2d_geometria}]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro2d.pdf}}\\
+	\subfloat[Discretização espacial\label{fig:cilindro2d_malha}]{\includegraphics[trim=170 120 170 130,clip,scale=0.2]{Imagens/Cap2/MeshCylinder2D.eps}}
+	\caption{Cilindro 2D: Geometria, condições de contorno e malha de elementos finitos.}
+\end{figure}
 
 Para o cálculo dos coeficientes aerodinâmicos é necessário definir-se primeiramente as forças de arrasto - horizontal ($F_D$) e de sustentação - vertical ($F_L$), que são induzidas por tensões desviadores e hidrostáticas e são calculadas pelas seguintes equações:
 
@@ -966,7 +975,7 @@ F_D = \int_{\boundary_{c}} \stresstensor_{1j}n_{j} d\boundary_{c},
 F_L = \int_{\boundary_{c}} \stresstensor_{2j}n_{j} d\boundary_{c},
 \end{align}
 
-\noindent nas quais o símbolo $\boundary_{c}$ representa o contorno do cilindro e $_jn$ é o vetor normal à essa superfície na direção $j$, com $j=1,2$. Os coeficientes de arrasto e sustentação são definidos respectivamente por:
+\noindent nas quais o símbolo $\boundary_{c}$ representa o contorno do cilindro e $n_j$ é o vetor normal à essa superfície na direção $j$, com $j=1,2$. Os coeficientes de arrasto e sustentação são definidos respectivamente por:
 
 \begin{align}
 	C_D = \frac{F_D}{0,5\rho \lVert \velocity_{\infty} \lVert^{2} L},
@@ -988,70 +997,90 @@ Como pode-se observar na Fig. \ref{fig:cilindro_coeficientes} para $\Reynolds = 
 
 \begin{figure}[!htb]
 	\centering
-	\subfloat[\label{fig:cilindro_Cd}Coeficiente de arrasto $ C_D$.]{\includegraphics[scale=1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/DragRe.eps}}\\ 
-	\subfloat[\label{fig:cilindro_Cl}Coeficiente de sustentação $C_L$.]{\includegraphics[scale=1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/LiftRe.eps}}\\ 
+	\subfloat[\label{fig:cilindro_Cd}Coeficiente de arrasto $ C_D$]{\includegraphics[scale=1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/DragRe.eps}}\\ 
+	\subfloat[\label{fig:cilindro_Cl}Coeficiente de sustentação $C_L$]{\includegraphics[scale=1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/LiftRe.eps}}\\ 
 	{\includegraphics[scale=1.3]{Imagens/Cap2/Legenda.pdf}}
 	\caption{Cilindro 2D: Coeficientes aerodinâmicos. }
 	\label{fig:cilindro_coeficientes}
 \end{figure}
 
-Nas Fig. \ref{fig:cilindro_2d_pressao} e Fig. \ref{fig:cilindro_2d_velocidade} podem ser observados os campos de pressão e velocidade em um tempo $t=11,5$ da análise para $Re = 100$. Pode-se notar nessas imagens, a formação e os desprendimentos de vórtices na esteira de Von Karmán, característico do escoamento para o número de Reynolds simulado.
+Nas Fig. \ref{fig:cilindro_campos_velocidade} e Fig. \ref{fig:cilindro_campos_pressao} podem ser observados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices para $Re = 100$. Pode-se notar nessas imagens, a formação e o desprendimento de vórtices na esteira de Von Karmán.
 
-\begin{figure}[!htb]
+
+\begin{figure}[htb!]
 	\centering
-	\subfloat[\label{fig:cilindro_2d_pressao}Campo de pressão]{\includegraphics[scale=0.2,trim=15cm 9cm 14cm 9cm, clip=true]{Imagens/Cap2/pressaoRe100.png}}\\ 
-	\subfloat[\label{fig:cilindro_2d_velocidade}Campo de velocidade]{\includegraphics[scale=0.2,trim=15cm 1cm 14cm 9cm, clip=true]{Imagens/Cap2/velocitymagnitude.png}}
-	\caption{Cilindro 2D: Campos de pressão e de velocidade para um escoamento com $Re = 100$ }
-	\label{fig:cilindro_campos}
+	\subfloat[$T_n$]{\includegraphics[scale=0.20,trim=10cm 5cm 10cm 6cm, clip=true]{Imagens/Cap2/vel2030.pdf}}
+	\subfloat[$T_n + T_n/6$]{\includegraphics[trim=10cm 5cm 10cm 6cm,clip=true,scale=0.20]{Imagens/Cap2/vel2040.pdf}} \\
+	\subfloat[$T_n + T_n/3$]{\includegraphics[scale=0.20,trim=10cm 5cm 10cm 6cm, clip=true]{Imagens/Cap2/vel2050.pdf}}
+	\subfloat[$T_n + T_n/2$]{\includegraphics[trim=10cm 5cm 10cm 6cm,clip=true,scale=0.20]{Imagens/Cap2/vel2060.pdf}} \\
+	\subfloat[$T_n + 2T_n/3$]{\includegraphics[scale=0.20,trim=10cm 5cm 10cm 6cm, clip=true]{Imagens/Cap2/vel2070.pdf}}
+	\subfloat[$T_n + 5T_n/6$]{\includegraphics[trim=10cm 5cm 10cm 6cm,clip=true,scale=0.20]{Imagens/Cap2/vel2080.pdf}} \\
+	{\includegraphics[trim=10cm 0cm 10cm 32cm,clip=true,scale=0.3]{Imagens/Cap2/vel2080.pdf}} \\
+	\caption{Cilindro 2D: Campos de velocidade}
+	\label{fig:cilindro_campos_velocidade}
 \end{figure}
 
 
-\subsection{Cavidade Quadrada - 3D} \label{subsec:CavQua3d}
+\begin{figure}[htb!]
+	\centering
+	\subfloat[$T_n$]{\includegraphics[scale=0.20,trim=10cm 6cm 10cm 6cm, clip=true]{Imagens/Cap2/press2030.pdf}}
+	\subfloat[$T_n + T_n/6$]{\includegraphics[trim=10cm 6cm 10cm 6cm,clip=true,scale=0.20]{Imagens/Cap2/press2040.pdf}} \\
+	\subfloat[$T_n + T_n/3$]{\includegraphics[scale=0.20,trim=10cm 6cm 10cm 6cm, clip=true]{Imagens/Cap2/press2050.pdf}}
+	\subfloat[$T_n + T_n/2$]{\includegraphics[trim=10cm 6cm 10cm 6cm,clip=true,scale=0.20]{Imagens/Cap2/press2060.pdf}} \\
+	\subfloat[$T_n + 2T_n/3$]{\includegraphics[scale=0.20,trim=10cm 6cm 10cm 6cm, clip=true]{Imagens/Cap2/press2070.pdf}}
+	\subfloat[$T_n + 5T_n/6$]{\includegraphics[trim=10cm 6cm 10cm 6cm,clip=true,scale=0.20]{Imagens/Cap2/press2080.pdf}} \\
+	{\includegraphics[trim=0cm 0cm 0cm 32cm,clip=true,scale=0.30]{Imagens/Cap2/press2080.pdf}} \\
+	\caption{Cilindro 2D: Campos de pressão}
+	\label{fig:cilindro_campos_pressao}
+\end{figure}
 
-Para a verificação do código 3D utilizando elementos finitos o problema de uma cavidade quadrada com velocidade prescrita $u_{\infty}$ em sua parede superior foi estudado. A geometria do problema em questão e o conjunto de suas condições de contorno são apresentadas na Fig. \ref{fig:cavidade_geometria}. As paredes da cavidade são rígidas, com paredes laterais e do fundo com condição de aderência, e adicionalmente, velocidade $u_{z}=0$, condição de parede lisa, nas paredes das faces frontal e posterior. A cavidade possui na direção $z$ uma espessura de 0,03. A discretização espacial em elementos finitos utilizada é apresentada na Fig.  \ref{fig:cavidade_malha}, a qual consiste em 7252 elementos tetraédricos quadráticos e 14727 nós.
+
+\subsection{Cavidade Quadrada} \label{subsec:CavQua3d}
+
+Para a verificação do código 3D utilizando elementos finitos o problema de uma cavidade quadrada com velocidade prescrita $u_{\infty}$ em sua parede superior foi estudado. A geometria do problema em questão e o conjunto de suas condições de contorno são apresentadas na Fig. \ref{fig:cavidade_geometria}. As paredes da cavidade são rígidas, com paredes laterais e do fundo com condição de aderência, e adicionalmente, condição de simetria na direção $y_3$. A cavidade possui na direção $y_3$ uma espessura de 0,03. A discretização espacial em elementos finitos utilizada é apresentada na Fig.  \ref{fig:cavidade_malha}, a qual consiste em 7252 elementos tetraédricos quadráticos e 14727 nós.
 
 O problema é estudado para os números de Reynolds: 100, 400 e 1000. O número de Reynolds foi calculado de acordo com Eq. \eqref{eq:Reynolds}, com $L$ equivalente ao comprimento do lado da cavidade. O problema foi simulado para uma velocidade na parede superior de $\velocity_{\infty} = 1,0$, $\rho = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0$, sendo a viscosidade do fluido variada de modo a alterar o número de Reynolds. A simulação foi mantida até que se atingiu o estado estacionário de escoamento. 
 
 \begin{figure}[!htb]
 	\centering
-	\subfloat[Geometria e condições de contorno.\label{fig:cavidade_geometria}]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cavidade.pdf}} \quad
+	\subfloat[Geometria e condições de contorno\label{fig:cavidade_geometria}]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cavidade.pdf}} \quad
 	\subfloat[Discretização espacial.\label{fig:cavidade_malha}]{\includegraphics[trim=170 120 850 130,clip,scale=0.15]{Imagens/Cap2/cavitymesh.png}}
-	\caption{Cavidade quadrada: Geometria, condições de contorno e malha de elementos finitos.}
+	\caption{Cavidade quadrada: Geometria, condições de contorno e malha de elementos finitos}
 \end{figure}
 
-Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) horizontal e vertical ao longo de duas linhas centrais nas direções $x$ e $y$ posicionadas no centro da espessura na direção $z$ da cavidade são apresentados na Fig. \ref{fig:cavidade_graficos} e comparados com a referência de \citeonline{GhiaGS:1982}.
+Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ posicionadas no centro da espessura da direção $y_3$ da cavidade são apresentados na Fig. \ref{fig:cavidade_graficos} e comparados com a referência de \citeonline{GhiaGS:1982}.
 
 
 \begin{figure}[!t]
 	\centering
-	\subfloat[\label{fig:cavidade_g_Re100}$Re$=100.]{\includegraphics[scale=.8,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re100.eps}} \subfloat[\label{fig:cavidade_g_Re400}$Re$=400.]{\includegraphics[scale=.8,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re400.eps}}\\ 
-	\subfloat[\label{fig:cavidade_g_Re1000}$Re$=1000.]{\includegraphics[scale=.8,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re1000.eps}} \\
+	\subfloat[\label{fig:cavidade_g_Re100}$Re$=100]{\includegraphics[scale=.8,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re100.eps}} \subfloat[\label{fig:cavidade_g_Re400}$Re$=400]{\includegraphics[scale=.8,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re400.eps}}\\ 
+	\subfloat[\label{fig:cavidade_g_Re1000}$Re$=1000]{\includegraphics[scale=.8,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re1000.eps}} \\
 	\subfloat{\includegraphics[scale=1.]{Imagens/Cap2/legenda.pdf}} 
-	\caption{Cavidade quadrada: Perfis de velocidade adimensionalizados nas direções $x$ e $y$ . }
+	\caption{Cavidade quadrada: Perfis de velocidade adimensionalizados nas direções $y_1$ e $y_2$  }
 	\label{fig:cavidade_graficos}
 \end{figure}
 
-Os campos de velocidade e de pressão são apresentados nas figuras Fig \ref{fig:cav3d-vel} e \ref{fig:cav3d-press} respectivamente. Ressalta-se que para a solução do problema, por se tratar de um problema com todos os contornos com condição de Dirichlet impostos, a pressão torna-se indefinida. Por esse motivo, prescreveu-se uma pressão $\press = \press_{ref} =  0$ no canto superior direito da cavidade. 
+Os campos de velocidade e de pressão são apresentados nas figuras Fig \ref{fig:cav3d-vel} e \ref{fig:cav3d-press} respectivamente. Ressalta-se que para a solução do problema, por se tratar de um problema com todos os contornos com condição de Dirichlet impostos, a pressão torna-se indefinida. Por esse motivo, prescreveu-se uma pressão $\press = \press_{ref} =  0.0$ no canto superior direito da cavidade. 
 
 
 \begin{figure}[!t]
 	\centering
 	\setlength{\lineskip}{-10pt}
-	\subfloat[\label{fig:cavidade_Vel_Re100}$Re$=100.]{\includegraphics[scale=0.15,trim=15cm 7cm 15cm 7cm, clip=true]{Imagens/Cap2/velocity-Re100.png}} \subfloat[\label{fig:cavidade_Vel_Re400}$Re$=400.]{\includegraphics[scale=0.15,trim=15cm 7cm 15cm 7cm, clip=true]{Imagens/Cap2/velocity-Re400.png}}\\ 
-	\subfloat[\label{fig:cavidade_Vel_Re1000}$Re$=1000.]{\includegraphics[scale=0.15,trim=15cm 7cm 15cm 7cm, clip=true]{Imagens/Cap2/velocity-Re1000.png}} \\
+	\subfloat[\label{fig:cavidade_Vel_Re100}$Re$=100]{\includegraphics[scale=0.15,trim=15cm 7cm 15cm 7cm, clip=true]{Imagens/Cap2/velocity-Re100.png}} \subfloat[\label{fig:cavidade_Vel_Re400}$Re$=400]{\includegraphics[scale=0.15,trim=15cm 7cm 15cm 7cm, clip=true]{Imagens/Cap2/velocity-Re400.png}}\\ 
+	\subfloat[\label{fig:cavidade_Vel_Re1000}$Re$=1000]{\includegraphics[scale=0.15,trim=15cm 7cm 15cm 7cm, clip=true]{Imagens/Cap2/velocity-Re1000.png}} \\
 	%	\subfloat[\label{fig:cavidade_g_Re10000}$Re$=10000.]{\includegraphics[scale=1.1,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re10000.eps}}\\
 	\subfloat{\includegraphics[scale=0.2]{Imagens/Cap2/legandaCavidadeVel.pdf}} 
-	\caption{Cavidade quadrada: campos de velocidade. }
+	\caption{Cavidade quadrada: Campos de velocidade. }
 	\label{fig:cav3d-vel}
 \end{figure}
 
 \begin{figure}[!t]
 	\centering
 	\setlength{\lineskip}{-10pt}
-	\subfloat[\label{fig:cavidade_Press_Re100}$Re$=100.]{\includegraphics[scale=0.15,trim=15cm 0cm 15cm 7cm, clip=true]{Imagens/Cap2/pressao100.png}} \subfloat[\label{fig:cavidade_Press_Re400}$Re$=400.]{\includegraphics[scale=0.15,trim=15cm 0cm 15cm 7cm, clip=true]{Imagens/Cap2/pressao400.png}}\\ 
-	\subfloat[\label{fig:cavidade_Press_Re1000}$Re$=1000.]{\includegraphics[scale=0.15,trim=15cm 0cm 15cm 7cm, clip=true]{Imagens/Cap2/pressao1000.png}} \\
+	\subfloat[\label{fig:cavidade_Press_Re100}$Re$=100]{\includegraphics[scale=0.15,trim=15cm 0cm 15cm 7cm, clip=true]{Imagens/Cap2/pressao100.png}} \subfloat[\label{fig:cavidade_Press_Re400}$Re$=400]{\includegraphics[scale=0.15,trim=15cm 0cm 15cm 7cm, clip=true]{Imagens/Cap2/pressao400.png}}\\ 
+	\subfloat[\label{fig:cavidade_Press_Re1000}$Re$=1000]{\includegraphics[scale=0.15,trim=15cm 0cm 15cm 7cm, clip=true]{Imagens/Cap2/pressao1000.png}} \\
 	%	\subfloat[\label{fig:cavidade_g_Re10000}$Re$=10000.]{\includegraphics[scale=1.1,trim=0.55cm 0.5cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re10000.eps}}\\
-	\caption{Cavidade quadrada: campos de pressão. }
+	\caption{Cavidade quadrada: Campos de pressão. }
 	\label{fig:cav3d-press}
 \end{figure}
 
