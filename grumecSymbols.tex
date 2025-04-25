@@ -76,18 +76,7 @@
 \newcommand{\eTheta}{\theta_y}
 \newcommand{\NNSS}{\mathbf{R}_S}
 \newcommand{\lGrad}{\boldsymbol{\nabla}_\mathbf{x}}
-%Characteristic lenght
-\newcommand{\lenght}{L}
-%Lift force
-\newcommand{\liftForce}{F_L}
-%Lift coefficient
-\newcommand{\liftCoefficient}{C_L}
-%Drag forceexternas
-\newcommand{\dragForce}{F_D}
-%Drag coefficient
-\newcommand{\dragCoefficient}{C_D}
-\newcommand{\elastic}{\upsilon}
-\newcommand{\kArlequin}{\kappa^e}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % GRUMEC - TIME INTEGRATION
@@ -98,10 +87,14 @@
 \newcommand{\alpham}{\alpha_m}
 %spectral radius
 \newcommand{\specRadius}{\rho_\infty}
+%time
+\newcommand{\tempo}{t}
 %time step
 \newcommand{\timeStep}{\Delta t}
 %initial velocity
 \newcommand{\initialVelocity}{\mathbf{u}_s^h}
+%Total time
+\newcommand{\totalTime}{T}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % GRUMEC - ARLEQUIN
@@ -109,6 +102,10 @@
 %Global model
 \newcommand{\globalModel}{\Omega_0}
 \newcommand{\globalBoundary}{\Gamma_0}
+%Arlequin model
+\newcommand{\arlqModel}{\Omega_i}
+\newcommand{\arlqBoundary}{\Gamma_i}
+
 %Local model
 \newcommand{\localModel}{\Omega_1}
 \newcommand{\localBoundary}{\Gamma_1}
@@ -120,59 +117,64 @@
 \newcommand{\overlappingZone}{\Omega_s}
 %Weighting function
 \newcommand{\arlequinWF}{\alpha}
+\newcommand{\arlequinWFi}{\alpha_i}
 %weigthing function local model
 \newcommand{\arlequinWFLocal}{\alpha_1}
 %weighting function global model
 \newcommand{\arlequinWFGlobal}{\alpha_0}
+
 %local velocity
 \newcommand{\ulocal}{\mathbf{u}_1}
-%global velocity
-\newcommand{\uglobal}{\mathbf{u}_0}
-%velocity Arleq. i
-\newcommand{\uArlqi}{\mathbf{u}_i^{h}}
-%local velocity
 \newcommand{\ulocalh}{\mathbf{u}_1^h}
 %global velocity
+\newcommand{\uglobal}{\mathbf{u}_0}
 \newcommand{\uglobalh}{\mathbf{u}_0^h}
+%velocity Arlequin from model i
+\newcommand{\uArlqi}{\mathbf{u}_i^{h}}
 %global velocity weight function
 \newcommand{\wglobal}{\mathbf{w}_0}
+\newcommand{\wglobalh}{\mathbf{w}_0^h}
 %local velocity weight function
 \newcommand{\wlocal}{\mathbf{w}_1}
 %global velocity weight function
-\newcommand{\wglobalh}{\mathbf{w}_0^h}
-%local velocity weight function
 \newcommand{\wlocalh}{\mathbf{w}_1^h}
-
+%velocity Arlequin weight function from model i
 \newcommand{\wArlqi}{\mathbf{w}_i^h}
+
+%global pressure
+\newcommand{\pglobal}{p_0}
+\newcommand{\pglobalh}{p_0^h}
+%local pressure
+\newcommand{\plocal}{p_1}
+\newcommand{\plocalh}{p_1^h}
+%pressure Alequin from model i
+\newcommand{\pArlqi}{p_i^{h}}
+%global pressure weight function
+\newcommand{\qglobal}{q_0}
+\newcommand{\qglobalh}{q_0^h}
+%local pressure weight function
+\newcommand{\qlocal}{q_1}
+\newcommand{\qlocalh}{q_1^h}
+%pressure Arlequin weight function from model i
+\newcommand{\qArlqi}{q_i^h}
+
+%Surface and body forces in each model
+\newcommand{\globalSurfaceLoadh}{\mathbf{h}_0^h}
+\newcommand{\localSurfaceLoadh}{\mathbf{h}_1^h}
+\newcommand{\arlqSurfaceLoadh}{\mathbf{h}_i^h}
+\newcommand{\globalsbodyforceh}{\mathbf{f}_0^h}
+\newcommand{\localsbodyforceh}{\mathbf{f}_1^h}
+\newcommand{\arlqsbodyforceh}{\mathbf{f}_i^h}
+
 %Lagrange multiplier
 \newcommand{\lagrangeMultiplier}{\boldsymbol{\lambda}}
 \newcommand{\LagrangeMultiplier}{\boldsymbol{\Lambda}}
-%Lagrange multiplier
-\newcommand{\lagrangeMultiplierWF}{\boldsymbol{\zeta}}
-%Lagrange multiplier
 \newcommand{\lagrangeMultiplierh}{\boldsymbol{\lambda}^h}
-%Lagrange multiplierexternas
+%Lagrange multiplier weight function
+\newcommand{\lagrangeMultiplierWF}{\boldsymbol{\zeta}}
 \newcommand{\lagrangeMultiplierWFh}{\boldsymbol{\zeta}^h}
-%global pressure
-\newcommand{\pglobal}{p_0}
-%local velocity weight function
-\newcommand{\plocal}{p_1}
-%pressure Arlqi
-\newcommand{\pArlqi}{p_i^{h}}
-%global pressure
-\newcommand{\pglobalh}{p_0^h}
-%local velocity weight function
-\newcommand{\plocalh}{p_1^h}
-%global pressure weight function
-\newcommand{\qglobal}{q_0}
-%local pressure weight function
-\newcommand{\qlocal}{q_1}
-%global pressure weight function
-\newcommand{\qglobalh}{q_0^h}
-%local pressure weight function
-\newcommand{\qlocalh}{q_1^h}
 
-\newcommand{\qArlqi}{q_i^h}
+%Trial and test spaces
 %Solution space global model - velocity
 \newcommand{\uGlobalSolution}{\mathcal{S}_{u0}^h}
 %Solution space local model - velocity
@@ -185,13 +187,6 @@
 \newcommand{\uLocalTest}{\mathcal{V}_{u1}^h}
 %Solution space Arlequin model - velocity
 \newcommand{\uArlequinTest}{\mathcal{V}_{ui}^h}
-%Arlequin Stabilization Parameter
-\newcommand{\tauArlequin}{\tau_{ARLQ}}
-\newcommand{\tauArlequini}{\tau_{ARLQi}}
-\newcommand{\tauArlequinGlobal}{\tau_{ARLQ0}}
-\newcommand{\tauArlequinLocal}{\tau_{ARLQ1}}
-%Number of subdomains
-\newcommand{\nSubDomains}{n_{dom}}
 
 %Solution space global model - pressure
 \newcommand{\pGlobalSolution}{\mathcal{S}_{p0}^h}
@@ -201,7 +196,7 @@
 \newcommand{\pArlequinSolution}{\mathcal{S}_{pi}^h}
 %Solution space global model - pressure
 \newcommand{\pGlobalTest}{\mathcal{V}_{p0}^h}
-%Solution space global model - pressure
+%Solution space global model - pressure´
 \newcommand{\pLocalTest}{\mathcal{V}_{p1}^h}
 %Solution space Arlequin model - pressure
 \newcommand{\pArlequinTest}{\mathcal{V}_{pi}^h}
@@ -210,6 +205,14 @@
 \newcommand{\lagSolution}{\mathcal{M}^h}
 %Solution space global model - lagrange multiplier
 \newcommand{\lagTest}{\mathcal{Q}^h}
+
+%Arlequin Stabilization Parameter
+\newcommand{\tauArlequin}{\tau_{ARLQ}}
+\newcommand{\tauArlequini}{\tau_{ARLQi}}
+\newcommand{\tauArlequinGlobal}{\tau_{ARLQ0}}
+\newcommand{\tauArlequinLocal}{\tau_{ARLQ1}}
+%Number of subdomains
+\newcommand{\nSubDomains}{n_{dom}}
 
 \newcommand{\resMomGlobal}{\mathbf{r}_{\mathrm{M0}}^{h}}
 \newcommand{\resMomI}{\mathbf{r}_{\mathrm{Mi}}^{h}}
@@ -220,31 +223,20 @@
 
 \newcommand{\NNSL}{\mathrm{R}_\mathrm{L}}
 \newcommand{\NNSMLocal}{\mathrm{R}_\mathrm{M1}}
+\newcommand{\NNSMArlq}{\mathrm{R}_\mathrm{M,i}}
 \newcommand{\NNSCLocal}{\mathrm{R}_\mathrm{C1}}
 \newcommand{\NNSMGlobal}{\mathrm{R}_\mathrm{M0}}
 \newcommand{\NNSCGlobal}{\mathrm{R}_\mathrm{C0}}
+\newcommand{\NNSCArlq}{\mathrm{R}_\mathrm{C,i}}
 
-\newcommand{\integrationPoint}{\tilde{\boldsymbol{\xi}}}
-\newcommand{\coordAdimen}{\bm{\xi}}
-
-
-\newcommand{\structDomain}{\Omega_{E}}
-\newcommand{\arlequinDomain}{\Omega_{F}}
-\newcommand{\interfaceAS}{\Gamma_{IFE}}
-\newcommand{\aitkenFactor}{\varsigma}
-\newcommand{\aitkenParam}{\varpi}
-\newcommand{\meshSolver}{\mathscr{M}}
-\newcommand{\solidSolver}{\mathscr{E}}
-\newcommand{\fluidSolver}{\mathscr{F}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% TAFMS
+% MESH PROBLEM
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Mesh Moving
 \newcommand{\domaintt}{\Omega_{\tilde{t}}}
 \newcommand{\testfunction}{\mathbf{w}^h}
 \newcommand{\displacementmesh}{\bar{\mathbf{z}}^h}
-
 \newcommand{\referencecoordinates} {\mathbf{X}^h}
 \newcommand{\currentcoordinates} {\mathbf{y}^h}
 \newcommand{\currentcoordinatessh} {\mathbf{y}}
@@ -253,722 +245,142 @@
 \newcommand{\stif}{\mathbf{K}}
 \newcommand{\domainref}{\Omega_{ref}}
 
-% Fluid Problem
-\newcommand{\density}{\rho}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FLUID PROBLEM
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\newcommand{\vorticity}{\boldsymbol{\omega}}
-
-\newcommand{\velocity}{\mathbf{u}}
-
-\newcommand{\Velocity}{\mathbf{U}}
-
-\newcommand{\velocityD}{\mathbf{u}_D}
-
-\newcommand{\velocityIND}{u}
-
-\newcommand{\stress}{\sigma}
-
-\newcommand{\GammaD}{\Gamma_{D}}
-
-\newcommand{\GammaN}{\Gamma_{N}}
-
-\newcommand{\surfaceLoad}{\mathbf{h}}
-
-\newcommand{\stresstensor}{\boldsymbol{\sigma}}
-
-
-%\newcommand{\dyadd}{\otimes}
-\newcommand{\dyadd}{ }
-
-\newcommand{\sgn}{\mathrm{sgn}}
-
+%mathematical commands
 \newcommand{\trace}{\mathrm{tr}}
-
 \newcommand{\unittensor}{\mathbf{I}}
-
 \newcommand{\increment}{\varDelta}
-
 \newcommand{\imaginary}{\imath}
-
 \newcommand{\complexspace}{{\mathbb C}}
-
-\newcommand{\mdiffusivity}{\kappa}
-
 \newcommand{\laplacian}{\Delta}
-
-\newcommand{\viscosity}{\mu}
-
-\newcommand{\kviscosity}{\nu}
-
-\newcommand{\diffusivity}{\nu}
-
 \newcommand{\strainrate}{\boldsymbol{{\dot{\varepsilon}}}}
-
 \newcommand{\strainratetensor}{\dot{\bm{\varepsilon}}}
-
-\newcommand{\snormal}{\mathbf{n}}
-
-\newcommand{\normal}{\mathbf{n}}
-
-\newcommand{\tangentialI}{\mathbf{t}_1}
-
-\newcommand{\tangentialII}{\mathbf{t}_2}
-
-\newcommand{\sbodyforce}{\mathbf{f}}
-
-\newcommand{\externalforce}{\mathbf{f}}
-
 \newcommand{\vzero}{\mathbf{0}}
-
 \newcommand{\deriv}{\mathrm{d}}
-
-\newcommand{\divergence}{\boldsymbol{\nabla}}
-
-\newcommand{\Reynolds}{\mathrm{Re}}
-
-\newcommand{\Strouhal}{\mathrm{St}}
-
-\newcommand{\Pe}{\mathrm{Pe}}
-
-\newcommand{\straction}{\mathbf{h}}
-
-\newcommand{\traction}{\mathbf{h}}
-
-\newcommand{\tractionD}{\mathbf{H}}
-
-\newcommand{\deformationgradient}{\mathbf{F}}
-
-
-\newcommand{\disp}{\mathbf{z}}
-
-\newcommand{\dispIND}{y}
-
-\newcommand{\dispD}{\mathbf{Y}}
-
-\newcommand{\vdisp}{\mathbf{w}}
-
-\newcommand{\firstpiola}{\mathbf{P}}
-
-\newcommand{\secondpiola}{\mathbf{S}}
-
-\newcommand{\tangentStiffness}{\mathbf{D}}
-
-\newcommand{\pos}{\mathbf{y}}
-\newcommand{\posALE}{\bar{\mathbf{x}}}
-\newcommand{\posh}{\mathbf{y}^h}
-\newcommand{\posALEh}{\bar{\mathbf{x}}^h}
-
-\newcommand{\matpos}{\mathbf{X}}
-
-\newcommand{\sacce}{\mathbf{a}}
-
-\newcommand{\sacceIND}{a}
-
-\newcommand{\mpos}{\hat{\pos}}
-
-\newcommand{\mdisp}{\hat{\disp}}
-
-%\newcommand{\mvelocity}{\hat{\velocity}}
-\newcommand{\mvelocity}{\mathbf{v}}
-
-%\newcommand{\mvelocityD}{\hat{\velocityD}}
-\newcommand{\mvelocityD}{\mathbf{V}}
-
-%\newcommand{\mvelocityIND}{\hat{u}}
-\newcommand{\mvelocityIND}{v}
-
-\newcommand{\macce}{\hat{\sacce}}
-
-\newcommand{\mdispD}{\hat{\dispD}}
-
-\newcommand{\svelocity}{\mathbf{u}}
-
-\newcommand{\svelocityIND}{u}
-
-\newcommand{\sdiv}{\divergence}
-
-\newcommand{\mdiv}{\divergence_{X}}
-
-\newcommand{\mdivSymm}{\divergence_{X}^s}
-
-\newcommand{\sdens}{\rho}
-
-\newcommand{\mdens}{\rho_0}
-
-\newcommand{\mnormal}{\hat{\mathbf{n}}}
-
-\newcommand{\mtraction}{\hat{\mathbf{h}}}
-
-\newcommand{\spress}{p}
-
-\newcommand{\press}{p}
-
-\newcommand{\Press}{\mathbf{p}}
-
-\newcommand{\pressD}{\mathbf{P}}
-
-\newcommand{\elasticmoduli}{\varmathbb{C}}
-
-\newcommand{\ielasticmoduli}{\mathbb{C}}
-
-\newcommand{\mbulk}{\kappa}
-
-\newcommand{\KPEN}{K_{\mathrm{PEN}}}
-
-\newcommand{\nuPEN}{\nu_{\mathrm{PEN}}}
-
-\newcommand{\smoduli}{\mu}
-
-\newcommand{\vunknown}{\boldsymbol{\phi}}
-
-\newcommand{\sunknown}{\phi}
-
-\newcommand{\sunknownD}{\boldsymbol{\Phi}}
-
-\newcommand{\stest}{w}
-
-\newcommand{\vtest}{\mathbf{w}}
-
-\newcommand{\utest}{\mathbf{w}}
-
-\newcommand{\utesth}{\mathbf{w}^h}
-
-\newcommand{\ptest}{q}
-
-\newcommand{\ptesth}{q^h}
-
-\newcommand{\Jb}{J_b}
-
-\newcommand{\J}{J}
-
-\newcommand{\solutions}{\mathcal{S}}
-
-\newcommand{\weighting}{\mathcal{V}}
-
-\newcommand{\ssolution}{\mathcal{S}_y}
-
-\newcommand{\sweighting}{\mathcal{V}_y}
-
-\newcommand{\usolution}{\mathcal{S}_u}
-
-\newcommand{\usolutionh}{\mathcal{S}_u^h}
-
-\newcommand{\phisolution}{\mathcal{S}_{\phi}}
-
-\newcommand{\phiweighting}{\mathcal{V}_{\phi}}
-
-\newcommand{\pweighting}{\mathcal{V}_p}
-
-\newcommand{\pweightingh}{\mathcal{V}_p^h}
-
-\newcommand{\psolution}{\mathcal{S}_p}
-
-\newcommand{\psolutionh}{\mathcal{S}_p^h}
-
-\newcommand{\uweighting}{\mathcal{V}_u}
-
-\newcommand{\uweightingh}{\mathcal{V}_u^h}
-
-\newcommand{\msolution}{\mathcal{S}_m}
-
-\newcommand{\mweighting}{\mathcal{V}_m}
-
-\newcommand{\solutionh}{\mathcal{S}^h}
-
-\newcommand{\weightingh}{\mathcal{V}^h}
-
-\newcommand{\pcoordinate}{\boldsymbol{\xi}}
-
-\newcommand{\lagrangep}{\ell}
-
-\newcommand{\force}{f}
-
-\newcommand{\sunknownh}{\phi^h}
-
-\newcommand{\stesth}{w^h}
-
-\newcommand{\sctraction}{\mathrm{h}}
-
-\newcommand{\sctractionh}{\mathrm{h}^h}
-
-\newcommand{\vgiven}{\mathbf{g}}
-
-\newcommand{\sgiven}{g}
-
-\newcommand{\SUPS}{\tau_{\mathrm{SUPS}}}
-
-\newcommand{\SUPG}{\tau_{\mathrm{SUPG}}}
-
-\newcommand{\TAUCI}{C_I}
-
-\newcommand{\PSPG}{\tau_{\mathrm{PSPG}}}
-
-\newcommand{\SUGNi}{\tau_{\mathrm{SUGN1}}}
-
-\newcommand{\SUGNii}{\tau_{\mathrm{SUGN2}}}
-
-\newcommand{\SUGNiii}{\tau_{\mathrm{SUGN3}}}
-
-\newcommand{\SUGNxii}{\tau_{\mathrm{SUGN12}}}
-
-\newcommand{\LSIC}{\nu_{\mathrm{LSIC}}}
-
-\newcommand{\LSICTCii}{\nu_{\mathrm{LSIC-TC2}}}
-
-\newcommand{\LSICTGI}{\nu_{\mathrm{LSIC-TGI}}}
-
-\newcommand{\LSICTGN}{\nu_{\mathrm{LSIC-HRGN}}}
-
-\newcommand{\LSICLHC}{\nu_{\mathrm{LSIC-LHC}}}
-
-\newcommand{\RGN}{h_{\mathrm{RGN}}}
-
-\newcommand{\RQD}{h_{\mathrm{RQD}}}
-
-\newcommand{\rRGN}{\mathbf{r}}
-
-\newcommand{\tauTAN}{\tau_{\mathrm{TAN}}^B}
-
-\newcommand{\tauNOR}{\tau_{\mathrm{NOR}}^B}
-
-\newcommand{\TAUWBC}{\tau_\mathrm{B}}
-
-\newcommand{\resMom}{\mathbf{r}_{\mathrm{M}}}
-
-\newcommand{\resPre}{{r}_{\mathrm{C}}}
-
-\newcommand{\resAD}{{r}_\mathrm{T}}
-
-\newcommand{\forceh}{f^h}
-
-\newcommand{\strainvector}{\boldsymbol{\epsilon}}
-
-\newcommand{\patom}{\press_{\mathrm{atm}}}
-
-\newcommand{\pinfty}{\press_{\infty}}
-
-\newcommand{\velocinfty}{\velocity_{\infty}}
-\newcommand{\velocityALE}{\bar{\velocity}}
-\newcommand{\velocityALEh}{\bar{\velocity}^h}
-
-\newcommand{\stressinfty}{\stresstensor_{\infty}}
-
-\newcommand{\neb}{n_{\mathrm{eb}}}
-
-\newcommand{\nel}{n_{\mathrm{el}}}
-
-\newcommand{\ncp}{n_{\mathrm{np}}}
-
-\newcommand{\nsd}{{n_{\mathrm{sd}}}}
-
-\newcommand{\npd}{{n_{\mathrm{sd}}}}
-
-\newcommand{\nc}{n_{\mathrm{c}}}
-
-%\newcommand{\mc}{m_{\mathrm{c}}}
-
-\newcommand{\lc}{l_{\mathrm{c}}}
-
-\newcommand{\nk}{n_{\mathrm{k}}}
-
-\newcommand{\mk}{m_{\mathrm{k}}}
-
-\newcommand{\lk}{l_{\mathrm{k}}}
-
+\newcommand{\divergence}{\boldsymbol{\nabla_y}}
+\newcommand{\gradient}{\boldsymbol{\nabla_y}}
 \newcommand{\realspace}{\mathbb{R}}
-
 \newcommand{\nrealspace}{\mathbb{R}^{\nsd}}
 
-\newcommand{\disph}{\mathbf{d}^h}
 
-\newcommand{\vdisph}{\mathbf{w}^h}
-
-\newcommand{\velocityh}{\mathbf{u}^h}
-
-\newcommand{\sindexset}{\indexset^{s}}
-
-\newcommand{\gindexset}{\indexset^{s}_\mathrm{g}}
-
-\newcommand{\shapef}{N}
-
-\newcommand{\shapet}{T}
-
-\newcommand{\shaper}{R}
-
-\newcommand{\testf}{Q}
-
-\newcommand{\windexset}{\indexset^{w}}
-
-\newcommand{\itercounter}{i}
-
-\newcommand{\nen}{n_{\mathrm{en}}}
-
-\newcommand{\nens}{n_{\mathrm{ens}}}
-
-\newcommand{\nent}{n_{\mathrm{ent}}}
-
-\newcommand{\indexset}{\boldsymbol{\eta}}
-
-\newcommand{\gsolutions}{u}
-
-\newcommand{\gsolutiong}{g}
-
-\newcommand{\gsolutionu}{v}
-
-\newcommand{\gsolutionsh}{u^h}
-
-\newcommand{\gsolutionsD}{\mathbf{U}}
-
-\newcommand{\gsolutiongh}{g^h}
-
-\newcommand{\gsolutionuh}{v^h}
-
-\newcommand{\elementsize}{h}
-
-\newcommand{\pressh}{p^h}
-
-\newcommand{\Order}{\mathcal{O}}
-
-\newcommand{\Jxxi}{J_{x\xi}}
-
-\newcommand{\nint}{n_\mathrm{int}}
-
-\newcommand{\nintt}{n_\mathrm{intt}}
-
-\newcommand{\qiter}{\gamma}
-
-\newcommand{\qweight}{w}
-
-\newcommand{\domainST}{Q}
-
-\newcommand{\domainSTn}{Q_n}
-
-\newcommand{\domainSTE}{Q^e}
-
-\newcommand{\domainSTnE}{Q_n^e}
-
-\newcommand{\domainSTT}{Q_t}
-
-\newcommand{\domainSTR}{\hat{Q}}
-
-\newcommand{\domainSTTR}{Q_{\tilde{t}}}
-
-\newcommand{\domainSTZE}{\hat{Q}^e}
-
-\newcommand{\domainR}{\hat{\Omega}}
-
-\newcommand{\domainRE}{\hat{\Omega}^e}
-
+%fluid domain
+%domain
 \newcommand{\domain}{\Omega}
-
+\newcommand{\domainh}{\Omega^h}
 \newcommand{\domainT}{\Omega_t}
-
-\newcommand{\domainALEN}{\Omega_{t_{(n+\alpha_f)}}}
-
-\newcommand{\domainN}{\Omega_n}
-
-\newcommand{\domainNP}{\Omega_{n+1}}
-
-\newcommand{\domainZ}{\Omega_0}
-
-\newcommand{\domainTR}{\Omega_{\tilde{t}}}
-
+%element domain
 \newcommand{\domainE}{\Omega^e}
-
-\newcommand{\domainTE}{\Omega_t^e}
-
+%boundary
 \newcommand{\boundary}{\Gamma}
-
-\newcommand{\boundaryZ}{\Gamma_0}
-
-\newcommand{\boundaryN}{\Gamma_N}
-
-\newcommand{\boundaryT}{\Gamma_{t}}
-
-\newcommand{\boundaryH}{\Gamma_\mathrm{h}}
-
-\newcommand{\boundaryZH}{\left(\Gamma_0\right)_\mathrm{h}}
-
-\newcommand{\boundaryG}{\Gamma_\mathrm{g}}
-
-\newcommand{\boundaryTG}{\left(\Gamma_t\right)_\mathrm{g}}
-
-\newcommand{\boundaryB}{\Gamma^{b}}
-
-\newcommand{\boundaryTH}{\left(\Gamma_t\right)_\mathrm{h}}
-
-\newcommand{\boundaryST}{P}
-
-\newcommand{\boundarySTn}{P_n}
-
-\newcommand{\interfaceSTFSIn}{P_n}
-\newcommand{\boundarySTFSIn}{P_n}
-
-\newcommand{\boundarySTnH}{\left(P_n\right)_\mathrm{h}}
-
-\newcommand{\boundarySTnG}{\left(P_n\right)_\mathrm{g}}
-
-\newcommand{\domainFSI}{\Omega}
-
-\newcommand{\domainFSIZ}{\Omega_0}
-
-\newcommand{\domainFSIT}{\Omega_t}
-
-\newcommand{\interfaceFSIZ}{\left(\Gamma_\mathrm{I}\right)_0}
-
-\newcommand{\interfaceFSIT}{\Gamma_\mathrm{I}}
-
-\newcommand{\interfaceFFSIT}{\Gamma_\mathrm{I1}}
-
-\newcommand{\interfaceFFSINP}{\left(\Gamma_\mathrm{1I}\right)_{n+1}}
-
-\newcommand{\interfaceFFSITT}{\left(\Gamma_\mathrm{1I}\right)_{\tilde{t}}}
-
-\newcommand{\interfaceSFSIT}{\Gamma_\mathrm{2I}}
-\newcommand{\interfaceSFSIZ}{(\Gamma_\mathrm{2I})_0}
-
-\newcommand{\boundarySFSIT}{\Gamma_\mathrm{2E}}
-\newcommand{\boundarySFSIZ}{(\Gamma_\mathrm{2E})_0}
-\newcommand{\boundaryFFSIT}{\Gamma_\mathrm{1E}}
-\newcommand{\boundaryFFSIZ}{(\Gamma_\mathrm{1E})_0}
-
-
-\newcommand{\interfaceSFSINP}{\left(\Gamma_\mathrm{2I}\right)_{n+1}}
-
-\newcommand{\interfaceFSIR}{\left(\Gamma_\mathrm{I}\right)_{\mathrm{REF}}}
-
-\newcommand{\interfaceFFSIR}{\left(\Gamma_\mathrm{1I}\right)_{\mathrm{REF}}}
-
-\newcommand{\interfaceSFSIR}{\left(\Gamma_\mathrm{2I}\right)_{\mathrm{REF}}}
-
-\newcommand{\domainFSISTn}{Q_n}
-
-\newcommand{\interfaceFSISTn}{\left(P_n\right)_\mathrm{h}}
-
-\newcommand{\domainFluid}{\Omega_\mathrm{1}}
-
-\newcommand{\domainFluidZ}{\left(\Omega_\mathrm{1}\right)_0}
-
-\newcommand{\domainFluidT}{\left(\Omega_\mathrm{1}\right)_t}
-
-\newcommand{\domainFluidN}{\left(\Omega_\mathrm{1}\right)_n}
-\newcommand{\domainFluidNP}{\left(\Omega_\mathrm{1}\right)_{n+1}}
-
-\newcommand{\domainFluidE}{\left(\Omega_\mathrm{1}\right)_t^e}
-
-\newcommand{\interfaceFluidZH}{\left(\Gamma_\mathrm{1h}\right)_0}
-\newcommand{\interfaceFluidTH}{\left(\Gamma_\mathrm{1h}\right)_t}
-\newcommand{\interfaceFluidTG}{(\Gamma_\mathrm{1g})_t}
-\newcommand{\interfaceFluidZG}{(\Gamma_\mathrm{1g})_0}
-\newcommand{\interfaceFluidNPH}{\left(\Gamma_\mathrm{1h}\right)_{n+1}}
-
-\newcommand{\domainFluidST}{Q}
-
-\newcommand{\domainFluidSTn}{Q_n}
-
-\newcommand{\domainFluidSTnE}{Q^e_n}
-
-%\newcommand{\interfaceFluidSTnH}{\left(P_n\right)_\mathrm{h}}
-\newcommand{\interfaceFluidSTnH}{P_n}
-
-\newcommand{\domainStructure}{\Omega_\mathrm{2}}
-
-\newcommand{\domainStructureZ}{\left(\Omega_\mathrm{2}\right)_0}
-\newcommand{\domainStructureNP}{\left(\Omega_\mathrm{2}\right)_{n+1}}
-
-\newcommand{\domainStructureT}{\left(\Omega_\mathrm{2}\right)_t}
-
-\newcommand{\interfaceStructureTH}{(\Gamma_\mathrm{2h})_t}
-
-\newcommand{\interfaceStructureZH}{\left(\Gamma_\mathrm{2h}\right)_{0}}
-\newcommand{\interfaceStructureZG}{(\Gamma_\mathrm{2g})_{0}}
-\newcommand{\interfaceStructureTG}{(\Gamma_\mathrm{2g})_{t}}
-
-\newcommand{\domainMesh}{\left(\Omega_\mathrm{1}\right)_{\tilde{t}}}
-
-\newcommand{\utestA}{\utest_\mathrm{1}}
-
-\newcommand{\utestE}{\utest_\mathrm{1E}}
-
-\newcommand{\ptestA}{\ptest_\mathrm{1}}
-
-\newcommand{\ptestE}{\ptest_\mathrm{1E}}
-
-\newcommand{\utestI}{\utest_\mathrm{1I}}
-
-\newcommand{\ptestI}{\ptest_\mathrm{1I}}
-
-\newcommand{\ptestII}{\ptest_\mathrm{2I}}
-
-\newcommand{\mtest}{\mathbf{w}_\mathrm{3}}
-
-\newcommand{\mtestE}{\mathbf{w}_\mathrm{3E}}
-
-\newcommand{\mtestI}{\mathbf{w}_\mathrm{3I}}
-
-\newcommand{\vdispA}{\mathbf{w}_\mathrm{2}}
-
-\newcommand{\vdispI}{\mathbf{w}_\mathrm{2I}}
-
-\newcommand{\vdispE}{\mathbf{w}_\mathrm{2E}}
-
-\newcommand{\unknownDD}{\mathbf{d}}
-
-\newcommand{\unknownF}{\mathbf{d}_\mathrm{1}}
-
-\newcommand{\unknownS}{\mathbf{d}_\mathrm{2}}
-
-\newcommand{\unknownM}{\mathbf{d}_\mathrm{3}}
-
-\newcommand{\unknownFi}{\mathbf{d}_\mathrm{1}^i}
-
-\newcommand{\unknownSi}{\mathbf{d}_\mathrm{2}^i}
-
-\newcommand{\unknownMi}{\mathbf{d}_\mathrm{3}^i}
-
-\newcommand{\unknownFii}{\mathbf{d}_\mathrm{1}^{i+1}}
-
-\newcommand{\unknownSii}{\mathbf{d}_\mathrm{2}^{i+1}}
-
-\newcommand{\unknownMii}{\mathbf{d}_\mathrm{3}^{i+1}}
-
-\newcommand{\unknownGG}{\mathbf{u}}
-
-\newcommand{\unknownFG}{\mathbf{u}_\mathrm{1}}
-
-\newcommand{\unknownSG}{\mathbf{u}_\mathrm{2}}
-
-\newcommand{\unknownMG}{\mathbf{u}_\mathrm{3}}
-
-\newcommand{\unknownLL}{\mathbf{x}}
-
-\newcommand{\unknownFL}{\mathbf{x}_\mathrm{1}}
-
-\newcommand{\unknownSL}{\mathbf{x}_\mathrm{2}}
-
-\newcommand{\unknownML}{\mathbf{x}_\mathrm{3}}
-
-\newcommand{\unknownNN}{\mathbf{N}}
-
-\newcommand{\unknownFN}{\mathbf{N}_\mathrm{1}}
-
-\newcommand{\unknownSN}{\mathbf{N}_\mathrm{2}}
-
-\newcommand{\unknownMN}{\mathbf{N}_\mathrm{3}}
-
-\newcommand{\NNSM}{\mathbf{R}_\mathrm{M}}
-
-\newcommand{\NNSC}{\mathbf{R}_\mathrm{C}}
-
-\newcommand{\NNSMIND}{\mathrm{N}_\mathrm{M}}
-
-\newcommand{\NNSCIND}{\mathrm{N}_\mathrm{C}}
-
-\newcommand{\unknownRR}{\mathbf{b}}
-
-\newcommand{\unknownFR}{\mathbf{b}_\mathrm{1}}
-
-\newcommand{\unknownSR}{\mathbf{b}_\mathrm{2}}
-
-\newcommand{\unknownMR}{\mathbf{b}_\mathrm{3}}
-
-\newcommand{\unknownMM}{\mathbf{A}}
-
-\newcommand{\unknownMP}{\mathbf{P}}
-
-\newcommand{\unknownFZ}{\mathbf{z}_\mathrm{1}}
-
-\newcommand{\unknownSZ}{\mathbf{z}_\mathrm{2}}
-
-\newcommand{\unknownMZ}{\mathbf{z}_\mathrm{3}}
-
-\newcommand{\dass}{\mathop{\mathlarger{\mathlarger{\sf A}}}_{e = 1}^{\nel}}
-
-\newcommand{\NEVBeps}{\epsilon}
-
-\newcommand{\nnp}{{n_n}}
-
-\newcommand{\angularVelocity}{\boldsymbol{\omega}}
-
-\newcommand{\shellThickness}{h_\mathrm{th}}
-
-\newcommand{\shellDomainZ}{\Gamma^s_0}
-
-\newcommand{\shellDomainT}{\Gamma^s_t}
-
-\newcommand{\bendingDomainZ}{\Gamma^b_0}
-
-\newcommand{\shellDomainTH}{\left(\Gamma^s_t\right)_\mathrm{h}}
-
-\newcommand{\shellDomainVZ}{\Omega_0}
-
-\newcommand{\fluidTorque}{T_\mathrm{f}}
-
-\newcommand{\TAFSM}{T{\raise0.3ex\hbox{\scriptsize $\bigstar$}}AFSM}
-
-\newcommand{\curvature}{\kappa}
-
-\newcommand{\curvatureTensor}{\boldsymbol{\curvature}}
-
-\newcommand{\workTotal}{W}
-
-\newcommand{\workInternal}{W_{\mathrm{int}}}
-
-\newcommand{\workExternal}{W_{\mathrm{ext}}}
-
-\newcommand{\rotationTensor}{\mathbf{R}}
-
-\newcommand{\rightStretchTensor}{\mathbf{U}}
-
-\newcommand{\inflowBoundary}{\Gamma_\mathrm{IN}}
-
-\newcommand{\meLUMP}{\mathbf{m}^e_\mathrm{LUMP}}
-
-\newcommand{\ceHYFU}{C^e_\mathrm{ HYFU}}
-
-\newcommand{\totalTime}{T}
-
-\newcommand{\oneCardiacCycle}{T}
-
-\newcommand{\interfaceOSI}{\left(\Gamma_\mathrm{1I}\right)_\mathrm{ROSI}}
-
-\newcommand{\nInOutlets}{n_\mathrm{srf}}
-
-\newcommand{\wallThickness}{h_{\mathrm{th}}}
-
-\newcommand{\scafsiDisplacement}{\dispD}
-
-\newcommand{\scafsiVelocity}{\mvelocityD}
-
-\newcommand{\scafsiMeshDisplacement}{\mdispD}
-
-\newcommand{\scafsiPress}{\pressD}
-
-\newcommand{\scafsiStress}{\tractionD}
-
-\newcommand{\nts}{n_\mathrm{ts}}
-
-\newcommand{\wo}{\alpha}
-
-\newcommand{\woim}{(\utestI^h)_{n+1}^-}
-
-\newcommand{\woimsd}{\left(\utestI^h\right)}
-
-\newcommand{\woimsdnopara}{\utestI^h}
-
-\newcommand{\hvoi}{\left({\traction}^h_v\right)_\mathrm{1I}}
-
-\newcommand{\tractionFE}{\traction_{\mathrm{1E}}}
-\newcommand{\tractionSE}{\traction_{\mathrm{2E}}}
-\newcommand{\tractionFI}{\traction_{\mathrm{1I}}}
-\newcommand{\tractionSI}{\traction_{\mathrm{2I}}}
-
-\newcommand{\poisonsRatio}{\nu}
-
-\newcommand{\kporo}{k_\mathrm{PORO}}
-
-\newcommand{\interfaceSlideT}{\left(\Gamma_t\right)_\mathrm{SI}}
-
+\newcommand{\boundaryh}{\Gamma^h}
+%Dirichlet boundary
+\newcommand{\GammaD}{\Gamma_{D}}
+%Neumann boundary
+\newcommand{\GammaN}{\Gamma_{N}}
+%boundary normal vectors^
+\newcommand{\snormal}{\mathbf{n}}
+\newcommand{\normal}{\mathbf{n}}
+%ALE domains
+\newcommand{\domainMat}{\Omega_{0}}
+\newcommand{\domainRef}{\Omega_{\bar{x}}}
+\newcommand{\domainALEN}{\domain_{t_{n+\alpha_{f}}}}
+
+%fluid and flow properties
+%density
+\newcommand{\density}{\rho}
+%dinamic viscosity
+\newcommand{\viscosity}{\mu}
+%cinematic viscosity
+\newcommand{\kviscosity}{\nu}
+%difusivity
+\newcommand{\diffusivity}{\nu}
+\newcommand{\mdiffusivity}{\kappa}
+%Reynolds, Strouhal and Peclet
+\newcommand{\Reynolds}{\mathrm{Re}}
+\newcommand{\Strouhal}{\mathrm{St}}
+\newcommand{\Pe}{\mathrm{Pe}}
+
+%boundary conditions
+%Dirichlet velocity
+\newcommand{\velocityD}{\mathbf{u}_D}
+%Neumann force
+\newcommand{\surfaceLoad}{\mathbf{h}}
+\newcommand{\surfaceLoadh}{\mathbf{h^h}}
+
+%stress tensor and forces
+%Cauchy stress tensor
+\newcommand{\stresstensor}{\boldsymbol{\sigma}}
+\newcommand{\stress}{\sigma}
+%unity mass body forces  
+\newcommand{\sbodyforce}{\mathbf{f}}
+\newcommand{\sbodyforceh}{\mathbf{f^h}}
+
+
+
+%ALE description
+%mapping functions
+\newcommand{\fmapAI}{\mathbf{f}}
+\newcommand{\fmapAR}{\mathbf{\bar{f}}}
+\newcommand{\fmapRI}{\mathfrak{f}}
+%Jacobian mapping matrix
+\newcommand{\FmapAI}{\mathbf{F}}
+\newcommand{\FmapAR}{\mathbf{\bar{F}}}
+\newcommand{\FmapRI}{\mathfrak{F}}
+%physical domain position
+\newcommand{\pos}{\mathbf{y}}
+\newcommand{\posh}{\mathbf{y}^h}
+%reference domain position
+\newcommand{\posALE}{\bar{\mathbf{x}}}
+\newcommand{\posALEh}{\bar{\mathbf{x}}^h}
+%material position
+\newcommand{\posMat}{\mathbf{x}}
+
+
+
+%trial and test functions/trial and test spaces
+%velocity vector
+\newcommand{\velocity}{\mathbf{u}}
+\newcommand{\velocityh}{\mathbf{u}^h}
+%ALE velocity
+\newcommand{\velocityALE}{\bar{\velocity}}
+\newcommand{\velocityALEh}{\bar{\velocity}^h}
+%press
+\newcommand{\press}{p}
+\newcommand{\pressh}{p^h}
+%weighting velocity
+\newcommand{\utest}{\mathbf{w}}
+\newcommand{\utesth}{\mathbf{w}^h}
+%weighting press
+\newcommand{\ptest}{q}
+\newcommand{\ptesth}{q^h}
+%velocity solution space
+\newcommand{\usolution}{\mathcal{S}_u}
+\newcommand{\usolutionh}{\mathcal{S}_u^h}
+%press solution space
+\newcommand{\psolution}{\mathcal{S}_p}
+\newcommand{\psolutionh}{\mathcal{S}_p^h}
+%velocity weighting solution space
+\newcommand{\uweighting}{\mathcal{V}_u}
+\newcommand{\uweightingh}{\mathcal{V}_u^h}
+%pressure weighting solution space
+\newcommand{\pweighting}{\mathcal{V}_p}
+\newcommand{\pweightingh}{\mathcal{V}_p^h}
+
+
+%stabilization terms
+\newcommand{\SUPG}{\tau_{\mathrm{SUPG}}}
+\newcommand{\PSPG}{\tau_{\mathrm{PSPG}}}
+\newcommand{\SUGNi}{\tau_{\mathrm{SUGN1}}}
+\newcommand{\SUGNii}{\tau_{\mathrm{SUGN2}}}
+\newcommand{\SUGNiii}{\tau_{\mathrm{SUGN3}}}
+\newcommand{\SUGNxii}{\tau_{\mathrm{SUGN12}}}
+\newcommand{\LSIC}{\nu_{\mathrm{LSIC}}}
+\newcommand{\RGN}{h_{\mathrm{RGN}}}
+\newcommand{\RQD}{h_{\mathrm{RQD}}}
+\newcommand{\rRGN}{\mathbf{r}}
 %patricia new commands for stabilization parameters
 \newcommand{\matrixQ}{\mathbf{Q}}
 \newcommand{\matrixQhat}{\hat{\mathbf{Q}}}
@@ -976,48 +388,48 @@
 \newcommand{\matrixCinv}{\mathbf{C}^{-1}}
 \newcommand{\matrixG}{\mathbf{G}}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% PGD Variables
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%residual vectors and degrees of freedom vectors
+%residual vectores weak form
+\newcommand{\resMom}{\mathbf{r}_{\mathrm{M}}}
+\newcommand{\resPre}{{r}_{\mathrm{C}}}
+%semi discrete residual vectores
+\newcommand{\NNSM}{\mathbf{R}_\mathrm{M}}
+\newcommand{\NNSC}{\mathbf{R}_\mathrm{C}}
+%velocity degrees of freedom
+\newcommand{\Velocity}{\mathbf{U}}
+%press degrees of freedom
+\newcommand{\Press}{\mathbf{p}}
+%acceleration degrees of freedom
+\newcommand{\Acceleration}{\mathbf{\dot{U}}}
 
-\newcommand{\timeVel}{\phi} % Velocity time mode
-\newcommand{\dTimeVel}{\dot{\phi}} % Velocity time mode
-\newcommand{\spaceVel}{\mathbfcal{U}} % Velocity space mode
-\newcommand{\spaceVelT}{\mathcal{U}} % Velocity space mode
-
-\newcommand{\timePre}{\psi} % Pressure time mode
-\newcommand{\dTimePre}{\dot{\psi}} % Pressure time mode
-\newcommand{\spacePre}{\mathbfcal{P}} % Pressure space mode
-\newcommand{\spacePreT}{\mathcal{P}} % Pressure space mode
-
-\newcommand{\spaceC}{\mathbf{x}} 
-\newcommand{\acceleration}{\dot{\mathbf{u}}} \newcommand{\accelerationh}{\dot{\mathbf{u}}^h} %]
-\newcommand{\Acceleration}{\dot{\mathbf{U}}} \newcommand{\Accelerationh}{\dot{\mathbf{U}}^h} %]
-
-\newcommand{\massMatrix}{\mathbb{M}} % Mass Matrix
-\newcommand{\diffMatrix}{\mathbb{K}} % Diffusion Matrix
-\newcommand{\gradMatrix}{\mathbb{G}} % Gradient Matrix
-\newcommand{\divrMatrix}{\mathbb{G}^T} % Divergent Matrix
-\newcommand{\convMatrix}{\mathbb{C}} % Convection Matrix
-\newcommand{\loadVector}{\mathbf{F}} % Convection Matrix
-\newcommand{\pspgMatrixP}{\mathbb{Q}} % PSPG Matrix diagonal
-\newcommand{\pspgMatrixM}{\mathbb{B}} % PSPG Matrix out-diagonal
-\newcommand{\pspgMatrixC}{\mathbb{V}}
-\newcommand{\pspgVectorF}{\mathbf{D}}
-\newcommand{\zeroMatrix}{\mathbf{0}}
-
-\newcommand{\shapefU}{{N}^u}
-\newcommand{\shapefP}{{N}^p}
-
-\newcommand{\numPGDModes}{{N}_{mod}}
-
-\newcommand{\uPGD}{\spaceVelT_{n}\timeVel_{n}}
-\newcommand{\pPGD}{\spacePreT_{n}\timePre_{n}}
-
-%\newcommand{\velocityPGD}{\bar{\mathbf{u}}}
+%boundary conditions names
+\newcommand{\patom}{\press_{\mathrm{atm}}}
+\newcommand{\pinfty}{\press_{\infty}}
+\newcommand{\stressinfty}{\stresstensor_{\infty}}
+\newcommand{\velocinfty}{\velocity_{\infty}}
 
 
-\newcommand{\timeInterval}{T} % Time integration
+%indexes
+\newcommand{\neb}{n_{\mathrm{eb}}}
+\newcommand{\nel}{n_{\mathrm{el}}}
+\newcommand{\nnos}{n_{\mathrm{nos}}}
+\newcommand{\ncp}{n_{\mathrm{np}}}
+\newcommand{\nsd}{{n_{\mathrm{sd}}}}
+\newcommand{\npd}{{n_{\mathrm{sd}}}}
+\newcommand{\itercounter}{i}
+\newcommand{\nen}{n_{\mathrm{en}}}
+
+%element finit context 
+%shape function index
+\newcommand{\shapef}{N}
+%element size
+\newcommand{\elementsize}{h}
+\newcommand{\integrationPoint}{\tilde{\boldsymbol{\xi}}}
+\newcommand{\coordAdimen}{\bm{\xi}}
+
+
+%FSI domain
+\newcommand{\domainFSI}{\Omega}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Isogeometric variables

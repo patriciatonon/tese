@@ -1,0 +1,95 @@
+\subsection{Parâmetro de estabilização para técnica RBSAM}
+
+No método Arlequin existe a necessidade de definição do paramêtro de estabilização $\tauArlequin$. Este parâmetro deve possuir valor suficiente para estabilizar os campos de multiplicadores de Lagrange, sem, no entanto, comprometer a convergência do método. 
+
+Para a definição de $\tauArlequin$ tomou-se como referência os trabalhos de \citeonline{TezduyarO:2000} e \citeonline{TezduyarS:2003} nos quais se apresenta uma vasta quantidade de informação a cerca da obtenção dos parâmetros de estabilização das equações da DFC ($\SUPG$, $\PSPG$, $\LSIC$). 
+
+Propõe-se como critério a obtenção de termos de estabilização com magnitude próxima aos termos da equação de acoplamento, através da utilização de normas vetoriais. Este parâmetro será definido para cada um dos modelos como:
+
+\begin{align}
+	\tauArlequini = \left(\frac{1}{\left(\tau_{A_i}\right)^{2}} + \frac{1}{\left(\tau_{B_i}\right)^{2}} +  \frac{1}{\left(\tau_{C_i}\right)^{2}} + 
+	\frac{1}{\left(\tau_{D_i}\right)^{2}} +
+	\frac{1}{\left(\tau_{E_i}\right)^{2}}
+	\right)^{-\frac{1}{2}},
+\end{align}
+
+\noindent com $i=0,1$ definindo o modelo global e local respectivamente e:
+
+\begin{align}
+	\tau_{A_{i}} = \left(\frac{1}{\left(\tau_{A_i^{0}}\right)^{2} + \left(\tau_{A_i^{1}}\right)^{2}} \right)^{-\frac{1}{2}}, \label{eq:tAi}
+\end{align}
+
+\begin{align}
+	\tau_{B_{i}} = \left(\frac{1}{\left(\tau_{B_i^{0}}\right)^{2} + \left(\tau_{B_i^{1}}\right)^{2}} \right)^{-\frac{1}{2}},
+\end{align}
+
+\begin{align}
+	\tau_{C_{i}} = \left(\frac{1}{\left(\tau_{C_i^{0}}\right)^{2} + \left(\tau_{C_i^{1}}\right)^{2}} \right)^{-\frac{1}{2}},
+\end{align}
+
+\begin{align}
+	\tau_{D_{i}} = \left(\frac{1}{\left(\tau_{D_i^{0}}\right)^{2} + \left(\tau_{D_i^{1}}\right)^{2}} \right)^{-\frac{1}{2}},
+\end{align}
+
+\begin{align}
+	\tau_{E_{i}} = \left(\frac{1}{\left(\tau_{E_i^{0}}\right)^{2} + \left(\tau_{E_i^{1}}\right)^{2}} \right)^{-\frac{1}{2}},\label{eq:tEi}
+\end{align}
+
+\noindent sendo as variáveis das equacões \refeq{eq:tAi} à \refeq{eq:tEi} as seguintes normas vetoriais:
+
+\begin{align}
+	\tau_{A_i^{0}} = \frac{|| \mathbf{M_{\lambda_0}} || }{||\mathbf{t_{i}} ||}; \ \ \ \ \  & \tau_{A_i^{1}} = \frac{|| \mathbf{M_{\lambda_1}} || }{||\mathbf{t_{i}} ||}  ,
+\end{align}
+
+
+\begin{align}
+	\tau_{B_i^{0}} = \frac{|| \mathbf{M_{\lambda_0}} || }{||\mathbf{j_{i}} ||}; \ \ \ \ \  &  \tau_{B_i^{1}} = \frac{|| \mathbf{M_{\lambda_1}} || }{||\mathbf{j_{i}} ||}, 
+\end{align}
+
+\begin{align}
+	\tau_{C_i^{0}} = \frac{|| \mathbf{M_{\lambda_0}} || }{||\mathbf{k_{i}} ||}; \ \ \ \ \  & \tau_{C_i^{1}} = \frac{|| \mathbf{M_{\lambda_1}} || }{||\mathbf{k_{i}} ||},
+\end{align}
+
+
+\begin{align}
+	\tau_{D_i^{0}} = \frac{|| \mathbf{M_{\lambda_0}} || }{||\mathbf{p_{i}} ||}; \ \ \ \ \  & \tau_{D_i^{1}} = \frac{|| \mathbf{M_{\lambda_1}} || }{||\mathbf{p_{i}} ||}, 
+\end{align}
+
+
+\begin{align}
+	\tau_{E_i^{0}} = \frac{|| \mathbf{M_{\lambda_0}} || }{||\mathbf{\boundary_{i}} ||} \ \ \ \ \  & \tau_{E_i^{1}} = \frac{|| \mathbf{M_{\lambda_1}} || }{||\mathbf{\boundary_{i}} ||}.
+\end{align}
+
+Por fim, os vetores em questão, são definidos através das seguintes relações:
+
+
+\begin{align}
+	\mathbf{M_{\lambda_0}} = \int_{\domain_{c}^{e}} N_{k} \cdot \mathbf{u_{0}^{h}} d\domain_{c}^{e},
+\end{align}
+
+\begin{align}
+	\mathbf{M_{\lambda_1}} = - \int_{\domain_{c}^{e}} N_{k} \cdot \mathbf{u_{1}^{h}} d\domain_{c}^{e},
+\end{align}
+
+\begin{align}
+	\mathbf{t_{i}} = \int_{\domain_{c}^{e}} \nabla_y N_{k} : \arlequinWF_{i} \nabla_y \left( \left( \uArlqi \cdot  \nabla_y \right) \uArlqi \right)  d\domain_{c}^{e},
+\end{align}
+
+\begin{align}
+	\mathbf{j_{i}} = \int_{\domain_{c}^{e}} \nabla_y N_{k} :  \arlequinWF_{i} \nabla_y \left(\frac{\partial\uArlqi}{\partial t}  \right)  d\domain_{c}^{e},
+\end{align}
+
+\begin{align}
+	\mathbf{k_{i}} = \int_{\domain_{c}^{e}} \nabla_y^{2} N_{k} : \arlequinWF_{i} 2 \mu \nabla_y \cdot \straintensor \left(\uArlqi\right)    d\domain_{c}^{e},
+\end{align}
+
+\begin{align}
+	\mathbf{p_{i}} = \int_{\domain_{c}^{e}} \nabla_y N_{k} : \arlequinWF_{i} \nabla_y \left(-\nabla_y p_i^h\right)    d\domain_{c}^{e},
+\end{align}
+
+\begin{align}
+	\mathbf{\boundary_{i}} = \int_{\domain_{c}^{e}} \nabla_y N_{k} : \nabla_y \left(\chi (i) \lagrangeMultiplierh\right)    d\domain_{c}^{e},
+\end{align}
+
+
+\noindent com $k$ representando o índice dos graus de liberdade do campo de multiplicadores de Lagrange.

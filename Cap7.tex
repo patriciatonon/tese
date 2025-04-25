@@ -82,9 +82,9 @@ A condição dinâmica, preescreve o balanço da tensão normal no contorno, ao 
 
 \noindent na qual, $\cauchyStress_{E}$ representa as tensões de Cauchy da estrutura, $\cauchyStress_{F}$ as tensões de Cauchy no fluido, e $\mathbf{n}_E$ e $\mathbf{n}_F$ representam o vetor normal no contorno $\Gamma_{IFE}$ apontando para o fluido e para a estrutura respectivamente. Essa condição é atendida através da aplicação de $\cauchyStress_{F}\mathbf{n}_{F}$ aos nós da malha da estrutura na interface entre os meios.
 
-Já a condição geométrica está relacionada ao fato que os domínios computacionais $\Omega_E$ da estrutura e $\Omega_F$ do fluido devem sempre coincidir em $\Gamma_{IFE}$, ou seja, não devem existir superposições ou frestas nessa interface. No contexto desse estudo essa condição é atendida através de uma movimentação adequada da malha local (Método Arlequin), que se deforma para acomodar a mudança de configuração da estrutura. A técnica de movimentação de malha adotada será apresentada na Subseção \ref{subsec:MovMalha}.
+Já a condição geométrica está relacionada ao fato que os domínios computacionais $\Omega_E$ da estrutura e $\Omega_F$ do fluido devem sempre coincidir em $\Gamma_{IFE}$, ou seja, não devem existir superposições ou frestas nessa interface. No contexto desse estudo essa condição é atendida através de uma movimentação adequada da malha local (Método Arlequin), que se deforma para acomodar a mudança de configuração da estrutura. A técnica de movimentação de malha adotada será apresentada na Subseção \ref{capitulo:Cap7:CondAcop:MovMalha}.
 
-\subsection{Movimentação da Malha} \label{subsec:MovMalha}
+\subsection{Movimentação da Malha} \label{capitulo:Cap7:CondAcop:MovMalha}
 
 Para a satisfação da condição geométrica nos problemas de IFE desse trabalho, uma técnica adequada de movimentação de malha deve ser aplicada. É necessário que o método de movimentação de malha seja robusto o suficiente para que garanta ao longo de toda a análise dos problemas uma discretização de qualidade.
 
