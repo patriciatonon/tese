@@ -8,7 +8,7 @@
 %\nomenclature[B,05]{$dA_i$}{Área referente à face ortogonal ao eixo $y_i$ do volume de controle infinitesimal;}
 %\nomenclatura[B,06]{$dy_i$}{Dimensão do volume de controle infinitesimal na direção $y_i$;}
 %\nomenclatura[B,07]{$\mathbf{F}$}{Vetor da resultante das forças externas atuando em um volume de controle infinitesimal, com componentes $F_1$, $F_2$ e $F_3$}
-%\nomenclatura[B,08]{$\stresstensor$}{Tensor de tensões de Cauchy de componentes $\sigma_ij$ com $i,j = 1,2,3$;}
+%\nomenclatura[B,08]{$\stressTensor$}{Tensor de tensões de Cauchy de componentes $\sigma_ij$ com $i,j = 1,2,3$;}
 %\nomenclatura[B,09]{$\mathbf{b}$}{Vetor forças de campo por unidade de volume com componentes $b_1$, $b_2$ e $b_3$;}
 %\nomenclatura[B,10]{$\mathbf{q}$}{Vetor resultante das forças externas por unidade de volume com componentes $q_1$, $q_2$ e $q_3$;}
 %\nomenclatura[B,11]{$\sbodyforce$}{Vetor que representa a força de campo por unidade de massa, com componentes $f_1$, $f_2$ e $f_3$;}
@@ -18,12 +18,12 @@
 %\nomenclature[B,15]{$\domain$}{Domínio espacial ou domínio atual do escoamento do fluido;}
 %\nomenclature[B,16]{$\nsd$}{Dimensão espacial;}
 %\nomenclature[B,17]{$\boundary$}{Contorno do domínio espacial que define o escoamento do fluido;}
-%\nomenclature[B,18]{$\GammaD$}{Porção do contorno com condições de contorno de Dirichlet;}
-%\nomenclature[B,19]{$\GammaN$}{Porção do contorno com condições de contorno de Neumann;}
+%\nomenclature[B,18]{$\boundaryD$}{Porção do contorno com condições de contorno de Dirichlet;}
+%\nomenclature[B,19]{$\boundaryN$}{Porção do contorno com condições de contorno de Neumann;}
 %\nomenclature[B,20]{$\totalTime$}{Intervalo de tempo total da análise;}
 %\nomenclature[B,21]{$\velocityD$}{Vetor de velocidades prescritas;}
 %\nomenclature[B,22]{$\surfaceLoad$}{Forças de superfície prescritas;}
-%\nomenclature[B,23]{$\normal$}{Vetor normal ao contorno do domínio computacional;}
+%\nomenclature[B,23]{$\snormal$}{Vetor normal ao contorno do domínio computacional;}
 %\nomenclature[B,24]{$\domainMat$}{Domínio inicial ou material do escoamento do fluido;}
 %\nomenclature[B,25]{$\posMat$}{Vetor das coordenadas dos pontos materiais de um ponto arbitrário;}
 %\nomenclature[B,26]{$\pos$}{Vetor das coordenadas atuais de um ponto arbitrário;}
@@ -62,7 +62,7 @@
 %\nomenclature[B,59]{$\Velocity$}{Vetor nodal dos graus de liberdade respectivo a velocidade;}
 %\nomenclature[B,60]{$\Press$}{Vetor nodal dos graus de liberdade respectivo a pressão;}
 %\nomenclature[B,61]{$\matrixQ$}{Matriz Jacobiana do elemento;}
-%\nomenclature[B,62]{$\coordAdimen$}{Vetor das coordenadas paramétricas adimensionais do elemento;}
+%\nomenclature[B,62]{$\coordAdimen$}{Vetor das coordenadas paramétricas adimensionais do elemento com componentes $\xi$, $\eta$ $\zeta$;}
 %\nomenclature[B,63]{$\matrixD$}{Matriz que realiza mudança de escala em $\matrixQ$ para levar em conta o grau polinomial das funções de forma;}
 %\nomenclature[B,64]{$\matrixQhat$}{Matriz jacobiana escalonada;}
 %\nomenclature[B,65]{$\RGN$}{Comprimento direcional do elemento finito;}
@@ -160,7 +160,7 @@ Para chegar-se à equação da quantidade de movimento em sua forma conservativa
 	\end{split}
 \end{align}	
 
-\noindent onde $F_1$ representa a resultante das forças externas na direção $y_1$; $\stress_{ij}$ são as componentes $ij$ do tensor de tensões Cauchy ($\stresstensor$); e $b_1$ representa a componente na direção $y_1$ do vetor força de campo por unidade de volume $\mathbf{b}$. Dividindo-se Eq. \ref{eq:equil_forca_y1} por $\deriv V$ e efetuando as subtrações, têm-se a força resultante por unidade de volume ($q_1$) dada por:
+\noindent onde $F_1$ representa a resultante das forças externas na direção $y_1$; $\stress_{ij}$ são as componentes $ij$ do tensor de tensões Cauchy ($\stressTensor$); e $b_1$ representa a componente na direção $y_1$ do vetor força de campo por unidade de volume $\mathbf{b}$. Dividindo-se Eq. \ref{eq:equil_forca_y1} por $\deriv V$ e efetuando as subtrações, têm-se a força resultante por unidade de volume ($q_1$) dada por:
 
 \begin{align}
 		q_1 =\frac{\partial \stress_{11}}{\partial y_1} + \frac{\partial \stress_{12}}{\partial y_2} + \frac{\partial \stress_{13}}{\partial y_3} + b_{1}.
@@ -188,7 +188,7 @@ Considerando-se o equilíbrio das forças nas direções $y_2$ e $y_3$, pode-se 
 \noindent ou ainda:
 
 \begin{align}
-	\mathbf{q} = \divergence \cdot \stresstensor + \mathbf{b}.
+	\mathbf{q} = \divergence \cdot \stressTensor + \mathbf{b}.
 \end{align}
 
 
@@ -216,7 +216,7 @@ Realizando-se o balanço da quantidade de movimento no volume de controle infini
 ou ainda:
 
 \begin{align}
-	\density\left(\frac{\partial\velocity}{\partial t} + \divergence \cdot \left(\velocity\otimes\velocity\right) - \sbodyforce \right) - \divergence \cdot \stresstensor  &= \vzero, \label{eq:QM_2} 
+	\density\left(\frac{\partial\velocity}{\partial t} + \divergence \cdot \left(\velocity\otimes\velocity\right) - \sbodyforce \right) - \divergence \cdot \stressTensor  &= \vzero, \label{eq:QM_2} 
 \end{align}
 
 \noindent com $\sbodyforce = \density \mathbf{b}$ que representa a força de campo por unidade de massa.
@@ -233,13 +233,13 @@ ou ainda:
 Da consideração da equação da continuidade, a Eq. \ref{eq:QM_2} pode ser rescrita ainda em sua forma convectiva como:
 
 \begin{align}
-	\density\left(\frac{\partial\velocity}{\partial t} + \left( \velocity \cdot \gradient \right)  \velocity  - \sbodyforce \right) - \divergence \cdot \stresstensor = \vzero. \label{eq:Navier-Stokes} 
+	\density\left(\frac{\partial\velocity}{\partial t} + \left( \velocity \cdot \gradient \right)  \velocity  - \sbodyforce \right) - \divergence \cdot \stressTensor = \vzero. \label{eq:Navier-Stokes} 
 \end{align}
 
-O tensor de tensões de Cauchy $\stresstensor$ é definido para fluidos newtonianos incompressíveis pela seguinte relação constitutiva:
+O tensor de tensões de Cauchy $\stressTensor$ é definido para fluidos newtonianos incompressíveis pela seguinte relação constitutiva:
 
 \begin{align}
-\stresstensor &= -\press \unittensor + 2\viscosity\straintensor(\velocity),\label{eq:tensor_tensoes_fluido}
+\stressTensor &= -\press \unittensor + 2\viscosity\straintensor(\velocity),\label{eq:tensor_tensoes_fluido}
 \end{align}
 
 \noindent onde $\press$ representa a pressão, $\viscosity$ a viscosidade dinâmica do fluido e $\straintensor(\bullet)$ é o tensor taxa de deformação infinitesimal, definido como:
@@ -252,22 +252,22 @@ O tensor de tensões de Cauchy $\stresstensor$ é definido para fluidos newtonia
 
 \subsection{Formulação forte da mecânica dos fluidos}
 
-Seja $\domain \in \nrealspace$, com $\nsd = 2,3$, o domínio espacial que define o escoamento do fluido com contorno $\boundary = \GammaD \cup \GammaN$, no instante $t \in (0,\totalTime)$ (ver Fig. \ref{fig:dominioFluido}).
+Seja $\domain \in \nrealspace$, com $\nsd = 2,3$, o domínio espacial que define o escoamento do fluido com contorno $\boundary = \boundaryD \cup \boundaryN$, no instante $t \in (0,\totalTime)$ (ver Fig. \ref{fig:dominioFluido}).
 
 Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pela equação da quantidade de movimento, ou equações de Navier-Stokes (Eq. \ref{eq:Navier-Stokes}) e da conservação de massa (Eq. \ref{eq:conser_massa_incom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas. Dessa forma, o escoamento é governado pelo seguinte conjunto de equações:
 
 \begin{equation}
 	\left\{
 	\begin{array}{l}
-		\density\left(\frac{\partial\velocity}{\partial t} + \velocity\cdot\gradient\velocity - \sbodyforce \right) - \divergence \cdot \stresstensor = \vzero \ \textrm{em} \ \domain\\
+		\density\left(\frac{\partial\velocity}{\partial t} + \velocity\cdot\gradient\velocity - \sbodyforce \right) - \divergence \cdot \stressTensor = \vzero \ \textrm{em} \ \domain\\
 		\divergence \cdot \velocity = 0 \ \textrm{em} \ \domain\\
-		\velocity = \velocityD \ \textrm{em} \ \GammaD \\
-		\stresstensor \cdot \snormal = \surfaceLoad \ \textrm{em} \ \GammaN,
+		\velocity = \velocityD \ \textrm{em} \ \boundaryD \\
+		\stressTensor \cdot \snormal = \surfaceLoad \ \textrm{em} \ \boundaryN,
 	\end{array} \label{eq:conj_eq_DFC}
 	\right.
 \end{equation}
 
-\noindent sendo $\GammaD$ a porção do contorno com condições de contorno de Dirichlet, representadas pelo campo de velocidades $\velocityD$, e $\GammaN$ aquela com condições de contorno de Neumann, descritas pelas forças de superfície $\surfaceLoad$. A variável $\snormal$ representa o vetor unitário normal ao contorno $\Gamma_{N}$.
+\noindent sendo $\boundaryD$ a porção do contorno com condições de contorno de Dirichlet, representadas pelo campo de velocidades $\velocityD$, e $\boundaryN$ aquela com condições de contorno de Neumann, descritas pelas forças de superfície $\surfaceLoad$. A variável $\snormal$ representa o vetor unitário normal ao contorno $\boundaryN$.
 
 \begin{figure}[htb!]
 	\centering 
@@ -476,13 +476,13 @@ Removendo-se os sobrescritos (**) e (*), chega-se a equação fundamental para o
 Utilizando-se a definição de derivada material da Eq. \ref{eq:der_mat} e comparando com a Eq. \ref{eq:Navier-Stokes}, pode-se rescrever a equação da quantidade de movimento da seguinte forma:
 
 \begin{align}
-	\density\left(\frac{D\velocity}{Dt} - \sbodyforce \right) - \divergence \cdot \stresstensor &= \vzero. \label{eq:Navier-Stokes_der_mat_Euleriana}
+	\density\left(\frac{D\velocity}{Dt} - \sbodyforce \right) - \divergence \cdot \stressTensor &= \vzero. \label{eq:Navier-Stokes_der_mat_Euleriana}
 \end{align}
 
 Para expressar então a equação da quantidade de movimento em uma descrição Euleriana-Lagrangeana, basta substituir na Eq. \ref{eq:Navier-Stokes_der_mat_Euleriana} a definição de derivada material apresentada na Eq. \ref{eq:der_mat_ALE}, e têm-se finalmente:
 
 \begin{align}
-	\density\left(\left. \frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right) \cdot \gradient  \velocity  - \sbodyforce \right) - \divergence \cdot \stresstensor = \vzero. \label{eq:Navier-Stokes_ALE} 
+	\density\left(\left. \frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right) \cdot \gradient  \velocity  - \sbodyforce \right) - \divergence \cdot \stressTensor = \vzero. \label{eq:Navier-Stokes_ALE} 
 \end{align}
 
 A equação da continuidade independe da movimentação da malha. Dessa forma a Eq. \ref{eq:conser_massa_incom} se mantém a mesma para as análises usando uma descrição ALE. Assim, reescrevendo o conjunto de equações da DFC apresenta na Eq. \ref{eq:conj_eq_DFC} para um descrição ALE, têm-se:
@@ -490,10 +490,10 @@ A equação da continuidade independe da movimentação da malha. Dessa forma a 
 \begin{equation}
 	\left\{
 	\begin{array}{l}
-		\density\left( \left. \frac{\partial\velocity}{\partial t} \right|_{\posALE}  + \left(\velocity - \velocityALE \right)\cdot\gradient\velocity - \sbodyforce \right) - \divergence \cdot \stresstensor = \vzero  \ \textrm{em} \ \domain\\
+		\density\left( \left. \frac{\partial\velocity}{\partial t} \right|_{\posALE}  + \left(\velocity - \velocityALE \right)\cdot\gradient\velocity - \sbodyforce \right) - \divergence \cdot \stressTensor = \vzero  \ \textrm{em} \ \domain\\
 		\divergence \cdot \velocity = 0  \ \textrm{em} \ \domain\\
-		\velocity = \velocityD \ \textrm{em} \ \GammaD \\
-		\stresstensor \cdot \snormal = \surfaceLoad \ \textrm{em} \ \GammaN,
+		\velocity = \velocityD \ \textrm{em} \ \boundaryD \\
+		\stressTensor \cdot \snormal = \surfaceLoad \ \textrm{em} \ \boundaryN,
 	\end{array} \label{eq:conj_eq_DFC_ALE}
 	\right.
 \end{equation}
@@ -504,13 +504,13 @@ A equação da continuidade independe da movimentação da malha. Dessa forma a 
 Tomando-se a forma forte das equações governantes da DFC em descrição ALE, aplica-se o método de resíduos ponderados para se chegar à forma fraca e proceder com a discretização espacial. Os espaços de dimensão finita das funções tentativa que descrevem a velocidade e a pressão são chamados de $\usolution$ e $\psolution$ respectivamente, e definidos como:
 
 \begin{align}
-\usolution = \left\{\velocity \left . \right| \velocity \left(\cdot,t\right) \in \left(H^{1}\left(\domain\right)\right)^{\nsd}, \velocity = \velocity_D \ \textrm {em} \ \GammaD \right\}
+\usolution = \left\{\velocity \left . \right| \velocity \left(\cdot,t\right) \in \left(H^{1}\left(\domain\right)\right)^{\nsd}, \velocity = \velocity_D \ \textrm {em} \ \boundaryD \right\}
 \end{align}
 
 \noindent e
 
 \begin{align}
-\psolution = \left\{\press \left . \right| \press \left(\cdot\right) \in L^{2}\left(\domain\right), \int_{\domain}\press \textrm { } \deriv \domain = 0 \textrm { se } \boundary = \GammaN \right\},
+\psolution = \left\{\press \left . \right| \press \left(\cdot\right) \in L^{2}\left(\domain\right), \int_{\domain}\press \textrm { } \deriv \domain = 0 \textrm { se } \boundary = \boundaryN \right\},
 \end{align}
 
 \noindent sendo $\left(H^{1}\left(\domain\right)\right)^{\nsd}$ o espaço de funções vetoriais com derivadas de quadrado integrável sobre $\domain$ e $L^{2}\left(\domain\right)$ o espaço de funções escalares que são de quadrado integrável sobre $\domain$.
@@ -518,7 +518,7 @@ Tomando-se a forma forte das equações governantes da DFC em descrição ALE, a
 O espaço das funções teste ou funções peso das equações da quantidade de movimento e da continuidade são definidos respectivamente por:
 
 \begin{align}
-\uweighting = \left\{\utest \left . \right| \utest \left(\cdot\right) \in \left(H^{1}\left(\domain\right)\right)^{\nsd}, \utest = \vzero \textrm { em} \ \GammaD \right\},
+\uweighting = \left\{\utest \left . \right| \utest \left(\cdot\right) \in \left(H^{1}\left(\domain\right)\right)^{\nsd}, \utest = \vzero \textrm { em} \ \boundaryD \right\},
 \end{align}
 
 
@@ -526,11 +526,11 @@ O espaço das funções teste ou funções peso das equações da quantidade de 
 \pweighting = \psolution.
 \end{align}
 
-Aplicando-se o método dos resíduos ponderados sobre as equações Eq. \eqref{eq:Navier-Stokes_ALE} e Eq.\eqref{eq:conser_massa_incom}, integrando-se por partes o termo referente ao tensor de tensões de Cauchy, empregando-se o teorema da divergência e levando-se em consideração a condição de homogeneidade da função $\utest$ sobre o contorno $\GammaD$, obtém-se a forma fraca. A solução do problema consiste então em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de tal modo que $\forall$ $\utest \in \uweighting$ e $\ptest \in \pweighting$, as seguintes expressões sejam verdadeiras:
+Aplicando-se o método dos resíduos ponderados sobre as equações Eq. \eqref{eq:Navier-Stokes_ALE} e Eq.\eqref{eq:conser_massa_incom}, integrando-se por partes o termo referente ao tensor de tensões de Cauchy, empregando-se o teorema da divergência e levando-se em consideração a condição de homogeneidade da função $\utest$ sobre o contorno $\boundaryD$, obtém-se a forma fraca. A solução do problema consiste então em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de tal modo que $\forall$ $\utest \in \uweighting$ e $\ptest \in \pweighting$, as seguintes expressões sejam verdadeiras:
 
 
 \begin{align}
-\int_{\domain} \utest \cdot \density  \left(\left . \frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right)\cdot\gradient \velocity - \sbodyforce \right) \deriv \domain + \int_{\domain} \straintensor(\utest) : \stresstensor  \deriv \domain - \int_{\GammaN} \utest \cdot \surfaceLoad \deriv\GammaN  \  &= 0,  \label{eq:QM_forma_fraca_0_cap2} 
+\int_{\domain} \utest \cdot \density  \left(\left . \frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right)\cdot\gradient \velocity - \sbodyforce \right) \deriv \domain + \int_{\domain} \straintensor(\utest) : \stressTensor  \deriv \domain - \int_{\boundaryN} \utest \cdot \surfaceLoad \deriv\boundaryN  \  &= 0,  \label{eq:QM_forma_fraca_0_cap2} 
 \end{align}
 
 \begin{align}
@@ -584,7 +584,7 @@ Os espaços de função tentativa para velocidade e pressão, bem como as funç�
 
 \begin{align}
 	\begin{split}
-		&\int_{\domain} \utesth \cdot \density \left(\left. \frac{\partial\velocityh}{\partial t} \right|_{\posALE} + \left(\velocityh - \velocityALEh \right)\cdot\gradient \velocityh - \sbodyforceh \right) \deriv \domain + \int_{\domain} \straintensor(\utesth) : \stresstensor\left(\velocityh,\pressh \right)  \deriv \domain\\ & - \int_{\GammaN} \utesth \cdot \surfaceLoadh \deriv \GammaN \ + \int_{\domain} \ptesth \left(\divergence \cdot \velocityh\right) d \domain = 0,  \label{eq:QM_C_forma_fraca_1} 
+		&\int_{\domain} \utesth \cdot \density \left(\left. \frac{\partial\velocityh}{\partial t} \right|_{\posALE} + \left(\velocityh - \velocityALEh \right)\cdot\gradient \velocityh - \sbodyforceh \right) \deriv \domain + \int_{\domain} \straintensor(\utesth) : \stressTensor\left(\velocityh,\pressh \right)  \deriv \domain\\ & - \int_{\boundaryN} \utesth \cdot \surfaceLoadh \deriv \boundaryN \ + \int_{\domain} \ptesth \left(\divergence \cdot \velocityh\right) d \domain = 0,  \label{eq:QM_C_forma_fraca_1} 
 	\end{split}
 \end{align}
 
@@ -622,8 +622,8 @@ Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\v
 
 \begin{align}
 \begin{split}
-&\int_{\domain} \utesth \cdot \density\left(\left. \frac{\partial\velocityh}{\partial t}\right|_{\posALE}+ \left(\velocityh - \velocityALEh \right) \cdot \gradient \velocityh - \sbodyforceh\right) \deriv \domain +\int_{\domain} \straintensor \left(\utesth\right) : \stresstensor \left(\velocityh,\pressh\right)\ \deriv \domain\\ &
-- \int_{\GammaN}\utesth \cdot \surfaceLoadh \ \deriv \GammaN 
+&\int_{\domain} \utesth \cdot \density\left(\left. \frac{\partial\velocityh}{\partial t}\right|_{\posALE}+ \left(\velocityh - \velocityALEh \right) \cdot \gradient \velocityh - \sbodyforceh\right) \deriv \domain +\int_{\domain} \straintensor \left(\utesth\right) : \stressTensor \left(\velocityh,\pressh\right)\ \deriv \domain\\ &
+- \int_{\boundaryN}\utesth \cdot \surfaceLoadh \ \deriv \boundaryN 
 + \sum_{e=1}^{\nel} \int_{\domainE} \SUPG \left(\left(\velocityh - \velocityALEh \right) \cdot \gradient \utesth\right) \cdot \resMom\left(\velocityh,\pressh \right)\  \deriv \domain\\
 &+ \sum_{e=1}^{\nel} \int_{\domainE} \density \LSIC \divergence \cdot \utesth \resPre\left(\velocityh\right)\  \deriv \domain = 0,
 \label{eq:QM_forma_fraca}
@@ -643,7 +643,7 @@ Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\v
 \noindent onde $\resMom$ e $\resPre$ são os resíduos da equação da quantidade de movimento e da equação da continuidade, respectivamente, dados por:
 
 \begin{align}
-\resMom\left(\velocityh,\pressh\right)&=\density\left(\left. \frac{\partial\velocityh}{\partial t}\right|_{\posALE}+\left(\velocityh - \velocityALEh \right)\cdot \gradient \velocityh - \sbodyforceh\right) - \divergence \cdot \stresstensor\left(\velocityh,\pressh\right),
+\resMom\left(\velocityh,\pressh\right)&=\density\left(\left. \frac{\partial\velocityh}{\partial t}\right|_{\posALE}+\left(\velocityh - \velocityALEh \right)\cdot \gradient \velocityh - \sbodyforceh\right) - \divergence \cdot \stressTensor\left(\velocityh,\pressh\right),
 \end{align}
 
 \noindent
@@ -668,8 +668,8 @@ Visto que existem funções teste separadas para a velocidade e pressão, pode-s
 
 \begin{align}
 	\begin{split}
-	\left(\NNSM\right)_{A,i} =&\int_{\domain} \shapef_{A}\mathbf{e_i} \cdot \density\left(\left. \frac{\partial\velocityh}{\partial t}\right|_{\posALE}+\left(\velocityh - \velocityALEh \right)\cdot \gradient \velocityh - \sbodyforceh\right) \deriv \domain +\int_{\domain} \straintensor \left(\shapef_{A}\mathbf{e_i}\right) : \stresstensor \left(\velocityh,\pressh\right)\ \deriv \domain\\ &
-	- \int_{\GammaN}\shapef_{A}\mathbf{e_i} \cdot \surfaceLoadh \ \deriv \GammaN 
+	\left(\NNSM\right)_{A,i} =&\int_{\domain} \shapef_{A}\mathbf{e_i} \cdot \density\left(\left. \frac{\partial\velocityh}{\partial t}\right|_{\posALE}+\left(\velocityh - \velocityALEh \right)\cdot \gradient \velocityh - \sbodyforceh\right) \deriv \domain +\int_{\domain} \straintensor \left(\shapef_{A}\mathbf{e_i}\right) : \stressTensor \left(\velocityh,\pressh\right)\ \deriv \domain\\ &
+	- \int_{\boundaryN}\shapef_{A}\mathbf{e_i} \cdot \surfaceLoadh \ \deriv \boundaryN 
 	+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG \left(\left(\velocityh - \velocityALEh \right) \cdot \gradient \shapef_{A}\mathbf{e_i}\right) \cdot \resMom\left(\velocityh,\pressh \right)\  \deriv \domain\\
 	&+ \sum_{e=1}^{\nel} \int_{\domainE} \density \LSIC \left(\divergence \cdot \shapef_{A}\mathbf{e_i}\right) \resPre\left(\velocityh\right)\  \deriv \domain  ,
 	\end{split}
@@ -710,7 +710,7 @@ Para essa opção é necessário definir-se o tensor métrico do elemento no esp
 	\matrixQ&=\left(\frac{\partial\pos}{\partial\coordAdimen}\right),
 \end{align}
 
-\noindent com $\coordAdimen$ representando as coordenadas do espaço paramétrico, com componentes $\xi_1, \xi_2$ e $\xi_3$.
+\noindent com $\coordAdimen$ representando as coordenadas do espaço paramétrico, com componentes $\xi, \eta$ e $\zeta$.
 
 Para que a ordem polinomial seja levada em consideração na determinação dos parâmetros de estabilização, aplica-se uma mudança de escala na matriz $\matrixQ$, através da matriz $\matrixD$, conforme a seguinte expressão:
 
@@ -718,16 +718,16 @@ Para que a ordem polinomial seja levada em consideração na determinação dos 
 	\matrixQhat&=\matrixQ\matrixD^{-1}.
 \end{align}
 
-Para elementos finitos com funções de forma polinomiais de Lagrange de ordem $p_{i}$, na direções $\xi_i$ do espaço paramétrico , com $-1\leq\xi_i\leq1$, a  matriz $\matrixD$ é definida como:
+Para elementos finitos com funções de forma polinomiais de Lagrange de ordens $p_\xi$, $p_\eta$ e $p_\zeta$ nas direções paramétricas $\xi$, $\eta$ e $\zeta$, respectivamente, com $\xi, \eta, \zeta \in [-1, 1]$, a matriz $\mathbf{D}$ é definida por:
 
 
 \textcolor{red}{e se a variação for de 0,1 ? tem alguma diferença}
 
 \begin{align}
 	\matrixD&=\begin{bmatrix}
-		p_{\xi_1} & 0 & 0\\
-		0 & p_{\xi_2} & 0 \\
-		0 & 0 & p_{\xi_3}
+		p_{\xi} & 0 & 0\\
+		0 & p_{\eta} & 0 \\
+		0 & 0 & p_{\zeta0}
 	\end{bmatrix}.
 \end{align}
 
@@ -909,11 +909,11 @@ Na utilização do método $\alpha$-generalizado as integrais das equações Eq.
 \section{Implementação Computacional} \label{capitulo:Cap2:DFCComputationalCode}
 
 
-O Algoritmo que descreve a implementação computacional tanto de problemas utilizando o método dos elementos finitos, quanto para problemas utilizando a análise Isogeométrica, é apresentado no Alg. \ref{alg:fluid_temporalIntegration}.
+O Algoritmo que descreve a implementação computacional tanto de problemas utilizando o método dos elementos finitos, quanto para problemas utilizando a análise Isogeométrica, é apresentado no Alg. \ref{alg:fluid}.
 
 \begin{algorithm}
 	\caption{Algoritmo para problemas de dinâmica dos fluidos computacional}
-	\label{alg:fluid_temporalIntegration}
+	\label{alg:fluid}
 	\begin{algorithmic}[1]
 		\For {o passo de tempo $0$ até $\totalTime$} 
 		\State $i=0$;
@@ -961,11 +961,11 @@ Na Fig. \ref{fig:cilindro_malha} pode-se observar a malha não-estruturada de el
 Para o cálculo dos coeficientes aerodinâmicos é necessário definir-se primeiramente as forças de arrasto - horizontal ($F_D$) e de sustentação - vertical ($F_L$), que são induzidas por tensões desviadores e hidrostáticas e são calculadas pelas seguintes equações:
 
 \begin{align}
-F_D = \int_{\boundary_{c}} \stresstensor_{1j}n_{j} \deriv\boundary_{c},
+F_D = \int_{\boundary_{c}} \stressTensor_{1j}n_{j} \deriv\boundary_{c},
 \end{align}
 
 \begin{align}
-F_L = \int_{\boundary_{c}} \stresstensor_{2j}n_{j} \deriv\boundary_{c},
+F_L = \int_{\boundary_{c}} \stressTensor_{2j}n_{j} \deriv\boundary_{c},
 \end{align}
 
 \noindent nas quais o símbolo $\boundary_{c}$ representa o contorno do cilindro e $n_j$ é o vetor normal à essa superfície na direção $j$, com $j=1,2$. Os coeficientes de arrasto e sustentação são definidos respectivamente por:

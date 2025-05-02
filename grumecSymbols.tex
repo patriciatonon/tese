@@ -46,6 +46,7 @@
 \newcommand{\tractionLoad}{\mathbf{p}}
 \newcommand{\ltractionLoad}{\mathbf{p}^{0}}
 \newcommand{\solidVel}{\dot{\mathbf{y}}}
+\newcommand{\solidVelh}{\dot{\mathbf{y}^h}}
 \newcommand{\solidAccel}{\ddot{\mathbf{y}}}
 \newcommand{\specificEnergy}{u_e}
 \newcommand{\bulkModulus}{\kappa}
@@ -102,6 +103,7 @@
 %Global model
 \newcommand{\globalModel}{\Omega_0}
 \newcommand{\globalBoundary}{\Gamma_0}
+\newcommand{\globalBoundaryN}{\Gamma_{N0}}
 %Arlequin model
 \newcommand{\arlqModel}{\Omega_i}
 \newcommand{\arlqBoundary}{\Gamma_i}
@@ -109,6 +111,7 @@
 %Local model
 \newcommand{\localModel}{\Omega_1}
 \newcommand{\localBoundary}{\Gamma_1}
+\newcommand{\localBoundaryN}{\Gamma_{N1}}
 %Gluing zone
 \newcommand{\gluingZone}{\Omega_c}
 %Free zone
@@ -235,15 +238,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Mesh Moving
 \newcommand{\domaintt}{\Omega_{\tilde{t}}}
-\newcommand{\testfunction}{\mathbf{w}^h}
-\newcommand{\displacementmesh}{\bar{\mathbf{z}}^h}
-\newcommand{\referencecoordinates} {\mathbf{X}^h}
-\newcommand{\currentcoordinates} {\mathbf{y}^h}
-\newcommand{\currentcoordinatessh} {\mathbf{y}}
+\newcommand{\stressTensorM}{\stressTensor_{M}}
+\newcommand{\testfunction}{\mathbf{w}_{M}^h}
+\newcommand{\dispM}{\mathbf{z}}
+\newcommand{\dispMh}{\bar{\mathbf{z}}^h}
+\newcommand{\dispMtth}{\bar{\mathbf{z}}_{\tilde{t}}^h}
+\newcommand{\postth}{\posh_{\tilde{t}}}
+\newcommand{\tildet}{\tilde{t}}
+\newcommand{\poissonm}{\nu_{M}}
+\newcommand{\elasticityM}{E_{M}}
+\newcommand{\jacM}{J_{M}}
 \newcommand{\adimensionalcoordinates}{\boldsymbol{\xi}}
 \newcommand{\error}{e_{L2}}
-\newcommand{\stif}{\mathbf{K}}
-\newcommand{\domainref}{\Omega_{ref}}
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FLUID PROBLEM
@@ -277,9 +287,9 @@
 \newcommand{\boundary}{\Gamma}
 \newcommand{\boundaryh}{\Gamma^h}
 %Dirichlet boundary
-\newcommand{\GammaD}{\Gamma_{D}}
+\newcommand{\boundaryD}{\Gamma_{D}}
 %Neumann boundary
-\newcommand{\GammaN}{\Gamma_{N}}
+\newcommand{\boundaryN}{\Gamma_{N}}
 %boundary normal vectors^
 \newcommand{\snormal}{\mathbf{n}}
 \newcommand{\normal}{\mathbf{n}}
@@ -312,7 +322,7 @@
 
 %stress tensor and forces
 %Cauchy stress tensor
-\newcommand{\stresstensor}{\boldsymbol{\sigma}}
+\newcommand{\stressTensor}{\boldsymbol{\sigma}}
 \newcommand{\stress}{\sigma}
 %unity mass body forces  
 \newcommand{\sbodyforce}{\mathbf{f}}
@@ -429,9 +439,36 @@
 
 
 %FSI domain
-\newcommand{\domainFSI}{\Omega}
+\newcommand{\domainFSI}{\Omega_{IFE}}
+\newcommand{\domainF}{\domain_{F}}
+\newcommand{\domainS}{\domain_{E}}
+\newcommand{\boundaryFSI}{\Gamma_{IFE}}
+\newcommand{\stressTensorS}{\stressTensor_{E}}
+\newcommand{\stressTensorF}{\stressTensor_{F}}
+\newcommand{\snormalS}{\snormal_{E}}
+\newcommand{\snormalF}{\snormal_{F}}
+\newcommand{\Nf}{\mathbf{N}_{1}}
+\newcommand{\Ns}{\mathbf{N}_{2}}
+\newcommand{\Nm}{\mathbf{N}_{3}}
+\newcommand{\Ni}{\mathbf{N}_{i}}
+\newcommand{\df}{\mathbf{d}_{1}}
+\newcommand{\ds}{\mathbf{d}_{2}}
+\newcommand{\dm}{\mathbf{d}_{3}}
+\newcommand{\djj}{\mathbf{d}_{j}}
+\newcommand{\xf}{\mathbf{x}_{1}}
+\newcommand{\xs}{\mathbf{x}_{2}}
+\newcommand{\xm}{\mathbf{x}_{3}}
+\newcommand{\cff}{\mathbf{c}_{1}}
+\newcommand{\css}{\mathbf{c}_{2}}
+\newcommand{\cmm}{\mathbf{c}_{3}}
+\newcommand{\mA}{\mathbf{A}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Isogeometric variables
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\xsi}{\xi}
+\newcommand{\Xsi}{\Xi}
 \newcommand{\CP}{\mathbf{B}}
+\newcommand{\Nb}{N^b}
+\newcommand{\Mb}{M^b}
+\newcommand{\Lb}{L^b}

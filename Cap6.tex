@@ -177,12 +177,12 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 		&\int_{\globalModel} \arlequinWFGlobal \density \wglobalh \cdot \frac{\partial\uglobalh}{\partial t} \deriv \globalModel +
 		\int_{\globalModel} \arlequinWFGlobal \density \wglobalh \cdot  \left(\uglobalh \cdot \gradient \right) \uglobalh \deriv \globalModel  \\ 
 		&\quad+	
-		\int_{\globalModel} \arlequinWFGlobal \straintensor \left(\wglobalh\right) : \stresstensor \left(\uglobalh,\pglobalh\right)\ \deriv \globalModel \\
+		\int_{\globalModel} \arlequinWFGlobal \straintensor \left(\wglobalh\right) : \stressTensor \left(\uglobalh,\pglobalh\right)\ \deriv \globalModel \\
 		&\quad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left(\left(\uglobalh \cdot \gradient \right) \wglobalh\right) \cdot \resMomGlobal\left(\uglobalh,\pglobalh \right)\  \deriv \globalModel \\ 
 		&\quad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \divergence \cdot \wglobalh \resPreGlobal 
 		 \left(\uglobalh\right)\  \deriv \globalModel 
 		 + \chi_{0} \int_{\gluingZone} \wglobalh \cdot \lagrangeMultiplierh \deriv \gluingZone   \\ 
-		 &\quad = \int_{\globalModel} \arlequinWFGlobal \density \wglobalh \cdot  \globalsbodyforceh \deriv \globalModel + \int_{\globalBoundary} \arlequinWFGlobal \wglobalh  \cdot \globalSurfaceLoadh\ \deriv \globalBoundary,
+		 &\quad = \int_{\globalModel} \arlequinWFGlobal \density \wglobalh \cdot  \globalsbodyforceh \deriv \globalModel + \int_{\globalBoundaryN} \arlequinWFGlobal \wglobalh  \cdot \globalSurfaceLoadh\ \deriv \globalBoundaryN,
 		\label{eq:QM_forma_fraca_0}
 	\end{split}
 \end{align}
@@ -202,13 +202,13 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 		&\int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot \frac{\partial\ulocalh}{\partial t} \deriv \localModel +
 		\int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot  \left(\ulocalh \cdot \gradient \right)\ulocalh \deriv \localModel  \\ 
 		&\quad+	
-		\int_{\localModel} \arlequinWFLocal \straintensor \left(\wlocalh\right) : \stresstensor \left(\ulocalh,\plocalh\right)\ \deriv \localModel 
+		\int_{\localModel} \arlequinWFLocal \straintensor \left(\wlocalh\right) : \stressTensor \left(\ulocalh,\plocalh\right)\ \deriv \localModel 
 		\\ 
 		&\quad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left( \right(\ulocalh \cdot \gradient \left) \wlocalh\right) \cdot \resMomLocal\left(\ulocalh,\plocalh \right)\  \deriv \localModel \\ 
 		&\quad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \divergence \cdot \wlocalh \resPreLocal
 		\left(\ulocalh\right)\  \deriv \localModel 
 		\quad+ \chi_{1} \int_{\gluingZone} \wlocalh \cdot \lagrangeMultiplierh \deriv \gluingZone  \\
-		&\quad= \int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot  \localsbodyforceh \deriv \localModel + \int_{\localBoundary} \arlequinWFLocal \wlocalh \cdot \localSurfaceLoadh\ \deriv \localBoundary,
+		&\quad= \int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot  \localsbodyforceh \deriv \localModel + \int_{\localBoundaryN} \arlequinWFLocal \wlocalh \cdot \localSurfaceLoadh\ \deriv \localBoundaryN,
 		\label{eq:QM_forma_fraca_1}
 	\end{split}
 \end{align}
@@ -232,7 +232,7 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 \noindent onde $\resMomI$ e ${\resPreI}$ são os resíduos da equação da quantidade de movimento e da equação da continuidade, com $i=0,1$, respectivamente, dados por:
 
 \begin{align}
-	\resMomI \left(\uArlqi,\pArlqi,\lagrangeMultiplierh \right)&=\arlequinWFi \density\left(\frac{\partial\uArlqi}{\partial t}+ \left( \uArlqi \cdot \gradient \right) \uArlqi - \sbodyforce_i^{h}\right) - \arlequinWFi \divergence \cdot \stresstensor\left(\uArlqi,\pArlqi\right)+ \chi_{i} \lagrangeMultiplierh \label{eq:res_QM_i},
+	\resMomI \left(\uArlqi,\pArlqi,\lagrangeMultiplierh \right)&=\arlequinWFi \density\left(\frac{\partial\uArlqi}{\partial t}+ \left( \uArlqi \cdot \gradient \right) \uArlqi - \sbodyforce_i^{h}\right) - \arlequinWFi \divergence \cdot \stressTensor\left(\uArlqi,\pArlqi\right)+ \chi_{i} \lagrangeMultiplierh \label{eq:res_QM_i},
 \end{align}
 
 \noindent
@@ -274,12 +274,12 @@ Dessa forma, pode-se definir a solução do problema de Navier-Stokes para escoa
 		&\int_{\globalModel} \arlequinWFGlobal \density \wglobalh \cdot \frac{\partial\uglobalh}{\partial t} \deriv \globalModel +
 		\int_{\globalModel} \arlequinWFGlobal \density \wglobalh \cdot  \left(\uglobalh \cdot \gradient \right) \uglobalh \deriv \globalModel  \\ 
 		&\quad+	
-		\int_{\globalModel} \arlequinWFGlobal \straintensor \left(\wglobalh\right) : \stresstensor \left(\uglobalh,\pglobalh\right)\ \deriv \globalModel \\
+		\int_{\globalModel} \arlequinWFGlobal \straintensor \left(\wglobalh\right) : \stressTensor \left(\uglobalh,\pglobalh\right)\ \deriv \globalModel \\
 		&\quad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left(\left(\uglobalh \cdot \gradient \right) \wglobalh\right) \cdot \resMomGlobal\left(\uglobalh,\pglobalh \right)\  \deriv \globalModel \\ 
 		&\quad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \divergence \cdot \wglobalh \resPreGlobal 
 		\left(\uglobalh\right)\  \deriv \globalModel 
 		+ \chi_{0} \int_{\gluingZone} \wglobalh \cdot \lagrangeMultiplierh \deriv \gluingZone   \\ 
-		&\quad = \int_{\globalModel} \arlequinWFGlobal \density \wglobalh \cdot  \globalsbodyforceh \deriv \globalModel + \int_{\globalBoundary} \arlequinWFGlobal \wglobalh  \cdot \globalSurfaceLoadh\ \deriv \globalBoundary,
+		&\quad = \int_{\globalModel} \arlequinWFGlobal \density \wglobalh \cdot  \globalsbodyforceh \deriv \globalModel + \int_{\globalBoundaryN} \arlequinWFGlobal \wglobalh  \cdot \globalSurfaceLoadh\ \deriv \globalBoundaryN,
 		\label{eq:QM_forma_fraca_0_atu}
 	\end{split}
 \end{align}
@@ -299,13 +299,13 @@ Dessa forma, pode-se definir a solução do problema de Navier-Stokes para escoa
 		&\int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot \frac{\partial\ulocalh}{\partial t} \deriv \localModel +
 		\int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot  \left(\ulocalh \cdot \gradient \right)\ulocalh \deriv \localModel  \\ 
 		&\quad+	
-		\int_{\localModel} \arlequinWFLocal \straintensor \left(\wlocalh\right) : \stresstensor \left(\ulocalh,\plocalh\right)\ \deriv \localModel 
+		\int_{\localModel} \arlequinWFLocal \straintensor \left(\wlocalh\right) : \stressTensor \left(\ulocalh,\plocalh\right)\ \deriv \localModel 
 		\\ 
 		&\quad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left( \right(\ulocalh \cdot \gradient \left) \wlocalh\right) \cdot \resMomLocal\left(\ulocalh,\plocalh \right)\  \deriv \localModel \\ 
 		&\quad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \divergence \cdot \wlocalh \resPreLocal
 		\left(\ulocalh\right)\  \deriv \localModel 
 		\quad+ \chi_{1} \int_{\gluingZone} \wlocalh \cdot \lagrangeMultiplierh \deriv \gluingZone  \\
-		&\quad= \int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot  \localsbodyforceh \deriv \localModel + \int_{\localBoundary} \arlequinWFLocal \wlocalh \cdot \localSurfaceLoadh\ \deriv \localBoundary,
+		&\quad= \int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot  \localsbodyforceh \deriv \localModel + \int_{\localBoundaryN} \arlequinWFLocal \wlocalh \cdot \localSurfaceLoadh\ \deriv \localBoundaryN,
 		\label{eq:QM_forma_fraca_1_atu}
 	\end{split}
 \end{align}
@@ -361,7 +361,7 @@ O problema de Arlequin não linear apresentado nas equações: Eq. \ref{eq:QM_fo
 	\begin{split}
 		\NNSMArlq =\; & \int_{\arlqModel} \arlequinWFi \density\, \wArlqi \cdot \frac{\partial\uArlqi}{\partial t} \, \deriv \arlqModel 
 		+ \int_{\arlqModel} \arlequinWFi \density\, \wArlqi \cdot \left( \uArlqi \cdot \gradient \right)\uArlqi \, \deriv \arlqModel  \\ 
-		&+ \int_{\arlqModel} \arlequinWFi\, \straintensor \left(\wArlqi\right) : \stresstensor \left(\uArlqi,\pArlqi\right) \, \deriv \arlqModel 
+		&+ \int_{\arlqModel} \arlequinWFi\, \straintensor \left(\wArlqi\right) : \stressTensor \left(\uArlqi,\pArlqi\right) \, \deriv \arlqModel 
 		\\ 
 		&+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG\, \left( \left( \uArlqi \cdot \gradient \right)\wArlqi \right) \cdot \resMomI \left(\uArlqi,\pArlqi \right) \, \deriv \arlqModel \\ 
 		&+ \sum_{e=1}^{\nel} \int_{\domainE} \LSIC\, \divergence \cdot \wArlqi\, \resPreI \left(\uArlqi\right) \, \deriv \arlqModel 
@@ -615,12 +615,12 @@ Para análise de domínios móveis do tipo Euleriano-ALE, a Eq. \ref{eq:QM_forma
 		&\int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot \left. \frac{\partial\ulocalh}{\partial t} \right|_{\posALE} \deriv \localModel +
 		\int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot  \left(\left(\ulocalh - \velocityALEh_{1}\right) \cdot \gradient \ulocalh\right) \deriv \localModel  \\ 
 		&\quad+	
-		\int_{\localModel} \arlequinWFLocal \straintensor \left(\wlocalh\right) : \stresstensor \left(\ulocalh,\plocalh\right)\ \deriv \localModel 
+		\int_{\localModel} \arlequinWFLocal \straintensor \left(\wlocalh\right) : \stressTensor \left(\ulocalh,\plocalh\right)\ \deriv \localModel 
 		\\ 
 		&\quad+ \sum_{e=1}^{\nel} \int_{\domainE} \SUPG  \left( \left(\ulocalh - \velocityALEh_{1}\right) \cdot \gradient \wlocalh\right) \cdot \resMomLocal\left(\ulocalh,\plocalh \right)\  \deriv \localModel \\ 
 		&\quad+\sum_{e=1}^{\nel} \int_{\domainE} \LSIC \divergence \cdot \wlocalh \resPreLocal
 		\left(\ulocalh\right)\  \deriv \localModel \\
-		&\quad+  \chi_{1} \int_{\gluingZone} \wlocalh \cdot \lagrangeMultiplierh \deriv \gluingZone  = \int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot  \localsbodyforceh \deriv \localModel + \int_{\localBoundary} \arlequinWFLocal \wlocalh \cdot \localSurfaceLoadh\ \deriv \localBoundary,
+		&\quad+  \chi_{1} \int_{\gluingZone} \wlocalh \cdot \lagrangeMultiplierh \deriv \gluingZone  = \int_{\localModel} \arlequinWFLocal \density \wlocalh \cdot  \localsbodyforceh \deriv \localModel + \int_{\localBoundaryN} \arlequinWFLocal \wlocalh \cdot \localSurfaceLoadh\ \deriv \localBoundaryN,
 		\label{eq:eq:QM_forma_fraca_1_ALE}
 	\end{split}
 \end{align}
@@ -629,7 +629,7 @@ Para análise de domínios móveis do tipo Euleriano-ALE, a Eq. \ref{eq:QM_forma
 
 
 \begin{align}
-	\resMomLocal \left(\ulocalh,\plocalh,\lagrangeMultiplierh \right)&=\arlequinWFLocal \density\left(\left. \frac{\partial\ulocalh}{\partial t} \right|_{\posALE}+ \left(\ulocalh - \velocityALEh_{1}\right) \cdot \gradient \ulocalh  - \localsbodyforceh\right) - \arlequinWFLocal \divergence \cdot \stresstensor\left(\ulocalh,\plocalh,\right)+ \chi_{1} \lagrangeMultiplierh \label{eq:res_QM_ALE}.
+	\resMomLocal \left(\ulocalh,\plocalh,\lagrangeMultiplierh \right)&=\arlequinWFLocal \density\left(\left. \frac{\partial\ulocalh}{\partial t} \right|_{\posALE}+ \left(\ulocalh - \velocityALEh_{1}\right) \cdot \gradient \ulocalh  - \localsbodyforceh\right) - \arlequinWFLocal \divergence \cdot \stressTensor\left(\ulocalh,\plocalh,\right)+ \chi_{1} \lagrangeMultiplierh \label{eq:res_QM_ALE}.
 \end{align}
 
 Além da consideração da descrição ALE para o modelo local, deve-se ressaltar que a função ponderadora $\arlequinWFi$ passa a ser uma variável temporal, ou seja, $\arlequinWFi(t)$, visto que a zona de superposição $\overlappingZone$ é definida em diferentes posições em cada instante de tempo. Dessa forma, a integração temporal utilizando o método $\alpha$-generalizado deve considerar essa variação através da seguinte interpolação no tempo intermediário:
@@ -665,11 +665,11 @@ Uma das maiores dificuldades da técnica de Arlequin diz respeito à integraçã
 
 Para contemplar a solução de problemas com contornos móveis utilizando a técnica Arlequin, a cada passo de tempo, algumas tarefas adicionais devem ser realizadas: atualização da configuração da malha; atualização da distância assinalada com relação ao contorno $\localBoundary$ de todos os pontos (nós para malha de elementos finitos ou pontos de controle para malha isogeométrica) que compõe cada um dos modelos;  Alteração da função ponderadora; e atualização das correspondências entre pontos de integração da malha local na malha global.
 
-O Algoritmo que descreve a implementação computacional é apresentado no Alg. \ref{alg:fluid_temporalIntegrationARLQ}. A implementação computacional e resolução do sistema de equações resultantes ocorreu de forma análoga ao monomodelo descrito na Seção \ref{capitulo:Cap2:DFCComputationalCode}. O índice $i$ apresentado diz respeito à iteração de Newton-Raphson.
+O Algoritmo que descreve a implementação computacional é apresentado no Alg. \ref{alg:fluidARLQ}. A implementação computacional e resolução do sistema de equações resultantes ocorreu de forma análoga ao monomodelo descrito na Seção \ref{capitulo:Cap2:DFCComputationalCode}. O índice $i$ apresentado diz respeito à iteração de Newton-Raphson.
 
 \begin{algorithm}
 	\caption{Algoritmo para problemas móveis da DFC utilizando técnica ARLEQUIN RBSAM}
-	\label{alg:fluid_temporalIntegrationARLQ}
+	\label{alg:fluidARLQ}
 	\begin{algorithmic}[1]
 		\State Cálculo da distância assinalada dos nós e pontos de controle ao contorno $\localBoundary$;
 		\State Determinação da zona de colagem $\gluingZone$;
@@ -767,20 +767,22 @@ Nas Fig. \ref{fig:aerofolio_velocidade} e Fig. \ref{fig:aerofolio_pressao} estã
 
 \begin{figure}[htb!]
 	\centering
-	\subfloat[$T_n$]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_velTn.pdf}} \ \
-	\subfloat[$T_n + T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/aerofolio_velTn4.pdf}} \\
-	\subfloat[$T_n + T_n/2 $]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_velTn2.pdf}} \ \
-	\subfloat[$T_n + 3T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.04]{Imagens/Cap6/aerofolio_velTn34.pdf}}
+	\subfloat[$T_n$]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_velTn.pdf}} \ \
+	\subfloat[$T_n + T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolio_velTn4.pdf}} \\
+	\subfloat[$T_n + T_n/2 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_velTn2.pdf}} \ \
+	\subfloat[$T_n + 3T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolio_velTn34.pdf}} \\
+	{\includegraphics[trim=0 0 0 0,clip=true,scale=0.4]{Imagens/Cap6/aerofolio_velLegenda.png}}
 	\caption{Aerofólio: Campo de velocidade}
 	\label{fig:aerofolio_velocidade}
 \end{figure}
 
 \begin{figure}[htb!]
 	\centering
-	\subfloat[$T_n$]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_pressTn.pdf}} \ \
-	\subfloat[$T_n + T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/aerofolio_pressTn4.pdf}} \\
-	\subfloat[$T_n + T_n/2 $]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_pressTn2.pdf}} \ \
-	\subfloat[$T_n + 3T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/aerofolio_pressTn34.pdf}}
+	\subfloat[$T_n$]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_pressTn.pdf}} \ \
+	\subfloat[$T_n + T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolio_pressTn4.pdf}} \\
+	\subfloat[$T_n + T_n/2 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_pressTn2.pdf}} \ \
+	\subfloat[$T_n + 3T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolio_pressTn34.pdf}}\\
+	{\includegraphics[trim=0 0.5cm 0 0cm,clip=true,scale=0.4]{Imagens/Cap6/aerofolio_pressLegenda.png}}
 	\caption{Aerofólio: Campo de pressão}
 	\label{fig:aerofolio_pressao}
 \end{figure}
@@ -799,7 +801,7 @@ Para descrever-se tal movimento aplica-se, tendo como centro a corda média do a
 
 \noindent com $\omega_{f} = 2\pi f_{o}$, sendo $f_{o}$ a frequência de oscilação, adotada nesse estudo como 1.0, $\theta_{max} = 30^{\circ}$ e $\theta_{min} = 10^{\circ}$.
 
-As dimensões da geometria do domínio computacional são alteradas (ver Fig. \ref{fig:aerofolioMov_geometria}) para capturar os efeitos dos desprendimentos de vórtices, que para esse problema, se desprendem em uma faixa mais ampla. Os demais parâmetros de análise foram mantidos iguais aos apresentados no exemplo da Subseção \ref{scapitulo:Cap6:Exemplos:NACA0012}. 
+As dimensões da geometria do domínio computacional são alteradas (ver Fig. \ref{fig:aerofolioMov_geometria}) para capturar os efeitos dos desprendimentos de vórtices, que para esse problema, se desprendem em uma faixa mais ampla. Os demais parâmetros de análise foram mantidos iguais aos apresentados no exemplo da Subseção \ref{capitulo:Cap6:Exemplos:NACA0012}. 
 
 \begin{figure}[htb!]
 	\centering 
@@ -833,22 +835,20 @@ Nas figuras Fig. \ref{fig:aerofolioMov_velocidade} e Fig. \ref{fig:aerofolioMov_
 
 \begin{figure}[htb!]
 	\centering
-	\subfloat[$t = 8,0 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_vel400.pdf}} \
-	\subfloat[$t = 8,3 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/aerofolioMov_vel413.pdf}}\\
-	\subfloat[$t = 8,5 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_vel425.pdf}} \
-	\subfloat[$t = 8,8 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/aerofolioMov_vel438.pdf}}\\
-	\subfloat[$t = 9,0 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/aerofolioMov_vel450.pdf}}
+	\subfloat[$t = 8,0 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_vel400.pdf}} \
+	\subfloat[$t = 8,3 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolioMov_vel415.pdf}}\\
+	\subfloat[$t = 8,5 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_vel425.pdf}} \
+	\subfloat[$t = 8,8 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolioMov_vel440.pdf}}\\
 	\caption{Aerofólio Mov.: Campos de velocidade}
 	\label{fig:aerofolioMov_velocidade}
 \end{figure}
 
 \begin{figure}[htb!]
 	\centering
-	\subfloat[$t = 8,0 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_press400.pdf}} \
-	\subfloat[$t = 8,3 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/aerofolioMov_press413.pdf}}\\
-	\subfloat[$t = 8,5 $]{\includegraphics[scale=1.00,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_press425.pdf}} \
-	\subfloat[$t = 8,8 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/aerofolioMov_press438.pdf}}\\
-	\subfloat[$t = 9,0 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.0]{Imagens/Cap6/aerofolioMov_press450.pdf}}
+	\subfloat[$t = 8,0 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_press400.pdf}} \
+	\subfloat[$t = 8,3 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolioMov_press415.pdf}}\\
+	\subfloat[$t = 8,5 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_press425.pdf}} \
+	\subfloat[$t = 8,8 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolioMov_press440.pdf}}\\
 	\caption{Aerofólio Mov.: Campos de pressão}
 	\label{fig:aerofolioMov_pressao}
 \end{figure}

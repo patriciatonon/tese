@@ -23,6 +23,7 @@
 \BKM@entry{id=1,dest={6368617074657262312E30},srcline={481}}{5C3337365C3337375C303030525C303030655C303030735C303030755C3030306D5C3030306F}
 \BKM@entry{id=2,dest={6368617074657262322E30},srcline={495}}{5C3337365C3337375C303030415C303030625C303030735C303030745C303030725C303030615C303030635C30303074}
 \BKM@entry{id=3,dest={6C6F662E30},srcline={514}}{5C3337365C3337375C3030304C5C303030695C303030735C303030745C303030615C3030305C3034305C303030645C303030655C3030305C3034305C303030465C303030695C303030675C303030755C303030725C303030615C30303073}
+\citation{CottrelHB:2009}
 \BKM@entry{id=4,dest={6C6F742E30},srcline={523}}{5C3337365C3337375C3030304C5C303030695C303030735C303030745C303030615C3030305C3034305C303030645C303030655C3030305C3034305C303030745C303030615C303030625C303030655C3030306C5C303030615C30303073}
 \BKM@entry{id=5,dest={6C61732E30},srcline={531}}{5C3337365C3337375C3030304C5C303030695C303030735C303030745C303030615C3030305C3034305C303030645C303030655C3030305C3034305C303030535C3030305C3335355C3030306D5C303030625C3030306F5C3030306C5C3030306F5C30303073}
 \BKM@entry{id=6,dest={746F632E30},srcline={541}}{5C3337365C3337375C303030535C303030755C3030306D5C3030305C3334315C303030725C303030695C3030306F}
@@ -305,7 +306,7 @@
 \newlabel{capitulo:Cap2:DFCComputationalCode}{{2.5}{44}{Implementação Computacional}{section.2.5}{}}
 \BKM@entry{id=30,dest={73756273656374696F6E2E322E362E31},srcline={940}}{5C3337365C3337375C303030455C303030735C303030635C3030306F5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F5C3030305C3034305C303030735C3030306F5C303030625C303030725C303030655C3030305C3034305C303030755C3030306D5C3030305C3034305C303030635C303030695C3030306C5C303030695C3030306E5C303030645C303030725C3030306F}
 \@writefile{loa}{\contentsline {algorithm}{\numberline {1}{\ignorespaces Algoritmo para problemas de dinâmica dos fluidos computacional}}{45}{algorithm.1}\protected@file@percent }
-\newlabel{alg:fluid_temporalIntegration}{{1}{45}{Implementação Computacional}{algorithm.1}{}}
+\newlabel{alg:fluid}{{1}{45}{Implementação Computacional}{algorithm.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2.6}Verificação e Aplicações}{45}{section.2.6}\protected@file@percent }
 \newlabel{capitulo:Cap2:VerApl}{{2.6}{45}{Verificação e Aplicações}{section.2.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.6.1}Escoamento sobre um cilindro}{45}{subsection.2.6.1}\protected@file@percent }
@@ -388,151 +389,365 @@
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$Re$=400}}}{54}{subfigure.14.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$Re$=1000}}}{54}{subfigure.14.3}\protected@file@percent }
 \newlabel{fig:cavidade_press}{{2.14}{54}{Cavidade quadrada: Campos de pressão}{figure.2.14}{}}
-\BKM@entry{id=32,dest={636861707465722E33},srcline={48}}{5C3337365C3337375C3030304D5C3030305C3335315C303030745C3030306F5C303030645C3030306F5C3030305C3034305C303030645C303030655C3030305C3034305C303030415C303030725C3030306C5C303030655C303030715C303030755C303030695C3030306E5C3030305C3034305C303030655C303030735C303030745C303030615C303030625C303030695C3030306C5C303030695C3030307A5C303030615C303030645C3030306F}
+\BKM@entry{id=32,dest={636861707465722E33},srcline={8}}{5C3337365C3337375C303030415C3030306E5C3030305C3334315C3030306C5C303030695C303030735C303030655C3030305C3034305C303030695C303030735C3030306F5C303030675C303030655C3030306F5C3030306D5C3030305C3335315C303030745C303030725C303030695C303030635C303030615C3030305C3034305C303030615C303030705C3030306C5C303030695C303030635C303030615C303030645C303030615C3030305C3034305C3030305C3334305C3030305C3034305C3030304D5C303030655C303030635C3030305C3334325C3030306E5C303030695C303030635C303030615C3030305C3034305C303030645C3030306F5C303030735C3030305C3034305C303030465C3030306C5C303030755C303030695C303030645C3030306F5C30303073}
+\citation{HughesCB:2005}
+\citation{PiegT:1996}
+\citation{HughesCB:2005}
+\citation{PiegT:1996}
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase    []{Análise isogeométrica aplicada à Mecânica dos Fluidos}}{55}{chapter.3}\protected@file@percent }
+\newlabel{capitulo:Cap3}{{3}{55}{\texorpdfstring {\MakeTextUppercase {\tempf@rtoc }}{\tempf@rtoc }}{chapter.3}{}}
+\BKM@entry{id=33,dest={73656374696F6E2E332E31},srcline={61}}{5C3337365C3337375C3030304E5C3030306F5C3030305C3334375C3030305C3336355C303030655C303030735C3030305C3034305C303030475C303030655C303030725C303030615C303030695C303030735C3030305C3034305C303030645C303030655C3030305C3034305C303030495C303030475C30303041}
+\@writefile{toc}{\contentsline {section}{\numberline {3.1}Noções Gerais de IGA}{56}{section.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces NURBS: espaço físico, espaço paramétrico, espaço indicial e espaço parental}}{56}{figure.3.1}\protected@file@percent }
+\newlabel{fig:espacos_NURBS}{{3.1}{56}{NURBS: espaço físico, espaço paramétrico, espaço indicial e espaço parental}{figure.3.1}{}}
+\BKM@entry{id=34,dest={73656374696F6E2E332E32},srcline={81}}{5C3337365C3337375C303030525C303030655C303030705C303030725C303030655C303030735C303030655C3030306E5C303030745C303030615C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030675C303030655C3030306F5C3030306D5C3030305C3335315C303030745C303030725C303030695C303030635C303030615C3030305C3034305C303030755C303030745C303030695C3030306C5C303030695C3030307A5C303030615C3030306E5C303030645C3030306F5C3030305C3034305C3030304E5C303030555C303030525C303030425C30303053}
+\BKM@entry{id=35,dest={73756273656374696F6E2E332E322E31},srcline={83}}{5C3337365C3337375C303030565C303030655C303030745C3030306F5C303030725C3030305C3034305C303030645C303030655C3030305C3034305C3030306B5C3030306E5C3030306F5C303030745C30303073}
+\@writefile{toc}{\contentsline {section}{\numberline {3.2}Representação geométrica utilizando \newline  {NURBS}}{57}{section.3.2}\protected@file@percent }
+\newlabel{capitulo:Cap3:RepreGeo}{{3.2}{57}{Representação geométrica utilizando \newline {NURBS}}{section.3.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Vetor de \textit  {knots}}{57}{subsection.3.2.1}\protected@file@percent }
+\BKM@entry{id=36,dest={73756273656374696F6E2E332E322E32},srcline={90}}{5C3337365C3337375C303030425C3030302D5C303030535C303030705C3030306C5C303030695C3030306E5C303030655C303030735C3030305C3034305C303030655C3030305C3034305C303030735C303030755C303030615C303030735C3030305C3034305C303030645C303030655C303030725C303030695C303030765C303030615C303030645C303030615C30303073}
+\citation{Cox1972}
+\citation{DEBOOR1972}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}\textit  {B-Splines} e suas derivadas}{58}{subsection.3.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces \textit  {B-Splines quadráticas}}}{58}{figure.3.2}\protected@file@percent }
+\newlabel{fig:bspline_funcoes}{{3.2}{58}{\textit {B-Splines quadráticas}}{figure.3.2}{}}
+\citation{PiegT:1996}
+\BKM@entry{id=37,dest={73756273656374696F6E2E332E322E33},srcline={156}}{5C3337365C3337375C303030475C303030655C3030306F5C3030306D5C303030655C303030745C303030725C303030695C303030615C303030735C3030305C3034305C303030425C3030302D5C303030535C303030705C3030306C5C303030695C3030306E5C303030655C30303073}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Geometrias \textit  {B-Splines}}{59}{subsection.3.2.3}\protected@file@percent }
+\citation{PiegT:1996}
+\newlabel{fig:bspline_malhaPC}{{3.3a}{60}{Subfigure 3 3.3a}{subfigure.3.3.1}{}}
+\newlabel{sub@fig:bspline_malhaPC}{{(a)}{a}{Subfigure 3 3.3a\relax }{subfigure.3.3.1}{}}
+\newlabel{fig:bspline_curva}{{3.3b}{60}{Subfigure 3 3.3b}{subfigure.3.3.2}{}}
+\newlabel{sub@fig:bspline_curva}{{(b)}{b}{Subfigure 3 3.3b\relax }{subfigure.3.3.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Curva \textit  {B-Spline}}}{60}{figure.3.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Malha de pontos de controle}}}{60}{subfigure.3.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Curva \textit {B-spline} e representação física das células }}}{60}{subfigure.3.2}\protected@file@percent }
+\BKM@entry{id=38,dest={73756273656374696F6E2E332E322E34},srcline={197}}{5C3337365C3337375C303030425C3030302D5C303030535C303030705C3030306C5C303030695C3030306E5C303030655C303030735C3030305C3034305C3030306E5C3030305C3334335C3030306F5C3030302D5C303030755C3030306E5C303030695C303030665C3030306F5C303030725C3030306D5C303030655C303030735C3030305C3034305C303030725C303030615C303030635C303030695C3030306F5C3030306E5C303030615C303030695C303030735C3030305C3034305C303030655C3030305C3034305C303030615C3030306E5C3030305C3334315C3030306C5C303030695C303030735C303030655C3030305C3034305C303030695C303030735C3030306F5C303030675C303030655C3030306F5C3030306D5C3030305C3335315C303030745C303030725C303030695C303030635C30303061}
+\citation{Farin:1999}
+\citation{CottrelHB:2009}
+\citation{CottrelHB:2009}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}\textit  {B-Splines} não-uniformes racionais e análise isogeométrica}{61}{subsection.3.2.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Projeção transformativa para obtenção circunferência. Fonte: \citeonline  {CottrelHB:2009}}}{61}{figure.3.4}\protected@file@percent }
+\newlabel{fig:circunferencia}{{3.4}{61}{Projeção transformativa para obtenção circunferência. Fonte: \citeonline {CottrelHB:2009}}{figure.3.4}{}}
+\newlabel{eq:curveNURBS}{{3.15}{62}{\textit {B-Splines} não-uniformes racionais e análise isogeométrica}{equation.3.2.15}{}}
+\newlabel{eq:surfaceNURBS}{{3.17}{62}{\textit {B-Splines} não-uniformes racionais e análise isogeométrica}{equation.3.2.17}{}}
+\newlabel{eq:solidNURBS}{{3.19}{62}{\textit {B-Splines} não-uniformes racionais e análise isogeométrica}{equation.3.2.19}{}}
+\BKM@entry{id=39,dest={73756273656374696F6E2E332E322E35},srcline={281}}{5C3337365C3337375C303030505C303030615C303030725C3030305C3334325C3030306D5C303030655C303030745C303030725C3030306F5C303030735C3030305C3034305C303030645C303030655C3030305C3034305C303030655C303030735C303030745C303030615C303030625C303030695C3030306C5C303030695C3030307A5C303030615C3030305C3334375C3030305C3334335C3030306F}
+\citation{TakizawaTO:2018}
+\citation{OtoguroTT:2020}
+\newlabel{eq:integ}{{3.20}{63}{\textit {B-Splines} não-uniformes racionais e análise isogeométrica}{equation.3.2.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Parâmetros de estabilização}{63}{subsection.3.2.5}\protected@file@percent }
+\newlabel{capitulo:Cap3:RepreGeo:taus2}{{3.2.5}{63}{Parâmetros de estabilização}{subsection.3.2.5}{}}
+\newlabel{eq:erRGN}{{3.31}{64}{Parâmetros de estabilização}{equation.3.2.31}{}}
+\BKM@entry{id=40,dest={73656374696F6E2E332E33},srcline={389}}{5C3337365C3337375C303030565C303030655C303030725C303030695C303030665C303030695C303030635C303030615C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030655C3030305C3034305C303030615C303030705C3030306C5C303030695C303030635C303030615C3030305C3334375C3030305C3336355C303030655C30303073}
+\BKM@entry{id=41,dest={73756273656374696F6E2E332E332E31},srcline={393}}{5C3337365C3337375C303030455C303030735C303030635C3030306F5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F5C3030305C3034305C303030735C3030306F5C303030625C303030725C303030655C3030305C3034305C303030755C3030306D5C3030305C3034305C303030635C303030695C3030306C5C303030695C3030306E5C303030645C303030725C3030306F5C3030305C3034305C3030302D5C3030305C3034305C303030335C30303044}
+\citation{Tonon:2016}
+\citation{PiegT:1996}
+\@writefile{toc}{\contentsline {section}{\numberline {3.3}Verificação e aplicações}{65}{section.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Escoamento sobre um cilindro - 3D}{65}{subsection.3.3.1}\protected@file@percent }
+\citation{PiegT:1996}
+\newlabel{fig:pontosdecontroleInicias}{{3.5a}{66}{Subfigure 3 3.5a}{subfigure.3.5.1}{}}
+\newlabel{sub@fig:pontosdecontroleInicias}{{(a)}{a}{Subfigure 3 3.5a\relax }{subfigure.3.5.1}{}}
+\newlabel{fig:pontosdecontroleInicias2}{{3.5b}{66}{Subfigure 3 3.5b}{subfigure.3.5.2}{}}
+\newlabel{sub@fig:pontosdecontroleInicias2}{{(b)}{b}{Subfigure 3 3.5b\relax }{subfigure.3.5.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Cilindro 3D: Geração curva NURBS}}{66}{figure.3.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Pontos de controle inicias.}}}{66}{subfigure.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Pontos de controle após inserção de \textit {knots}.}}}{66}{subfigure.5.2}\protected@file@percent }
+\newlabel{fig:superficieNURBcilindro}{{3.3.1}{67}{Escoamento sobre um cilindro - 3D}{figure.3.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Cilindro 3D: Geração superfície NURBS.}}{67}{figure.3.6}\protected@file@percent }
+\newlabel{fig:cilindrogeometria}{{3.7a}{67}{Subfigure 3 3.7a}{subfigure.3.7.1}{}}
+\newlabel{sub@fig:cilindrogeometria}{{(a)}{a}{Subfigure 3 3.7a\relax }{subfigure.3.7.1}{}}
+\newlabel{fig:cilindromalha}{{3.7b}{67}{Subfigure 3 3.7b}{subfigure.3.7.2}{}}
+\newlabel{sub@fig:cilindromalha}{{(b)}{b}{Subfigure 3 3.7b\relax }{subfigure.3.7.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Cilindro 3D: Geometria e malha de células físicas}}{67}{figure.3.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Geometria}}}{67}{subfigure.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces { Malha de células físicas}}}{67}{subfigure.7.2}\protected@file@percent }
+\newlabel{fig:cilindro_geoemalha}{{3.7}{67}{Cilindro 3D: Geometria e malha de células físicas}{figure.3.7}{}}
+\citation{Henderson:1997}
+\citation{Henderson:1997}
+\BKM@entry{id=42,dest={73756273656374696F6E2E332E332E32},srcline={451}}{5C3337365C3337375C303030455C303030735C303030635C3030306F5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F5C3030305C3034305C303030655C3030306D5C3030305C3034305C303030755C3030306D5C3030305C3034305C303030635C303030615C3030306E5C303030615C3030306C5C3030305C3034305C303030635C3030306F5C3030306D5C3030305C3034305C303030645C303030655C303030675C303030725C303030615C30303075}
+\newlabel{fig:cilindro_Cd3d}{{3.8a}{68}{Subfigure 3 3.8a}{subfigure.3.8.1}{}}
+\newlabel{sub@fig:cilindro_Cd3d}{{(a)}{a}{Subfigure 3 3.8a\relax }{subfigure.3.8.1}{}}
+\newlabel{fig:cilindro_Cl3d}{{3.8b}{68}{Subfigure 3 3.8b}{subfigure.3.8.2}{}}
+\newlabel{sub@fig:cilindro_Cl3d}{{(b)}{b}{Subfigure 3 3.8b\relax }{subfigure.3.8.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Cilindro 3D: Coeficientes aerodinâmicos. }}{68}{figure.3.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Coeficiente de arrasto $ C_D$.}}}{68}{subfigure.8.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Coeficiente de sustentação $C_L$.}}}{68}{subfigure.8.2}\protected@file@percent }
+\newlabel{fig:cilindro_coeficientes3d}{{3.8}{68}{Cilindro 3D: Coeficientes aerodinâmicos}{figure.3.8}{}}
+\citation{ArmalyDP:1983}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Escoamento em um canal com degrau}{69}{subsection.3.3.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Degrau 3D: Geometria.}}{69}{figure.3.9}\protected@file@percent }
+\newlabel{fig:degrau_geo}{{3.9}{69}{Degrau 3D: Geometria}{figure.3.9}{}}
+\citation{ArmalyDP:1983}
+\citation{WilliamsB:1999}
+\citation{ArmalyDP:1983}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Degrau 3D: Geometria e malha de células físicas}}{70}{figure.3.10}\protected@file@percent }
+\newlabel{fig:degrau_malha}{{3.10}{70}{Degrau 3D: Geometria e malha de células físicas}{figure.3.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.1}{\ignorespaces Número de pontos de controle por \textit  {patch}}}{70}{table.3.1}\protected@file@percent }
+\newlabel{tab:numberPCpatches}{{3.1}{70}{Número de pontos de controle por \textit {patch}}{table.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Degrau 3D: Comprimento de recolamento do v\'ortice principal}}{71}{figure.3.11}\protected@file@percent }
+\newlabel{fig:degrau_com_recl}{{3.11}{71}{Degrau 3D: Comprimento de recolamento do v\'ortice principal}{figure.3.11}{}}
+\newlabel{fig:vortice_re100}{{3.12a}{71}{Subfigure 3 3.12a}{subfigure.3.12.1}{}}
+\newlabel{sub@fig:vortice_re100}{{(a)}{a}{Subfigure 3 3.12a\relax }{subfigure.3.12.1}{}}
+\newlabel{fig:vortice_re400}{{3.12b}{71}{Subfigure 3 3.12b}{subfigure.3.12.2}{}}
+\newlabel{sub@fig:vortice_re400}{{(b)}{b}{Subfigure 3 3.12b\relax }{subfigure.3.12.2}{}}
+\newlabel{fig:vortice_re800}{{3.12c}{71}{Subfigure 3 3.12c}{subfigure.3.12.3}{}}
+\newlabel{sub@fig:vortice_re800}{{(c)}{c}{Subfigure 3 3.12c\relax }{subfigure.3.12.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Degrau 3D: Campo de velocidade. }}{71}{figure.3.12}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces { $\mathrm {Re}= 100$}}}{71}{subfigure.12.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces { $\mathrm {Re}= 400$}}}{71}{subfigure.12.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$\mathrm {Re}= 800$}}}{71}{subfigure.12.3}\protected@file@percent }
+\newlabel{fig:degrau_vortices}{{3.12}{71}{Degrau 3D: Campo de velocidade}{figure.3.12}{}}
+\BKM@entry{id=43,dest={636861707465722E34},srcline={48}}{5C3337365C3337375C3030304D5C3030305C3335315C303030745C3030306F5C303030645C3030306F5C3030305C3034305C303030645C303030655C3030305C3034305C303030415C303030725C3030306C5C303030655C303030715C303030755C303030695C3030306E5C3030305C3034305C303030655C303030735C303030745C303030615C303030625C303030695C3030306C5C303030695C3030307A5C303030615C303030645C3030306F}
 \citation{Dhia:1998}
 \citation{FernandesEtAll:2020}
-\BKM@entry{id=33,dest={73656374696F6E2E332E31},srcline={55}}{5C3337365C3337375C3030304D5C3030305C3335315C303030745C3030306F5C303030645C3030306F5C3030305C3034305C303030415C303030725C3030306C5C303030655C303030715C303030755C303030695C3030306E}
+\BKM@entry{id=44,dest={73656374696F6E2E342E31},srcline={55}}{5C3337365C3337375C3030304D5C3030305C3335315C303030745C3030306F5C303030645C3030306F5C3030305C3034305C303030415C303030725C3030306C5C303030655C303030715C303030755C303030695C3030306E}
 \citation{Dhia:1998}
-\@writefile{toc}{\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase    []{Método de Arlequin estabilizado}}{55}{chapter.3}\protected@file@percent }
-\newlabel{capitulo:Cap6}{{3}{55}{\texorpdfstring {\MakeTextUppercase {\tempf@rtoc }}{\tempf@rtoc }}{chapter.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.1}Método Arlequin}{55}{section.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase    []{Método de Arlequin estabilizado}}{73}{chapter.4}\protected@file@percent }
+\newlabel{capitulo:Cap6}{{4}{73}{\texorpdfstring {\MakeTextUppercase {\tempf@rtoc }}{\tempf@rtoc }}{chapter.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.1}Método Arlequin}{73}{section.4.1}\protected@file@percent }
 \citation{DhiaR:2005}
 \citation{DhiaR:2002}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Domínio local e global.}}{56}{figure.3.1}\protected@file@percent }
-\newlabel{fig:dominioArlequin}{{3.1}{56}{Domínio local e global}{figure.3.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Domínio local e global.}}{74}{figure.4.1}\protected@file@percent }
+\newlabel{fig:dominioArlequin}{{4.1}{74}{Domínio local e global}{figure.4.1}{}}
 \citation{GuidaultAndBelytschko2007}
 \citation{FernandesEtAll:2020}
 \citation{Dhia:2008}
-\BKM@entry{id=34,dest={73656374696F6E2E332E32},srcline={130}}{5C3337365C3337375C3030304D5C3030305C3335315C303030745C3030306F5C303030645C3030306F5C3030305C3034305C303030415C303030725C3030306C5C303030655C303030715C303030755C303030695C3030306E5C3030305C3034305C303030635C3030306C5C3030305C3334315C303030735C303030735C303030695C303030635C3030306F5C3030305C3034305C303030615C303030705C3030306C5C303030695C303030635C303030615C303030645C3030306F5C3030305C3034305C3030305C3334305C3030305C3034305C303030705C303030725C3030306F5C303030625C3030306C5C303030655C3030306D5C303030615C303030735C3030305C3034305C303030645C303030655C3030305C3034305C303030655C303030735C303030635C3030306F5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F5C303030735C3030305C3034305C303030695C3030306E5C303030635C3030306F5C3030306D5C303030705C303030725C303030655C303030735C303030735C3030305C3335355C303030765C303030655C303030695C30303073}
+\BKM@entry{id=45,dest={73656374696F6E2E342E32},srcline={130}}{5C3337365C3337375C3030304D5C3030305C3335315C303030745C3030306F5C303030645C3030306F5C3030305C3034305C303030415C303030725C3030306C5C303030655C303030715C303030755C303030695C3030306E5C3030305C3034305C303030635C3030306C5C3030305C3334315C303030735C303030735C303030695C303030635C3030306F5C3030305C3034305C303030615C303030705C3030306C5C303030695C303030635C303030615C303030645C3030306F5C3030305C3034305C3030305C3334305C3030305C3034305C303030705C303030725C3030306F5C303030625C3030306C5C303030655C3030306D5C303030615C303030735C3030305C3034305C303030645C303030655C3030305C3034305C303030655C303030735C303030635C3030306F5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F5C303030735C3030305C3034305C303030695C3030306E5C303030635C3030306F5C3030306D5C303030705C303030725C303030655C303030735C303030735C3030305C3335355C303030765C303030655C303030695C30303073}
 \citation{JamondD:2013}
-\newlabel{eq:funcPondeArleq}{{3.6}{57}{Método Arlequin}{equation.3.1.6}{}}
+\newlabel{eq:funcPondeArleq}{{4.6}{75}{Método Arlequin}{equation.4.1.6}{}}
 \citation{JamondD:2013}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.2}{\ignorespaces Função Ponderadora}}{58}{figure.3.2}\protected@file@percent }
-\newlabel{fig:funcPondArlq}{{3.2}{58}{Função Ponderadora}{figure.3.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{58}{section.3.2}\protected@file@percent }
-\newlabel{eq:QM_forma_fraca_0}{{3.13}{60}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.3.2.13}{}}
-\newlabel{eq:C_forma_fraca_0}{{3.14}{60}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.3.2.14}{}}
-\newlabel{eq:QM_forma_fraca_1}{{3.15}{60}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.3.2.15}{}}
-\newlabel{eq:C_forma_fraca_1}{{3.16}{60}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.3.2.16}{}}
-\newlabel{eq:lag_acopl}{{3.17}{60}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.3.2.17}{}}
-\newlabel{eq:res_QM_i}{{3.18}{60}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.3.2.18}{}}
-\newlabel{eq:res_C_i}{{3.19}{60}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.3.2.19}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.2}{\ignorespaces Função Ponderadora}}{76}{figure.4.2}\protected@file@percent }
+\newlabel{fig:funcPondArlq}{{4.2}{76}{Função Ponderadora}{figure.4.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{76}{section.4.2}\protected@file@percent }
+\newlabel{eq:QM_forma_fraca_0}{{4.13}{78}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.4.2.13}{}}
+\newlabel{eq:C_forma_fraca_0}{{4.14}{78}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.4.2.14}{}}
+\newlabel{eq:QM_forma_fraca_1}{{4.15}{78}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.4.2.15}{}}
+\newlabel{eq:C_forma_fraca_1}{{4.16}{78}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.4.2.16}{}}
+\newlabel{eq:lag_acopl}{{4.17}{78}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.4.2.17}{}}
+\newlabel{eq:res_QM_i}{{4.18}{78}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.4.2.18}{}}
+\newlabel{eq:res_C_i}{{4.19}{78}{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{equation.4.2.19}{}}
 \citation{GuidaultAndBelytschko2007}
 \citation{FernandesEtAll:2020}
-\BKM@entry{id=35,dest={73656374696F6E2E332E33},srcline={258}}{5C3337365C3337375C3030304D5C3030305C3335315C303030745C3030306F5C303030645C3030306F5C3030305C3034305C303030415C303030725C3030306C5C303030655C303030715C303030755C303030695C3030306E5C3030305C3034305C303030655C303030735C303030745C303030615C303030625C303030695C3030306C5C303030695C3030307A5C303030615C303030645C3030306F5C3030305C3034305C303030615C303030705C3030306C5C303030695C303030635C303030615C303030645C3030306F5C3030305C3034305C3030305C3334305C3030305C3034305C303030705C303030725C3030306F5C303030625C3030306C5C303030655C3030306D5C303030615C303030735C3030305C3034305C303030645C303030655C3030305C3034305C303030655C303030735C303030635C3030306F5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F5C303030735C3030305C3034305C303030695C3030306E5C303030635C3030306F5C3030306D5C303030705C303030725C303030655C303030735C303030735C3030305C3335355C303030765C303030655C303030695C30303073}
+\BKM@entry{id=46,dest={73656374696F6E2E342E33},srcline={258}}{5C3337365C3337375C3030304D5C3030305C3335315C303030745C3030306F5C303030645C3030306F5C3030305C3034305C303030415C303030725C3030306C5C303030655C303030715C303030755C303030695C3030306E5C3030305C3034305C303030655C303030735C303030745C303030615C303030625C303030695C3030306C5C303030695C3030307A5C303030615C303030645C3030306F5C3030305C3034305C303030615C303030705C3030306C5C303030695C303030635C303030615C303030645C3030306F5C3030305C3034305C3030305C3334305C3030305C3034305C303030705C303030725C3030306F5C303030625C3030306C5C303030655C3030306D5C303030615C303030735C3030305C3034305C303030645C303030655C3030305C3034305C303030655C303030735C303030635C3030306F5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F5C303030735C3030305C3034305C303030695C3030306E5C303030635C3030306F5C3030306D5C303030705C303030725C303030655C303030735C303030735C3030305C3335355C303030765C303030655C303030695C30303073}
 \citation{FernandesEtAll:2020}
-\@writefile{toc}{\contentsline {section}{\numberline {3.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{61}{section.3.3}\protected@file@percent }
-\newlabel{eq:QM_forma_fraca_0_atu}{{3.22}{62}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.3.3.22}{}}
-\newlabel{eq:C_forma_fraca_0_atu}{{3.23}{62}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.3.3.23}{}}
-\newlabel{eq:QM_forma_fraca_1_atu}{{3.24}{62}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.3.3.24}{}}
-\newlabel{eq:C_forma_fraca_1_atu}{{3.25}{62}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.3.3.25}{}}
-\newlabel{eq:lag_acopl_tARLQ}{{3.26}{62}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.3.3.26}{}}
-\newlabel{eq:sistema_result_ArlqRBSAM}{{3.27}{62}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.3.3.27}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{79}{section.4.3}\protected@file@percent }
+\newlabel{eq:QM_forma_fraca_0_atu}{{4.22}{80}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.4.3.22}{}}
+\newlabel{eq:C_forma_fraca_0_atu}{{4.23}{80}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.4.3.23}{}}
+\newlabel{eq:QM_forma_fraca_1_atu}{{4.24}{80}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.4.3.24}{}}
+\newlabel{eq:C_forma_fraca_1_atu}{{4.25}{80}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.4.3.25}{}}
+\newlabel{eq:lag_acopl_tARLQ}{{4.26}{80}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.4.3.26}{}}
+\newlabel{eq:sistema_result_ArlqRBSAM}{{4.27}{80}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.4.3.27}{}}
 \citation{FernandesEtAll:2020}
-\newlabel{eq:resid_semi_discr_QM_0}{{3.31}{63}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.3.3.31}{}}
-\BKM@entry{id=36,dest={73756273656374696F6E2E332E332E31},srcline={414}}{5C3337365C3337375C303030495C3030306E5C303030745C303030655C303030675C303030725C303030615C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030545C303030655C3030306D5C303030705C3030306F5C303030725C303030615C3030306C}
-\newlabel{eq:resid_semi_discr_acopla}{{3.35}{64}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.3.3.35}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.1}Integração Temporal}{64}{subsection.3.3.1}\protected@file@percent }
-\newlabel{eq:pred_acel_0}{{3.36}{64}{Integração Temporal}{equation.3.3.36}{}}
-\newlabel{eq:pred_vel_0}{{3.37}{64}{Integração Temporal}{equation.3.3.37}{}}
-\newlabel{eq:pred_press_0}{{3.38}{64}{Integração Temporal}{equation.3.3.38}{}}
-\newlabel{eq:pred_acel_1}{{3.39}{64}{Integração Temporal}{equation.3.3.39}{}}
-\newlabel{eq:pred_vel_1}{{3.40}{64}{Integração Temporal}{equation.3.3.40}{}}
-\newlabel{eq:pred_press_1}{{3.41}{64}{Integração Temporal}{equation.3.3.41}{}}
-\newlabel{eq:pred_lag_mult}{{3.42}{64}{Integração Temporal}{equation.3.3.42}{}}
-\newlabel{eq:inter_acel_0}{{3.43}{64}{Integração Temporal}{equation.3.3.43}{}}
-\newlabel{eq:inter_vel_0}{{3.44}{64}{Integração Temporal}{equation.3.3.44}{}}
-\newlabel{eq:inter_press_0}{{3.45}{64}{Integração Temporal}{equation.3.3.45}{}}
-\newlabel{eq:inter_acel_1}{{3.46}{64}{Integração Temporal}{equation.3.3.46}{}}
-\newlabel{eq:inter_vel_1}{{3.47}{64}{Integração Temporal}{equation.3.3.47}{}}
-\BKM@entry{id=37,dest={73756273656374696F6E2E332E332E32},srcline={506}}{5C3337365C3337375C303030505C303030615C303030725C3030305C3334325C3030306D5C303030655C303030745C303030725C3030306F5C3030305C3034305C303030645C303030655C3030305C3034305C303030655C303030735C303030745C303030615C303030625C303030695C3030306C5C303030695C3030307A5C303030615C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030705C303030615C303030725C303030615C3030305C3034305C303030745C3030305C3335315C303030635C3030306E5C303030695C303030635C303030615C3030305C3034305C303030525C303030425C303030535C303030415C3030304D}
+\newlabel{eq:resid_semi_discr_QM_0}{{4.31}{81}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.4.3.31}{}}
+\BKM@entry{id=47,dest={73756273656374696F6E2E342E332E31},srcline={414}}{5C3337365C3337375C303030495C3030306E5C303030745C303030655C303030675C303030725C303030615C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030545C303030655C3030306D5C303030705C3030306F5C303030725C303030615C3030306C}
+\newlabel{eq:resid_semi_discr_acopla}{{4.35}{82}{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{equation.4.3.35}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.1}Integração Temporal}{82}{subsection.4.3.1}\protected@file@percent }
+\newlabel{eq:pred_acel_0}{{4.36}{82}{Integração Temporal}{equation.4.3.36}{}}
+\newlabel{eq:pred_vel_0}{{4.37}{82}{Integração Temporal}{equation.4.3.37}{}}
+\newlabel{eq:pred_press_0}{{4.38}{82}{Integração Temporal}{equation.4.3.38}{}}
+\newlabel{eq:pred_acel_1}{{4.39}{82}{Integração Temporal}{equation.4.3.39}{}}
+\newlabel{eq:pred_vel_1}{{4.40}{82}{Integração Temporal}{equation.4.3.40}{}}
+\newlabel{eq:pred_press_1}{{4.41}{82}{Integração Temporal}{equation.4.3.41}{}}
+\newlabel{eq:pred_lag_mult}{{4.42}{82}{Integração Temporal}{equation.4.3.42}{}}
+\newlabel{eq:inter_acel_0}{{4.43}{82}{Integração Temporal}{equation.4.3.43}{}}
+\newlabel{eq:inter_vel_0}{{4.44}{82}{Integração Temporal}{equation.4.3.44}{}}
+\newlabel{eq:inter_press_0}{{4.45}{82}{Integração Temporal}{equation.4.3.45}{}}
+\newlabel{eq:inter_acel_1}{{4.46}{82}{Integração Temporal}{equation.4.3.46}{}}
+\newlabel{eq:inter_vel_1}{{4.47}{82}{Integração Temporal}{equation.4.3.47}{}}
+\BKM@entry{id=48,dest={73756273656374696F6E2E342E332E32},srcline={506}}{5C3337365C3337375C303030505C303030615C303030725C3030305C3334325C3030306D5C303030655C303030745C303030725C3030306F5C3030305C3034305C303030645C303030655C3030305C3034305C303030655C303030735C303030745C303030615C303030625C303030695C3030306C5C303030695C3030307A5C303030615C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030705C303030615C303030725C303030615C3030305C3034305C303030745C3030305C3335315C303030635C3030306E5C303030695C303030635C303030615C3030305C3034305C303030525C303030425C303030535C303030415C3030304D}
 \citation{TezduyarO:2000}
 \citation{TezduyarS:2003}
-\newlabel{eq:inter_press_1}{{3.48}{65}{Integração Temporal}{equation.3.3.48}{}}
-\newlabel{eq:inter_lag_mult}{{3.49}{65}{Integração Temporal}{equation.3.3.49}{}}
-\newlabel{eq:sistema_linear_Arlq}{{3.50}{65}{Integração Temporal}{equation.3.3.50}{}}
-\newlabel{eq:atu_acel_0}{{3.51}{65}{Integração Temporal}{equation.3.3.51}{}}
-\newlabel{eq:atu_vel_0}{{3.52}{65}{Integração Temporal}{equation.3.3.52}{}}
-\newlabel{eq:atu_press_0}{{3.53}{65}{Integração Temporal}{equation.3.3.53}{}}
-\newlabel{eq:atu_acel_1}{{3.54}{65}{Integração Temporal}{equation.3.3.54}{}}
-\newlabel{eq:atu_vel_1}{{3.55}{65}{Integração Temporal}{equation.3.3.55}{}}
-\newlabel{eq:atu_press_1}{{3.56}{65}{Integração Temporal}{equation.3.3.56}{}}
-\newlabel{eq:atu_lag_mult}{{3.57}{65}{Integração Temporal}{equation.3.3.57}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3.2}Parâmetro de estabilização para técnica RBSAM}{65}{subsection.3.3.2}\protected@file@percent }
-\newlabel{eq:tAi}{{3.59}{66}{Parâmetro de estabilização para técnica RBSAM}{equation.3.3.59}{}}
-\newlabel{eq:tEi}{{3.63}{66}{Parâmetro de estabilização para técnica RBSAM}{equation.3.3.63}{}}
-\BKM@entry{id=38,dest={73656374696F6E2E332E34},srcline={603}}{5C3337365C3337375C303030535C303030755C303030705C303030655C303030725C303030705C3030306F5C303030735C303030695C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030645C303030655C3030305C3034305C3030306D5C3030306F5C303030645C303030655C3030306C5C3030306F5C303030735C3030305C3034305C3030306D5C3030305C3336335C303030765C303030655C303030695C30303073}
-\@writefile{toc}{\contentsline {section}{\numberline {3.4}Superposição de modelos móveis}{67}{section.3.4}\protected@file@percent }
-\newlabel{eq:eq:QM_forma_fraca_1_ALE}{{3.76}{67}{Superposição de modelos móveis}{equation.3.4.76}{}}
+\newlabel{eq:inter_press_1}{{4.48}{83}{Integração Temporal}{equation.4.3.48}{}}
+\newlabel{eq:inter_lag_mult}{{4.49}{83}{Integração Temporal}{equation.4.3.49}{}}
+\newlabel{eq:sistema_linear_Arlq}{{4.50}{83}{Integração Temporal}{equation.4.3.50}{}}
+\newlabel{eq:atu_acel_0}{{4.51}{83}{Integração Temporal}{equation.4.3.51}{}}
+\newlabel{eq:atu_vel_0}{{4.52}{83}{Integração Temporal}{equation.4.3.52}{}}
+\newlabel{eq:atu_press_0}{{4.53}{83}{Integração Temporal}{equation.4.3.53}{}}
+\newlabel{eq:atu_acel_1}{{4.54}{83}{Integração Temporal}{equation.4.3.54}{}}
+\newlabel{eq:atu_vel_1}{{4.55}{83}{Integração Temporal}{equation.4.3.55}{}}
+\newlabel{eq:atu_press_1}{{4.56}{83}{Integração Temporal}{equation.4.3.56}{}}
+\newlabel{eq:atu_lag_mult}{{4.57}{83}{Integração Temporal}{equation.4.3.57}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3.2}Parâmetro de estabilização para técnica RBSAM}{83}{subsection.4.3.2}\protected@file@percent }
+\newlabel{eq:tAi}{{4.59}{84}{Parâmetro de estabilização para técnica RBSAM}{equation.4.3.59}{}}
+\newlabel{eq:tEi}{{4.63}{84}{Parâmetro de estabilização para técnica RBSAM}{equation.4.3.63}{}}
+\BKM@entry{id=49,dest={73656374696F6E2E342E34},srcline={603}}{5C3337365C3337375C303030535C303030755C303030705C303030655C303030725C303030705C3030306F5C303030735C303030695C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030645C303030655C3030305C3034305C3030306D5C3030306F5C303030645C303030655C3030306C5C3030306F5C303030735C3030305C3034305C3030306D5C3030305C3336335C303030765C303030655C303030695C30303073}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Superposição de modelos móveis}{85}{section.4.4}\protected@file@percent }
+\newlabel{eq:eq:QM_forma_fraca_1_ALE}{{4.76}{85}{Superposição de modelos móveis}{equation.4.4.76}{}}
 \citation{TezduyarBSJ:1992f}
-\BKM@entry{id=39,dest={73656374696F6E2E332E35},srcline={651}}{5C3337365C3337375C303030495C3030306D5C303030705C3030306C5C303030655C3030306D5C303030655C3030306E5C303030745C303030615C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030435C3030306F5C3030306D5C303030705C303030755C303030745C303030615C303030635C303030695C3030306F5C3030306E5C303030615C3030306C}
-\newlabel{eq:res_QM_ALE}{{3.77}{68}{Superposição de modelos móveis}{equation.3.4.77}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.3}{\ignorespaces Domínio Arlequin móvel}}{68}{figure.3.3}\protected@file@percent }
-\newlabel{fig:dominioArlequinMovel}{{3.3}{68}{Domínio Arlequin móvel}{figure.3.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3.5}Implementação Computacional}{68}{section.3.5}\protected@file@percent }
-\BKM@entry{id=40,dest={73656374696F6E2E332E36},srcline={703}}{5C3337365C3337375C303030455C303030785C303030655C3030306D5C303030705C3030306C5C3030306F5C30303073}
-\@writefile{toc}{\contentsline {section}{\numberline {3.6}Exemplos}{69}{section.3.6}\protected@file@percent }
-\newlabel{capitulo:Cap6:Exemplos}{{3.6}{69}{Exemplos}{section.3.6}{}}
-\BKM@entry{id=41,dest={73756273656374696F6E2E332E362E31},srcline={707}}{5C3337365C3337375C303030455C303030735C303030635C3030306F5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F5C3030305C3034305C303030735C3030306F5C303030625C303030725C303030655C3030305C3034305C303030755C3030306D5C3030305C3034305C303030615C303030655C303030725C3030306F5C303030665C3030305C3336335C3030306C5C303030695C3030306F5C3030305C3034305C3030304E5C303030415C303030435C303030415C3030305C3034305C303030305C303030305C303030315C30303032}
-\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Algoritmo para problemas móveis da DFC utilizando técnica ARLEQUIN RBSAM}}{70}{algorithm.2}\protected@file@percent }
-\newlabel{alg:fluid_temporalIntegrationARLQ}{{2}{70}{Implementação Computacional}{algorithm.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.1}Escoamento sobre um aerofólio NACA 0012}{70}{subsection.3.6.1}\protected@file@percent }
-\newlabel{capitulo:Cap6:Exemplos:NACA0012}{{3.6.1}{70}{Escoamento sobre um aerofólio NACA 0012}{subsection.3.6.1}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.4}{\ignorespaces Aerofólio: Geometria}}{71}{figure.3.4}\protected@file@percent }
-\newlabel{fig:aerofolio_geometria}{{3.4}{71}{Aerofólio: Geometria}{figure.3.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.5}{\ignorespaces Aerofólio 2D: Malha Monomodelo (MEF) }}{71}{figure.3.5}\protected@file@percent }
-\newlabel{fig:aerofolio_malhaMonoFEM}{{3.5}{71}{Aerofólio 2D: Malha Monomodelo (MEF)}{figure.3.5}{}}
+\BKM@entry{id=50,dest={73656374696F6E2E342E35},srcline={651}}{5C3337365C3337375C303030495C3030306D5C303030705C3030306C5C303030655C3030306D5C303030655C3030306E5C303030745C303030615C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030435C3030306F5C3030306D5C303030705C303030755C303030745C303030615C303030635C303030695C3030306F5C3030306E5C303030615C3030306C}
+\newlabel{eq:res_QM_ALE}{{4.77}{86}{Superposição de modelos móveis}{equation.4.4.77}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Domínio Arlequin móvel}}{86}{figure.4.3}\protected@file@percent }
+\newlabel{fig:dominioArlequinMovel}{{4.3}{86}{Domínio Arlequin móvel}{figure.4.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.5}Implementação Computacional}{86}{section.4.5}\protected@file@percent }
+\BKM@entry{id=51,dest={73656374696F6E2E342E36},srcline={703}}{5C3337365C3337375C303030455C303030785C303030655C3030306D5C303030705C3030306C5C3030306F5C30303073}
+\@writefile{toc}{\contentsline {section}{\numberline {4.6}Exemplos}{87}{section.4.6}\protected@file@percent }
+\newlabel{capitulo:Cap6:Exemplos}{{4.6}{87}{Exemplos}{section.4.6}{}}
+\BKM@entry{id=52,dest={73756273656374696F6E2E342E362E31},srcline={707}}{5C3337365C3337375C303030455C303030735C303030635C3030306F5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F5C3030305C3034305C303030735C3030306F5C303030625C303030725C303030655C3030305C3034305C303030755C3030306D5C3030305C3034305C303030615C303030655C303030725C3030306F5C303030665C3030305C3336335C3030306C5C303030695C3030306F5C3030305C3034305C3030304E5C303030415C303030435C303030415C3030305C3034305C303030305C303030305C303030315C30303032}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {2}{\ignorespaces Algoritmo para problemas móveis da DFC utilizando técnica ARLEQUIN RBSAM}}{88}{algorithm.2}\protected@file@percent }
+\newlabel{alg:fluidARLQ}{{2}{88}{Implementação Computacional}{algorithm.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.1}Escoamento sobre um aerofólio NACA 0012}{88}{subsection.4.6.1}\protected@file@percent }
+\newlabel{capitulo:Cap6:Exemplos:NACA0012}{{4.6.1}{88}{Escoamento sobre um aerofólio NACA 0012}{subsection.4.6.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Aerofólio: Geometria}}{89}{figure.4.4}\protected@file@percent }
+\newlabel{fig:aerofolio_geometria}{{4.4}{89}{Aerofólio: Geometria}{figure.4.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.5}{\ignorespaces Aerofólio: Malha Monomodelo (MEF) }}{89}{figure.4.5}\protected@file@percent }
+\newlabel{fig:aerofolio_malhaMonoFEM}{{4.5}{89}{Aerofólio: Malha Monomodelo (MEF)}{figure.4.5}{}}
 \citation{MittalT:1994}
-\BKM@entry{id=42,dest={73756273656374696F6E2E332E362E32},srcline={789}}{5C3337365C3337375C303030415C303030655C303030725C3030306F5C303030665C3030305C3336335C3030306C5C303030695C3030306F5C3030305C3034305C303030635C3030306F5C3030306D5C3030305C3034305C3030306D5C3030306F5C303030765C303030695C3030306D5C303030655C3030306E5C303030745C3030306F5C3030305C3034305C303030645C303030655C3030305C3034305C303030615C303030725C303030665C303030615C303030675C303030655C3030306D5C3030305C3034305C303030705C303030725C303030655C303030735C303030635C303030725C303030695C303030745C3030306F}
-\newlabel{fig:aerofolio_malhaArlequin}{{3.6a}{72}{Subfigure 3 3.6a}{subfigure.3.6.1}{}}
-\newlabel{sub@fig:aerofolio_malhaArlequin}{{(a)}{a}{Subfigure 3 3.6a\relax }{subfigure.3.6.1}{}}
-\newlabel{fig:aerofolio_detalheLocal}{{3.6b}{72}{Subfigure 3 3.6b}{subfigure.3.6.2}{}}
-\newlabel{sub@fig:aerofolio_detalheLocal}{{(b)}{b}{Subfigure 3 3.6b\relax }{subfigure.3.6.2}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.6}{\ignorespaces Aerofólio: Discretização das malhas global e local}}{72}{figure.3.6}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Discretização da malha global (IGA) e local (MEF)}}}{72}{subfigure.6.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Discretização da malha local}}}{72}{subfigure.6.2}\protected@file@percent }
-\newlabel{fig:aerofolio_malhaArlequi{n_}detalheLocal}{{3.6}{72}{Aerofólio: Discretização das malhas global e local}{figure.3.6}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.7}{\ignorespaces Aerofólio: Coeficiente de Arrasto}}{73}{figure.3.7}\protected@file@percent }
-\newlabel{fig:aerofolio_CD}{{3.7}{73}{Aerofólio: Coeficiente de Arrasto}{figure.3.7}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.8}{\ignorespaces Aerofólio: Coeficiente de Sustentação}}{73}{figure.3.8}\protected@file@percent }
-\newlabel{fig:aerofolio_CL}{{3.8}{73}{Aerofólio: Coeficiente de Sustentação}{figure.3.8}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.6.2}Aerofólio com movimento de arfagem prescrito}{73}{subsection.3.6.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3.9}{\ignorespaces Aerofólio: Campo de velocidade}}{74}{figure.3.9}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$T_n$}}}{74}{subfigure.9.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$T_n + T_n/4$}}}{74}{subfigure.9.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$T_n + T_n/2 $}}}{74}{subfigure.9.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$T_n + 3T_n/4$}}}{74}{subfigure.9.4}\protected@file@percent }
-\newlabel{fig:aerofolio_velocidade}{{3.9}{74}{Aerofólio: Campo de velocidade}{figure.3.9}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.10}{\ignorespaces Aerofólio: Campo de pressão}}{74}{figure.3.10}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$T_n$}}}{74}{subfigure.10.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$T_n + T_n/4$}}}{74}{subfigure.10.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$T_n + T_n/2 $}}}{74}{subfigure.10.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$T_n + 3T_n/4$}}}{74}{subfigure.10.4}\protected@file@percent }
-\newlabel{fig:aerofolio_pressao}{{3.10}{74}{Aerofólio: Campo de pressão}{figure.3.10}{}}
+\BKM@entry{id=53,dest={73756273656374696F6E2E342E362E32},srcline={791}}{5C3337365C3337375C303030415C303030655C303030725C3030306F5C303030665C3030305C3336335C3030306C5C303030695C3030306F5C3030305C3034305C303030635C3030306F5C3030306D5C3030305C3034305C3030306D5C3030306F5C303030765C303030695C3030306D5C303030655C3030306E5C303030745C3030306F5C3030305C3034305C303030645C303030655C3030305C3034305C303030615C303030725C303030665C303030615C303030675C303030655C3030306D5C3030305C3034305C303030705C303030725C303030655C303030735C303030635C303030725C303030695C303030745C3030306F}
+\newlabel{fig:aerofolio_malhaArlequin}{{4.6a}{90}{Subfigure 4 4.6a}{subfigure.4.6.1}{}}
+\newlabel{sub@fig:aerofolio_malhaArlequin}{{(a)}{a}{Subfigure 4 4.6a\relax }{subfigure.4.6.1}{}}
+\newlabel{fig:aerofolio_detalheLocal}{{4.6b}{90}{Subfigure 4 4.6b}{subfigure.4.6.2}{}}
+\newlabel{sub@fig:aerofolio_detalheLocal}{{(b)}{b}{Subfigure 4 4.6b\relax }{subfigure.4.6.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.6}{\ignorespaces Aerofólio: Discretização das malhas global e local}}{90}{figure.4.6}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Discretização da malha global (IGA) e local (MEF)}}}{90}{subfigure.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Discretização da malha local}}}{90}{subfigure.6.2}\protected@file@percent }
+\newlabel{fig:aerofolio_malhaArlequin_detalheLocal}{{4.6}{90}{Aerofólio: Discretização das malhas global e local}{figure.4.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.7}{\ignorespaces Aerofólio: Coeficiente de Arrasto}}{91}{figure.4.7}\protected@file@percent }
+\newlabel{fig:aerofolio_CD}{{4.7}{91}{Aerofólio: Coeficiente de Arrasto}{figure.4.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.8}{\ignorespaces Aerofólio: Coeficiente de Sustentação}}{91}{figure.4.8}\protected@file@percent }
+\newlabel{fig:aerofolio_CL}{{4.8}{91}{Aerofólio: Coeficiente de Sustentação}{figure.4.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.6.2}Aerofólio com movimento de arfagem prescrito}{91}{subsection.4.6.2}\protected@file@percent }
 \citation{Fernandes:2020}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.9}{\ignorespaces Aerofólio: Campo de velocidade}}{92}{figure.4.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$T_n$}}}{92}{subfigure.9.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$T_n + T_n/4$}}}{92}{subfigure.9.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$T_n + T_n/2 $}}}{92}{subfigure.9.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$T_n + 3T_n/4$}}}{92}{subfigure.9.4}\protected@file@percent }
+\newlabel{fig:aerofolio_velocidade}{{4.9}{92}{Aerofólio: Campo de velocidade}{figure.4.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.10}{\ignorespaces Aerofólio: Campo de pressão}}{93}{figure.4.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$T_n$}}}{93}{subfigure.10.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$T_n + T_n/4$}}}{93}{subfigure.10.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$T_n + T_n/2 $}}}{93}{subfigure.10.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$T_n + 3T_n/4$}}}{93}{subfigure.10.4}\protected@file@percent }
+\newlabel{fig:aerofolio_pressao}{{4.10}{93}{Aerofólio: Campo de pressão}{figure.4.10}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.11}{\ignorespaces Aerofólio Mov.: Geometria}}{93}{figure.4.11}\protected@file@percent }
+\newlabel{fig:aerofolioMov_geometria}{{4.11}{93}{Aerofólio Mov.: Geometria}{figure.4.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.12}{\ignorespaces Aerofólio Mov.: Coeficiente de Arrasto}}{94}{figure.4.12}\protected@file@percent }
+\newlabel{fig:aerofolioMov_CD}{{4.12}{94}{Aerofólio Mov.: Coeficiente de Arrasto}{figure.4.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.13}{\ignorespaces Aerofólio Mov.: Coeficiente de Sustentação}}{94}{figure.4.13}\protected@file@percent }
+\newlabel{fig:aerofolioMov_CL}{{4.13}{94}{Aerofólio Mov.: Coeficiente de Sustentação}{figure.4.13}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.14}{\ignorespaces Aerofólio Mov.: Campos de velocidade}}{95}{figure.4.14}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$t = 8,0 $}}}{95}{subfigure.14.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$t = 8,3 $}}}{95}{subfigure.14.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$t = 8,5 $}}}{95}{subfigure.14.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$t = 8,8 $}}}{95}{subfigure.14.4}\protected@file@percent }
+\newlabel{fig:aerofolioMov_velocidade}{{4.14}{95}{Aerofólio Mov.: Campos de velocidade}{figure.4.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4.15}{\ignorespaces Aerofólio Mov.: Campos de pressão}}{95}{figure.4.15}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$t = 8,0 $}}}{95}{subfigure.15.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$t = 8,3 $}}}{95}{subfigure.15.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$t = 8,5 $}}}{95}{subfigure.15.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$t = 8,8 $}}}{95}{subfigure.15.4}\protected@file@percent }
+\newlabel{fig:aerofolioMov_pressao}{{4.15}{95}{Aerofólio Mov.: Campos de pressão}{figure.4.15}{}}
+\BKM@entry{id=54,dest={636861707465722E35},srcline={40}}{5C3337365C3337375C303030415C303030635C3030306F5C303030705C3030306C5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F5C3030305C3034305C303030465C3030306C5C303030755C303030695C303030645C3030306F5C3030302D5C303030455C303030735C303030745C303030725C303030755C303030745C303030755C303030725C30303061}
+\citation{Rosa:2021}
+\BKM@entry{id=55,dest={73656374696F6E2E352E31},srcline={50}}{5C3337365C3337375C303030435C3030306F5C3030306E5C303030645C303030695C3030305C3334375C3030305C3336355C303030655C303030735C3030305C3034305C303030645C303030655C3030305C3034305C303030615C303030635C3030306F5C303030705C3030306C5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F}
+\@writefile{toc}{\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase    []{Acoplamento Fluido-Estrutura}}{97}{chapter.5}\protected@file@percent }
+\newlabel{capitulo:Cap7}{{5}{97}{\texorpdfstring {\MakeTextUppercase {\tempf@rtoc }}{\tempf@rtoc }}{chapter.5}{}}
+\citation{richter2017fluid}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Condições de acoplamento}{98}{section.5.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.1}{\ignorespaces Domínios Computacional para análise de problemas de IFE.}}{98}{figure.5.1}\protected@file@percent }
+\newlabel{fig:dominioIFE}{{5.1}{98}{Domínios Computacional para análise de problemas de IFE}{figure.5.1}{}}
+\BKM@entry{id=56,dest={73756273656374696F6E2E352E312E31},srcline={87}}{5C3337365C3337375C3030304D5C3030306F5C303030765C303030695C3030306D5C303030655C3030306E5C303030745C303030615C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030645C303030615C3030305C3034305C3030304D5C303030615C3030306C5C303030685C30303061}
+\citation{TezduyarBSJ:1992f}
+\citation{TezduyarABJ:1993}
+\citation{Tononetal:2021}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Movimentação da Malha}{99}{subsection.5.1.1}\protected@file@percent }
+\newlabel{capitulo:Cap7:CondAcop:MovMalha}{{5.1.1}{99}{Movimentação da Malha}{subsection.5.1.1}{}}
+\newlabel{eq:elasticity}{{5.3}{99}{Movimentação da Malha}{equation.5.1.3}{}}
+\BKM@entry{id=57,dest={73656374696F6E2E352E32},srcline={136}}{5C3337365C3337375C303030445C303030695C303030735C303030635C303030725C303030655C303030745C303030695C3030307A5C303030615C3030305C3334375C3030305C3336355C303030655C303030735C3030305C3034305C3030306E5C3030305C3334335C3030306F5C3030305C3034305C303030635C3030306F5C303030695C3030306E5C303030635C303030695C303030645C303030655C3030306E5C303030745C303030655C303030735C3030305C3034305C303030655C3030306E5C303030745C303030725C303030655C3030305C3034305C3030306F5C303030735C3030305C3034305C3030306D5C303030655C303030695C3030306F5C30303073}
+\newlabel{eq:elasticityMJBS}{{5.5}{100}{Movimentação da Malha}{equation.5.1.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Discretizações não coincidentes entre os meios}{100}{section.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.2}{\ignorespaces Discretizações não-coincidentes no contorno IFE}}{100}{figure.5.2}\protected@file@percent }
+\newlabel{fig:contornoIFE}{{5.2}{100}{Discretizações não-coincidentes no contorno IFE}{figure.5.2}{}}
+\BKM@entry{id=58,dest={73656374696F6E2E352E33},srcline={153}}{5C3337365C3337375C303030415C303030635C3030306F5C303030705C3030306C5C303030615C3030306D5C303030655C3030306E5C303030745C3030306F5C3030305C3034305C303030505C303030615C303030725C303030745C303030695C303030635C303030695C3030306F5C3030306E5C303030615C303030645C3030306F5C3030305C3034305C303030465C3030306F5C303030725C303030745C303030655C3030305C3034305C3030302D5C3030305C3034305C303030425C3030306C5C3030306F5C303030635C3030306F5C3030302D5C303030495C303030745C303030655C303030725C303030615C303030745C303030695C303030765C3030306F}
+\citation{BazilevsTT:2013}
+\citation{BazilevsTT:2013}
+\citation{BazilevsTT:2013}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Acoplamento Particionado Forte - Bloco-Iterativo}{101}{section.5.3}\protected@file@percent }
+\newlabel{eq:N1}{{5.7}{101}{Acoplamento Particionado Forte - Bloco-Iterativo}{equation.5.3.7}{}}
+\newlabel{eq:N2}{{5.8}{101}{Acoplamento Particionado Forte - Bloco-Iterativo}{equation.5.3.8}{}}
+\newlabel{eq:N3}{{5.9}{101}{Acoplamento Particionado Forte - Bloco-Iterativo}{equation.5.3.9}{}}
+\newlabel{eq:sist_lin_IFE}{{5.10}{101}{Acoplamento Particionado Forte - Bloco-Iterativo}{equation.5.3.10}{}}
+\citation{Tezduyar:2003d}
+\BKM@entry{id=59,dest={73756273656374696F6E2E352E332E31},srcline={212}}{5C3337365C3337375C303030495C3030306D5C303030705C3030306C5C303030655C3030306D5C303030655C3030306E5C303030745C303030615C3030305C3334375C3030305C3334335C3030306F5C3030305C3034305C303030435C3030306F5C3030306D5C303030705C303030755C303030745C303030615C303030635C303030695C3030306F5C3030306E5C303030615C3030306C}
+\BKM@entry{id=60,dest={73656374696F6E2E352E34},srcline={253}}{5C3337365C3337375C303030455C303030785C303030655C3030306D5C303030705C3030306C5C3030306F5C30303073}
+\newlabel{eq:lin_fluido}{{5.11}{102}{Acoplamento Particionado Forte - Bloco-Iterativo}{equation.5.3.11}{}}
+\newlabel{eq:atu_fluido}{{5.12}{102}{Acoplamento Particionado Forte - Bloco-Iterativo}{equation.5.3.12}{}}
+\newlabel{eq:lin_est}{{5.13}{102}{Acoplamento Particionado Forte - Bloco-Iterativo}{equation.5.3.13}{}}
+\newlabel{eq:atu_est}{{5.14}{102}{Acoplamento Particionado Forte - Bloco-Iterativo}{equation.5.3.14}{}}
+\newlabel{eq:lin_malha}{{5.15}{102}{Acoplamento Particionado Forte - Bloco-Iterativo}{equation.5.3.15}{}}
+\newlabel{eq:atu_malha}{{5.16}{102}{Acoplamento Particionado Forte - Bloco-Iterativo}{equation.5.3.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Implementação Computacional}{102}{subsection.5.3.1}\protected@file@percent }
+\BKM@entry{id=61,dest={73756273656374696F6E2E352E342E31},srcline={261}}{5C3337365C3337375C303030435C303030615C303030765C303030695C303030645C303030615C303030645C303030655C3030305C3034305C303030635C3030306F5C3030306D5C3030305C3034305C303030665C303030755C3030306E5C303030645C3030306F5C3030305C3034305C303030665C3030306C5C303030655C303030785C3030305C3335355C303030765C303030655C3030306C5C3030305C3034305C3030302D5C3030305C3034305C303030325C30303044}
+\citation{GerbeauV:2003}
+\citation{Yokomizo:2024}
+\@writefile{loa}{\contentsline {algorithm}{\numberline {3}{\ignorespaces Algoritmo para solução de problemas IFE}}{103}{algorithm.3}\protected@file@percent }
+\newlabel{alg:IFE}{{3}{103}{Implementação Computacional}{algorithm.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Exemplos}{103}{section.5.4}\protected@file@percent }
+\citation{Forsteretal:2007}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Cavidade com fundo flexível - 2D}{104}{subsection.5.4.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.3}{\ignorespaces Cavidade fundo flexível 2D: geometria}}{104}{figure.5.3}\protected@file@percent }
+\newlabel{fig:cavFF2d_geometria}{{5.3}{104}{Cavidade fundo flexível 2D: geometria}{figure.5.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5.1}{\ignorespaces Discretizações}}{105}{table.5.1}\protected@file@percent }
+\newlabel{tab:CF2DD}{{5.1}{105}{Discretizações}{table.5.1}{}}
+\BKM@entry{id=62,dest={73756273656374696F6E2E352E342E32},srcline={361}}{5C3337365C3337375C303030435C303030615C303030765C303030695C303030645C303030615C303030645C303030655C3030305C3034305C303030635C3030306F5C3030306D5C3030305C3034305C303030665C303030755C3030306E5C303030645C3030306F5C3030305C3034305C303030665C3030306C5C303030655C303030785C3030305C3335355C303030765C303030655C3030306C5C3030305C3034305C3030302D5C3030305C3034305C303030335C30303044}
+\citation{Mok:2001}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.4}{\ignorespaces Cavidade fundo flexível 2D: Vista frontal da discretização para modelo Arlequin - malha 2}}{106}{figure.5.4}\protected@file@percent }
+\newlabel{fig:cavFF2d_malha}{{5.4}{106}{Cavidade fundo flexível 2D: Vista frontal da discretização para modelo Arlequin - malha 2}{figure.5.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.5}{\ignorespaces Cavidade fundo flexível 2D: Deslocamento em A para malhas do modelo Arlequin}}{106}{figure.5.5}\protected@file@percent }
+\newlabel{fig:cavFF2d_Arlq_deslA}{{5.5}{106}{Cavidade fundo flexível 2D: Deslocamento em A para malhas do modelo Arlequin}{figure.5.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Cavidade com fundo flexível - 3D}{106}{subsection.5.4.2}\protected@file@percent }
+\citation{Mok:2001}
+\citation{Vazquez:2007}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.6}{\ignorespaces Cavidade fundo flexível 2D: Deslocamento em A comparado com as referências e monomodelo}}{107}{figure.5.6}\protected@file@percent }
+\newlabel{fig:cavFF2d_deslA}{{5.6}{107}{Cavidade fundo flexível 2D: Deslocamento em A comparado com as referências e monomodelo}{figure.5.6}{}}
+\BKM@entry{id=63,dest={73756273656374696F6E2E352E342E33},srcline={400}}{5C3337365C3337375C303030465C3030306C5C303030755C303030745C303030745C303030655C303030725C3030305C3034305C303030655C3030306D5C3030305C3034305C303030705C303030615C303030695C3030306E5C303030655C3030306C5C3030305C3034305C303030665C3030306C5C303030655C303030785C3030305C3335355C303030765C303030655C3030306C}
+\citation{WallR:1998}
+\citation{Hubneretal:2004}
+\citation{Hubneretal:2004}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces Cavidade fundo flexível 2D: Campos de velocidade}}{108}{figure.5.7}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$t = 4,0 $}}}{108}{subfigure.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$t = 8,0 $}}}{108}{subfigure.7.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$t = 14,0 $}}}{108}{subfigure.7.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$t = 21,0 $}}}{108}{subfigure.7.4}\protected@file@percent }
+\newlabel{fig:cavFF2d_vel}{{5.7}{108}{Cavidade fundo flexível 2D: Campos de velocidade}{figure.5.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}\textit  {Flutter} em painel flexível}{108}{subsection.5.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces Cavidade fundo flexível 2D: Campos de Pressão}}{109}{figure.5.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$t = 4,0 $}}}{109}{subfigure.8.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$t = 8,0 $}}}{109}{subfigure.8.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$t = 14,0 $}}}{109}{subfigure.8.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$t = 21,0 $}}}{109}{subfigure.8.4}\protected@file@percent }
+\newlabel{fig:cavFF2d_press}{{5.8}{109}{Cavidade fundo flexível 2D: Campos de Pressão}{figure.5.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Cavidade fundo flexível 3D: Geometria}}{109}{figure.5.9}\protected@file@percent }
+\newlabel{fig:cavFF3d_geometria}{{5.9}{109}{Cavidade fundo flexível 3D: Geometria}{figure.5.9}{}}
+\newlabel{fig:cavFF3d_malha}{{5.10a}{110}{Subfigure 5 5.10a}{subfigure.5.10.1}{}}
+\newlabel{sub@fig:cavFF3d_malha}{{(a)}{a}{Subfigure 5 5.10a\relax }{subfigure.5.10.1}{}}
+\newlabel{fig:cavFF3d_malhaPlaca}{{5.10b}{110}{Subfigure 5 5.10b}{subfigure.5.10.2}{}}
+\newlabel{sub@fig:cavFF3d_malhaPlaca}{{(b)}{b}{Subfigure 5 5.10b\relax }{subfigure.5.10.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Cavidade fundo flexível 3D: Discretização}}{110}{figure.5.10}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Malhas do modelo Arlequin }}}{110}{subfigure.10.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Malha da placa }}}{110}{subfigure.10.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Cavidade fundo flexível 3D: Deslocamento em A}}{111}{figure.5.11}\protected@file@percent }
+\newlabel{fig:cavFF3d_deslA}{{5.11}{111}{Cavidade fundo flexível 3D: Deslocamento em A}{figure.5.11}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Painel Flexível: Geometria}}{111}{figure.5.12}\protected@file@percent }
+\newlabel{fig:prisma_geometria}{{5.12}{111}{Painel Flexível: Geometria}{figure.5.12}{}}
+\citation{Hubneretal:2004}
+\citation{Hubneretal:2004}
+\citation{Hubneretal:2004}
+\newlabel{fig:prisma_malha}{{5.13a}{112}{Subfigure 5 5.13a}{subfigure.5.13.1}{}}
+\newlabel{sub@fig:prisma_malha}{{(a)}{a}{Subfigure 5 5.13a\relax }{subfigure.5.13.1}{}}
+\newlabel{fig:prisma_malhaPlaca}{{5.13b}{112}{Subfigure 5 5.13b}{subfigure.5.13.2}{}}
+\newlabel{sub@fig:prisma_malhaPlaca}{{(b)}{b}{Subfigure 5 5.13b\relax }{subfigure.5.13.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Painel Flexível: Discretização}}{112}{figure.5.13}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Malhas do modelo Arlequin }}}{112}{subfigure.13.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Malha da placa }}}{112}{subfigure.13.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces Painel Flexível: Deslocamento em A}}{113}{figure.5.14}\protected@file@percent }
+\newlabel{fig:prisma_deslA}{{5.14}{113}{Painel Flexível: Deslocamento em A}{figure.5.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces Painel Flexível: Colapso malha monomodelo}}{113}{figure.5.15}\protected@file@percent }
+\newlabel{fig:prisma_deforMalhaMono}{{5.15}{113}{Painel Flexível: Colapso malha monomodelo}{figure.5.15}{}}
 \bibdata{abntex2-options,referencias.bib}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.11}{\ignorespaces Aerofólio Mov.: Geometria}}{75}{figure.3.11}\protected@file@percent }
-\newlabel{fig:aerofolioMov_geometria}{{3.11}{75}{Aerofólio Mov.: Geometria}{figure.3.11}{}}
 \@writefile{toc}{\vspace  {\cftbeforechapterskip }}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.12}{\ignorespaces Aerofólio Mov.: Coeficiente de Arrasto}}{76}{figure.3.12}\protected@file@percent }
-\newlabel{fig:aerofolioMov_CD}{{3.12}{76}{Aerofólio Mov.: Coeficiente de Arrasto}{figure.3.12}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.13}{\ignorespaces Aerofólio Mov.: Coeficiente de Sustentação}}{76}{figure.3.13}\protected@file@percent }
-\newlabel{fig:aerofolioMov_CL}{{3.13}{76}{Aerofólio Mov.: Coeficiente de Sustentação}{figure.3.13}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.14}{\ignorespaces Aerofólio Mov.: Campos de velocidade}}{77}{figure.3.14}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$t = 8,0 $}}}{77}{subfigure.14.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$t = 8,3 $}}}{77}{subfigure.14.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$t = 8,5 $}}}{77}{subfigure.14.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$t = 8,8 $}}}{77}{subfigure.14.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {$t = 9,0 $}}}{77}{subfigure.14.5}\protected@file@percent }
-\newlabel{fig:aerofolioMov_velocidade}{{3.14}{77}{Aerofólio Mov.: Campos de velocidade}{figure.3.14}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3.15}{\ignorespaces Aerofólio Mov.: Campos de pressão}}{78}{figure.3.15}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {$t = 8,0 $}}}{78}{subfigure.15.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {$t = 8,3 $}}}{78}{subfigure.15.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(c)}{\ignorespaces {$t = 8,5 $}}}{78}{subfigure.15.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(d)}{\ignorespaces {$t = 8,8 $}}}{78}{subfigure.15.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(e)}{\ignorespaces {$t = 9,0 $}}}{78}{subfigure.15.5}\protected@file@percent }
-\newlabel{fig:aerofolioMov_pressao}{{3.15}{78}{Aerofólio Mov.: Campos de pressão}{figure.3.15}{}}
-\BKM@entry{id=43,dest={73656374696F6E2A2E38},srcline={3}}{5C3337365C3337375C303030525C303030655C303030665C303030655C303030725C3030305C3335325C3030306E5C303030635C303030695C303030615C30303073}
+\BKM@entry{id=64,dest={73656374696F6E2A2E38},srcline={3}}{5C3337365C3337375C303030525C303030655C303030665C303030655C303030725C3030305C3335325C3030306E5C303030635C303030695C303030615C30303073}
 \bibcite{AkkermanBBFK:2012}{Akkerman et al. 2012}
 \bibciteEXPL{AkkermanBBFK:2012}{Akkerman et al.}
 \bibciteIMPL{AkkermanBBFK:2012}{AKKERMAN et al.}
@@ -549,6 +764,10 @@
 \bibciteEXPL{Argyris:1982}{Argyris}
 \bibciteIMPL{Argyris:1982}{ARGYRIS}
 \bibciteYEAR{Argyris:1982}{1982}
+\bibcite{ArmalyDP:1983}{Armaly et al. 1983}
+\bibciteEXPL{ArmalyDP:1983}{Armaly et al.}
+\bibciteIMPL{ArmalyDP:1983}{ARMALY et al.}
+\bibciteYEAR{ArmalyDP:1983}{1983}
 \bibcite{Avancini:2023}{Avancini 2023}
 \bibciteEXPL{Avancini:2023}{Avancini}
 \bibciteIMPL{Avancini:2023}{AVANCINI}
@@ -581,11 +800,11 @@
 \bibciteEXPL{BazilevsCH:2008}{Bazilevs et al.}
 \bibciteIMPL{BazilevsCH:2008}{BAZILEVS et al.}
 \bibciteYEAR{BazilevsCH:2008}{2008}
+\@writefile{toc}{\contentsline {chapter}{\MakeTextUppercase    []{Refer\^encias}}{115}{section*.8}\protected@file@percent }
 \bibcite{BazilevsHKWB:2011}{Bazilevs et al. 2011}
 \bibciteEXPL{BazilevsHKWB:2011}{Bazilevs et al.}
 \bibciteIMPL{BazilevsHKWB:2011}{BAZILEVS et al.}
 \bibciteYEAR{BazilevsHKWB:2011}{2011}
-\@writefile{toc}{\contentsline {chapter}{\MakeTextUppercase    []{Refer\^encias}}{79}{section*.8}\protected@file@percent }
 \bibcite{BazilevsMCH:2010}{Bazilevs et al. 2010}
 \bibciteEXPL{BazilevsMCH:2010}{Bazilevs et al.}
 \bibciteIMPL{BazilevsMCH:2010}{BAZILEVS et al.}
@@ -686,6 +905,18 @@
 \bibciteEXPL{CodaP:2011}{Coda e Paccola}
 \bibciteIMPL{CodaP:2011}{CODA; PACCOLA}
 \bibciteYEAR{CodaP:2011}{2011}
+\bibcite{CottrelHB:2009}{Cottrell, Hughes e Bazilevs 2009}
+\bibciteEXPL{CottrelHB:2009}{Cottrell, Hughes e Bazilevs}
+\bibciteIMPL{CottrelHB:2009}{COTTRELL; HUGHES; BAZILEVS}
+\bibciteYEAR{CottrelHB:2009}{2009}
+\bibcite{Cox1972}{COX 1972}
+\bibciteEXPL{Cox1972}{COX}
+\bibciteIMPL{Cox1972}{COX}
+\bibciteYEAR{Cox1972}{1972}
+\bibcite{DEBOOR1972}{{de Boor} 1972}
+\bibciteEXPL{DEBOOR1972}{{de Boor}}
+\bibciteIMPL{DEBOOR1972}{{de Boor}}
+\bibciteYEAR{DEBOOR1972}{1972}
 \bibcite{DhiaJ:2010}{Dhia e Jamond 2010}
 \bibciteEXPL{DhiaJ:2010}{Dhia e Jamond}
 \bibciteIMPL{DhiaJ:2010}{DHIA; JAMOND}
@@ -714,6 +945,10 @@
 \bibciteEXPL{FarhatHF:2001}{Farhat, Harari e Franca}
 \bibciteIMPL{FarhatHF:2001}{FARHAT; HARARI; FRANCA}
 \bibciteYEAR{FarhatHF:2001}{2001}
+\bibcite{Farin:1999}{Farin 1999}
+\bibciteEXPL{Farin:1999}{Farin}
+\bibciteIMPL{Farin:1999}{FARIN}
+\bibciteYEAR{Farin:1999}{1999}
 \bibcite{FelippaPF:2001}{Felippa, Park e Farhat 2001}
 \bibciteEXPL{FelippaPF:2001}{Felippa, Park e Farhat}
 \bibciteIMPL{FelippaPF:2001}{FELIPPA; PARK; FARHAT}
@@ -742,6 +977,14 @@
 \bibciteEXPL{Fish:1992}{Fish}
 \bibciteIMPL{Fish:1992}{FISH}
 \bibciteYEAR{Fish:1992}{1992}
+\bibcite{Forsteretal:2007}{F{\"o}rster, Wall e Ramm 2007}
+\bibciteEXPL{Forsteretal:2007}{F{\"o}rster, Wall e Ramm}
+\bibciteIMPL{Forsteretal:2007}{F{\"O}RSTER; WALL; RAMM}
+\bibciteYEAR{Forsteretal:2007}{2007}
+\bibcite{GerbeauV:2003}{Gerbeau e Vidrascu 2003}
+\bibciteEXPL{GerbeauV:2003}{Gerbeau e Vidrascu}
+\bibciteIMPL{GerbeauV:2003}{GERBEAU; VIDRASCU}
+\bibciteYEAR{GerbeauV:2003}{2003}
 \bibcite{Germano1991}{Germano et al. 1991}
 \bibciteEXPL{Germano1991}{Germano et al.}
 \bibciteIMPL{Germano1991}{GERMANO et al.}
@@ -886,6 +1129,10 @@
 \bibciteEXPL{Moes:2003}{Mo{\"{e}}s et al.}
 \bibciteIMPL{Moes:2003}{MO{\"{E}}S et al.}
 \bibciteYEAR{Moes:2003}{2003}
+\bibcite{Mok:2001}{Mok 2001}
+\bibciteEXPL{Mok:2001}{Mok}
+\bibciteIMPL{Mok:2001}{MOK}
+\bibciteYEAR{Mok:2001}{2001}
 \bibcite{NayrolesTV:1992}{Nayroles, Touzot e Villon 1992}
 \bibciteEXPL{NayrolesTV:1992}{Nayroles, Touzot e Villon}
 \bibciteIMPL{NayrolesTV:1992}{NAYROLES; TOUZOT; VILLON}
@@ -914,6 +1161,10 @@
 \bibciteEXPL{ReddyG:2000}{Reddy e Gartling}
 \bibciteIMPL{ReddyG:2000}{REDDY; GARTLING}
 \bibciteYEAR{ReddyG:2000}{2010}
+\bibcite{richter2017fluid}{Richter 2017}
+\bibciteEXPL{richter2017fluid}{Richter}
+\bibciteIMPL{richter2017fluid}{RICHTER}
+\bibciteYEAR{richter2017fluid}{2017}
 \bibcite{Rosa:2021}{Rosa 2021}
 \bibciteEXPL{Rosa:2021}{Rosa}
 \bibciteIMPL{Rosa:2021}{ROSA}
@@ -990,6 +1241,10 @@
 \bibciteEXPL{TezduyarS:2003}{Tezduyar e Sathe}
 \bibciteIMPL{TezduyarS:2003}{TEZDUYAR; SATHE}
 \bibciteYEAR{TezduyarS:2003}{2003}
+\bibcite{Tezduyar:2003d}{Tezduyar 2003}
+\bibciteEXPL{Tezduyar:2003d}{Tezduyar}
+\bibciteIMPL{Tezduyar:2003d}{TEZDUYAR}
+\bibciteYEAR{Tezduyar:2003d}{2003}
 \bibcite{TezduyarA:2000}{Tezduyar e Aliabadi 2000}
 \bibciteEXPL{TezduyarA:2000}{Tezduyar e Aliabadi}
 \bibciteIMPL{TezduyarA:2000}{TEZDUYAR; ALIABADI}
@@ -1022,10 +1277,22 @@
 \bibciteEXPL{Tonon:2016}{Tonon}
 \bibciteIMPL{Tonon:2016}{TONON}
 \bibciteYEAR{Tonon:2016}{2016}
+\bibcite{Tononetal:2021}{Tonon et al. 2021}
+\bibciteEXPL{Tononetal:2021}{Tonon et al.}
+\bibciteIMPL{Tononetal:2021}{TONON et al.}
+\bibciteYEAR{Tononetal:2021}{2021}
 \bibcite{Truesdell:1955}{Truesdell 1955}
 \bibciteEXPL{Truesdell:1955}{Truesdell}
 \bibciteIMPL{Truesdell:1955}{TRUESDELL}
 \bibciteYEAR{Truesdell:1955}{1955}
+\bibcite{Vazquez:2007}{V{\'azquez} 2007}
+\bibciteEXPL{Vazquez:2007}{V{\'azquez}}
+\bibciteIMPL{Vazquez:2007}{V{\'AZQUEZ}}
+\bibciteYEAR{Vazquez:2007}{2007}
+\bibcite{WallR:1998}{Wall e Ramm 1998}
+\bibciteEXPL{WallR:1998}{Wall e Ramm}
+\bibciteIMPL{WallR:1998}{WALL; RAMM}
+\bibciteYEAR{WallR:1998}{1998}
 \bibcite{WangRGF:2011}{Wang et al. 2011}
 \bibciteEXPL{WangRGF:2011}{Wang et al.}
 \bibciteIMPL{WangRGF:2011}{WANG et al.}
@@ -1034,6 +1301,14 @@
 \bibciteEXPL{Wilcox:1993}{Wilcox}
 \bibciteIMPL{Wilcox:1993}{WILCOX}
 \bibciteYEAR{Wilcox:1993}{1993}
+\bibcite{WilliamsB:1999}{Williams e Baker 1999}
+\bibciteEXPL{WilliamsB:1999}{Williams e Baker}
+\bibciteIMPL{WilliamsB:1999}{WILLIAMS; BAKER}
+\bibciteYEAR{WilliamsB:1999}{1999}
+\bibcite{Yokomizo:2024}{Yokomizo 2024}
+\bibciteEXPL{Yokomizo:2024}{Yokomizo}
+\bibciteIMPL{Yokomizo:2024}{YOKOMIZO}
+\bibciteYEAR{Yokomizo:2024}{2024}
 \bibcite{ZhangBGBH:2007}{Zhang et al. 2007}
 \bibciteEXPL{ZhangBGBH:2007}{Zhang et al.}
 \bibciteIMPL{ZhangBGBH:2007}{ZHANG et al.}
@@ -1047,9 +1322,9 @@
 \bibciteIMPL{ZienkiewiczT:2005a}{ZIENKIEWICZ; TAYLOR; NITHIARASU}
 \bibciteYEAR{ZienkiewiczT:2005a}{2005a}
 \bibstyle{abntex2-alf}
-\memsetcounter{lastsheet}{90}
-\memsetcounter{lastpage}{88}
-\newlabel{LastPage}{{}{88}{}{page.88}{}}
-\gdef\lastpage@lastpage{88}
-\gdef\lastpage@lastpageHy{88}
-\gdef \@abspage@last{90}
+\memsetcounter{lastsheet}{127}
+\memsetcounter{lastpage}{125}
+\newlabel{LastPage}{{}{125}{}{page.125}{}}
+\gdef\lastpage@lastpage{125}
+\gdef\lastpage@lastpageHy{125}
+\gdef \@abspage@last{127}

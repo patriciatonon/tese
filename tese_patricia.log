@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  25 APR 2025 10:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  1 MAY 2025 15:41
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1909,14 +1909,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 500--505
 
 ] [4
 
-] (./tese_patricia.lof) [5{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}] [6
+] (./tese_patricia.lof [5{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}]) [6] 
+(./tese_patricia.lot) [7
 
-] (./tese_patricia.lot) [7] [8
+] [8
 
 ] (./tese_patricia.nls) (./tese_patricia.toc
 [9
 
-]) [10] (./introducao.tex
+]
+Overfull \hbox (0.35452pt too wide) detected at line 55
+ \T1/lmr/bx/it/12 102
+ []
+
+
+Overfull \hbox (0.35452pt too wide) detected at line 57
+ \T1/lmr/bx/it/12 104
+ []
+
+
+Overfull \hbox (0.35452pt too wide) detected at line 58
+ \T1/lmr/bx/it/12 106
+ []
+
+
+Overfull \hbox (0.35452pt too wide) detected at line 59
+ \T1/lmr/bx/it/12 108
+ []
+
+) [10] (./introducao.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11
@@ -1973,7 +1994,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/volInf_fluxoMassa.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/volInf_fluxoMassa.pdf, id=712, 130.47865pt x 112.24612pt>
+<Imagens/Cap2/volInf_fluxoMassa.pdf, id=820, 130.47865pt x 112.24612pt>
 File: Imagens/Cap2/volInf_fluxoMassa.pdf Graphic file (type pdf)
 <use Imagens/Cap2/volInf_fluxoMassa.pdf>
 Package pdftex.def Info: Imagens/Cap2/volInf_fluxoMassa.pdf  used on input line
@@ -1990,7 +2011,7 @@ l.147 \end{align}
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/volInf_tensao.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/volInf_tensao.pdf, id=737, 109.72237pt x 100.86786pt>
+<Imagens/Cap2/volInf_tensao.pdf, id=844, 109.72237pt x 100.86786pt>
 File: Imagens/Cap2/volInf_tensao.pdf Graphic file (type pdf)
 <use Imagens/Cap2/volInf_tensao.pdf>
 Package pdftex.def Info: Imagens/Cap2/volInf_tensao.pdf  used on input line 172
@@ -2006,7 +2027,7 @@ l.180 \begin{align}
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/volInf_consQtdeMov.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/volInf_consQtdeMov.pdf, id=761, 140.0786pt x 110.12924pt>
+<Imagens/Cap2/volInf_consQtdeMov.pdf, id=868, 140.0786pt x 110.12924pt>
 File: Imagens/Cap2/volInf_consQtdeMov.pdf Graphic file (type pdf)
 <use Imagens/Cap2/volInf_consQtdeMov.pdf>
 Package pdftex.def Info: Imagens/Cap2/volInf_consQtdeMov.pdf  used on input lin
@@ -2022,7 +2043,7 @@ l.237 \end{align}
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/dominioFluido.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/dominioFluido.pdf, id=786, 69.66087pt x 42.20113pt>
+<Imagens/Cap2/dominioFluido.pdf, id=893, 69.66087pt x 42.20113pt>
 File: Imagens/Cap2/dominioFluido.pdf Graphic file (type pdf)
 <use Imagens/Cap2/dominioFluido.pdf>
 Package pdftex.def Info: Imagens/Cap2/dominioFluido.pdf  used on input line 275
@@ -2038,7 +2059,7 @@ l.284
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/dominioALE.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/dominioALE.pdf, id=805, 214.51927pt x 222.78722pt>
+<Imagens/Cap2/dominioALE.pdf, id=913, 214.51927pt x 222.78722pt>
 File: Imagens/Cap2/dominioALE.pdf Graphic file (type pdf)
 <use Imagens/Cap2/dominioALE.pdf>
 Package pdftex.def Info: Imagens/Cap2/dominioALE.pdf  used on input line 297.
@@ -2066,18 +2087,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [34]
 [35]
-
-LaTeX Warning: Reference `capitulo:Cap3' on page 36 undefined on input line 543
-.
-
-
 Underfull \vbox (badness 1874) has occurred while \output is active []
 
  [36]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/elementoFinito2d.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/elementoFinito2d.pdf, id=902, 315.19049pt x 273.18808pt>
+<Imagens/Cap2/elementoFinito2d.pdf, id=1010, 315.19049pt x 273.18808pt>
 File: Imagens/Cap2/elementoFinito2d.pdf Graphic file (type pdf)
 <use Imagens/Cap2/elementoFinito2d.pdf>
 Package pdftex.def Info: Imagens/Cap2/elementoFinito2d.pdf  used on input line 
@@ -2087,7 +2103,7 @@ Package pdftex.def Info: Imagens/Cap2/elementoFinito2d.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/elementoFinito3d.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/elementoFinito3d.pdf, id=904, 304.42851pt x 213.64893pt>
+<Imagens/Cap2/elementoFinito3d.pdf, id=1012, 304.42851pt x 213.64893pt>
 File: Imagens/Cap2/elementoFinito3d.pdf Graphic file (type pdf)
 <use Imagens/Cap2/elementoFinito3d.pdf>
 Package pdftex.def Info: Imagens/Cap2/elementoFinito3d.pdf  used on input line 
@@ -2104,11 +2120,6 @@ df>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [38]
-
-LaTeX Warning: Reference `capitulo:Cap7:CondAcop:MovMalha' on page 39 undefined
- on input line 655.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [39]
@@ -2120,11 +2131,6 @@ Overfull \hbox (7.59013pt too wide) detected at line 676
 Underfull \vbox (badness 1466) has occurred while \output is active []
 
  [40]
-
-LaTeX Warning: Reference `capitulo:Cap3:RepreGeo:taus2' on page 41 undefined on
- input line 734.
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [41]
@@ -2142,7 +2148,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_geometria.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_geometria.pdf, id=1097, 587.64545pt x 303.98569pt>
+<Imagens/Cap2/cilindro_geometria.pdf, id=1207, 587.64545pt x 303.98569pt>
 File: Imagens/Cap2/cilindro_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_geometria.pdf  used on input lin
@@ -2152,7 +2158,7 @@ e 956.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_malha.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_malha.pdf, id=1099, 888.2448pt x 542.02524pt>
+<Imagens/Cap2/cilindro_malha.pdf, id=1209, 888.2448pt x 542.02524pt>
 File: Imagens/Cap2/cilindro_malha.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_malha.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_malha.pdf  used on input line 95
@@ -2177,7 +2183,7 @@ pdf>
 s-converted-to.pdf Imagens/Cap2/cilindro_CD.eps>
 (epstopdf)             \includegraphics on input line 993.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap2/cilindro_CD-eps-converted-to.pdf, id=1133, 454.69875pt x 255.9562
+<Imagens/Cap2/cilindro_CD-eps-converted-to.pdf, id=1243, 454.69875pt x 255.9562
 5pt>
 File: Imagens/Cap2/cilindro_CD-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_CD-eps-converted-to.pdf>
@@ -2195,7 +2201,7 @@ pdf>
 s-converted-to.pdf Imagens/Cap2/cilindro_CL.eps>
 (epstopdf)             \includegraphics on input line 994.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap2/cilindro_CL-eps-converted-to.pdf, id=1135, 454.69875pt x 255.9562
+<Imagens/Cap2/cilindro_CL-eps-converted-to.pdf, id=1245, 454.69875pt x 255.9562
 5pt>
 File: Imagens/Cap2/cilindro_CL-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_CL-eps-converted-to.pdf>
@@ -2206,7 +2212,7 @@ Package pdftex.def Info: Imagens/Cap2/cilindro_CL-eps-converted-to.pdf  used on
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_vel2020.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_vel2020.pdf, id=1139, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_vel2020.pdf, id=1249, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_vel2020.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_vel2020.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_vel2020.pdf  used on input line 
@@ -2216,7 +2222,7 @@ Package pdftex.def Info: Imagens/Cap2/cilindro_vel2020.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_vel2030.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_vel2030.pdf, id=1141, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_vel2030.pdf, id=1251, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_vel2030.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_vel2030.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_vel2030.pdf  used on input line 
@@ -2226,7 +2232,7 @@ Package pdftex.def Info: Imagens/Cap2/cilindro_vel2030.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_vel2040.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_vel2040.pdf, id=1143, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_vel2040.pdf, id=1253, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_vel2040.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_vel2040.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_vel2040.pdf  used on input line 
@@ -2236,7 +2242,7 @@ Package pdftex.def Info: Imagens/Cap2/cilindro_vel2040.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_vel2050.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_vel2050.pdf, id=1145, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_vel2050.pdf, id=1255, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_vel2050.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_vel2050.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_vel2050.pdf  used on input line 
@@ -2246,7 +2252,7 @@ Package pdftex.def Info: Imagens/Cap2/cilindro_vel2050.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_vel2060.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_vel2060.pdf, id=1147, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_vel2060.pdf, id=1257, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_vel2060.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_vel2060.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_vel2060.pdf  used on input line 
@@ -2256,7 +2262,7 @@ Package pdftex.def Info: Imagens/Cap2/cilindro_vel2060.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_vel2070.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_vel2070.pdf, id=1149, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_vel2070.pdf, id=1259, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_vel2070.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_vel2070.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_vel2070.pdf  used on input line 
@@ -2266,7 +2272,7 @@ Package pdftex.def Info: Imagens/Cap2/cilindro_vel2070.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_legendaVel.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_legendaVel.pdf, id=1151, 555.5236pt x 127.40309pt>
+<Imagens/Cap2/cilindro_legendaVel.pdf, id=1261, 555.5236pt x 127.40309pt>
 File: Imagens/Cap2/cilindro_legendaVel.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_legendaVel.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_legendaVel.pdf  used on input li
@@ -2276,7 +2282,7 @@ ne 1010.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_press2020.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_press2020.pdf, id=1153, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_press2020.pdf, id=1263, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_press2020.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_press2020.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_press2020.pdf  used on input lin
@@ -2286,7 +2292,7 @@ e 1017.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_press2030.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_press2030.pdf, id=1155, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_press2030.pdf, id=1265, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_press2030.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_press2030.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_press2030.pdf  used on input lin
@@ -2296,7 +2302,7 @@ e 1018.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_press2040.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_press2040.pdf, id=1157, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_press2040.pdf, id=1267, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_press2040.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_press2040.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_press2040.pdf  used on input lin
@@ -2306,7 +2312,7 @@ e 1019.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_press2050.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_press2050.pdf, id=1159, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_press2050.pdf, id=1269, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_press2050.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_press2050.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_press2050.pdf  used on input lin
@@ -2316,7 +2322,7 @@ e 1020.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_press2060.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_press2060.pdf, id=1161, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_press2060.pdf, id=1271, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_press2060.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_press2060.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_press2060.pdf  used on input lin
@@ -2326,7 +2332,7 @@ e 1021.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_press2070.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_press2070.pdf, id=1163, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cilindro_press2070.pdf, id=1273, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cilindro_press2070.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_press2070.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_press2070.pdf  used on input lin
@@ -2336,7 +2342,7 @@ e 1022.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cilindro_legendaPress.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cilindro_legendaPress.pdf, id=1165, 555.72824pt x 119.92165pt>
+<Imagens/Cap2/cilindro_legendaPress.pdf, id=1275, 555.72824pt x 119.92165pt>
 File: Imagens/Cap2/cilindro_legendaPress.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cilindro_legendaPress.pdf>
 Package pdftex.def Info: Imagens/Cap2/cilindro_legendaPress.pdf  used on input 
@@ -2346,13 +2352,13 @@ line 1023.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cavidade_geometria.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cavidade_geometria.pdf, id=1181, 179.29573pt x 181.46022pt>
+<Imagens/Cap2/cavidade_geometria.pdf, id=1292, 179.29573pt x 181.46022pt>
 File: Imagens/Cap2/cavidade_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap2/cavidade_geometria.pdf  used on input lin
 e 1037.
 (pdftex.def)             Requested size: 179.29527pt x 181.45976pt.
-<Imagens/Cap2/cavidade_malha.png, id=1183, 2007.5pt x 1472.50125pt>
+<Imagens/Cap2/cavidade_malha.png, id=1294, 2007.5pt x 1472.50125pt>
 File: Imagens/Cap2/cavidade_malha.png Graphic file (type png)
 <use Imagens/Cap2/cavidade_malha.png>
 Package pdftex.def Info: Imagens/Cap2/cavidade_malha.png  used on input line 10
@@ -2369,7 +2375,7 @@ to.pdf>
 -eps-converted-to.pdf Imagens/Cap2/cavidade_Re100.eps>
 (epstopdf)             \includegraphics on input line 1047.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap2/cavidade_Re100-eps-converted-to.pdf, id=1188, 255.95625pt x 255.9
+<Imagens/Cap2/cavidade_Re100-eps-converted-to.pdf, id=1299, 255.95625pt x 255.9
 5625pt>
 File: Imagens/Cap2/cavidade_Re100-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_Re100-eps-converted-to.pdf>
@@ -2387,7 +2393,7 @@ to.pdf>
 -eps-converted-to.pdf Imagens/Cap2/cavidade_Re400.eps>
 (epstopdf)             \includegraphics on input line 1047.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf, id=1190, 255.95625pt x 255.9
+<Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf, id=1301, 255.95625pt x 255.9
 5625pt>
 File: Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf>
@@ -2405,7 +2411,7 @@ Package epstopdf Info: Source file: <Imagens/Cap2/cavidade_Re1000.eps>
 0-eps-converted-to.pdf Imagens/Cap2/cavidade_Re1000.eps>
 (epstopdf)             \includegraphics on input line 1048.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf, id=1192, 255.95625pt x 255.
+<Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf, id=1303, 255.95625pt x 255.
 95625pt>
 File: Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -2413,7 +2419,7 @@ File: Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: Imagens/Cap2/cavidade_Re1000-eps-converted-to.pdf  use
 d on input line 1048.
 (pdftex.def)             Requested size: 185.41727pt x 200.2129pt.
-<Imagens/Cap2/cavidade_legenda.pdf, id=1194, 122.34311pt x 27.63289pt>
+<Imagens/Cap2/cavidade_legenda.pdf, id=1305, 122.34311pt x 27.63289pt>
 File: Imagens/Cap2/cavidade_legenda.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_legenda.pdf>
 Package pdftex.def Info: Imagens/Cap2/cavidade_legenda.pdf  used on input line 
@@ -2423,7 +2429,7 @@ Package pdftex.def Info: Imagens/Cap2/cavidade_legenda.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cavidade_velRe100.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cavidade_velRe100.pdf, id=1197, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cavidade_velRe100.pdf, id=1308, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cavidade_velRe100.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_velRe100.pdf>
 Package pdftex.def Info: Imagens/Cap2/cavidade_velRe100.pdf  used on input line
@@ -2433,7 +2439,7 @@ Package pdftex.def Info: Imagens/Cap2/cavidade_velRe100.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cavidade_velRe400.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cavidade_velRe400.pdf, id=1199, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cavidade_velRe400.pdf, id=1310, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cavidade_velRe400.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_velRe400.pdf>
 Package pdftex.def Info: Imagens/Cap2/cavidade_velRe400.pdf  used on input line
@@ -2443,7 +2449,7 @@ Package pdftex.def Info: Imagens/Cap2/cavidade_velRe400.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cavidade_velRe1000.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cavidade_velRe1000.pdf, id=1201, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cavidade_velRe1000.pdf, id=1312, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cavidade_velRe1000.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_velRe1000.pdf>
 Package pdftex.def Info: Imagens/Cap2/cavidade_velRe1000.pdf  used on input lin
@@ -2458,7 +2464,7 @@ e 1064.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cavidade_pressRe100.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cavidade_pressRe100.pdf, id=1204, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cavidade_pressRe100.pdf, id=1315, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cavidade_pressRe100.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_pressRe100.pdf>
 Package pdftex.def Info: Imagens/Cap2/cavidade_pressRe100.pdf  used on input li
@@ -2468,7 +2474,7 @@ ne 1073.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cavidade_pressRe400.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cavidade_pressRe400.pdf, id=1206, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cavidade_pressRe400.pdf, id=1317, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cavidade_pressRe400.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_pressRe400.pdf>
 Package pdftex.def Info: Imagens/Cap2/cavidade_pressRe400.pdf  used on input li
@@ -2478,27 +2484,27 @@ ne 1074.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap2/cavidade_pressRe1000.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap2/cavidade_pressRe1000.pdf, id=1208, 1445.4pt x 1084.05pt>
+<Imagens/Cap2/cavidade_pressRe1000.pdf, id=1319, 1445.4pt x 1084.05pt>
 File: Imagens/Cap2/cavidade_pressRe1000.pdf Graphic file (type pdf)
 <use Imagens/Cap2/cavidade_pressRe1000.pdf>
 Package pdftex.def Info: Imagens/Cap2/cavidade_pressRe1000.pdf  used on input l
 ine 1075.
 (pdftex.def)             Requested size: 190.63301pt x 221.21964pt.
-) (./Cap6.tex [48
+) (./Cap3.tex [48
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.8}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.48 \chapter
-             [Método de Arlequin estabilizado]{Técnica de decomposição d...
+l.8 \chapter
+            [Análise isogeométrica aplicada à Mecânica dos Fluidos]{Aná...
  <./Imagens/Cap2/cilindro_CD-eps-converted-to.pdf> <./Imagens/Cap2/cilindro_CL-
 eps-converted-to.pdf>] [49
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.9}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.48 \chapter
-             [Método de Arlequin estabilizado]{Técnica de decomposição d...
+l.8 \chapter
+            [Análise isogeométrica aplicada à Mecânica dos Fluidos]{Aná...
  <./Imagens/Cap2/cilindro_vel2020.pdf> <./Imagens/Cap2/cilindro_vel2030.pdf> <.
 /Imagens/Cap2/cilindro_vel2040.pdf> <./Imagens/Cap2/cilindro_vel2050.pdf> <./Im
 agens/Cap2/cilindro_vel2060.pdf> <./Imagens/Cap2/cilindro_vel2070.pdf> <./Image
@@ -2507,8 +2513,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.10})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.48 \chapter
-             [Método de Arlequin estabilizado]{Técnica de decomposição d...
+l.8 \chapter
+            [Análise isogeométrica aplicada à Mecânica dos Fluidos]{Aná...
  <./Imagens/Cap2/cilindro_press2020.pdf> <./Imagens/Cap2/cilindro_press2030.pdf
 > <./Imagens/Cap2/cilindro_press2040.pdf> <./Imagens/Cap2/cilindro_press2050.pd
 f> <./Imagens/Cap2/cilindro_press2060.pdf> <./Imagens/Cap2/cilindro_press2070.p
@@ -2517,16 +2523,16 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.11})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.48 \chapter
-             [Método de Arlequin estabilizado]{Técnica de decomposição d...
+l.8 \chapter
+            [Análise isogeométrica aplicada à Mecânica dos Fluidos]{Aná...
  <./Imagens/Cap2/cavidade_geometria.pdf> <./Imagens/Cap2/cavidade_malha.png (PN
 G copy)>] [52
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.12})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.48 \chapter
-             [Método de Arlequin estabilizado]{Técnica de decomposição d...
+l.8 \chapter
+            [Análise isogeométrica aplicada à Mecânica dos Fluidos]{Aná...
  <./Imagens/Cap2/cavidade_legenda.pdf> <./Imagens/Cap2/cavidade_Re100-eps-conve
 rted-to.pdf> <./Imagens/Cap2/cavidade_Re400-eps-converted-to.pdf> <./Imagens/Ca
 p2/cavidade_Re1000-eps-converted-to.pdf>] [53
@@ -2534,36 +2540,422 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2.13})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.48 \chapter
-             [Método de Arlequin estabilizado]{Técnica de decomposição d...
+l.8 \chapter
+            [Análise isogeométrica aplicada à Mecânica dos Fluidos]{Aná...
  <./Imagens/Cap2/cavidade_velRe100.pdf> <./Imagens/Cap2/cavidade_velRe400.pdf> 
 <./Imagens/Cap2/cavidade_velRe1000.pdf>] [54
 pdfTeX warning (ext4): destination with the same identifier (name{figure.2.14})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.48 \chapter
-             [Método de Arlequin estabilizado]{Técnica de decomposição d...
+l.8 \chapter
+            [Análise isogeométrica aplicada à Mecânica dos Fluidos]{Aná...
  <./Imagens/Cap2/cavidade_pressRe100.pdf> <./Imagens/Cap2/cavidade_pressRe400.p
 df> <./Imagens/Cap2/cavidade_pressRe1000.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-LaTeX Warning: Reference `capitulo:Cap5' on page 55 undefined on input line 51.
-
-
-[55
+ [55
 
 ]
 
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/espacos_NURBS.pdf): PDF 
+inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap3/espacos_NURBS.pdf, id=1574, 597.81442pt x 386.81116pt>
+File: Imagens/Cap3/espacos_NURBS.pdf Graphic file (type pdf)
+<use Imagens/Cap3/espacos_NURBS.pdf>
+Package pdftex.def Info: Imagens/Cap3/espacos_NURBS.pdf  used on input line 69.
+
+(pdftex.def)             Requested size: 418.46724pt x 270.76596pt.
+[56
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.76 
+      <./Imagens/Cap3/espacos_NURBS.pdf>]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\newline' on input line 81.
+
+
+Class memoir Warning: The material used in the headers is too large
+(28.99998pt) for the given head height (14.5pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 89.
+
+
+Overfull \vbox (14.49998pt too high) has occurred while \output is active []
+
+
+[57]
+<Imagens/Cap3/bspline_funcoes.pdf, id=9225, 597.55246pt x 845.07718pt>
+File: Imagens/Cap3/bspline_funcoes.pdf Graphic file (type pdf)
+<use Imagens/Cap3/bspline_funcoes.pdf>
+Package pdftex.def Info: Imagens/Cap3/bspline_funcoes.pdf  used on input line 1
+13.
+(pdftex.def)             Requested size: 358.53351pt x 103.58858pt.
+ [58
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.123 	\item \textbf
+                    {Suavidade}: função de ordem $p$ é, em geral, $p-1$ v...
+ <./Imagens/Cap3/bspline_funcoes.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/bspline_malhaPC.pdf): PD
+F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap3/bspline_malhaPC.pdf, id=9257, 540.98235pt x 401.2769pt>
+File: Imagens/Cap3/bspline_malhaPC.pdf Graphic file (type pdf)
+<use Imagens/Cap3/bspline_malhaPC.pdf>
+Package pdftex.def Info: Imagens/Cap3/bspline_malhaPC.pdf  used on input line 1
+69.
+(pdftex.def)             Requested size: 216.3891pt x 160.50792pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/bspline_curva.pdf): PDF 
+inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap3/bspline_curva.pdf, id=9259, 523.30675pt x 415.80438pt>
+File: Imagens/Cap3/bspline_curva.pdf Graphic file (type pdf)
+<use Imagens/Cap3/bspline_curva.pdf>
+Package pdftex.def Info: Imagens/Cap3/bspline_curva.pdf  used on input line 170
+.
+(pdftex.def)             Requested size: 209.31898pt x 158.3522pt.
+
+Overfull \vbox (14.49998pt too high) has occurred while \output is active []
+
+
+[59]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [60
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.187 
+       <./Imagens/Cap3/bspline_malhaPC.pdf> <./Imagens/Cap3/bspline_curva.pdf>]
+<Imagens/Cap3/transformacaoprojetiva.png, id=9293, 793.96625pt x 434.62375pt>
+File: Imagens/Cap3/transformacaoprojetiva.png Graphic file (type png)
+<use Imagens/Cap3/transformacaoprojetiva.png>
+Package pdftex.def Info: Imagens/Cap3/transformacaoprojetiva.png  used on input
+ line 203.
+(pdftex.def)             Requested size: 238.19171pt x 130.38812pt.
+
+Overfull \vbox (14.49998pt too high) has occurred while \output is active []
+
+
+[61
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.215 
+       <./Imagens/Cap3/transformacaoprojetiva.png>]
+Overfull \hbox (7.09668pt too wide) in paragraph at lines 254--255
+\T1/lmr/m/n/12 (-20) res-pon-dem aos pe-sos re-la-ti-vos �s fun-��es $[]$ e $\O
+T1/lmr/m/n/12 (-20) (\OML/lmm/m/it/12 N[] [] M[] [] L[] []\OT1/lmr/m/n/12 (-20)
+ )$
+ []
+
+
+LaTeX Warning: Reference `eq:vel' on page 62 undefined on input line 256.
+
+
+LaTeX Warning: Reference `eq:ptest' on page 62 undefined on input line 256.
+
+
+LaTeX Warning: Reference `fig:espacos' on page 62 undefined on input line 258.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [62]
+Underfull \vbox (badness 4416) has occurred while \output is active []
+
+
+Overfull \vbox (14.49998pt too high) has occurred while \output is active []
+
+
+[63]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [64]
+
+LaTeX Warning: Reference `capitulo:Cap1' on page 65 undefined on input line 391
+.
+
+
+LaTeX Warning: Reference `alg:fluid_temporalIntegration' on page 65 undefined o
+n input line 391.
+
+[65]
+<Imagens/Cap3/escoamentosobrecilindro.pdf, id=9375, 534.97725pt x 485.83365pt>
+File: Imagens/Cap3/escoamentosobrecilindro.pdf Graphic file (type pdf)
+<use Imagens/Cap3/escoamentosobrecilindro.pdf>
+Package pdftex.def Info: Imagens/Cap3/escoamentosobrecilindro.pdf  used on inpu
+t line 406.
+(pdftex.def)             Requested size: 196.91577pt x 171.56822pt.
+<Imagens/Cap3/escoamentosobrecilindro2.pdf, id=9377, 534.97725pt x 485.9541pt>
+File: Imagens/Cap3/escoamentosobrecilindro2.pdf Graphic file (type pdf)
+<use Imagens/Cap3/escoamentosobrecilindro2.pdf>
+Package pdftex.def Info: Imagens/Cap3/escoamentosobrecilindro2.pdf  used on inp
+ut line 407.
+(pdftex.def)             Requested size: 196.91577pt x 171.61641pt.
+<Imagens/Cap3/escoamentosobrecilindro3.pdf, id=9381, 691.51465pt x 633.55905pt>
+
+File: Imagens/Cap3/escoamentosobrecilindro3.pdf Graphic file (type pdf)
+<use Imagens/Cap3/escoamentosobrecilindro3.pdf>
+Package pdftex.def Info: Imagens/Cap3/escoamentosobrecilindro3.pdf  used on inp
+ut line 417.
+(pdftex.def)             Requested size: 208.31555pt x 196.51463pt.
+ [66
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.423 
+       <./Imagens/Cap3/escoamentosobrecilindro.pdf> <./Imagens/Cap3/escoamentos
+obrecilindro2.pdf>]
+<Imagens/Cap3/cylinderISO3d.pdf, id=9441, 485.45734pt x 414.65654pt>
+File: Imagens/Cap3/cylinderISO3d.pdf Graphic file (type pdf)
+<use Imagens/Cap3/cylinderISO3d.pdf>
+Package pdftex.def Info: Imagens/Cap3/cylinderISO3d.pdf  used on input line 429
+.
+(pdftex.def)             Requested size: 233.01686pt x 199.03288pt.
+Package epstopdf Info: Source file: <Imagens/Cap3/malhacilindro.eps>
+(epstopdf)                    date: 2025-02-26 08:36:08
+(epstopdf)                    size: 8185477 bytes
+(epstopdf)             Output file: <Imagens/Cap3/malhacilindro-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2025-02-26 08:36:08
+(epstopdf)                    size: 1220308 bytes
+(epstopdf)             Command: <epstopdf --outfile=Imagens/Cap3/malhacilindro-
+eps-converted-to.pdf Imagens/Cap3/malhacilindro.eps>
+(epstopdf)             \includegraphics on input line 430.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/malhacilindro-eps-conver
+ted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> 
+allowed
+<Imagens/Cap3/malhacilindro-eps-converted-to.pdf, id=9443, 1366.10374pt x 1005.
+7575pt>
+File: Imagens/Cap3/malhacilindro-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap3/malhacilindro-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap3/malhacilindro-eps-converted-to.pdf  used 
+on input line 430.
+(pdftex.def)             Requested size: 244.76366pt x 201.14793pt.
+
+Overfull \hbox (22.78052pt too wide) in paragraph at lines 429--431
+ [][][][][] 
+ []
+
+
+LaTeX Warning: Reference `subsection:escoamentocil2d' on page 67 undefined on i
+nput line 435.
+
+[67
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.436 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.7}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.436 
+       <./Imagens/Cap3/escoamentosobrecilindro3.pdf> <./Imagens/Cap3/cylinderIS
+O3d.pdf> <./Imagens/Cap3/malhacilindro-eps-converted-to.pdf>]
+
+LaTeX Warning: Reference `subsection:escoamentocil2d' on page 68 undefined on i
+nput line 437.
+
+Package epstopdf Info: Source file: <Imagens/Cap3/DragRe.eps>
+(epstopdf)                    date: 2025-02-26 08:36:08
+(epstopdf)                    size: 113958 bytes
+(epstopdf)             Output file: <Imagens/Cap3/DragRe-eps-converted-to.pdf>
+(epstopdf)                    date: 2025-02-26 08:36:08
+(epstopdf)                    size: 39311 bytes
+(epstopdf)             Command: <epstopdf --outfile=Imagens/Cap3/DragRe-eps-con
+verted-to.pdf Imagens/Cap3/DragRe.eps>
+(epstopdf)             \includegraphics on input line 443.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/DragRe-eps-converted-to.
+pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+<Imagens/Cap3/DragRe-eps-converted-to.pdf, id=9635, 255.95625pt x 255.95625pt>
+File: Imagens/Cap3/DragRe-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap3/DragRe-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap3/DragRe-eps-converted-to.pdf  used on inpu
+t line 443.
+(pdftex.def)             Requested size: 204.76526pt x 204.76526pt.
+Package epstopdf Info: Source file: <Imagens/Cap3/LiftRe.eps>
+(epstopdf)                    date: 2025-02-26 08:36:08
+(epstopdf)                    size: 115186 bytes
+(epstopdf)             Output file: <Imagens/Cap3/LiftRe-eps-converted-to.pdf>
+(epstopdf)                    date: 2025-02-26 08:36:08
+(epstopdf)                    size: 36734 bytes
+(epstopdf)             Command: <epstopdf --outfile=Imagens/Cap3/LiftRe-eps-con
+verted-to.pdf Imagens/Cap3/LiftRe.eps>
+(epstopdf)             \includegraphics on input line 444.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/LiftRe-eps-converted-to.
+pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+<Imagens/Cap3/LiftRe-eps-converted-to.pdf, id=9637, 255.95625pt x 255.95625pt>
+File: Imagens/Cap3/LiftRe-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap3/LiftRe-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap3/LiftRe-eps-converted-to.pdf  used on inpu
+t line 444.
+(pdftex.def)             Requested size: 204.76526pt x 204.76526pt.
+<Imagens/Cap3/Legenda.pdf, id=9639, 194.40463pt x 22.38222pt>
+File: Imagens/Cap3/Legenda.pdf Graphic file (type pdf)
+<use Imagens/Cap3/Legenda.pdf>
+Package pdftex.def Info: Imagens/Cap3/Legenda.pdf  used on input line 445.
+(pdftex.def)             Requested size: 252.72597pt x 29.09686pt.
+[68
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.8}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.454 
+       <./Imagens/Cap3/Legenda.pdf> <./Imagens/Cap3/DragRe-eps-converted-to.pdf
+> <./Imagens/Cap3/LiftRe-eps-converted-to.pdf>]
+<Imagens/Cap3/degrau.pdf, id=9672, 305.16077pt x 97.45668pt>
+File: Imagens/Cap3/degrau.pdf Graphic file (type pdf)
+<use Imagens/Cap3/degrau.pdf>
+Package pdftex.def Info: Imagens/Cap3/degrau.pdf  used on input line 457.
+(pdftex.def)             Requested size: 366.19107pt x 116.94742pt.
+ [69
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.9}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.480 
+       <./Imagens/Cap3/degrau.pdf>]
+Package epstopdf Info: Source file: <Imagens/Cap3/malhadegrau.eps>
+(epstopdf)                    date: 2025-02-26 08:36:08
+(epstopdf)                    size: 3413554 bytes
+(epstopdf)             Output file: <Imagens/Cap3/malhadegrau-eps-converted-to.
+pdf>
+(epstopdf)                    date: 2025-02-26 08:36:08
+(epstopdf)                    size: 313592 bytes
+(epstopdf)             Command: <epstopdf --outfile=Imagens/Cap3/malhadegrau-ep
+s-converted-to.pdf Imagens/Cap3/malhadegrau.eps>
+(epstopdf)             \includegraphics on input line 483.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/malhadegrau-eps-converte
+d-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> al
+lowed
+<Imagens/Cap3/malhadegrau-eps-converted-to.pdf, id=9701, 1541.76pt x 1005.7575p
+t>
+File: Imagens/Cap3/malhadegrau-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap3/malhadegrau-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap3/malhadegrau-eps-converted-to.pdf  used on
+ input line 483.
+(pdftex.def)             Requested size: 445.4598pt x 62.72458pt.
+Package epstopdf Info: Source file: <Imagens/Cap3/comvort.eps>
+(epstopdf)                    date: 2025-02-26 08:36:08
+(epstopdf)                    size: 27069 bytes
+(epstopdf)             Output file: <Imagens/Cap3/comvort-eps-converted-to.pdf>
+
+(epstopdf)                    date: 2025-02-26 08:36:08
+(epstopdf)                    size: 12170 bytes
+(epstopdf)             Command: <epstopdf --outfile=Imagens/Cap3/comvort-eps-co
+nverted-to.pdf Imagens/Cap3/comvort.eps>
+(epstopdf)             \includegraphics on input line 517.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/comvort-eps-converted-to
+.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowe
+d
+<Imagens/Cap3/comvort-eps-converted-to.pdf, id=9711, 255.95625pt x 255.95625pt>
+
+File: Imagens/Cap3/comvort-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap3/comvort-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap3/comvort-eps-converted-to.pdf  used on inp
+ut line 517.
+(pdftex.def)             Requested size: 307.14595pt x 307.14595pt.
+<Imagens/Cap3/degrau100.pdf, id=9713, 1361.65709pt x 129.60147pt>
+File: Imagens/Cap3/degrau100.pdf Graphic file (type pdf)
+<use Imagens/Cap3/degrau100.pdf>
+Package pdftex.def Info: Imagens/Cap3/degrau100.pdf  used on input line 525.
+(pdftex.def)             Requested size: 408.50027pt x 38.88072pt.
+<Imagens/Cap3/degrau400.pdf, id=9715, 1108.12431pt x 115.35805pt>
+File: Imagens/Cap3/degrau400.pdf Graphic file (type pdf)
+<use Imagens/Cap3/degrau400.pdf>
+Package pdftex.def Info: Imagens/Cap3/degrau400.pdf  used on input line 526.
+(pdftex.def)             Requested size: 398.92445pt x 41.52885pt.
+<Imagens/Cap3/degrau800.pdf, id=9717, 1098.10863pt x 113.10445pt>
+File: Imagens/Cap3/degrau800.pdf Graphic file (type pdf)
+<use Imagens/Cap3/degrau800.pdf>
+Package pdftex.def Info: Imagens/Cap3/degrau800.pdf  used on input line 527.
+(pdftex.def)             Requested size: 395.3188pt x 40.71756pt.
+<Imagens/Cap3/legendadegrau.pdf, id=9719, 765.57013pt x 186.57513pt>
+File: Imagens/Cap3/legendadegrau.pdf Graphic file (type pdf)
+<use Imagens/Cap3/legendadegrau.pdf>
+Package pdftex.def Info: Imagens/Cap3/legendadegrau.pdf  used on input line 528
+.
+(pdftex.def)             Requested size: 229.6728pt x 55.97296pt.
+) (./Cap6.tex [70
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.10})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.48 \chapter
+             [Método de Arlequin estabilizado]{Técnica de decomposição d...
+
+pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.48 \chapter
+             [Método de Arlequin estabilizado]{Técnica de decomposição d...
+ <./Imagens/Cap3/malhadegrau-eps-converted-to.pdf>] [71
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.11})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.48 \chapter
+             [Método de Arlequin estabilizado]{Técnica de decomposição d...
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.3.12})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.48 \chapter
+             [Método de Arlequin estabilizado]{Técnica de decomposição d...
+ <./Imagens/Cap3/comvort-eps-converted-to.pdf> <./Imagens/Cap3/degrau100.pdf> <
+./Imagens/Cap3/degrau400.pdf> <./Imagens/Cap3/degrau800.pdf> <./Imagens/Cap3/le
+gendadegrau.pdf>] [72
+
+]
+
+LaTeX Warning: Reference `capitulo:Cap5' on page 73 undefined on input line 51.
+
+
+[73]
+
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/dominioArlequin.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/dominioArlequin.pdf, id=1462, 182.24275pt x 88.7982pt>
+<Imagens/Cap6/dominioArlequin.pdf, id=9797, 182.24275pt x 88.7982pt>
 File: Imagens/Cap6/dominioArlequin.pdf Graphic file (type pdf)
 <use Imagens/Cap6/dominioArlequin.pdf>
 Package pdftex.def Info: Imagens/Cap6/dominioArlequin.pdf  used on input line 7
 0.
 (pdftex.def)             Requested size: 273.36343pt x 133.19696pt.
-[56
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) 
+[74
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -2580,7 +2972,7 @@ LaTeX Warning: Command \textbackslash invalid in math mode on input line 115.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/funcPondArlq.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/funcPondArlq.pdf, id=1500, 645.6084pt x 278.63377pt>
+<Imagens/Cap6/funcPondArlq.pdf, id=9835, 645.6084pt x 278.63377pt>
 File: Imagens/Cap6/funcPondArlq.pdf Graphic file (type pdf)
 <use Imagens/Cap6/funcPondArlq.pdf>
 Package pdftex.def Info: Imagens/Cap6/funcPondArlq.pdf  used on input line 123.
@@ -2589,11 +2981,11 @@ Package pdftex.def Info: Imagens/Cap6/funcPondArlq.pdf  used on input line 123.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [57]
+ [75]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [58
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) 
+ [76
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -2602,94 +2994,90 @@ l.138 P
  <./Imagens/Cap6/funcPondArlq.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [59]
+ [77]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [60]
+ [78]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [61]
+ [79]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [62]
+ [80]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [63]
+ [81]
 Overfull \hbox (2.33446pt too wide) in paragraph at lines 417--418
 []\T1/lmr/m/n/12 (-20) Quanto ao pro-ce-di-mento de in-te-gra-��o tem-po-ral, u
 tilizou-se o m�-todo $\OML/lmm/m/it/12 $\T1/lmr/m/n/12 (-20) -generalizado.
  []
 
-[64]
+[82]
 Underfull \vbox (badness 1424) has occurred while \output is active []
 
- [65]
+ [83]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [66]
-[67]
+ [84]
+[85]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/dominioArlequinMovel.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/dominioArlequinMovel.pdf, id=1681, 279.08388pt x 146.06099pt>
+<Imagens/Cap6/dominioArlequinMovel.pdf, id=10016, 279.08388pt x 146.06099pt>
 File: Imagens/Cap6/dominioArlequinMovel.pdf Graphic file (type pdf)
 <use Imagens/Cap6/dominioArlequinMovel.pdf>
 Package pdftex.def Info: Imagens/Cap6/dominioArlequinMovel.pdf  used on input l
 ine 643.
 (pdftex.def)             Requested size: 418.62479pt x 219.09093pt.
 
-LaTeX Warning: Reference `capitulo:Cap7:CondAcop:MovMalha' on page 68 undefined
- on input line 648.
-
-
 Overfull \hbox (10.56326pt too wide) in paragraph at lines 656--657
 []\T1/lmr/m/n/12 (-20) O uso da t�c-nica Ar-le-quin en-volve a re-a-li-za-��o d
 e al-gu-mas eta-pas de pr�-processamento
  []
 
-[68
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) 
+[86
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.657 
-       <./Imagens/Cap6/dominioArlequinMovel.pdf>] [69]
+       <./Imagens/Cap6/dominioArlequinMovel.pdf>] [87]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_geometria.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolio_geometria.pdf, id=1745, 334.8314pt x 173.83626pt>
+<Imagens/Cap6/aerofolio_geometria.pdf, id=10081, 334.8314pt x 173.83626pt>
 File: Imagens/Cap6/aerofolio_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_geometria.pdf  used on input li
 ne 713.
 (pdftex.def)             Requested size: 334.83058pt x 173.83583pt.
-[70]
-<Imagens/Cap6/aerofolio_malhaMonoFEM.pdf, id=1754, 144.54pt x 108.405pt>
+[88]
+<Imagens/Cap6/aerofolio_malhaMonoFEM.pdf, id=10089, 144.54pt x 108.405pt>
 File: Imagens/Cap6/aerofolio_malhaMonoFEM.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_malhaMonoFEM.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_malhaMonoFEM.pdf  used on input
  line 726.
 (pdftex.def)             Requested size: 361.34906pt x 150.08815pt.
-<Imagens/Cap6/aerofolio_malhaArlequin.pdf, id=1758, 144.54pt x 108.405pt>
+<Imagens/Cap6/aerofolio_malhaArlequin.pdf, id=10093, 144.54pt x 108.405pt>
 File: Imagens/Cap6/aerofolio_malhaArlequin.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_malhaArlequin.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_malhaArlequin.pdf  used on inpu
 t line 736.
 (pdftex.def)             Requested size: 433.61888pt x 188.64084pt.
-<Imagens/Cap6/aerofolio_detalheLocal.pdf, id=1760, 143.95584pt x 107.60687pt>
+<Imagens/Cap6/aerofolio_detalheLocal.pdf, id=10095, 143.95584pt x 107.60687pt>
 File: Imagens/Cap6/aerofolio_detalheLocal.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_detalheLocal.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_detalheLocal.pdf  used on input
  line 737.
 (pdftex.def)             Requested size: 215.93321pt x 161.4099pt.
- [71
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4}) 
+ [89
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.4}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.745 
       
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5}) 
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
@@ -2707,8 +3095,8 @@ Package epstopdf Info: Source file: <Imagens/Cap6/aerofolio_CD.eps>
 ps-converted-to.pdf Imagens/Cap6/aerofolio_CD.eps>
 (epstopdf)             \includegraphics on input line 754.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/aerofolio_CD-eps-converted-to.pdf, id=1788, 397.485pt x 255.95625
-pt>
+<Imagens/Cap6/aerofolio_CD-eps-converted-to.pdf, id=10123, 397.485pt x 255.9562
+5pt>
 File: Imagens/Cap6/aerofolio_CD-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_CD-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_CD-eps-converted-to.pdf  used o
@@ -2725,120 +3113,149 @@ Package epstopdf Info: Source file: <Imagens/Cap6/aerofolio_CL.eps>
 ps-converted-to.pdf Imagens/Cap6/aerofolio_CL.eps>
 (epstopdf)             \includegraphics on input line 761.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/aerofolio_CL-eps-converted-to.pdf, id=1790, 397.485pt x 255.95625
-pt>
+<Imagens/Cap6/aerofolio_CL-eps-converted-to.pdf, id=10125, 397.485pt x 255.9562
+5pt>
 File: Imagens/Cap6/aerofolio_CL-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_CL-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_CL-eps-converted-to.pdf  used o
 n input line 761.
 (pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
-<Imagens/Cap6/aerofolio_velTn.pdf, id=1794, 144.54pt x 108.405pt>
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_velTn.pdf): PD
+F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolio_velTn.pdf, id=10129, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_velTn.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_velTn.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_velTn.pdf  used on input line 7
 70.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolio_velTn4.pdf, id=1796, 144.54pt x 108.405pt>
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_velTn4.pdf): P
+DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolio_velTn4.pdf, id=10131, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_velTn4.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_velTn4.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_velTn4.pdf  used on input line 
 771.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolio_velTn2.pdf, id=1798, 144.54pt x 108.405pt>
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_velTn2.pdf): P
+DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolio_velTn2.pdf, id=10133, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_velTn2.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_velTn2.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_velTn2.pdf  used on input line 
 772.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolio_velTn34.pdf, id=1800, 144.54pt x 108.405pt>
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_velTn34.pdf): 
+PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolio_velTn34.pdf, id=10135, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_velTn34.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_velTn34.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_velTn34.pdf  used on input line
  773.
-(pdftex.def)             Requested size: 150.32024pt x 112.74017pt.
-<Imagens/Cap6/aerofolio_pressTn.pdf, id=1802, 144.54pt x 108.405pt>
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+<Imagens/Cap6/aerofolio_velLegenda.png, id=10137, 462.72874pt x 115.43124pt>
+File: Imagens/Cap6/aerofolio_velLegenda.png Graphic file (type png)
+<use Imagens/Cap6/aerofolio_velLegenda.png>
+Package pdftex.def Info: Imagens/Cap6/aerofolio_velLegenda.png  used on input l
+ine 774.
+(pdftex.def)             Requested size: 185.08821pt x 46.17168pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_pressTn.pdf): 
+PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolio_pressTn.pdf, id=10140, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_pressTn.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_pressTn.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_pressTn.pdf  used on input line
- 780.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolio_pressTn4.pdf, id=1804, 144.54pt x 108.405pt>
+ 781.
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_pressTn4.pdf):
+ PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolio_pressTn4.pdf, id=10142, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_pressTn4.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_pressTn4.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_pressTn4.pdf  used on input lin
-e 781.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolio_pressTn2.pdf, id=1806, 144.54pt x 108.405pt>
+e 782.
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_pressTn2.pdf):
+ PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolio_pressTn2.pdf, id=10144, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_pressTn2.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_pressTn2.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_pressTn2.pdf  used on input lin
-e 782.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolio_pressTn34.pdf, id=1808, 144.54pt x 108.405pt>
+e 783.
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_pressTn34.pdf)
+: PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolio_pressTn34.pdf, id=10146, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_pressTn34.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_pressTn34.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_pressTn34.pdf  used on input li
-ne 783.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
+ne 784.
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+<Imagens/Cap6/aerofolio_pressLegenda.png, id=10148, 443.6575pt x 151.56625pt>
+File: Imagens/Cap6/aerofolio_pressLegenda.png Graphic file (type png)
+<use Imagens/Cap6/aerofolio_pressLegenda.png>
+Package pdftex.def Info: Imagens/Cap6/aerofolio_pressLegenda.png  used on input
+ line 785.
+(pdftex.def)             Requested size: 177.45984pt x 54.93498pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [72
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.6}) 
+ [90
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.793 
+l.795 
        <./Imagens/Cap6/aerofolio_malhaArlequin.pdf> <./Imagens/Cap6/aerofolio_d
-etalheLocal.pdf>] [73
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.7}) 
+etalheLocal.pdf>] [91
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.7}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.794 P
+l.796 P
        ara descrever-se tal movimento aplica-se, tendo como centro a corda m...
 
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.8}) 
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.8}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.794 P
+l.796 P
        ara descrever-se tal movimento aplica-se, tendo como centro a corda m...
  <./Imagens/Cap6/aerofolio_CD-eps-converted-to.pdf> <./Imagens/Cap6/aerofolio_C
 L-eps-converted-to.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [74
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.9}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.798 \end{align}
-                 
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.10})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.798 \end{align}
-                  <./Imagens/Cap6/aerofolio_velTn.pdf> <./Imagens/Cap6/aerofoli
-o_velTn4.pdf> <./Imagens/Cap6/aerofolio_velTn2.pdf> <./Imagens/Cap6/aerofolio_v
-elTn34.pdf> <./Imagens/Cap6/aerofolio_pressTn.pdf> <./Imagens/Cap6/aerofolio_pr
-essTn4.pdf> <./Imagens/Cap6/aerofolio_pressTn2.pdf> <./Imagens/Cap6/aerofolio_p
-ressTn34.pdf>]
-
-LaTeX Warning: Reference `scapitulo:Cap6:Exemplos:NACA0012' on page 75 undefine
-d on input line 802.
-
-
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_geometria.p
 df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolioMov_geometria.pdf, id=1920, 157.38927pt x 93.03482pt>
+<Imagens/Cap6/aerofolioMov_geometria.pdf, id=10209, 157.38927pt x 93.03482pt>
 File: Imagens/Cap6/aerofolioMov_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_geometria.pdf  used on input
- line 806.
+ line 808.
 (pdftex.def)             Requested size: 314.77774pt x 186.06915pt.
+[92
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.9}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.819 
+       <./Imagens/Cap6/aerofolio_velTn.pdf> <./Imagens/Cap6/aerofolio_velTn4.pd
+f> <./Imagens/Cap6/aerofolio_velTn2.pdf> <./Imagens/Cap6/aerofolio_velTn34.pdf>
+ <./Imagens/Cap6/aerofolio_velLegenda.png>]
 Package epstopdf Info: Source file: <Imagens/Cap6/aerofolioMov_CD.eps>
 (epstopdf)                    date: 2025-02-26 08:36:08
 (epstopdf)                    size: 38847 bytes
@@ -2848,15 +3265,15 @@ Package epstopdf Info: Source file: <Imagens/Cap6/aerofolioMov_CD.eps>
 (epstopdf)                    size: 15241 bytes
 (epstopdf)             Command: <epstopdf --outfile=Imagens/Cap6/aerofolioMov_C
 D-eps-converted-to.pdf Imagens/Cap6/aerofolioMov_CD.eps>
-(epstopdf)             \includegraphics on input line 820.
+(epstopdf)             \includegraphics on input line 822.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/aerofolioMov_CD-eps-converted-to.pdf, id=1927, 397.485pt x 255.95
-625pt>
+<Imagens/Cap6/aerofolioMov_CD-eps-converted-to.pdf, id=10247, 397.485pt x 255.9
+5625pt>
 File: Imagens/Cap6/aerofolioMov_CD-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Imagens/Cap6/aerofolioMov_CD-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_CD-eps-converted-to.pdf  use
-d on input line 820.
+d on input line 822.
 (pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
 Package epstopdf Info: Source file: <Imagens/Cap6/aerofolioMov_CL.eps>
 (epstopdf)                    date: 2025-02-26 08:36:08
@@ -2867,122 +3284,554 @@ Package epstopdf Info: Source file: <Imagens/Cap6/aerofolioMov_CL.eps>
 (epstopdf)                    size: 14919 bytes
 (epstopdf)             Command: <epstopdf --outfile=Imagens/Cap6/aerofolioMov_C
 L-eps-converted-to.pdf Imagens/Cap6/aerofolioMov_CL.eps>
-(epstopdf)             \includegraphics on input line 827.
+(epstopdf)             \includegraphics on input line 829.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/aerofolioMov_CL-eps-converted-to.pdf, id=1929, 397.485pt x 255.95
-625pt>
+<Imagens/Cap6/aerofolioMov_CL-eps-converted-to.pdf, id=10249, 397.485pt x 255.9
+5625pt>
 File: Imagens/Cap6/aerofolioMov_CL-eps-converted-to.pdf Graphic file (type pdf)
 
 <use Imagens/Cap6/aerofolioMov_CL-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_CL-eps-converted-to.pdf  use
-d on input line 827.
+d on input line 829.
 (pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
-<Imagens/Cap6/aerofolioMov_vel400.pdf, id=1933, 144.54pt x 108.405pt>
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_vel400.pdf)
+: PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolioMov_vel400.pdf, id=10253, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_vel400.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_vel400.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_vel400.pdf  used on input li
-ne 836.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolioMov_vel413.pdf, id=1935, 144.54pt x 108.405pt>
-File: Imagens/Cap6/aerofolioMov_vel413.pdf Graphic file (type pdf)
-<use Imagens/Cap6/aerofolioMov_vel413.pdf>
-Package pdftex.def Info: Imagens/Cap6/aerofolioMov_vel413.pdf  used on input li
-ne 837.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolioMov_vel425.pdf, id=1937, 144.54pt x 108.405pt>
+ne 838.
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_vel415.pdf)
+: PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolioMov_vel415.pdf, id=10255, 1445.4pt x 1084.05pt>
+File: Imagens/Cap6/aerofolioMov_vel415.pdf Graphic file (type pdf)
+<use Imagens/Cap6/aerofolioMov_vel415.pdf>
+Package pdftex.def Info: Imagens/Cap6/aerofolioMov_vel415.pdf  used on input li
+ne 839.
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_vel425.pdf)
+: PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolioMov_vel425.pdf, id=10257, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_vel425.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_vel425.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_vel425.pdf  used on input li
-ne 838.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolioMov_vel438.pdf, id=1939, 144.54pt x 108.405pt>
-File: Imagens/Cap6/aerofolioMov_vel438.pdf Graphic file (type pdf)
-<use Imagens/Cap6/aerofolioMov_vel438.pdf>
-Package pdftex.def Info: Imagens/Cap6/aerofolioMov_vel438.pdf  used on input li
-ne 839.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolioMov_vel450.pdf, id=1941, 144.54pt x 108.405pt>
-File: Imagens/Cap6/aerofolioMov_vel450.pdf Graphic file (type pdf)
-<use Imagens/Cap6/aerofolioMov_vel450.pdf>
-Package pdftex.def Info: Imagens/Cap6/aerofolioMov_vel450.pdf  used on input li
 ne 840.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolioMov_press400.pdf, id=1943, 144.54pt x 108.405pt>
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_vel440.pdf)
+: PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolioMov_vel440.pdf, id=10259, 1445.4pt x 1084.05pt>
+File: Imagens/Cap6/aerofolioMov_vel440.pdf Graphic file (type pdf)
+<use Imagens/Cap6/aerofolioMov_vel440.pdf>
+Package pdftex.def Info: Imagens/Cap6/aerofolioMov_vel440.pdf  used on input li
+ne 841.
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [93
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.10})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.844 \end{figure}
+                  
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.11})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.844 \end{figure}
+                   <./Imagens/Cap6/aerofolio_pressTn.pdf> <./Imagens/Cap6/aerof
+olio_pressTn4.pdf> <./Imagens/Cap6/aerofolio_pressTn2.pdf> <./Imagens/Cap6/aero
+folio_pressTn34.pdf> <./Imagens/Cap6/aerofolio_pressLegenda.png> <./Imagens/Cap
+6/aerofolioMov_geometria.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_press400.pd
+f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolioMov_press400.pdf, id=10314, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_press400.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_press400.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_press400.pdf  used on input 
-line 847.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolioMov_press413.pdf, id=1945, 144.54pt x 108.405pt>
-File: Imagens/Cap6/aerofolioMov_press413.pdf Graphic file (type pdf)
-<use Imagens/Cap6/aerofolioMov_press413.pdf>
-Package pdftex.def Info: Imagens/Cap6/aerofolioMov_press413.pdf  used on input 
 line 848.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolioMov_press425.pdf, id=1947, 144.54pt x 108.405pt>
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_press415.pd
+f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolioMov_press415.pdf, id=10316, 1445.4pt x 1084.05pt>
+File: Imagens/Cap6/aerofolioMov_press415.pdf Graphic file (type pdf)
+<use Imagens/Cap6/aerofolioMov_press415.pdf>
+Package pdftex.def Info: Imagens/Cap6/aerofolioMov_press415.pdf  used on input 
+line 849.
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_press425.pd
+f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolioMov_press425.pdf, id=10318, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_press425.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_press425.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_press425.pdf  used on input 
-line 849.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolioMov_press438.pdf, id=1949, 144.54pt x 108.405pt>
-File: Imagens/Cap6/aerofolioMov_press438.pdf Graphic file (type pdf)
-<use Imagens/Cap6/aerofolioMov_press438.pdf>
-Package pdftex.def Info: Imagens/Cap6/aerofolioMov_press438.pdf  used on input 
 line 850.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-<Imagens/Cap6/aerofolioMov_press450.pdf, id=1951, 144.54pt x 108.405pt>
-File: Imagens/Cap6/aerofolioMov_press450.pdf Graphic file (type pdf)
-<use Imagens/Cap6/aerofolioMov_press450.pdf>
-Package pdftex.def Info: Imagens/Cap6/aerofolioMov_press450.pdf  used on input 
-line 851.
-(pdftex.def)             Requested size: 144.53963pt x 108.40472pt.
-) (./tese_patricia.bbl [75
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.11})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.3 ...th{\labelsep}{0pt}\begin{thebibliography}{}
-                                                   <./Imagens/Cap6/aerofolioMov
-_geometria.pdf>] [76
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.12})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.3 ...th{\labelsep}{0pt}\begin{thebibliography}{}
-                                                  
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.13})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.3 ...th{\labelsep}{0pt}\begin{thebibliography}{}
-                                                   <./Imagens/Cap6/aerofolioMov
-_CD-eps-converted-to.pdf> <./Imagens/Cap6/aerofolioMov_CL-eps-converted-to.pdf>
-] [77
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.14})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.3 ...th{\labelsep}{0pt}\begin{thebibliography}{}
-                                                   <./Imagens/Cap6/aerofolioMov
-_vel400.pdf> <./Imagens/Cap6/aerofolioMov_vel413.pdf> <./Imagens/Cap6/aerofolio
-Mov_vel425.pdf> <./Imagens/Cap6/aerofolioMov_vel438.pdf> <./Imagens/Cap6/aerofo
-lioMov_vel450.pdf>] [78
-pdfTeX warning (ext4): destination with the same identifier (name{figure.3.15})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.3 ...th{\labelsep}{0pt}\begin{thebibliography}{}
-                                                   <./Imagens/Cap6/aerofolioMov
-_press400.pdf> <./Imagens/Cap6/aerofolioMov_press413.pdf> <./Imagens/Cap6/aerof
-olioMov_press425.pdf> <./Imagens/Cap6/aerofolioMov_press438.pdf> <./Imagens/Cap
-6/aerofolioMov_press450.pdf>]
-bibitemlist
-[79
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
 
-] [80] [81] [82] [83] [84] [85] [86] [87])
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_press440.pd
+f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap6/aerofolioMov_press440.pdf, id=10320, 1445.4pt x 1084.05pt>
+File: Imagens/Cap6/aerofolioMov_press440.pdf Graphic file (type pdf)
+<use Imagens/Cap6/aerofolioMov_press440.pdf>
+Package pdftex.def Info: Imagens/Cap6/aerofolioMov_press440.pdf  used on input 
+line 851.
+(pdftex.def)             Requested size: 144.54846pt x 108.41135pt.
+) (./Cap7.tex [94
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.12})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.40 \chapter
+             [Acoplamento Fluido-Estrutura]{Interação Fluido-Estrutura} \l...
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.13})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.40 \chapter
+             [Acoplamento Fluido-Estrutura]{Interação Fluido-Estrutura} \l...
+ <./Imagens/Cap6/aerofolioMov_CD-eps-converted-to.pdf> <./Imagens/Cap6/aerofoli
+oMov_CL-eps-converted-to.pdf>] [95
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.14})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.40 \chapter
+             [Acoplamento Fluido-Estrutura]{Interação Fluido-Estrutura} \l...
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4.15})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.40 \chapter
+             [Acoplamento Fluido-Estrutura]{Interação Fluido-Estrutura} \l...
+ <./Imagens/Cap6/aerofolioMov_vel400.pdf> <./Imagens/Cap6/aerofolioMov_vel415.p
+df> <./Imagens/Cap6/aerofolioMov_vel425.pdf> <./Imagens/Cap6/aerofolioMov_vel44
+0.pdf> <./Imagens/Cap6/aerofolioMov_press400.pdf> <./Imagens/Cap6/aerofolioMov_
+press415.pdf> <./Imagens/Cap6/aerofolioMov_press425.pdf> <./Imagens/Cap6/aerofo
+lioMov_press440.pdf>] [96
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [97]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/dominioIFE.pdf): PDF inc
+lusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/dominioIFE.pdf, id=10408, 129.8726pt x 64.03862pt>
+File: Imagens/Cap7/dominioIFE.pdf Graphic file (type pdf)
+<use Imagens/Cap7/dominioIFE.pdf>
+Package pdftex.def Info: Imagens/Cap7/dominioIFE.pdf  used on input line 57.
+(pdftex.def)             Requested size: 259.74457pt x 128.0769pt.
+[98
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.1}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.85 J
+      á a condição geométrica está relacionada ao fato que os domínios...
+ <./Imagens/Cap7/dominioIFE.pdf>] [99]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/contornoIFE.pdf): PDF in
+clusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/contornoIFE.pdf, id=10455, 228.54391pt x 87.85358pt>
+File: Imagens/Cap7/contornoIFE.pdf Graphic file (type pdf)
+<use Imagens/Cap7/contornoIFE.pdf>
+Package pdftex.def Info: Imagens/Cap7/contornoIFE.pdf  used on input line 145.
+(pdftex.def)             Requested size: 342.815pt x 131.78001pt.
+[100
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.2}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.151 
+       <./Imagens/Cap7/contornoIFE.pdf>] [101]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [102]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [103]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_geometria.pdf): 
+PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF2d_geometria.pdf, id=10529, 101.20929pt x 75.62459pt>
+File: Imagens/Cap7/cavFF2d_geometria.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF2d_geometria.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_geometria.pdf  used on input line
+ 269.
+(pdftex.def)             Requested size: 202.41806pt x 151.24878pt.
+[104
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.3}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.279 	
+        <./Imagens/Cap7/cavFF2d_geometria.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_malha.pdf): PDF 
+inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF2d_malha.pdf, id=10588, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/cavFF2d_malha.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF2d_malha.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_malha.pdf  used on input line 312
+.
+(pdftex.def)             Requested size: 289.07487pt x 205.42526pt.
+Package epstopdf Info: Source file: <Imagens/Cap7/cavFF2d_Arlq_deslA.eps>
+(epstopdf)                    date: 2025-03-09 20:25:41
+(epstopdf)                    size: 39702 bytes
+(epstopdf)             Output file: <Imagens/Cap7/cavFF2d_Arlq_deslA-eps-conver
+ted-to.pdf>
+(epstopdf)                    date: 2025-04-28 10:30:10
+(epstopdf)                    size: 15882 bytes
+(epstopdf)             Command: <epstopdf --outfile=Imagens/Cap7/cavFF2d_Arlq_d
+eslA-eps-converted-to.pdf Imagens/Cap7/cavFF2d_Arlq_deslA.eps>
+(epstopdf)             \includegraphics on input line 324.
+Package epstopdf Info: Output file is already uptodate.
+<Imagens/Cap7/cavFF2d_Arlq_deslA-eps-converted-to.pdf, id=10593, 397.485pt x 25
+5.95625pt>
+File: Imagens/Cap7/cavFF2d_Arlq_deslA-eps-converted-to.pdf Graphic file (type p
+df)
+<use Imagens/Cap7/cavFF2d_Arlq_deslA-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_Arlq_deslA-eps-converted-to.pdf  
+used on input line 324.
+(pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
+Package epstopdf Info: Source file: <Imagens/Cap7/cavFF2d_deslA.eps>
+(epstopdf)                    date: 2025-03-09 20:29:05
+(epstopdf)                    size: 41584 bytes
+(epstopdf)             Output file: <Imagens/Cap7/cavFF2d_deslA-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2025-04-28 10:30:10
+(epstopdf)                    size: 18259 bytes
+(epstopdf)             Command: <epstopdf --outfile=Imagens/Cap7/cavFF2d_deslA-
+eps-converted-to.pdf Imagens/Cap7/cavFF2d_deslA.eps>
+(epstopdf)             \includegraphics on input line 331.
+Package epstopdf Info: Output file is already uptodate.
+<Imagens/Cap7/cavFF2d_deslA-eps-converted-to.pdf, id=10595, 397.485pt x 255.956
+25pt>
+File: Imagens/Cap7/cavFF2d_deslA-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF2d_deslA-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_deslA-eps-converted-to.pdf  used 
+on input line 331.
+(pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_vel4.pdf): PDF i
+nclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF2d_vel4.pdf, id=10599, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/cavFF2d_vel4.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF2d_vel4.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel4.pdf  used on input line 341.
+
+(pdftex.def)             Requested size: 191.02356pt x 154.15038pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_vel8.pdf): PDF i
+nclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF2d_vel8.pdf, id=10601, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/cavFF2d_vel8.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF2d_vel8.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel8.pdf  used on input line 342.
+
+(pdftex.def)             Requested size: 193.5842pt x 154.15038pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_vel14.pdf): PDF 
+inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF2d_vel14.pdf, id=10603, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/cavFF2d_vel14.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF2d_vel14.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel14.pdf  used on input line 343
+.
+(pdftex.def)             Requested size: 187.6719pt x 145.59082pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_vel21.pdf): PDF 
+inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF2d_vel21.pdf, id=10605, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/cavFF2d_vel21.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF2d_vel21.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel21.pdf  used on input line 344
+.
+(pdftex.def)             Requested size: 187.67189pt x 145.59082pt.
+[105
+pdfTeX warning (ext4): destination with the same identifier (name{table.5.1}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.347 \end{figure}
+                  ]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_press4.pdf): PDF
+ inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF2d_press4.pdf, id=10611, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/cavFF2d_press4.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF2d_press4.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_press4.pdf  used on input line 35
+1.
+(pdftex.def)             Requested size: 191.02356pt x 154.15038pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_press8.pdf): PDF
+ inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF2d_press8.pdf, id=10613, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/cavFF2d_press8.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF2d_press8.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_press8.pdf  used on input line 35
+2.
+(pdftex.def)             Requested size: 193.5842pt x 154.15038pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_press14.pdf): PD
+F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF2d_press14.pdf, id=10615, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/cavFF2d_press14.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF2d_press14.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_press14.pdf  used on input line 3
+53.
+(pdftex.def)             Requested size: 187.6719pt x 145.59082pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_press21.pdf): PD
+F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF2d_press21.pdf, id=10617, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/cavFF2d_press21.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF2d_press21.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF2d_press21.pdf  used on input line 3
+54.
+(pdftex.def)             Requested size: 187.67189pt x 145.59082pt.
+[106
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.4}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.364 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.5}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.364 
+       <./Imagens/Cap7/cavFF2d_malha.pdf> <./Imagens/Cap7/cavFF2d_Arlq_deslA-ep
+s-converted-to.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_geometria.pdf): 
+PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF3d_geometria.pdf, id=10648, 134.46771pt x 110.03534pt>
+File: Imagens/Cap7/cavFF3d_geometria.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF3d_geometria.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF3d_geometria.pdf  used on input line
+ 367.
+(pdftex.def)             Requested size: 268.93475pt x 220.07013pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_malha.pdf): PDF 
+inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF3d_malha.pdf, id=10652, 867.23994pt x 650.43pt>
+File: Imagens/Cap7/cavFF3d_malha.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF3d_malha.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF3d_malha.pdf  used on input line 376
+.
+(pdftex.def)             Requested size: 810.33247pt x 451.25963pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_malhaPlaca.pdf):
+ PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/cavFF3d_malhaPlaca.pdf, id=10654, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/cavFF3d_malhaPlaca.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF3d_malhaPlaca.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF3d_malhaPlaca.pdf  used on input lin
+e 377.
+(pdftex.def)             Requested size: 289.07487pt x 171.28256pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [107
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.6}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.385 
+       <./Imagens/Cap7/cavFF2d_deslA-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <Imagens/Cap7/cavFF3d_deslA.eps>
+(epstopdf)                    date: 2025-03-13 21:58:33
+(epstopdf)                    size: 37500 bytes
+(epstopdf)             Output file: <Imagens/Cap7/cavFF3d_deslA-eps-converted-t
+o.pdf>
+(epstopdf)                    date: 2025-04-28 10:30:10
+(epstopdf)                    size: 15568 bytes
+(epstopdf)             Command: <epstopdf --outfile=Imagens/Cap7/cavFF3d_deslA-
+eps-converted-to.pdf Imagens/Cap7/cavFF3d_deslA.eps>
+(epstopdf)             \includegraphics on input line 388.
+Package epstopdf Info: Output file is already uptodate.
+<Imagens/Cap7/cavFF3d_deslA-eps-converted-to.pdf, id=10681, 397.485pt x 255.956
+25pt>
+File: Imagens/Cap7/cavFF3d_deslA-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap7/cavFF3d_deslA-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap7/cavFF3d_deslA-eps-converted-to.pdf  used 
+on input line 388.
+(pdftex.def)             Requested size: 397.48402pt x 255.95561pt.
+ [108
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.7}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.403 
+       <./Imagens/Cap7/cavFF2d_vel4.pdf> <./Imagens/Cap7/cavFF2d_vel8.pdf> <./I
+magens/Cap7/cavFF2d_vel14.pdf> <./Imagens/Cap7/cavFF2d_vel21.pdf>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prisma_geometria.pdf): P
+DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/prisma_geometria.pdf, id=10721, 744.36113pt x 414.3404pt>
+File: Imagens/Cap7/prisma_geometria.pdf Graphic file (type pdf)
+<use Imagens/Cap7/prisma_geometria.pdf>
+Package pdftex.def Info: Imagens/Cap7/prisma_geometria.pdf  used on input line 
+406.
+(pdftex.def)             Requested size: 372.17966pt x 207.16968pt.
+
+Underfull \vbox (badness 6110) has occurred while \output is active []
+
+ [109
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.8}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.412 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.9}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.412 
+       <./Imagens/Cap7/cavFF2d_press4.pdf> <./Imagens/Cap7/cavFF2d_press8.pdf> 
+<./Imagens/Cap7/cavFF2d_press14.pdf> <./Imagens/Cap7/cavFF2d_press21.pdf> <./Im
+agens/Cap7/cavFF3d_geometria.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [110
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.10})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.416 
+       <./Imagens/Cap7/cavFF3d_malha.pdf> <./Imagens/Cap7/cavFF3d_malhaPlaca.pd
+f>]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prisma_malha.pdf): PDF i
+nclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/prisma_malha.pdf, id=10817, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/prisma_malha.pdf Graphic file (type pdf)
+<use Imagens/Cap7/prisma_malha.pdf>
+Package pdftex.def Info: Imagens/Cap7/prisma_malha.pdf  used on input line 419.
+
+(pdftex.def)             Requested size: 416.55156pt x 231.3227pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prisma_malhaPlaca.pdf): 
+PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/prisma_malhaPlaca.pdf, id=10819, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/prisma_malhaPlaca.pdf Graphic file (type pdf)
+<use Imagens/Cap7/prisma_malhaPlaca.pdf>
+Package pdftex.def Info: Imagens/Cap7/prisma_malhaPlaca.pdf  used on input line
+ 420.
+(pdftex.def)             Requested size: 433.62335pt x 17.92537pt.
+
+Underfull \vbox (badness 2865) has occurred while \output is active []
+
+ [111
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.11})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.425 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.12})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.425 
+       <./Imagens/Cap7/cavFF3d_deslA-eps-converted-to.pdf> <./Imagens/Cap7/pris
+ma_geometria.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [112
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.13})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.432 
+       <./Imagens/Cap7/prisma_malha.pdf> <./Imagens/Cap7/prisma_malhaPlaca.pdf>
+]
+Package epstopdf Info: Source file: <Imagens/Cap7/prisma_deslA.eps>
+(epstopdf)                    date: 2025-03-19 17:39:54
+(epstopdf)                    size: 93961 bytes
+(epstopdf)             Output file: <Imagens/Cap7/prisma_deslA-eps-converted-to
+.pdf>
+(epstopdf)                    date: 2025-04-28 10:36:36
+(epstopdf)                    size: 42495 bytes
+(epstopdf)             Command: <epstopdf --outfile=Imagens/Cap7/prisma_deslA-e
+ps-converted-to.pdf Imagens/Cap7/prisma_deslA.eps>
+(epstopdf)             \includegraphics on input line 437.
+Package epstopdf Info: Output file is already uptodate.
+<Imagens/Cap7/prisma_deslA-eps-converted-to.pdf, id=10882, 454.69875pt x 255.95
+625pt>
+File: Imagens/Cap7/prisma_deslA-eps-converted-to.pdf Graphic file (type pdf)
+<use Imagens/Cap7/prisma_deslA-eps-converted-to.pdf>
+Package pdftex.def Info: Imagens/Cap7/prisma_deslA-eps-converted-to.pdf  used o
+n input line 437.
+(pdftex.def)             Requested size: 454.69763pt x 255.95561pt.
+
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_deforMalhaMono.pdf
+): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap7/prism_deforMalhaMono.pdf, id=10884, 1445.4pt x 1084.05pt>
+File: Imagens/Cap7/prism_deforMalhaMono.pdf Graphic file (type pdf)
+<use Imagens/Cap7/prism_deforMalhaMono.pdf>
+Package pdftex.def Info: Imagens/Cap7/prism_deforMalhaMono.pdf  used on input l
+ine 444.
+(pdftex.def)             Requested size: 361.34912pt x 271.01184pt.
+[113
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.14})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.450 
+      
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5.15})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.450 
+       <./Imagens/Cap7/prisma_deslA-eps-converted-to.pdf> <./Imagens/Cap7/prism
+_deforMalhaMono.pdf>]) (./tese_patricia.bbl [114]
+bibitemlist
+[115
+
+] [116] [117] [118] [119] [120] [121] [122] [123] [124])
 No file tese_patricia.ind.
-[88]
+
+Class memoir Warning: The material used in the headers is too large
+(28.99998pt) for the given head height (14.5pt), it is recommended to
+either increase the head height or redesign the header
+(in both cases you will find help in the memoir manual). on input line 603.
+
+[125]
 \tf@lof=\write7
 \openout7 = `tese_patricia.lof'.
 
@@ -3005,13 +3854,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 42065 strings out of 474222
- 799819 string characters out of 5748733
- 1957975 words of memory out of 5000000
- 62515 multiletter control sequences out of 15000+600000
- 681364 words of font info for 301 fonts, out of 8000000 for 9000
+ 42911 strings out of 474222
+ 820126 string characters out of 5748733
+ 1958975 words of memory out of 5000000
+ 63055 multiletter control sequences out of 15000+600000
+ 687508 words of font info for 344 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 110i,21n,107p,1747b,781s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 110i,21n,107p,1747b,778s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmbsy8.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
@@ -3026,19 +3875,20 @@ lic/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmbx8.pfb></usr/share
 m/lmex10.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi10.pfb></usr/share/tex
 mf/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf/fonts/type1/public/lm/lmm
 i6.pfb></usr/share/texmf/fonts/type1/public/lm/lmmi7.pfb></usr/share/texmf/font
-s/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb><
-/usr/share/texmf/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/
-public/lm/lmr6.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share
-/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/l
-mri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/
-fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.
-pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/ty
-pe1/public/tex-gyre/qtmr.pfb>
-Output written on tese_patricia.pdf (90 pages, 34841278 bytes).
+s/type1/public/lm/lmmi8.pfb></usr/share/texmf/fonts/type1/public/lm/lmmib10.pfb
+></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf/fonts/type
+1/public/lm/lmr12.pfb></usr/share/texmf/fonts/type1/public/lm/lmr6.pfb></usr/sh
+are/texmf/fonts/type1/public/lm/lmr7.pfb></usr/share/texmf/fonts/type1/public/l
+m/lmr8.pfb></usr/share/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf
+/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy1
+0.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts
+/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pf
+b>
+Output written on tese_patricia.pdf (127 pages, 49020101 bytes).
 PDF statistics:
- 2508 PDF objects out of 2984 (max. 8388607)
- 2085 compressed objects within 21 object streams
- 543 named destinations out of 1000 (max. 500000)
- 71744 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 11461 PDF objects out of 12825 (max. 8388607)
+ 8153 compressed objects within 82 object streams
+ 725 named destinations out of 1000 (max. 500000)
+ 78523 words of extra memory for PDF output out of 89155 (max. 10000000)
 
