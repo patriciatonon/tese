@@ -5,7 +5,7 @@
 % ---------------------------------------------------------- 
 % Métodos de malhas sobrepostas
 % ----------------------------------------------------------
-\chapter[Análise isogeométrica aplicada à Mecânica dos Fluidos]{Análise isogeométrica aplicada à Mecânica dos Fluidos} \label{capitulo:Cap3}
+\chapter[Análise isogeométrica aplicada à Dinâmica dos Fluidos Computacional]{Análise isogeométrica aplicada à Dinâmica dos Fluidos Computacional} \label{capitulo:Cap3}
 % ----------------------------------------------------------
 
 %\nomenclature[C,01]{$p$}{Grau das funções base na direção paramétrica $\xsi$;}
@@ -52,8 +52,9 @@ A Análise Isogeométrica (IGA) é uma técnica numérica introduzida por \citeo
 Na Análise Isogeométrica, as funções base escolhidas na discretização da geometria do problema e de suas variáveis são aquelas utilizadas nos sistemas CAD, sendo as funções do tipo NURBS as mais aplicadas (ver, por exemplo, \citeonline{PiegT:1996}). O grande impulso para o desenvolvimento da técnica foi proporcionar a integração entre a engenharia de \textit{design}, com modelos baseados em CAD, e as simulações numéricas, com modelos principalmente baseados no MEF, de forma que ambas trabalhem com somente um modelo geométrico.
 
 Além disso, a IGA apresenta vantagens significativas, uma vez que permite a representação exata de diversas geometrias comuns, como seções cônicas, círculos, cilindros, esferas e elipsoides, além de dispor de algoritmos eficientes e estáveis para a geração de objetos NURBS. As funções NURBS, em particular, possuem propriedades matemáticas que as tornam adequadas para aplicações numéricas, destacando-se a elevada suavidade — com continuidade 
-$p-1$  nas interfaces entre elementos, sendo $p$ o grau das funções —, a alta capacidade de aproximação e a possibilidade de refinamento local por meio da inserção de \textit{knots}, que correspondem às coordenadas do espaço paramétrico nas quais as funções são definidas
+$p-1$  nas interfaces entre elementos, sendo $p$ o grau das funções —, a alta capacidade de aproximação e a possibilidade de refinamento local por meio da inserção de \textit{knots}, que correspondem às coordenadas do espaço paramétrico nas quais as funções são definidas.
 
+{\color{red}REVER ESSE TRECHO QUANDO TERMINAR O CAPÍTULO}.
 Nesse capítulo apresenta-se uma breve introdução sobre a IGA, o processo de obtenção das geometrias NURBS e seu uso na descrição das variáveis discretas nas simulações numéricas. As referências bibliográficas que fundamentam esta construção são \citeonline{HughesCB:2005} e \citeonline{PiegT:1996}. Por fim, são apresentados alguns exemplos de sua aplicação em problemas da DFC.
 
 %\vspace{-0.1cm}
@@ -62,7 +63,7 @@ Nesse capítulo apresenta-se uma breve introdução sobre a IGA, o processo de o
 
 No contexto do MEF isoparamétrico, a formulação é construída a partir da definição de uma malha e de seus elementos, os quais são representados tanto no espaço físico quanto no espaço paramétrico. Cada elemento é caracterizado pelas coordenadas de seus nós, sendo os graus de liberdade do problema associados aos valores das funções de forma interpolados nesses pontos nodais.
 
-Dentro da IGA têm-se duas noções de malha: uma malha de pontos de controle e uma malha física. A malha de pontos de controle é muito semelhante a uma malha de elementos finitos, entretanto, ela não define a geometria, ela é apenas um esqueleto que controla o formato da geometria (ver Fig. \ref{fig:espacos_NURBS}), devido ao fato de que as funções de forma baseadas em \textit{B-Splines} não são necessariamente interpolatórias. Dessa forma, os graus de liberdade do problema são associados aos pontos de controle, cujas posições não coincidem, necessariamente, com a geometria representada.
+Dentro da IGA têm-se duas noções de malha: uma malha de pontos de controle e uma malha física. A malha de pontos de controle é muito semelhante a uma malha de elementos finitos, entretanto, ela não define a geometria, ela é apenas um esqueleto que controla o formato da geometria (ver Fig. \ref{fig:espacos_NURBS}), visto que as funções de forma baseadas em \textit{B-Splines} não são necessariamente interpolatórias. Dessa forma, os graus de liberdade do problema são associados aos pontos de controle, cujas posições não coincidem, necessariamente, com a geometria representada.
 
 \begin{figure}[htb!]
 	\centering 
@@ -74,27 +75,27 @@ Dentro da IGA têm-se duas noções de malha: uma malha de pontos de controle e 
 
 A malha física representa a geometria discretizada. Dentro da malha física podem ser definidos dois tipos de elementos, um macro-elemento, denominado de \textit{patch}, e o \textit{knot span}, que é o equivalente a um elemento finito e será denominado como célula ao longo desse texto. Cada \textit{patch} é composto por um conjunto de células. Muitas geometrias simples podem ser discretizadas apenas com um \textit{patch}, entretanto, a depender da complexidade da geometria ou de requisitos de parametrização, se torna necessário o uso de um conjunto de \textit{patches}. As células são representações geométricas de linhas, superfícies e volumes nos espaços físicos unidimensional, bidimensional e tridimensional respectivamente.
 
-Cada \textit{patch} e suas respectivas células possuem uma representação ainda no espaço paramétrico (Fig. \ref{fig:espacos_NURBS}), que é o espaço onde as funções base são definidas. O espaço paramétrico, para os casos unidimensionais, é definido por um \textit{knot vector}, aqui denominado de vetor de \textit{knots}, que é um conjunto de \textit{knots} ou coordenadas paramétricas. As células são constituídas pelo espaço entre dois \textit{knots}. O espaço onde se representam todas as células, inclusive as nulas (quando mais de um \textit{knot} ocupa a mesma posição), é chamado de espaço indicial.
+Cada \textit{patch} e suas respectivas células possuem uma representação no espaço paramétrico (Fig. \ref{fig:espacos_NURBS}), que é o espaço onde as funções base são definidas. O espaço paramétrico, para os casos de funções univariadas, é definido por um \textit{knot vector}, aqui denominado de vetor de \textit{knots}, que é um conjunto de \textit{knots} ou coordenadas paramétricas. As células são constituídas pelo espaço entre dois \textit{knots} consecutivos. O espaço onde se representam todas as células, inclusive as nulas (quando mais de um \textit{knot} ocupa a mesma posição), é chamado de espaço indicial.
 
-Por fim, na análise isogeométrica conta-se ainda com o espaço parental, que é o espaço de integração numérica das funções base, em geral, definido de forma adimensional $[-1, 1]$ dentro de um elemento. Na Fig. \ref{fig:espacos_NURBS} pode-se observar os espaços relatados para uma superfície 3D construída por funções base quadráticas e apenas um \textit{patch}. 
+Por fim, na análise isogeométrica conta-se ainda com o espaço parental, que é o espaço de integração numérica das funções base, em geral, definido de forma adimensional $[-1, 1]$ dentro de uma célula. Na Fig. \ref{fig:espacos_NURBS} pode-se observar os espaços relatados para uma superfície 3D construída por funções base quadráticas e apenas um \textit{patch}. 
 
-\section{Representação geométrica utilizando \newline{NURBS}} \label{capitulo:Cap3:RepreGeo}´
+\section{\textit{B-Splines}} \label{capitulo:Cap3:Bsplines}´
 
-\subsection{\textit{B-Splines}}
-
-Para a construção de uma geometria NURBS, é fundamental compreender as funções base \textit{B-splines} e suas particularidades. Essas funções servem como o ponto de partida para a definição de curvas, superfícies e sólidos NURBS, sendo essenciais para o entendimento da flexibilidade e controle geométrico oferecido por esse modelo. As \textit{B-splines} são funções \textit{spline} que dependem de um conjunto de pontos de controle e de um vetor de coordenadas paramétricas (vetor de \textit{knots}), os quais determinam a forma e a continuidade da geometria.
+Para a construção de uma geometria NURBS, é fundamental compreender as funções base \textit{B-splines} e suas particularidades. Essas funções servem como o ponto de partida para a definição de curvas, superfícies e sólidos NURBS, sendo essenciais para o entendimento da flexibilidade e controle geométrico oferecido por esse modelo. As \textit{B-splines} são funções construídas através de um vetor de coordenadas paramétricas (vetor de \textit{knots}) e que dependem de um conjunto de pontos de controle, sendo esses elementos responsáveis por estabelecer a forma geométrica e o grau de continuidade da curva ou superfície.
 
 
-\subsubsection{Vetor de \textit{knots}}
+\subsection{Vetor de \textit{knots}}
 
-As funções \textit{B-Splines}, utilizadas na construção das NURBS, são definidas em um espaço paramétrico que é comum a um conjunto de células ou \textit{patch}. O espaço paramétrico unidimensional é construído através de um vetor de \textit{knots}, que consiste em um conjunto não decrescente de coordenadas paramétricas, definido como: $\Xsi=\left[\xsi_{0},\xsi_{1},...,\xsi_{n+p+1}\right]$,  sendo que $\xsi_{i}\in \realspace$ e representa a coordenada paramétrica do \textit{knot} $i$ com $i = 0, 1, ..., n+p+1$, $n$ é o número de funções base nesta direção paramétrica e $p$ o seu grau polinomial. Os \textit{knots} definem células no espaço paramétrico, cujos contornos são mapeados pelas funções base para formar a malha no espaço físico. 
+As funções \textit{B-Splines}, utilizadas na construção das NURBS, são definidas em um espaço paramétrico que é comum a um conjunto de células ou \textit{patch}. O espaço paramétrico unidimensional é construído através de um vetor de \textit{knots}, que consiste em um conjunto não decrescente de coordenadas paramétricas, definido como: $\Xsi=\left[\xsi_{0},\xsi_{1},...,\xsi_{n+p+1}\right]$,  sendo que $\xsi_{i}\in \realspace$ e representa a i-ésima coordenada paramétrica  com $i = 0, 1, ..., n+p+1$, e $p$ corresponde ao grau polinomial das funções. O parâmetro 
+$n$ equivale ao índice da última função base nesta direção paramétrica, sendo o conjunto de funções base indexado de 
+$0 \ \text{a}  \ n$, totalizando $n+1$ funções. Os \textit{knots} definem células no espaço paramétrico, cujos contornos são mapeados pelas funções base para formar a malha no espaço físico. 
 
 O vetor de \textit{knots} pode ser classificado como uniforme, quando as coordenadas paramétricas são igualmente espaçadas, e como não-uniformes, caso contrário.
 A multiplicidade de um \textit{knot} pode ser superior a um, influenciando diretamente na continuidade e na forma das funções base, conforme será visto posteriormente.  Os vetores de \textit{knots} conhecidos como abertos, são frequentemente utilizados nas literaturas de CAD, e caracterizam-se por ter a primeira e a última coordenada paramétrica repetidas $p+1$ vezes. Este fato garante que as funções sejam interpolatórias nos extremos do espaço paramétrico e nas bordas entre \textit{patches}, proporcionando, por exemplo, a homogeneidade com respeito às condições de contorno essenciais. 
 
-\subsubsection{Funções base e suas derivadas}
+\subsection{Funções base e suas derivadas}
 
-As funções base \textit{B-Splines} univariadas são definidas a partir de um vetor de \textit{knots}, sendo para $p=0$, escritas através da seguinte relação:
+As funções base \textit{B-Splines} ($\Nb$) univariadas são definidas a partir de um vetor de \textit{knots}, sendo para $p=0$, escritas através da seguinte relação:
 
 \begin{align}
 \Nb_{i,0}(\xsi) = \begin{cases} 1 &\mbox{if } \xsi_i\leq\xsi<\xsi_{i+1} \\
@@ -105,13 +106,14 @@ As funções base \textit{B-Splines} univariadas são definidas a partir de um v
 
 \begin{align}
 \Nb_{i,p}(\xsi)=\frac{\xsi-\xsi_{i}}{\xsi_{i+p}-\xsi_{i}}\Nb_{i,p-1}(\xsi) + 
-\frac{\xsi_{i+p+1}-\xsi}{\xsi_{i+p+1}-\xsi_{i+1}}\Nb_{i+1,p-1}(\xsi). \label{eq:bsplines_n}
+\frac{\xsi_{i+p+1}-\xsi}{\xsi_{i+p+1}-\xsi_{i+1}}\Nb_{i+1,p-1}(\xsi), \label{eq:bsplines_n}
 \end{align}
 
+\noindent com $i=0,1,...,n$.
 
-Essas equações são conhecidas como a fórmula recursiva de \textit{Cox-de Boor} \cite{Cox1972,DEBOOR1972}. Para funções B-Spline de grau $p=0$ ou $p=1$, obtêm-se, respectivamente, as mesmas funções constantes e lineares por partes utilizadas no método dos elementos finitos padrão.
+Essas equações são conhecidas como a fórmula recursiva de \textit{Cox-de Boor} \cite{Cox1972,DEBOOR1972}. Para funções \textit{B-Splines} de grau $p=0$ ou $p=1$, obtêm-se, respectivamente, as mesmas funções constantes e lineares por partes utilizadas no método dos elementos finitos padrão.
 
-Na Fig.\ref{fig:bspline_funcoes}, pode-se observar funções \textit{B-Splines} quadráticas construídas sobre o vetor de \textit{knots} não-uniforme aberto $\Xsi=\left[0,0,0,1,2,3,3,4,4,4\right]$. A figura evidencia que, devido à repetição de $p+1$ ocorrências dos \textit{knots} nas extremidades do vetor, as funções base se tornam interpolatórias nesses pontos. Ademais, a presença de um \textit{knot} com multiplicidade 2 em $\xsi=3$ reduz a regularidade da função base nesse ponto, resultando na descontinuidade da sua derivada. Em termos gerais, a continuidade de uma função \textit{B-Spline} em uma coordenada paramétrica é dada por $C^{p-m}$, onde $m$ é a multiplicidade do \textit{knot}.
+Na Fig.\ref{fig:bspline_funcoes}, pode-se observar funções \textit{B-Splines} quadráticas construídas sobre o vetor de \textit{knots} não-uniforme aberto $\Xsi=\left[0,0,0,1,2,3,3,4,4,4\right]$. A figura evidencia que, devido à repetição de $p+1$ vezes dos \textit{knots} nas extremidades do vetor, as funções base se tornam interpolatórias nesses pontos. Ademais, a presença de um \textit{knot} com multiplicidade 2 em $\xsi=3$ reduz a regularidade da função base nesse ponto, resultando na descontinuidade da sua derivada. Em termos gerais, a continuidade de uma função \textit{B-Spline} em uma coordenada paramétrica é dada por $C^{p-m}$, onde $m$ é a multiplicidade do \textit{knot}.
 
 \begin{figure}[htb!]
 	\centering 
@@ -138,7 +140,7 @@ A derivada de uma função de forma \textit{B-Spline} pode ser calculada recursi
 Essa expressão pode ser generalizada para derivadas de ordem superior através de:
 
 \begin{align}
-	\frac{\deriv^{k}}{\deriv^{k} \xsi} \Nb_{i,p}(\xsi) = \frac{p!}{\left(p-k\right)!} \sum_{j=0}^{k}{\alpha_{k,j}\Nb_{i+j,p-k}(\xsi)},
+	\frac{\deriv^{k}}{\deriv \xsi^{k}} \Nb_{i,p}(\xsi) = \frac{p!}{\left(p-k\right)!} \sum_{j=0}^{k}{\alpha_{k,j}\Nb_{i+j,p-k}(\xsi)},
 \end{align}
 
 sendo $k$ a k-ésima derivada da função $\Nb_{i,p}(\xsi)$ e:
@@ -158,16 +160,16 @@ sendo $k$ a k-ésima derivada da função $\Nb_{i,p}(\xsi)$ e:
 
 Algoritmos eficientes para a determinação das funções de forma \textit{B-Splines} e de suas derivadas podem ser encontradas em \citeonline{PiegT:1996}.
 
-\subsubsection{Geometrias \textit{B-Splines}}
+\subsection{Geometrias \textit{B-Splines}}
 
-Uma curva \textit{B-Spline} é construída a partir da combinação linear entre funções base e um conjunto de pontos de controle. Considerando um conjunto de $n$ funções base $\Nb_{i,p}$ e respectivos pontos de controle $\CP_i$ $\in \nrealspace$ com $i = 0,1,...,n$,
-uma curva polinomial por partes \textit{B-Spline} unidimensional é definida como:
+Uma curva \textit{B-Spline} é construída a partir da combinação linear entre funções base e um conjunto de pontos de controle. Considerando um conjunto de $n+1$ funções base $\Nb_{i,p}$ e respectivos pontos de controle $\CP_i$ $\in \nrealspace$ com $i = 0,1,...,n$,
+uma curva polinomial por partes \textit{B-Spline} univariada é definida como:
 
 \begin{align}
 \mathbf{C} =\pos\left(\xsi\right) = \sum_{i=0}^{n}\Nb_{i,p}(\xsi)\CP_i,
 \end{align}
 
-\noindent com $y_1$, $y_2$ e $y_3$ sendo as coordenadas físicas de um espaço cartesiano. Utilizando as funções \textit{B-Splines} apresentadas na Fig.\ref{fig:bspline_funcoes} e uma malha de pontos de controle qualquer, obtém-se a curva apresentada na Fig.\ref{fig:bspline_malhaPC}. Na Fig.\ref{fig:bspline_curva} pode-se observar as células físicas equivalentes a essa combinação.
+\noindent com $y_1$, $y_2$ e $y_3$ as componentes do vetor de coordenadas físicas $\pos$. Utilizando as funções \textit{B-Splines} apresentadas na Fig.\ref{fig:bspline_funcoes} e uma malha de pontos de controle, obtém-se a curva apresentada na Fig.\ref{fig:bspline_malhaPC}. Na Fig.\ref{fig:bspline_curva} pode-se observar as células físicas equivalentes a essa combinação.
 
 \begin{figure}[!htb]
 	\centering	
@@ -176,20 +178,20 @@ uma curva polinomial por partes \textit{B-Spline} unidimensional é definida com
 	\caption{Curva \textit{B-Spline}}
 \end{figure}
 
-A partir da Fig.\ref{fig:bspline_curva} pode-se constatar que a curva \textit{B-Spline} interpola o primeiro e o último ponto de controle, que é uma característica das curvas construídas com funções descritas a partir de vetores de \textit{knots} abertos. Adicionalmente nota-se que, devido à multiplicidade do \textit{knot} de coordenada paramétrica $\xsi=3$, existe um ponto de controle intermediário também interpolando a curva. 
+A partir da Fig.\ref{fig:bspline_malhaPC} pode-se constatar que a curva \textit{B-Spline} interpola o primeiro e o último ponto de controle, que é uma característica das curvas construídas com funções descritas a partir de vetores de \textit{knots} abertos. Adicionalmente nota-se que, devido à multiplicidade do \textit{knot} de coordenada paramétrica $\xsi=3$, existe um ponto de controle intermediário também interpolando a curva. 
 Coordenadas paramétricas com multiplicidade maior ou igual ao grau polinomial $p$ resultam, por definição, em interpolação dos pontos de controle associados.
 Além disso, a curva possui continuidade $C^{p-1} = C^{1}$ em todos os lugares, exceto em $\xsi = 3$, onde equivale a $C^{p-2} = C^{0}$, que trata-se de uma propriedade herdada das funções base.
 
 Conforme observado  Fig.\ref{fig:bspline_curva}, muitas das características de curvas \textit{B-Splines} são consequências das propriedades das funções \textit{B-splines}. Outra importante propriedade dessas curvas é a Transformação Afim, que significa que uma transformação afim de uma curva B-spline é obtida aplicando a transformação diretamente aos pontos de controle. Além disso, devido ao suporte compacto das funções base, as curvas \textit{B-Splines} possuem característica denominada de \textit{localidade}, que significa que, movendo-se um ponto de controle, afeta-se não mais do que $p+1$ células na curva. Outras propriedades matemáticas das curvas \textit{B-Splines} podem ser consultadas em detalhes em \citeonline{PiegT:1996}.
 
-Uma superfície \textit{B-spline} é obtida analogamente à curva \textit{B-spline}. Dado uma rede de pontos de controle $\CP_{i,j}$ $\in \nrealspace$ com $i = 0,1,...,n$ e $j = 0,1,..., m$, e vetores de \textit{knots} $\Xsi = \left[\xsi_{0},\xsi_{1},...,\xsi_{p+n+1}\right]$, $\mathcal{H} = \left[\eta_{0},\eta_{1},...,\eta_{q+m+1}\right]$, a superfície é obtida através do produto tensorial entre $n$ funções univariadas $\Nb_{i,p}$ e $m$ funções univariadas $\Mb_{j,q}$ da seguinte forma:
+Uma superfície \textit{B-spline} é obtida analogamente à curva \textit{B-spline}. Dado uma rede de pontos de controle $\CP_{i,j}$ $\in \nrealspace$ com $i = 0,1,...,n$ e $j = 0,1,..., m$, e vetores de \textit{knots} $\Xsi = \left[\xsi_{0},\xsi_{1},...,\xsi_{p+n+1}\right]$, $\mathcal{H} = \left[\eta_{0},\eta_{1},...,\eta_{q+m+1}\right]$, a superfície é obtida através do produto tensorial entre $(n+1)$ funções univariadas $\Nb_{i,p}$ e $(m+1)$ funções univariadas $\Mb_{j,q}$ da seguinte forma:
 
 \begin{align}
 \mathbf{S} = \pos\left(\xsi,\eta\right)  = \sum_{i=0}^{n}\sum_{j=0}^{m}\Nb_{i,p}(\xsi)\Mb_{j,q}(\eta)\CP_{i,j},
 \end{align}
 
-\noindent onde $q$ representa o grau das funções na direção paramétrica $\eta$. 
-Muitas das propriedades das superfícies B-Splines são resultado da natureza do produto tensorial que as geram. A base de funções apresenta propriedade de positividade e formam uma partição de unidade, de forma que: $\forall(\xsi,\eta)$ $in \left[\xsi_{0},\xsi_{1},...,\xsi_{p+n+1}\right] \times  \left[\eta_{0},\eta_{1},...,\eta_{q+m+1}\right]$:
+\noindent onde $q$ representa o grau das $m+1$ funções na direção paramétrica $\eta$. 
+Muitas das propriedades das superfícies \textit{B-Splines} são resultado da natureza do produto tensorial que as geram. A base de funções apresenta propriedade de positividade e formam uma partição de unidade, de forma que: $\forall(\xsi,\eta)$ $in \left[\xsi_{0},\xsi_{1},...,\xsi_{p+n+1}\right] \times  \left[\eta_{0},\eta_{1},...,\eta_{q+m+1}\right]$:
 
 \begin{align}
  \sum_{i=0}^{n}\sum_{j=0}^{m}\Nb_{i,p}(\xsi)\Mb_{j,q}(\eta) = \left(\sum_{i=0}^{n} \Nb_{i,p}(\xsi)\right) \left(\sum_{j=0}^{m} \Mb_{j,q}(\eta)\right) = 1.
@@ -197,22 +199,22 @@ Muitas das propriedades das superfícies B-Splines são resultado da natureza do
 
 O suporte, por exemplo, de uma função bivariada $\hat{\Nb}_{i,j:p,q}\left(\xsi,\eta\right) = \Nb_{i,p}(\xsi)\Mb_{j,q}(\eta)$ é equivalente à: $\left[\xsi_{i},\xsi_{i+p+1}\right]\times\left[\eta_{j},\eta_{j+q+1}\right]$.
 
-Por fim, um sólido \textit{B-Spline} é obtido através do produto tensorial entre funções univariadas $\Nb_{i,p}$, $\Mb_{j,q}$, $\Lb_{k,r}$, construídas sobre os vetores de \textit{knots} $\Xsi = \left[\xsi_{0},\xsi_{1},...,\xsi_{p+n+1}\right]$, $\mathcal{H} = \left[\eta_{0},\eta_{1},...,\eta_{q+m+1}\right]$ e $\mathcal{Z} = \left[\zeta_{0},\zeta_{1},...,\zeta_{l+r+1}\right]$ respectivamente, e um conjunto de pontos de controle  $\CP_{i,j,k}$ $\in \nrealspace$ com $i = 0,1,...,n$, $j = 0,1,..., m$, $k = 0,1,..., r$, da seguinte forma:
+Por fim, um sólido \textit{B-Spline} é obtido através do produto tensorial entre funções univariadas $\Nb_{i,p}$, $\Mb_{j,q}$, $\Lb_{k,r}$, construídas sobre os vetores de \textit{knots} $\Xsi = \left[\xsi_{0},\xsi_{1},...,\xsi_{p+n+1}\right]$, $\mathcal{H} = \left[\eta_{0},\eta_{1},...,\eta_{q+m+1}\right]$ e $\mathcal{Z} = \left[\zeta_{0},\zeta_{1},...,\zeta_{r+l+1}\right]$ respectivamente, e um conjunto de pontos de controle  $\CP_{i,j,k}$ $\in \nrealspace$ com $i = 0,1,...,n$, $j = 0,1,..., m$, $k = 0,1,..., l$, da seguinte forma:
 
 \begin{align}
 \mathbf{T} = \pos\left(\xsi,\eta,\zeta\right)  = \sum_{i=0}^{n}\sum_{j=0}^{m}\sum_{k=0}^{l}\Nb_{i,p}(\xsi)\Mb_{j,q}(\eta)\Lb_{k,r}(\zeta)\CP_{i,j,k},
 \end{align}
 
-\noindent na qual $l$ e $r$ representam o número de funções e o grau das funções na direção paramétrica $\zeta$. As propriedades de um sólido \textit{B-Spline}, correspondem às generalizações trivariadas das propriedades das superfícies \textit{B-Spline}. Além disso, o suporte de uma função trivariada $\hat{\Nb}_{i,j,k:p,q,r}\left(\xsi,\eta,\zeta\right) = \Nb_{i,p}(\xsi)\Mb_{j,q}(\eta)\Lb_{k,r}(\zeta)$ está contido no intervalo $\left[\xsi_{i},\xsi_{i+p+1}\right]\times\left[\eta_{j},\eta_{j+q+1}\right]\times\left[\zeta_{k},\zeta_{k+r+1}\right]$.
+\noindent na qual $r$ representa o grau das $l+1$ funções base na direção paramétrica $\zeta$. As propriedades de um sólido \textit{B-Spline}, correspondem às generalizações trivariadas das propriedades das superfícies \textit{B-Spline}. Além disso, o suporte de uma função trivariada $\hat{\Nb}_{i,j,k:p,q,r}\left(\xsi,\eta,\zeta\right) = \Nb_{i,p}(\xsi)\Mb_{j,q}(\eta)\Lb_{k,r}(\zeta)$ está contido no intervalo $\left[\xsi_{i},\xsi_{i+p+1}\right]\times\left[\eta_{j},\eta_{j+q+1}\right]\times\left[\zeta_{k},\zeta_{k+r+1}\right]$.
 
 
-\subsubsection{Refinamento}
+\subsection{Refinamento}
 
-Um dos aspectos mais relevantes das \textit{B-splines} é a flexibilidade na forma de enriquecimento da base, permitindo aprimorar sua representação sem alterar a geometria subjacente nem sua parametrização. Dentre os principais procedimentos utilizados, destacam-se: a inserção de \textit{knots} (ou refinamento $h$), que consiste na subdivisão da malha; a elevação de grau (ou refinamento $p$), que aumenta a ordem polinomial das funções base; o refinamento $k$, que promove simultaneamente um aumento da ordem e da continuidade entre elementos; e, por fim, o refinamento $hpk$, que combina de forma coordenada as três estratégias anteriores, oferecendo maior controle e eficiência na representação da geometria e na solução numérica de problemas.
+Um dos aspectos mais relevantes das \textit{B-splines} é a flexibilidade na forma de enriquecimento da base, permitindo aprimorar sua representação sem alterar a geometria subjacente nem sua parametrização. Dentre os principais procedimentos utilizados, destacam-se: a inserção de \textit{knots} (ou refinamento $h$), que consiste na subdivisão da malha; a elevação de grau (ou refinamento $p$), que aumenta a ordem polinomial das funções base; o refinamento $k$, que promove simultaneamente um aumento da ordem e da continuidade entre células; e, por fim, o refinamento $hpk$, que combina de forma coordenada as três estratégias anteriores, oferecendo maior controle e eficiência na representação da geometria e na solução numérica de problemas.
 
 Neste trabalho, será adotado na geração das geometrias o refinamento $h$, baseado na inserção de \textit{knots}. Por essa razão, somente essa estratégia será abordada ao longo desse texto.
 
-O enriquecimento das funções base utilizando a inserção de \textit{knots} é realizado sem que se altere uma curva geometricamente ou parametricamente. Para essa finalidade, considerando o vetor de \textit{knots} $\Xsi = [\xsi_1,\xsi_2, ..., \xsi_{n+p+1}]$, será introduzido o conceito de vetor de \textit{knots} estendido, o qual compreende em: $\bar{\Xsi} = [\bar{\xsi_1} = \xsi_1,\bar{\xsi_2}, ..., \bar{\xsi_{n+m+p+1}}= \xsi_{n+p+1}]$. As $n+m$ novas funções de base \textit{B-Splines} são determinadas através da Eq. \ref{eq:bsplines_0} e Eq. \ref{eq:bsplines_n} aplicando-as ao vetor de \textit{knots} $\bar{\Xsi}$. Os $n+m$ novos pontos de controle  $\bar{\mathcal{B}} = [\bar{\CP}_0,\bar{\CP}_1,..., \bar{\CP}_{n+m}]^{T}$ são obtidos através da combinação linear dos $n$ pontos de controle originais, $\mathcal{B} = [\CP_0,\CP_1,..., \CP_{n}]^{T}$, por:
+O enriquecimento das funções base utilizando a inserção de \textit{knots} é realizado sem que se altere uma curva geometricamente ou parametricamente. Para essa finalidade, considerando o vetor de \textit{knots} $\Xsi = [\xsi_0,\xsi_1, ..., \xsi_{n+p+1}]$, será introduzido o conceito de vetor de \textit{knots} estendido, o qual compreende em: $\bar{\Xsi} = [\bar{\xsi}_0 = \xsi_0,\bar{\xsi}_1, ..., \bar{\xsi}_{n+m+p+1}= \xsi_{n+p+1}]$. As $(n+m+1)$ novas funções de base \textit{B-Splines} são determinadas através da Eq. \ref{eq:bsplines_0} e Eq. \ref{eq:bsplines_n}, aplicando-as ao vetor de \textit{knots} $\bar{\Xsi}$. Os $(n+m+1)$ novos pontos de controle  $\bar{\mathcal{B}} = [\bar{\CP}_0,\bar{\CP}_1,..., \bar{\CP}_{n+m}]^{T}$ são obtidos através da combinação linear dos $(n+1)$ pontos de controle originais, $\mathcal{B} = [\CP_0,\CP_1,..., \CP_{n}]^{T}$, por:
 
 
 \begin{align}
@@ -222,223 +224,281 @@ O enriquecimento das funções base utilizando a inserção de \textit{knots} é
 \noindent, com:
 
 \begin{align}
-	\mathbf{T}_{ij}^{0} = \begin{cases} 1 &\mbox{if } \bar{\xsi}_i \in \left[\xsi_j,\xsi_{j+1}\right) \\
+	\mathbf{T}_{ij}^{0} = \begin{cases} 1 &\mbox{se } \bar{\xsi}_i \in \left[\xsi_j,\xsi_{j+1}\right) \\
 		0 & \mbox{caso contrário } \end{cases}, 
 \end{align}
 
-\noindent e:
-
 \begin{align}
-	\mathbf{T}_{ij}^{q+1} = \frac{\bar{\xsi}_{i+q}-\xsi_j}{\xsi_{j+q}-\xsi_j}\mathbf{T}_{ij}^{q} + \frac{\xsi_{j+q+1}-\bar{\xsi}_{i+q}}{\xsi_{j+q+1}-\xsi_{j+1}}\mathbf{T}_{ij+1}^{q} \text{com} q=0,1,2,...,p-1.
+	\mathbf{T}_{ij}^{q+1} = \frac{\bar{\xsi}_{i+q}-\xsi_j}{\xsi_{j+q}-\xsi_j}\mathbf{T}_{ij}^{q} + \frac{\xsi_{j+q+1}-\bar{\xsi}_{i+q}}{\xsi_{j+q+1}-\xsi_{j+1}}\mathbf{T}_{ij+1}^{q} \ \text{com} \ q=0,1,2,...,p-1,
 \end{align}
 
-Considerando uma curva quadrática \textit{B-spline} construída sobre um vetor de \textit{knots} aberto $\Xsi=[0,0,0,1,1,1]$ apresentada na Fig. \ref{fig:bspline_pc_ai} juntamente com sua rede de pontos de controle. Essa curva, possui apenas um elemento no espaço físico, conforme pode ser observado na Fig. \ref{fig:bspline_curva_ai}, e $3$ funções base no espaço paramétrico (Fig. \ref{fig:bspline_base_ai}). Ao realizar-se a inserção de um \textit{knot}, $\xsi=1/2$, o vetor de \textit{knots} estendido fica definido como: $\bar{\Xsi}=[0,0,0,1/2,1,1,1]$. Aplicando-se as Eq. \ref{eq:bsplines_0} e Eq. \ref{eq:bsplines_n} à esse vetor de coordenadas paramétricas, obtém-se as $4$ funções base apresentadas na Fig.\ref{fig:bspline_base_di} definidas sobre 2 células do espaço paramétrico. Após o emprego do refinamento $h$, a geometria da curva é preservada. No entanto, como ilustrado na Fig. \ref{fig:bspline_curva_di}, uma nova célula física é inserida, além de que, de acordo com a Fig. \ref{fig:bspline_pc_di}, a malha de pontos de controle é modificada, com o acréscimo um novo ponto e o reajuste de suas posições.
+\noindent sendo $i=0,1,...,(n+m)$ e $j=0,1,...,n$.
+
+Considerando uma curva quadrática \textit{B-spline} construída sobre um vetor de \textit{knots} aberto $\Xsi=[0,0,0,1,1,1]$ apresentada na Fig. \ref{fig:bspline_pc_ai} juntamente com sua rede de pontos de controle. Essa curva, possui apenas uma célula no espaço físico, conforme pode ser observado na Fig. \ref{fig:bspline_curva_ai}, e $3$ funções base no espaço paramétrico (Fig. \ref{fig:bspline_base_ai}). Ao realizar-se a inserção de um \textit{knot}, $\xsi=1/2$, o vetor de \textit{knots} estendido fica definido como: $\bar{\Xsi}=[0,0,0,1/2,1,1,1]$. Aplicando-se as Eq. \ref{eq:bsplines_0} e Eq. \ref{eq:bsplines_n} à esse vetor de coordenadas paramétricas, obtém-se as $4$ funções base apresentadas na Fig.\ref{fig:bspline_base_di} definidas sobre 2 células do espaço paramétrico. Após o emprego do refinamento $h$, a geometria da curva é preservada. No entanto, como ilustrado na Fig. \ref{fig:bspline_curva_di}, uma nova célula física é inserida, além de que, de acordo com a Fig. \ref{fig:bspline_pc_di}, a malha de pontos de controle é modificada, com o acréscimo de um novo ponto e o reajuste de suas posições.
 
 
 \begin{figure}[!t]
 	\centering
 	\subfloat[\label{fig:bspline_pc_ai}Curva original e pontos de pontrole]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 1cm, clip=true]{Imagens/Cap3/bspline_pc_ai.pdf}} 
 	\subfloat[\label{fig:bspline_pc_di}Curva refinada e pontos de controle]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 1cm, clip=true]{Imagens/Cap3/bspline_pc_di.pdf}} \\ 
-	\subfloat[\label{fig:bspline_curva_ai}Elementos curva original]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 1cm, clip=true]{Imagens/Cap3/bspline_curva_ai.pdf}} 
-	\subfloat[\label{fig:bspline_curva_di}Elementos curva refinada]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 1cm, clip=true]{Imagens/Cap3/bspline_curva_di.pdf}} \\ 
+	\subfloat[\label{fig:bspline_curva_ai}Célula curva original]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 1cm, clip=true]{Imagens/Cap3/bspline_curva_ai.pdf}} 
+	\subfloat[\label{fig:bspline_curva_di}Células curva refinada]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 1cm, clip=true]{Imagens/Cap3/bspline_curva_di.pdf}} \\ 
 	\subfloat[\label{fig:bspline_base_ai}Funções base originais]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0.5cm, clip=true]{Imagens/Cap3/bspline_base_ai.pdf}} 
-	\subfloat[\label{fig:bspline_base_di}Funções base após refinamento $h$ refinada]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0.5cm, clip=true]{Imagens/Cap3/bspline_base_di.pdf}} 
+	\subfloat[\label{fig:bspline_base_di}Funções base após refinamento $h$ refinada]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0.4cm, clip=true]{Imagens/Cap3/bspline_base_di.pdf}} 
 	\caption{Refinamento $h$ para um curva \textit{B-Spline}}
 	\label{fig:bspline_insercaoKnots}
 \end{figure}
 
+Para fins práticos, o processo de refinamento consiste na inserção consecutiva de coordenadas paramétricas ao vetor de \textit(knots) até que se alcance a discretização desejada. Um algoritmo mais eficiente para realizar esse procedimento de refinamento pode ser encontrado em \citeonline{PiegT:1996}. Esse procedimento pode ser aplicado analogamente à superfícies e sólidos, aplicando-se a inserção de \textit{knots} nas direções paramétricas desejadas.
 
-\subsection{\textit{B-Splines} não-uniformes racionais e análise isogeométrica}
 
-Uma entidade NURBS no $\realspace^{d}$ pode ser entendida, de ponto de vista geométrico, como a projeção transformativa de uma entidade \textit{B-Spline} no $\realspace^{d+1}$. Geometrias cônicas podem ser construídas exatamente pela projeção transformativa de curvas por partes quadráticas (para maiores detalhes sobre projeção transformativa, ver \citeonline{Farin:1999}). Na Fig. \ref{fig:circunferencia}, apresenta-se uma curva NURBS $\mathbf{C}\left(\xsi\right)$, que representa, de forma exata, uma circunferência, sendo essa obtida a partir da projeção de uma curva \textit{B-Spline} $\mathbf{C}^{w}\left(\xsi\right)$.
+\section{NURBS}
+
+Uma geometria NURBS no $\nrealspace$ pode ser entendida, do ponto de vista geométrico, como a transformação projetiva de uma geometria \textit{B-Spline} no $\realspace^{\nsd+1}$. Nesse contexto, geometrias cônicas podem ser construídas exatamente através de curvas quadráticas por partes. Na Fig. \ref{fig:NURBS_curva_transProj}, apresenta-se uma curva NURBS $\mathbf{C}\left(\xsi\right)$ no $\realspace^{2}$ , que representa de forma exata uma circunferência, a qual foi obtida a partir da transformação projetiva de uma curva quadrática por partes \textit{B-Spline} ($\mathbf{C}^{w}\left(\xsi\right)$) no  $\realspace^{3}$. A transformação é realizada através da projeção em um plano $y_3 = 1$ de cada ponto da curva projetiva ($\mathbf{C}^{w}\left(\xsi\right)$) através de um raio que passa pela origem.
+
+\begin{figure}[!htb]
+	\centering	
+	\subfloat[Projeção transformativa malha de pontos de controle\label{fig:NURBS_PC_transProj}]{\includegraphics[scale=0.4,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap3/NURBS_PC_projetiva.pdf}} \ \ 
+	\subfloat[Projeção transformativa \textit{B-Spline} \label{fig:NURBS_curva_transProj}]{\includegraphics[scale=0.4,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap3/NURBS_curva_projetiva.pdf}}
+	\caption{Projeção transformativa de entidade \textit{B-Spline}}
+\end{figure}
+
+O mesmo procedimento de transformação pode ser realizado para obtenção dos pontos de controle NURBS (Fig. \ref{fig:NURBS_PC_transProj}) a partir de pontos de controle projetivos ($\mathbf{B_i}^w$), usando a seguinte relação:
+
+\begin{align}
+	\left(\CP_i\right)_j = \left(\CP^w_i\right)_j/w_i, \ \ j=1,...,\nsd ,
+\end{align}
+
+\begin{align}
+	w_i =   \left(\CP^w_i\right)_{\nsd+1},
+\end{align}
+
+\noindent com $\left(\CP_i\right)_j$ o j-ésimo componente do vetor $\CP_i$ e $w_i$ refere-se ao i-ésimo peso, que consiste na coordenada $y_3$ dos pontos de controle projetivos para o exemplo citado.
+
+Para a aplicação dessa mesma transformação para cada ponto da curva, será utilizado um conceito de função peso, dada por:
+
+\begin{align}
+	W(\xsi) = \sum_{\hat{i}=0}^{n}\Nb_{\hat{i},p}(\xsi)w_{\hat{i}},
+\end{align}
+
+e a curva NURBS pode ser definida como:
+
+\begin{align}
+	\left(\mathbf{C}(\xsi)\right)_j = \left(\mathbf{C}^w(\xsi)\right)_j/W(\xsi), \ \ j = 1,...,\nsd.
+\end{align}
+
+Tanto $\mathbf{C}^w$ como $W(\xsi)$ são funções polinomiais por partes, dessa forma, $\mathbf{C}(\xsi)$ é uma função racional por partes.
+
+\subsection{Funções base NURBS e suas derivadas}
+
+Matematicamente, uma função NURBS é obtida pela racionalização de uma função \textit{B-Spline}. A racionalização dessa função ocorre através da razão entre dois polinômios. Uma função racional NURBS $\left(\fNURBS\right)$ é construída através da seguinte expressão, dessa forma, têm-se:
+
+\begin{align}
+\fNURBS_{i,p}(\xsi) = \frac{\Nb_{i,p}(\xsi)w_i}{\sum_{\hat{i}=0}^{n}\Nb_{\hat{i},p}(\xsi)w_{\hat{i}}}.  \label{eq:NURBS_function}
+\end{align}
+
+\noindent com $w_{i}$ e $w_{\hat{i}}$ $\in \realspace$, sendo $i = \hat{i} =  0, 1, ... , n$.
+
+A derivada de uma função $\fNURBS_{i,p}$ é obtida aplicando simplesmente a regra do quociente à expressão da Eq. \ref{eq:NURBS_function}:
+
+\begin{align}
+	\frac{\deriv}{\deriv \xsi} \fNURBS_{i,p}(\xsi) = w_{i} \frac{W\left(\xsi\right)\Nbl\left(\xsi\right) - W^{'}\left(\xsi\right)\Nb_{i,p}\left(\xsi\right)}{\left(W\left(\xsi\right)\right)^2},
+\end{align}
+
+\noindent com:
+
+\begin{align}
+	\Nbl\left(\xsi\right) \equiv \frac{\deriv}{\deriv \xsi} \Nb_{i,p}\left(\xsi\right),
+\end{align}
+
+\noindent e:
+
+\begin{align}
+	W^{'}\left(\xsi\right) = \sum_{\hat{i}=0}^{n} \Nblc \left(\xsi\right) w_{\hat{i}}.
+\end{align}
+
+A $k$-ésima derivada de $\fNURBS_{i,p}$ é obtida em termos de derivadas de menores ordem, através da seguinte expressão:
+
+\begin{align}
+\frac{\deriv^{k}}{\deriv \xsi^{k}} \fNURBS_{i,p}(\xsi) = \frac{A_{i}^{\left(k\right)} \left(\xsi\right) - \sum_{j=1}^{k} \binom{k}{j} W^{\left(j\right)} \left(\xsi\right) \frac{\deriv^{(k-j)}}{\deriv \xsi^{(k-j)}}\fNURBS_{i,p} \left(\xsi\right)}{W\left(\xsi\right)}
+\end{align}
+
+\noindent com:
+
+\begin{align}
+\binom{k}{j} = \frac{k!}{j!\left(k-j\right)!} ,
+\end{align}
+
+\begin{align}
+	W^{\left(j\right)}\left(\xsi\right) = \frac{\deriv^{j}}{\deriv \xsi^{j}} W \left(\xsi\right) ,
+\end{align}
+
+\noindent e:
+
+\begin{align}
+ A_{i}^{\left(k\right)} \left(\xsi\right)  = w_i \frac{\deriv^k}{\deriv\xsi^k}\Nb_{i,p} \left(\xsi\right)\text{sem soma em $i$}.
+\end{align}
+
+\subsection{Geometria NURBS}
+
+Uma curva NURBS é obtida através da combinação linear entre as funções base NURBS e um conjunto de pontos de controle, conforme expresso pela equação abaixo: 
+
+\begin{align}
+\mathbf{C} = \pos\left(\xsi\right) = \sum_{i=0}^{n}\fNURBS_{i,p}(\xsi)\CP_i, \label{eq:curveNURBS}
+\end{align}
+
+\noindent cujos pontos de controle e pesos são escolhidos criteriosamente de forma a obter-se a geometria desejada.
+
+Analogamente uma superfície NURBS é obtida através das seguintes relações:
+
+\begin{align}
+\fNURBS_{i,j:p,q}(\xsi,\eta) = \frac{\Nb_{i,p}(\xsi)\Mb_{j,q}(\eta)w_{i,j}}{\sum_{\hat{i}=0}^{n}\sum_{\hat{j}=0}^{m}\Nb_{\hat{i},p}(\xsi)\Mb_{\hat{j},q}(\eta)w_{\hat{i},\hat{j}}},
+\end{align}
+
+\begin{align}
+\mathbf{S} = \pos\left(\xsi,\eta\right) = \sum_{i=0}^{n}\sum_{j=0}^{m}\fNURBS_{i,j:p,q}(\xsi,\eta)\CP_{i,j}, \label{eq:surfaceNURBS}
+\end{align}
+
+\noindent com $w_{i,j}$ e $w_{\hat{i},\hat{j}}$ $\in \realspace$, sendo $i = \hat{i} =  0, 1, ... , n$ e  $j = \hat{j} =  0, 1, ... , m$ , correspondem aos pesos relativos às funções $\left(\Nb_{i,p}\left(\xsi\right)\Mb_{j,q}\left(\eta\right)\right)$ e $\left(\Nb_{\hat{i},p}\left(\xsi\right)\Mb_{\hat{j},q}\left(\eta\right)\right)$ respectivamente. Por fim, um sólido NURBS é obtido por:
+
+\begin{align}
+\fNURBS_{i,j,k:p,q,r}(\xsi,\eta,\zeta) = \frac{\Nb_{i,p}(\xsi)\Mb_{j,q}(\eta)\Lb_{k,r}(\zeta)w_{i,j,k}}
+{\sum_{\hat{i}=0}^{n}\sum_{\hat{j}=0}^{m}\sum_{\hat{k}=0}^{l}\Nb_{\hat{i},p}(\xsi)\Mb_{\hat{j},q}(\eta)\Lb_{\hat{k},r}(\zeta)w_{\hat{i},\hat{j},\hat{k}}},
+\end{align}
+
+\begin{align}
+\mathbf{T} = \pos\left(\xsi,\eta,\zeta\right) = \sum_{i=0}^{n}\sum_{j=0}^{m}\sum_{k=0}^{l}\fNURBS_{i,j,k:p,q,r}(\xsi,\eta,\zeta)\CP_{i,j,k}, \label{eq:solidNURBS}
+\end{align}
+
+\noindent onde $w_{i,j,k}$ e $w_{\hat{i},\hat{j},\hat{k}}$ $\in \realspace$, sendo $i = \hat{i} =  0, 1, ... , n$, $j = \hat{j} =  0, 1, ... , m$ e $k = \hat{k} =  0, 1, ... , l$, correspondem aos pesos relativos às funções $\left(\Nb_{i,p}\left(\xsi\right)\Mb_{j,q}\left(\eta\right)\Lb_{k,r}\left(\zeta\right)\right)$ e $(\Nb_{\hat{i},p}\left(\xsi\right)\Mb_{\hat{j},q}\left(\eta\right)\Lb_{\hat{k},r}\left(\zeta\right))$ respectivamente.
+
+\subsection{Múltiplos \textit{Patches}}
+
+Na grande maioria das situações práticas, é necessário para descrever um domínio computacional o uso de múltiplos \textit{Patches} NURBS, isto se deve ao fato que o produto tensorial do espaço paramétrico não é adequado para a representação de domínios complexos multiplamente conectados. Ademais, mesmo para domínios simples, do ponto de vista da simulação numérica, o uso de múltiplos \textit{patches} pode ser adequado para discretização das geometrias, conforme será visto na seção de exemplos.
+
+\citeonline{HughesCB:2005} cita ainda que o uso de múltiplos \textit{patches} pode facilitar a análise numérica quando diferentes materiais e modelos físicos são utilizados em diferentes partes do domínio. E, além disso, em processamento paralelo, pode se tornar conveniente, do ponto de vista de estruturas de dados, não ter um único \textit{patch} entre diferentes processadores.
+
+A utilização de múltiplos \textit{patches} implica na compatibilização da discretização na interface entre \textit{patches} adjacentes, ou seja, a parametrização e o mapeamento devem ser idênticos nesses locais. Cada ponto de controle em uma face de \textit{patches} adjacentes deve possuir um correspondente na outra face. Esses pontos iguais são tratados como um único ponto de controle dentro do sistema global resultante da análise numérica. 
+
+Ressalta-se ainda, que na interface entre os \textit{patches}, devido a natureza interpolatória do vetores de \textit{knots} abertos, as funções base terão continuidade $C_0$, conforme pode ser observado na Fig. \ref{fig:multiplos_patches}, onde apresentam-se as funções base univariadas na interface entre dois \textit{patches}.
 
 \begin{figure}[htb!]
 	\centering 
-	\includegraphics[scale=0.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/transformacaoprojetiva.png}	
-	\caption{Projeção transformativa para obtenção circunferência. Fonte: \citeonline{CottrelHB:2009}}
-	\label{fig:circunferencia}
+	\includegraphics[scale=0.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/patches.pdf}	
+	\caption{Funções base univariadas na interface entre \textit{Patches}}
+	\label{fig:multiplos_patches}
 \end{figure}
 
-Matematicamente, uma função NURBS é obtida pela racionalização de uma função \textit{B-Spline}. A racionalização dessa função ocorre através da razão entre dois polinômios. Uma função racional NURBS $\left(R\right)$ é construída através da seguinte expressão:
+
+\section{Análise Isogeométrica}
+
+
+Para a aplicação da IGA no contexto da Dinâmica dos Fluidos Computacional, será utilizada como base a metodologia apresentada no Cap. \ref{capitulo:Cap2}. Nesse contexto, a aproximação da geometria, realizada no contexto do MEF pela Eq. \ref{eq:interp_geo}, será substituída pela abordagem Isogeométrica através do uso de geometrias NURBS, descritas pelas equações: Eq. \ref{eq:curveNURBS}, Eq. \ref{eq:surfaceNURBS} ou Eq. \ref{eq:solidNURBS} para os casos de curvas, superfícies ou sólidos respectivamente.
+
+As funções tentativa para velocidade e pressão, e as funções teste associadas à elas, apresentadas nas Eq. \eqref{eq:interp_vel} à Eq. \eqref{eq:inter_ptest} como $N$, são equivalentes à $\fNURBS_{i,p}(\xsi)$, $\fNURBS_{i,j:p,q}(\xsi,\eta)$ e $\fNURBS_{i,j,k:p,q,r}(\xsi,\eta,\zeta)$ a depender da geometria em análise.
+
+A integração numérica nas células é realizada através da quadratura Gaussiana. Considerando o domínio paramétrico de uma célula: $\bar{\domain}^{e}$, e o domínio de integração ou parental: $\tilde{\domain}^{e}$, apresentados na Fig.\ref{fig:espacos_NURBS}, definidos respectivamente pelos vetores de coordenadas paramétricas $\coordAdimen\left(\xsi,\eta,\zeta\right)$ e $\tilde{\coordAdimen}(\tilde{\xsi},\tilde{\eta},\tilde{\zeta})$, a matriz jacobiana do mapeamento do espaço físico, com coordenadas $\pos \left(y_1,y_2,y_3\right)$,  para o espaço de quadratura, é definida por:
 
 \begin{align}
-R_{i}^{p}(\xsi) = \frac{N_{i,p}(\xsi)w_i}{\sum_{\hat{i}=0}^{n}N_{\hat{i},p}(\xsi)w_{\hat{i}}}
-\end{align}
+\frac{d\pos}{d\tilde{\coordAdimen}} = \frac{d\pos}{d\coordAdimen} \frac{d\coordAdimen}{d\tilde{\coordAdimen}}, \label{eq:integ}
+\end{align} 
 
-\noindent onde $w_i$ e $w_{\hat{i}}$ $\in \realspace$, com $i = \hat{i} =  0, 1, ... , n$ , correspondem aos pesos relativos as funções $N_{i,p}\left(\xsi\right)$ e $N_{\hat{i},p}\left(\xsi\right)$ respectivamente. 
+\noindent com $\tilde{\xi}, \tilde{\eta}, \tilde{\zeta} \in [-1, 1]$.
 
-A $d$-ésima derivada de $R_{i}$ (onde suprimiu-se o índice $p$ para facilitar a representação), é obtida da seguinte forma:
+O primeiro termo à direita da igualdade da Eq. \eqref{eq:integ} é calculado a partir das derivadas parciais da Equação: Eq. \eqref{eq:curveNURBS}, Eq. \eqref{eq:surfaceNURBS} ou Eq. \eqref{eq:solidNURBS}, a depender do tipo da geometria em questão (curva, superfície ou sólido, respectivamente).
 
-\begin{align}
-R_{i}^{d}(\xsi) = \frac{N_{i}^{d}(\xsi)w_i - \sum_{l=1}^{d}\left[\binom{d}{l}\sum_{j=1}^{n}N_{j}^{l}(\xsi)w_{j}R_{i}^{d-l}(\xsi)\right]}{\sum_{{j}=0}^{n}N_{{j}}(\xsi)w_{{j}}},
-\end{align}
-
-\noindent em que:
-\begin{align}
-\binom{d}{l} = \frac{d!}{l!\left(d-l\right)!}.
-\end{align}
-
-Uma curva NURBS é obtida por:
+Para a obtenção do segundo termo à direita, primeiramente é necessário definir-se a relação entre as coordenadas  do domínio paramétrico e do domínio parental. Considerando-se a célula $\bar{\domain}^{e} = [\xsi_{i},\xsi_{i+1}] \times [\eta_{j},\eta_{j+1}] \times [\zeta_{k},\zeta_{k+1}]$, pode-se calcular $\xsi,\eta, \zeta$ $\in \bar{\domain}^{e}$ a partir de $\tilde{\xsi},\tilde{\eta}, \tilde{\zeta}$ $\in \tilde{\domain}^{e}$ através das seguintes relações: 
 
 \begin{align}
-\mathbf{C} = \pos\left(\xsi\right) = \sum_{i=0}^{n}R_{i}^{p}(\xsi)\CP_i, \label{eq:curveNURBS}
-\end{align}
-
-\noindent sendo os pesos selecionados de maneira a se obter a geometria desejada. Analogamente uma superfície NURBS é obtida através das seguintes relações:
-
-\begin{align}
-R_{i,j}^{p,q}(\xsi,\eta) = \frac{N_{i,p}(\xsi)M_{j,q}(\eta)w_{i,j}}{\sum_{\hat{i}=0}^{n}\sum_{\hat{j}=0}^{m}N_{\hat{i},p}(\xsi)M_{\hat{j},q}(\eta)w_{\hat{i},\hat{j}}},
+\xsi = \xsi_{i} + \left(\tilde{\xsi}+1\right) \left(\frac{\xsi_{i+1}-\xsi_{i}}{2}\right), \label{eq:derXsi}
 \end{align}
 
 \begin{align}
-\mathbf{S} = \pos\left(\xsi,\eta\right) = \sum_{i=0}^{n}\sum_{j=0}^{m}R_{i,j}^{p,q}(\xsi,\eta)\CP_{i,j}, \label{eq:surfaceNURBS}
-\end{align}
-
-\noindent com $w_{i,j}$ e $w_{\hat{i},\hat{j}}$ $\in \realspace$, sendo $i = \hat{i} =  0, 1, ... , n$ e  $j = \hat{j} =  0, 1, ... , m$ , correspondem aos pesos relativos às funções $\left(N_{i,p}\left(\xsi\right)M_{j,q}\left(\eta\right)\right)$ e $\left(N_{\hat{i},p}\left(\xsi\right)M_{\hat{j},q}\left(\eta\right)\right)$ respectivamente. Por fim, um sólido NURBS é obtido por:
-
-\begin{align}
-R_{i,j,k}^{p,q,r}(\xsi,\eta,\zeta) = \frac{N_{i,p}(\xsi)M_{j,q}(\eta)L_{k,r}(\zeta)w_{i,j,k}}
-{\sum_{\hat{i}=0}^{n}\sum_{\hat{j}=0}^{m}\sum_{\hat{k}=0}^{l}N_{\hat{i},p}(\xsi)M_{\hat{j},q}(\eta)L_{\hat{k},r}(\zeta)w_{\hat{i},\hat{j},\hat{k}}},
-\end{align}
-
-\begin{align}
-\mathbf{T} = \pos\left(\xsi,\eta,\zeta\right) = \sum_{i=0}^{n}\sum_{j=0}^{m}\sum_{k=0}^{l}R_{i,j,k}^{p,q,r}(\xsi,\eta,\zeta)\CP_{i,j,k}, \label{eq:solidNURBS}
-\end{align}
-
-\noindent onde $w_{i,j,k}$ e $w_{\hat{i},\hat{j},\hat{k}}$ $\in \realspace$, sendo $i = \hat{i} =  0, 1, ... , n$, $j = \hat{j} =  0, 1, ... , m$ e $k = \hat{k} =  0, 1, ... , l$, correspondem aos pesos relativos às funções $\left(N_{i,p}\left(\xsi\right)M_{j,q}\left(\eta\right)L_{k,r}\left(\zeta\right)\right)$ e $(N_{\hat{i},p}\left(\xsi\right)M_{\hat{j},q}\left(\eta\right)L_{\hat{k},r}\left(\zeta\right))$ respectivamente.
-
-Na aplicação da IGA, as funções tentativa para velocidade e pressão, e as funções peso associadas a elas, apresentadas nas Eq. \eqref{eq:vel} à Eq. \eqref{eq:ptest} como $N$, são equivalentes à $R_{i}^{p}(\xsi)$, $R_{i,j}^{p,q}(\xsi,\eta)$ e $R_{i,j,k}^{p,q,r}(\xsi,\eta,\zeta)$ para os casos unidimensional, bidimensional e tridimensional respectivamente. E a geometria é representada pelas Eq. \eqref{eq:curveNURBS}, Eq. \eqref{eq:surfaceNURBS} e Eq. \eqref{eq:solidNURBS} dependendo da dimensão do problema em análise. 
-
-A integração numérica nas células é realizada através da quadratura Gaussiana. Considerando o domínio paramétrico de uma célula $\tilde{\domain}^{e}$ e o domínio parental $\hat{\domain}^{e}$  apresentados na Fig.\ref{fig:espacos}, definidos respectivamente em um espaço tridimensional pelas coordenadas $\coordAdimen\left(\xsi,\eta,\zeta\right)$ e $\hat{\coordAdimen}(\hat{\xsi},\hat{\eta},\hat{\zeta})$, a matriz jacobiana do mapeamento do espaço físico, com coordenadas $\mathbf{x} \left(x,y,z\right)$,  para o espaço de quadratura, é definida por:
-
-\begin{align}
-\frac{d\pos}{d\hat{\coordAdimen}} = \frac{d\pos}{d\coordAdimen} \frac{d\coordAdimen}{d\hat{\coordAdimen}} \label{eq:integ}
-\end{align}
-
-O primeiro termo à direita da igualdade da Eq. \eqref{eq:integ} é calculado a partir das derivadas de Eq. \eqref{eq:curveNURBS}, Eq. \eqref{eq:surfaceNURBS} e Eq. \eqref{eq:solidNURBS} e o segundo termo, considerando a célula $\tilde{\domain}^{e} = [\xsi_{i},\xsi_{i+1}] \times [\eta_{j},\eta_{j+1}] \times [\zeta_{k},\zeta_{k+1}]$, calcula-se $\xsi,\eta, \zeta$ $\in \tilde{\domain}^{e}$ a partir de $\hat{\xsi},\hat{\eta}, \hat{\zeta}$ $\in \hat{\domain}^{e}$ através das seguintes relações: 
-
-
-\begin{align}
-\xsi = \xsi_{i} + \left(\hat{\xsi}+1\right) \left(\frac{\xsi_{i+1}-\xsi_{i}}{2}\right),
-\end{align}
-
-\begin{align}
-\eta = \eta_{i} + \left(\hat{\eta}+1\right) \left(\frac{\eta_{i+1}-\eta_{i}}{2}\right)
+\eta = \eta_{i} + \left(\tilde{\eta}+1\right) \left(\frac{\eta_{i+1}-\eta_{i}}{2}\right), \label{eq:derNeta}
 \end{align}
 
 \noindent e
 
 \begin{align}
-\zeta = \zeta_{i} + \left(\hat{\zeta}+1\right) \left(\frac{\zeta_{i+1}-\zeta_{i}}{2}\right).
+\zeta = \zeta_{i} + \left(\tilde{\zeta}+1\right) \left(\frac{\zeta_{i+1}-\zeta_{i}}{2}\right), \label{eq:derZeta}
 \end{align}
+
+\noindent assim, $\frac{d\coordAdimen}{d\tilde{\coordAdimen}}$ é obtido derivando-se parcialmente às expressões apresentadas em: Eq. \ref{eq:derXsi}, Eq. \ref{eq:derNeta} e Eq. \ref{eq:derZeta}.
+
 
 \subsection{Parâmetros de estabilização}\label{capitulo:Cap3:RepreGeo:taus2}
 
-Considerando que nesse trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em IGA, adotam-se os parâmetros propostos por \citeonline{TakizawaTO:2018} e \citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. 
+Para a determinação dos parâmetros de estabilização $\tau$, de acordo com o exposto na Subseção \ref{capitulo:Cap2:FormaFraca:taus}, faz-se necessário a determinação de um tensor métrico, $\matrixG$ (Eq. \ref{eq:tensor_metrico}), o qual depende da matriz jacobiana transformada, $\matrixQhat$, definida na Eq. \ref{eq:q_chap}.
 
-Para essa opção é necessário definir-se o tensor métrico do elemento no espaço. Para isso, inicia-se com a definição da matriz Jacobiana $\matrixQ$, dada por:
-
-\begin{align}
-	\matrixQ&=\left(\frac{\partial\pos}{\partial\coordAdimen}\right),
-\end{align}
-
-\noindent com $\coordAdimen$ representando as coordenadas do espaço paramétrico. Para que a ordem polinomial seja levada em consideração na determinação dos parâmetros de estabilização, aplica-se uma mudança de escala na matriz $\matrixQ$, através da matriz $\matrixD$, conforme a seguinte expressão:
+Devido a diferença entre o espaço paramétrico utilizado na definição das funções de base e do espaço paramétrico de integração, definido aqui como espaço parental, a matriz $\matrixQ$ será reescrita como:
 
 \begin{align}
-	\matrixQhat&=\matrixQ\matrixD^{-1}.
+	\matrixQ&=\left(\frac{\partial\pos}{\partial\tilde{\coordAdimen}}\right).
 \end{align}
 
-Para elementos finitos com funções de forma polinomiais Lagrangianas de ordem $p_i$, definidas na direção $i$ do espaço paramétrico, com $-1\leq\xsi_i\leq1$, a matriz $\matrixD$ é definida como:
+Para a obtenção de $\matrixQhat$, de acordo com a Eq. \ref{eq:q_chap}, define-se a matriz $\matrixD$ para análise isogeométrica, de acordo com o trabalho de \citeonline{OtoguroTT:2020}, como:
 
 \begin{align}
-	\matrixD&=\begin{bmatrix}
-		p_{1} & 0 & 0\\
-		0 & p_{2} & 0 \\
-		0 & 0 & p_{3}
-	\end{bmatrix}.
+	\matrixD&=\left(\frac{\partial\hat{\coordAdimen}}{\partial\tilde{\coordAdimen}}\right),
 \end{align}
 
+\noindent que representa a relação entre o espaço paramétrico de preferência, onde o comprimento efetivo do elemento deve ser medido, e o espaço de integração, onde são definidos os pontos de quadratura.
 
-Para discretização utilizando IGA adota-se:
+O espaço paramétrico de preferência, para problemas unidimensionais, é definido para cada elemento por meio de uma interpolação usando polinômios de Bernstein $B_{b}^{p}$ de ordem $p$:
 
 \begin{align}
-	\matrixD&=\left(\frac{\partial\bar{\coordAdimen}}{\partial\coordAdimen}\right),
+	\hat{\xsi} \left(\tilde{\xsi}\right) = \sum_{b=0}^{p} \hat{\xsi}_b B_{b}^{p}\left(\tilde{\xsi}\right),
 \end{align}
 
-\noindent com $\bar{\coordAdimen}$ representando as coordenadas do chamado espaço paramétrico preferido. 
-
-Para problemas em 1D, $\matrixD$ é definido como:
+\noindent com os pontos de controle de Bézier, $\hat{\xsi}_b$, definidos igualmente espaçados da seguinte maneira:
 
 \begin{align}
-	D&=\frac{\Delta\bar{\coordAdimen}}{\min_{a=1,...,p} \Delta\coordAdimen_{a}},
+	\hat{\xsi}_b = \frac{\Delta{\hat{\xsi}}}{p}b,
 \end{align}
 
-\noindent onde $\Delta\bar{\coordAdimen}$ é o comprimento do elemento de Bézier no espaço paramétrico (espaço preferido), $p$ é o grau polinomial das funções base e $\Delta\coordAdimen_{a}$ é:
+\noindent sendo $\Delta{\hat{\xsi}}$ o comprimento paramétrico do elemento de Bézier. 
+
+Os pontos de controle correspondentes no espaço de integração são dados por:
 
 \begin{align}
-	\Delta\coordAdimen_{a}&=\frac{\Delta\bar{\coordAdimen}}{p}\sum_{b=0}^{p} \left({\matrixCinv}_{ba} - \matrixCinv_{ba-1}\right),
+	\tilde{\xsi}_a = \frac{\Delta{\hat{\xsi}}}{p} \sum_{b=0}^{p}b\left\{\matrixCinv\right\}_{ba},
 \end{align}
 
-\noindent a matriz $\matrixCinv$ é o tensor de transformação de Bézier. Para múltiplas dimensões têm-se $\matrixD_{ij} = D^i \delta_{ij} $, com $D^i$ o valor de $D$ na direção $i$.
+\noindent com $a=0,...,p$. $\matrixC$ consiste no operador de extração de Bézier, que relaciona as funções B-spline globais às funções de Bernstein locais, cuja obtenção, nesse trabalho, é realizada de acordo com o exposto em \citeonline{BordenSEH}.
 
-A partir disso, o comprimento direcional do elemento é definido como:
+O comprimento efetivo de elemento para $a = 1, ..., p$ pode ser calculado por:
 
 \begin{align}
-	\RQD &=2\left(\rRGN\rRGN : \matrixG \right)^{-\frac{1}{2}},
+	\Delta{\tilde{\xsi}_a} &= \tilde{\xsi}_a - \tilde{\xsi}_{a-1} \\
+		           &= \frac{\Delta{\hat{\xsi}}}{p} \sum_{b=0}^{p}b\left(\left\{\matrixCinv\right\}_{ba} - \left\{\matrixCinv\right\}_{ba-1}\right).
 \end{align}
 
-\noindent sendo $\rRGN$ o vetor direção unitário da velocidade no elemento e $\matrixG$ uma matriz auxiliar, os quais são representados respectivamente como:
+
+A partir disso pode-se definir o razão entre o comprimento do elemento de Bézier e o comprimento efetivo do elemento. Considerando um problema 1D, uma das proposta dos autores para $D$, utilizada nesse trabalho, chama-se \textit{RQD-MAX} e consiste em:
+
 
 \begin{align}
-	\rRGN&=\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert} \label{eq:erRGN}
+	D&=\frac{\Delta\hat{\xsi}}{\min_{a=1,...,p} \Delta\tilde{\xsi_{a}}},
 \end{align}
 
-\noindent e
+\noindent resultando em:
 
 \begin{align}
-	\matrixG &= \matrixQhat^{-T} \cdot \matrixQhat^{-1}. 
+	D&={p}\left(\min_{a=1,...,p} \sum_{b=0}^{p} b \left(\left\{\matrixCinv\right\}_{ba} - \left\{\matrixCinv\right\}_{ba-1}\right)\right)^{-1} \\
+	  &={p}\max_{a=1,...,p}\left(\sum_{b=0}^{p} b \left(\left\{\matrixCinv\right\}_{ba} - \left\{\matrixCinv\right\}_{ba-1}\right)\right)^{-1}
 \end{align}
 
-O comprimento do elemento é limitado pelos mínimos e máximos valores representados abaixo:
+Para múltiplas dimensões o coeficiente de transformação $D$ é obtido individualmente para cada uma das direções do espaço paramétrico, e os componentes da matriz de transformação $\matrixD$ são determinados como:
 
 \begin{align}
-	h_{min} \equiv 2\min_{r}\left((\rRGN:\matrixG)^{-\frac{1}{2}} \right), \\
-	h_{max} \equiv 2\max_{r}\left((\rRGN:\matrixG)^{-\frac{1}{2}} \right).
+	D_{ij} = D^{i} \delta_{ij},
 \end{align}
 
-Os parâmetros de estabilização são dados por:
+\noindent $i,j = 1,...,n_{pd}$, sendo $n_{pd}$ a dimensão do espaço paramétrico.
 
-\begin{align}
-	\SUPG = \PSPG =\left(\frac{1}{\SUGNi^2} + \frac{1}{\SUGNii^2} + \frac{1}{\SUGNiii^2} \right)^{-\frac{1}{2}},
-\end{align}
 
-\begin{align}
-	\LSIC = \frac{\RQD^2}{\SUPG},
-\end{align}
+{\color{red}VOLTAR AQUI!}.
 
-\noindent onde:
-
-\begin{align}
-	\SUGNi^{-2} = \left(\velocityh - \velocityALEh \right) \left(\velocityh - \velocityALEh \right) : \matrixG ,
-\end{align}
-
-\begin{align}
-	\SUGNii&=\frac{\Delta t}{2},
-\end{align}
-
-\noindent e
-
-\begin{align}
-	\SUGNiii^{-1} = \kviscosity \left(\rRGN_{reg}\rRGN_{reg} : \matrixG + \left(1 - \rRGN_{reg}^2)4h_{min}^{-2} \right)\right) ,
-\end{align}
-
-\noindent sendo $\rRGN_{reg}$ definido como:
-
-\begin{align}
-	\rRGN_{reg} =\frac{\nabla \lVert\velocityh - \velocityALEh\rVert}{\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert + \varepsilon\left(\lVert \nabla \lVert\velocityh - \velocityALEh\rVert\rVert\right)_0},
-\end{align}
-
-\noindent com $\varepsilon$ uma constante pequena e $\left(\lVert \nabla \lVert\velocityh- \velocityALEh\rVert\rVert\right)_0$ um valor de referência. Os termos $\SUGNi$, $\SUGNii$ e $\SUGNiii$ são parâmetros correspondentes aos termos convectivos, inerciais e viscosos, respectivamente.
 
 \section{Verificação e aplicações}
 

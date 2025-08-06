@@ -252,7 +252,7 @@ O tensor de tensões de Cauchy $\stressTensor$ é definido para fluidos newtonia
 
 \subsection{Formulação forte da mecânica dos fluidos}
 
-Seja $\domain \in \nrealspace$, com $\nsd = 2,3$, o domínio espacial que define o escoamento do fluido com contorno $\boundary = \boundaryD \cup \boundaryN$, no instante $t \in (0,\totalTime)$ (ver Fig. \ref{fig:dominioFluido}).
+Seja $\domain \in \nrealspace$, com $\nsd = 1,2,3$ definindo a dimensão do domínio espacial do escoamento com contorno $\boundary = \boundaryD \cup \boundaryN$, no instante $t \in (0,\totalTime)$ (ver Fig. \ref{fig:dominioFluido}).
 
 Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pela equação da quantidade de movimento, ou equações de Navier-Stokes (Eq. \ref{eq:Navier-Stokes}) e da conservação de massa (Eq. \ref{eq:conser_massa_incom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas. Dessa forma, o escoamento é governado pelo seguinte conjunto de equações:
 
@@ -570,7 +570,7 @@ Nesse trabalho são utilizadas funções de forma quadráticas do tipo polinômi
 Adotar a abordagem isoparamétrica implica que a geometria do problema é descrita também pela combinação entre funções de forma e as coordenadas nodais da malha, conforme equação abaixo:
 
 \begin{align}
-	\pos^{h} = \sum_{A = 1}^{\nnos} \pos_{A}\shapef_{A}(\pos),
+	\pos^{h} = \sum_{A = 1}^{\nnos} \pos_{A}\shapef_{A}(\pos),  \label{eq:interp_geo}
 \end{align}
 
 \noindent sendo que para uma geometria tridimensional o vetor $\pos$ possui coordenadas $y_1,y_2$ e $y_3$, as quais representam as posições físicas do domínio; O subíndice "$A$" $ \ $ representa o índice dos nós da malha, $\nnos$ o número total de nós e $\shapef$ as funções de forma da discretização.
@@ -702,9 +702,13 @@ Considerando $\Acceleration$, $\Velocity$ e $\Press$ os vetores nodais dos graus
 
 \subsection{Parâmetros de estabilização}\label{capitulo:Cap2:FormaFraca:taus}
 
-Considerando que nesse trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em IGA, adotam-se os parâmetros propostos por \citeonline{TakizawaTO:2018} e \citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. 
+Para a utilização da metologia estabilizada da DFC, descrita nesse capítulo, a definição adequada dos parâmetros de estabilização desempenha papel fundamental na precisão e estabilidade numérica.
 
-Para essa opção é necessário definir-se o tensor métrico do elemento no espaço. Para isso, inicia-se com a definição da matriz Jacobiana $\matrixQ$, dada por:
+Desde os primeiros desenvolvimentos relacionados aos métodos estabilizados houve um amadurecimento das expressões de definição dos parâmetros $\tau$, as quais passam a levar em consideração formulações mais robustas, sendo adaptadas tanto para elementos de ordem elevadas, quanto para malhas mais complexas, como as usadas em análise isogeométrica.
+
+Considerando que nesse trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em IGA, adotam-se os parâmetros propostos mais recentemente por \citeonline{TakizawaTO:2018}, \citeonline{TakizawaUT:2019},\citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. 
+
+Para essa opção é necessário definir-se o tensor métrico do elemento no espaço. Com essa finalidade, descreve-se inicialmente a matriz Jacobiana $\matrixQ$, como:
 
 \begin{align}
 	\matrixQ&=\left(\frac{\partial\pos}{\partial\coordAdimen}\right),
@@ -712,34 +716,19 @@ Para essa opção é necessário definir-se o tensor métrico do elemento no esp
 
 \noindent com $\coordAdimen$ representando as coordenadas do espaço paramétrico, com componentes $\xi, \eta$ e $\zeta$.
 
-Para que a ordem polinomial seja levada em consideração na determinação dos parâmetros de estabilização, aplica-se uma mudança de escala na matriz $\matrixQ$, através da matriz $\matrixD$, conforme a seguinte expressão:
+Para que a ordem polinomial seja levada em consideração, ou, outros fatores como a dimensão do elemento no espaço paramétrico, aplica-se à $\matrixQ$, uma matriz de transformação ($\matrixD$), conforme a seguinte expressão:
 
 \begin{align}
-	\matrixQhat&=\matrixQ\matrixD^{-1}.
+	\matrixQhat&=\matrixQ\matrixD^{-1} \label{eq:q_chap}.
 \end{align}
 
-Para elementos finitos com funções de forma polinomiais de Lagrange de ordens $p_\xi$, $p_\eta$ e $p_\zeta$ nas direções paramétricas $\xi$, $\eta$ e $\zeta$, respectivamente, com $\xi, \eta, \zeta \in [-1, 1]$, a matriz $\mathbf{D}$ é definida por:
-
-
-\textcolor{red}{e se a variação for de 0,1 ? tem alguma diferença}
-
-\begin{align}
-	\matrixD&=\begin{bmatrix}
-		p_{\xi} & 0 & 0\\
-		0 & p_{\eta} & 0 \\
-		0 & 0 & p_{\zeta0}
-	\end{bmatrix}.
-\end{align}
-
-A definição da matriz $\matrixD$ para elementos isogeométricos será descrita na Subseção \ref{capitulo:Cap3:RepreGeo:taus2}.
-
-O comprimento direcional do elemento é definido como:
+O comprimento direcional do elemento fica definido como:
 
 \begin{align}
 	\RQD &=2\left(\rRGN\rRGN : \matrixG \right)^{-\frac{1}{2}},
 \end{align}
 
-\noindent sendo $\rRGN$ o vetor unitário na direção do gradiente da intensidade da velocidade e $\matrixG$ o tensor métrico do elemento, os quais são representados respectivamente como:
+\noindent o fator 2 vem de um típico espaço paramétrico, que é um quadrado ou um cubo com lado de comprimento 2. $\rRGN$ é o vetor unitário na direção do gradiente da intensidade da velocidade e $\matrixG$ o tensor métrico do elemento, os quais são representados respectivamente como:
 
 \begin{align}
 	\rRGN&=\frac{\gradient \lVert\velocityh - \velocityALEh\rVert}{\lVert \gradient \lVert\velocityh - \velocityALEh\rVert\rVert} \label{eq:rRGN}
@@ -748,10 +737,50 @@ O comprimento direcional do elemento é definido como:
 \noindent e
 
 \begin{align}
-	\matrixG &= \matrixQhat^{-T} \cdot \matrixQhat^{-1}. 
+	\matrixG &= \matrixQhat^{-T} \cdot \matrixQhat^{-1}. \label{eq:tensor_metrico}
 \end{align}
 
-O comprimento do elemento é limitado pelos mínimos e máximos valores representados abaixo:
+Para elementos finitos com funções de forma polinomiais de Lagrange de ordens $p_\xi$, $p_\eta$ e $p_\zeta$ nas direções paramétricas $\xi$, $\eta$ e $\zeta$, respectivamente, com $\xi, \eta, \zeta \in [-1, 1]$, a matriz $\mathbf{D}$ é definida por:
+
+\begin{align}
+	\matrixD&=\begin{bmatrix}
+		p_{\xi} & 0 & 0\\
+		0 & p_{\eta} & 0 \\
+		0 & 0 & p_{\zeta}
+	\end{bmatrix}.
+\end{align}
+
+Em geral, se escolhe o espaço paramétrico baseado em razões como eficiência da integração numérica ou conveniência de implementação. A maioria das metodologias utilizadas para definir o comprimento do elemento não levam este fator em consideração. Para essa finalidade, em \citeonline{TakizawaUT:2019}, apresenta-se a matriz de transformação ($\matrixD$) como:
+
+\begin{align}
+	\matrixD = \frac{\partial{\hat{\coordAdimen}}}{\partial{\coordAdimen}},
+\end{align}
+
+\noindent com $\hat{\coordAdimen}$ chamado de espaço de paramétrico de preferência.
+
+Para elementos simplex, buscando encontrar uma expressão que leve a um comprimento de elemento que não possua variação em função da ordenação dos nós, os autores introduziram um espaço paramétrico preferido que consiste em um elemento simplex regular com distância entre vértices de 2, e chegaram a seguinte expressão para $\matrixD$ quando $\nsd = 2$:
+
+\begin{align}
+	\matrixD&= \frac{\sqrt{2}}{2} \begin{bmatrix}
+		\sqrt{3} + 1 & \sqrt{3} - 1 \\
+		\sqrt{3} - 1 & \sqrt{3} + 1
+	\end{bmatrix},
+\end{align}
+
+\noindent e para $\nsd = 3$:
+
+\begin{align}
+	\matrixD&= \frac{\sqrt{2}}{3} \begin{bmatrix}
+		4 & 1 & 1 \\
+		1 & 4 & 1 \\
+		1 & 1 & 4
+	\end{bmatrix}.
+\end{align}
+
+
+A definição da matriz $\matrixD$ para elementos isogeométricos será descrita na Subseção \ref{capitulo:Cap3:RepreGeo:taus2}.
+
+Além disso, nessa metodologia, o comprimento do elemento é limitado pelos mínimos e máximos valores representados abaixo:
 
 \begin{align}
 	h_{min} \equiv 2\min_{r}\left((\rRGN\rRGN:\matrixG)^{-\frac{1}{2}} \right), \\
@@ -767,7 +796,7 @@ O comprimento do elemento é limitado pelos mínimos e máximos valores represen
 
 \noindent onde $\lambda_{max}$ e $\lambda_{min}$ representam os máximos e mínimos autovalores da matriz $\matrixG$. 
 
-Os parâmetros de estabilização são dados por:
+Por fim, os parâmetros de estabilização são escritos como:
 
 \begin{align}
 	\SUPG = \PSPG =\left(\frac{1}{\SUGNi^2} + \frac{1}{\SUGNii^2} + \frac{1}{\SUGNiii^2} \right)^{-\frac{1}{2}},
