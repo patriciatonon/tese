@@ -257,7 +257,7 @@
 % Informações de dados para CAPA e FOLHA DE ROSTO
 % ---
 
-\titulo{\textit{Combinação de discretizações isogeométrica e por elementos finitos na análise de interação fluido-estrutura}}
+\titulo{\textit{Combinação de discretizações isogeométrica e por elementos finitos na análise de interação fluido-estrutura \textcolor{red}{(Colocar a capa oficial)}}}
 
 \autor{PATRICIA TONON}
 \local{SÃO CARLOS/SP}
@@ -483,6 +483,7 @@
 		TONON, P. \textbf{Combinação de discretizações isogeométrica e por elementos finitos na análise de interação fluido-estrutura.} 2021. \pageref{LastPage} p. Qualifica\c{c}\~ao da Tese (Doutorado em Engenharia de Estruturas) – Departamento de Engenharia de Estruturas, Escola de Engenharia de São Carlos, Universidade de São Paulo, São Carlos, 2021.\newline 
 	\end{flushleft}
 	\noindent
+	\textcolor{red}{revisar ao final}
 	O presente trabalho tem como principal intuito a construção de uma ferramenta computacional robusta para análise de problemas de interação fluido-estrutura onde o domínio fluido é discretizado combinando-se aproximações baseadas em análise isogeométrica e método dos elementos finitos tradicional. 
 	São considerados escoamentos incompressíveis, sendo que o domínio fluido possui uma discretização global, em descrição Euleriana, à qual é sobreposta uma discretização local, mais refinada. As discretizações local e global são diferentes, sendo uma isogeométrica e outra por elementos finitos. Os dois modelos são acoplados por uma técnica de partição de domínio com sobreposição de malhas, a qual baseia-se na modificação das funções de forma de ambas as discretizações em uma região de sobreposição e posterior união dos espaços de funções local e global de modo a formar um espaço enriquecido que garanta a partição da unidade. A malha local é adaptada à estrutura e deforma-se dinamicamente para acomodar a movimentação da estrutura, enquanto a malha global permanece fixa. Com isso o método proposto compartilha vantagens dos métodos de rastreamento de interface (malhas móveis) e de captura de interface (contornos imersos), visto que o fluido próximo à estrutura é adequadamente discretizado garantindo a captura de efeitos localizados, ao mesmo tempo em que a malha local, por ser menor, tolera maiores deformações, e em caso de necessidade de remalhamento, apenas essa malha precisa ser reconstruída. Adota-se uma formulação estabilizada para o escoamento incompressível, permitindo aproximação de mesma ordem para velocidades e pressão, e a integração temporal é feita através do método $\alpha$-generalizado. A estrutura é modelada empregando-se uma abordagem do método dos elementos finitos baseada em posições aplicada a elementos de casca com grandes deslocamentos. O acoplamento fluido-estrutura é particionado do tipo bloco-iterativo. 
 	\newline \newline
@@ -497,6 +498,7 @@
 		\begin{flushleft}
 			TONON, P. \textbf{Combination of isogeometric and finite element discretizations for fluid-structure interaction analysis.} 2021. \pageref{LastPage} p. Thesis qualification (Doctorate in Structural Engineering) – Department of Structural Engineering, São Carlos School of Engineering, University of São Paulo, São Carlos, 2021. \newline 
 		\end{flushleft}
+			\textcolor{red}{review at the end}
 		This work aims the construction of a robust computational tool for fluid-structure interaction analysis where the fluid domain is discretized combining isogeometric and traditional finite elements approximations. The flow is considered to be incompressible and the fluid domain has a global discretization, under Eulerian description, with an overlapping of a local one more refined. Local and global discretizations are differents, being one isogeometric and the other a traditional finite element discretization, coupled by a domain partitioning technique that relies on the modification of both, local and global, shape functions over and overlapping region and subsequent union of local and global spaces of functions generating an enriched space that fulfills unity partition. The local mesh is adapted to the structure and deforms dynamicaly to accomodate structural movements while the globla one remains fixed.
 		Therefore, the proposed method shares advantages of both, interface tracking (moving mesh) and interface capturing (immersed boundary) methods, once the fluid/structure interface is adequately discretized for local effects, at the same time that the local mesh, being smaller, tolerates larger deformatios, and, in case of need for re-meshing, only the local mesh needs to be rebuilt. The incompressible flow is modeled by a stabilized formulation, allowing equal order pressure-velocity interpolation, with time integration by the $\alpha$-generalized method. The structure is modeled in a position-based large-displacement shell finite element formulation. The fluid-structure coupling is a block iterative type partitioned scheme. 
     	\newline \newline 
