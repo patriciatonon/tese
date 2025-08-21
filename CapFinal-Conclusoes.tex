@@ -1,0 +1,43 @@
+% Introdução
+
+\documentclass[Relatorio-FAPESP-2020.tex]{subfiles}
+
+\begin{document}
+	
+\chapter{Conclusões}\label{ch:conclusoes} 
+
+Os resultados deste trabalho podem ser melhor analisados separando-os em três grupos: desenvolvimento e validação de modelo constitutivo viscoelástico-viscoplástico, desenvolvimento de modelos constitutivos termo-mecânicos e análise de problemas de contato com atrito.
+
+\section{Modelo viscoelástico-viscoplástico}
+
+Os desenvolvimentos relacionados ao modelo constitutivo viscoelástico-viscoplástico neste trabalho, com relação à \citeonline{Pericles2019}, foram a inclusão de uma parcela de encruamento cinemático viscoso, e a aplicação do modelo ao material politetrafluoretileno (PTFE). A formulação é descrita no \autoref{ch:vep}, sendo a aplicação feita na \autoref{sec:validacao}.
+
+A calibração dos parâmetros para a simulação do comportamento de sólidos de PTFE foi realizada a partir dos resultados experimentais de tensão uniaxial com carregamento monotônico, obtidos em \citeonline{khan2001}. Conforme observado na \autoref{fig:calibracao-PTFE}, o modelo desenvolvido foi capaz de acomodar satisfatoriamente os resultados das quatro diferentes taxas de deformação aplicadas, sendo constatada a importância do componente viscoso de encruamento cinemático. Em seguida, foi realizada a validação do modelo com os ensaios de fluência e relaxação, também obtidos em \citeonline{khan2001}. Nesses casos, a previsão numérica mostrou-se satisfatória, e bastante próxima dos resultados experimentais, conforme apresentado nas Subseções \ref{subsec:ptfe-relaxation} e \ref{subsec:ptfe-creep}. Observou-se, no entanto, que os erros ocorridos após o primeiro intervalo de relaxação se devem ao componente viscoso de encruamento cinemático, mostrando que, apesar de ser necessário para representar o comportamento em diferentes taxas, esse componente ainda pode ser aprimorado, a fim de reduzir a queda nos valores de tensão ao longo de intervalos de tempo muito grandes. 
+
+No contexto puramente numérico, foi feita ainda uma avaliação da propriedade de conservação dos volumes inelásticos, onde concluiu-se que, para todos os casos, o erro dos jacobianos apresenta convergência de primeira ordem (ver \autoref{fig:jacobian-analysis}). Além disso, a fim de melhor caracterizar o comportamento constitutivo do modelo, os ensaios de relaxação e fluência foram estendidos para as demais taxas de tensão e deformação.
+
+Por fim, o modelo desenvolvido foi aplicado a exemplos tridimensionais utilizando o método dos elementos finitos, sendo analisados aspectos numéricos como performance computacional, malha e influência da discretização temporal. Para o exemplo simulado (\autoref{subsec:cilindro}), observou-se uma variação expressiva nos resultados com o refinamento da malha, mas pouca variação com o refinamento temporal. Entretanto, a escolha do número de passos de tempo mostrou-se importante para garantir a convergência do método de Newton-Raphson, especialmente considerando a alta não-linearidade do modelo em regime de grandes deformações.
+
+\section{Modelos constitutivos termo-mecânicos}
+
+O código de elementos finitos desenvolvido foi aperfeiçoado com a inclusão dos efeitos térmicos, a partir da formulação termodinâmica descrita no \autoref{ch:termo-elasticidade}. Com relação às equações da condução de calor, foi utilizada a lei de Fourier, sendo consideradas até o momento condições de contorno de convecção, temperatura e fluxo prescrito. A fim de verificar o algoritmo de solução das temperaturas, foi simulado inicialmente um exemplo térmico isento de deformações. Os resultados desse exemplo, apresentados na \autoref{subsec:exemplo-termo}, são comparados com os do \emph{software} ANSYS, mostrando excelente concordância.
+
+Em seguida, a formulação foi aplicada a modelos termo-elásticos baseados nas decomposições aditiva e multiplicativa, considerando leis de expansão térmica linear e exponencial. O acoplamento termo-mecânico foi implementado utilizando um método particionado forte (implícito) do tipo bloco-iterativo. Observa-se, a partir dos resultados da \autoref{subsec:thermoCube}, que a influência do problema mecânico sobre o campo de temperaturas torna-se significativa em casos de grandes deformações, mesmo sendo desconsiderado o termo de acoplamento nas equações da condução de calor. Já a influência das temperaturas sobre o campo de deformações é considerada no modelo constitutivo do sólido.
+
+Na \autoref{subsec:thermoBeam}, esses modelos foram aplicados a um problema de viga biapoiada sujeita a variação de temperatura. Por ser um problema isostático, a expectativa inicial era que as tensões fossem nulas, porém isso foi observado apenas nos modelos utilizando a lei de expansão térmica exponencial, sendo, nos casos de expansão linear, manifestadas tensões residuais. Apesar disso, em ambos os casos as deformações térmicas são muito maiores que as deformações mecânicas, garantindo que não hajam diferenças significativas entre as decomposições aditiva e multiplicativa. Já na \autoref{subsec:thermoBeam2}, o mesmo exemplo é apresentado considerando também carregamentos mecânicos, sendo possível observar diferenças maiores entre as duas decomposições.
+
+Na \autoref{subsec:thermoCube2} é proposto um problema termo-elástico com altos níveis de deformações, a fim de se analisar as limitações dos modelos adotados. Conclui-se, a partir desse exemplo, que os modelos utilizando a decomposição aditiva podem apresentar problemas de inversão do material, sendo, portanto, inadequados para casos de grandes deformações. O mesmo pode ser dito para modelos utilizando a lei de expansão térmica linear, conforme já havia sido discutido nas seções teóricas. Já o modelo utilizando a decomposição multiplicativa e lei de expansão térmica exponencial mostrou-se consistente mesmo nos elevados níveis de deformações a que foi submetido.
+
+Em seguida, foi desenvolvido um modelo termo-viscoelástico-viscoplástico, considerando o acoplamento entre os modelos termo-mecânico e viscoelástico-viscoplástico já introduzidos. Com base nos resultados obtidos anteriormente, esse modelo levou em conta apenas a decomposição multiplicativa e a lei de expensão térmica exponencial. Observa-se que modelos termo-mecânicos inelásticos demandam um cuidado adicional, uma vez que sua natureza dissipativa é capaz de gerar calor ao sistema sem que esse tenha sido aplicado previamente. Tal comportamento foi comprovado pelas equações de dissipação mecânica obtidas, derivadas da aplicação da primeira e segunda leis da termodinâmica sob o modelo constitutivo. 
+
+\section{Análise de problemas de contato}
+
+Foi implementado um modelo numérico de contato em duas e três dimensões utilizando a estratégia nó-a-superfície com multiplicadores de Lagrange, e considerando atrito de Coulomb. Além da abordagem tradicional, aplicada em \citeonline{Pericles2019}, o modelo foi aprimorado para uma melhor precisão quando aplicado a elementos de alta ordem: as coordenadas adimensionais de contato são adicionadas como parâmetros do sistema, e a detecção do contato é feita pela estratégia da intersecção das trajetórias. A descrição detalhada desse modelo é realizada no \autoref{ch:contato}, com exemplos numéricos apresentados na \autoref{sec:contato-exemplos}. Em geral, observou-se que o modelo aprimorado exibe resultados similares ao original, utilizando, porém, menos etapas de convergência, uma vez que as coordenadas adimensionais são atualizadas a cada iteração em conjunto com as demais variáveis do sistema, ao invés de serem atualizadas ao final do processo de Newton-Raphson, forçando o re-cálculo do sistema.
+
+O primeiro exemplo, apresentado na \autoref{subsec:contato1}, tem como intuito verificar o modelo implementado, sendo observada uma excelente concordância com a referência, tanto em duas quanto em três dimensões. Nas subseções \ref{subsec:contatoEsfera} e \ref{subsec:ExemplosContatoSlab} são apresentados ainda dois exemplos tridimensionais, com e sem atrito, para demonstrar as aplicações do algoritmo desenvolvido. Exemplos adicionais de conformação de metais são ainda apresentados nas \autoref{ch:exemplos}, incluindo dobramento direcionado e extrusão. Esses exemplos são similares aos propostos em \citeonline{Pericles2019}, com a diferença que foi considerado atrito. No primeiro, observa-se que o atrito provoca poucas diferenças na forma final da chapa, sendo, no entanto, altamente relevante para a força de reação do problema. Um resultado similar pode ser concluído a partir do exemplo de extrusão, porém, observa-se que, além de influenciar nas forças de reação, o coeficiente de atrito também provoca mudanças na configuração interna da chapa.
+
+
+
+\end{document}
+	
+	

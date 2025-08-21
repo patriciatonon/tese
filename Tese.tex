@@ -1,0 +1,1080 @@
+\documentclass[12pt,
+chapter=TITLE,
+openright,	% capítulos começam em pág ímpar (insere página vazia caso preciso)
+twoside,    % para impressão em anverso (frente) e verso. Oposto a oneside - Nota: utilizar \imprimirfolhaderosto*
+%oneside,  % para impressão em páginas separadas (somente anverso) -  Nota: utilizar \imprimirfolhaderosto
+a4paper,			% tamanho do papel. 
+% -- opções da classe abntex2 --
+% -- opções do pacote babel --
+english,			% idioma adicional para hifenização
+french,				% idioma adicional para hifenização
+%spanish,			% idioma adicional para hifenização
+portuguese,
+brazil				% o último idioma é o principal do documento
+% {USPSC} configura o cabeçalho contendo apenas o número da página
+]{USPSC}
+%]{USPSC1} para utilizar o cabeçalho diferenciado para as páginas pares e ímpares como indicado abaixo:
+%- páginas ímpares: cabeçalho com seções ou subseções e o número da página
+%- páginas pares: cabeçalho com o número da página e o título do capítulo 
+
+%% pacotes para tabelas
+\usepackage{booktabs}  % table
+\usepackage{float} % Fixa tabelas e figuras no local exato
+\usepackage{multirow} % múltiplas linhas
+\usepackage[table]{xcolor}
+
+\usepackage{setspace}
+
+
+% Pacotes básicos - Fundamentais 
+%\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}		% Seleção de códigos de fonte.
+
+\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+% Para utilizar a fonte Times New Roman, inclua uma % no início do comando acima  "\usepackage{lmodern}"
+%\usepackage{times}		    	% Usa a fonte Times New Roman	
+%\renewcommand{\rmdefault}{ptm}
+% Lembre-se de alterar a fonte no comando que imprime o preâmbulo no arquivo da Classe USPSC.cls	
+%Chamada de pacotes para tratamento de termos matemáticos
+%\usepackage{mtpro2}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}			
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+%\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+%\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{pdfpages}
+\usepackage{makeidx}           % para gerar índice remissimo
+\usepackage{subfiles}           % para controlar subarquivos
+\usepackage[ampersand]{easylist} % para defininar listas
+\usepackage{titlesec, blindtext}
+\usepackage{xfrac}
+\usepackage{cancel}
+\usepackage{icomma} % reduzir espaçamento de vírgula em numeros decimais
+\usepackage[brazilian,capitalize]{cleveref} %\usepackage[brazilian,noabbrev,capitalize]{cleveref}
+\crefname{ineq}{Ineq.}{Ineqs.}
+\crefname{subsec}{Subseção}{Subseções}
+\creflabelformat{ineq}{#2{\upshape(#1)}#3} 
+
+%\usepackage{mathptmx}
+%\renewcommand{\rmdefault}{ptm}
+
+\usepackage{nccmath}
+\usepackage{extarrows} % imply with text below
+%\usepackage{indentfirst}
+
+\usepackage{caption}
+\usepackage{subcaption}
+%\usepackage{subfig}
+\captionsetup{font=footnotesize,labelfont={bf}}
+
+\usepackage{multicol,lipsum}
+\usepackage{fancybox}
+\usepackage{longtable}
+\usepackage{cases}
+
+
+\usepackage{mathtools}
+\usepackage{enumitem}  % Enumerate, Itemize
+\usepackage{tabu}  % tabela adequada a fórmulas
+\usepackage{pbox} % caixa dentro de uma célula da tabela
+\usepackage[b]{esvect} % seta de vetor sobrescrita
+\usepackage{framed} % quadro ao redor de um texto
+\usepackage{verbatim}
+\usepackage[percent]{overpic}
+\usepackage{makecell} %\multirowcell
+\usepackage{vwcol}  
+\usepackage{arydshln} % dashed line on matrix
+\usepackage[portuguese,onelanguage,ruled,linesnumbered]{algorithm2e}
+\usepackage{hhline}
+\usepackage{outlines}
+
+\usepackage{dblfloatfix}    % To enable figures at the bottom of page
+
+\usepackage{wrapfig}
+
+
+
+%\usepackage[section]{placeins} % make floating elements don't switch from sections
+
+
+
+%\newenvironment{leveldown}% Demote sectional commands
+%{	\let\chapter\section
+%	\let\section\subsection%
+%	\let\subsection\subsubsection%
+%	\let\subsubsection\paragraph%
+%	\let\paragraph\subparagraph%
+%	%\let\subparagraph\relax%
+%}{}
+%\newenvironment{levelup}% Promote sectional commands
+%{\let\subparagraph\paragraph%
+%	\let\paragraph\subsubsection%
+%	\let\subsubsection\subsection%
+%	\let\subsection\section%
+%	%\let\section\relax%
+%}{}
+
+%\usepackage{xfrac} % frações inclinadas
+
+\definecolor{DarkGray}{gray}{0.4}
+\definecolor{MediumGray}{gray}{0.8}
+\definecolor{LightGray}{gray}{0.95}
+\definecolor{LighterGray}{gray}{0.95}
+\definecolor{gray75}{gray}{0.65}
+
+%\newcommand{\hsp}{\hspace{20pt}}
+%\titleformat{\chapter}[hang]{\Huge\fontfamily{ptm}\bfseries}{\chaptername\thechapter\hsp\textcolor{gray75}{$|$}\hsp}{0pt}{\Huge\bfseries}
+%
+
+\titleformat{\section}
+{\normalfont\fontfamily{ptm}\fontsize{16}{0}\bfseries}{\thesection}{1em}{} %\fontfamily{phv} ou {ptm}
+
+\titleformat{\subsection}
+{\normalfont\fontfamily{ptm}\fontsize{14}{0}\bfseries}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+{\normalfont\fontfamily{ptm}\fontsize{12}{0}\bfseries}{\thesubsubsection}{1em}{}
+
+\titleformat{\paragraph}
+{\normalfont\fontfamily{ptm}\fontsize{12}{0}\bfseries}{\theparagraph}{1em}{}
+
+%\titlespacing{\chapter}{0pt}{12pt}{2pt}
+\titlespacing{\section}{0pt}{15pt}{8pt}
+\titlespacing{\subsection}{0pt}{15pt}{8pt}
+\titlespacing{\subsubsection}{0pt}{15pt}{8pt}
+
+\renewcommand\chaptertitlename{\fontfamily{ptm}Capítulo~}
+\titleformat{\chapter}[display]
+{\fontfamily{ptm}\huge\bfseries}{\fontfamily{ptm}\chaptertitlename\thechapter}{20pt}{\fontfamily{ptm}\Huge}
+%{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+\newcommand{\refanexo}[1]{\hyperref[#1]{Anexo~\ref{#1}}}
+
+
+%\titleformat*{\section}{\fontfamily{ptm}\Large\bfseries}
+%\titleformat*{\subsection}{\fontfamily{ptm}\large\bfseries}
+%\titleformat*{\subsubsection}{\fontfamily{ptm}\bfseries}
+%\titleformat*{\paragraph}{\fontfamily{ptm}\bfseries}
+%\titleformat*{\subparagraph}{\fontfamily{ptm}\bfseries}
+
+% Command for partial derivatives with indexes:
+\newcommand*\indexpartial[6]{%
+	\mathrlap{\dfrac{\partial #1^{\mathrlap{#2}}_{\mathrlap{#3}}}{\partial #4^{\mathrlap{#5}}_{\mathrlap{#6}}}}%
+	\phantom{\dfrac{\partial #1^{#2}_{#3}}{\partial #4^{#5}_{#6}}}%
+}
+
+\interfootnotelinepenalty=10000
+
+\newcommand{\tr}{\text{tr}\,}
+\newcommand{\Sim}{\text{sim}\,}
+\newcommand{\Ant}{\text{ant}\,}
+
+% SÍMBOLOS DE ENERGIA
+
+\newcommand{\Energia}{\Pi} % Energia
+\newcommand{\Energiamec}{\Pi_\text{mec}} % Energia mecânica total
+\newcommand{\Energiadef}{\Pi_\text{def}} % Energia de deformação
+\newcommand{\Energiaext}{\Pi_\text{ext}} % Energia potencial das forças externas
+\newcommand{\Energiacin}{\Pi_\text{cin}} % Energia cinética
+\newcommand{\Energiater}{\Pi_\text{ter}} % Energia térmica
+\newcommand{\Energiaint}{\Pi_\text{int}} % Energia interna
+\newcommand{\Energiacont}{\Pi_\text{cont}} % Energia de contato
+\newcommand{\Energiaader}{\Pi_\text{ader}} % Energia de aderência
+\newcommand{\Energiadesliz}{\Pi_\text{desliz}} % Energia de deslizamento
+
+\newcommand{\dotEnergia}{\dot{\Pi}} % Energia
+\newcommand{\dotEnergiamec}{\dot{\Pi}_\text{mec}} % Energia mecânica total
+\newcommand{\dotEnergiadef}{\dot{\Pi}_\text{def}} % Energia de deformação
+\newcommand{\dotEnergiaext}{\dot{\Pi}_\text{ext}} % Energia potencial das forças externas
+\newcommand{\dotEnergiacin}{\dot{\Pi}_\text{cin}} % Energia cinética
+\newcommand{\dotEnergiater}{\dot{\Pi}_\text{ter}} % Energia térmica
+\newcommand{\dotEnergiaint}{\dot{\Pi}_\text{int}} % Energia interna
+
+\newcommand{\energiaint}{u_e}
+\newcommand{\dotenergiaint}{\dot{u}_e}
+
+\newcommand{\lame}{\Lambda} % Constante de lamé
+\newcommand{\G}{G} % Constante de lamé
+\newcommand{\young}{E} % Módulo de elasticidade
+\newcommand{\poisson}{\nu} % Coeficiente de Poisson
+
+\newcommand{\lamee}{\lame\inde}
+\newcommand{\Ge}{\G\inde} 
+\newcommand{\lameve}{\lame\indve}
+\newcommand{\Gve}{\G\indve} 
+
+\renewcommand{\temp}{\theta} % Temperatura
+\newcommand{\dottemp}{\dot{\temp}} % Temperatura
+\newcommand{\tempref}{\temp_0} % Temperatura inicial
+\newcommand{\tempext}{\temp_\text{ext}}
+
+\newcommand{\coefExp}{\alpha}
+\newcommand{\entropy}{\eta} % Entropia
+\newcommand{\dotentropy}{\dot{\eta}} % Entropia
+\newcommand{\calorInt}{r} % Calor gerado internamente por unidade de massa
+
+\newcommand{\q}{\mathbf{q}} % Fluxo de calor
+\newcommand{\qind}{q} % Fluxo de calor
+\newcommand{\qi}{\q_0} % Fluxo de calor na configuração inicialf
+\newcommand{\qpresci}{\bar{\qind}_0} % Fluxo de calor prescrito no contorno por unidade de area na configuração inicial
+\newcommand{\qpresc}{\bar{\qind}} % Fluxo de calor prescrito no contorno por unidade de area na configuração final
+
+\newcommand{\condut}{k}
+\newcommand{\condutMat}{\mathbf{K}}
+\newcommand{\condutMati}{\condutMat_0}
+\newcommand{\constResfriamento}{\bar{h}_c}
+
+
+\newcommand{\x}{\mathbf{x}} % Posição inicial
+\newcommand{\y}{\mathbf{y}} % Posição atual
+\newcommand{\xind}{x} % Posição inicial (indicial)
+\newcommand{\yind}{y} % Posição atual (indicial)
+\newcommand{\doty}{\dot{\mathbf{y}}} % Velocidade
+\newcommand{\ddoty}{\ddot{\mathbf{y}}} % Aceleração
+
+\newcommand{\yN}{\y_N} 
+\newcommand{\yS}{\y_S} 
+\newcommand{\yStick}{\y_{stick}} 
+\newcommand{\tang}{\mathbf{t}}
+\newcommand{\tangun}{\bar{\tang}}
+\newcommand{\tangind}{{t}}
+\newcommand{\tangunind}{\bar{\tangind}}
+\newcommand{\gN}{g_n}
+\newcommand{\gT}{g_t}
+\newcommand{\gvec}{\mathbf{g}}
+\newcommand{\gind}{g}
+\newcommand{\gTvec}{\mathbf{g}_t}
+\newcommand{\dotgT}{\dot{g}_t}
+\newcommand{\lagN}{\lambda_n}
+\newcommand{\lagT}{\lambda_t}
+\newcommand{\lagTvec}{\boldsymbol{\lambda}_t}
+\newcommand{\lagTsign}{s}
+\newcommand{\friction}{\mu}
+
+\renewcommand{\P}{\mathbf{P}} % Piola-kirchhoff 1
+\renewcommand{\S}{\mathbf{S}} % Piola-kirchhoff 2
+\newcommand{\Sm}{\mathbf{S}\indm} % Piola-kirchhoff 2 (mechanical)
+\newcommand{\Sind}{{S}} % Piola-kirchhoff 2
+\renewcommand{\Se}{\mathbf{S}\inde} % Piola-kirchhoff 2 elastico
+\newcommand{\Siso}{\mathbf{S}'} % Piola-kirchhoff 2
+\newcommand{\defLinear}{\boldsymbol{\varepsilon}}
+\newcommand{\defLinearind}{{\varepsilon}}
+\newcommand{\dotDefLinear}{\dot{\defLinear}}
+\newcommand{\dotDefLinearind}{\dot{\defLinearind}}
+\newcommand{\cauchy}{\boldsymbol{\sigma}} % Tensão de Cauchy
+\newcommand{\cauchyind}{{\sigma}} % Tensão de Cauchy
+\newcommand{\cauchyiso}{\boldsymbol{\sigma}'} % Tensão de Cauchy
+
+\newcommand{\forcaContorno}{\mathbf{p}} % Forças externas de contorno (configuração inicial)
+\newcommand{\forcaVolume}{\mathbf{b}} % Forças externas de volume (configuração inicial)
+
+% ÍNDICES
+\newcommand{\inde}{_e}
+\newcommand{\indt}{_{\theta}}
+\newcommand{\indm}{_m}
+\newcommand{\indp}{_p}
+\newcommand{\indv}{_v}
+\newcommand{\indinf}{_{\infty}}
+\newcommand{\indve}{_{ve}}
+\newcommand{\indvp}{_{pv}} % Parcela das deformações plásticas e viscosas (Fpv = Fv Fp)
+\newcommand{\indpe}{_{p_e}}
+\newcommand{\indpi}{_{p_i}}
+\newcommand{\indpv}{_{\tilde{p}}}
+\newcommand{\indpve}{_{\tilde{p}_e}}
+\newcommand{\indpvi}{_{\tilde{p}_v}}
+\newcommand{\inds}{_s}
+\newcommand{\indl}{_\ell}
+
+\newcommand{\E}{\mathbf{E}} % Deformação de Green-Lagrange
+\newcommand{\Eind}{{E}} % Deformação de Green-Lagrange
+\newcommand{\Ee}{\E\inde}
+\newcommand{\Em}{\E\indm}
+\newcommand{\Eeind}{(\Eind\inde)}
+\newcommand{\Et}{\E\indt}
+\newcommand{\Etind}{(\Eind\indt)}
+\newcommand{\Ep}{\E\indp}
+\newcommand{\Epind}{\Eind\indp}
+\newcommand{\Ev}{\E\indv}
+\newcommand{\Eve}{\E\indve}
+\newcommand{\Epe}{\E\indpe}
+\newcommand{\Epi}{\E\indpi}
+\newcommand{\Epve}{\E\indpve}
+\newcommand{\Epvi}{\E\indpvi}
+\newcommand{\Es}{\E\inds}
+\newcommand{\El}{\E\indl}
+
+\newcommand{\Esind}{\Eind\inds}
+\newcommand{\Emind}{\Eind\indm}
+\newcommand{\Csind}{\Cind\inds}
+\newcommand{\Cmind}{\Cind\indm}
+
+\newcommand{\dotE}{\dot{\E}} % Taxa de Deformação de Green-Lagrange
+\newcommand{\dotEind}{\dot{\Eind}}
+\newcommand{\dotEe}{\dotE\inde}
+\newcommand{\dotEt}{\dotE\indt}
+\newcommand{\dotEp}{\dotE\indp}
+\newcommand{\dotEv}{\dotE\indv}
+\newcommand{\dotEm}{\dotE\indm}
+\newcommand{\dotEve}{\dotE\indve}
+\newcommand{\dotEpe}{\dotE\indpe}
+\newcommand{\dotEpi}{\dotE\indpi}
+\newcommand{\dotEpve}{\dotE\indpve}
+\newcommand{\dotEpvi}{\dotE\indpvi}
+\newcommand{\dotEs}{\dotE\inds}
+\newcommand{\dotEl}{\dotE\indl}
+
+\renewcommand{\L}{\mathbf{L}} % Gradiente da velocidade
+\newcommand{\Le}{\L\inde}
+\newcommand{\Lt}{\L\indt}
+\newcommand{\Lp}{\L\indp}
+\newcommand{\Lv}{\L\indv}
+\newcommand{\Lve}{\L\indve}
+\newcommand{\Lpe}{\L\indpe}
+\newcommand{\Lpi}{\L\indpi}
+\newcommand{\Lpve}{\L\indpve}
+\newcommand{\Lpvi}{\L\indpvi}
+\newcommand{\Ls}{\L\inds}
+\newcommand{\Ll}{\L\indl}
+
+\newcommand{\D}{\mathbf{D}} % Taxa de deformação de engenharia
+\newcommand{\De}{\D\inde}
+\newcommand{\Dt}{\D\indt}
+\newcommand{\Dp}{\D\indp}
+\newcommand{\Dv}{\D\indv}
+\newcommand{\Dve}{\D\indve}
+\newcommand{\Dpe}{\D\indpe}
+\newcommand{\Dpi}{\D\indpi}
+\newcommand{\Dpve}{\D\indpve}
+\newcommand{\Dpvi}{\D\indpvi}
+\newcommand{\Ds}{\D\inds}
+\newcommand{\Dl}{\D\indl}
+
+\newcommand{\W}{\mathbf{W}} % Vorticidade
+\newcommand{\We}{\W\inde}
+\newcommand{\Wt}{\W\indt}
+\newcommand{\Wp}{\W\indp}
+\newcommand{\Wv}{\W\indv}
+\newcommand{\Wve}{\W\indve}
+\newcommand{\Wpe}{\W\indpe}
+\newcommand{\Wpi}{\W\indpi}
+\newcommand{\Wpve}{\W\indpve}
+\newcommand{\Wpvi}{\W\indpvi}
+\newcommand{\Ws}{\W\inds}
+\newcommand{\Wl}{\W\indl}
+
+\newcommand{\C}{\mathbf{C}} % Alongamento à direita de Cauchy-Green
+\newcommand{\Cind}{C}
+\newcommand{\Cm}{\C\indm} 
+\newcommand{\Ce}{\C\inde} 
+\newcommand{\Ct}{\C\indt} 
+\newcommand{\Cp}{\C\indp} 
+\newcommand{\Cv}{\C\indv} 
+\newcommand{\Cve}{\C\indve}
+\newcommand{\Cpe}{\C\indpe}
+\newcommand{\Cpi}{\C\indpi}
+\newcommand{\Cpve}{\C\indpve}
+\newcommand{\Cpvi}{\C\indpvi}
+\newcommand{\Cvp}{\C\indvp}
+\newcommand{\Cs}{\C\inds}
+\newcommand{\Cl}{\C\indl}
+\newcommand{\Clind}{\Cind\indl}
+
+\newcommand{\B}{\mathbf{B}} % Alongamento à esquerda de Cauchy-Green
+\newcommand{\Bpe}{\B\indpe}
+\newcommand{\Bpve}{\B\indpve}
+
+% OBS: CASO MUDE A NOTAÇÃO PARA O GRADIENTE DE DEFORMAÇÃO, DEVE-SE MUDAR TAMBÉM AS FIGURAS:
+% kinematics0, mefp, termoelastic-kinematics
+\newcommand{\F}{\mathbf{F}} % Gradiente da deformação
+\newcommand{\Find}{F} % Gradiente da deformação (indicial)
+\newcommand{\Fe}{\F\inde}
+\newcommand{\Fm}{\F\indm}
+\newcommand{\Fp}{\F\indp}
+\newcommand{\Ft}{\F\indt}
+\newcommand{\Fv}{\F\indv}
+\newcommand{\Fve}{\F\indve}
+\newcommand{\Fpe}{\F\indpe}
+\newcommand{\Fpi}{\F\indpi}
+\newcommand{\Fpve}{\F\indpve}
+\newcommand{\Fpvi}{\F\indpvi}
+\newcommand{\Fvp}{\F\indvp}
+\newcommand{\Fs}{\F\inds}
+\newcommand{\Fl}{\F\indl}
+\newcommand{\Fsind}{\Find\inds}
+\newcommand{\Flind}{\Find\indl}
+
+\newcommand{\dotF}{\dot{\F}} % Taxa de Gradiente da deformação
+\newcommand{\dotFm}{\dotF\indm}
+\newcommand{\dotFe}{\dotF\inde}
+\newcommand{\dotFp}{\dotF\indp}
+\newcommand{\dotFt}{\dotF\indt}
+\newcommand{\dotFv}{\dotF\indv}
+\newcommand{\dotFve}{\dotF\indve}
+\newcommand{\dotFpe}{\dotF\indpe}
+\newcommand{\dotFpi}{\dotF\indpi}
+\newcommand{\dotFpve}{\dotF\indpve}
+\newcommand{\dotFpvi}{\dotF\indpvi}
+\newcommand{\dotFs}{\dotF\inds}
+\newcommand{\dotFl}{\dotF\indl}
+
+\newcommand{\encruamento}{\kappa}
+\newcommand{\dotencruamento}{\dot{\kappa}}
+\newcommand{\visc}{\eta}
+\newcommand{\viscplast}{\visc_{p}}
+\newcommand{\visccin}{\visc_{p}^\text{cin}}
+
+\newcommand{\plastmultsymbol}{\gamma}
+\newcommand{\plastmult}{\dot{\plastmultsymbol}}
+\newcommand{\dplastmult}{\Delta{\plastmultsymbol}}
+\newcommand{\armstrongstiff}{c}
+\newcommand{\kinematicviscstiff}{\tilde{c}}
+\newcommand{\armstrongvisc}{b}
+
+\newcommand{\desviador}{^D}
+\newcommand{\relativeStress}{\boldsymbol{\Sigma}}
+\newcommand{\relativeStressD}{\relativeStress\desviador}
+\newcommand{\mandel}{\mathbf{M}}
+\newcommand{\mandele}{\mandel\inde}
+\newcommand{\mandelm}{\mandel\indm}
+\newcommand{\mandeleD}{\mandel\inde\desviador}
+\newcommand{\mandelve}{\mandel\indve}
+\newcommand{\mandelpe}{\mandel\indp}
+\newcommand{\mandelpeD}{\mandel\indp\desviador}
+\newcommand{\mandelpve}{\mandel\indpv}
+\newcommand{\mandelpveD}{\mandel\indpv\desviador}
+\newcommand{\mandels}{\mandel\inds}
+
+\newcommand{\yield}{\Phi}
+\newcommand{\dotyield}{\dot{\yield}}
+\newcommand{\yieldStress}{\sigma_{\encruamento}}
+\newcommand{\yieldStresscte}{\sigma_Y}
+\newcommand{\indprev}{^\text{ant}}
+\newcommand{\overstress}{\Theta}
+\newcommand{\overstresscte}{\beta}
+\newcommand{\Np}{\mathbf{N}\indp}
+
+\newcommand{\R}{\mathbf{R}} % Resíduo do algoritmo de retorno
+\newcommand{\Rind}{R} % Resíduo do algoritmo de retorno
+\newcommand{\Rv}{\R\indv} % Gradiente da deformação (indicial)
+\newcommand{\Rpvi}{\R\indpvi}
+\newcommand{\Rp}{\R\indp}
+\newcommand{\Renc}{\Rind_{\encruamento}}
+\newcommand{\Rpi}{\R\indpi}
+\newcommand{\Rplastmult}{\Rind_{\plastmultsymbol}}
+\newcommand{\Rl}{\R\indl} % Gradiente da deformação (indicial)
+
+\newcommand{\DE}{\mathbf{D}_{\mathbf{E}}}
+\newcommand{\Dgamma}{D_{\plastmultsymbol}}
+\newcommand{\Dplastmult}{\mathbf{D}_{\plastmultsymbol,\mathbf{E}}}
+
+
+
+% OBS: CASO MUDE A NOTAÇÃO PARA O DOMÍNIO, DEVE-SE MUDAR TAMBÉM AS FIGURAS:
+% kinematics0, termoelastic-kinematics
+\newcommand{\domVol}{\Omega} % Domínio da integral de volume
+\newcommand{\domVoli}{\domVol_0} % Domínio da integral de volume na configuração inicial
+\newcommand{\domVolf}{\domVol_1} % Domínio da integral de volume na configuração final
+\newcommand{\domVolt}{\domVol\indt} % Domínio da integral de volume na configuração intermediaria térmica
+\newcommand{\domVoll}{\domVol\indl} % Domínio da integral de volume na configuração intermediaria térmica
+\newcommand{\notacaoInicial}{(\cdot)_0}
+\newcommand{\vol}{V} % Volume
+\newcommand{\voli}{V_0} % Volume na configuração inicial
+\newcommand{\con}{S} % Contorno
+\newcommand{\coni}{S_0} % Contorno na configuração inicial
+\newcommand{\domCon}{\Gamma} % Domínio da integral de contorno
+\newcommand{\domConConv}{\domCon_{c}} % Domínio da integral de contorno
+\newcommand{\domConi}{\domCon_0} % Domínio da integral de contorno na configuração inicial
+
+\newcommand{\Mass}{m} % Massa 
+\newcommand{\mass}{\rho} % Massa especifica
+\newcommand{\massi}{\mass_0} % Massa especifica na configuração inicial
+\newcommand{\masst}{\mass\indt} % Massa especifica na configuração intermediária térmica
+ 
+\newcommand{\invar}{I_1}
+\newcommand{\invarr}{I_2}
+\newcommand{\invarrr}{I_3}
+
+\newcommand{\gradiente}{\boldsymbol{\nabla}}
+\newcommand{\gradientei}{\gradiente_0}
+\newcommand{\gradientet}{\gradiente\indt}
+
+% OBS: CASO MUDE A NOTAÇÃO PARA A MUDANÇA DE CONFIGURAÇÃO, DEVE-SE MUDAR TAMBÉM AS FIGURAS:
+% kinematics0, mefp, termoelastic-kinematics
+\newcommand{\funcao}{\boldsymbol{\zeta}} %função mudança de configuração
+\newcommand{\dotfuncao}{\dot{\funcao}} %função mudança de configuração
+\newcommand{\funcaoe}{\funcao\inde} %função mudança de configuração elástica
+\newcommand{\funcaot}{\funcao\indt} %função mudança de configuração térmica
+
+\newcommand{\J}{J} %Jacobiano
+\newcommand{\Je}{\J\inde}
+\newcommand{\Jve}{\J\indve}
+\newcommand{\Jp}{\J\indp}
+\newcommand{\Jt}{\J\indt}
+\newcommand{\Jv}{\J\indv}
+\newcommand{\Jpe}{\J\indpe}
+\newcommand{\Jpve}{\J\indpve}
+\newcommand{\Jpi}{\J\indpi}
+\newcommand{\Jpvi}{\J\indpvi}
+\newcommand{\Js}{\J\inds}
+\newcommand{\Jl}{\J\indl}
+\newcommand{\Jm}{\J\indm}
+
+\newcommand{\dotJ}{\dot{J}} %Jacobiano
+\newcommand{\dotJe}{\dotJ\inde}
+\newcommand{\dotJp}{\dotJ\indp}
+\newcommand{\dotJt}{\dotJ\indt}
+\newcommand{\dotJv}{\dotJ\indv}
+\newcommand{\dotJpi}{\dotJ\indpi}
+\newcommand{\dotJpvi}{\dotJ\indpvi}
+\newcommand{\dotJs}{\dotJ\inds}
+\newcommand{\dotJl}{\dotJ\indl}
+
+\newcommand{\alongTermico}{\lambda\indt}
+\newcommand{\dotAlongTermico}{\dot{\lambda}\indt}
+\newcommand{\contTermica}{\tilde{\lambda}\indt}
+\newcommand{\defTermica}{\Eind\indt}
+
+\newcommand{\NotacaoNeg}{\bar{(\cdot)}} 
+\newcommand{\CCtNeg}{\bar{\CC}\indt} 
+\newcommand{\CtNeg}{\bar{\C}\indt} 
+\newcommand{\StNeg}{\bar{\S}\indt} % Piola-kirchhoff 2 termico
+\newcommand{\JtNeg}{\bar{\J}\indt}
+\newcommand{\EtNeg}{\bar{\E}\indt}
+
+\newcommand{\intersectionTime}{\omega} 
+
+\newcommand{\normal}{\mathbf{n}} % Vetor normal
+\newcommand{\normalun}{\bar{\normal}} % Vetor normal unitário
+\newcommand{\normalind}{{n}} % Vetor normal
+\newcommand{\normalunind}{\bar{\normalind}} % Vetor normal
+\newcommand{\normali}{\mathbf{n}_0} % Vetor normal na configuração inicial
+
+\newcommand{\CC}{\mathfrak{C}} % Operador tangente consistente
+\newcommand{\CCm}{\mathfrak{C}\indm} % Operador tangente consistente (mechanical)
+\newcommand{\CCind}{\CC} % Operador tangente consistente (forma indicial)
+\newcommand{\CCe}{\CC\inde} % Operador tangente consistente elastico
+\newcommand{\CCSVK}{\CC_{SVK}} % Operador tangente consistente constante para lei SVK
+\newcommand{\CCvol}{\CC^\text{vol}}
+\newcommand{\CCs}{\CC\inds^\text{iso}}
+
+
+\newcommand{\helmholtz}{\psi} % Energia livre de helmholtz
+\newcommand{\helmholtzm}{\helmholtz\indm} % parcela mecanica da Energia livre de helmholtz
+\newcommand{\helmholtzmvol}{\helmholtz\indm^\text{vol}} 
+\newcommand{\helmholtzmiso}{\helmholtz\indm^\text{iso}} 
+\newcommand{\helmholtzmInt}{\tilde{\helmholtz}\indm} % parcela mecanica da Energia livre de helmholtz por unidade de volume na configuração intermediária
+\newcommand{\helmholtzmIntAdit}{\tilde{\helmholtz}\indm}
+% Parcelas da energia livre de Helmholtz
+\newcommand{\helmholtzt}{\helmholtz\indt} % parcela termica da Energia livre de helmholtz
+\newcommand{\helmholtze}{\helmholtz\inde} 
+\newcommand{\helmholtzve}{\helmholtz\indve} 
+\newcommand{\helmholtzkin}{\helmholtz\indpe^\text{cin}} 
+\newcommand{\helmholtzkinv}{\helmholtz\indpve^\text{cin}} 
+\newcommand{\helmholtziso}{\helmholtz_\text{iso}} 
+\newcommand{\helmholtzisop}{\helmholtz\indp^\text{iso}} 
+
+\newcommand{\helmholtzs}{\helmholtz\inds^\text{iso}} 
+
+\newcommand{\dothelmholtz}{\dot{\helmholtz}} % Taxa da energia livre de helmholtz
+\newcommand{\dothelmholtzm}{\dothelmholtz\indm} % Taxa da parcela mecanica da Energia livre de helmholtz
+\newcommand{\dothelmholtzt}{\dothelmholtz\indt} % Taxa da parcela termica da Energia livre de helmholtz
+
+\newcommand{\dissipation}{d_\text{int}} % Dissipação
+\newcommand{\dissipationmec}{d_{m}} % Dissipação mecânica
+
+\newcommand{\volumetricHeatCapacity}{c_v} % Calor específico
+\newcommand{\volumetricHeatCapacityEff}{c_v^{*}} % Calor específico
+\newcommand{\volumetricHeatCapacityMec}{c_v^m} % Calor específico
+\newcommand{\volumetricHeatCapacityIni}{c_0} % Constante associada ao calor específico
+\newcommand{\volumetricHeatCapacityConst}{c_{\gamma}} % Constante associada ao calor específico
+
+\newcommand{\specificHeat}{c_e} % Calor específico
+\newcommand{\specificHeatIni}{c_0} % Constante associada ao calor específico
+\newcommand{\specificHeatConst}{c_{\gamma}} % Constante associada ao calor específico
+\newcommand{\operadorTermoElastico}{\mathbf{T}_{\E}} % Operador termo-elástico
+
+\newcommand{\dissipationMultiplier}{\beta}
+
+\newcommand{\operadorTermoMecanico}{\mathbf{T}_{\E}}
+\newcommand{\operadorTermoMecanicoVisc}{\mathbf{T}\indv}
+\newcommand{\operadorTermoMecanicoGeral}{\mathbf{T}_{\internalVariables}}
+\newcommand{\tmcoupling}{q_m}
+
+\newcommand{\I}{\mathbf{I}} % Tensor identidade de segunda ordem
+\newcommand{\Iind}{I} % Tensor identidade de segunda ordem (indicial)
+\newcommand{\II}{\mathbf{II}} % Tensor identidade de quarta ordem
+
+% MEF
+
+\newcommand{\coords}{\boldsymbol{\xi}}
+\newcommand{\coordsind}{{\xi}}
+
+\newcommand{\node}{\alpha}
+\newcommand{\nodeind}{^\alpha}
+\newcommand{\nodeinddown}{_\alpha}
+\newcommand{\nodeDois}{\beta}
+\newcommand{\nodeindDois}{^\beta}
+\newcommand{\nodeindDoisDown}{_\beta}
+
+\newcommand{\fforma}{\varphi}
+
+\newcommand{\funcaoi}{\boldsymbol{\zeta}_0} %função mudança de configuração para a configuração inicial
+\newcommand{\funcaof}{\boldsymbol{\zeta}_1} %função mudança de configuração para a configuração atual
+\newcommand{\dotfuncaof}{\dot{\boldsymbol{\zeta}}_1} %função mudança de configuração para a configuração atual
+
+\newcommand{\Fini}{\F_0}
+\newcommand{\Ffin}{\F_1}
+\newcommand{\dotFfin}{\dot{\F}_1}
+\newcommand{\Ffinind}{(\Find_1)}
+\newcommand{\deltakronecker}{\delta}
+
+\newcommand{\finer}{\mathbf{f}_\text{iner}}
+\newcommand{\fint}{\mathbf{f}_\text{int}}
+\newcommand{\fext}{\mathbf{f}_\text{ext}}
+\newcommand{\fcont}{\mathbf{f}_\text{cont}}
+\newcommand{\ftang}{\mathbf{f}_\text{tang}}
+
+\newcommand{\residuo}{\mathbf{g}}
+\newcommand{\residuoinc}{{g}_{p}}
+
+\newcommand{\notacaos}{(\cdot)_{s}}
+\newcommand{\ys}{\y_{s}}
+\newcommand{\dotys}{\doty_{s}}
+\newcommand{\ddotys}{\ddoty_{s}}
+\newcommand{\qs}{\mathbf{q}_{s}}
+\newcommand{\rs}{\mathbf{r}_{s}}
+\newcommand{\gammanewmark}{\gamma}
+\newcommand{\betanewmark}{\beta}
+
+% MEF TÉRMICO
+
+\newcommand{\matC}{[\mathbf{C}]}
+\newcommand{\matK}{[\mathbf{K}]}
+\newcommand{\vetTemp}{\{\temp\}}
+\newcommand{\vetTempAnt}{\{\temp\}_\text{ant}}
+\newcommand{\vetAnt}{\{\cdot\}_{s-1}}
+\newcommand{\vetDotTemp}{\{\dottemp\}}
+\newcommand{\vetF}{\{\mathbf{F}\}}
+
+% SÓLIDOS E FLUIDOS INCOMPRESSÍVEIS
+
+\newcommand{\p}{p}
+\newcommand{\dotp}{\dot{\p}}
+\newcommand{\Spspg}{\mathcal{S}_\text{pspg}}
+\newcommand{\tpspg}{\tau_\text{pspg}}
+\newcommand{\tpspgOne}{\tau_1}
+\newcommand{\tpspgTwo}{\tau_2}
+\newcommand{\multiplierpspg}{\alpha_\text{pspg}}
+\newcommand{\hrgn}{h_\text{rgn}}
+\newcommand{\viscfluid}{\mu}
+\newcommand{\viscOperatorBase}{\mathcal{D}_0}
+\newcommand{\viscOperator}{\mathcal{D}}
+\newcommand{\viscOperatorm}{\mathcal{D}\indm}
+% SURFACE TENSION
+
+\newcommand{\energiaextSurfaceTension}{{\Pi}_{ext}^{s}} % Energia potencial das forças externas
+\newcommand{\surfaceTension}{\sigma_s}
+\newcommand{\gradientes}{\gradiente_s}
+\newcommand{\curvature}{\kappa}
+\newcommand{\conn}{s}
+\newcommand{\domConn}{\partial\domCon}
+\newcommand{\fexts}{\mathbf{f}_{ext}^s}
+\newcommand{\fextsind}{{f}_{ext}^s}
+\newcommand{\binormal}{\mathbf{m}}
+\newcommand{\binormalind}{m}
+
+
+% PHASE CHANGE
+
+\newcommand{\enthalpy}{h}
+\newcommand{\dotenthalpy}{\dot{\enthalpy}}
+\newcommand{\indLatent}{L}
+\newcommand{\latentHeat}{\Delta\enthalpy_\indLatent}
+\newcommand{\tempm}{\temp_m}
+\newcommand{\solidusTemp}{\temp\inds}
+\newcommand{\liquidusTemp}{\temp\indl}
+\newcommand{\tempvar}{\Delta\temp_m}
+\newcommand{\helmholtzL}{\helmholtz_\indLatent}
+\newcommand{\entropyL}{\entropy_\indLatent}
+\newcommand{\enthalpyL}{\enthalpy_\indLatent}
+\newcommand{\volumetricHeatCapacityL}{\volumetricHeatCapacity^\indLatent}
+\newcommand{\volumetricHeatCapacityEffLatent}{\volumetricHeatCapacity^\text{ef}}
+
+\newcommand{\dtempLatent}{\Delta\temp_{\indLatent}}
+
+\newcommand{\prevtemp}{\temp_\text{ant}}
+
+\newcommand{\liquidFraction}{f\indl}
+\newcommand{\solidFraction}{f\inds}
+
+\newcommand{\liquidMultiplier}{\omega\indl}
+\newcommand{\solidMultiplier}{\omega\inds}
+
+\newcommand{\internalVariables}{\boldsymbol{\chi}}
+\newcommand{\dotInternalVariables}{\boldsymbol{\dot{\chi}}}
+
+\renewcommand{\cftpartpagefont}{\normalsize\cftchapterfont}
+
+
+%\usepackage{calc}
+%\newlength{\depthofiintsign}
+%\setlength{\depthofiintsign}{\depthof{$\iint$}}
+%\newlength{\totalheightofiintsign}
+%\newlength{\heightanddepthofargument}
+%
+%\newcommand{\niint}[1][1.4]{% only for \displaystyle
+%	\mathop{%
+%		\raisebox
+%		{-#1\depthofiintsign+1\depthofiintsign}
+%		{\scalebox
+%			{#1}
+%			{$\displaystyle\iint$}%
+%		}
+%	}
+%}
+%\newlength{\depthofsumsign}
+%\setlength{\depthofsumsign}{\depthof{$\sum$}}
+%\newlength{\totalheightofsumsign}
+%%\newlength{\heightanddepthofargument}
+%
+%\newcommand{\nsum}[1][1.4]{% only for \displaystyle
+%	\mathop{%
+%		\raisebox
+%		{-#1\depthofsumsign+1\depthofsumsign}
+%		{\scalebox
+%			{#1}
+%			{$\displaystyle\sum$}%
+%		}
+%	}
+%}
+
+% Pacotes de citações - Citações padrão ABNT - Sistema autor-data
+\usepackage[alf,abnt-emphasize=bf, abnt-thesis-year=both, abnt-repeated-author-omit=no, abnt-last-names=abnt, abnt-etal-cite=3,abnt-etal-list=0, abnt-etal-text=default, abnt-and-type=e, abnt-doi=doi, abnt-url-package=none, abnt-verbatim-entry=no]{abntex2cite}
+
+% Pacotes de Nota de rodape
+% O presente modelo adota o formato numérico para as notas de rodapés quando utiliza o sistema de chamada autor-data para citações e referências.
+
+% pacotes de tabelas
+\usepackage{multicol}	% Suporte a mesclagens em colunas
+\usepackage{multirow}	% Suporte a mesclagens em linhas
+\usepackage{longtable}	% Tabelas com várias páginas
+\usepackage{threeparttablex}    % notas no longtable
+\usepackage{array}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+% DADOS INICIAIS 
+\include{Elementos_pre-textuais}
+
+% Configurações de aparência do PDF final
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+%\hypersetup{
+%	pagebackref=true,
+%	pdftitle={\@title}, 
+%	pdfauthor={\@author},
+%	pdfsubject={\imprimirpreambulo},
+%	pdfcreator={LaTeX with abnTeX2},
+%	pdfkeywords={abnt}{latex}{abntex}{USPSC}{trabalho acadêmico}, 
+%	colorlinks=true,       		% false: boxed links; true: colored links
+%	linkcolor=blue,        % BLUE  	% color of internal links 
+%	citecolor=blue,        	% BLUE	% color of links to bibliography
+%	filecolor=magenta,   % MAGENTA   		% color of file links
+%	urlcolor=blue,% BLUE
+%	bookmarksdepth=4
+%}
+\hypersetup{
+	%pagebackref=true,
+	pdftitle={\@title}, 
+	pdfauthor={\@author},
+	pdfsubject={\imprimirpreambulo},
+	pdfcreator={LaTeX with abnTeX2},
+	pdfkeywords={Modelos termo-mecânicos}{Mudança de fase}{Interação fluido-estrutura}{Termo-visco-elasto-plasticidade}{Contato}, 
+	colorlinks=true,       		% false: boxed links; true: colored links
+	linkcolor=blue,        % BLUE  	% color of internal links 
+	citecolor=blue,        	% BLUE	% color of links to bibliography
+	filecolor=magenta,   % MAGENTA   		% color of file links
+	urlcolor=blue,% BLUE
+	bookmarksdepth=4
+}
+\makeatother
+
+% Espaçamentos entre linhas e parágrafos 
+\linespread{1.2}                        % Espaço entre as linhas.
+%\setlength{\parindent}{1.3cm} % Tamanho do parágrafo
+%\setlength{\parskip}{0.2cm}   % % Controle do espaçamento entre um parágrafo e outro (tente também \onelineskip)
+%\setlength{\intextsep}{0.35cm}
+%\setlength{\floatsep}{0.35cm}
+%\setlength{\textfloatsep}{0.35cm}
+%\setlength{\abovecaptionskip}{0.15cm}
+%\setlength{\belowcaptionskip}{0.15cm}
+
+%\captionsetup[subfigure]{aboveskip=-0.5pt,belowskip=-0.5pt}
+
+% compila o sumário e índice
+\makeindex
+
+% Início do documento
+\begin{document}
+	
+	% ----------------------------------------------------------
+	% CONFIGURAÇÕES INICIAS
+	% ----------------------------------------------------------
+	% Espaços antes e depois das equações
+	%\setlength{\abovedisplayskip}{0pt}
+	%\setlength{\belowdisplayskip}{0pt}
+	% ----------------------------------------------------------	
+	\selectlanguage{brazil} % Seleciona o idioma do documento (conforme pacotes do babel)
+	\frenchspacing % Retira espaço extra obsoleto entre as frases. 
+	% Formatação dos Títulos
+	\renewcommand{\ABNTEXchapterfontsize}{\fontfamily{ptm}\fontsize{14}{14}\bfseries}
+	\renewcommand{\ABNTEXsectionfontsize}{\fontsize{12}{12}\bfseries}
+	\renewcommand{\ABNTEXsubsectionfontsize}{\fontsize{12}{12}\normalfont}
+	\renewcommand{\ABNTEXsubsubsectionfontsize}{\fontsize{12}{12}\normalfont}
+	\renewcommand{\ABNTEXsubsubsubsectionfontsize}{\fontsize{12}{12}\normalfont}
+	
+	
+	
+	% ----------------------------------------------------------
+	% ELEMENTOS PRÉ-TEXTUAIS
+	% ----------------------------------------------------------
+	% Capa
+	%\imprimircapa
+	% Folha de rosto
+	%\imprimirfolhaderosto* % (o * indica impressão em anverso (frente) e verso )
+	%\includepdf{folha-de-rosto.pdf}
+	
+%	\begin{center}
+%	{%\large
+%	
+%	Relatório científico anual apresentado à FAPESP relativo ao projeto N$^{\circ}$ 2018/23957-2
+%	
+%	\textbf{Período referente ao relatório:} 01/05/2019 a 30/02/2023
+%	
+%	\textbf{Período de Vigência do projeto:} 01/05/2019 a 30/04/2023
+%	
+%	\vspace{3.0cm}
+%	
+%	{\Large\textsc{\textbf{Análise numérica de efeitos termo-mecânicos em sólidos incluindo mudança de fase e situações de contato}}
+%	
+%	\vspace{1cm}
+%	
+%	\textsc{Universidade de São Paulo}
+%	
+%	\textsc{Escola de Engenharia de São Carlos}
+%	
+%	\textsc{Departamento de Engenharia de Estruturas}
+%}
+%	
+%	\vspace{3.0cm}
+%	
+%	Outorgado: Péricles Rafael Pavão Carvalho
+%	
+%	Orientador: Prof. Dr. Rodolfo André Kuche Sanches}
+%
+%	\vspace{1cm}
+%	
+%	
+%	
+%	
+%	\vspace{2cm}
+%	
+%	\begin{multicols}{2}
+%		
+%	\rule{7cm}{0.4pt}
+%		
+%	Péricles Rafael Pavão Carvalho
+%	
+%	Outorgado
+%	
+%	\columnbreak
+%	
+%	\rule{7cm}{0.4pt}
+%	
+%	Rodolfo André Kuche Sanches
+%	
+%	Orientador
+%	\end{multicols}
+%	
+%	\vfill
+%	
+%	{\large
+%	\textbf{São Carlos -- SP}
+%	
+%	\textbf{2023}}
+%	
+%	\end{center}
+%	
+%	\clearpage
+	
+	
+	%\includepdf{Ficha-catalografica.pdf}
+	
+	%\includepdf{Folha-de-julgamento.pdf}
+	
+	% Agradecimentos
+	%\subfile{Agradecimentos}
+	
+	% Resumo	
+	\subfile{Resumo}
+%	
+%	%	
+%	% Abstract
+%	%\subfile{Abstract}
+	
+	% inserir lista de figurass
+	\pdfbookmark[0]{\listfigurename}{lof}	
+	\listoffigures*
+	\cleardoublepage
+	% inserir lista de tabelas
+	\pdfbookmark[0]{\listtablename}{lot}
+	\listoftables*
+	\cleardoublepage
+	% inserir lista de quadros
+	\pdfbookmark[0]{\listofquadroname}{loq}
+	\listofquadro*
+	\cleardoublepage
+		
+	\begin{comment}
+		
+		% inserir lista de abreviaturas e siglas		
+	
+		\begin{siglas}
+			\item[ABNT] Associação Brasileira de Normas Técnicas
+			\item[abnTeX] ABsurdas Normas para TeX
+			\item[EESC] Escola de Engenharia de São Carlos
+			\item[IAU] Instituto de Arquitetura e Urbanismo
+			\item[IBGE] Instituto Brasileiro de Geografia e Estatística
+			\item[ICMC] Instituto de Ciências Matemáticas e de Computação
+			\item[IFSC] Instituto de Física de São Carlos
+			\item[IQSC] Instituto de Química de São Carlos
+			\item[PDF] Portable Document Format
+			\item[TCC] Trabalho de Conclusão de Curso
+			\item[USP] Universidade de São Paulo
+			\item[USPSC] Campus USP de São Carlos
+		\end{siglas}
+		% inserir lista de símbolos
+		\begin{simbolos}
+			\item[$ \Gamma $] Letra grega Gama
+			\item[$ \Lambda $] Lambda
+			\item[$ \zeta $] Letra grega minúscula zeta
+			\item[$ \in $] Pertence
+		\end{simbolos}
+	\end{comment}
+	
+%	\begin{simbolos}
+%		\item[$ \mathbf{x} $] Campo de posições iniciais (indeformadas) de um corpo
+%		\item[$ \mathbf{y} $] Campo de posições atuais (deformadas) de um corpo
+%		\item[$ \boldsymbol{\zeta} $] Função mudança de configuração
+%		\item[$ \mathbf{A} $] Gradiente da função mudança de configuração
+%		\item[$ $] 
+%		\item[$ $] 
+%		\item[$ $] 
+%		\item[$ $] 
+%		\item[$ $] 
+%		\item[$ $] 
+%		\item[$ $] 
+%		\item[$ $] 
+%		\item[$ $] 
+%	\end{simbolos}
+	% inserir o sumario
+	
+	\pdfbookmark[0]{\contentsname}{toc}
+	{\linespread{1.18}
+	\tableofcontents*
+	\tocprintchapter
+	\cleardoublepage
+	}
+	
+	% ----------------------------------------------------------
+	% ELEMENTOS TEXTUAIS
+	% ----------------------------------------------------------
+	\textual
+	
+	\renewcommand\chaptername{}
+		
+	\subfile{Cap1-Introducao}
+
+	\subfile{Cap2-Mecanica-do-continuo}
+	
+	\subfile{Cap3-Termodinamica}
+	
+	\subfile{Cap4-Termoelasticidade}
+	
+	\subfile{Cap5-Visco-elasto-plasticidade}
+	
+	\subfile{Cap6-Termo-Visco-elasto-plasticidade}
+	
+	\subfile{Cap7-Contato}
+	
+	\subfile{Cap8-Materiais-Incompressiveis}
+	
+	\subfile{Cap9-Mudanca-de-fase}
+	
+	\subfile{CapFinal-Conclusoes}
+	
+	% ----------------------------------------------------------
+	% ELEMENTOS PÓS-TEXTUAIS
+	% ----------------------------------------------------------
+	\postextual
+	\tocprintchapternonum
+	
+	% Referências bibliográficas
+	\bibliography{Referencias}
+	
+%	\tocprintchapter
+% \begin{apendicesenv}
+	%\partapendices
+	
+	%\renewcommand\chaptername{Apêndice~}
+	%\renewcommand\chaptertitlename{\fontfamily{ptm}Apêndice~}	
+	%\subfile{Apendice-AlgebraTensorial}
+	
+	
+%	
+%\end{apendicesenv}
+%
+%\begin{anexosenv}
+%	
+%	
+%	\renewcommand\chaptername{Anexo~}
+%	\renewcommand\chaptertitlename{\fontfamily{ptm}Anexo~}
+%	
+%	\chapter{Publicação em periódico BMSE}\label{anx:artigo1}
+%	
+%	\includegraphics[scale=0.62]{Figuras/Anexos/2019paper.pdf}
+%	
+%	\chapter{Publicação em periódico EJMSOL}\label{anx:artigo2}
+%	
+%	\includegraphics[scale=0.54]{Figuras/Anexos/2022paper.pdf}	
+%	
+%	\chapter{Publicação em anais do XL CILAMCE}\label{anx:cilamce2019}
+%	
+%	\includegraphics[scale=0.54]{Figuras/Anexos/CILAMCE2019-1.pdf}
+%	
+%	\chapter{2ª publicação nos anais do XL CILAMCE}\label{anx:cilamce2019-2}
+%	
+%	\includegraphics[scale=0.54]{Figuras/Anexos/CILAMCE2019-2.pdf}
+%	
+%	\chapter{Publicação em anais do XLI CILAMCE}\label{anx:cilamce2020}
+%	
+%	\includegraphics[scale=0.54]{Figuras/Anexos/CILAMCE2020.pdf}
+%	
+%	\chapter{Publicação em anais do XLII CILAMCE}\label{anx:cilamce2021}
+%	
+%	\includegraphics[scale=0.54]{Figuras/Anexos/CILAMCE2021-1.pdf}
+%	
+%	\chapter{2ª publicação nos anais do XLII CILAMCE}\label{anx:cilamce2021-2}
+%	
+%	\includegraphics[scale=0.54]{Figuras/Anexos/CILAMCE2021-2.pdf}
+%	
+%\end{anexosenv}
+	
+\end{document}

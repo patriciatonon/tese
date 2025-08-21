@@ -1,0 +1,22 @@
+% Resumo
+
+\documentclass[Tese.tex]{subfiles}
+
+\begin{document}
+	\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo		
+	\begin{resumo}
+		\begin{flushleft} 
+			\setlength{\absparsep}{0pt} % ajusta o espaçamento da referência	
+			\SingleSpacing 
+			\imprimirautorabr~ ~\textbf{\imprimirtitulo}.	\imprimirdata. \pageref{LastPage}p. 
+			%Substitua p. por f. quando utilizar oneside em \documentclass
+			%\pageref{LastPage}f.
+			\imprimirtipotrabalho~-~\imprimirinstituicao, \imprimirlocal, \imprimirdata. 
+		\end{flushleft}
+		\OnehalfSpacing 	
+		\textcolor{red}{Revisar ao final}
+		Motivado pelos recentes avanços nos processos de manufatura aditiva, bem como problemas de fabricação de elementos estruturais, este trabalho dedica-se ao desenvolvimento de uma ferramenta numérica para simular problemas termo-mecânicos, incluindo mudança de fase sólido-líquido e situações de contato. O escopo desta pesquisa inclui o desenvolvimento de modelos constitutivos termo-viscoelástico-viscoplásticos em grandes deformações, para simular a fase sólida dos materiais. Tanto os modelos constitutivos quanto a equação da condução de calor são baseados nas leis da termodinâmica, definidos a partir da energia livre de Helmholtz, de onde derivam a tensão e a entropia. A simulação numérica é realizada pelo método dos elementos finitos, com uma abordagem baseada em temperaturas para o problema térmico, e em posições para o problema mecânico. Para a simulação de sólidos e fluidos incompressíveis, emprega-se uma formulação mista do MEF baseada em posições e pressões. O contato é modelado utilizando o método nó-a-superfície com multiplicadores de Lagrange. Para o problema termo-mecânico de mudança de fase entre sólido e líquido, propõe-se um modelo totalmente Lagrangiano baseado na decomposição multiplicativa do gradiente de deformação mecânica em componentes sólidas e líquidas. A evolução de cada componente é controlada pelo modelo constitutivo do material, que varia conforme a fase. Essa abordagem garante uma descrição cinemática consistente em problemas envolvendo grandes deformações. Em todas as etapas deste trabalho, exemplos numéricos representativos são simulados com o objetivo de verificar o código proposto e demonstrar as características dos modelos desenvolvidos.
+				
+		\textbf{Palavras-chave:} Mudança de fase. Termo-viscoelástico-viscoplástico. Materiais incompressíveis. Grandes deslocamentos. Grandes deformações. Contato.
+	\end{resumo}
+\end{document}

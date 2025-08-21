@@ -1,0 +1,240 @@
+
+\documentclass[Tese.tex]{subfiles}
+
+\begin{document}
+	
+\chapter{Modelo termo-viscoelástico-viscoplástico} \label{ch:tvep}
+
+O modelo termo-viscoelástico-viscoplástico apresentado neste capítulo é uma generalização do modelo viscoelástico-viscoplástico apresentado no \autoref{ch:vep}, sendo adicionados os efeitos da expansão térmica, da geração de calor por dissipação, e da dependência dos parâmetros mecânicos sobre a temperatura. Os conceitos termodinâmicos utilizados como base para este modelo são discutidos com mais detalhes nos \cref{ch:termodinamica,ch:termo-elasticidade}.
+
+\section{Cinemática}\label{sec:cinematica-tvevp}
+
+Novamente, utiliza-se a estratégia da decomposição multiplicativa, aplicada na \autoref{subsec:dec-mult-termo-elastico} para o caso termo-elástico, e na \autoref{sec:cinematica-vep} para o caso viscoelástico-viscoplástico. No presente contexto, aplica-se uma combinação dos dois modelos. Dessa forma, o gradiente da função mudança de configuração pode ser expresso como
+\begin{equation}
+	\F = \Fm\Ft, \label{eq:dec-mult-tvep}
+\end{equation}
+onde $\Ft$, definido na configuração inicial, representa as deformações térmicas, e $\Fm$, definido na configuração intermediária térmica ($\domVolt$), representa as deformações mecânicas. Utilizando como base o modelo viscoelástico-viscoplástico, em particular as decomposições introduzidas na \autoref{sec:cinematica-vep}, podemos escrever $\Fm = \Fve\Fp$, onde $\Fve = \Fe\Fv$ representa as deformações viscoelásticas, e $\Fp = \Fpe\Fpi = \Fpve\Fpvi$ as deformações plásticas.
+
+Assim como na \autoref{subsec:dec-mult-termo-elastico}, consideram-se neste caso apenas leis de expansão térmica isotrópicas, isto é, $\Ft = \alongTermico\I$, onde $\alongTermico$ é o alongamento térmico. Dessa forma, a \cref{eq:dec-mult-tvep} pode ser reescrita simplesmente como
+\begin{equation}
+\F = \alongTermico\Fm = \alongTermico\Fve\Fp, \label{eq:dec-mult-1-2}
+\end{equation}
+e as seguintes relações podem ser obtidas:
+\begin{align}
+&\C = (\alongTermico\Fve\Fp)^T(\alongTermico\Fve\Fp) = \alongTermico^2\Fp^T\Cve\Fp,\\
+&\L = \Lve + \Fve\Lp\Fve^{-1} + \dotAlongTermico\alongTermico^{-1}\I, \text{\quad e}\\
+&\D = \Sim(\L) = \Dve + \Sim(\Fve\Lp\Fve^{-1}) + \dotAlongTermico\alongTermico^{-1}\I. \label{eq:D-relacao}
+\end{align}
+Aplicando as \cref{eq:dec-mult-1-2,eq:taxa-green-2} na \cref{eq:D-relacao}, e desenvolvendo algebricamente, é possível escrever a taxa da deformação de Green-Lagrange viscoelástica como
+\begin{equation}
+\dotEve = \alongTermico^{-2}\Fp^{-T}\dotE\Fp^{-1} - \Sim(\Cve\Lp) - \alongTermico^{-1}\dotAlongTermico\Cve. \label{eq:dotEve}
+\end{equation}
+Realizando procedimentos análogos para as demais decomposições, podemos escrever
+\begin{align}
+&\dotEe = \Fv^{-T}\dotEve\Fv^{-1} - \Sim(\Ce\Lv),\label{eq:dotEe} \\
+&\dotEpe = \Fpi^{-T}\dotEp\Fpi^{-1} - \Sim(\Cpe\Lpi) , \text{\; e} \label{eq:dotEpe} \\
+&\dotEpve = \Fpvi^{-T}\dotEp\Fpvi^{-1} - \Sim(\Cpve\Lpvi). \label{eq:dotEpve}
+\end{align}
+
+\section{Energia, tensão e dissipação}
+
+A energia livre de Helmholtz do presente modelo pode ser expressa em duas parcelas: mecânica e térmica. Para a parcela mecânica, utiliza-se como base a energia do modelo viscoelástico-viscoplástico, apresentada na \cref{eq:helmholtz-vep}. Entretanto, nota-se que as componentes desta equação são definidas nas suas respectivas configurações intermediárias. Para que elas sejam escritas em forma Lagrangiana, deve-se multiplicar cada componente pelo Jacobiano entre a configuração inicial e a intermediária, $\J_{int}$. Mas, como já foi visto na \autoref{sec:leis-evolucao}, as deformações inelásticas são isocóricas, isto é, preservam o volume do sólido. Dessa forma, para cada uma das configurações intermediárias consideradas, $\J_{int}$ consistirá apenas da sua parcela térmica, que, no caso isotrópico, é dada simplesmente por $\Jt = \alongTermico^3$. Assim, a energia livre de Helmholtz pode ser escrita como:
+\begin{equation}\label{eq:helmholtz-tvep}
+\helmholtz = \helmholtzt + \alongTermico^3\helmholtzm,
+\end{equation}
+onde $\helmholtzt$ é a parcela térmica de $\helmholtz$, que pode ser dada novamente pela \cref{eq:helmholtz-t}, e $\helmholtzm$ representa a parcela mecânica de $\helmholtz$, definida de forma análoga à \cref{eq:helmholtz-vep}, porém, agora dependente também da temperatura. Isto é,
+\begin{equation}\label{eq:helmholtz-m}
+\helmholtzm = \helmholtzve(\temp,\Eve) + \helmholtze(\temp,\Ee) + \helmholtzkin(\temp,\Epe) + \helmholtzkinv(\temp,\Epve) + \helmholtzisop(\temp,\encruamento),
+\end{equation}
+
+Propõe-se neste trabalho um modelo termodinamicamente consistente, isto é, cujas equações respeitem a primeira e segunda lei da termodinâmica, apresentadas, respectivamente, na \cref{eq:primeira-lei-2} e na \cref{eq:clausius-duhem}. Em ambos os casos, é necessário calcular a taxa da energia livre de Helmholtz. Baseado nas \cref{eq:helmholtz-tvep,eq:helmholtz-m}, e sabendo que $\alongTermico$ e $\helmholtzt$ dependem apenas da temperatura, temos:
+\begin{equation}
+\begin{aligned}\label{eq:dotHelmholtz-tvep}
+\dothelmholtz = &\alongTermico^3\left(\dfrac{\partial \helmholtzve}{\partial \Eve}:\dotEve + \dfrac{\partial \helmholtze}{\partial \Ee}:\dotEe + \dfrac{\partial \helmholtzkin}{\partial \Epe}:\dotEpe + \dfrac{\partial \helmholtzkinv}{\partial \Epve}:\dotEpve + \dfrac{\partial \helmholtzisop}{\partial \encruamento}\dotencruamento\right) \\ & + \left(\dfrac{\partial \helmholtzt}{\partial \temp} + \alongTermico^3\dfrac{\partial\helmholtzm}{\partial\temp} + 3\alongTermico^2\helmholtzm\dfrac{\partial \alongTermico}{\partial \temp}\right)\dottemp .
+\end{aligned}
+\end{equation}
+Utilizando a \cref{eq:dotEve}, podemos escrever
+\begin{equation}\label{eq:parcela1}
+\dfrac{\partial \helmholtzve}{\partial \Eve}:\dotEve = \dfrac{\partial \helmholtzve}{\partial \Eve}:\left(\alongTermico^{-2}\Fp^{-T}\dotE\Fp^{-1}\right) - \dfrac{\partial \helmholtzve}{\partial \Eve}:\Sim(\Cve\Lp) - \alongTermico^{-1}\dotAlongTermico\dfrac{\partial \helmholtzve}{\partial \Eve}:\Cve.
+\end{equation} 
+Considerando que $\helmholtzve$ seja isotrópico, temos que $\partial \helmholtzve/\partial \Eve$ é simétrico, logo pode-se aplicar no segundo termo a propriedade $\mathbf{A}:\Sim(\mathbf{B})=\mathbf{A}:\mathbf{B}$, válida quando $\mathbf{A}$ é um tensor simétrico. Em seguida, pode-se utilizar a identidade tensorial $\mathbf{A}:(\mathbf{B}\mathbf{C}\mathbf{D}) = (\mathbf{B}^T\mathbf{A}\mathbf{D}^T):\mathbf{C}$ em todos os termos, de forma que a \cref{eq:parcela1} pode ser reescrita como:
+\begin{equation}\label{eq:parcela1-1}
+\dfrac{\partial \helmholtzve}{\partial \Eve}:\dotEve = \left(\alongTermico^{-2}\Fp^{-1}\dfrac{\partial \helmholtzve}{\partial \Eve}\Fp^{-T}\right):\dotE - \left(\Cve\dfrac{\partial \helmholtzve}{\partial \Eve}\right):\Lp - \tr\left(\Cve\dfrac{\partial \helmholtzve}{\partial \Eve}\right)\alongTermico^{-1}\dotAlongTermico,
+\end{equation}
+onde $\tr(\mathbf{A}) = \mathbf{A}:\I$ representa o traço de um tensor. Considerando também que $\helmholtze$, $\helmholtzkin$ e $\helmholtzkinv$ são isotrópicos, e utilizando as \cref{eq:dotEe,eq:dotEpe,eq:dotEpve}, pode-se realizar um procedimento análogo para as demais parcelas da \cref{eq:dotHelmholtz-tvep}, resultando nas seguintes expressões:
+\begin{align}
+& \dfrac{\partial \helmholtze}{\partial \Ee}:\dotEe = \left(\Fv^{-1}\dfrac{\partial \helmholtze}{\partial \Ee}\Fv^{-T}\right):\dotEve - \left(\Ce\dfrac{\partial \helmholtze}{\partial \Ee}\right):\Lv, \label{eq:parcela2} \\[0.1cm]
+& \dfrac{\partial \helmholtzkin}{\partial \Epe}:\dotEpe = \left(\Fpi^{-1}\dfrac{\partial \helmholtzkin}{\partial \Epe}\Fpi^{-T}\right):\dotEp - \left(\Cpe\dfrac{\partial \helmholtzkin}{\partial \Epe}\right):\Lpi, \text{\, e} \label{eq:parcela3}\\[0.1cm]
+& \dfrac{\partial \helmholtzkinv}{\partial \Epve}:\dotEpve = \left(\Fpvi^{-1}\dfrac{\partial \helmholtzkinv}{\partial \Epve}\Fpi^{-T}\right):\dotEp - \left(\Cpve\dfrac{\partial \helmholtzkinv}{\partial \Epve}\right):\Lpvi. \label{eq:parcela4}
+\end{align}
+Aplicando a \cref{eq:dotEve} na \cref{eq:parcela2} e realizando manipulações algébricas similares às anteriores, temos, ainda
+\begin{equation}
+\begin{aligned}\label{eq:parcela2-1}
+\dfrac{\partial \helmholtze}{\partial \Ee}:\dotEe = & \left(\alongTermico^{-2}\Fp^{-1}\Fv^{-1}\dfrac{\partial \helmholtze}{\partial \Ee}\Fv^{-T}\Fp^{-T}\right):\dotE - \left(\Cve\Fv^{-1}\dfrac{\partial \helmholtze}{\partial \Ee}\Fv^{-T}\right):\Lp\\ &- \left(\Ce\dfrac{\partial \helmholtze}{\partial \Ee}\right):\Lv - \tr\left(\Cve\Fv^{-1}\dfrac{\partial \helmholtze}{\partial \Ee}\Fv^{-T}\right)\alongTermico^{-1}\dotAlongTermico.
+\end{aligned}
+\end{equation}
+Utilizando relações cinemáticas, verifica-se que o termo $\Cve\Fv^{-1}$ pode ser reescrito como $\Fv^T\Ce$. Além disso, é possível demonstrar algebricamente a propriedade tensorial $\tr\left(\mathbf{A}\mathbf{B}\mathbf{A}^{-1}\right) = \tr\left(\mathbf{B}\right)$. Logo, a \cref{eq:parcela2-1} pode ser reescrita como
+\begin{equation}
+	\begin{aligned}\label{eq:parcela2-2}
+		\dfrac{\partial \helmholtze}{\partial \Ee}:\dotEe = & \left(\alongTermico^{-2}\Fp^{-1}\Fv^{-1}\dfrac{\partial \helmholtze}{\partial \Ee}\Fv^{-T}\Fp^{-T}\right):\dotE - \left(\Fv^{T}\Ce\dfrac{\partial \helmholtze}{\partial \Ee}\Fv^{-T}\right):\Lp\\ &- \left(\Ce\dfrac{\partial \helmholtze}{\partial \Ee}\right):\Lv - \tr\left(\Ce\dfrac{\partial \helmholtze}{\partial \Ee}\right)\alongTermico^{-1}\dotAlongTermico.
+	\end{aligned}
+\end{equation}
+Já nas \cref{eq:parcela3,eq:parcela4}, pode-se utilizar a relação $\dotEp = \Fp^T\Dp\Fp$, análoga à \cref{eq:taxa-green-2}. Assim, podemos escrever:
+\begin{align}
+& \dfrac{\partial \helmholtzkin}{\partial \Epe}:\dotEpe = \left(\Fpe\dfrac{\partial \helmholtzkin}{\partial \Epe}\Fpe^{T}\right):\Dp - \left(\Cpe\dfrac{\partial \helmholtzkin}{\partial \Epe}\right):\Lpi, \text{\, e} \label{eq:parcela3-2}\\[0.1cm]
+& \dfrac{\partial \helmholtzkinv}{\partial \Epve}:\dotEpve = \left(\Fpve\dfrac{\partial \helmholtzkinv}{\partial \Epve}\Fpve^{T}\right):\Dp - \left(\Cpve\dfrac{\partial \helmholtzkinv}{\partial \Epve}\right):\Lpvi, \label{eq:parcela4-2}
+\end{align}
+onde os termos $\Dp=\Sim(\Lp)$ também podem ser substituídos por $\Lp$ nesse contexto, já que realizam contração dupla com tensores simétricos. Dessa forma, a taxa da energia livre de Helmholtz pode ser escrita como
+\begin{equation}
+\begin{aligned} \label{eq:dothelmholtz-vep}
+\dothelmholtz = & \alongTermico\left(\Fp^{-1}\dfrac{\partial \helmholtzve}{\partial \Eve}\Fp^{-T} + \Fp^{-1}\Fv^{-1}\dfrac{\partial \helmholtze}{\partial \Ee}\Fv^{-T}\Fp^{-T}\right):\dotE \\& + \left(\dfrac{\partial \helmholtzt}{\partial \temp} + \alongTermico^3\dfrac{\partial \helmholtzm}{\partial \temp} + 3\alongTermico^2\helmholtzm\dfrac{\partial \alongTermico}{\partial \temp} - \alongTermico^{2}\tr\mandelve\dfrac{\partial \alongTermico}{\partial \temp}  - \alongTermico^{2}\tr\mandele\dfrac{\partial \alongTermico}{\partial \temp}\right)\dottemp \\&- \alongTermico^3\left(\relativeStress:\Lp + \mandele:\Lv + \mandelpe:\Lpi + \mandelpve:\Lpvi + \yieldStress\dotencruamento\right)
+,
+\end{aligned}
+\end{equation}
+onde $\yieldStress = -\partial\helmholtzisop/\partial\encruamento$ é a tensão de escoamento, $\relativeStress$ é a tensão relativa, já definida na \cref{eq:relativeStress}, e $\mandele$, $\mandelpe$ e $\mandelpve$ são os tensores de Mandel, definidos na \cref{eq:mandel}.
+
+Aplicando a \cref{eq:dothelmholtz-vep} na \cref{eq:primeira-lei-2} e na \cref{eq:clausius-duhem}, podemos reescrever a primeira e a segunda leis da termodinâmica, respectivamente. Após alguns desenvolvimentos algébricos, a primeira pode ser lida como
+\begin{equation}
+\begin{aligned}\label{eq:primeira-lei-vep-0}
+&- \left(\entropy + \dfrac{\partial \helmholtzt}{\partial \temp} + \alongTermico^3\dfrac{\partial \helmholtzm}{\partial \temp} + 3\alongTermico^2\helmholtzm\dfrac{\partial \alongTermico}{\partial \temp} - \alongTermico^{2}\tr\mandelve\dfrac{\partial \alongTermico}{\partial \temp}  - \alongTermico^{2}\tr\mandele\dfrac{\partial \alongTermico}{\partial \temp}\right)\dottemp \\& +\left(\S - \alongTermico\Fp^{-1}\dfrac{\partial \helmholtzve}{\partial \Eve}\Fp^{-T} - \alongTermico\Fp^{-1}\Fv^{-1}\dfrac{\partial \helmholtze}{\partial \Ee}\Fv^{-T}\Fp^{-T}\right):\dotE \\& + \alongTermico^3\left( \relativeStress:\Lp + \mandele:\Lv + \mandelpe:\Lpi + \mandelpve:\Lpvi + \yieldStress\dotencruamento\right) \\& - \temp \dotentropy + \calorInt - \gradientei\cdot\qi = 0, 
+\end{aligned}
+\end{equation}
+e a segunda como
+\begin{equation}
+\begin{aligned} \label[ineq]{eq:clausius-duhem-vep-0}
+\dissipation = &- \left(\entropy + \dfrac{\partial \helmholtzt}{\partial \temp} + \alongTermico^3\dfrac{\partial \helmholtzm}{\partial \temp} + 3\alongTermico^2\helmholtzm\dfrac{\partial \alongTermico}{\partial \temp} - \alongTermico^{2}\tr\mandelve\dfrac{\partial \alongTermico}{\partial \temp}  - \alongTermico^{2}\tr\mandele\dfrac{\partial \alongTermico}{\partial \temp}\right)\dottemp \\ & +\left(\S - \alongTermico\Fp^{-1}\dfrac{\partial \helmholtzve}{\partial \Eve}\Fp^{-T} - \alongTermico\Fp^{-1}\Fv^{-1}\dfrac{\partial \helmholtze}{\partial \Ee}\Fv^{-T}\Fp^{-T}\right):\dotE \\& + \alongTermico^3\left( \relativeStress:\Lp + \mandele:\Lv + \mandelpe:\Lpi + \mandelpve:\Lpvi + \yieldStress\dotencruamento\right) - \dfrac{1}{T}\qi\cdot\gradientei\,\temp \geq 0. 
+\end{aligned}
+\end{equation}
+
+Seguindo novamente o postulado de \citeonline{Coleman1963}, as expressões acima devem ser válidas para quaisquer valores de $\dotE$ e $\dottemp$. Tomando os conjugados termodinâmicos desses termos como zero, temos que a tensão de Piola-Kirchhoff de segunda espécie e a entropia são dadas, respectivamente, pelas expressões:
+\begin{align}
+& \S = \alongTermico\left(\Fp^{-1}\dfrac{\partial \helmholtzve}{\partial \Eve}\Fp^{-T} + \Fp^{-1}\Fv^{-1}\dfrac{\partial \helmholtze}{\partial \Ee}\Fv^{-T}\Fp^{-T}\right) = \alongTermico\Sm, \text{\quad e} \label{eq:S-tvep} \\
+& \entropy =  - \dfrac{\partial \helmholtzt}{\partial \temp} - \alongTermico^3\dfrac{\partial \helmholtzm}{\partial \temp} + \alongTermico^{2}\left(\tr\mandelve + \tr\mandele - 3\helmholtzm\right)\dfrac{\partial \alongTermico}{\partial \temp}, \label{eq:entropy-tvep}
+\end{align}
+onde $\Sm$ equivale à tensão do modelo puramente mecânico, definida na \cref{eq:S-vep}. Partindo da \cref{eq:S-tvep}, e aplicando certas manipulações algébricas, é possível verificar que $\C:\S = \alongTermico^3\Cm:\Sm = \alongTermico^3\left(\tr\mandelve + \tr\mandele\right)$. Logo, podemos reescrever a equação da entropia como
+\begin{equation}
+\entropy = - \dfrac{\partial\helmholtzt}{\partial\temp} - \alongTermico^3\dfrac{\partial\helmholtzm}{\partial\temp} +  \left(\alongTermico^{-1}\C:\S - 3\alongTermico^2\helmholtzm\right)\dfrac{\partial\alongTermico}{\partial\temp}. \label{eq:entropy-vevp-2}
+\end{equation}
+
+Suponha que $\internalVariables$ denote, de forma geral, as variáveis internas inelásticas do modelo (neste caso, $\Fv$, $\Fp$, $\Fpi$, $\Fpvi$ e $\encruamento$). Então, podemos escrever $\helmholtz$ alternativamente apenas em função de $\temp$, $\E$ e $\internalVariables$, isto é, $\helmholtz = \helmholtz(\temp,\E,\internalVariables)$. Nesse caso, é possível demonstrar que as \cref{eq:S-tvep,eq:entropy-vevp-2} são equivalentes a
+\begin{equation}
+\S = \left(\dfrac{\partial\helmholtz}{\partial\E}\right)_{\temp,\internalVariables} \text{\quad e\quad}\entropy = \left(\dfrac{\partial\helmholtz}{\partial\temp}\right)_{\E,\internalVariables}.
+\end{equation}
+
+O critério de escoamento e leis de evolução aplicados neste caso são análogos aos do modelo viscoelástico-viscoplástico descrito no \autoref{ch:vep}. Utiliza-se novamente o critério de Von Mises, dado pela \cref{eq:yield}, e as leis de evolução dadas nas Eqs. \eqref{eq:Lv-evol}, \eqref{eq:Lp-evol}, \eqref{eq:Lpi-evol}, \eqref{eq:Lpvi-evol}, e \eqref{eq:evol-iso}. Aplicando-as, juntamente com as demais relações constitutivas, na \cref{eq:primeira-lei-vep-0} e \cref{eq:clausius-duhem-vep-0}, temos que a primeira e segunda leis da termodinâmica podem ser reescritas simplesmente como
+\begin{align} 
+	&\temp \dotentropy + \gradientei\cdot\qi = \dissipationmec + \calorInt, \label{eq:primeira-lei-vep} \\
+	&\dissipation = \dissipationmec - \dfrac{1}{T}\qi\cdot\gradientei\,\temp \geq 0.  \label[ineq]{eq:clausius-duhem-vep}
+\end{align}
+onde $\dissipationmec$ representa a parcela mecânica da taxa de dissipação, dada por
+\begin{equation} \label{eq:dissipation-mec}
+	\dissipationmec = \alongTermico^3\left(\plastmult\|\relativeStressD\| + \dfrac{1}{\visc}\|\mandeleD\|^2 + \plastmult\dfrac{\armstrongvisc}{\armstrongstiff}\|\mandelpeD\|^2 + \dfrac{1}{\visccin}\|\mandelpveD\|^2 + \sqrt{\dfrac{2}{3}}\plastmult\yieldStress\right),
+\end{equation}
+similar à dissipação calculada na \cref{eq:dint-verif} para o modelo viscoelástico-viscoplástico em condições isotérmicas, diferenciando-se apenas pelo termo $\alongTermico^3$. De forma análoga à esse caso, é possível demonstrar que $\dissipationmec \geq 0$. Além disso, a parcela térmica da \cref{eq:clausius-duhem-vep} ($- \frac{1}{T}\qi\cdot\gradientei\,\temp$) é automaticamente maior ou igual à zero quando utilizada a lei de Fourier, conforme já discutido na \autoref{subsec:fourier-0}. Dessa forma, pode-se garantir que o modelo adotado satisfaz a segunda lei da termodinâmica.
+
+Manipulando as \cref{eq:primeira-lei-2,eq:primeira-lei-vep}, é possível obter a seguinte relação:
+\begin{equation}\label{eq:work-rates}
+\S:\dotE = \dothelmholtz + \dissipationmec + \dottemp\entropy,
+\end{equation}
+mostrando que a taxa de trabalho interno é igual à soma da taxa de energia livre de Helmholtz (representando a energia armazenada), a taxa de dissipação mecânica, e um termo associado à entropia. Além de servir como um método para verificar a consistência da formulação e das expressões utilizadas, essa relação permite analisar quantitativamente a porcentagem de energia dissipada em comparação com a energia efetivamente convertida no processo mecânico.
+
+O algoritmo para solução numérica do presente modelo é análogo ao caso viscoelástico-viscoplástico, já descrito com detalhes na \autoref{sec:solucao-numerica}, sendo utilizado novamente o método implícito de Euler para integração temporal das leis de evolução.
+
+\section{Operador tangente consistente}
+
+Uma vez que os problemas térmico e mecânico são resolvidos individualmente, e que as temperaturas são mantidas fixas durante a solução do problema mecânico, o cálculo do operador tangente consistente não deve levar em conta variações de temperatura ou de $\alongTermico$ para efeito de convergência. Dessa forma, a variação da tensão de Piola-Kirchhoff de segunda espécie pode ser calculada como
+\begin{equation}\label{eq:CC-tvep-0}
+\Delta\S = \alongTermico\Delta\Sm = \alongTermico\CCm:\Delta\Em
+\end{equation}
+onde $\Em$ é a parcela mecânica da deformação de Green-Lagrange, e $\CCm$ é o operador tangente consistente do modelo puramente mecânico, calculado de forma análoga à descrita na \cref{sec:operador-vep}.
+
+A partir das relações cinemáticas apresentadas, é possível demonstrar que $\Delta\Em = \alongTermico^{-2}\Delta\E$. Portanto, a \cref{eq:CC-tvep-0} pode ser reescrita como
+\begin{equation}
+\Delta\S = \alongTermico^{-1}\CCm:\Delta\E.
+\end{equation}
+Logo, por associação com a \cref{eq:CC-vep-0}, o operador tangente consistente do modelo termo-viscoelástico-viscoplástico pode ser expresso como
+\begin{equation}
+\CC = \alongTermico^{-1}\CCm. \label{eq:CC-tvep}
+\end{equation}
+
+\section{Equação da condução de calor}\label{sec:conducao-tvep}
+
+A \cref{eq:primeira-lei-vep} é denominada equação da condução de calor. Para obtermos uma forma aplicável dessa equação, resta apenas desenvolver o termo $\dotentropy$. Para isso, podemos escrever a entropia apenas em função de $\temp$, $\E$, e das variáveis internas $\internalVariables$, isto é, $\entropy = \entropy(\temp,\E,\internalVariables)$. Assim, temos
+\begin{equation}
+\dotentropy = \dfrac{1}{\temp}\volumetricHeatCapacityEff\dottemp + \operadorTermoMecanico:\dotE + \operadorTermoMecanicoGeral:\dotInternalVariables, \label{eq:dotentropy-tvep}
+\end{equation}
+onde 
+\begin{equation}
+\volumetricHeatCapacityEff = \temp\left(\dfrac{\partial\entropy}{\partial\temp}\right)_{\E,\internalVariables},\quad
+\operadorTermoMecanico = \left(\dfrac{\partial\entropy}{\partial\E}\right)_{\temp,\internalVariables} \text{\quad e\quad}
+\operadorTermoMecanicoGeral = \left(\dfrac{\partial\entropy}{\partial\internalVariables}\right)_{\temp,\E}.
+\end{equation}
+Os tensores $\operadorTermoMecanico$ e $\operadorTermoMecanicoGeral$ são denominados operadores termo-mecânicos. Partindo da \cref{eq:entropy-vevp-2}, podemos calcula-los como
+\begin{align}
+&\operadorTermoMecanico = -\left(\dfrac{\partial\S}{\partial\temp}\right)_{\temp,\internalVariables} + \alongTermico^{-1}\left[\C:\left(\dfrac{\partial\S}{\partial\E}\right)_{\temp,\internalVariables} - \S\right]\dfrac{\partial\alongTermico}{\partial\temp}, \text{\quad e}\\
+&\operadorTermoMecanicoGeral = -\alongTermico^3\left(\dfrac{\partial^2\helmholtzm}{\partial\temp\partial\internalVariables}\right)_{\temp,\E} + \left[\alongTermico^{-1}\C:\left(\dfrac{\partial\S}{\partial\internalVariables}\right)_{\temp,\E} - 3\alongTermico^2\left(\dfrac{\partial\helmholtzm}{\partial\internalVariables}\right)_{\temp,\E}\right]\dfrac{\partial\alongTermico}{\partial\temp}.
+\end{align}
+Já o parâmetro $\volumetricHeatCapacityEff$ denota o calor específico volumétrico efetivo do material, dado neste caso por
+\begin{equation}
+\volumetricHeatCapacityEff = \volumetricHeatCapacity + \volumetricHeatCapacityMec,
+\end{equation}
+onde $\volumetricHeatCapacity$ é a sua parcela puramente térmica, calculada como
+\begin{equation}
+\volumetricHeatCapacity = -\temp\dfrac{\partial^2\helmholtzt}{\partial\temp^2},
+\end{equation}
+e $\volumetricHeatCapacityMec$ é a sua parcela mecânica, calculada como
+\begin{equation}
+\begin{aligned}
+\volumetricHeatCapacityMec = &-\alongTermico^3\temp\left(\dfrac{\partial^2\helmholtzm}{\partial\temp^2}\right)_{\E,\internalVariables} + \temp\left[\alongTermico^{-1}\C:\left(\dfrac{\partial\S}{\partial\temp}\right)_{\E,\internalVariables} - 6\alongTermico^2\left(\dfrac{\partial\helmholtzm}{\partial\temp}\right)_{\E,\internalVariables}\right]\dfrac{\partial\alongTermico}{\partial\temp} \\
+&+\temp\left(-\alongTermico^{-2}\C:\S-6\alongTermico\helmholtzm\right)\left(\dfrac{\partial\alongTermico}{\partial\temp}\right)^2 + \temp\left(\alongTermico^{-1}\C:\S - 3\alongTermico^2\helmholtzm\right)\dfrac{\partial^2\alongTermico}{\partial\temp^2}
+\end{aligned}
+\end{equation}
+
+Aplicando a \cref{eq:dotentropy-tvep} na \cref{eq:primeira-lei-vep}, temos, enfim, a equação da condução de calor local:
+\begin{equation}\label{eq:primeira-lei-vep-1}
+	\volumetricHeatCapacityEff\dottemp + \gradientei\cdot\qi = \calorInt + \dissipationmec - \temp\tmcoupling,
+\end{equation}
+onde, por conveniência, a variável $\tmcoupling$ é adotada para representar os termos de acoplamento termo-mecânico, isto é:
+\begin{equation}
+\tmcoupling = \operadorTermoMecanico:\dotE + \operadorTermoMecanicoGeral:\dotInternalVariables.
+\end{equation}
+
+Como visto na \cref{eq:primeira-lei-vep-1}, o termo de dissipação mecânica ($\dissipationmec$) e o termo de acoplamento termo-mecânico ($-\temp\tmcoupling$) desempenham o mesmo papel que o calor interno fornecido ($\calorInt$): adicionar ou remover calor do sistema. Valores positivos no lado direito da \cref{eq:primeira-lei-vep-1} indicam uma tendência do sistema a aumentar as temperaturas, enquanto valores negativos indicam uma tendência a diminuir as temperaturas. A partir da \cref{eq:dissipation-mec}, pode-se observar que a dissipação mecânica é não-negativa por definição, sempre adicionando calor ao sistema.
+
+Entretanto, na prática, a dissipação mecânica nem sempre se converte totalmente em calor. Quando um material sofre deformação inelástica, uma parte da energia é armazenada no rearranjo e entrelaçamento das discordâncias dentro da estrutura cristalina do material, um processo conhecido como trabalho frio \cite{KAMLAH1997893, BENZERGA20054765}. Para contabilizar esse efeito, vários estudos propõem o uso de um multiplicador no termo de dissipação mecânica \cite{LEE1969, Allen1991}. Dessa forma, a \cref{eq:heat-conduction-final} se torna:
+\begin{equation}\label{eq:heat-conduction-final}
+\volumetricHeatCapacityEff\dottemp + \gradientei\cdot\qi = \calorInt + \dissipationMultiplier\dissipationmec - \temp\tmcoupling,
+\end{equation}
+onde o multiplicador $\dissipationMultiplier$, frequentemente denominado coeficiente de Taylor-Quinney \cite{TaylorQuinney1934, BENAARBIA2019105128}, representa a fração de energia convertida em calor durante a deformação inelástica, geralmente estimada empiricamente em torno de $0.9$ \cite{LEE1969, LEE2001187}.
+
+Ao contrário da dissipação mecânica, o termo de acoplamento termo-mecânico ($-\temp\tmcoupling$) pode ser negativo ou positivo. Quando negativo, esse termo pode contrabalançar o efeito da dissipação mecânica, diminuindo a temperatura. Embora isso possa parecer contraintuitivo para processos inelásticos, é comum durante a fase elástica/viscoelástica, onde a dissipação mecânica é baixa em comparação com a fase plástica/viscoplástica. Esse fenômeno é discutido em \cite{hsu2012finite}, onde os resultados de uma barra sob carregamento mecânico apresentam uma queda de temperatura durante a fase elástica, seguida por um aumento de temperatura durante a fase plástica. Resultados semelhantes também são discutidos em \cite{Allen1991}.
+
+
+De forma análoga ao caso termo-elástico, pode-se multiplicar a \cref{eq:primeira-lei-vep-1} por uma função ponderadora $\delta\temp$, integrar no volume inicial, e realizar manipulações algébricas similares à \autoref{sec:conducao-calor}. Disso resulta a equação da condução de calor em sua forma variacional global:
+\begin{equation}\label{eq:equacao-conducao-global-fourier-tvep}
+	\begin{aligned}
+		&\int_{\domVoli}\volumetricHeatCapacityEff\dottemp\delta\temp d\voli + \int_{\domVoli}\left(\condutMati\cdot\gradientei\,\temp\right)\cdot\left(\gradientei\,\delta\temp\right) d\voli + \int_{\domConi}\qpresci\,\delta\temp d\coni \\&- \int_{\domVoli}(\calorInt + \dissipationMultiplier\dissipationmec - \temp\tmcoupling)\delta\temp d\voli = 0,
+	\end{aligned}
+\end{equation}
+onde $\qpresci$ é o fluxo de calor prescrito, e $\condutMati$ é a matriz de condutividade térmica do material na configuração inicial, já definida na \cref{eq:condutMat-term}, utilizando a lei de Fourier.
+
+Novamente, utiliza-se o método dos elementos finitos, em conjunto com o método de Galerkin, para solução numérica da \cref{eq:equacao-conducao-global-fourier-tvep}. Entretanto, dado que $\volumetricHeatCapacityEff$ depende da temperatura, o sistema torna-se não-linear, demandando técnicas iterativas de solução, como o método de Newton-Raphson. O mesmo também ocorre nos casos onde o parâmetro de condutividade $\condut$ depende da temperatura, embora esses casos não sejam tratados neste trabalho. Para o acoplamento termo-mecânico, adotamos o método bloco-iterativo descrito na \cref{subsec:acoplamento}.
+
+%
+%Analogamente à \autoref{sec:mef-termo}, o sistema global pode ser organizado como
+%\begin{equation}\label{eq:sistema-termo-tvep}
+%	\matC\cdot\vetDotTemp + \matK\cdot\vetTemp = \vetF ,
+%\end{equation}
+%onde $\vetTemp$ representa o vetor de parâmetros nodais (temperaturas), $\matC$ e $\matK$ são matrizes dadas pelas \cref{eq:matC,eq:matK}, respectivamente, e $\vetF$ é um vetor dado neste caso por
+%\begin{equation}\label{eq:vetF-tvep}
+%	\vetF_{i} = -\int_{\domConi}\qpresci\fforma^i d\coni + \int_{\domConConv}\constResfriamento\tempext\fforma^i d\con + \int_{\domVoli}\massi \calorInt\fforma^i d\voli + \int_{\domVoli}\dissipationmec\fforma^i d\voli,
+%\end{equation}
+%sendo incluída a parcela de fluxo de calor devida à convecção. Observa-se que a \cref{eq:vetF-tvep} difere da \cref{eq:vetF} apenas pela adição da parcela de dissipação mecânica, não contemplada no modelo termo-elástico. Essa parcela pode ser vista como um complemento do calor interno, porém, provocando sempre um aumento de temperatura, uma vez que $\dissipationmec \geq 0$.
+
+%\section{Exemplos numéricos}
+%
+%Assim como no \autoref{ch:vep}, aplicam-se modelos Neo-Hookeanos nos exemplos apresentados, utilizando as expressões definidas na \autoref{sec:helmholtz-vep} para $\helmholtzve$, $\helmholtze$, $\helmholtzkin$ e $\helmholtzkinv$. Para o alongamento térmico, utiliza-se a lei exponencial definida na \cref{eq:expansao-exp}.
+
+\section{Modelos com viscosidade aprimorada}
+
+\end{document}

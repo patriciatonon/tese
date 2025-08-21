@@ -1,0 +1,28 @@
+% Abstract
+
+\documentclass[Tese.tex]{subfiles}
+
+\begin{document}
+	\autor{Silva, M. J.}
+	\begin{resumo}[Abstract]
+		\begin{otherlanguage*}{english}
+			\begin{flushleft} 
+				\setlength{\absparsep}{0pt} % ajusta o espaçamento dos parágrafos do resumo		
+				\SingleSpacing 
+				\imprimirautorabr~ ~\textbf{\imprimirtitleabstract}.	\imprimirdata.  \pageref{LastPage}p. 
+				%Substitua p. por f. quando utilizar oneside em \documentclass
+				%\pageref{LastPage}f.
+				\imprimirtipotrabalho~-~\imprimirinstituicao, \imprimirlocal, 	\imprimirdata. 
+			\end{flushleft}
+			\OnehalfSpacing 
+			\textcolor{red}{Revise at the end}
+			Motivated by several manufacturing processes, such as cold metal forming or even additive manufacturing, in this work we develop a computational code for numerical simulation of two-dimensional problems addressing three types of nonlinearities: geometric nonlinearity, present in large displacements situations; physical non-linearity, present in the material constitutive model; and contact non-linearity. In the first step, we develop a computational program for dynamic analysis of two-dimensional elastic solids using the positional finite element method, which naturally takes into account geometric non-linearity in its formulation. Following, we implement inelastic constitutive models for large strain problems. In the elasto-plastic model, we adopt von Mises yeld criteria and kinematic hardening based on the Armstrong-Frederick law. The formulation is then generalized to the visco-plastic case, where we consider Perzyna model associated with Norton's law. In the visco-elastic case, Zener's rheological model is employed. Finally, we present a visco-elasto-plastic model by coupling the visco-elastic and visco-plastic models described previously. In every case, the multiplicative decomposition of the deformation gradient is employed. Regarding the 2D application, we consider both plane strain and plane stress hypothesis, where the latter is solved numerically by a local Newton-Raphson procedure. For the contact problem, we employ the Node-to-Segment strategy, imposing non-penetration conditions with the introduction of Lagrange multipliers. The resulting computational code is tested in each step by means of numerical verification examples. In addition, to show the potentialities of the developed code, several numerical examples are proposed, some of which inspired by existing manufacturing processes. On these examples, we study the effects of different material parameters and strain rates on the numerical response, allowing an analysis of the dissipative behavior due to plasticity and viscosity, including the influence of these on the dynamic damping. 
+			
+			\vspace{\onelineskip}
+			
+			\noindent 
+			\textbf{Keywords}: Positional FEM. Elasto-plasticity. Visco-plasticity. Visco-elasticity. Visco-elasto-plasticity. Large displacements. Large strains. Contact.
+		\end{otherlanguage*}
+	\end{resumo}
+\end{document}
+

@@ -1,0 +1,229 @@
+% Introdução
+
+\documentclass[Tese.tex]{subfiles}
+
+\begin{document}
+
+	
+\chapter{Introdução}\label{ch:introducao}
+
+\vfill
+
+O recente avanço nos processos de manufatura aditiva (impressão 3D) motiva o estudo de modelos termo-mecânicos capazes de representar o fenômeno da mudança de fase. Para uma simulação detalhada desse tipo de problema, devem ser adequadamente consideradas, entre outros aspectos, as não-linearidades geométrica e física que surgem em casos de grandes deslocamentos e deformações, além da não-linearidade por contato. Entre outras situações nas quais esse tipo de análise é essencial, destacam-se os problemas de balística e diversos processos de fabricação de elementos estruturais, nos quais os efeitos térmicos podem ser relevantes, tais como conformação, extrusão, forja e fundição de metais.
+
+Com essa motivação, propõe-se o desenvolvimento e a implementação de um modelo numérico para a análise de problemas termo-mecânicos, incluindo situações de contato e mudança de fase sólido-líquido. Ao considerar a mudança de fase, nota-se que a pesquisa não está restrita à mecânica dos sólidos, mas leva ainda em conta os campos da mecânica dos fluidos e das ciências térmicas. Para se permitir uma maior gama de aplicações, faz-se necessário o desenvolvimento de modelos constitutivos inelásticos em grandes deformações, incluindo modelos termo-viscoelástico-viscoplásticos. Trata-se, portanto, de uma proposta abrangente, com contribuições que focam tanto em análise multi-física, quanto na simulação de problemas não-lineares complexos da mecânica dos sólidos.
+ 
+Para esse fim, foi desenvolvido um código computacional cuja principal ferramenta numérica é o método dos elementos finitos (MEF), utilizando como ponto de partida os desenvolvimentos de \citeonline{Pericles2019}. Para o problema térmico, emprega-se uma abordagem do MEF baseada em temperaturas. Já para o problema mecânico, utiliza-se uma abordagem baseada em posições \cite{CodaLivro}. Nos casos de materiais incompressíveis, adota-se uma formulação mista baseada em posições e pressões, conforme detalhado por \citeonline{Avancini2020}. O código é continuamente aprimorado ao longo da pesquisa, incorporando os diversos modelos desenvolvidos.
+
+Neste capítulo, são apresentadas as informações gerais do projeto, incluindo objetivos, justificativa, estado da arte, metodologia e cronograma. A formulação teórica desenvolvida ao longo da pesquisa é descrita nos Capítulos \ref{ch:mecanica-dos-solidos} a \ref{ch:mudanca-de-fase}. As conclusões do trabalho, incluindo sugestões para pesquisas futuras, são apresentadas no \autoref{ch:conclusoes}.
+
+\section{Objetivos}
+\label{Objec}
+
+O objetivo geral deste trabalho consiste no desenvolvimento e implementação
+computacional de modelos numéricos em descrição Lagrangiana para a
+simulação termo-mecânica de sólidos viscoelástico-viscoplásticos, materiais
+incompressíveis e mudança de fase sólido-líquido, incluindo situações de
+contato. Para isso, são traçados os seguintes objetivos específicos:
+
+\begin{enumerate}[label=\arabic*),labelwidth=\parindent,noitemsep]
+	\item\label{item:programa} Extensão do programa de análise de
+          sólidos com comportamento viscoelástico-viscoplástico,
+          desenvolvido durante o mestrado do autor \cite{Pericles2019}, do 2D para o 3D;
+	\item Desenvolvimento e implementação de acoplamento termo-mecânico no programa desenvolvido, com modelos constitutivos termo-elásticos e termo-viscoelástico-viscoplásticos;
+  	\item Calibração e validação dos modelos constitutivos de sólido através de dados experimentais;
+	\item Implementação de modelos de contato com ou sem atrito, em 2D e 3D; 
+	\item Implementação de formulações mistas do MEF para simulação de materiais incompressíveis, incluindo fluidos Newtonianos e sólidos gerais;
+	\item Desenvolvimento e implementação de modelo de mudança de fase;
+	\item Aplicação a exemplos numéricos representativos, que demonstrem a consistência da formulação e as potencialidades do programa desenvolvido.
+\end{enumerate}
+
+\section{Justificativa}
+
+Com relação à análise de problemas complexos em engenharia de
+estruturas, sabe-se que abordagens experimentais, embora necessárias,
+podem apresentar alto custo de materiais e mão-de-obra,
+além de possivelmente demandarem muito tempo. Já as soluções analíticas, quando
+disponíveis, estão restritas a casos muito específicos onde o modelo
+possa contar com hipóteses simplificadoras. Dessa forma, a alternativa
+numérica se destaca pela sua generalidade e praticidade. Com os
+recursos computacionais em crescente desenvolvimento, tais análises se
+tornam cada vez mais viáveis, sendo maior a rapidez e exatidão para
+simular problemas nas mais diversas esferas científicas.
+
+No contexto da simulação de materiais viscoelástico-viscoplásticos
+submetidos a grandes deformações, mudança de fase por efeito da
+temperatura e contato entre sólidos deformáveis, uma grande
+variedade de aplicações pode ser encontrada, por exemplo, nos
+processos de manufatura de elementos estruturais. Destacam-se, dentre
+as aplicações, conformação mecânica, extrusão, laminação, forja e
+fundição.  Análises numéricas desses processos podem ajudar a prever
+com maior precisão a forma final do elemento fabricado, e permitir
+ajustes em moldes, formas, e condições tais como temperatura ideal, de
+modo a se obter um melhor produto.  Pode-se citar também as 
+aplicações ao campo da balística, onde o objeto de estudo é o impacto de projéteis a
+altas temperaturas e velocidades com meios fluidos ou sólidos.
+
+Outro desenvolvimento que vem sendo impulsionado nos últimos anos e aumenta a demanda com relação ao tema é a tecnologia de manufatura aditiva, ou impressão 3D, a qual vem revolucionando o mercado pela sua grande versatilidade, sendo utilizada para fabricar desde objetos pequenos até estruturas altamente complexas. 
+
+%Vale ser dito, no entanto, que o projeto não se limita a essas
+%aplicações, uma vez que a sua proposta é ampla e focada no
+%desenvolvimento de modelos gerais. Em particular, espera-se contribuir
+%não apenas com o resultado prático dos exemplos propostos, mas também
+%com o desenvolvimento teórico dos modelos utilizados nas simulações.(Nem isso)
+Este trabalho justifica-se por contribuir não somente com uma ferramenta computacional com aplicação para a simulação realística dos vários processos de fabricação mencionados, bem como de diversos outros problemas termomecânicos, mas também com o desenvolvimento teórico do modelos numéricos empregados.
+
+\section{Estado da arte}\label{sec:estado-da-arte}
+
+Nesta seção, apresenta-se uma revisão bibliográfica acerca das áreas de estudo pesquisadas, desde as suas origens até os avanços mais recentes, sendo citadas as referências de maior relevância para este trabalho.
+
+\subsection{Mecânica dos sólidos computacional}\label{subsec:mefp}
+
+Atualmente, a ferramenta numérica mais difundida não apenas em análises de sólidos e estruturas, e que também tem sido aplicada em diversos outros âmbitos científicos, é o Método dos Elementos Finitos. A evolução desse método está intimamente relacionada ao advento e aprimoramento da computação. Em meados da década de 1950, engenheiros já executavam análises numéricas a partir da discretização do sistema em elementos, como pode ser visto em \citeonline{Turner1956} e \citeonline{Turner1960}. Entretanto, de acordo com \citeonline{bathe2006finite}, o termo ``Método dos elementos finitos''
+foi cunhado apenas em \citeonline{clough1960finite}. Entre trabalhos clássicos que contribuíram para o seu desenvolvimento na área da mecânica dos sólidos e das estruturas podem ser citados, por exemplo, \citeonline{ARGYRIS19791}, \citeonline{Crisfield:1997:NFE:549325}, \citeonline{bonet1997nonlinear} e \citeonline{Zienkiewicz2005}, onde o método é aplicado tanto em casos lineares quanto não-lineares.%. Nesses, já percebe-se o avanço em torno do fenômeno da não-linearidade.
+
+\textcolor{red}{Falta descrever a história das análises não lineares geométrica e física no âmbito do MEF... É importante inclusive mencionar o Lagrangiano atualizado e a formulação corrotacional}
+
+\citeonline{Coda2003}, apresenta uma formulação Lagrangiana total do MEF que utiliza como parâmetros nodais as posições atuais dos nós a partir de um eixo de coordenadas fixo, ao invés dos deslocamentos como é feito tradicionalmente. Uma formulação semelhante pode ser encontrada em \citeonline{BONET2000579}.
+Essa abordagem possui as vantagens de naturalmente considerar a não linearidade geométrica, ser construída diretamente sobre o conceito isoparamétrico, e ainda, proporcionar uma implementação computacional didaticamente simples. Uma descrição detalhada da formulação pode ser encontrada em \citeonline{CodaLivro}.
+
+Vários trabalhos que atestam a confiabilidade do método dos elementos finitos baseado em posições podem ser citados. Em
+\citeonline{CodaGreco2004}, esse é aplicado na análise estática de pórticos bidimensionais sob grandes deslocamentos. Já em
+\citeonline{GRECO20061079}, utilizam-se elementos de treliças espaciais com modelo contitutivo elasto-plástico. A análise dinâmica foi introduzida por \citeonline{GrecoCoda2006} no contexto de pórticos planos, empregando o algoritmo de Newmark para integração no tempo. Outras aplicações em problemas dinâmicos podem ser encontradas, por exemplo, em \citeonline{CodaPaccola2009} e \citeonline{SANCHES2013177}, sendo mostrada nesse último uma prova da conservação da quantidade de movimento.
+
+%Em \citeonline{Marques2006}, o método dos elementos finitos posicional é utilizado para resolução de problemas dinâmicos de sólidos bidimensionais elásticos com não-linearidade geométrica, além da consideração de contato com anteparos rígidos. Em \citeonline{Maciel2008}, esse é aplicado na análise de pórticos planos e sólidos tridimensionais.
+
+%O método também foi utilizado para análise de elementos de casca, como pode ser visto em  e \citeonline{Pascon2008}. Entre outros trabalhos com aplicações dinâmicas, podem ser citados os de \citeonline{SANCHES2013177}, \citeonline{SANCHES20143401}, \citeonline{SANCHES2017} e \citeonline{Giovane}. Em \citeonline{Pascon2012}, \citeonline{PASCON201321}, \citeonline{PasconCoda2013}, \citeonline{PasconCoda2015} e \citeonline{Rigobello2011}, o método foi aplicado ainda considerando não-linearidades físicas.
+
+%Nesse último, foi implementado ainda um modelo constitutivo hiperelástico não-linear. Entre outros trabalhos que utilizam o MEF posicional valem ser citados os de \citeonline{Sanches2011}, \citeonline{Rigobello2011}, \citeonline{Moura2015} e \citeonline{Morkis2016}.
+
+% Em análises termo-mecânicas, o campo de temperaturas ao longo do domínio estudado é considerado também como uma variável de interesse, influenciando as deformações por meio da lei constitutiva do material. Além disso, observa-se que o campo de deformações também influencia nas variáveis térmicas, motivando o desenvolvimento de formulações acopladas. O problema de condução térmica aplicado ao Método dos Elementos Finitos é abordado, por exemplo, em \citeonline{szabo1991finite} e \citeonline{henwood1996finite}. %, onde é utilizada a lei de Fourier.
+
+\subsection{Dinâmica dos fluidos computacional}
+
+% O modelo matemático tradicionalmente utilizado para descrever o movimento dos fluídos parte das chamadas equações de Navier-Stokes, que surgiram em torno da década de 1840 a partir das descobertas de Claude-Louis Navier e George Gabriel Stokes. Apesar de globalmente aceito, um dos grandes desafios desse modelo é que a solução analítica para o caso geral é desconhecida até o presente, tornando necessário o emprego de métodos numéricos.
+
+No contexto da dinâmica dos fluidos computacional, inicialmente dominada pelos métodos das diferenças finitas e dos volumes finitos, o método dos elementos finitos foi ganhando seu espaço por volta da década de 1970, sofrendo certa resistência inicial em comparação com sua utilização no contexto de sólidos. De acordo com \citeonline{zienkiewicz2000finite}, o MEF apresenta diversas vantagens sobre os métodos dos volumes finitos e das diferenças finitas, por
+apresentar aproximações iguais ou superiores em problemas auto-adjuntos, além de permitir com facilidade a utilização de malhas não-estruturadas, possibilitando melhor representação de domínios
+arbitrários. Além disso, de acordo com \citeonline{Dick2009}, uma
+característica importante do método é que esse permite a incorporação
+de condições de contorno de forma natural.
+
+Entretanto, a aplicação do método clássico de Galerkin (Bubnov-Galerkin), em uma descrição Euleriana, resulta em um problema com matrizes assimétricas devidas aos termos convectivos, e, nos casos onde a convecção é dominante, implica no aparecimento de variações espúrias nas variáveis transportadas \cite{zienkiewicz2000finite,BROOKS1982199}. De forma a contornar essa desvantagem, alguns trabalhos propuseram modificações no processo de Galerkin, como os métodos \textit{upwind},
+que consistem em utilizar funções de peso diferentes das funções tentativa e especialmente escolhidas para introduzir termos estabilizantes, sendo o método \textit{Streamline upwind/Petrov-Galerkin} (SUPG) \citeonline{BROOKS1982199} o método mais empregado atualmente.
+
+As equações da mecânica dos fluidos são comumente descritas na forma Euleriana, devido ao fato dos fluidos apresentarem pouca ou nenhuma (fluidos Newtonianos) resistência às tensões de cisalhamento, podendo deformar-se indefinidamente. Isso resulta em métodos que utilizam malhas de elementos finitos fixas no espaço \cite{zienkiewicz2000finite,Dick2009,bazilevs2013computational}. Assim, para que sejam simulados problemas com contornos móveis, são necessárias técnicas alternativas, tais como a descrição Lagrangiana-Euleriana Arbitrária \cite{DONEA1982689} ou as formulações espaço-tempo \cite{bazilevs2013computational,TEZDUYAR1992339}, que permitem que o domínio seja deformado independentemente do movimento das partículas. 
+
+Para problemas de escoamentos de superfície livre com deformações controladas (distorções finitas), é possível aplicar formulações Lagrangianas do MEF similares às tradicionalmente utilizadas em sólidos, onde as malhas acompanham o movimento do domínio. No trabalho de \citeonline{bach_hassager_1985}, é apresentada uma abordagem Lagrangiana utilizando velocidades e pressões como parâmetros nodais. Uma formulação similar é apresentada em \citeonline{Balasubramaniam1987}, sendo aplicada a problemas de colapso de barragem, oscilações não-lineares, e instabilidade de Rayleigh-Taylor. No trabalho de \citeonline{Radovitzky1998} é considerada ainda uma estratégia de remalhamento para contornar o problema de distorções excessivas na malha. Mais recentemente, em \citeonline{Avancini2020}, foi introduzida uma formulação mista do MEF totalmente Lagrangiana utilizando posições e pressões como parâmetros nodais.
+
+Para o tratamento geral de problemas de escoamentos de superfície livre, onde há mudanças topológicas e separação/junção de subdomínios, tornam-se convenientes as abordagens que tratam o fluido como um conjunto de partículas interagindo entre si. O trabalho de \citeonline{GingoldMonaghan1977} é considerado o pioneiro nesse tipo de técnica, com o método chamado \textit{smoothed particle hydrodynamics}, dando origem a diversos outros métodos, como o \textit{particle semi-implicit}, desenvolvido por \citeonline{Koshizuka1996}. Ambos se destacaram por dispensar o uso das tradicionais malhas, substituindo as funções de forma pelas chamadas funções de núcleo, que dependem apenas das posições das partículas. Desde então, os denominados métodos numéricos sem malha vêm se difundindo em diversas aplicações, muitos sendo baseados em estratégias de mínimos quadrados móveis \cite{Lancaster1981}, como o \textit{Hp Clouds} \cite{HpClouds}.
+
+Recentemente, uma técnica que se destacou na dinâmica dos fluidos computacional é o método dos elementos finitos e partículas
+(\textit{Particle Finite Element Method - PFEM}), introduzido em \citeonline{PFEM}. Ao contrário dos métodos de partículas previamente mencionados, esse utiliza uma malha de elementos finitos, cujos nós são as partículas, para discretizar o domínio e integrar as equações diferenciais governantes, utilizando uma abordagem Lagrangiana atualizada. Os nós (partículas) movem-se carregando consigo as propriedades físicas e os valores nodais dos campos mecânicos, enquanto a malha é reconstruída a cada passo de tempo. Em \citeonline{IDELSOHN20062100}, o PFEM foi aplicado a problemas de interação fluido-estrutura, contando com uma técnica simples denominada \textit{alpha-shape} para reconhecimento do contato. Em \citeonline{AUBRY20051459}, o método é utilizado para casos incluindo condução e difusão térmica, e em \citeonline{IDELSOHN20092750} para fluidos heterogêneos, mostrando excelentes resultados.
+
+Em \citeonline{IDELSOHN20081762}, é proposta uma formulação Lagrangiana unificada para tratar fluidos e sólidos de uma maneira geral, utilizando o método dos elementos finitos e partículas para ambos. Em \citeonline{FRANCI2016520}, tal técnica é estendida, tratando o domínio sólido com o MEF tradicional. A formulação unificada é aplicada também em \citeonline{FRANCI2017711} para problemas de interação fluido-estrutura envolvendo efeitos termo-mecânicos e mudança de fase. 
+
+\textcolor{red}{Falta introduzir a formulação do PFEM baseada nas posições das partículas, citando os trabalhos do Giovane, inclusive o artigo de 2024}
+
+%\section{Modelos constitutivos}
+
+%A complexidade do comportamento dos materiais leva a dificuldades
+%no desenvolvimento de modelos matemáticos que representem fielmente seu
+%comportamento{, do início do carregamento até a ruptura, em uma única lei constitutiva}. Diversos fatores, como temperatura e ambiente, podem influenciar essa relação. Assim sendo, são comuns formulações que representam isoladamente comportamentos físicos específicos e, quando combinadas em modelos mais elaborados, podem representar o comportamento mecânico de forma satisfatória.
+
+\subsection{Modelos viscoelástico-viscoplásticos}
+
+Muitos materiais de aplicação na indústria, como os polímeros, apresentam viscosidade (isto é, dependência temporal), tanto em suas parcelas de deformação elástica quanto plástica. No trabalho de \citeonline{LAMMENS2017149} podem ser vistas as curvas experimentais demonstrando tal comportamento no material Poliamida 12, muito utilizado em processos de manufatura aditiva. Outros resultados experimentais podem ser vistos em \citeonline{Lai1995} para o polietileno de alta densidade (PEAD), e em \citeonline{khan2001,RAE20047615} e \citeonline{RAE20058128} para o politetrafluoretileno (PTFE). A fim de simular esse comportamento constitutivo, desenvolvem-se os chamados modelos viscoelásticos-viscoplásticos. No contexto de pequenas deformações, podem ser citados os modelos de \citeonline{FRANK20015149}, \citeonline{Kim2009} e \citeonline{MILED20113381}, desenvolvidos para materiais poliméricos.
+
+Para problemas em grandes deformações, tornou-se amplamente aceito na literatura o uso da decomposição multiplicativa, também chamada de decomposição de Kröner-Lee, por ter sido aplicada originalmente nos trabalhos de \citeonline{Kroner1960273} e \citeonline{LEE1969}. Proposta inicialmente no contexto da elasto-plasticidade, a decomposição multiplicativa apresenta uma motivação física bem consistente, baseando-se na existência de uma configuração intermediária livre de tensões. Entre outros trabalhos que desenvolveram e/ou fizeram uso dela no contexto da elasto-plasticidade, podem ser citados \citeonline{HAUPT1985303}, \citeonline{SIMO199261}, \citeonline{Khan1995}, \citeonline{simo2000computational} e \citeonline{Benaque}. Destaca-se ainda o trabalho de \citeonline{Mandel1973}, que serviu como ponto de partida para modelos Lagrangianos baseados na segunda lei da termodinâmica, como os de \citeonline{SVENDSEN1998473,SVENDSEN19983363,DETTMER200487} e \citeonline{PASCON201321}. Em relação ao problema viscoplástico, podem ser citados os trabalhos de \citeonline{Ibrahimbegovic2000}, \citeonline{MAHLER2001943} e \citeonline{GARCIAGARINO2013174}, onde são feitas generalizações dos modelos de \citeonline{PERZYNA1966243} e/ou de \citeonline{duvaut1976inequalities} para o caso de grandes deformações. %Uma revisão mais completa sobre modelos viscoplásticos pode ser encontrada, por exemplo, em \citeonline{CHABOCHE20081642}.
+
+A aplicação da decomposição multiplicativa, no entanto, não se restringe ao caso elasto-plástico ou viscoplástico, sendo amplamente utilizada em problemas viscoelásticos, termo-elásticos e inelásticos em geral. No caso viscoelástico, podem ser citados como referências os modelos aplicados em \citeonline{Reese1997}, \citeonline{Huber2000}, \citeonline{Petiteau2013} e \citeonline{PASCON201725}. Nesses, as deformações viscosas são tratadas como variáveis internas, em contraste aos modelos de convolução, onde o comportamento viscoso é descrito por meio de integrais hereditárias \cite{Simo1987,lemaitre1985mechanics,Holzapfel1996,Lemaitre2001}.
+
+Nos modelos viscoelásticos-viscoplásticos, pode-se realizar a decomposição multiplicativa entre as parcelas viscoelásticas e viscoplásticas. Tal estratégia é aplicada, por exemplo, nos trabalhos de \citeonline{Nguyen2016} e \citeonline{GUDIMETLA2017197}, sendo nesse último utilizada uma formulação termodinâmica. Já no trabalho de \citeonline{PericDettmer2003}, é proposta uma abordagem genérica, onde considera-se a decomposição multiplicativa entre parcelas elásticas e inelásticas em geral. Modelos aplicados a materiais poliméricos semi-cristalinos em grandes deformações podem ser vistos em \citeonline{Holmes2006}, \citeonline{Pouriayevali2013} e \citeonline{ABDULHAMEED2014241}. O comportamento viscoelástico-viscoplástico também é estudado em materiais do tipo asfáltico \cite{DRESCHER2010109,DARABI2011191}, materiais com \emph{self-healing} \cite{Shahsavari_2016}, e até mesmo em materiais metálicos sob altas temperaturas \cite{BENAARBIA2018100}. 
+
+Por fim, observações devem ser feitas com relação aos efeitos de Bauschinger e \emph{Ratcheting} \cite{CHABOCHE1986149,MOLLICA20011119,OLIVEIRA2007516}, constatados, por exemplo, em problemas com carregamentos cíclicos. A representação desses fenômenos é, em geral, contemplada por modelos de encruamento cinemático adequados, como o de Armstrong-Frederick \cite{armstrong1966mathematical}. Uma generalização desse modelo ao caso de grandes deformações é feita por \citeonline{LION2000469}, onde propõe-se a separação dos efeitos na micro-estrutura do material utilizando a decomposição multiplicativa. Essa estratégia é utilizada também nos trabalhos de \citeonline{Vladimirov}, \citeonline{VLADIMIROV2010659} e \citeonline{BREPOLS201418}, aplicada a modelos elasto-plásticos.
+
+
+\subsection{Transferência de calor e modelos termo-mecânicos}
+
+As origens do estudo de condução térmica se devem a \citeonline{fourier1822theorie,duhamel1836memoire} e \citeonline{duhamel1837second}, em problemas de temperatura radial para geometrias esféricas e cilíndricas. Esses primeiros estudos foram feitos por superposição dos efeitos térmicos e mecânicos, considerando a elasticidade desacoplada. A primeira formulação acoplada de termo-elasticidade se deve a \citeonline{biot1956thermoelasticity}, onde as equações governantes são derivadas do princípio da conservação de energia e da segunda lei da termodinâmica. 
+
+No contexto não-linear, pode-se citar o trabalho de \citeonline{DILLON1962123}, onde a teoria foi formulada considerando uma expressão de ordem cúbica para a energia livre de Helmholtz. Atualmente, a termo-elasticidade não-linear é um campo bem desenvolvido, sendo algumas das principais referências os trabalhos de \citeonline{truesdell2004non,parkus2012thermoelasticity,holzapfel2000nonlinear} e \citeonline{dhondt2004finite}, onde nesse último o problema é apresentado em uma abordagem numérica, utilizando o método dos elementos finitos. O estudo da transferência de calor também é realizado em um contexto puramente térmico, podendo ser citados os trabalhos de \citeonline{lienhard2011heat} e \citeonline{lewis2004fundamentals}.
+
+O conceito de decomposição multiplicativa, utilizado até então para tratamento de problemas elasto-plásticos, foi adaptado para os modelos termo-elásticos originalmente em \apudonline{Stojanovic1964}{vujovsevic2002finite}, onde a configuração intermediária plástica é substituída, nesse caso, por uma configuração intermediária térmica. Essa ideia também foi apresentada de forma independente nos trabalhos de \citeonline{LU1975927} e \citeonline{ImamJohnson1998}, sendo desenvolvida em \citeonline{Micunovic1974} e \citeonline{vujovsevic2002finite}, e desde então amplamente aplicada em modelos termo-elásticos de deformações finitas, como por exemplo nos trabalhos de \citeonline{WangZhao2011,SadikYavari2017} e \citeonline{joulin2020novel}. 
+
+Uma forma alternativa dessa estratégia assume que a configuração intermediária é elástica, ao invés de térmica, o que resulta na inversão da ordem das parcelas na decomposição multiplicativa. Essa inversão pode ser vista, por exemplo, nos modelos de \citeonline{YU1997511} e \citeonline{hartmann2012comparison}, sendo que o último apresenta uma comparação entre as duas abordagens.
+
+Por se tratar de um processo dissipativo, deve-se ainda considerar a possibilidade de geração de energia térmica nos trabalhos inelásticos, uma vez que apenas uma pequena parcela da energia é absorvida pelos rearranjos moleculares \cite{KAMLAH1997893}. Diversos estudos são direcionados a determinar a porcentagem da taxa de trabalho plástico efetivamente convertida em calor. De acordo com \citeonline{ROSAKIS2000581}, tal porcentagem é tipicamente adotada constante entre 80\% e 100\%, porém, os experimentos de \citeonline{MASON1994135} comprovam que essa porcentagem apresenta uma grande dependência da deformação e da taxa de deformação. 
+
+Formulações com acoplamento entre a plasticidade e o campo térmico, denominadas termo-plásticas, foram apresentadas em \citeonline{DILLON196321}, \citeonline{Mandel1973} e \citeonline{coleman1979thermodynamics}. Nesse último, são empregadas a primeira e a segunda leis da termodinâmica, e utiliza-se a inequação de Clausius-Duhem, conforme abordado por \citeonline{coleman1963thermodynamics}. Tal base termodinâmica deu origem ao trabalho de \citeonline{green1965general}, no qual desenvolve-se uma teoria geral de elasto-plasticidade contínua \cite{LEE2001187}, e \citeonline{ColemanGurtin}, no qual a temperatura é tratada como uma variável interna. Uma revisão bibliográfica bem detalhada sobre modelos termo-mecânicos em geral, incluindo a termo-plasticidade, pode ser encontrada no trabalho de \citeonline{Carrazedo2009}.
+
+% A ideia de representar o estado termodinâmico em variáveis internas é explorada também nos trabalhos de \citeonline{KAMLAH1997893} e \citeonline{ROSAKIS2000581}. Em \citeonline{holzapfel2000nonlinear}, essa é utilizada para representar diversos processos inelásticos, incluindo dano e viscosidade, sendo adotada a desigualdade de Clausius-Planck como representação da segunda lei da termodinâmica. 
+
+\subsection{Mudança de fase sólido-fluido}
+
+O estudo da mudança de fase sólido-fluido possui aplicações nas mais diversas áreas, como a metalurgia, soldagem, e a recente tecnologia da manufatura aditiva, ou impressão 3D. A determinação do campo de temperaturas e do contorno entre as duas fases é um problema que faz parte de uma classe denominada problemas de contorno móveis ou livres, também conhecido como problema de Stefan, em homenagem ao físico Joseph Stefan, que realizou estudos acerca do derretimento de calotas polares por volta de 1890 \cite{crank1987free}. 
+
+Esse problema consiste de um conjunto de condições de contorno aplicadas na interface entre as fases para estabelecer a continuidade do domínio. Tais condições, no entanto, podem ser reescritas utilizando o método da entalpia, que unifica os domínios das diferentes fases em uma só equação para solucionar o campo de temperaturas, dispensando a aplicação de condições de contorno na interface móvel. 
+
+Do ponto de vista numérico, os métodos tradicionalmente aplicados são baseados em movimentação de malha \cite{Albert1986} e no conceito de entalpia \cite{RolphBathe1982}, no qual é dispensada a aplicação de condições de contorno na interface móvel. Entretanto, no trabalho de \citeonline{Chessa2001}, o problema da solidificação é resolvido pelo método dos elementos finitos estendido, que representa a descontinuidade em termos de parâmetros nodais adicionais.
+
+No entanto, os trabalhos previamente mencionados consideram que a condução térmica e a mudança de fase são os processos dominantes, desprezando o campo de deformações. No sentido de acoplar os diversos fenômenos, uma formulação geral foi desenvolvida em \citeonline{BALDONI19973}, considerando, além da condução térmica, os efeitos convectivos do fluido. Nesse, o fluido é considerado Newtoniano e o sólido elástico. 
+
+Entre trabalhos que incluem aplicações numéricas, podem ser citados os de \citeonline{Koric2009}, no caso de solidificação de metal, e \citeonline{Zabaras1990}, onde foi aplicada uma técnica de remalhamento. Em \citeonline{FRANCI2017711}, é apresentada uma formulação Lagrangiana aplicada na simulação do derretimento do núcleo de reatores nucleares. Nesse, utiliza-se uma formulação denominada``unificada'' para tratamento de problemas de interação fluido-estrutura, juntamente com o PFEM. A mudança de fase de sólido para líquido é considerada por meio de dois critérios, a saber, temperatura e deformação plástica excessiva, e a solidificação não é considerada. Tal formulação, apesar de prática, mostra-se altamente sensível ao refinamento da malha. 
+
+\subsection{Modelos numéricos de contato}
+
+Os primeiros estudos sobre contato remontam a 1881, tendo sido conduzidos pelo físico alemão Heinrich Hertz, motivado por experimentos de interferência ótica em lentes de vidro \cite{johnson1987contact}. Entre trabalhos clássicos que moldaram o conhecimento nessa linha de pesquisa, valem ser citados os de \citeonline{Hughes1976}, \citeonline{CHAUDHARY1986855} e \citeonline{BENSON1990141}.
+
+%Do ponto de vista numérico, a modelagem do contato entre corpos deformáveis pode ser dividida em dois sub-problemas: A detecção da intersecção e a imposição das condições de não-penetração. Para ambos, a técnica de discretização adotada influencia diretamente o procedimento da solução.
+
+%Quanto ao problema da detecção de contato, de acordo com \citeonline{yastrebov2013numerical}, a análise pode ser explícita ou implícita. Na abordagem explícita, deve-se, em cada passo, calcular os deslocamentos sem considerar o possível contato decorrente dessa etapa. A partir das novas posições, verifica-se a distância entre os pontos nos respectivos domínios, e a condição de contato é ativada quando alguma distância é menor ou igual a zero. Já na abordagem implícita, o contato deve ser detectado antes de determinada a nova posição, e, caso seja previsto que ocorra, deve ser levado em conta no cálculo, por meio de restrições.
+
+%Quando o sistema é dado por um corpo deformável e um anteparo rígido, a condição de contato é administrada por um conjunto de condições fixas que podem ser aplicadas em cada passo de análise. Por outro lado, se os dois (ou mais) corpos são deformáveis, as condições de contato podem mudar em cada passo de tempo, tornando muitas vezes inviável uma verificação nó a nó, devido ao alto custo computacional envolvido. Sendo assim, uma boa otimização do algoritmo de detecção é um passo essencial para o desenvolvimento de tal análise.
+
+Em problemas onde pode-se garantir a coincidência das malhas na região do contato, uma das formulações mais simples é a Nó-a-Nó \cite{wriggers2006computational}, na qual o modelo é definido por pares de nós devidamente alinhados. Para o caso mais geral, uma estratégia comum é a do tipo Nó-a-Segmento (para o caso 2D), ou Nó-a-Superfície (para o caso 3D), introduzida em \citeonline{Hughes1976} e \citeonline{Hallquist1979}, onde uma das interfaces de contato é discretizada por elementos nodais, denominados nós projéteis, enquanto a segunda interface é discretizada por elementos de linhas curvas ou de superfície, denominadas superfícies alvos. Explicações detalhadas sobre a formulação podem ser encontradas em \citeonline{wriggers2006computational}.
+Outros exemplos de trabalhos que utilizam essa abordagem são \citeonline{Bathe1985}, \citeonline{HALLQUIST1985107}, \citeonline{SIMO1985163} e \citeonline{PAPADOPOULOS1992373}. A desvantagem desse método é que ele somente garante que não haja interpenetração nas posições dos nós projéteis, mas os lados, ou faces do corpo projétil podem possuir pontos que penetram o corpo alvo.
+
+% Pesquisei mais referências do node-to-segment, mas decidi não colocar pois já estava muito grande. Estas são: \cite{Nilsson1004713}, \cite{ZHIHUA1990327}, \cite{Stupkiewicz2001}, \cite{Wang2001}, \cite{GAUTAM2017432}
+
+%Conforme apontado por \citeonline{ZavariseLorenzis2009}, alguns problemas podem ser encontrados em casos especiais do algoritmo Nó-a-Segmento, mais especificamente na etapa de detecção, devido à descontinuidade do vetor normal entre segmentos vizinhos. Embora o uso de elementos de ordem superior diminua a frequência de tais problemas, o trabalho previamente citado menciona a necessidade de cuidados especiais para evitar resultados inconsistentes ou problemas de convergência.
+
+%Outra desvantagem do método Nó-a-Segmento é que apenas os nós projéteis são controlados, não sendo detectados os casos em que os nós da interface alvo penetrem os segmentos do sólido oposto. {Em outras palavras, o método é eficaz em detectar o contato e aplicar restrições nos nós, mas não é capaz de generalizar a restrição para toda a superfície de contorno}. Em determinadas situações essa desvantagem pode proporcionar erros consideráveis, sendo uma das soluções a aplicação de métodos de dois passos \cite{PUSO2004601}. {Outra implicação desse fato é que a superfície de contato deve ter a discretização bem refinada para que sejam proporcionados bons resultados.} %Essa desvantagem é contornada em métodos que tratam a restrição não apenas nos nós, mas em todo o contorno passível de contato, como é o caso do método \textit{Mortar}, visto adiante.}
+
+Outro método atualmente muito difundido para modelagem de contato é o \textit{Mortar}. Esse teve início com o trabalho de \citeonline{Bernardi1990} e foi aperfeiçoado em \citeonline{Bernardi1994}, apenas como uma formulação matemática que proporciona uma técnica de compatibilização de domínios, sendo utilizado em problemas de contato primeiramente por \citeonline{Belgacem1998}. Essa técnica também fornece uma alternativa para simular contato entre malhas não-coincidentes, porém baseia-se em uma abordagem Segmento-a-Segmento (ou Superfície-a-Superfície), como pode ser visto, por exemplo, em \citeonline{PUSO2004601}. No método \textit{Mortar}, todos os elementos de contorno passíveis de contato são discretizados como elementos de linha curva (segmentos) no caso 2D, ou de superfície no caso 3D, e o contato é determinado por integração numérica ao longo do domínio da interface. Dessa forma, tanto a detecção quanto a restrição são realizadas nos pontos de integração. Uma de suas vantagens é garantir a não-penetrabilidade nas regiões entre os nós, permitindo portanto uma discretização menos refinada na região de contato quando comparado com a abordagem Nó-a-Segmento. Entre outros trabalhos que utilizam o método, podem ser citados \citeonline{FischerWriggers2005,Yang2005,Hartmann2008}.
+
+% No contexto de interação fluido-estrutura, duas abordagens são comumente adotadas: a monolítica e a particionada. Na monolítica, os dois domínios são tratados em um único sistema \cite{BLOM1998369}, enquanto na particionada, cada um é tratado separadamente. 
+
+% Para o caso de métodos particionados, uma técnica comumente adotada de interação baseia-se na troca de condições de contorno Dirichlet-Neumann, onde o fluido recebe as condições de Dirichlet (posições ou velocidades) e transfere as condições de Neumann (forças) para o sólido \cite{bazilevs2013computational,Fernandes2018}. A principal vantagem dessa abordagem é a modularidade, isto é, os algoritmos de fluido e sólido são independentes, podendo ser programados separadamente e até mesmo executados em paralelo, reduzindo o tempo de solução do sistema. Entretanto, a técnica particionada pode apresentar problemas de instabilidades numéricas, como o efeito de massa adicionada \cite{FELIPPA20013247}.
+
+%Também valem ser mencionados outros tipos de abordagem baseados em áreas de influência, como a técnica de ``território'' apresentada em \citeonline{ZHONG19961}, e a de ``pinball'', apresentada em \citeonline{BELYTSCHKO1991} e \citeonline{BELYTSCHKO1993375}. 
+
+Com relação à aplicação de modelos de contato em análise dinâmica, outros desafios surgem, uma vez que a forte não-linearidade do problema provoca mudanças repentinas nos valores de aceleração e velocidade, que podem levar à instabilidade da solução quando utilizado o algoritmo de Newmark com os parâmetros tradicionais, como atestado no trabalho de \citeonline{CHAUDHARY1986855}. Técnicas para resolver essa inconformidade podem ser vistas, por exemplo, em \citeonline{Carpenter1991}, \citeonline{TaylorPapadopoulos1993}, \citeonline{SOLBERG1998297} e \citeonline{Hu1997}. O último propõe novos parâmetros para o algoritmo de Newmark que levam a resultados estáveis e precisos mesmo para problemas de impacto com altas frequência, desde que utilizados passos de tempo suficientemente pequenos. Entre outros trabalhos que confirmam a eficiência desse estudo, podem ser citados os de \citeonline{Greco2004}, \citeonline{Marques2006} e \citeonline{Minski2008}.
+
+Quanto ao problema de contato termo-mecânico, a transferência de calor entre os corpos depende não apenas da área de contato, mas também da pressão de contato atuante. De acordo com \citeonline{wriggers2006computational}, para que esse último seja corretamente considerado, deve-se aplicar uma formulação de ``contato de alta precisão'' de forma a evitar o mal condicionamento da matriz hessiana. Em \citeonline{zavarize1995}, por exemplo, é aplicado o método dos multiplicadores de Lagrange aumentados. Com relação à área de contato, deve-se levar em conta que as interfaces possuem imperfeições geométricas do ponto de vista microscópico. Nesse sentido, modelos aproximados foram desenvolvidos para a obtenção da área de contato efetiva, como o de \citeonline{SongYovanovich1988}, e um modelo simplificado baseado na rigidez de Vickers, presente em \citeonline{wriggers2006computational}, ambos dependentes da pressão aplicada. Além disso, para as áreas que não se encontram efetivamente em contato, \citeonline{Zavarise1992} considera modelos de transferência de calor por radiação e condução através do ar. 
+
+\textcolor{red}{Lembre-se de reorganizar a ordem das subseções!}
+
+\section{Metodologia}\label{sec:metodologia}
+
+
+Utiliza-se como ponto de partida o trabalho de mestrado de \citeonline{Pericles2019}, no qual foi desenvolvido um código computacional para mecânica não linear dos sólidos, em linguagem Fortran e baseado no Método dos Elementos Finitos, incorporando a análise de sólidos sob grandes deslocamentos, grandes deformações e contato, incluindo modelo constitutivo viscoelástico-viscoplástico. Esse código foi transcrito, neste trabalho, para a linguagem C++, e estendido ao caso tridimensional. No caso 2D são considerados elementos triangulares e quadrilaterais, e no caso 3D são considerados elementos tetraédricos e hexaédricos, sendo utilizadas em todos os casos as ordens de aproximação linear, quadrática e cúbica.
+
+Assim como em \citeonline{Pericles2019}, utiliza-se como base para as implementações deste trabalho a formulação do Método dos Elementos Finitos baseada em posições, conforme descrita em \citeonline{CodaLivro}. Tendo sido desenvolvida originalmente no contexto de sólidos, esse método foi estendido para o caso de fluidos incompressíveis em \citeonline{Avancini2020}, onde é empregada uma formulação de elementos finitos mista de posição e pressão. Essa formulação é aplicada neste trabalho tanto para fluidos quanto para sólidos incompressíveis, utilizando uma descrição totalmente Lagrangiana em ambos os casos. Isso garante uma descrição unificada, o que é conveniente para a modelagem da mudança de fase, onde o mesmo domínio pode conter meios sólidos e fluidos simultaneamente. 
+ 
+A incorporação de efeitos térmicos e modelos constitutivos termo-mecânicos é feita neste trabalho por uma abordagem termodinamicamente consistente. Isso significa que a equação da condução de calor, bem como os modelos constitutivos, derivam da primeira e da segunda lei da termodinâmica, onde a última é expressa pela inequação de Clausius-Duhem. É utilizado ainda o conceito de energia livre de Helmholtz, de onde derivam as tensões (para o problema mecânico) e a entropia (para o problema térmico).
+
+Todos os modelos constitutivos apresentados neste trabalho são baseados na decomposição multiplicativa do gradiente da função mudança de configuração \cite{Kroner1960273,LEE1969}, permitindo aplicações em problemas com grandes deformações. No caso termo-elástico, implementa-se ainda um modelo baseado na decomposição aditiva da deformação de Green-Lagrange, a fim de comparar as duas abordagens e observar as suas respectivas limitações. Em ambos os casos, são adotadas leis de expansão térmica linear e exponencial.
+
+Para o algoritmo de contato, utiliza-se o método nó-a-superfície (ou nó-a-segmento no caso 2D) com multiplicadores de Lagrange e modelo de atrito baseado na lei de Coulomb. Essa escolha deve-se à reconhecida simplicidade e robustez do método. Ademais, apesar de não se ter a garantia de não interpenetração em todos os pontos do domínio, a aproximação por meio desse método é suficiente para os problemas abordados neste trabalho.
+
+Para a mudança de fase entre sólido e líquido, considera-se um modelo não-isotérmico, com equação da condução de calor baseada em temperaturas. A formulação termo-mecânica proposta baseia-se na decomposição multiplicativa entre deformações sólidas e líquidas, tratando a evolução dessas componentes de forma individual, de acordo com a fase e com a temperatura. Novamente, emprega-se uma abordagem termodinamicamente consistente e totalmente Lagrangiana.
+
+Em cada uma das etapas da pesquisa, são simulados exemplos numéricos representativos, a fim de verificar o código desenvolvido ou demonstrar as características dos modelos adotados. Com relação às ferramentas computacionais, são utilizados, para geração de malhas, visualização de pós-processamento e geração de gráficos, os \textit{softwares Open-Source} \textit{Gmsh} \cite{geu09}, \textit{ParaView} \cite{Paraview} e \textit{Gnuplot} \cite{gnuplot}, respectivamente.
+
+\textcolor{red}{Descrever a linguagem computacional e as principais bibliotecas utilizadas (PETSc...)}
+
+\end{document}
+	
+	
