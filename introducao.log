@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Homebrew) (preloaded format=pdflatex 2021.9.30)  21 AUG 2025 15:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Homebrew) (preloaded format=pdflatex 2021.9.30)  21 AUG 2025 16:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1936,35 +1936,29 @@ LaTeX Warning: Citation `Fernandes:2020' on page 12 undefined on input line 150.
 
 [12]
 
-LaTeX Warning: Citation `Tonon:2016' on page 13 undefined on input line 184.
-
-
-LaTeX Warning: Citation `Fernandes:2016' on page 13 undefined on input line 185.
+LaTeX Warning: Citation `Tonon:2016' on page 13 undefined on input line 185.
 
 
 LaTeX Warning: Citation `Fernandes:2020' on page 13 undefined on input line 185.
 
 
-LaTeX Warning: Reference `capitulo:Cap5' on page 13 undefined on input line 187.
+LaTeX Warning: Citation `RosicleyMestrado' on page 13 undefined on input line 187.
 
 
-LaTeX Warning: Citation `Dhia:1998' on page 13 undefined on input line 187.
+LaTeX Warning: Citation `RosicleyArtigo' on page 13 undefined on input line 187.
 
 
 LaTeX Warning: Citation `Fernandes:2020' on page 13 undefined on input line 187.
 
 [13]
 
-LaTeX Warning: Citation `SanchesC:2010a' on page 14 undefined on input line 189.
+LaTeX Warning: Citation `SanchesC:2013' on page 14 undefined on input line 189.
 
 
-LaTeX Warning: Citation `SanchesC:2010b' on page 14 undefined on input line 189.
+LaTeX Warning: Citation `SanchesC:2014' on page 14 undefined on input line 189.
 
 
 LaTeX Warning: Citation `Coda:2018' on page 14 undefined on input line 189.
-
-
-LaTeX Warning: Citation `Rosa:2021' on page 14 undefined on input line 189.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 193.
@@ -1973,18 +1967,18 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 193.
 
-LaTeX Warning: Citation `Tonon:2016' on page 14 undefined on input line 197.
+LaTeX Warning: Citation `Tonon:2016' on page 14 undefined on input line 195.
 
-
+[14]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [14]
+ [15]
 
-Package lastpage Warning: Rerun to get the references right on input line 217.
+Package lastpage Warning: Rerun to get the references right on input line 229.
 
 
 AED: lastpage setting LastPage
-[15] (/Users/raksanches/PatriciaTese/tese/introducao.aux)
+[16] (/Users/raksanches/PatriciaTese/tese/introducao.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -1993,18 +1987,18 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 37632 strings out of 478994
- 695676 string characters out of 5851139
+ 37626 strings out of 478994
+ 695568 string characters out of 5851139
  1224749 words of memory out of 5000000
- 54066 multiletter control sequences out of 15000+600000
- 481832 words of font info for 215 fonts, out of 8000000 for 9000
+ 54061 multiletter control sequences out of 15000+600000
+ 481735 words of font info for 214 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 133i,10n,133p,1464b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 133i,11n,133p,1464b,446s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb></usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb></usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/lm/lmr7.pfb></usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
-Output written on /Users/raksanches/PatriciaTese/tese/introducao.pdf (15 pages, 225909 bytes).
+Output written on /Users/raksanches/PatriciaTese/tese/introducao.pdf (16 pages, 228678 bytes).
 PDF statistics:
- 183 PDF objects out of 1000 (max. 8388607)
- 155 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
+ 187 PDF objects out of 1000 (max. 8388607)
+ 158 compressed objects within 2 object streams
+ 32 named destinations out of 1000 (max. 500000)
  48221 words of extra memory for PDF output out of 51595 (max. 10000000)
 
