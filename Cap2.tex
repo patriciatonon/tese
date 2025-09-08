@@ -968,7 +968,7 @@ Para a verificação dos códigos baseados no método dos elementos finitos, ado
 
 \subsection{Escoamento sobre um cilindro} \label{capitulo:Cap2:VerApl:Cilindo}
 
-O estudo do problema de um escoamento sobre um cilindro 2D teve como principal intuito a análise dos coeficientes aerodinâmicos medidos ao longo do tempo e verificar consequentemente se o modelo é capaz de reproduzir os fenômenos relacionados à formação e desprendimento de vórtices característicos desse problema. Para isso, diferentes números de Reynolds ($\Reynolds$) foram estudados, $\Reynolds$ = 40, 100 e 1000, os quais são calculados de acordo com a seguinte equação:
+O estudo do problema de um escoamento sobre um cilindro 2D teve como principal intuito a análise dos coeficientes aerodinâmicos medidos ao longo do tempo e verificar consequentemente se o modelo é capaz de reproduzir os fenômenos relacionados à formação e desprendimento de vórtices característicos desse problema. Para isso, diferentes números de Reynolds ($\Reynolds$) foram estudados, $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$, os quais são calculados de acordo com a seguinte equação:
 
 \begin{align}
 	\Reynolds = \frac{\density L \lVert\velocinfty\lVert}{\viscosity} = \frac{L \lVert \velocinfty \lVert}{\kviscosity}, \label{eq:Reynolds}
@@ -982,7 +982,7 @@ Na Fig. \ref{fig:cilindro_malha} pode-se observar a malha não-estruturada de el
 
 \begin{figure}[!htb]
 	\centering
-	\subfloat[Geometria e condições de contorno\label{fig:cilindro_geometria}]{\includegraphics[scale=0.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro_geometria.pdf}}\\
+	\subfloat[Geometria e condições de contorno\label{fig:cilindro_geometria}]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro_geometria.pdf}}\\
 	\subfloat[Discretização espacial\label{fig:cilindro_malha}]{\includegraphics[trim=0cm 2cm 0cm 2cm,clip,scale=0.4]{Imagens/Cap2/cilindro_malha.pdf}}
 	\caption{Cilindro: Geometria, condições de contorno e malha de elementos finitos.}
 \end{figure}
@@ -990,14 +990,14 @@ Na Fig. \ref{fig:cilindro_malha} pode-se observar a malha não-estruturada de el
 Para o cálculo dos coeficientes aerodinâmicos é necessário definir-se primeiramente as forças de arrasto - horizontal ($F_D$) e de sustentação - vertical ($F_L$), que são induzidas por tensões desviadores e hidrostáticas e são calculadas pelas seguintes equações:
 
 \begin{align}
-F_D = \int_{\boundary_{c}} \stressTensor_{1j}n_{j} \deriv\boundary_{c},
+F_D = \int_{\boundary_{c}} \stressTensor_{1j}n_{j} \deriv\boundary_{c}, \label{eq:F_D}
 \end{align}
 
 \begin{align}
-F_L = \int_{\boundary_{c}} \stressTensor_{2j}n_{j} \deriv\boundary_{c},
+F_L = \int_{\boundary_{c}} \stressTensor_{2j}n_{j} \deriv\boundary_{c},  \label{eq:F_L}
 \end{align}
 
-\noindent nas quais o símbolo $\boundary_{c}$ representa o contorno do cilindro e $n_j$ é o vetor normal à essa superfície na direção $j$, com $j=1,2$. Os coeficientes de arrasto e sustentação são definidos respectivamente por:
+\noindent nas quais o símbolo $\boundary_{c}$ representa o contorno do cilindro e $n_j$ é o vetor normal à esse contorno na direção $j$, com $j=1,2$. Os coeficientes de arrasto e sustentação são definidos respectivamente por:
 
 \begin{align}
 	C_D = \frac{F_D}{0,5\density \lVert \velocinfty \lVert^{2} L},
@@ -1015,7 +1015,7 @@ Devido ao fenômeno de desprendimento de vórtices que ocorre a partir de determ
 
 \noindent com $f_{v}$ sendo a frequência de desprendimento dos vórtices.
 
-Como pode-se observar na Fig. \ref{fig:cilindro_coefAero} para $\Reynolds = 40$, os coeficientes de arrasto e de sustentação, após o escoamento entrar em fase estacionária, se mantém constantes ao longo de todo o tempo de análise. Isso ocorre, visto que para Reynolds entre 5 à 50, aproximadamente, formam-se dois vórtices simétricos e estacionários na região logo após o cilindro. Posteriormente, o par de vórtices se quebra e passa existir a chamada esteira de Von Karmán, que ocorre devido à formação de vórtices de maneira alternada entre as regiões superior e inferior do cilindro, o que pode ser notado também na Fig. \ref{fig:cilindro_coefAero}  para $\Reynolds = 100$ e $\Reynolds=1000$. Os valores do coeficiente de Strouhal, para $Re = 100$ e $Re=1000$, foram de 0,1665 e 0,2381 respectivamente. Os valores obtidos para os coeficientes aerodinâmicos foram os esperados para o problema em questão (ver, por exemplo, \citeonline{Tonon:2016,Henderson:1997}).
+Como pode-se observar na Fig. \ref{fig:cilindro_coefAero} para $\Reynolds = 40$, os coeficientes de arrasto e de sustentação, após o escoamento entrar em fase estacionária, se mantém constantes ao longo de todo o tempo de análise. Isso ocorre, visto que para Reynolds entre 5 à 50, aproximadamente, formam-se dois vórtices simétricos e estacionários na região logo após o cilindro. Posteriormente, o par de vórtices se quebra e passa existir a chamada esteira de Von Karmán, que ocorre devido à formação de vórtices de maneira alternada entre as regiões superior e inferior do cilindro, o que pode ser notado também na Fig. \ref{fig:cilindro_coefAero}  para $\Reynolds = 100$ e $\Reynolds=1000$. Os valores do coeficiente de Strouhal, para $\Reynolds = 100$ e $\Reynolds=1000$, assim como os valores médios obtidos para o coeficiente de arrasto ($C_{Dmed}$) para $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$ são apresentados na Tab. \ref{tab:cilindro_CD_ST} juntamente com os valores de referência provenientes do trabalho de \citeonline{WANDERLEY2002445}.
 
 \begin{figure}[!htb]
 	\centering
@@ -1025,8 +1025,22 @@ Como pode-se observar na Fig. \ref{fig:cilindro_coefAero} para $\Reynolds = 40$,
 	\label{fig:cilindro_coefAero}
 \end{figure}
 
-Nas Fig. \ref{fig:cilindro_camposVel} e Fig. \ref{fig:cilindro_camposPressao} podem ser observados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices para $\Reynolds = 100$. Pode-se notar nessas imagens, a formação e o desprendimento de vórtices na esteira de Von Karmán.
 
+\begin{table}[h!]
+	\centering
+	\caption{Comparação entre valores obtidos e valores de referência para $C_{Dmed}$ e $St$ em diferentes números de Reynolds.}
+	\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		\multirow{2}{*}{$Re$} & \multicolumn{2}{c|}{$C_{Dmed}$} & \multicolumn{2}{c|}{$St$} \\ \cline{2-5}
+		& Presente estudo & Referência & Presente estudo & Referência \\ \hline
+		40   & 1,54  & 1,59 & - & - \\ \hline
+		100  & 1,35 &  1,33 & 0,166 & 0,163 \\ \hline
+		1000 & 1,52 &  1,51 & 0,238 & 0,235 \\ \hline
+	\end{tabular}
+	\label{tab:cilindro_CD_ST}
+\end{table}
+
+Nas Fig. \ref{fig:cilindro_camposVel} e Fig. \ref{fig:cilindro_camposPressao} podem ser observados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices para $\Reynolds = 100$. Pode-se notar nessas imagens, a formação e o desprendimento de vórtices na esteira de Von Karmán.
 
 \begin{figure}[htb!]
 	\centering
@@ -1037,7 +1051,7 @@ Nas Fig. \ref{fig:cilindro_camposVel} e Fig. \ref{fig:cilindro_camposPressao} po
 	\subfloat[$T_n + 2T_n/3$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2060.pdf}} \
 	\subfloat[$T_n + 5T_n/6$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2070.pdf}} \\
 	{\includegraphics[trim=0cm 0cm 0cm 0cm,clip=true,scale=0.3]{Imagens/Cap2/cilindro_legendaVel.pdf}} \\
-	\caption{Cilindro: Campos de velocidade}
+	\caption{Cilindro: Campos de velocidade para $\Reynolds = 100$}
 	\label{fig:cilindro_camposVel}
 \end{figure}
 
@@ -1050,7 +1064,7 @@ Nas Fig. \ref{fig:cilindro_camposVel} e Fig. \ref{fig:cilindro_camposPressao} po
 	\subfloat[$T_n + 2T_n/3$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2060.pdf}} \
 	\subfloat[$T_n + 5T_n/6$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2070.pdf}} \\
 	{\includegraphics[trim=0cm 0cm 0cm 0cm,clip=true,scale=0.3]{Imagens/Cap2/cilindro_legendaPress.pdf}} \\
-	\caption{Cilindro: Campos de pressão}
+	\caption{Cilindro: Campos de pressão para $\Reynolds = 100$}
 	\label{fig:cilindro_camposPressao}
 \end{figure}
 

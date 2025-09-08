@@ -30,37 +30,39 @@
 \contentsline {section}{\numberline {3.2}\textit {B-Splines}}{59}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Vetor de \textit {knots}}{59}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Funções base e suas derivadas}{60}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Geometrias \textit {B-Splines}}{61}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.3}Geometrias \textit {B-Splines}}{62}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Refinamento}{63}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}NURBS}{64}{section.3.3}%
+\contentsline {section}{\numberline {3.3}NURBS}{66}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Funções base NURBS e suas derivadas}{67}{subsection.3.3.1}%
 \contentsline {subsection}{\numberline {3.3.2}Geometria NURBS}{67}{subsection.3.3.2}%
 \contentsline {subsection}{\numberline {3.3.3}Múltiplos \textit {Patches}}{68}{subsection.3.3.3}%
 \contentsline {section}{\numberline {3.4}Análise Isogeométrica}{69}{section.3.4}%
 \contentsline {subsection}{\numberline {3.4.1}Parâmetros de estabilização}{70}{subsection.3.4.1}%
 \contentsline {section}{\numberline {3.5}Verificação e aplicações}{71}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Escoamento sobre um cilindro - 3D}{72}{subsection.3.5.1}%
-\contentsline {subsection}{\numberline {3.5.2}Escoamento em um canal com degrau}{75}{subsection.3.5.2}%
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Método de Arlequin estabilizado}}{79}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Método Arlequin}{79}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{82}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{85}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Integração Temporal}{88}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Parâmetro de estabilização para técnica RBSAM}{89}{subsection.4.3.2}%
-\contentsline {section}{\numberline {4.4}Superposição de modelos móveis}{91}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Implementação Computacional}{92}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Exemplos}{93}{section.4.6}%
-\contentsline {subsection}{\numberline {4.6.1}Escoamento sobre um aerofólio NACA 0012}{94}{subsection.4.6.1}%
-\contentsline {subsection}{\numberline {4.6.2}Aerofólio com movimento de arfagem prescrito}{97}{subsection.4.6.2}%
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Acoplamento Fluido-Estrutura}}{103}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Condições de acoplamento}{104}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Movimentação da Malha}{105}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}Discretizações não coincidentes entre os meios}{106}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Acoplamento Particionado Forte - Bloco-Iterativo}{107}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Implementação Computacional}{108}{subsection.5.3.1}%
-\contentsline {section}{\numberline {5.4}Exemplos}{109}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Cavidade com fundo flexível - 2D}{110}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Cavidade com fundo flexível - 3D}{112}{subsection.5.4.2}%
-\contentsline {subsection}{\numberline {5.4.3}\textit {Flutter} em painel flexível}{114}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {3.5.1}Escoamento sobre um cilindro}{72}{subsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.1.1}Geração da malha NURBS}{72}{subsubsection.3.5.1.1}%
+\contentsline {subsubsection}{\numberline {3.5.1.2}Análise numérica}{75}{subsubsection.3.5.1.2}%
+\contentsline {subsection}{\numberline {3.5.2}Escoamento em um canal com degrau}{77}{subsection.3.5.2}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Método de Arlequin estabilizado}}{83}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Método Arlequin}{83}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{86}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{89}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Integração Temporal}{92}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Parâmetro de estabilização para técnica RBSAM}{93}{subsection.4.3.2}%
+\contentsline {section}{\numberline {4.4}Superposição de modelos móveis}{95}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Implementação Computacional}{96}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Exemplos}{97}{section.4.6}%
+\contentsline {subsection}{\numberline {4.6.1}Escoamento sobre um aerofólio NACA 0012}{98}{subsection.4.6.1}%
+\contentsline {subsection}{\numberline {4.6.2}Aerofólio com movimento de arfagem prescrito}{101}{subsection.4.6.2}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Acoplamento Fluido-Estrutura}}{107}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Condições de acoplamento}{108}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Movimentação da Malha}{109}{subsection.5.1.1}%
+\contentsline {section}{\numberline {5.2}Discretizações não coincidentes entre os meios}{110}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Acoplamento Particionado Forte - Bloco-Iterativo}{111}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Implementação Computacional}{112}{subsection.5.3.1}%
+\contentsline {section}{\numberline {5.4}Exemplos}{113}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Cavidade com fundo flexível - 2D}{114}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Cavidade com fundo flexível - 3D}{116}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}\textit {Flutter} em painel flexível}{118}{subsection.5.4.3}%
 \vspace {\cftbeforechapterskip }
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{121}{section*.8}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{125}{section*.8}%

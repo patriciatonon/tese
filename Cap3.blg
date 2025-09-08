@@ -21,8 +21,6 @@ Warning--I didn't find a database entry for "Cox1972"
 Warning--I didn't find a database entry for "DEBOOR1972"
 Warning--I didn't find a database entry for "OtoguroTT:2020"
 Warning--I didn't find a database entry for "BordenSEH"
-Warning--I didn't find a database entry for "Tonon:2016"
-Warning--I didn't find a database entry for "Henderson:1997"
 Warning--I didn't find a database entry for "ArmalyDP:1983"
 Warning--I didn't find a database entry for "WilliamsB:1999"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -36,7 +34,7 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 0 entries,
             6714 wiz_defined-function locations,
-            1216 strings with 9553 characters,
+            1212 strings with 9505 characters,
 and the built_in function-call counts, 679 in all, are:
 = -- 182
 > -- 0
