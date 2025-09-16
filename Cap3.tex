@@ -501,14 +501,14 @@ Para aplicação da IGA em problemas da DFC utilizou-se o roteiro da implementa�
 
 \subsection {Escoamento sobre um cilindro}
 
-\subsubsection {Geração da malha NURBS}
+\subsubsection {Geração da malha NURBS} \label{Cap3:VerApl:Cilindro:Malha}
 
 Para a análise do problema de escoamento sobre um cilindro utilizando-se IGA  com células 3d, por se tratar de uma geometria de simples complexidade, a malha foi desenvolvida pela própria autora. Para isso, inicialmente, com base nas dimensões bidimensionais do exemplo apresentado na Subseção \ref{capitulo:Cap2:VerApl:Cilindo}, dividiu-se o domínio físico em 12 \textit{patches}, conforme pode ser observado no esquema apresentado na Fig. \ref{fig:cilindro_IGA_patches}.
 
 \begin{figure}[htb!]
 	\centering 
 	\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_iga_patches.pdf}	
-	\caption{Divisão dos \textit{Patches} }
+	\caption{Cilindro: Divisão dos \textit{Patches} }
 	\label{fig:cilindro_IGA_patches}
 \end{figure}
 
@@ -521,9 +521,9 @@ Na sequência realizou-se o procedimento de refinamento por inserção sucessiva
 
 \begin{figure}[!t]
 	\centering
-	\subfloat[\label{fig:cilindro_circ_ini}Curva inicial e rede de pontos de controle]{\includegraphics[scale=0.7,trim=0.6cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_circ_ini.pdf}}  \ \ \
+	\subfloat[\label{fig:cilindro_circ_ini} Curva inicial e rede de pontos de controle]{\includegraphics[scale=0.7,trim=0.6cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_circ_ini.pdf}}  \ \ \
 	\subfloat[\label{fig:cilindro_circ_ref}Curva refinada e rede de pontos de controle]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 1cm, clip=true]{Imagens/Cap3/cilindro_circ_ref.pdf}} \\ 
-	\caption{Obtenção da circunferência}
+	\caption{Cilindro: Obtenção da circunferência}
 	\label{fig:cilindro_geo0}
 \end{figure}
 
@@ -538,9 +538,9 @@ Para a simulação numérica apresentada na sequência a quantidade de pontos de
 
 \begin{figure}[!t]
 	\centering
-	\subfloat[\label{fig:cilindro_pc_superficie}Rede de pontos de controle superfície]{\includegraphics[scale=0.8,trim=0cm 0cm 0cm 1cm, clip=true]{Imagens/Cap3/cilindro_pc_superficie.pdf}}   
-	\subfloat[\label{fig:cilindro_malhafisica_superficie}Malha física]{\includegraphics[scale=0.8,trim=3cm 1.5cm 3cm 1cm, clip=true]{Imagens/Cap3/cilindro_malhafisica_superficie.pdf}} 
-	\caption{Obtenção da superfície}
+	\subfloat[\label{fig:cilindro_pc_superficie} Rede de pontos de controle superfície]{\includegraphics[scale=0.8,trim=0cm 0cm 0cm 1cm, clip=true]{Imagens/Cap3/cilindro_pc_superficie.pdf}}   
+	\subfloat[\label{fig:cilindro_malhafisica_superficie} Malha física]{\includegraphics[scale=0.8,trim=3cm 1.5cm 3cm 1cm, clip=true]{Imagens/Cap3/cilindro_malhafisica_superficie.pdf}} 
+	\caption{Cilindro: Obtenção da superfície}
 	\label{fig:cilindro_geo1}
 \end{figure}
 
@@ -550,7 +550,7 @@ Por fim, para a geração do sólido NURBS, com apenas uma camada de células na
 	\centering
 	\subfloat[\label{fig:cilindro_pc_solido}Rede de pontos de controle sólido]{\includegraphics[scale=0.8,trim=2cm 3cm 3cm 3cm, clip=true]{Imagens/Cap3/cilindro_pc_solido.pdf}}   \ \ 
 	\subfloat[\label{fig:cilindro_malhafisica_solido}Malha física sólido]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_malhafisica_solido.pdf}} 
-	\caption{Obtenção do sólido}
+	\caption{Cilindro: Obtenção do sólido}
 	\label{fig:cilindro_geo2}
 \end{figure}
 
@@ -563,23 +563,22 @@ Destaca-se que na discretização de todos os \textit{patches} é necessário ga
 
 \subsubsection {Análise numérica}
 
-
 Conforme exposto na Subseção \ref{capitulo:Cap2:VerApl:Cilindo} o estudo do problema de escoamento sobre um cilindro proporciona avaliar se o modelo computacional implementado é capaz de reproduzir os fenômenos relacionados à formação e desprendimentos de vórtices, além de propiciar a validação do código através da comparação dos coeficientes aerodinâmicos medidos ao longo do tempo com referências bibliográficas disponíveis na literatura especializada. Visando a verificação do código de IGA com células 3D analisa-se o problema do escoamento sobre o cilindro para $\Reynolds = 40$, $\Reynolds = 100$, e, $\Reynolds = 1000$.
 
-O domínio do problema simulado é um volume retangular discretizado em função do diâmetro do cilindro e é apresentado na Fig. \ref{fig:cilindro_geometria3d}. A dimensão $t$ na direção $y_3$ é equivalente à $0,01D$. Aplica-se um perfil de velocidade constante na entrada do domínio, $\velocity=[u_\infty,0,0]$, e condições de parede lisa são atribuídas às paredes superior e inferior, enquanto que para as paredes frontal e dos fundos condições de simetria são aplicadas. No contorno de \textit{Saída} do escoamento têm-se condição de força de superfície nula ($\stressTensor \normal = \mathbf{0}$).
+O domínio do problema simulado é um volume retangular discretizado em função do diâmetro do cilindro e é apresentado na Fig. \ref{fig:cilindro_geometria3d}. A dimensão $t$ na direção $y_3$ é equivalente à $0,01D$. Aplica-se um perfil de velocidade constante na entrada do domínio, $\velocity=[u_\infty,0,0]$, e condições de parede lisa são atribuídas às paredes superior e inferior, enquanto que para as frontal e dos fundos condições de simetria são aplicadas.
 
 A malha isogeométrica utilizada é apresentada na Fig. \ref{fig:cilindro_malha3d} e na Tab. \ref{tab:cilindro_discretização_patches} pode-se observar a quantidade de pontos de controle em cada uma das direções paramétricas utilizados na discretização de cada um dos \textit{patches} que compõe a malha, resultando em 30228 pontos de controle e 8728 células físicas.
 
 
 \begin{figure}[!htb]
 	\centering
-	\subfloat[Geometria e condições de contorno\label{fig:cilindro_geometria3d}]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_geometria3d.pdf}}\\
-	\subfloat[Discretização espacial\label{fig:cilindro_malha3d}]{\includegraphics[trim=0cm 0cm 0cm 0cm,clip,scale=1.2]{Imagens/Cap3/cilindro_malha.pdf}}
-	\caption{Cilindro: Geometria, condições de contorno e malha de elementos finitos.}
+	\subfloat[Cilindro: Geometria e condições de contorno\label{fig:cilindro_geometria3d}]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_geometria3d.pdf}}\\
+	\subfloat[Discretização espacial - plano $y_1$$y_2$\label{fig:cilindro_malha3d}]{\includegraphics[trim=0cm 0cm 0cm 0cm,clip,scale=1.2]{Imagens/Cap3/cilindro_malha.pdf}}
+	\caption{Cilindro: Malha de células físicas}
 \end{figure}
 
 \begin{table}[h]
-	\caption{Número de pontos de controle por \textit{patch}}
+	\caption{Cilindro: Número de pontos de controle por \textit{patch}}
 	\centering
 	\begin{minipage}{0.49\textwidth}
 		\centering
@@ -660,7 +659,7 @@ Nas Fig. \ref{fig:cilindro_iga_camposVel} e Fig. \ref{fig:cilindro_iga_camposPre
 	\subfloat[$T_n + 2T_n/3$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_vel_2tn3.pdf}} \
 	\subfloat[$T_n + 5T_n/6$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_vel_5tn6.pdf}} \\
 	{\includegraphics[trim=0cm 0cm 0cm 0cm,clip=true,scale=1.4]{Imagens/Cap3/cilindro_vel_legenda.pdf}} \\
-	\caption{Cilindro: Campos de velocidade para $\Reynolds = 1000$}
+	\caption{Cilindro: Campos de velocidade para $\Reynolds = 1000$ - plano $y_1$$y_2$}
 	\label{fig:cilindro_iga_camposVel}
 \end{figure}
 
@@ -673,51 +672,38 @@ Nas Fig. \ref{fig:cilindro_iga_camposVel} e Fig. \ref{fig:cilindro_iga_camposPre
 	\subfloat[$T_n + 2T_n/3$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_press_2tn3.pdf}} \
 	\subfloat[$T_n + 5T_n/6$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_press_5tn6.pdf}} \\
 	{\includegraphics[trim=0cm 0cm 0cm 0cm,clip=true,scale=1.4]{Imagens/Cap3/cilindro_press_legenda.pdf}} \\
-	\caption{Cilindro: Campos de pressão para $\Reynolds = 1000$}
+	\caption{Cilindro: Campos de pressão para $\Reynolds = 1000$ - plano $y_1$$y_2$}
 	\label{fig:cilindro_iga_camposPressao}
 \end{figure}
 
 
 \subsection {Escoamento em um canal com degrau}
 
-Este exemplo é amplamento utilizado na verificação de códigos para escoamentos incompressíveis, sendo sua geometria apresentada na Fig. \ref{fig:degrau_geo}.  O problema consiste em prescrever-se um perfil parabólico de escoamento na entrada do canal, e condição de aderência ($\velocity = 0$) nas demais paredes que estão contidas nos planos $xz$ e $yz$, exceto na saída do canal, a qual possui como condição $\stressTensor\normal = \mathbf{0}$. Para as paredes dos planos $xy$, frontal e posterior, prescreveu-se condição de parede lisa ($u_{z}=0$). 
+O problema de escoamento em canal com degrau consiste na aplicação de um perfil de velocidade parabólico na entrada de um canal, o qual caracteriza-se pela presença de um degrau próximo a entrada do escoamento. A existência do degrau acarreta na formação de um vórtice de recirculação, chamado aqui de vórtice primário, o qual aumenta de tamanho, a medida que se eleva o número de Reynolds do escoamento. A dimensão do vórtice primário, para diferentes números de Reynolds, será alvo de avaliação nessa seção, através da análise comparativa deste dado com bibliografias de referência.
+
+Na Fig.\ref{fig:degrau_geometria} apresenta-se a configuração geral da geometria do canal, que foi discretizado através do uso de células isogeométricas 3d definidas dentro de cinco \textit{patches} que descrevem o domínio do problema. As dimensões do canal são: $h = 1,0m$, $s = 0,94m$, $x_{e}= 1,0m$, $x_{f}= 15m$ e $x_{t} = 30m$. A profundidade do canal adotada, na direção $y_3$, é equivalente a $0,1m$. Devido a pequena dimensão definida em $y_3$ a simulação numérica realizada é caracterizada como um escoamento em domínio bidimensional.
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[scale=1.2,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau.pdf}
-	\caption{Degrau 3D: Geometria.}
-	\label{fig:degrau_geo}
+	\includegraphics[scale=1.2,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_geometria.pdf}
+	\caption{Degrau: Geometria - plano $y_1$$y_2$}
+	\label{fig:degrau_geometria}
 \end{figure}
 
-
-As dimensões selecionadas para o canal foram $h = 1,0m$, $s = 0,94m$, $x_{e}= 1,0m$, $x_{f}= 15m$ e $x_{t} = 30m$ e dimensão na direção $z$ de $0,1m$. Adicionalmente, o perfil de velocidade na entrada do canal é descrito pela seguinte relação:
-
-\begin{align}
-u_{x} = V_{max} \left(1-\left(\frac{\left(y-s\right)-h/2}{h/2}\right)^{2}\right),
-\end{align}
-
-\noindent com velocidade $V_{max} = 10 m/s$ e $u_{y} = u_{z} = 0$.
-
-O escoamento sobre o degrau é caracterizado por produzir áreas de recirculação onde o fluido se separa e forma vórtices. A distância entre o degrau e o ponto de recolamento do vórtice principal $x_{r}$ é uma das principais características verificadas nesse problema. A dimensão dos vórtices varia em função do número de $\Reynolds$, a qual é calculada de acordo com \citeonline {ArmalyDP:1983}, sendo expressa por:
-
-\begin{align}
-\Reynolds =\frac{\rho\left(\frac{2V_{max}}{3}\right)2h}{\viscosity},
-\end{align}
-
-\noindent com $\rho = 1kg/m^{3}$. Foram selecionados para as análises 3 diferentes número de Reynolds: $100$, $400$ e $800$, variando-se a viscosidade do fluido.
-
-Para a geração da geometria NURBS, discretiza-se o canal em 5 \textit{patches}, os quais são denominados $P_{0},P_{1},P_{2},P_{3}$ e $P_{4}$, e podem ser observados na Fig. \ref{fig:degrau_geo}. Todas as direções paramétricas são discretizadas com vetores de \textit{knots} abertos e com \textit{knots} igualmente espaçados no interior do vetor, além de funções de forma quadráticas. Os pontos de controle para os \textit{patches} $0,1$ e $2$ foram distribuídos no espaço físico, direções $x,y$ e $z$ de maneira a se obter células igualmente espaçados. Para os \textit{patches} $3$ e $4$, na direção do espaço físico $y$ e $z$, os pontos são posicionadas de maneira a gerar células uniformes, e, na direção $x$, são distribuídos de maneira a se resultar numa progressão geométrica do tamanho das células, com as células aumentando de tamanho da esquerda para a direita, conforme pode ser observado na Fig. \ref{fig:degrau_malha}. Na Tab. \ref{tab:numberPCpatches} podem ser observados os números de pontos de controle utilizados em cada direção dos espaços paramétricos para cada \textit{patch}, resultando em 60795 pontos de controle e 4800 células.
+Para a geração da geometria NURBS, os 5 \textit{patches}, denominados $P_{0},P_{1},P_{2},P_{3}$ e $P_{4}$, são discretizados em todas as direções paramétricas com funções base quadráticas e com vetores de \textit{knots} abertos de coordenadas paramétricas igualmente espaçados em seu interior. Os pontos de controle para os \textit{patches} $P_0$, $P_1$ e $P_2$ foram distribuídos no espaço físico, direções $y_1$, $y_2$ e $y_3$, de maneira a se obter células igualmente espaçadas. Ressalta-se, que o número de células está relacionado a quantidade de pontos de controle por $ncel = npc-deg$.
+Para os \textit{patches} $P_3$ e $P_4$, na direção do espaço físico $y_2$ e $y_3$, os pontos de controle são posicionadas de maneira a gerar células uniformes, e, na direção $y_1$, são distribuídos de maneira a se obter células em progressão geométrica, aumentando de tamanho no sentido do contorno de saída, conforme pode ser observado na Fig. \ref{fig:degrau_malha}. Na Tab. \ref{tab:degrau_discretização_patches} apresenta-se o número de pontos de controle em cada direção paramétrica para cada \textit{patch}, resultando em 17640 pontos de controle e 4800 células.
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[scale=0.3,trim=1cm 14cm 1cm 14cm, clip=true]{Imagens/Cap3/malhadegrau.eps}
-	\caption{Degrau 3D: Geometria e malha de células físicas}
+	\includegraphics[scale=2.0,trim=0cm 0.1cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_malha.pdf}
+		\vspace{-0.5cm} 
+	\caption{Degrau: Malha de células físicas - plano $y_1$$y_2$}
 	\label{fig:degrau_malha}
 \end{figure}
 
 \begin{center}
 	\begin{table}[h!]
-		\caption{Número de pontos de controle por \textit{patch}}
+		\caption{Degrau: Número de pontos de controle por \textit{patch}}
 		\centering
 		\begin{tabular}{|c | c | c| c|} 
 			\hline
@@ -734,30 +720,78 @@ Para a geração da geometria NURBS, discretiza-se o canal em 5 \textit{patches}
 			4 & 82 & 12 & 3\\
 			\hline
 		\end{tabular}
-		\label{tab:numberPCpatches}
+		\label{tab:degrau_discretização_patches}
 	\end{table}
 \end{center}
 
+Para a simulação numérica, aplicou-se condição de aderência nos contornos contidos nos planos $y_1$$y_3$ e $y_1$$y_3$, exceto naqueles com condições de entrada ou de saída. Nos contornos contidos nos planos $y_1$$y_2$ aplicou-se condição de simetria. O perfil parabólico adotado na entrada do domínio é descrito pela seguinte equação:
 
-Na Fig. \ref{fig:degrau_com_recl} são apresentados os comprimentos de recolamento do vórtice primário adimensionalizados ($x_{r}/s$), juntamente com os resultados adaptados dos ensaios experimentais de \citeonline{ArmalyDP:1983} e os resultados de análises 2d de \citeonline{WilliamsB:1999}. Nota-se que os resultados obtidos estão próximos das referências para $\Reynolds = 100$ e $\Reynolds =400$, entretanto, para $\Reynolds = 800$ nota-se um afastamento do presente trabalho, e do referente à análise 2D com relação ao experimento realizado por \citeonline{ArmalyDP:1983}. Isto ocorre, visto que o ensaio experimental foi realizado com um canal com $2m$ de comprimento na direção $z$, e a simulação atual com apenas uma célula nessa direção é incapaz de captar os fenômenos tridimensionais que ocorrem a medida que o número de Reynolds cresce. Na Fig.\ref {fig:degrau_vortices} pode-se observar o campo de velocidade para os Reynolds estudados, e o aspecto do vórtice primário desenvolvido.
+\begin{align}
+u_{1} = V_{max} \left(1-\left(\frac{\left(y_2-s\right)-h/2}{h/2}\right)^{2}\right),
+\end{align}
 
+\noindent com velocidade $V_{max} = 10 m/s$ e $u_{2} = u_{3} = 0$ nesse contorno.
+
+O escoamento sobre o degrau é caracterizado por produzir áreas de recirculação onde o fluido se separa e forma vórtices. A distância entre o degrau e o ponto de recolamento do vórtice principal, $x_{r}$, é uma das principais características verificadas nesse problema. A dimensão dos vórtices varia em função do número de $\Reynolds$, o qual é calculado de acordo com \citeonline {ArmalyDP:1983}, por:
+
+\begin{align}
+\Reynolds =\frac{\rho\left(\frac{2V_{max}}{3}\right)2h}{\viscosity}.
+\end{align}
+
+Foram selecionados três diferentes número de Reynolds para as análises: $\Reynolds = 100$, $\Reynolds = 400$ e $\Reynolds = 800$, os quais são obtidos a partir da variação da viscosidade do fluido. Considerou-se  $\rho = 1kg/m^{3}$, $\timeStep = 0,05s$, e $\specRadius = 0,5$.
+
+De acordo com os experimentos realizados por \citeonline{ArmalyDP:1983}, as medições do comprimento do vórtice primário, logo a jusante do degrau na parte inferior, identificam o regime do escoamento como laminar ($\Reynolds < 1200$), transiente ($1200 < \Reynolds < 6600$) e turbulento ($\Reynolds > 6600$). Além disso, o autor constatou em seus ensaios que para $\Reynolds < 400$ o escoamento é predominantemente bidimensional, enquanto que para Reynolds superiores,  o escoamento apresenta regiões de comportamento tridimensional. 
+
+\citeonline{ArmalyDP:1983} em suas análises constatou o surgimento de uma bolha de separação adicional ao longo do piso do canal, a jusante da separação primária, a qual desaparece para $\Reynolds > 2300$. Outra região de separação secundária também foi observada ao longo da parede superior, a jusante do degrau, desenvolvendo-se a partir de Re 400 e permanecendo durante todo o regime de transição.
+
+Na Fig. \ref{fig:degrau_comprimento_vortice_principal} são apresentados os comprimentos de recolamento do vórtice primário adimensionalizados ($x_{r}/s$) obtidos nesse trabalho, juntamente com os valores adaptados dos ensaios experimentais de \citeonline{ArmalyDP:1983} e os resultados de análises 2d e 3d de \citeonline{WilliamsB:1999}. Com essa figura é possível observar que a medida que o número de Reynolds aumenta, os resultados obtidos do presente estudo se afastam dos valores de referência respectivos ao estudo experimental e da simulação tridimensional. Este fato ocorre visto que o ensaio experimental foi realizado em um canal com $2m$ profundidade na direção $y_3$, enquanto que a simulação atual conta com apenas uma célula nessa direção, sendo então incapaz de captar os fenômenos tridimensionais que ocorrem a medida que o número de Reynolds cresce. 
+
+Na Fig.\ref {fig:degrau_campos_velocidade_Re100} pode-se observar o campo de velocidade para o domínio completo e para a região do vórtice primário para $\Reynolds = 100$, enquanto que na Fig. \ref {fig:degrau_campos_velocidade_Re400} e na Fig. \ref {fig:degrau_campos_velocidade_Re800} são apresentados para $\Reynolds = 400$ e $\Reynolds = 800$ respectivamente. Para $\Reynolds = 800$ constatou-se a formação de um vórtice secundário na parede superior, conforme havia sido relatado pelos autores previamente citados, conforme pode ser observado na Fig. \ref{fig:degrau_vor_sec_re800}.
+
+Por fim, na Fig. \ref{fig:degrau_campos_pressao} é possível observa-se os campos de pressão para todos os números de Reynolds simulados.
 
 \begin{figure}[htb!]
 	\centering
-	\includegraphics[scale=1.2,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/comvort.eps}
-	\caption{Degrau 3D: Comprimento de recolamento do v\'ortice principal}
-	\label{fig:degrau_com_recl}
+	\includegraphics[scale=1.2,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_vort_prim.pdf}
+	\caption{Degrau: Comprimento do vórtice principal}
+	\label{fig:degrau_comprimento_vortice_principal}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[\label{fig:degrau_vel_re100} Domínio Completo]{\includegraphics[scale=1.55,trim=0.0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_vel_100.pdf}} \\
+	\subfloat[\label{fig:degrau_vor_re100} Vórtice primário ]{\includegraphics[scale=1.55,trim=0.0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_vor_100.pdf}}
+	\caption{Degrau: Campos de velocidade para $\Reynolds = 100$ }
+	\label{fig:degrau_campos_velocidade_Re100}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[\label{fig:degrau_vel_re400} Domínio Completo]{\includegraphics[scale=1.55,trim=0.0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_vel_400.pdf}} \\
+	\subfloat[\label{fig:degrau_vor_re400} Vórtice primário ]{\includegraphics[scale=1.55,trim=0.0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_vor_400.pdf}}
+	\caption{Degrau: Campos de velocidade para $\Reynolds = 400$ }
+	\label{fig:degrau_campos_velocidade_Re400}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[\label{fig:degrau_vel_re800} Domínio Completo]{\includegraphics[scale=1.55,trim=0.0cm 1.5cm 0cm 1.5cm, clip=true]{Imagens/Cap3/degrau_vel_800.pdf}} \\
+	\subfloat[\label{fig:degrau_vor_re800} Vórtice primário ]{\includegraphics[scale=1.55,trim=0.0cm 1.7cm 0cm 1.5cm, clip=true]{Imagens/Cap3/degrau_vor_800.pdf}}\\
+	\subfloat[\label{fig:degrau_vor_sec_re800} Vórtice secundário ]{\includegraphics[scale=1.4,trim=0.0cm 0.5cm 0cm 0.7cm, clip=true]{Imagens/Cap3/degrau_vor_sec_800.pdf}}
+	\caption{Degrau: Campos de velocidade para $\Reynolds = 800$ }
+	\label{fig:degrau_campos_velocidade_Re800}
 \end{figure}
 
 
 \begin{figure}[!htb]
 	\centering
-	\subfloat[\label{fig:vortice_re100} $\Reynolds= 100$]{\includegraphics[scale=0.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau100.pdf}} \\
-	\subfloat[\label{fig:vortice_re400} $\Reynolds= 400$]{\includegraphics[scale=0.36,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau400.pdf}}\\ 
-	\subfloat[\label{fig:vortice_re800}$\Reynolds= 800$]{\includegraphics[scale=0.36,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau800.pdf}}\\
-	{\includegraphics[scale=0.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/legendadegrau.pdf}}
-	\caption{Degrau 3D: Campo de velocidade. }
-	\label{fig:degrau_vortices}
+	\subfloat[\label{fig:degrau_press_re100} $\Reynolds= 100$]{\includegraphics[scale=1.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_press_100.pdf}} \\
+	\subfloat[\label{fig:degrau_press_re400} $\Reynolds= 400$]{\includegraphics[scale=1.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_press_400.pdf}} \\
+	\subfloat[\label{fig:degrau_press_re800} $\Reynolds= 800$]{\includegraphics[scale=1.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_press_800.pdf}}
+	\caption{Degrau: Campos de pressão }
+	\label{fig:degrau_campos_pressao}
 \end{figure}
+
+\end{document}
 
 \end{document}

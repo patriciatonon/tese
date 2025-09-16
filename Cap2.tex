@@ -976,7 +976,7 @@ O estudo do problema de um escoamento sobre um cilindro 2D teve como principal i
 
 \noindent com $L$ a dimensão característica do problema, sendo nesse caso o diâmetro do cilindro, e $\kviscosity$ a viscosidade cinemática do fluido. 
 
-A geometria e condições de contorno são apresentadas na Fig. \ref{fig:cilindro_geometria}. Como pode-se observar trata-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nas paredes superior e inferior. No contorno denominado como \textit{saída}, não se conhece o comportamento do escoamento, desta forma, determina-se sua posição no domínio computacional a uma distância grande o suficiente de maneira a não interferir no comportamento do escoamento. 
+A geometria e condições de contorno são apresentadas na Fig. \ref{fig:cilindro_geometria}. Como pode-se observar trata-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nas paredes superior e inferior. No contorno denominado como \textit{saída}, não se conhece o comportamento do escoamento, desta forma, determina-se sua posição no domínio computacional a uma distância grande o suficiente de maneira a não interferir no comportamento do escoamento.
 
 Na Fig. \ref{fig:cilindro_malha} pode-se observar a malha não-estruturada de elementos finitos utilizada para esse problema, composta por 9122 elementos triangulares quadráticos e 18508 nós. O problema foi simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$. 
 
@@ -1078,7 +1078,7 @@ O problema é estudado para os números de Reynolds: 100, 400 e 1000. O número 
 \begin{figure}[!htb]
 	\centering
 	\subfloat[Geometria e condições de contorno\label{fig:cavidade_geometria}]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cavidade_geometria.pdf}} \quad
-	\subfloat[Discretização espacial.\label{fig:cavidade_malha}]{\includegraphics[trim=170 120 850 130,clip,scale=0.15]{Imagens/Cap2/cavidade_malha.png}}
+	\subfloat[Discretização espacial.\label{fig:cavidade_malha}]{\includegraphics[trim=0 0 0 0,clip,scale=0.2]{Imagens/Cap2/cavidade_malha.png}}
 	\caption{Cavidade quadrada: Geometria, condições de contorno e malha de elementos finitos}
 \end{figure}
 
@@ -1105,8 +1105,7 @@ Os campos de velocidade e de pressão são apresentados nas figuras Fig \ref{fig
 	\subfloat[\label{fig:cavidade_vel_Re1000}$Re$=1000]{\includegraphics[scale=0.25,trim=12cm 5.5cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_velRe1000.pdf}}\\[3.0ex]
 	% Barra de cores (legenda) separada
 	\includegraphics[scale=0.4,trim=12cm 0cm 12cm 32.5cm, clip=true]{Imagens/Cap2/cavidade_velRe1000.pdf}
-	
-	\caption{Cavidade quadrada: Campos de velocidade.}
+	\caption{Cavidade quadrada: Campos de velocidade -  plano $y_1$$y_2$}
 	\label{fig:cavidade_vel}
 \end{figure}
 
@@ -1116,7 +1115,7 @@ Os campos de velocidade e de pressão são apresentados nas figuras Fig \ref{fig
 	\subfloat[\label{fig:cavidade_press_Re100}$Re$=100]{\includegraphics[scale=0.25,trim=12cm 2cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_pressRe100.pdf}} 
 	\subfloat[\label{fig:cavidade_press_Re400}$Re$=400]{\includegraphics[scale=0.25,trim=12cm 2cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_pressRe400.pdf}}\\ 
 	\subfloat[\label{fig:cavidade_press_Re1000}$Re$=1000]{\includegraphics[scale=0.25,trim=12cm 2cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_pressRe1000.pdf}}
-	\caption{Cavidade quadrada: Campos de pressão.}
+	\caption{Cavidade quadrada: Campos de pressão - plano $y_1$$y_2$}
 	\label{fig:cavidade_press}
 \end{figure}
 
