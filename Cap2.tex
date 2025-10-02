@@ -278,16 +278,15 @@ Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrit
 	%\vspace{-1em} % Diminui o espaço antes da figura
 \end{figure}
 
-aqui....
 \section{Descrição Euleriana-Lagrangiana arbitrária (ALE)} \label{capitulo:Cap2:ALE}
 
-A descrição Lagrangiana-Euleriana arbitrária \cite{DoneaGH:1982} representa uma generalização da descrição puramente Lagrangiana e da descrição puramente Euleriana do movimento do contínuo. A descrição Lagrangiana fixa a atenção em pontos materiais do contínuo, enquanto que na descrição Euleriana considera-se uma porção fixa do espaço ocupada pelo contínuo, e analisam-se os pontos materiais que passam por essa porção ao longo do tempo. Como consequência, na descrição puramente Lagrangiana a malha computacional move-se com o contínuo, enquanto que na Euleriana a malha computacional mantém-se fixa. Por sua vez, na descrição Lagrangiana-Euleriana arbitrária, trabalha-se com pontos de referência que podem movimentar-se, mas de maneira independente do movimento dos pontos materiais do contínuo analisado.
+A descrição Lagrangiana-Euleriana arbitrária \cite{HughesLZ:1981, DoneaGH:1982} representa uma generalização das descrições puramente Lagrangiana e puramente Euleriana do movimento do contínuo. A descrição Lagrangiana fixa a atenção em pontos materiais do contínuo, enquanto que, na descrição Euleriana, considera-se uma porção fixa do espaço ocupada pelo contínuo e analisam-se os pontos materiais que passam por essa porção ao longo do tempo. Como consequência, na descrição puramente Lagrangiana a malha computacional move-se com o contínuo, enquanto que, na Euleriana, a malha computacional mantém-se espacialmente fixa e permeável ao meio contínuo. Por sua vez, na descrição Lagrangiana-Euleriana arbitrária trabalha-se com um domínio de referência que pode mover-se de maneira independente do movimento dos pontos materiais do contínuo analisado.
 
-Para a aplicação dessa metodologia às equações governantes da mecânica dos fluidos é importante a definição de três domínios, de acordo com a Fig. \ref{fig:dominioAle}. O domínio inicial, chamado de \textbf{domínio material} ($\domainMat$), que é definido pelas coordenadas dos pontos materiais $\posMat$; O domínio atual, chamado de \textbf{domínio espacial} ($\domain$), definido pelas coordenadas $\pos$; e por fim, o \textbf{domínio de referência} ($\domainRef$) com coordenadas dos pontos de referência $\posALE$. 
+Para a aplicação dessa metodologia às equações governantes da mecânica dos fluidos, consideram-se três domínios contínuos, de acordo com a Fig.~\ref{fig:dominioAle}: (i) o domínio inicial, chamado de \textbf{domínio material} ($\domainMat$), definido pelas coordenadas dos pontos materiais $\posMat$ na configuração inicial; (ii) o domínio atual, chamado de \textbf{domínio espacial} ($\domain$), definido pelas coordenadas espaciais $\pos$; e, por fim, (iii) o \textbf{domínio de referência} ($\domainRef$), associado às coordenadas dos pontos de referência $\posALE$.
 
-Considera-se nesse texto, o domínio de referência, $\domainRef$, como sendo a configuração inicial da malha, enquanto que a configuração atual da malha e do contínuo consistem ambas na referência espacial $\domain$.
+Considera-se neste texto, o domínio de referência, $\domainRef$, como sendo a configuração inicial da malha, enquanto que as configurações atuais, tanto da malha como do contínuo, coincidem com a referência espacial $\domain$.
 
-As coordenadas no domínio atual do contínuo, $\domain$, podem ser mapeadas a partir do domínio inicial ($\domainMat$) ou a partir do domínio de referência ($\domainRef$) utilizando as seguintes funções de mapeamento:  
+As coordenadas no domínio $\domain$ podem ser mapeadas a partir do domínio inicial ($\domainMat$) ou do domínio de referência ($\domainRef$) utilizando as seguintes funções de mapeamento:  
 
 \begin{align}
 	\pos = \fmapAI(\posMat,t) = \fmapAR(\posALE,t).
@@ -296,23 +295,23 @@ As coordenadas no domínio atual do contínuo, $\domain$, podem ser mapeadas a p
 \begin{figure}[htb!]
 	\centering
 	\includegraphics[scale=1.0]{Imagens/Cap2/dominioALE.pdf}	
-	\caption{Domínios utilizados para a descrição Lagrangiana-Euleriana arbitrária}
+	\caption{Descrição Lagrangiana-Euleriana arbitrária}
 	\label{fig:dominioAle}
 \end{figure}
 
-Da mesma forma, o domínio de referência, pode ser mapeado a partir do domínio inicial por:
+Da mesma forma, o domínio de referência pode ser mapeado a partir do domínio inicial por:
 
 \begin{align}
 	\posALE = \fmapRI(\posMat,t).
 \end{align}
 
-A velocidade dos pontos da malha é calcula por:
+A velocidade dos pontos da malha é calculada por:
 
 \begin{align}
 	\velocityALE = \left. \frac{\partial \fmapAR(\posALE,t)}{\partial t} \right|_{\posALE},
 \end{align}
 
-\noindent e a velocidade dos pontos materiais no instante $t$ é obtida pela derivada do vetor posição $\pos$ mantendo $\posMat$ fixo:
+\noindent e a velocidade dos pontos materiais no instante $t$ é obtida pela derivada do vetor posição $\pos$, mantendo $\posMat$ fixo:
 
 \begin{align}
 	\velocity = \left. \frac{\partial \fmapAI(\posMat,t)}{\partial t} \right|_{\posMat} = \left. \frac{\partial \pos(\posMat,t)}{\partial t} \right|_{\posMat}.
@@ -381,10 +380,10 @@ Considerando que $\fmapAI\left(\posMat,t\right) = \fmapAR \circ \fmapRI$, pode-s
 Dessa forma, pode-se estabelecer uma relação entre a velocidade da malha e a velocidade do ponto material:
 
 \begin{align}
-	\velocity = \velocityALE + \frac{\partial{\pos}}{\partial{\posALE}}\cdot \mathbf{w} \label{eq:vel_rel_mat_ALE}
+	\velocity = \velocityALE + \frac{\partial{\pos}}{\partial{\posALE}}\cdot \mathbf{w}. \label{eq:vel_rel_mat_ALE}
 \end{align}
 
-Supondo agora uma grandeza física escalar, denominada de $g(\pos,t)$ na configuração espacial, de $g^{*}(\posALE,t)$ na configuração de referência, e $g^{**}(\posMat,t)$ na configuração material. Pode-se escrever então:
+Supondo agora uma grandeza física escalar, denominada $g(\pos,t)$ na configuração espacial, de $g^{*}(\posALE,t)$ na configuração de referência e $g^{**}(\posMat,t)$ na configuração material, pode-se escrever então:
 
 \begin{align}
 	g^{**}(\posMat,t) = g(\fmapAI(\posMat,t),t), 
@@ -402,7 +401,7 @@ Supondo agora uma grandeza física escalar, denominada de $g(\pos,t)$ na configu
 	\frac{\partial g^{**}(\posMat,t)}{\partial (\posMat,t)} = \frac{\partial g(\pos,t)}{\partial (\pos,t)} \cdot \frac{\partial \fmapAI(\posMat,t)}{\partial (\posMat,t)},
 \end{align}
 
-\noindent que em forma matricial é apresentado como:
+\noindent que, em forma matricial, é apresentado como:
 
 \begin{align}
 	\begin{bmatrix}
@@ -425,13 +424,13 @@ Essa expressão nos permite escrever a derivada temporal da variável na configu
 	\frac{\partial g^{**}}{\partial t} = \frac{\partial g}{\partial t} + \frac{\partial g}{\partial \pos} \cdot \velocity, 
 \end{align}
 
-\noindent que é justamente a derivada material de g. Para facilitar a visualização pode tirar os sobrescritos $**$, e então:
+\noindent que corresponde à derivada material de g. Para facilitar a visualização, podem-se remover os sobrescritos $**$, e então:
 
 \begin{align}
 	\frac{Dg}{Dt} = \left . \frac{\partial g}{\partial t} \right|_{\posMat} = \left . \frac{\partial g}{\partial t} \right|_{\pos} + \velocity \cdot \gradient g. \label{eq:der_mat}
 \end{align}
 
-Usando essa mesma metodologia pode-se escrever a transformação de $g^{*}(\posALE,t)$ para a referência material da seguinte forma:
+Usando essa mesma metodologia, pode-se escrever a transformação de $g^{*}(\posALE,t)$ para a referência material da seguinte forma:
 
 
 \begin{align}
@@ -446,7 +445,7 @@ Usando essa mesma metodologia pode-se escrever a transformação de $g^{*}(\posA
 	\end{bmatrix}
 	=
 	\begin{bmatrix}
-		\frac{\partial {g^*}}{\partial \posALE} & \frac{\partial {g*}}{\partial t} 
+		\frac{\partial {g^*}}{\partial \posALE} & \frac{\partial {g^*}}{\partial t} 
 	\end{bmatrix}
 	\cdot
 	\begin{bmatrix}
@@ -459,34 +458,44 @@ Usando essa mesma metodologia pode-se escrever a transformação de $g^{*}(\posA
 \noindent com a segunda coluna resultando em:
 
 \begin{align}
-	\frac{\partial g^{**}}{\partial t} = \frac{\partial g^*}{\partial t} + \frac{\partial g*}{\partial \posALE} \cdot \mathbf{w}. \label{eq:ref_mat}
+	\frac{\partial g^{**}}{\partial t} = \frac{\partial g^*}{\partial t} + \frac{\partial g^*}{\partial \posALE} \cdot \mathbf{w}. \label{eq:ref_mat}
 \end{align}
 
-Utilizando-se a expressão apresenta na Eq. \ref{eq:vel_rel_mat_ALE} e substituindo-a em \ref{eq:ref_mat}, resulta em:
+Utilizando-se a expressão apresentada na Eq. \ref{eq:vel_rel_mat_ALE} e substituindo-a em \ref{eq:ref_mat}, resulta em:
 
 \begin{align}
-	\frac{\partial g^{**}}{\partial t} = \frac{\partial g^*}{\partial t} + \frac{\partial g*}{\partial \pos} \cdot \left(\velocity - \velocityALE \right). 
+	\frac{\partial g^{**}}{\partial t} = \frac{\partial g^*}{\partial t} + \frac{\partial g^*}{\partial \pos} \cdot \left(\velocity - \velocityALE \right). 
 \end{align}
 
-Removendo-se os sobrescritos (**) e (*), chega-se a equação fundamental para os desenvolvimentos utilizando a metodologia ALE:
+Removendo-se os sobrescritos (** e *), chega-se a equação fundamental para os desenvolvimentos utilizando a metodologia ALE:
 
 \begin{align}
 	\frac{Dg}{Dt} = \left . \frac{\partial g}{\partial t} \right|_{\posMat} = \left . \frac{\partial g}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right) \cdot \gradient g. \label{eq:der_mat_ALE}
 \end{align}
 
-Utilizando-se a definição de derivada material da Eq. \ref{eq:der_mat} e comparando com a Eq. \ref{eq:Navier-Stokes}, pode-se rescrever a equação da quantidade de movimento da seguinte forma:
+A partir da definição de derivada material da Eq. \ref{eq:der_mat} e comparando com a Eq. \ref{eq:Navier-Stokes}, pode-se rescrever a equação da quantidade de movimento da seguinte forma:
 
 \begin{align}
 	\density\left(\frac{D\velocity}{Dt} - \sbodyforce \right) - \divergence \cdot \stressTensor &= \vzero. \label{eq:Navier-Stokes_der_mat_Euleriana}
 \end{align}
 
-Para expressar então a equação da quantidade de movimento em uma descrição Euleriana-Lagrangeana, basta substituir na Eq. \ref{eq:Navier-Stokes_der_mat_Euleriana} a definição de derivada material apresentada na Eq. \ref{eq:der_mat_ALE}, e têm-se finalmente:
+Para expressar a equação da quantidade de movimento em uma descrição Euleriana-Lagrangiana, basta substituir na Eq. \ref{eq:Navier-Stokes_der_mat_Euleriana} a definição de derivada material apresentada na Eq. \ref{eq:der_mat_ALE}, resultando:
 
 \begin{align}
 	\density\left(\left. \frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right) \cdot \gradient  \velocity  - \sbodyforce \right) - \divergence \cdot \stressTensor = \vzero. \label{eq:Navier-Stokes_ALE} 
 \end{align}
 
-A equação da continuidade independe da movimentação da malha. Dessa forma a Eq. \ref{eq:conser_massa_incom} se mantém a mesma para as análises usando uma descrição ALE. Assim, reescrevendo o conjunto de equações da DFC apresenta na Eq. \ref{eq:conj_eq_DFC} para um descrição ALE, têm-se:
+A equação da continuidade é independente da movimentação da malha. Dessa forma, a Eq. \eqref{eq:conser_massa_incom} permanece válida para análises usando uma descrição ALE.
+
+\textcolor{red}{Sempre que estiver se referindo a equações, use \eqref{} ao invés de \ref{}! Arrume isso em todo o texto...}
+
+\subsection{Forma forte do modelo para escoamentos incompressíveis com contornos móveis}
+
+Nesta seção é apresentado o problema para escoamentos incompressíveis com contornos móveis, assumindo-se que a velocidade da malha (do domínio de referência) é inteiramente conhecida. Posteriormente será desenvolvido o modelo matemático adotado para a movimentação da malha.
+
+Seja $\domain \in \nrealspace$, com $\nsd = 1,2,3$ definindo a dimensão do domínio espacial do escoamento com contorno $\boundary = \boundaryD \cup \boundaryN$, no instante $t \in (0,\totalTime)$ (ver Fig. \ref{fig:dominioFluido}).
+
+Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pela equação da quantidade de movimento, (Eq. \eqref{eq:Navier-Stokes_der_mat_Euleriana}) e da continuidade (Eq. \ref{eq:conser_massa_incom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas. Dessa forma, o escoamento é governado pelo seguinte conjunto de equações:
 
 \begin{equation}
 	\left\{
@@ -498,11 +507,11 @@ A equação da continuidade independe da movimentação da malha. Dessa forma a 
 	\end{array} \label{eq:conj_eq_DFC_ALE}
 	\right.
 \end{equation}
-
+\noindent onde $\stressTensor$ é obtido por meio da Eq. \eqref{eq:tensor_tensoes_fluido}, sendo $\boundaryD$ a porção do contorno sobre a qual são impostas as condições de contorno de Dirichlet, representadas pela distribuição de velocidade prescrita $\velocityD$, e $\boundaryN$ a porção com condições de Neumann, descritas pelas forças de superfície $\surfaceLoad$. A variável $\snormal$ representa o vetor unitário normal ao contorno $\boundaryN$.
 
 \section{Forma fraca e discretização espacial das equações governantes} \label{capitulo:Cap2:FormaFraca}
 
-Tomando-se a forma forte das equações governantes da DFC em descrição ALE, aplica-se o método de resíduos ponderados para se chegar à forma fraca e proceder com a discretização espacial. Os espaços de dimensão finita das funções tentativa que descrevem a velocidade e a pressão são chamados de $\usolution$ e $\psolution$ respectivamente, e definidos como:
+Tomando-se a forma forte das equações governantes da DFC em descrição ALE (Eq. \eqref{eq:conj_eq_DFC_ALE}), aplica-se o método dos resíduos ponderados para se chegar à forma fraca e proceder com a discretização espacial. Os espaços de dimensão finita das funções tentativa que descrevem a velocidade e a pressão são chamados de $\usolution$ e $\psolution$ respectivamente, e definidos como:
 
 \begin{align}
 \usolution = \left\{\velocity \left . \right| \velocity \left(\cdot,t\right) \in \left(H^{1}\left(\domain\right)\right)^{\nsd}, \velocity = \velocity_D \ \textrm {em} \ \boundaryD \right\}
@@ -514,9 +523,9 @@ Tomando-se a forma forte das equações governantes da DFC em descrição ALE, a
 \psolution = \left\{\press \left . \right| \press \left(\cdot\right) \in L^{2}\left(\domain\right), \int_{\domain}\press \textrm { } \deriv \domain = 0 \textrm { se } \boundary = \boundaryN \right\},
 \end{align}
 
-\noindent sendo $\left(H^{1}\left(\domain\right)\right)^{\nsd}$ o espaço de funções vetoriais com derivadas de quadrado integrável sobre $\domain$ e $L^{2}\left(\domain\right)$ o espaço de funções escalares que são de quadrado integrável sobre $\domain$.
+\noindent sendo $\left(H^{1}\left(\domain\right)\right)^{\nsd}$ o espaço de funções vetoriais com derivadas de quadrado integrável sobre $\domain$ e $L^{2}\left(\domain\right)$ o espaço de funções escalares de quadrado integrável sobre $\domain$.
 
-O espaço das funções teste ou funções peso das equações da quantidade de movimento e da continuidade são definidos respectivamente por:
+Os espaços das funções teste (ou funções ponderadoras) das equações da quantidade de movimento e da continuidade são definidos, respectivamente, por:
 
 \begin{align}
 \uweighting = \left\{\utest \left . \right| \utest \left(\cdot\right) \in \left(H^{1}\left(\domain\right)\right)^{\nsd}, \utest = \vzero \textrm { em} \ \boundaryD \right\},
@@ -527,16 +536,16 @@ O espaço das funções teste ou funções peso das equações da quantidade de 
 \pweighting = \psolution.
 \end{align}
 
-Aplicando-se o método dos resíduos ponderados sobre as equações Eq. \eqref{eq:Navier-Stokes_ALE} e Eq.\eqref{eq:conser_massa_incom}, integrando-se por partes o termo referente ao tensor de tensões de Cauchy, empregando-se o teorema da divergência e levando-se em consideração a condição de homogeneidade da função $\utest$ sobre o contorno $\boundaryD$, obtém-se a forma fraca. A solução do problema consiste então em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de tal modo que $\forall$ $\utest \in \uweighting$ e $\ptest \in \pweighting$, as seguintes expressões sejam verdadeiras:
-
-
+Aplicando-se o método dos resíduos ponderados às equações Eq. \eqref{eq:Navier-Stokes_ALE} e Eq.\eqref{eq:conser_massa_incom}, integrando-se por partes o termo referente ao tensor de tensões de Cauchy, empregando-se o teorema da divergência e levando-se em consideração a condição de homogeneidade da função $\utest$ sobre o contorno $\boundaryD$, obtém-se a forma fraca do problema, dada por:
 \begin{align}
 \int_{\domain} \utest \cdot \density  \left(\left . \frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right)\cdot\gradient \velocity - \sbodyforce \right) \deriv \domain + \int_{\domain} \straintensor(\utest) : \stressTensor  \deriv \domain - \int_{\boundaryN} \utest \cdot \surfaceLoad \deriv\boundaryN  \  &= 0,  \label{eq:QM_forma_fraca_0_cap2} 
 \end{align}
-
+e
 \begin{align}
 \int_{\domain} \ptest \left(\divergence \cdot \velocity\right) \deriv \domain &= 0. \label{eq:C_forma_fraca_0_cap2} 
 \end{align}
+
+A solução do problema consiste, então, em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de modo que para todo $\utest \in \uweighting$ e para todo $\ptest \in \pweighting$, Eq. \eqref{eq:QM_forma_fraca_0_cap2} e Eq. \eqref{eq:C_forma_fraca_o_cap2} sejam verdadeiras.
 
 
 \subsection{Método dos elementos finitos }
