@@ -94,22 +94,20 @@
 \label{capitulo:Cap2}
 % ----------------------------------------------------------
 
-O escoamento isotérmico de um fluido newtoniano é descrito pelas equações advindas da conservação da quantidade de movimento, ou de Navier-Stokes, e da conservação de massa. Nos casos em que ocorram variações significativas no campo de temperatura, ou em escoamentos compressíveis, a equação da conservação de energia deve ser adicionada ao sistema. Essas equações governantes, juntamente com as relações constitutivas, resultam em um sistema de equações diferenciais não lineares que descrevem o comportamento do escoamento no tempo e no espaço. 
+O escoamento isotérmico de um fluido newtoniano é descrito pelas equações advindas da conservação da quantidade de movimento, ou de Navier-Stokes, e da conservação de massa. Nos casos em que ocorram variações significativas de temperatura ou em escoamentos compressíveis, a equação da conservação da energia deve ser incorporada ao sistema. Essas equações, em conjunto com a relação constitutiva, formam um sistema de equações diferenciais não lineares que descrevem o comportamento do escoamento no tempo e no espaço. 
 
-Neste trabalho, são investigados escoamentos incompressíveis, isotérmicos e com contornos móveis. As seções seguintes apresentam a abordagem adotada para a resolução desse tipo de problema, bem como sua implementação computacional. Utiliza-se uma formulação Arbitrária Euleriana-Lagrangiana (ALE) para representar as equações, e a discretização espacial é realizada por meio do método dos elementos finitos (FEM) ou da análise isogeométrica (IGA).
+Neste trabalho, são investigados escoamentos incompressíveis, isotérmicos e com contornos móveis. As seções seguintes apresentam a abordagem adotada para a resolução desse tipo de problema, bem como sua implementação computacional. Adota-se uma descrição Euleriana-Lagrangiana Arbitrária (ALE) para representar as equações, e a discretização espacial é realizada por meio do método dos elementos finitos (FEM) ou da análise isogeométrica (IGA).
 
-Para tratar questões numéricas recorrentes nesse sistema de equações, como as oscilações espúrias em casos de convecção dominante, típicas da aplicação do método dos resíduos ponderados baseado na formulação clássica de Galerkin, emprega-se a metodologia SUPG. Adicionalmente, a estabilização PSPG é aplicada com o objetivo de contornar a condição imposta pelo critério de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB). A integração no tempo é conduzida por meio do método $\alpha$-generalizado.
+Para tratar questões numéricas recorrentes nesse tipo de equações, como as oscilações espúrias em casos de convecção dominante, típicas da aplicação direta do método dos resíduos ponderados na formulação clássica de Galerkin, emprega-se a metodologia Streamline Upwind/Petrov-Galerkin (SUPG). Além disso, a estabilização Pressure-Stabilizing/Petrov-Galerkin (PSPG) é aplicada com o objetivo de contornar as condições de \textit{Ladyzhenskaya–Babuška–Brezzi} (LBB) associadas aos escoamentos incompressíveis, permitindo o uso estável de um mesmo espaço de funções de aproximação para pressão e velocidade. A integração temporal é realizada por meio do método $\alpha$-generalizado.
 
-Ao final deste capítulo, é apresentado um algoritmo que detalha o esquema computacional de solução dos problemas da DFC, seguido pela resolução de alguns casos clássicos, utilizados como verificação da metodologia proposta.
-
+Ao final deste capítulo, apresenta-se um algoritmo que descreve o esquema de solução computacional adotado neste trabalhos para a mecânica dos fluidos, seguido da simulação de casos clássicos para a verificação da metodologia proposta.
 
 \section{Equações governantes na descrição Euleriana} 
 
 
 \subsection{Equação da conservação da massa}
 
-
-Considere um volume de controle infinitesimal fixo no espaço, permeável a matéria e submetido a uma escoamento de velocidade $\velocity$, com componentes $u_1, u_2$, e $u_3$ (conforme Fig. \ref{fig:volInf_fluxoMassa}). Para um intervalo de tempo infinitesimal $\deriv t$, a lei da conservação da massa impõe que a variação de massa dentro do volume de controle seja igual ao fluxo líquido de massa que atravessa suas fronteiras, que pode ser expresso matematicamente da seguinte forma:
+Para obter a equação da conservação da massa na descrição espacial, considera-se um volume de controle infinitesimal fixo no espaço, permeável à matéria e submetido a um escoamento com velocidade $\velocity$, cujos componentes são $u_1$, $u_2$ e $u_3$ (conforme a Fig. \ref{fig:volInf_fluxoMassa}). Para um intervalo de tempo infinitesimal $\deriv t$, a lei da conservação da massa estabelece que a variação de massa dentro do volume de controle deve ser igual ao balanço do fluxo líquido de massa que atravessa suas fronteiras, podendo ser expressa matematicamente da seguinte forma:
 
 \begin{figure}[htb!]
 	\centering 
@@ -127,13 +125,13 @@ Considere um volume de controle infinitesimal fixo no espaço, permeável a mat�
 	\end{split}
 \end{align}
 
-\noindent com $\density$ a massa específica do fluido e $\deriv A_{i}$ a área referente à face ortogonal ao eixo $y_i$. Considerando que $\deriv V = \deriv y_1 \deriv y_2 \deriv y_3 = \deriv y_1 \deriv A_1 = \deriv y_2 \deriv A_2 = \deriv y_3 \deriv A_3 $  e manipulando-se algebricamente a Eq. \ref{eq:conser_massa_0} chega-se a seguinte expressão:
+\noindent com $\density$ sendo a densidade de massa do fluido e $\deriv A_{i}$ a área referente à face ortogonal ao eixo $y_i$. Considerando que $\deriv V = \deriv y_1 \deriv y_2 \deriv y_3 = \deriv y_1 \deriv A_1 = \deriv y_2 \deriv A_2 = \deriv y_3 \deriv A_3 $  e manipulando-se algebricamente a Eq. \ref{eq:conser_massa_0}, resulta:
 
 \begin{align}
 	\frac{\partial \density}{\partial t} = - \frac{\partial \density u_{1}}{\partial y_1} - \frac{\partial \density u_{2}}{\partial y_2}- \frac{\partial \density u_{3}}{\partial y_3}.
 \end{align}
 
-Para escoamentos incompressíveis, quando $\density$ é constante ao longo do tempo, a equação fica reduzida a:
+Para escoamentos incompressíveis, quando $\density$ é constante, a equação fica reduzida a:
 
 \begin{align}
 	 \frac{\partial u_{1}}{\partial y_1} + \frac{\partial u_{2}}{\partial y_2} + \frac{\partial u_{3}}{\partial y_3} = 0, 
@@ -145,14 +143,14 @@ Para escoamentos incompressíveis, quando $\density$ é constante ao longo do te
 	\divergence \cdot \velocity = 0.
 	\label{eq:conser_massa_incom} 
 \end{align} 
+\noindent onde $\divergence \cdot (\velocity)$ é o divergente de $\velocity$ em relação às coordenadas Eulerianas $\ePosition$.
 
 \subsection{Equação da quantidade de movimento}
 
 
 Para um volume de controle infinitesimal, a lei da conservação da quantidade de movimento afirma que a variação temporal da quantidade de movimento no interior do volume é determinada pela diferença entre o fluxo de quantidade de movimento que entra e o que sai pelas suas fronteiras, somada à resultante das forças aplicadas sobre o volume de controle.
 
-Para chegar-se à equação da quantidade de movimento em sua forma conservativa partindo desse princípio, inicia-se com a avaliação das forças que atuam sobre um volume de controle infinitesimal no instante atual. Considerando o equilíbrio das forças externas e internas na direção $y_1$, de acordo o volume apresentado na Fig. \ref{fig:volInf_tensao}, chega-se na seguinte relação:
-
+Para chegar-se à equação da quantidade de movimento em sua forma conservativa e seguindo a descrição espacial, inicia-se com a avaliação das forças que atuam sobre um volume de controle infinitesimal no instante atual, como ilustrado na Fig. \ref{fig:volInf_tensao}, onde são mostradas apenas as componentes que atuam na direção $y_1$. Somando-se vetorialmente as componentes de forças externas e internas na direção $y_1$, chega-se na seguinte relação:
 
 \begin{align}
 	\begin{split}
@@ -160,7 +158,7 @@ Para chegar-se à equação da quantidade de movimento em sua forma conservativa
 	\end{split}
 \end{align}	
 
-\noindent onde $F_1$ representa a resultante das forças externas na direção $y_1$; $\stress_{ij}$ são as componentes $ij$ do tensor de tensões Cauchy ($\stressTensor$); e $b_1$ representa a componente na direção $y_1$ do vetor força de campo por unidade de volume $\mathbf{b}$. Dividindo-se Eq. \ref{eq:equil_forca_y1} por $\deriv V$ e efetuando as subtrações, têm-se a força resultante por unidade de volume ($q_1$) dada por:
+\noindent onde $F_1$ representa a resultante das forças externas na direção $y_1$; $\stress_{ij}$ são as componentes $ij$ do tensor das tensões de Cauchy ($\stressTensor$); e $b_1$ representa a componente do vetor força de campo por unidade de volume na direção $y_1$. Dividindo-se Eq. \ref{eq:equil_forca_y1} por $\deriv V$ e efetuando as subtrações, tem-se a componente de força resultante por unidade de volume na direção de $y_1$ ($q_1$):
 
 \begin{align}
 		q_1 =\frac{\partial \stress_{11}}{\partial y_1} + \frac{\partial \stress_{12}}{\partial y_2} + \frac{\partial \stress_{13}}{\partial y_3} + b_{1}.
@@ -175,24 +173,24 @@ Para chegar-se à equação da quantidade de movimento em sua forma conservativa
 	%\vspace{-1em} % Diminui o espaço antes da figura
 \end{figure}
 
-Considerando-se o equilíbrio das forças nas direções $y_2$ e $y_3$, pode-se escrever também:
+Seguindo a mesma ideia para as direções $y_2$ e $y_3$, escreve-se:
 
 \begin{align}
 	q_2 =\frac{\partial \stress_{21}}{\partial y_1} + \frac{\partial \stress_{22}}{\partial y_2} + \frac{\partial \stress_{23}}{\partial y_3} + b_{2},
 \end{align}	
-
+e
 \begin{align}
 	q_3 =\frac{\partial \stress_{31}}{\partial y_1} + \frac{\partial \stress_{32}}{\partial y_2} + \frac{\partial \stress_{33}}{\partial y_3} + b_{3},
 \end{align}
 
-\noindent ou ainda:
+\noindent ou ainda, de forma simbólica:
 
 \begin{align}
 	\mathbf{q} = \divergence \cdot \stressTensor + \mathbf{b}.
 \end{align}
 
 
-Realizando-se o balanço da quantidade de movimento no volume de controle infinitesimal da Fig. \ref{fig:volInf_consQtdeMov}, e aplicando-se a lei da conservação da quantidade de movimento, pode-se chegar a seguinte equação:
+Realizando-se o balanço da quantidade de movimento no volume de controle infinitesimal da Fig. \ref{fig:volInf_consQtdeMov}, e aplicando-se o princípio da conservação da quantidade de movimento, pode-se escrever:
 
 
 \begin{align}
@@ -203,7 +201,7 @@ Realizando-se o balanço da quantidade de movimento no volume de controle infini
 	\end{split}
 \end{align}	
 
-\noindent dividindo-se a Eq. \ref{eq:QM_0} por $\deriv V$ e efetuando-se as subtrações, chega-se a:
+\noindent dividindo-se a Eq. \ref{eq:QM_0} por $\deriv V$ e efetuando-se as subtrações, chega-se a :
 
 \begin{align}
 		\frac{\partial \density \velocity}{\partial t} = 
@@ -212,14 +210,12 @@ Realizando-se o balanço da quantidade de movimento no volume de controle infini
 		-\frac{\partial u_3 \density \velocity}{\partial y_3} + \mathbf{q},
 		\label{eq:QM_1} 
 \end{align}
-
-ou ainda:
-
+\noindent ou ainda, considerando que $\density$ é constante:
 \begin{align}
 	\density\left(\frac{\partial\velocity}{\partial t} + \divergence \cdot \left(\velocity\otimes\velocity\right) - \sbodyforce \right) - \divergence \cdot \stressTensor  &= \vzero, \label{eq:QM_2} 
 \end{align}
 
-\noindent com $\sbodyforce = \density \mathbf{b}$ que representa a força de campo por unidade de massa.
+\noindent onde $\sbodyforce = \mathbf{b}/\density$ representa a força de campo por unidade de massa.
 
 \begin{figure}[htb!]
 	\centering 
@@ -230,19 +226,20 @@ ou ainda:
 	%\vspace{-1em} % Diminui o espaço antes da figura
 \end{figure}
 
-Da consideração da equação da continuidade, a Eq. \ref{eq:QM_2} pode ser rescrita ainda em sua forma convectiva como:
+Da consideração da equação da continuidade, a Eq. \ref{eq:QM_2} pode ser rescrita em sua forma convectiva como:
 
 \begin{align}
 	\density\left(\frac{\partial\velocity}{\partial t} + \left( \velocity \cdot \gradient \right)  \velocity  - \sbodyforce \right) - \divergence \cdot \stressTensor = \vzero. \label{eq:Navier-Stokes} 
 \end{align}
 
+\subsection{Relação constitutiva}
 O tensor de tensões de Cauchy $\stressTensor$ é definido para fluidos newtonianos incompressíveis pela seguinte relação constitutiva:
 
 \begin{align}
 \stressTensor &= -\press \unittensor + 2\viscosity\straintensor(\velocity),\label{eq:tensor_tensoes_fluido}
 \end{align}
 
-\noindent onde $\press$ representa a pressão, $\viscosity$ a viscosidade dinâmica do fluido e $\straintensor(\bullet)$ é o tensor taxa de deformação infinitesimal, definido como:
+\noindent onde $\press$ representa a pressão, $\viscosity$ a viscosidade dinâmica do fluido e $\straintensor(\bullet)$ é o tensor taxa de deformação Euleriana, definido como:
 
 
 \begin{align}
@@ -250,11 +247,14 @@ O tensor de tensões de Cauchy $\stressTensor$ é definido para fluidos newtonia
 \label{eq:tensor_taxa_defor}
 \end{align}
 
-\subsection{Formulação forte da mecânica dos fluidos}
 
-Seja $\domain \in \nrealspace$, com $\nsd = 1,2,3$ definindo a dimensão do domínio espacial do escoamento com contorno $\boundary = \boundaryD \cup \boundaryN$, no instante $t \in (0,\totalTime)$ (ver Fig. \ref{fig:dominioFluido}).
+\subsection{\sout{Modelo matemático para escoamentos incompressíveis na forma forte}}
 
-Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pela equação da quantidade de movimento, ou equações de Navier-Stokes (Eq. \ref{eq:Navier-Stokes}) e da conservação de massa (Eq. \ref{eq:conser_massa_incom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas. Dessa forma, o escoamento é governado pelo seguinte conjunto de equações:
+\textcolor{red}{Sugiro colocar isso após a descrição ALE apenas....}
+
+\sout{Seja $\domain \in \nrealspace$, com $\nsd = 1,2,3$ definindo a dimensão do domínio espacial do escoamento com contorno $\boundary = \boundaryD \cup \boundaryN$, no instante $t \in (0,\totalTime)$ (ver Fig. \ref{fig:dominioFluido}).
+
+Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pela equação da quantidade de movimento, ou equações de Navier-Stokes (Eq. \ref{eq:Navier-Stokes}) e da conservação de massa (Eq. \ref{eq:conser_massa_incom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas. Dessa forma, o escoamento é governado pelo seguinte conjunto de equações:}
 
 \begin{equation}
 	\left\{
@@ -267,17 +267,18 @@ Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrit
 	\right.
 \end{equation}
 
-\noindent sendo $\boundaryD$ a porção do contorno com condições de contorno de Dirichlet, representadas pelo campo de velocidades $\velocityD$, e $\boundaryN$ aquela com condições de contorno de Neumann, descritas pelas forças de superfície $\surfaceLoad$. A variável $\snormal$ representa o vetor unitário normal ao contorno $\boundaryN$.
+\sout{\noindent sendo $\boundaryD$ a porção do contorno com condições de contorno de Dirichlet, representadas pelo campo de velocidades $\velocityD$, e $\boundaryN$ aquela com condições de contorno de Neumann, descritas pelas forças de superfície $\surfaceLoad$. A variável $\snormal$ representa o vetor unitário normal ao contorno $\boundaryN$.}
 
 \begin{figure}[htb!]
 	\centering 
 	%\vspace{-1em} % Diminui o espaço antes da figura
 	\includegraphics[scale=3.0,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/dominioFluido.pdf}	
-	\caption{Domínio para o problema da dinâmica dos fluidos computacional}
+	\caption{\sout{Domínio para o problema da dinâmica dos fluidos computacional}}
 	\label{fig:dominioFluido}
 	%\vspace{-1em} % Diminui o espaço antes da figura
 \end{figure}
 
+aqui....
 \section{Descrição Euleriana-Lagrangiana arbitrária (ALE)} \label{capitulo:Cap2:ALE}
 
 A descrição Lagrangiana-Euleriana arbitrária \cite{DoneaGH:1982} representa uma generalização da descrição puramente Lagrangiana e da descrição puramente Euleriana do movimento do contínuo. A descrição Lagrangiana fixa a atenção em pontos materiais do contínuo, enquanto que na descrição Euleriana considera-se uma porção fixa do espaço ocupada pelo contínuo, e analisam-se os pontos materiais que passam por essa porção ao longo do tempo. Como consequência, na descrição puramente Lagrangiana a malha computacional move-se com o contínuo, enquanto que na Euleriana a malha computacional mantém-se fixa. Por sua vez, na descrição Lagrangiana-Euleriana arbitrária, trabalha-se com pontos de referência que podem movimentar-se, mas de maneira independente do movimento dos pontos materiais do contínuo analisado.
