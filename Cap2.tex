@@ -972,53 +972,53 @@ Para a verificação do código baseados no método dos elementos finitos são s
 
 \subsection{Escoamento sobre um cilindro} \label{capitulo:Cap2:VerApl:Cilindo}
 
-{\xcolor{red}Adotar o mesmo padrão para descrever todos os exemplos:
+% {\xcolor{red}Adotar o mesmo padrão para descrever todos os exemplos:
 
--Descrever o problema físico, e se for relevante, fazer menções a outros trabalhos que simularam este problema, bem como a importância de se analisar ele.
+% -Descrever o problema físico, e se for relevante, fazer menções a outros trabalhos que simularam este problema, bem como a importância de se analisar ele.
 
--Descrever a discretização espacial, a discretização temporal e os parâmetros adotados. Se forem adotados diferentes discretizações ou parâmetros (ex. para estudo de convergência), descrever aqui também.
+% -Descrever a discretização espacial, a discretização temporal e os parâmetros adotados. Se forem adotados diferentes discretizações ou parâmetros (ex. para estudo de convergência), descrever aqui também.
 
--Apresentar e analisar os resultados
-}
+% -Apresentar e analisar os resultados
+% }
 
 Este exemplo considera um escoamento viscoso incompressível sobre um cilindro rígido com diferentes números de diferentes números de Reynolds, $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$, calculados de acordo com:
+
 \begin{align}
 	\Reynolds = \frac{\density L \lVert\velocinfty\lVert}{\viscosity} = \frac{L \lVert \velocinfty \lVert}{\kviscosity}, \label{eq:Reynolds}
 \end{align}
+
 \noindent onde a dimensão característica do problema $L$ é adotada como sendo o diâmetro do cilindro, e $\kviscosity$ é a viscosidade cinemática do fluido. Tomam-se como parâmetros de análise os coeficientes aerodinâmicos medidos ao longo do tempo, e avalia-se se o modelo é capaz de reproduzir os fenômenos relacionados à formação e desprendimento de vórtices característicos desse problema. 
 
-A geometria e as condições de contorno são apresentadas na Fig. \ref{fig:cilindro_geometria}, tratando-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nos limites superior e inferior. No contorno denominado como saída, não se conhece o comportamento do escoamento, desta forma, determina-se sua posição no domínio computacional a uma distância grande o suficiente de maneira a não interferir no comportamento do escoamento. 
-
-Na Fig. \ref{fig:cilindro_malha} pode-se observar a malha não-estruturada de elementos finitos utilizada para esse problema, composta por 9122 elementos triangulares quadráticos e 18508 nós. O problema foi simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$. 
+A geometria e as condições de contorno são apresentadas na Fig. \ref{fig:cilindro_geometria}, tratando-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nos limites superior e inferior. No contorno denominado como saída, aplica-se condição de Neumann nula. Na Fig. \ref{fig:cilindro_malha} é apresentada a malha utilizada para esse problema, composta por 9122 elementos finitos triangulares de aproximação quadrática e 18508 nós. O problema foi simulado para um velocidade de entrada $u_{\infty} = 1,0$, densidade $\density = 1,0$, passo de tempo $\timeStep = 0,05$, e parâmetro do integrador temporal $\specRadius = 0,5$, variando-se a viscosidade em função do número de Reynolds. 
 
 \begin{figure}[!htb]
 	\centering
 	\subfloat[Geometria e condições de contorno\label{fig:cilindro_geometria}]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro_geometria.pdf}}\\
 	\subfloat[Discretização espacial\label{fig:cilindro_malha}]{\includegraphics[trim=0cm 2cm 0cm 2cm,clip,scale=0.4]{Imagens/Cap2/cilindro_malha.pdf}}
-	\caption{Cilindro: Geometria, condições de contorno e malha de elementos finitos. \textcolor{red}{Essas dimensões estão corretas? Especialmente o 56D? E a malha, possui as dimensões indicadas na figura? Ela está cortada, seria importante mostrar ela completa.} }
+	\caption{Escoamento sobre cilindro: Geometria, condições de contorno e malha de elementos finitos. \textcolor{red}{Essas dimensões estão corretas? Especialmente o 56D? E a malha, possui as dimensões indicadas na figura? Ela está cortada, seria importante mostrar ela completa.} }
 \end{figure}
 
-Para o cálculo dos coeficientes aerodinâmicos é necessário definir-se primeiramente as forças de arrasto - horizontal ($F_D$) e de sustentação - vertical ($F_L$), que são induzidas por tensões desviadores e hidrostáticas e são calculadas pelas seguintes equações:
+Para o cálculo dos coeficientes aerodinâmicos é necessário definir-se primeiramente as forças de arrasto ($F_D$) e de sustentação ($F_L$), as quais resultam das tensões de cisalhamento e da pressão, sendo calculadas pelas seguintes expressões:
 
 \begin{align}
 F_D = \int_{\boundary_{c}} \stressTensor_{1j}n_{j} \deriv\boundary_{c}, \label{eq:F_D}
 \end{align}
-
+e
 \begin{align}
 F_L = \int_{\boundary_{c}} \stressTensor_{2j}n_{j} \deriv\boundary_{c},  \label{eq:F_L}
 \end{align}
 
-\noindent nas quais o símbolo $\boundary_{c}$ representa o contorno do cilindro e $n_j$ é o vetor normal à esse contorno na direção $j$, com $j=1,2$. Os coeficientes de arrasto e sustentação são definidos respectivamente por:
+\noindent onde $\boundary_{c}$ representa o contorno do cilindro e $n_j$ é a componente $j$ do vetor unitário normal a $\boundary_{c}$, com $j=1,2$. Os coeficientes de arrasto e sustentação são definidos respectivamente por:
 
 \begin{align}
 	C_D = \frac{F_D}{0,5\density \lVert \velocinfty \lVert^{2} L},
 \end{align}
-
+e
 \begin{align}
-	C_L = \frac{F_L}{0,5\density \lVert \velocinfty \lVert^{2} L},
-\end{align}.
+	C_L = \frac{F_L}{0,5\density \lVert \velocinfty \lVert^{2} L}.
+\end{align}
 
-Devido ao fenômeno de desprendimento de vórtices que ocorre a partir de determinado número de Reynolds do escoamento, é usual determinar-se a frequência deste fenômeno através do número adimensional de Strouhal ($\Strouhal$), dado por:
+Para este problema, a frequência do desprendimento de vórtices que ocorre a partir de determinado número de Reynolds pode ser determinada a partir do número adimensional de Strouhal ($\Strouhal$), dado por:
 
 \begin{align}
 	\Strouhal = \frac{f_{v}L}{\lVert \velocinfty \lVert},
@@ -1026,7 +1026,7 @@ Devido ao fenômeno de desprendimento de vórtices que ocorre a partir de determ
 
 \noindent com $f_{v}$ sendo a frequência de desprendimento dos vórtices.
 
-Como pode-se observar na Fig. \ref{fig:cilindro_coefAero} para $\Reynolds = 40$, os coeficientes de arrasto e de sustentação, após o escoamento entrar em fase estacionária, se mantém constantes ao longo de todo o tempo de análise. Isso ocorre, visto que para Reynolds entre 5 à 50, aproximadamente, formam-se dois vórtices simétricos e estacionários na região logo após o cilindro. Posteriormente, o par de vórtices se quebra e passa existir a chamada esteira de Von Karmán, que ocorre devido à formação de vórtices de maneira alternada entre as regiões superior e inferior do cilindro, o que pode ser notado também na Fig. \ref{fig:cilindro_coefAero}  para $\Reynolds = 100$ e $\Reynolds=1000$. Os valores do coeficiente de Strouhal, para $\Reynolds = 100$ e $\Reynolds=1000$, assim como os valores médios obtidos para o coeficiente de arrasto ($C_{Dmed}$) para $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$ são apresentados na Tab. \ref{tab:cilindro_CD_ST} juntamente com os valores de referência provenientes do trabalho de \citeonline{WANDERLEY2002445}.
+Como pode-se observar na Fig. \ref{fig:cilindro_coefAero}, para $\Reynolds = 40$ os coeficientes de arrasto atinge um valor constante, quando o escoamento fica estacionário, permanecendo assim até o final da análise, enquanto o coeficiente de sustentação permanece nulo. Isso é o que se espera, visto que para Reynolds entre 5 à 50, deve-se observar a formação de dois vórtices simétricos e estacionários na região à jusante do cilindro \textcolor{red}{colocar Referência!}. Com o aumento do número de Reynolds o par de vórtices é quebrado gerando a chamada esteira de von Kármán, com formação de vórtices de maneira alternada entre as regiões superior e inferior do cilindro, levando ao comportamento oscilatório observado nos gráficos para $\Reynolds = 100$ e $\Reynolds=1000$. Os valores do coeficiente de Strouhal, para $\Reynolds = 100$ e $\Reynolds=1000$, assim como os valores médios obtidos para o coeficiente de arrasto ($C_{Dmed}$) para $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$ são apresentados na Tab. \ref{tab:cilindro_CD_ST}, onde são comparados com os valores de referência provenientes do trabalho de \citeonline{WANDERLEY2002445}.
 
 \begin{figure}[!htb]
 	\centering
@@ -1051,7 +1051,7 @@ Como pode-se observar na Fig. \ref{fig:cilindro_coefAero} para $\Reynolds = 40$,
 	\label{tab:cilindro_CD_ST}
 \end{table}
 
-Nas Fig. \ref{fig:cilindro_camposVel} e Fig. \ref{fig:cilindro_camposPressao} podem ser observados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices para $\Reynolds = 100$. Pode-se notar nessas imagens, a formação e o desprendimento de vórtices na esteira de Von Karmán.
+Nas Fig. \ref{fig:cilindro_camposVel} e Fig. \ref{fig:cilindro_camposPressao} são apresentados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices $T_n$ para $\Reynolds = 100$. Pode-se notar nessas imagens, a formação e o desprendimento de vórtices na esteira de Von Karmán.
 
 \begin{figure}[htb!]
 	\centering
@@ -1080,11 +1080,11 @@ Nas Fig. \ref{fig:cilindro_camposVel} e Fig. \ref{fig:cilindro_camposPressao} po
 \end{figure}
 
 
-\subsection{Cavidade quadrada} \label{capitulo:Cap2:VerApl:CavQuad}
+\subsection{Escoamento Sobre Cavidade com Discretização 3D} \label{capitulo:Cap2:VerApl:CavQuad}
 
-Para a verificação do código 3D utilizando elementos finitos o problema de uma cavidade quadrada com velocidade prescrita $u_{\infty}$ em sua parede superior foi estudado. A geometria do problema em questão e o conjunto de suas condições de contorno são apresentadas na Fig. \ref{fig:cavidade_geometria}. As paredes da cavidade são rígidas, com paredes laterais e do fundo com condição de aderência, e adicionalmente, condição de simetria na direção $y_3$. A cavidade possui na direção $y_3$ uma espessura de 0,03. A discretização espacial em elementos finitos utilizada é apresentada na Fig.  \ref{fig:cavidade_malha}, a qual consiste em 7252 elementos tetraédricos quadráticos e 14727 nós.
+Este exemplo considera uma cavidade hexaédrica com velocidade prescrita horizontal $u_{\infty}$ prescrita em sua face superior. A geometria do problema bem como as condições de contorno são apresentadas na Fig. \ref{fig:cavidade_geometria}. As paredes da cavidade são rígidas, com paredes laterais e do fundo com condição de aderência, e adicionalmente, condição de simetria na direção $y_3$. A cavidade possui na direção $y_3$ uma espessura de 0,03. A discretização espacial em elementos finitos utilizada é apresentada na Fig.  \ref{fig:cavidade_malha}, a qual consiste em 7252 elementos tetraédricos quadráticos e 14727 nós.  Embora este problema possa ser representado por uma discretização bidimensional, adota-se uma discretização 3D para um primeiro teste das implementações dos elementos finitos tetraédricos.
 
-O problema é estudado para os números de Reynolds: 100, 400 e 1000. O número de Reynolds foi calculado de acordo com Eq. \eqref{eq:Reynolds}, com $L$ equivalente ao comprimento do lado da cavidade. O problema foi simulado para uma velocidade na parede superior de $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0$, sendo a viscosidade do fluido variada de modo a alterar o número de Reynolds. A simulação foi mantida até que se atingiu o estado estacionário de escoamento. 
+O problema é estudado para 3 doferemtes números de Reynolds (100, 400 e 1000), calculados de acordo com Eq. \eqref{eq:Reynolds}, considerando $L$ como sendo o comprimento do lado da cavidade. O problema foi simulado para uma velocidade na parede superior de $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0$, sendo a viscosidade do fluido variada de modo a alterar o número de Reynolds. A simulação foi mantida até que se atingiu o estado estacionário de escoamento. 
 
 \begin{figure}[!htb]
 	\centering
@@ -1093,7 +1093,7 @@ O problema é estudado para os números de Reynolds: 100, 400 e 1000. O número 
 	\caption{Cavidade quadrada: Geometria, condições de contorno e malha de elementos finitos}
 \end{figure}
 
-Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ posicionadas no centro da espessura da direção $y_3$ da cavidade são apresentados na Fig. \ref{fig:cavidade_graficos} e comparados com a referência de \citeonline{GhiaGS:1982}.
+Os perfis de velocidade adimensionalizada ($\velocity/\velocinfty$) ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ posicionadas no centro da espessura da direção $y_3$, são apresentados na Fig. \ref{fig:cavidade_graficos} e comparados com a referência de \citeonline{GhiaGS:1982}.
 
 
 \begin{figure}[!t]
@@ -1105,7 +1105,7 @@ Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) ao longo de
 	\label{fig:cavidade_graficos}
 \end{figure}
 
-Os campos de velocidade e de pressão são apresentados nas figuras Fig \ref{fig:cavidade_vel} e \ref{fig:cavidade_press} respectivamente. Ressalta-se que para a solução do problema, por se tratar de um problema com todos os contornos com condição de Dirichlet impostos, a pressão torna-se indefinida. Por esse motivo, prescreveu-se uma pressão $\press = \press_{ref} =  0.0$ no canto superior direito da cavidade. 
+Os campos de velocidade e de pressão para a situação estacionária são apresentados nas figuras Fig \ref{fig:cavidade_vel} e \ref{fig:cavidade_press} respectivamente. Ressalta-se que para a solução do problema, por se tratar de um problema com todos os contornos com condição de Dirichlet impostos, a pressão torna-se indefinida. Por esse motivo, prescreveu-se pressão $\press = \press_{ref} =  0.0$ no canto superior direito da cavidade. 
 
 
 \begin{figure}[!t]
