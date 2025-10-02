@@ -1,137 +1,167 @@
 \babel@toc {brazil}{}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Volume de controle infinitesimal: Fluxo de massa}}{30}{figure.2.1}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Volume de controle infinitesimal: Componentes de força na direção $y_1$}}{32}{figure.2.2}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Volume de controle infinitesimal: Fluxo de quantidade de Movimento}}{33}{figure.2.3}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces {Domínio para o problema da dinâmica dos fluidos computacional}}}{34}{figure.2.4}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Descrição Lagrangiana-Euleriana arbitrária}}{35}{figure.2.5}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Elementos Finitos: representação espacial e paramétrica}}{40}{figure.2.6}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Elemento Finito 2d}}}{40}{subfigure.6.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Elemento Finito 3d}}}{40}{subfigure.6.2}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Escoamento sobre cilindro: Geometria, condições de contorno e malha de elementos finitos. \leavevmode {\color {red}Essas dimensões estão corretas? Especialmente o 56D? E a malha, possui as dimensões indicadas na figura? Ela está cortada, seria importante mostrar ela completa.} }}{50}{figure.2.7}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Geometria e condições de contorno}}}{50}{subfigure.7.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Discretização espacial}}}{50}{subfigure.7.2}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Cilindro: Coeficientes aerodinâmicos. }}{51}{figure.2.8}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Coeficiente de arrasto $ C_D$}}}{51}{subfigure.8.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Coeficiente de sustentação $C_L$}}}{51}{subfigure.8.2}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Cilindro: Campos de velocidade para $\mathrm {Re}= 100$}}{52}{figure.2.9}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{52}{subfigure.9.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/6$}}}{52}{subfigure.9.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/3$}}}{52}{subfigure.9.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + T_n/2$}}}{52}{subfigure.9.4}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$T_n + 2T_n/3$}}}{52}{subfigure.9.5}%
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$T_n + 5T_n/6$}}}{52}{subfigure.9.6}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Cilindro: Campos de pressão para $\mathrm {Re}= 100$}}{53}{figure.2.10}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{53}{subfigure.10.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/6$}}}{53}{subfigure.10.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/3$}}}{53}{subfigure.10.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + T_n/2$}}}{53}{subfigure.10.4}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$T_n + 2T_n/3$}}}{53}{subfigure.10.5}%
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$T_n + 5T_n/6$}}}{53}{subfigure.10.6}%
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Cavidade quadrada: Geometria, condições de contorno e malha de elementos finitos}}{54}{figure.2.11}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Geometria e condições de contorno}}}{54}{subfigure.11.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Discretização espacial.}}}{54}{subfigure.11.2}%
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Cavidade quadrada: Perfis de velocidade adimensionalizados nas direções $y_1$ e $y_2$ }}{55}{figure.2.12}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$Re$=100}}}{55}{subfigure.12.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$Re$=400}}}{55}{subfigure.12.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$Re$=1000}}}{55}{subfigure.12.3}%
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Cavidade quadrada: Campos de velocidade - plano $y_1$$y_2$}}{56}{figure.2.13}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$Re$=100}}}{56}{subfigure.13.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$Re$=400}}}{56}{subfigure.13.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$Re$=1000}}}{56}{subfigure.13.3}%
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Cavidade quadrada: Campos de pressão - plano $y_1$$y_2$}}{57}{figure.2.14}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$Re$=100}}}{57}{subfigure.14.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$Re$=400}}}{57}{subfigure.14.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$Re$=1000}}}{57}{subfigure.14.3}%
-\contentsline {figure}{\numberline {3.1}{\ignorespaces NURBS: espaço físico, espaço paramétrico, espaço indicial e espaço parental}}{60}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces \textit {B-Splines quadráticas}}}{63}{figure.3.2}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Curva \textit {B-Spline}}}{64}{figure.3.3}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Malha de pontos de controle}}}{64}{subfigure.3.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Curva \textit {B-spline} e representação física das células }}}{64}{subfigure.3.2}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Refinamento $h$ para um curva \textit {B-Spline}}}{67}{figure.3.4}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Curva original e pontos de pontrole}}}{67}{subfigure.4.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Curva refinada e pontos de controle}}}{67}{subfigure.4.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Célula curva original}}}{67}{subfigure.4.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Células curva refinada}}}{67}{subfigure.4.4}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Funções base originais}}}{67}{subfigure.4.5}%
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Funções base após refinamento $h$ refinada}}}{67}{subfigure.4.6}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Projeção transformativa de entidade \textit {B-Spline}}}{68}{figure.3.5}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Projeção transformativa malha de pontos de controle}}}{68}{subfigure.5.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Projeção transformativa \textit {B-Spline} }}}{68}{subfigure.5.2}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Funções base univariadas na interface entre \textit {Patches}}}{71}{figure.3.6}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Cilindro 3D: Geração curva NURBS}}{75}{figure.3.7}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Pontos de controle inicias.}}}{75}{subfigure.7.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Pontos de controle após inserção de \textit {knots}.}}}{75}{subfigure.7.2}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Cilindro 3D: Geração superfície NURBS.}}{75}{figure.3.8}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Cilindro 3D: Geometria e malha de células físicas}}{76}{figure.3.9}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Geometria}}}{76}{subfigure.9.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Malha de células físicas}}}{76}{subfigure.9.2}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Cilindro 3D: Coeficientes aerodinâmicos. }}{77}{figure.3.10}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Coeficiente de arrasto $ C_D$.}}}{77}{subfigure.10.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Coeficiente de sustentação $C_L$.}}}{77}{subfigure.10.2}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Degrau 3D: Geometria.}}{77}{figure.3.11}%
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Degrau 3D: Geometria e malha de células físicas}}{78}{figure.3.12}%
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Degrau 3D: Comprimento de recolamento do v\'ortice principal}}{79}{figure.3.13}%
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Degrau 3D: Campo de velocidade. }}{80}{figure.3.14}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { $\mathrm {Re}= 100$}}}{80}{subfigure.14.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { $\mathrm {Re}= 400$}}}{80}{subfigure.14.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$\mathrm {Re}= 800$}}}{80}{subfigure.14.3}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Domínio local e global.}}{82}{figure.4.1}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Função Ponderadora}}{84}{figure.4.2}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Domínio Arlequin móvel}}{94}{figure.4.3}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Aerofólio: Geometria}}{97}{figure.4.4}%
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Aerofólio: Malha Monomodelo (MEF) }}{97}{figure.4.5}%
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Aerofólio: Discretização das malhas global e local}}{98}{figure.4.6}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Discretização da malha global (IGA) e local (MEF)}}}{98}{subfigure.6.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Discretização da malha local}}}{98}{subfigure.6.2}%
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Aerofólio: Coeficiente de Arrasto}}{99}{figure.4.7}%
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Aerofólio: Coeficiente de Sustentação}}{99}{figure.4.8}%
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Aerofólio: Campo de velocidade}}{100}{figure.4.9}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{100}{subfigure.9.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/4$}}}{100}{subfigure.9.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/2 $}}}{100}{subfigure.9.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + 3T_n/4$}}}{100}{subfigure.9.4}%
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Aerofólio: Campo de pressão}}{101}{figure.4.10}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{101}{subfigure.10.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/4$}}}{101}{subfigure.10.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/2 $}}}{101}{subfigure.10.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + 3T_n/4$}}}{101}{subfigure.10.4}%
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Aerofólio Mov.: Geometria}}{101}{figure.4.11}%
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Aerofólio Mov.: Coeficiente de Arrasto}}{102}{figure.4.12}%
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Aerofólio Mov.: Coeficiente de Sustentação}}{102}{figure.4.13}%
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Aerofólio Mov.: Campos de velocidade}}{103}{figure.4.14}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$t = 8,0 $}}}{103}{subfigure.14.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$t = 8,3 $}}}{103}{subfigure.14.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$t = 8,5 $}}}{103}{subfigure.14.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$t = 8,8 $}}}{103}{subfigure.14.4}%
-\contentsline {figure}{\numberline {4.15}{\ignorespaces Aerofólio Mov.: Campos de pressão}}{103}{figure.4.15}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$t = 8,0 $}}}{103}{subfigure.15.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$t = 8,3 $}}}{103}{subfigure.15.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$t = 8,5 $}}}{103}{subfigure.15.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$t = 8,8 $}}}{103}{subfigure.15.4}%
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Domínios Computacional para análise de problemas de IFE.}}{106}{figure.5.1}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Discretizações não-coincidentes no contorno IFE}}{108}{figure.5.2}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Cavidade fundo flexível 2D: geometria}}{112}{figure.5.3}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Cavidade fundo flexível 2D: Vista frontal da discretização para modelo Arlequin - malha 2}}{114}{figure.5.4}%
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Cavidade fundo flexível 2D: Deslocamento em A para malhas do modelo Arlequin}}{114}{figure.5.5}%
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Cavidade fundo flexível 2D: Deslocamento em A comparado com as referências e monomodelo}}{115}{figure.5.6}%
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Cavidade fundo flexível 2D: Campos de velocidade}}{116}{figure.5.7}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$t = 4,0 $}}}{116}{subfigure.7.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$t = 8,0 $}}}{116}{subfigure.7.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$t = 14,0 $}}}{116}{subfigure.7.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$t = 21,0 $}}}{116}{subfigure.7.4}%
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Cavidade fundo flexível 2D: Campos de Pressão}}{117}{figure.5.8}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$t = 4,0 $}}}{117}{subfigure.8.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$t = 8,0 $}}}{117}{subfigure.8.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$t = 14,0 $}}}{117}{subfigure.8.3}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$t = 21,0 $}}}{117}{subfigure.8.4}%
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Cavidade fundo flexível 3D: Geometria}}{117}{figure.5.9}%
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Cavidade fundo flexível 3D: Discretização}}{118}{figure.5.10}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Malhas do modelo Arlequin }}}{118}{subfigure.10.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Malha da placa }}}{118}{subfigure.10.2}%
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Cavidade fundo flexível 3D: Deslocamento em A}}{119}{figure.5.11}%
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Painel Flexível: Geometria}}{119}{figure.5.12}%
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Painel Flexível: Discretização}}{120}{figure.5.13}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Malhas do modelo Arlequin }}}{120}{subfigure.13.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Malha da placa }}}{120}{subfigure.13.2}%
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Painel Flexível: Deslocamento em A}}{121}{figure.5.14}%
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Painel Flexível: Colapso malha monomodelo}}{121}{figure.5.15}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Volume de controle infinitesimal: Fluxo de massa}}{32}{figure.2.1}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Volume de controle infinitesimal: Componentes de força na direção $y_1$}}{34}{figure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Volume de controle infinitesimal: Fluxo de quantidade de Movimento}}{35}{figure.2.3}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces {Domínio para o problema da dinâmica dos fluidos computacional}}}{36}{figure.2.4}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Descrição Lagrangiana-Euleriana arbitrária}}{37}{figure.2.5}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Elementos Finitos: representação espacial e paramétrica}}{42}{figure.2.6}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Elemento Finito 2d}}}{42}{subfigure.6.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Elemento Finito 3d}}}{42}{subfigure.6.2}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Escoamento sobre cilindro: Geometria, condições de contorno e malha de elementos finitos. \leavevmode {\color {red}Essas dimensões estão corretas? Especialmente o 56D? E a malha, possui as dimensões indicadas na figura? Ela está cortada, seria importante mostrar ela completa.} }}{52}{figure.2.7}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Geometria e condições de contorno}}}{52}{subfigure.7.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Discretização espacial}}}{52}{subfigure.7.2}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Cilindro: Coeficientes aerodinâmicos. }}{53}{figure.2.8}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Coeficiente de arrasto $ C_D$}}}{53}{subfigure.8.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Coeficiente de sustentação $C_L$}}}{53}{subfigure.8.2}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Cilindro: Campos de velocidade para $\mathrm {Re}= 100$}}{54}{figure.2.9}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{54}{subfigure.9.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/6$}}}{54}{subfigure.9.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/3$}}}{54}{subfigure.9.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + T_n/2$}}}{54}{subfigure.9.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$T_n + 2T_n/3$}}}{54}{subfigure.9.5}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$T_n + 5T_n/6$}}}{54}{subfigure.9.6}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Cilindro: Campos de pressão para $\mathrm {Re}= 100$}}{55}{figure.2.10}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{55}{subfigure.10.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/6$}}}{55}{subfigure.10.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/3$}}}{55}{subfigure.10.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + T_n/2$}}}{55}{subfigure.10.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$T_n + 2T_n/3$}}}{55}{subfigure.10.5}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$T_n + 5T_n/6$}}}{55}{subfigure.10.6}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Cavidade quadrada: Geometria, condições de contorno e malha de elementos finitos}}{56}{figure.2.11}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Geometria e condições de contorno}}}{56}{subfigure.11.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Discretização espacial.}}}{56}{subfigure.11.2}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Cavidade quadrada: Perfis de velocidade adimensionalizados nas direções $y_1$ e $y_2$ }}{57}{figure.2.12}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$Re$=100}}}{57}{subfigure.12.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$Re$=400}}}{57}{subfigure.12.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$Re$=1000}}}{57}{subfigure.12.3}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Cavidade quadrada: Campos de velocidade - plano $y_1$$y_2$}}{58}{figure.2.13}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$Re$=100}}}{58}{subfigure.13.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$Re$=400}}}{58}{subfigure.13.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$Re$=1000}}}{58}{subfigure.13.3}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Cavidade quadrada: Campos de pressão - plano $y_1$$y_2$}}{59}{figure.2.14}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$Re$=100}}}{59}{subfigure.14.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$Re$=400}}}{59}{subfigure.14.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$Re$=1000}}}{59}{subfigure.14.3}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces NURBS: espaço físico, espaço paramétrico, espaço indicial e espaço parental}}{63}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces \textit {B-Splines quadráticas}}}{65}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Curva \textit {B-Spline}}}{66}{figure.3.3}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Malha de pontos de controle}}}{66}{subfigure.3.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Curva \textit {B-spline} e representação física das células }}}{66}{subfigure.3.2}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Refinamento $h$ para um curva \textit {B-Spline}}}{69}{figure.3.4}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Curva original e pontos de pontrole}}}{69}{subfigure.4.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Curva refinada e pontos de controle}}}{69}{subfigure.4.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Célula curva original}}}{69}{subfigure.4.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Células curva refinada}}}{69}{subfigure.4.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {Funções base originais}}}{69}{subfigure.4.5}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {Funções base após refinamento $h$ refinada}}}{69}{subfigure.4.6}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Projeção transformativa de entidade \textit {B-Spline}}}{70}{figure.3.5}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Projeção transformativa malha de pontos de controle}}}{70}{subfigure.5.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Projeção transformativa \textit {B-Spline} }}}{70}{subfigure.5.2}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Funções base univariadas na interface entre \textit {patches}}}{73}{figure.3.6}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Cilindro: Divisão dos \textit {Patches} }}{76}{figure.3.7}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Cilindro: Obtenção da circunferência}}{77}{figure.3.8}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Curva inicial e rede de pontos de controle}}}{77}{subfigure.8.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Curva refinada e rede de pontos de controle}}}{77}{subfigure.8.2}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Cilindro: Obtenção da superfície}}{78}{figure.3.9}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Rede de pontos de controle superfície}}}{78}{subfigure.9.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Malha física}}}{78}{subfigure.9.2}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Cilindro: Obtenção do sólido}}{79}{figure.3.10}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Rede de pontos de controle sólido}}}{79}{subfigure.10.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Malha física sólido}}}{79}{subfigure.10.2}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Cilindro: Malha de células físicas}}{80}{figure.3.11}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Cilindro: Geometria e condições de contorno}}}{80}{subfigure.11.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Discretização espacial - plano $y_1$$y_2$}}}{80}{subfigure.11.2}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Cilindro: Coeficientes aerodinâmicos }}{82}{figure.3.12}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Coeficiente de arrasto $ C_D$}}}{82}{subfigure.12.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Coeficiente de sustentação $C_L$}}}{82}{subfigure.12.2}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Cilindro: Campos de velocidade para $\mathrm {Re}= 1000$ - plano $y_1$$y_2$}}{83}{figure.3.13}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{83}{subfigure.13.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/6$}}}{83}{subfigure.13.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/3$}}}{83}{subfigure.13.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + T_n/2$}}}{83}{subfigure.13.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$T_n + 2T_n/3$}}}{83}{subfigure.13.5}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$T_n + 5T_n/6$}}}{83}{subfigure.13.6}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Cilindro: Campos de pressão para $\mathrm {Re}= 1000$ - plano $y_1$$y_2$}}{84}{figure.3.14}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{84}{subfigure.14.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/6$}}}{84}{subfigure.14.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/3$}}}{84}{subfigure.14.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + T_n/2$}}}{84}{subfigure.14.4}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {$T_n + 2T_n/3$}}}{84}{subfigure.14.5}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {$T_n + 5T_n/6$}}}{84}{subfigure.14.6}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Degrau: Geometria - plano $y_1$$y_2$}}{84}{figure.3.15}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Degrau: Malha de células físicas - plano $y_1$$y_2$}}{85}{figure.3.16}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Degrau: Comprimento do vórtice principal}}{86}{figure.3.17}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Degrau: Campos de velocidade para $\mathrm {Re}= 100$ }}{86}{figure.3.18}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Domínio Completo}}}{86}{subfigure.18.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Vórtice primário }}}{86}{subfigure.18.2}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Degrau: Campos de velocidade para $\mathrm {Re}= 400$ }}{87}{figure.3.19}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Domínio Completo}}}{87}{subfigure.19.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Vórtice primário }}}{87}{subfigure.19.2}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Degrau: Campos de velocidade para $\mathrm {Re}= 800$ }}{87}{figure.3.20}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Domínio Completo}}}{87}{subfigure.20.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Vórtice primário }}}{87}{subfigure.20.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces { Vórtice secundário }}}{87}{subfigure.20.3}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Degrau: Campos de pressão }}{88}{figure.3.21}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { $\mathrm {Re}= 100$}}}{88}{subfigure.21.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { $\mathrm {Re}= 400$}}}{88}{subfigure.21.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces { $\mathrm {Re}= 800$}}}{88}{subfigure.21.3}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Domínio local e global.}}{90}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Função Ponderadora}}{92}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Domínio Arlequin móvel}}{102}{figure.4.3}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Aerofólio: Geometria}}{105}{figure.4.4}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Aerofólio: Malha Monomodelo (MEF) }}{105}{figure.4.5}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Aerofólio: Discretização das malhas global e local}}{106}{figure.4.6}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Discretização da malha global (IGA) e local (MEF)}}}{106}{subfigure.6.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Discretização da malha local}}}{106}{subfigure.6.2}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Aerofólio: Coeficiente de Arrasto}}{107}{figure.4.7}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Aerofólio: Coeficiente de Sustentação}}{107}{figure.4.8}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Aerofólio: Campo de velocidade}}{108}{figure.4.9}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{108}{subfigure.9.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/4$}}}{108}{subfigure.9.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/2 $}}}{108}{subfigure.9.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + 3T_n/4$}}}{108}{subfigure.9.4}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Aerofólio: Campo de pressão}}{109}{figure.4.10}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$T_n$}}}{109}{subfigure.10.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$T_n + T_n/4$}}}{109}{subfigure.10.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$T_n + T_n/2 $}}}{109}{subfigure.10.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$T_n + 3T_n/4$}}}{109}{subfigure.10.4}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Aerofólio Mov.: Geometria}}{109}{figure.4.11}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Aerofólio Mov.: Coeficiente de Arrasto}}{110}{figure.4.12}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Aerofólio Mov.: Coeficiente de Sustentação}}{110}{figure.4.13}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Aerofólio Mov.: Campos de velocidade}}{111}{figure.4.14}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$t = 8,0 $}}}{111}{subfigure.14.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$t = 8,3 $}}}{111}{subfigure.14.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$t = 8,5 $}}}{111}{subfigure.14.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$t = 8,8 $}}}{111}{subfigure.14.4}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces Aerofólio Mov.: Campos de pressão}}{111}{figure.4.15}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$t = 8,0 $}}}{111}{subfigure.15.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$t = 8,3 $}}}{111}{subfigure.15.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$t = 8,5 $}}}{111}{subfigure.15.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$t = 8,8 $}}}{111}{subfigure.15.4}%
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Domínios Computacional para análise de problemas de IFE.}}{114}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Discretizações não-coincidentes no contorno IFE}}{116}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Cavidade fundo flexível 2D: geometria}}{120}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Cavidade fundo flexível 2D: Vista frontal da discretização para modelo Arlequin - malha 2}}{122}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Cavidade fundo flexível 2D: Deslocamento em A para malhas do modelo Arlequin}}{122}{figure.5.5}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Cavidade fundo flexível 2D: Deslocamento em A comparado com as referências e monomodelo}}{123}{figure.5.6}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Cavidade fundo flexível 2D: Campos de velocidade}}{124}{figure.5.7}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$t = 4,0 $}}}{124}{subfigure.7.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$t = 8,0 $}}}{124}{subfigure.7.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$t = 14,0 $}}}{124}{subfigure.7.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$t = 21,0 $}}}{124}{subfigure.7.4}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Cavidade fundo flexível 2D: Campos de Pressão}}{125}{figure.5.8}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {$t = 4,0 $}}}{125}{subfigure.8.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {$t = 8,0 $}}}{125}{subfigure.8.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {$t = 14,0 $}}}{125}{subfigure.8.3}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {$t = 21,0 $}}}{125}{subfigure.8.4}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Cavidade fundo flexível 3D: Geometria}}{125}{figure.5.9}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Cavidade fundo flexível 3D: Discretização}}{126}{figure.5.10}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Malhas do modelo Arlequin }}}{126}{subfigure.10.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Malha da placa }}}{126}{subfigure.10.2}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Cavidade fundo flexível 3D: Deslocamento em A}}{127}{figure.5.11}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Painel Flexível: Geometria}}{127}{figure.5.12}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Painel Flexível: Discretização}}{128}{figure.5.13}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Malhas do modelo Arlequin }}}{128}{subfigure.13.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Malha da placa }}}{128}{subfigure.13.2}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Painel Flexível: Deslocamento em A}}{129}{figure.5.14}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Painel Flexível: Colapso malha monomodelo}}{129}{figure.5.15}%
