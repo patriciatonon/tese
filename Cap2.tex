@@ -495,6 +495,8 @@ Nesta seção é apresentado o problema para escoamentos incompressíveis com co
 
 Seja $\domain \in \nrealspace$, com $\nsd = 1,2,3$ definindo a dimensão do domínio espacial do escoamento com contorno $\boundary = \boundaryD \cup \boundaryN$, no instante $t \in (0,\totalTime)$ (ver Fig. \ref{fig:dominioFluido}).
 
+Por hora, assume-se que a velocidade da malha é um dado conhecido. Posteriormente será abordada a sua determinação.
+
 Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pela equação da quantidade de movimento, (Eq. \eqref{eq:Navier-Stokes_der_mat_Euleriana}) e da continuidade (Eq. \ref{eq:conser_massa_incom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas. Dessa forma, o escoamento é governado pelo seguinte conjunto de equações:
 
 \begin{equation}
@@ -548,27 +550,27 @@ e
 A solução do problema consiste, então, em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de modo que para todo $\utest \in \uweighting$ e para todo $\ptest \in \pweighting$, Eq. \eqref{eq:QM_forma_fraca_0_cap2} e Eq. \eqref{eq:C_forma_fraca_o_cap2} sejam verdadeiras.
 
 
-\subsection{Método dos elementos finitos }
+\subsection{Método dos elementos finitos para escoamentos incompressíveis}
 
-Antes de prosseguir com a discretização espacial da forma fraca do conjunto de equações da Mecânica dos Fluidos, é fundamental compreender os princípios básicos do Método dos Elementos Finitos.  A discretização espacial tanto pelo método dos elementos finitos, como pela técnica de análise isogeométrica (Cap. \ref{capitulo:Cap3}), consiste em, dado um problema com domínio $\domain$, dividi-lo em subdomínios $\domainE$, também chamados de elementos ou células, de forma que:
+Antes de prosseguir com a discretização espacial da forma fraca do conjunto de equações da Mecânica dos Fluidos, é fundamental compreender os princípios básicos do Método dos Elementos Finitos.  A discretização espacial tanto pelo método dos elementos finitos, como pela técnica de análise isogeométrica (Cap. \ref{capitulo:Cap3}), baseia-se em tomar um problema contínuo com domínio $\domain$ e representá-lo por um domínio $\domainh$ que é dividido em subdomínios $\domainE$, também chamados de elementos ou células, de forma que:
 
 \begin{align}
 	\domain \approx \domainh = {\bigcup_{e = 1}^{\nel}} \domainE,
 \end{align}
 
-\noindent onde $\domainh$ é o domínio discretizado por subdomínios, com o índice $h$ se referindo ao tamanho representativo dos elementos, e $\nel$ representando o número total de elementos.
+\noindent onde $\nel$ representa o número total de elementos.
 
-Da mesma forma o contorno do domínio também é discretizado da seguinte forma:
+Da mesma forma, o contorno de $\domain$ é aproximado da seguinte forma:
 
 \begin{align}
 	\boundary \approx \boundaryh = {\bigcup_{b = 1}^{\neb}} \boundary^{b},
 \end{align}
 
-\noindent onde $\neb$ representa o número de elementos que formam o contorno.
+\noindent onde $\neb$ representa o número de faces ou lados de elementos que formam o contorno.
 
-No Método dos Elementos Finitos, cada subdomínio, denominado elemento, é composto por um conjunto de pontos, chamados nós. As variáveis de interesse do problema, que incluem a geometria na abordagem isoparamétrica, são aproximadas pela combinação linear de um número finito de funções associadas aos nós, chamadas funções de forma, multiplicadas por variáveis chamadas parâmetros nodais. As funções de forma utilizadas no Método dos Elementos Finitos satisfazem, em geral, a propriedade de partição da unidade, ou seja, a soma das funções de forma associadas a todos os nós de um elemento resulta em 1 para qualquer ponto dentro do domínio paramétrico do elemento. A técnica de elementos finitos pode ser estudada nos diversos livros disponíveis sobre o assunto, tais como \citeonline{ZienkiewiczT:2005a,Reddy:2006}.
+No Método dos Elementos Finitos, cada elemento é definido com auxílio de um conjunto de pontos chamados nós. As variáveis de interesse do problema, que incluem a geometria na abordagem isoparamétrica, são aproximadas pela combinação linear de um número finito de funções associadas aos nós, chamadas funções de forma, multiplicadas por variáveis denominadas parâmetros nodais. As funções de forma utilizadas no Método dos Elementos Finitos tradicionalmente satisfazem a propriedade de partição da unidade, ou seja, a soma das funções de forma associadas a todos os nós de um elemento resulta em 1 para qualquer ponto dentro do seu domínio. A técnica de elementos finitos pode ser encontrada nos diversos livros disponíveis sobre o assunto, tais como \citeonline{ZienkiewiczT:2005a} e \citeonline{Reddy:2006}.
 
-Nesse trabalho são utilizadas funções de forma quadráticas do tipo polinômios de Lagrange, sendo empregados elementos isoparamétricos triangulares para o caso 2D e tetraédricos para o caso 3D. Na Fig. \ref{fig:elementoFinito2d} e Fig. \ref{fig:elementoFinito3d}, pode-se observar os elementos finitos 2D e 3D respectivamente bem como os espaços paramétricos adimensionais adotados para definir as funções de forma. 
+Nesse trabalho, para a mecânica dos fluidos, são utilizadas funções de forma quadráticas do tipo polinômios de Lagrange, sendo empregados elementos isoparamétricos triangulares para o caso 2D e tetraédricos para o caso 3D. Esses elementos são apresentados nas Figs. \ref{fig:elementoFinito2d} e \ref{fig:elementoFinito3d}, onde são ilustrados também as coordenadas paramétricas adimensionais adotados para definir as funções de forma. 
 
 \begin{figure}[!htb]
 	\centering	
@@ -577,29 +579,21 @@ Nesse trabalho são utilizadas funções de forma quadráticas do tipo polinômi
 	\caption{Elementos Finitos: representação espacial e paramétrica}
 \end{figure}
 
-Adotar a abordagem isoparamétrica implica que a geometria do problema é descrita também pela combinação entre funções de forma e as coordenadas nodais da malha, conforme equação abaixo:
+Adotar a abordagem isoparamétrica implica que a geometria do problema é descrita também pela combinação entre funções de forma e as coordenadas nodais da malha, ou seja:
 
 \begin{align}
-	\pos^{h} = \sum_{A = 1}^{\nnos} \pos_{A}\shapef_{A}(\pos),  \label{eq:interp_geo}
+	\pos^{h}(\coordAdimen) = \sum_{a = 1}^{\nnos} \pos_{a}\shapef_{a}(\coordAdimen),  \label{eq:interp_geo}
 \end{align}
 
-\noindent sendo que para uma geometria tridimensional o vetor $\pos$ possui coordenadas $y_1,y_2$ e $y_3$, as quais representam as posições físicas do domínio; O subíndice "$A$" $ \ $ representa o índice dos nós da malha, $\nnos$ o número total de nós e $\shapef$ as funções de forma da discretização.
-
-A discretização das variáveis de interesse para DFC no contexto do método dos elementos finitos serão apresentados no seguinte capítulo (Cap. \ref{capitulo:Cap2:DiscEspacial}).
+\textcolor{red}{MUDEI DE $A$ PARA $a$ O ÍNDICE. SE QUISER PODE TROCAR, MAS USE ALGUM CARACTER MINÚSCULO. NAS OUTRAS EQUAÇÕES NÃO MUDEI...}
+\noindent sendo que para uma geometria tridimensional o vetor $\pos$ possui coordenadas $y_1,y_2$ e $y_3$, as quais representam as posições atuais dos pontos que compõem o domínio. O subíndice "$a$" $ \ $ representa o índice dos nós da malha, $\nnos$ o número total de nós e $\shapef$ as funções de forma da discretização.
 
 
 \subsection{Discretização Espacial} \label{capitulo:Cap2:DiscEspacial}
 
-Os espaços de função tentativa para velocidade e pressão, bem como as funções teste, no contexto dos método dos elementos finitos, são dados pela combinação linear de parâmetros nodais com funções de forma definidas sobre cada subdomínio, atendendo à partição da unidade, de forma que o problema da dinâmica dos fluidos fica definido como: encontrar $\velocityh \in \usolutionh$ e $\pressh \in \psolutionh$, de tal modo que $\forall$ $\utesth \in \uweightingh$ e $\ptesth \in \pweightingh$ a seguinte expressão seja verdadeira:
+As funções tentativa para velocidade e pressão, bem as funções teste, assim com as coordenadas (Eq. \eqref{eq:interp_geo}) são dadas pela combinação linear das funções de forma definidas sobre cada subdomínio:
 
-\begin{align}
-	\begin{split}
-		&\int_{\domain} \utesth \cdot \density \left(\left. \frac{\partial\velocityh}{\partial t} \right|_{\posALE} + \left(\velocityh - \velocityALEh \right)\cdot\gradient \velocityh - \sbodyforceh \right) \deriv \domain + \int_{\domain} \straintensor(\utesth) : \stressTensor\left(\velocityh,\pressh \right)  \deriv \domain\\ & - \int_{\boundaryN} \utesth \cdot \surfaceLoadh \deriv \boundaryN \ + \int_{\domain} \ptesth \left(\divergence \cdot \velocityh\right) d \domain = 0,  \label{eq:QM_C_forma_fraca_1} 
-	\end{split}
-\end{align}
-
-\noindent onde:
-
+\textcolor{red}{Trocar $\pos$ por $\coordAdimen$ nas equações abaixo}
 \begin{align}
 \velocityh(\pos,t) = \sum_{A = 1}^{\nnos} \velocity_{A}(t)\shapef_{A}(\pos), \label{eq:interp_vel}
 \end{align}
@@ -609,26 +603,34 @@ Os espaços de função tentativa para velocidade e pressão, bem como as funç�
 \end{align}
 
 \begin{align}
-\utesth(\pos)  = \sum_{A = 1}^{\nnos} \utest_{A}\shapef_{A}(\pos), \label{eq:interp_utest}
+\utesth(\pos)  = \sum_{A = 1}^{\nnos} \utest_{A}\shapef_{A}(\pos) \label{eq:interp_utest}
 \end{align}
+e
+\begin{align}
+\ptesth(\pos)  = \sum_{A = 1}^{\nnos} \ptest_{A}\shapef_{A}(\pos). \label{eq:inter_ptest} 
+\end{align}
+
+O problema passa a ser enunciado como: Encontrar $\velocityh \in \usolutionh$ e $\pressh \in \psolutionh$, de tal modo que $\forall$ $\utesth \in \uweightingh$ e $\ptesth \in \pweightingh$ a seguinte expressão seja verdadeira:
 
 \begin{align}
-\ptesth(\pos)  = \sum_{A = 1}^{\nnos} \ptest_{A}\shapef_{A}(\pos), \label{eq:inter_ptest} 
+	\begin{split}
+		&\int_{\domain} \utesth \cdot \density \left(\left. \frac{\partial\velocityh}{\partial t} \right|_{\posALE} + \left(\velocityh - \velocityALEh \right)\cdot\gradient \velocityh - \sbodyforceh \right) \deriv \domain + \int_{\domain} \straintensor(\utesth) : \stressTensor\left(\velocityh,\pressh \right)  \deriv \domain\\ & - \int_{\boundaryN} \utesth \cdot \surfaceLoadh \deriv \boundaryN \ + \int_{\domain} \ptesth \left(\divergence \cdot \velocityh\right) d \domain = 0.  \label{eq:QM_C_forma_fraca_1} 
+	\end{split}
 \end{align}
 
-\noindent sendo as variáveis $\utest_{A}$ e $\ptest_{A}$ arbitrárias nas aproximações.
+\noindent sendo as variáveis $\utest_{A}$ e $\ptest_{A}$ arbitrárias nas aproximações, enquanto $\velocity_{A}$ e $\press_{A}$ são as incógnitas a serem determinadas.
 
-No entanto, as formulações obtidas pelo método de Galerkin são conhecidas por apresentarem oscilações espúrias em escoamentos dominados pela convecção. Uma das formas de se lidar com esse problema é a utilização de métodos estabilizados, como \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG) \cite{BrooksH:1982, HughesT:1984}, aplicado nesse trabalho. Essa metodologia consiste em adicionar à equação da quantidade de movimento, o seu resíduo ponderado por $\SUPG \left(\left(\velocityh - \velocityALEh \right) \cdot \gradient \utesth\right)$, onde $\SUPG$ é um parâmetro de estabilização. Do ponto de vista numérico a aplicação de  sobre o termo convectivo da equação da quantidade de movimento dá origem a um termo difusivo adicional, cuja viscosidade tem magnitude $\SUPG$, e é responsável por garantir a estabilidade numérica em problemas com convecção dominante.
+No entanto, as formulações obtidas pelo método de Bobnov-Galerkin são conhecidas por apresentarem oscilações espúrias em escoamentos dominados pela convecção. Uma das formas de se lidar com esse problema é a utilização de métodos estabilizados, como o \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG) \cite{BrooksH:1982, HughesT:1984}. Essa metodologia consiste em adicionar à equação da quantidade de movimento, o seu resíduo ponderado por $\SUPG \left(\left(\velocityh - \velocityALEh \right) \cdot \gradient \utesth\right)$, onde $\SUPG$ é um parâmetro calculado para garantir bom condicionamento ao sistema. Do ponto de vista numérico, isso adiciona termos estabilizantes na direção das linhas de corrente, mantendo a formulação consistente por ser baseado na adição do resíduo ponderado.
 
-Para os problemas de escoamentos incompressíveis aqui analisados, deve-se levar em conta que os campos de velocidade e pressão não podem ser aproximados arbitrariamente, podendo levar à ocorrência de oscilações espúrias no campo de pressão. Para evitar isso, podem ser escolhidos elementos Taylor-Hood que obedeçam, à condição de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB) \cite{BrezziF:1991,ZienkiewiczTN:2005,StrangF:2008}, ou pode-se recorrer a um método estabilizado. 
+Para os problemas de escoamentos incompressíveis aqui analisados, deve-se levar em conta que os campos de velocidade e pressão não podem ser aproximados arbitrariamente, podendo levar à ocorrência de oscilações espúrias no campo de pressão e instabilidade na solução. Para evitar isso, podem ser escolhidos elementos Taylor-Hood que obedeçam à condição de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB) \cite{BrezziF:1991,ZienkiewiczTN:2005,StrangF:2008}, ou pode-se recorrer a um método estabilizado. 
 
-Neste trabalho, para estabilização da pressão, emprega-se a técnica \textit{Pressure Stabilization Petrov Galerkin} (PSPG)   \cite{HughesFB:1986,TezduyarMRS:1992a}. Essa técnica consiste em adicionar à equação da continuidade, o resíduo da equação da quantidade de movimento ponderada pela função $\PSPG \left(\frac{\gradient \ptesth}{\density}\right)$, onde $\PSPG$ é um parâmetro de estabilização. Essa estabilização cria termos dependentes da pressão na equação da continuidade, responsáveis pela flexibilização do campo de pressão e por contornar a condição LBB.
+Para conferir maior flexibilidade ao programa, opta-se pela formulação estabilizada com a técnica \textit{Pressure Stabilization Petrov Galerkin} (PSPG)  \cite{HughesFB:1986,TezduyarMRS:1992a}. Essa técnica consiste em adicionar à equação da continuidade, o resíduo da equação da quantidade de movimento ponderado pela função $\PSPG \left(\frac{\gradient \ptesth}{\density}\right)$, onde $\PSPG$ é um parâmetro calculado para garantir bom condicionamento ao sistema. Essa técnica introduz termo dependente da pressão na equação da continuidade, que é responsável pela estabilização, contornando a condição LBB.
 
-Por fim, para prover maior estabilização em problemas com formação de vórtices, adiciona-se à equação da quantidade de movimento o resíduo da equação da continuidade ponderado por $ \LSIC \density \left(\divergence \cdot \utesth\right)$ \cite{TezduyarO:2000}, sendo $\LSIC$ um parâmetro de estabilização. A estabilização  $\LSIC$ dá origem a um termo do tipo mínimos quadrados, e que também introduz na formulação uma difusão artificial.
+Por fim, para prover maior estabilização em problemas com formação de vórtices, adiciona-se à equação da quantidade de movimento o resíduo da equação da continuidade ponderado por $ \LSIC \density \left(\divergence \cdot \utesth\right)$, sendo $\LSIC$ um parâmetro de estabilização. Essa estabilização, denominada \textit{Least Squares on Incompressibility Constraint LSIC} (LSIC), dá origem a um termo do tipo mínimos quadrados que introduz, de forma consistente, maior estabilidade à formulação \cite{TezduyarO:20000, BazilevsTT:2013}.
 
-Nota-se que a consistência da formulação estabilizada é garantida, uma vez que são adicionados às equações seus resíduos ponderados. Os parâmetros de estabilização $\SUPG$, $\PSPG$ e $\LSIC$ têm função de proporcionar uma solução estável e otimizar a convergência durante o refinamento de malha. A obtenção dos parâmetros estabilizadores será discutida na Subseção \ref{capitulo:Cap2:FormaFraca:taus}. 
+Nota-se que a consistência da formulação com SUPG, PSPG e LSIC é garantida, uma vez que são adicionados às equações seus resíduos ponderados. 
 
-Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\velocityh \in \usolutionh$ e $\pressh \in \psolutionh$, de tal modo que $\forall$ $\utesth \in \uweightingh$ e $\ptesth \in \pweightingh$ as seguintes expressões sejam verdadeiras:
+Assim, o problema da dinâmica dos fluidos na formulação estabilizada, passa a ser a determinação de $\velocityh \in \usolutionh$ e $\pressh \in \psolutionh$, de tal modo que $\forall$ $\utesth \in \uweightingh$ e $\ptesth \in \pweightingh$ as seguintes expressões sejam verdadeiras:
 
 \begin{align}
 \begin{split}
@@ -661,8 +663,6 @@ Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\v
 \begin{align}
 \resPre\left(\velocityh\right)&=\divergence \cdot \velocityh.
 \end{align}
-
-A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho é conhecida como MJBS (Mesh-Jacobian Based Stiffening) introduzida por \citeonline{TezduyarBSJ:1992f} e será abordada na Subseção \ref{capitulo:Cap7:CondAcop:MovMalha}.
 
 Visto que existem funções teste separadas para a velocidade e pressão, pode-se definir dois vetores residuais correspondentes a equação da quantidade de movimento ($\NNSM$) e a equação da continuidade ($\NNSC$). Considerando a arbitrariedade de $\utest_{A}$ e $\ptest_{A}$, têm-se:
 
@@ -708,15 +708,13 @@ Considerando $\Acceleration$, $\Velocity$ e $\Press$ os vetores nodais dos graus
 \NNSC(\Acceleration,\Velocity,\Press) = \vzero. \label{eq:resid_semi_discr_C}
 \end{align}
 
-
-
 \subsection{Parâmetros de estabilização}\label{capitulo:Cap2:FormaFraca:taus}
 
-Para a utilização da metologia estabilizada da DFC, descrita nesse capítulo, a definição adequada dos parâmetros de estabilização desempenha papel fundamental na precisão e estabilidade numérica.
+A definição adequada dos parâmetros de estabilização desempenha papel fundamental no desempenho do método e na sua estabilidade numérica.
 
 Desde os primeiros desenvolvimentos relacionados aos métodos estabilizados houve um amadurecimento das expressões de definição dos parâmetros $\tau$, as quais passam a levar em consideração formulações mais robustas, sendo adaptadas tanto para elementos de ordem elevadas, quanto para malhas mais complexas, como as usadas em análise isogeométrica.
 
-Considerando que nesse trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em IGA, adotam-se os parâmetros propostos mais recentemente por \citeonline{TakizawaTO:2018}, \citeonline{TakizawaUT:2019},\citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. 
+Considerando que neste trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em IGA, adotam-se os parâmetros propostos mais recentemente por \citeonline{TakizawaTO:2018}, \citeonline{TakizawaUT:2019},\citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. 
 
 Para essa opção é necessário definir-se o tensor métrico do elemento no espaço. Com essa finalidade, descreve-se inicialmente a matriz Jacobiana $\matrixQ$, como:
 
@@ -844,7 +842,7 @@ Por fim, os parâmetros de estabilização são escritos como:
 
 Para a integração temporal das equações governantes, utiliza-se o método $\alpha$-generalizado. Esse método foi proposto inicialmente por \citeonline{ChungH:1993} no contexto da mecânica das estruturas, e foi estendido para o contexto da dinâmica dos fluidos computacional por \citeonline{JansenWH:2000}.
 
-Considerando que o tempo da análise do problema é definido por um intervalo de $[0,\totalTime]$, o qual é particionado em subintervalos $\timeStep_{n} = t_{n+1} - t_{n}$, com $t_{n}$ e $t_{n+1}$ os instantes anterior e atual, respectivamente. A solução do problema consiste em: conhecida a solução nos graus de liberdade nodais ($\Acceleration$, $\Velocity$ e $\Press$) no passo de tempo $n$, encontrar a solução no passo de tempo $n+1$ de forma que:
+Considerando que o tempo da análise do problema é definido por um intervalo de $[0,\totalTime]$, o qual é particionado em subintervalos $\timeStep_{n} = t_{n+1} - t_{n}$, com $t_{n}$ e $t_{n+1}$ os instantes anterior e atual, respectivamente. A solução do problema consiste em: conhecidos os valores nodais de aceleração, velocidade e pressão ($\Acceleration$, $\Velocity$ e $\Press$) no instante $n$, encontrar a solução no instante $n+1$ de forma que:
 
 \begin{align}
 \NNSM(\Acceleration_{n+\alpham},\Velocity_{n+\alphaf},\Press_{n+1}) = \vzero, \label{eq:resid_QM_alpha}\\
@@ -858,13 +856,14 @@ Considerando que o tempo da análise do problema é definido por um intervalo de
 \Velocity_{n+\alphaf} = \Velocity_n + \alphaf \left( \Velocity_{n+1} - \Velocity_n \right), \label{eq:inter_vel}
 \end{gather}
 
-\noindent sendo $\Acceleration_{n+\alpham}$ e $\Velocity_{n+\alphaf}$ valores intermediários entre $t_{n}$ e $t_{n+1}$ do vetor aceleração e velocidade. A relação entre os valores nodais de aceleração e velocidade são calculados de acordo com fórmula discreta de Newmark (ver, por exemplo, \cite{Hughes:1976}):
+\noindent sendo $\Acceleration_{n+\alpham}$ e $\Velocity_{n+\alphaf}$ valores intermediários entre $t_{n}$ e $t_{n+1}$ do vetor aceleração e velocidade. A relação entre os valores nodais de aceleração e velocidade são calculados de acordo com fórmula de Newmark (ver, por exemplo, \cite{Hughes:1976}):
 
 \begin{gather}
 \Velocity_{n+1} = \Velocity_n + \timeStep\left(\left(1-\gamma\right)\Acceleration_n + \gamma\Acceleration_{n+1} \right). \label{eq:Newmark}
 \end{gather}
+onde $\gamma$ é um parâmetro do método.
 
-Os parâmetros que definem o instante intermediário, no qual as variáveis serão calculadas, são determinados de forma a proporcionarem estabilidade e precisão ao método. Seguindo a metodologia proposta por \citeonline{JansenWH:2000}, uma precisão de segunda ordem é obtida, para casos lineares, desde que: 
+Os parâmetros que definem o instante intermediário, alteram as características de estabilidade e precisão ao método. Segundo \citeonline{JansenWH:2000}, precisão de segunda ordem é garantida, para problemas lineares, se: 
 
 \begin{gather}
 \gamma = 1/2 + \alpham - \alphaf,\label{eq:gamma}
@@ -876,7 +875,7 @@ Os parâmetros que definem o instante intermediário, no qual as variáveis ser�
 \alpham \ge \alphaf \ge 1/2.
 \end{gather}
 
-Para proporcionar a precisão de segunda-ordem de convergência e estabilidade da solução, pode-se calcular o parâmetro $\gamma$ de acordo com Eq. \ref {eq:gamma} e $\alpham$, $\alphaf$, através de \cite{Hughes:2000}:
+Para proporcionar a precisão de segunda-ordem de convergência, estabilidade incondicional da solução, e permitir dissipação ótima de altas frequências, calcula-se o parâmetro $\gamma$ de acordo com Eq. \ref {eq:gamma} e $\alpham$, $\alphaf$, através de \cite{Hughes:2000}:
 
 
 \begin{gather}
@@ -888,8 +887,7 @@ Para proporcionar a precisão de segunda-ordem de convergência e estabilidade d
 \begin{gather}
 \alphaf = \frac{1}{1+\specRadius}\label{eq:alpha_f}.
 \end{gather}
-
-O parâmetro $\specRadius$ é conhecido como raio espectral da matriz de amplificação quando $\timeStep_{n} \rightarrow \infty$. Esse parâmetro controla a dissipação numérica em altas frequências realizada pelo processo de integração e está contido no intervalo de $[0,1]$. Para $\specRadius = 0$ a dissipação é máxima e para $\specRadius = 1$ não há introdução de difusão numérica ao método.
+O parâmetro $\specRadius$ é o raio espectral da matriz de amplificação quando $\timeStep_{n} \rightarrow \infty$, devendo estar contido no intervalo de $[0,1]$. Para $\specRadius = 0$ a dissipação de altas freqências é máxima e para $\specRadius = 1$ não há introdução de difusão numérica ao método.
 
 Para a solução do sistema de equações não lineares compostas por Eq. \eqref{eq:resid_QM_alpha} e Eq. \eqref{eq:resid_cont_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva \cite{BazilevsTT:2013}.
 
@@ -944,6 +942,7 @@ Na utilização do método $\alpha$-generalizado as integrais das equações Eq.
 \domainALEN = \left\{\posh \  |\  \posh(\posALEh,t_{(n+\alphaf)}) = \alphaf \posh(\posALEh,t_{n+1}) + (1-\alphaf) \posh(\posALEh,t_n)  \right\}.
 \end{align}
 
+\aquiiii
 
 \section{Implementação Computacional} \label{capitulo:Cap2:DFCComputationalCode}
 
