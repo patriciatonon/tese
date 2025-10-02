@@ -838,11 +838,11 @@ Por fim, os parâmetros de estabilização são escritos como:
 
 \noindent com $\varepsilon$ uma constante pequena e $\left(\lVert \gradient \lVert\velocityh- \velocityALEh\rVert\rVert\right)_0$ um valor de referência. Os termos $\SUGNi$, $\SUGNii$ e $\SUGNiii$ são parâmetros correspondentes aos termos convectivos, inerciais e viscosos, respectivamente.
 
-\section{Integração Temporal}\label{capitulo:Cap2:IntegTemp}
+\section{Integração Temporal e Solução Numérica}\label{capitulo:Cap2:IntegTemp}
 
 Para a integração temporal das equações governantes, utiliza-se o método $\alpha$-generalizado. Esse método foi proposto inicialmente por \citeonline{ChungH:1993} no contexto da mecânica das estruturas, e foi estendido para o contexto da dinâmica dos fluidos computacional por \citeonline{JansenWH:2000}.
 
-Considerando que o tempo da análise do problema é definido por um intervalo de $[0,\totalTime]$, o qual é particionado em subintervalos $\timeStep_{n} = t_{n+1} - t_{n}$, com $t_{n}$ e $t_{n+1}$ os instantes anterior e atual, respectivamente. A solução do problema consiste em: conhecidos os valores nodais de aceleração, velocidade e pressão ($\Acceleration$, $\Velocity$ e $\Press$) no instante $n$, encontrar a solução no instante $n+1$ de forma que:
+Considerando que o tempo da análise do problema é definido por um intervalo temporal de $[0,\totalTime]$, o qual é particionado em $npt$ subintervalos $\timeStep_{n} = t_{n+1} - t_{n}$, com $t_{n}$ e $t_{n+1}$ os instantes anterior e atual, respectivamente. A solução do problema consiste em: conhecidos os valores nodais de aceleração, velocidade e pressão ($\Acceleration$, $\Velocity$ e $\Press$) no instante $n$, encontrar a solução no instante $n+1$ de forma que:
 
 \begin{align}
 \NNSM(\Acceleration_{n+\alpham},\Velocity_{n+\alphaf},\Press_{n+1}) = \vzero, \label{eq:resid_QM_alpha}\\
@@ -887,7 +887,7 @@ Para proporcionar a precisão de segunda-ordem de convergência, estabilidade in
 \begin{gather}
 \alphaf = \frac{1}{1+\specRadius}\label{eq:alpha_f}.
 \end{gather}
-O parâmetro $\specRadius$ é o raio espectral da matriz de amplificação quando $\timeStep_{n} \rightarrow \infty$, devendo estar contido no intervalo de $[0,1]$. Para $\specRadius = 0$ a dissipação de altas freqências é máxima e para $\specRadius = 1$ não há introdução de difusão numérica ao método.
+O parâmetro $\specRadius$ é o raio espectral da matriz de amplificação quando $\timeStep \rightarrow \infty$, devendo estar contido no intervalo de $[0,1]$. Para $\specRadius = 0$ a dissipação de altas freqências é máxima e para $\specRadius = 1$ não há introdução de difusão numérica ao método.
 
 Para a solução do sistema de equações não lineares compostas por Eq. \eqref{eq:resid_QM_alpha} e Eq. \eqref{eq:resid_cont_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva \cite{BazilevsTT:2013}.
 
@@ -942,26 +942,21 @@ Na utilização do método $\alpha$-generalizado as integrais das equações Eq.
 \domainALEN = \left\{\posh \  |\  \posh(\posALEh,t_{(n+\alphaf)}) = \alphaf \posh(\posALEh,t_{n+1}) + (1-\alphaf) \posh(\posALEh,t_n)  \right\}.
 \end{align}
 
-\aquiiii
-
-\section{Implementação Computacional} \label{capitulo:Cap2:DFCComputationalCode}
-
-
-O Algoritmo que descreve a implementação computacional tanto de problemas utilizando o método dos elementos finitos, quanto para problemas utilizando a análise Isogeométrica, é apresentado no Alg. \ref{alg:fluid}.
+Finalmente, é possível estabelecer o algoritmo para a solução dos problemas de escoamentos incompressíveis com a formulação estabilizada do MEF, o qual é apresentado abaixo (Alg. \ref{alg:fluid}).
 
 \begin{algorithm}
 	\caption{Algoritmo para problemas de dinâmica dos fluidos computacional}
 	\label{alg:fluid}
 	\begin{algorithmic}[1]
-		\For {o passo de tempo $0$ até $\totalTime$} 
+		\For {o passo de tempo $0$ até $npt-1$} 
 		\State $i=0$;
 		\State Predição da solução: aplicação das Eq. \eqref{eq:pred_acel}, Eq. \eqref{eq:pred_vel} e Eq. \eqref{eq:pred_press};
 		\While{($\epsilon$ < tolerância)}
-		\State $i$++;
-		\State Interpolação das variáveis do problema: aplicação da Eq. \eqref{eq:inter_acel_i}, Eq. \eqref {eq:inter_vel_i} e Eq. \eqref{eq:inter_press_i};
+		\State $i=i+1$;
+		\State Interpolação das variáveis do problema: aplicação da Eq. \eqref{eq:inter_acel_i}, Eq. \eqref{eq:inter_vel_i} e Eq. \eqref{eq:inter_press_i};
 		\State Cálculo do incremento nas variáveis do problema: $\Acceleration_{n+1}$ e $\Press_{n+1}$ de acordo com as Eq. \eqref{eq:eq_lin_QM} e Eq. \eqref{eq:eq_lin_cont};
-		\State Atualização da solução: calculadas de acordo com Eq. \eqref{atu_acel}, Eq. \eqref{atu_vel} e Eq. \eqref{atu_press}.
-		\State Cálculo do erro:
+		\State Atualização da solução de acordo com as Eqs. \eqref{atu_acel}, \eqref{atu_vel} e \eqref{atu_press}.
+		\State Cálculo do erro :
 		\begin{align}
 		\epsilon =\left\| \NNSM^i \right\|_{L^2}
 		\end{align}
@@ -973,19 +968,26 @@ O Algoritmo que descreve a implementação computacional tanto de problemas util
 
 \section{Verificação e Aplicações} \label{capitulo:Cap2:VerApl}
 
-Para a verificação dos códigos baseados no método dos elementos finitos, adotam-se 2 exemplos muito populares nas bibliografias: Escoamento sobre um cilindro e o problema da cavidade quadrada, os quais são apresentados na subseções sequentes.
+Para a verificação do código baseados no método dos elementos finitos são simulados 2 exemplos amplamente estudados na literatura: escoamento sobre um cilindro e escoamento sobre uma cavidade quadrada.
 
 \subsection{Escoamento sobre um cilindro} \label{capitulo:Cap2:VerApl:Cilindo}
 
-O estudo do problema de um escoamento sobre um cilindro 2D teve como principal intuito a análise dos coeficientes aerodinâmicos medidos ao longo do tempo e verificar consequentemente se o modelo é capaz de reproduzir os fenômenos relacionados à formação e desprendimento de vórtices característicos desse problema. Para isso, diferentes números de Reynolds ($\Reynolds$) foram estudados, $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$, os quais são calculados de acordo com a seguinte equação:
+{\xcolor{red}Adotar o mesmo padrão para descrever todos os exemplos:
 
+-Descrever o problema físico, e se for relevante, fazer menções a outros trabalhos que simularam este problema, bem como a importância de se analisar ele.
+
+-Descrever a discretização espacial, a discretização temporal e os parâmetros adotados. Se forem adotados diferentes discretizações ou parâmetros (ex. para estudo de convergência), descrever aqui também.
+
+-Apresentar e analisar os resultados
+}
+
+Este exemplo considera um escoamento viscoso incompressível sobre um cilindro rígido com diferentes números de diferentes números de Reynolds, $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$, calculados de acordo com:
 \begin{align}
 	\Reynolds = \frac{\density L \lVert\velocinfty\lVert}{\viscosity} = \frac{L \lVert \velocinfty \lVert}{\kviscosity}, \label{eq:Reynolds}
 \end{align}
+\noindent onde a dimensão característica do problema $L$ é adotada como sendo o diâmetro do cilindro, e $\kviscosity$ é a viscosidade cinemática do fluido. Tomam-se como parâmetros de análise os coeficientes aerodinâmicos medidos ao longo do tempo, e avalia-se se o modelo é capaz de reproduzir os fenômenos relacionados à formação e desprendimento de vórtices característicos desse problema. 
 
-\noindent com $L$ a dimensão característica do problema, sendo nesse caso o diâmetro do cilindro, e $\kviscosity$ a viscosidade cinemática do fluido. 
-
-A geometria e condições de contorno são apresentadas na Fig. \ref{fig:cilindro_geometria}. Como pode-se observar trata-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nas paredes superior e inferior. No contorno denominado como \textit{saída}, não se conhece o comportamento do escoamento, desta forma, determina-se sua posição no domínio computacional a uma distância grande o suficiente de maneira a não interferir no comportamento do escoamento. 
+A geometria e as condições de contorno são apresentadas na Fig. \ref{fig:cilindro_geometria}, tratando-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nos limites superior e inferior. No contorno denominado como saída, não se conhece o comportamento do escoamento, desta forma, determina-se sua posição no domínio computacional a uma distância grande o suficiente de maneira a não interferir no comportamento do escoamento. 
 
 Na Fig. \ref{fig:cilindro_malha} pode-se observar a malha não-estruturada de elementos finitos utilizada para esse problema, composta por 9122 elementos triangulares quadráticos e 18508 nós. O problema foi simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$. 
 
@@ -993,7 +995,7 @@ Na Fig. \ref{fig:cilindro_malha} pode-se observar a malha não-estruturada de el
 	\centering
 	\subfloat[Geometria e condições de contorno\label{fig:cilindro_geometria}]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro_geometria.pdf}}\\
 	\subfloat[Discretização espacial\label{fig:cilindro_malha}]{\includegraphics[trim=0cm 2cm 0cm 2cm,clip,scale=0.4]{Imagens/Cap2/cilindro_malha.pdf}}
-	\caption{Cilindro: Geometria, condições de contorno e malha de elementos finitos.}
+	\caption{Cilindro: Geometria, condições de contorno e malha de elementos finitos. \textcolor{red}{Essas dimensões estão corretas? Especialmente o 56D? E a malha, possui as dimensões indicadas na figura? Ela está cortada, seria importante mostrar ela completa.} }
 \end{figure}
 
 Para o cálculo dos coeficientes aerodinâmicos é necessário definir-se primeiramente as forças de arrasto - horizontal ($F_D$) e de sustentação - vertical ($F_L$), que são induzidas por tensões desviadores e hidrostáticas e são calculadas pelas seguintes equações:
