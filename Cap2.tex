@@ -937,7 +937,6 @@ Na utilização do método $\alpha$-generalizado as integrais das equações Eq.
 
 \section{Implementação Computacional} \label{capitulo:Cap2:DFCComputationalCode}
 
-
 O Algoritmo que descreve a implementação computacional tanto de problemas utilizando o método dos elementos finitos, quanto para problemas utilizando a análise Isogeométrica, é apresentado no Alg. \ref{alg:fluid}.
 
 \begin{algorithm}
@@ -957,6 +956,7 @@ O Algoritmo que descreve a implementação computacional tanto de problemas util
 		\epsilon =\left\| \NNSM^i \right\|_{L^2}
 		\end{align}
 		\EndWhile
+		\State Atualização das variáveis do passo anterior;
 		\EndFor
 	\end{algorithmic}
 \end{algorithm}

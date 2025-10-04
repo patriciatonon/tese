@@ -381,13 +381,20 @@ Utilizando-se a relação apresentada na Eq. \ref{eq:piola-kircchoff} na Eq. \re
 
 \begin{align}
 \delta\totalEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} +  \int_{V_{0}} \piolaStress : \delta\greenStrain dV_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} = 0.
-\label{eq:equi_local_forma_final}
+\label{eq:equi_local_forma_final0}
+\end{align}
+
+A Eq.\ref{eq:equi_local_forma_final0}, será adicionada ainda uma parcela referente a possibilidade de carregamentos pontuais, sendo expressa então, por:
+
+\begin{align}
+	\delta\totalEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} +  \int_{V_{0}} \piolaStress : \delta\greenStrain dV_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} - \mathbf{F} \cdot \delta\ePosition = 0.
+	\label{eq:equi_local_forma_final}
 \end{align}
 
 Partindo-se da Eq. \ref{eq:equi_local_forma_final}, encontra-se a relação entre suas componentes e as parcelas de energia mecânica, dessa forma, têm-se:
 
 \begin{align}
-	 \delta\extEnergy = - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0},
+	 \delta\extEnergy = - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} - \mathbf{F} \cdot \delta\ePosition,
 \end{align}
 
 
@@ -436,15 +443,15 @@ Conforme discutido na Subseção \ref{capitulo:Cap2:FormaFraca:ElementosFinitos}
 
 Nesta subseção será apresentado o desenvolvimento da formulação posicional do Método dos Elementos Finitos aplicada a cinemática de cascas.
 
-\subsection{Elemento finito de Casca}
+\subsection{Elemento finito de Casca} \label{capitulo:Cap4:Mef:Casca}
 
 A formulação não-linear geométrica de casca posicional foi desenvolvida por \citeonline{CodaP:2007}, e consistia inicialmente em 6 graus de liberdade por nó, sendo 3 referentes à posições e 3 referentes às componentes do vetor generalizado. Em \citeonline{CodaP:2008} incluí-se a formulação um sétimo parâmetro, que considera a taxa de variação linear da espessura, para lidar com o fenômeno de travamento volumétrico. Essa última cinemática será utilizada nesse trabalho.
 
 As cascas são sólidos que possuem uma de suas dimensões muito menor do que as outras, assim o mapeamento da configuração do sólido pode ser facilitado tomando-se a superfície média como referência. Os mapeamentos das configurações inicial e atual dos pontos da superfície média, conforme pode ser observado na Fig. \ref{fig:casca:map_super_media}, são definidos respectivamente como:
 
 \begin{align}
-\fmap^{0m}(\xi_{1},\xi_{2}) = \lPosition^{mh}(\xi_{1},\xi_{2}) = N_{l} (\xi_{1},\xi_{2}) \lPosition_{l}^{mh}\label{eq:casca_Lposition_m}\\
-\fmap^{1m}(\xi_{1},\xi_{2}) = \ePosition^{mh}(\xi_{1},\xi_{2}) = N_{l} (\xi_{1},\xi_{2}) \ePosition_{l}^{mh}, \label{eq:casca_Eposition_m}
+\fmap^{mh}_{0}(\xi_{1},\xi_{2}) = \lPosition^{mh}(\xi_{1},\xi_{2}) = N_{l} (\xi_{1},\xi_{2}) \lPosition_{l}^{mh}\label{eq:casca_Lposition_m}\\
+\fmap^{mh}_{1}(\xi_{1},\xi_{2}) = \ePosition^{mh}(\xi_{1},\xi_{2}) = N_{l} (\xi_{1},\xi_{2}) \ePosition_{l}^{mh}, \label{eq:casca_Eposition_m}
 \end{align}
 
 \noindent com $\lPosition_{l}^{mh}$ e $\ePosition_{l}^{mh}$ representando os vetores dos parâmetros de posição inicial e atual da linha média respectivos ao nó $l$, e, $N_{l} (\xi_{1},\xi_{2})$ é o valor da função de forma do nó $l$ calculado no ponto de coordenadas paramétricas $(\xi_{1},\xi_{2})$.
@@ -456,11 +463,11 @@ As cascas são sólidos que possuem uma de suas dimensões muito menor do que as
 	\label{fig:casca:map_super_media}
 \end{figure}
 
-Para completar a cinemática da casca, os demais pontos são mapeados por meio da soma da posição de um ponto na superfície média com um vetor generalizado $\mathbf{g}^{0h}$ ou $\mathbf{g}^{1h}$ nas configurações inicial e atual, respectivamente.  $\mathbf{g}^{0h}$ é normal a linha de referência na configuração inicial, conforme pode ser observado na Fig. \ref{fig:casca_vetores_generalizados}. Desta forma, o mapeamento completo fica definido por:
+Para completar a cinemática da casca, os demais pontos são mapeados por meio da soma da posição de um ponto na superfície média com um vetor generalizado $\mathbf{g}^{h}_{0}$ ou $\mathbf{g}^{h}_{0}$ nas configurações inicial e atual, respectivamente.  $\mathbf{g}^{h}_{0}$ é normal a linha de referência na configuração inicial, conforme pode ser observado na Fig. \ref{fig:casca_vetores_generalizados}. Desta forma, o mapeamento completo fica definido por:
 
 \begin{align}
-\fmap^{0h}(\xi_{1},\xi_{2},\xi_{3}) = \lPosition^{h}(\xi_{1},\xi_{2},\xi_{3}) = \fmap^{0m}(\xi_{1},\xi_{2}) + \mathbf{g}^{0h} (\xi_{1},\xi_{2}, \xi_{3}) \label{eq:fmap0}\\
-\fmap^{1h}(\xi_{1},\xi_{2},\xi_{3}) = \ePosition^{h}(\xi_{1},\xi_{2},\xi_{3}) = \fmap^{1m}(\xi_{1},\xi_{2}) + \mathbf{g}^{1h} (\xi_{1},\xi_{2}, \xi_{3})  \label{eq:fmap1}
+\fmap^{h}_{0}(\xi_{1},\xi_{2},\xi_{3}) = \lPosition^{h}(\xi_{1},\xi_{2},\xi_{3}) = \fmap^{mh}_{0}(\xi_{1},\xi_{2}) + \mathbf{g}^{h}_{0} (\xi_{1},\xi_{2}, \xi_{3}) \label{eq:fmap0}\\
+\fmap^{h}_{1}(\xi_{1},\xi_{2},\xi_{3}) = \ePosition^{h}(\xi_{1},\xi_{2},\xi_{3}) = \fmap^{mh}_{1}(\xi_{1},\xi_{2}) + \mathbf{g}^{h}_{1} (\xi_{1},\xi_{2}, \xi_{3})  \label{eq:fmap1}
 \end{align}
 
 \noindent em que $\xi_3$ é a coordenada adimensional na espessura da casca variando de -1 a 1.
@@ -472,217 +479,227 @@ Para completar a cinemática da casca, os demais pontos são mapeados por meio d
 	\label{fig:casca_vetores_generalizados}
 \end{figure}
 
-Os vetores generalizados $\mathbf{g}^{0h}$ e $\mathbf{g}^{1h}$ representados na discretização por elementos finitos ficam expressos por:
+Os vetores generalizados $\mathbf{g}^{h}_{0}$ e $\mathbf{g}^{h}_{1}$ representados na discretização por elementos finitos ficam expressos por:
 
 \begin{align}
-\mathbf{g}^{0h} (\xi_{1},\xi_{2}, \xi_{3}) = \frac{h_{0}}{2}\xi_{3} N_{l}\left(\xi_{1},\xi_{2}\right) \cdot  (\mathbf{e}_x)_l, \\
-\mathbf{g}^{1h} (\xi_{1},\xi_{2}, \xi_{3}) = \frac{h_{0}}{2}\left[\xi_{3} + \eta_l N_l\left(\xi_{1},\xi_{2}\right)\xi_{3}^2\right]N_{l}\left(\xi_{1},\xi_{2}\right) \cdot (\mathbf{e}_y)_l,
+\mathbf{g}^{h}_{0} (\xi_{1},\xi_{2}, \xi_{3}) = \frac{h_{0}}{2}\xi_{3} N_{l}\left(\xi_{1},\xi_{2}\right) \cdot  (\mathbf{e}_x)_l, \\
+\mathbf{g}^{h}_{1} (\xi_{1},\xi_{2}, \xi_{3}) = \frac{h_{0}}{2}\left[\xi_{3} + \eta_l N_l\left(\xi_{1},\xi_{2}\right)\xi_{3}^2\right]N_{l}\left(\xi_{1},\xi_{2}\right) \cdot (\mathbf{e}_y)_l,
 \end{align}
 
 \noindent com $h_{0}$ representando a espessura média inicial do elemento de casca, $(\mathbf{e}_x)_l$ é o l-ésimo valor nodal do vetor unitário normal à linha de referência inicial, $(\mathbf{e}_y)_l$ o l-ésimo valor nodal do vetor generalizado na configuração atual e $\eta_l$ é o l-ésimo valor nodal da chamada de taxa linear de variação da espessura.
 
-As equações Eq. \eqref{eq:fmap0} e Eq. \eqref{eq:fmap1} apresentam sete parâmetros incógnitos em cada nó $l$: 3 posições ($\ePosition_{l}^{mh}$), 3 componentes do vetor generalizado ($(\mathbf{e}_y)_l$) e o valor nodal da variação linear da deformação na espessura $\eta_l$. A partir desse ponto os parâmetros incógnitos serão descritos por uma única variável $ \SolidPos_{l}^{i}$, com $i = 0,1$ e $2$ representando as posições, $i = 3,4$ e $5$ as componentes do vetor generalizado e $i = 6$ a taxa de variação linear da espessura.
-
-Para iniciar-se a descrição do MEF posicional, adiciona-se mais um termo à Eq. \eqref{eq:equi_local_forma_final} respectivo a forças concentradas nodais e fica-se com a seguinte definição para as equações de equilíbrio em descrição Lagrangiana:
+Finalmente, defini-se a função mudança de configura, através da seguinte relação:
 
 \begin{align}
- -\mathbf{F}_{l}\delta\SolidPos_{l} - \int_{V_{0}}\bodyLoad \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} + \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} + \int_{V_{0}} \piolaStress : \delta\greenStrain dV_{0} = 0,
+	\fmap^{h} = \fmap^{h}_{1} \circ  (\fmap^{h}_{0})^{-1} \label{eq:eq_mud_conf}.
 \end{align}
 
-\noindent sendo o termo $\mathbf{F}_{l}$ respectivo a força concentrada aplicada sobre o nó $l$. O tensor $\greenStrain = \greenStrain (\SolidPos)$ é função de $\gradDeformation$, e pode ser obtido em função das posições através de $\fmap^{0h} $ e $\fmap^{1h} $ como:
+De forma análoga pode-se representar o gradiente de  $\fmap^{h}$ como:
 
 \begin{align}
-\gradDeformation = \gradDeformation^{1} \cdot \left(\gradDeformation^{0}\right)^{-1} \label{eq:gradDeformation}.
+\gradDeformation^{h} = \gradDeformation^{h}_{1} \cdot \left(\gradDeformation^{h}_{0}\right)^{-1} \label{eq:gradDeformation},
 \end{align}
 
-PAREI AQUI
+\noindent em que $\gradDeformation^{h} = \lGrad \fmap^{h}$, $\gradDeformation^{h}_{0} = \frac{\partial  \fmap^{h}_{0}} {\partial \adimensionalcoordinates}$ e  $\gradDeformation^{h}_{1} =  \frac{\partial  \fmap^{h}_{1}} {\partial \adimensionalcoordinates}$.
 
-Considerando uma aproximação tradicional das variáveis de elementos finitos, tem-se:
+Assim, o alongamento à direta de Cauchy-Green e a deformação de Green podem ser escritos em função de $\gradDeformation^{h}_{0}$ e $\gradDeformation^{h}_{1}$, como:
 
 \begin{align}
-\delta\ePosition = N_{l} (\xi_{1},\xi_{2})\delta\SolidPos_{l},\\
-\bodyLoad = N_{l} (\xi_{1},\xi_{2}) \mathbf{B}_{l}^{0},\\
-\ltractionLoad = N_{l} (\xi_{1},\xi_{2}) \mathbf{Q}_{l}^{0},\\
-\solidAccel = N_{l} (\xi_{1},\xi_{2}) \mathbf{\ddot{Y}}_{l},
+	\cauchyStretch = \gradDeformation^{t} \cdot \gradDeformation = \left(\gradDeformation^{h}_{1} \cdot (\gradDeformation^{h}_{0})^{-1}\right)^{t} \cdot \left(\gradDeformation^{h}_{1} \cdot (\gradDeformation^{h}_{0})^{-1}\right),
 \end{align}
-
-\noindent da arbitrariedade de $\delta\SolidPos$ as equações do equilíbrio em função das posições nodais são escritas como:
 
 \begin{align}
-\begin{split}
-&-\mathbf{F}_{l} - \int_{V_{0}^{el}}N_{m} (\coordAdimen)N_{l} (\coordAdimen)dV_{0}^{el} \mathbf{B}_{m}^{0} -\int_{A_{0}^{el}}N_{m} (\coordAdimen)N_{l} (\coordAdimen)dA_{0}^{el} \mathbf{Q}_{m}^{0}  \\& + \int_{V_{0}^{el}}\rho_{0} N_{m} (\coordAdimen)N_{l} (\coordAdimen)dV_{0}^{el} \mathbf{\ddot{Y}}_{m} + \int_{V_{0}^{el}} \piolaStress : \frac{\partial\greenStrain}{\partial\SolidPos_{l}}dV_{0}^{el}.
-\end{split}
+	\greenStrain = \frac{1}{2}\left(\cauchyStretch - \unittensor\right) = \frac{1}{2}\left(\left(\gradDeformation^{h}_{1} \cdot (\gradDeformation^{h}_{0})^{-1}\right)^{t} \cdot \left(\gradDeformation^{h}_{1} \cdot (\gradDeformation^{h}_{0})^{-1}\right) - \unittensor\right).
 \end{align}
 
-%\subsection{Integração temporal e técnica de solução}
-%
-%As equações do equilíbrio baseadas em posição podem ser apresentadas sinteticamente como:
-%
-%\begin{align}
-%\frac{\partial\totalEnergy}{\partial\SolidPos} = \frac{\partial\extEnergy}{\partial \SolidPos} + \frac{\partial\kinEnergy}{\partial \SolidPos} + \frac{\partial\intEnergy}{\partial \SolidPos} = \mathbf{0},
-%\end{align}
-%  
-%\noindent ou ainda,
-%
-%\begin{align}
-% - \concLoad^{ext}(t) + \solidMass\SolidAccel_{}+ \concLoad^{int}(\SolidPos) + \solidDamping\SolidVel_{} = \mathbf{0}, \label{eq:Equilibrio}
-%\end{align}
-%
-%\noindent na qual $ \concLoad^{int}(\SolidPos)$ representa as forças internas provenientes da variação da energia potencial interna, $\solidMass$ é a conhecida como matriz de massa proveniente da variação da energia cinética e $\mathbf{F}^{ext}$ representam as forças externas na estrutura fruto da variação da energia potencial das forças externas. O termo $\solidDamping$ representa uma matriz de amortecimento proporcional a massa, e $\SolidVel_{}$ a velocidade nodal.
-%
-%A integração temporal das equações apresentadas na Eq. \eqref{eq:Equilibrio} inicia-se com a discretização temporal do tempo de maneira que:
-%
-%\begin{align}
-%t_{n+1} = t_{n} + \Delta t, \label{eq:disTime}
-%\end{align}
-%
-%\noindent na qual $t_{n+1}$ representa o tempo no instante atual, $t_{n}$ o instante de tempo anterior e  $\Delta t$ o intervalo de tempo utilizado na discretização. Utilizando as aproximações de Newmark, posições, velocidade e aceleração nos tempos $n+1$ e $n$ são relacionados por:
-%
-%\begin{gather}
-%\SolidPos_{n+1}=\SolidPos_{n} + \timeStep \SolidVel_{n}+\left(\frac{1}{2}-\beta\right) \timeStep^2 \SolidAccel_{n}+ \beta \timeStep^2 \SolidAccel_{n+1},\label{eq:newmark1}\\
-%\SolidVel_{n+1} = \SolidVel_{n}+(1-\gamma)\timeStep \SolidAccel_{n}+\gamma \timeStep \SolidAccel_{n+1},\label{eq:newmark2}
-%\end{gather}
-%
-%\noindent em que $\beta$ e $\gamma$ são parâmetros dependentes do comportamento assumido para a aceleração, adotados nesse trabalho como $\gamma=\sfrac{1}{2}$ e $\beta=\sfrac{1}{4}$ para uma aceleração constante.
-%
-%Considerando a discretização temporal apresentada em Eq. \eqref{eq:disTime} e aplicando-se a Eq. \eqref{eq:newmark1} e Eq. \eqref{eq:newmark2} à Eq. \eqref{eq:Equilibrio} de maneira a escrever-se a equação somente em função das posições nodais, tem-se, para um instante $n+1$ a seguinte relação:
-%
-%\begin{gather}
-%\concLoad^{int}_{n+1}- \concLoad^{ext}_{n+1} + \frac{\solidMass}{\beta \timeStep^2} \SolidPos_{n+1}-\solidMass \mathbf{Q}_n+ \solidDamping\mathbf{R}_n + \frac{\gamma \solidDamping}{\beta \timeStep}\SolidPos_{n+1} - \gamma\timeStep \solidDamping\mathbf{Q}_n = \mathbf{0},
-%\label{eq:equilibrio_newmark}
-%\end{gather}
-%
-%\noindent em que $\mathbf{Q}_n$ e $\mathbf{R}_n$ representam os termos dependentes apenas de velocidades, acelerações e posições do instante anterior, dados por:
-%
-%\begin{gather}
-%\mathbf{Q}_n = \frac{\SolidPos_n}{\beta \timeStep^2} + \frac{\SolidVel_n}{\beta \timeStep} + \left(\frac{1}{2\beta} -1 \right)\SolidAccel_n,\label{eq:Qn}\\
-%\mathbf{R}_n = \SolidVel_n+\timeStep(1-\gamma)\SolidAccel_n.\label{eq:Rn}
-%\end{gather}
-%
-%
-%Pode-se escrever ainda o problema não linear definido por
-%\eqref{eq:equilibrio_newmark} em função do resíduo da equação governante
-%discretizada no espaço e no tempo, tal que:
-%
-%%\begin{gather}
-%%%\begin{dcases}
-%%\NNSS\left(\SolidPos_{n+1}\right) = \concLoad^{int}_{n+1}- \concLoad^{ext}_{n+1} + \frac{\solidMass}{\beta \timeStep^2} \SolidPos_{n+1}-\solidMass \mathbf{Q}_n+ \solidDamping\mathbf{R}_n + \frac{\gamma \solidDamping}{\beta \timeStep}\SolidPos_{n+1} - \gamma\timeStep \solidDamping\mathbf{Q}_n= \zeroMatrix.
-%%%\end{dcases}
-%%\label{eq:equilibrio_newmark1.5}
-%%\end{gather}
-%
-%O problema não linear da Eq. \eqref{eq:equilibrio_newmark1.5} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
-%
-%\begin{gather}
-%\NNSS\left(\SolidPos_{n+1}^{i+1}\right) \approx \NNSS\left(\SolidPos_{n+1}^{i}\right) + \Delta\NNSS\left(\SolidPos_{n+1}^{i}\right)\Delta\SolidPos_{i} 
-%\end{gather}
-%
-%\noindent em que $i$ indica o índice da iteração atual. Na primeira iteração para o cálculo de $\SolidPos_{n+1}$ utiliza-se como predição da iteração anterior os valores das variáveis no passo de tempo $n$. O método de Newton-Raphson consiste em resolver o seguinte sistema:
-%
-%\begin{gather}
-%\Delta\NNSS\left(\SolidPos_{n+1}^{i}\right)\Delta\SolidPos^{i} = -\NNSS\left(\SolidPos_{n+1}^{i}\right) \label{eq:NR}
-%\end{gather}
-%
-%\noindent com:
-%
-%\begin{gather}
-%\Delta\NNSS\left(\SolidPos_{n+1}^{i}\right) = \frac{\partial^{2}\totalEnergy}{\partial\SolidPos^{2}} = \frac{\partial^{2}\intEnergy}{\partial \SolidPos^{2}} + \frac{\solidMass}{\beta \timeStep^2} + \frac{\gamma \solidDamping}{\beta \timeStep}.
-%\end{gather}
-%
-%A cada iteração de Newton-Raphson atualiza-se a posição, a aceleração e a velocidade de acordo com as seguintes equações:
-%
-%\begin{gather}
-%\SolidPos_{n+1}^{i+1} = \SolidPos_{n+1}^{i} + \Delta\SolidPos^{i} \label{UD1}\\
-%\SolidAccel_{n+1}^{i+1} = \frac{\SolidPos_{n+1}^{i+1}}{\beta \timeStep^2} + \mathbf{Q}_n  \label{UD2} \\
-%\SolidVel_{n+1}^{i+1} = \frac{\gamma \SolidPos_{n+1}^{i+1}}{\beta \timeStep} + \mathbf{R}_n - \gamma\Delta t \mathbf{Q}_n  \label{UD3}
-%\end{gather}
-%
-%
-%\subsection{Implementação Computacional}
-%
-%Emprega-se o programa para análise não linear de estruturas de casca cedido pelo professor Humberto Breves Coda \cite{CodaP:2007,CodaP:2008}, o qual segue a formulação descrita neste texto e é implementado em linguagem FORTRAN, com paralelização em protocolo MPI.
-%
-%O algoritmo implementado foi criteriosamente estudado de forma a permitir a implementação do acoplamento, sendo apresentado em Alg. \ref{alg:solid_temporalIntegration}.
-%
-%
-%\begin{algorithm}
-%	\caption{Algoritmo para problemas de dinâmica dos sólidos computacional}
-%	\label{alg:solid_temporalIntegration}
-%	\begin{algorithmic}[1]
-%		\For {o passo de tempo $0$ até MUDAR TEMPO} 
-%		\State $i=0$;
-%		\State Predição da solução: 
-%		\begin{align}
-%		\SolidPos_{n+1}^{0} = \SolidPos_{n},\\
-%		\SolidVel_{n+1}^{0} = \SolidVel_{n},\\
-%		\SolidAccel_{n+1}^{0} = \SolidAccel_{n};
-%		\end{align}
-%		\State Calcula-se  nível de força aplicado $\concLoad^{ext}_{n+1}(t_{n+1})$ e/ou as posições prescritas $\SolidPos_{n+1}$;
-%		\State Calculam-se os valores de $\mathbf{Q}_n$ (Eq. \eqref{eq:Qn}) e $\mathbf{R}_n$ (Eq. \eqref{eq:Rn});
-%		\While{($\epsilon$ < tolerância)}
-%		\State $i$++;
-%		\State Cálculo do incremento da variável do problema: $\SolidPos_{n+1}^{i}$ de acordo com a Eq. \eqref{eq:NR};
-%		\State Atualização da solução: calculada de acordo com Eq. \eqref{UD1}, Eq. \eqref{UD2} e Eq. \eqref{UD3}.
-%		\State Cálculo do erro:
-%		\begin{align}
-%		\epsilon = \lVert \Delta\NNSS\left(\SolidPos_{n+1}^{i+1}\right) \lVert_{L^2} 
-%		\end{align}
-%		ou,
-%		\begin{align}
-%		\epsilon = \lVert\Delta\SolidPos_{n+1}^{i+1}\lVert_{L^2} 
-%		\end{align}
-%		\EndWhile
-%		\EndFor
-%	\end{algorithmic}
-%\end{algorithm}
-%
-%\section{Exemplo de aplicação - Casca cilíndrica com \textit{snap through} dinâmico}
-%
-%Nesta seção é apresentada uma simulação feita com o código cedido pelo professor Humberto Breves Coda para problemas de análise não-linear geométrica de cascas. Esta análise foi realizada com o objetivo de estudar o programa a ser empregado na pesquisa.
-%
-%O problema clássico analisado trata-se de um casca cilíndrica submetida a um carregamento concentrado em seu centro geométrico. Proposto inicialmente no trabalho de \cite{KuhlR:1999}, o problema apresenta grande não-linearidade geométrica devido ao efeito de \textit{snap-through}. 
-%
-%A geometria do problema em questão é apresentada na Fig. \ref{fig:CascaGeo}, sendo a espessura da casca equivalente a 0,1 m. Como condições de contorno, têm-se o deslocamento restrito nas direções $x,y,z$ para as bordas retas que formam a geometria da casca. A malha de elementos finitos que representa a superfície média da casca utilizada pode ser visualizada na Fig. \ref{fig:CascaMalha}, a qual é composta por 32 elementos cúbicos e 49 nós. 
-%
-%\begin{figure}[!htb]
-%	\centering
-%	\subfloat[\label{fig:CascaGeo} Malha Local.]{\includegraphics[scale=0.2, trim=0cm 0cm 15cm 0cm, clip=true]{Imagens/Cap4/lateral.pdf}} 
-%	\subfloat[\label{fig:CascaMalha} Malha Global ]{\includegraphics[scale=0.18,trim=0cm 0cm 15cm 0cm, clip=true]{Imagens/Cap4/teste.pdf}}
-%	\caption{Casca: Geometria e Malha.}
-%	\label{fig:Casca}
-%\end{figure}
-%
-%O carregamento $P(t)$ é aplicado linearmente no intervalo $t=0s$ até $t=0,2s$, com $P(0)=0kN$ e $P(2s) = 50000kN$, e então mantido constante. As características físicas do material utilizado são: $\elasticModulus = 200GPa$, $\poisonsRatio = 0,25$ e $\rho = 10000 kg/m^3$ e o passo de tempo adotado na simulação é $\Delta_{t} = 0,001s$.
-%
-%O deslocamento vertical do nó central da casca pode ser visualizado na Fig. \ref{fig:CascaDeslocamento}. O resultado obtido está de acordo com os resultados de \citeonline{ArgyrisPM:2003}, conforme pode ser visto na Fig. \ref{fig:CascaDeslocamentoReferencia} e o campo de deslocamentos nos instantes $t = 0s$, $t = 100ms$ e $t = 155ms$ são apresentados na Fig. \ref{fig:CamposDeslocamentos}.
-%
-%Embora a implementação do programa de cascas não seja objetivo deste trabalho, e essa análise tenha objetivo de estudar o código a ser empregado, ela também traz indício da robustez e precisão da formulação escolhida.
-%
-%\begin{figure}[!htb]
-%	\centering
-%	\subfloat[\label{fig:CascaDeslocamento} Presente trabalho.]{\includegraphics[scale=.8, trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/snap_casca.eps}} \\
-%	\subfloat[\label{fig:CascaDeslocamentoReferencia} Referência ]{\includegraphics[scale=0.25,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/referencia.png}}\\
-%	Fonte: \citeonline{ArgyrisPM:2003}
-%	\caption{Casca: Deslocamento vertical nó central.}
-%	\label{fig:CascaDeslocamentoT}
-%\end{figure}
-%
-%
-%\begin{figure}[!htb]
-%	\centering
-%	\subfloat[\label{fig:C0} $t = 0s$.]{\includegraphics[scale=0.08, trim=4cm 15cm 4cm 15cm, clip=true]{Imagens/Cap4/0ms.png}} 
-%	\subfloat[\label{fig:C1} $t = 100ms$ ]{\includegraphics[scale=0.08,trim=4cm 15cm 4cm 15cm, clip=true]{Imagens/Cap4/100ms.png}}\\
-%	\subfloat[\label{fig:C2} $t = 155ms$ ]{\includegraphics[scale=0.08,trim=4cm 15cm 4cm 15cm, clip=true]{Imagens/Cap4/155ms.png}}\\
-%	{\includegraphics[scale=0.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/legenda.png}}
-%	\caption{Casca: Campo de deslocamento.}
-%	\label{fig:CamposDeslocamentos}
-%\end{figure}
-%
-%
-%
-%
-%% \section{Validação e aplicações}
-%%\textcolor{red}{voltamos a esse ponto se houver tempo...}
-%% \subsection {Exemplo}
+Neste trabalho, aplicou-se nas discretizações um elemento triangular quadrático com 6 nós.
+
+Partindo do mapeamento apresentado é possível escrever o funcional de energia mecânica em função dos parâmetros nodais apresentados, e ao discretizar-se as equações no tempo, a solução do problema consiste encontrar os parâmetros nodais que satisfaçam:
+
+\begin{align}
+	\frac{\partial\totalEnergy^{h}}{\partial \ePosition_{l}^{mh}} = \frac{\partial\totalEnergy^{h}}{\partial (\mathbf{e}_y)_l} = \frac{\partial\totalEnergy^{h}}{\partial \eta_l} = \mathbf{0}.
+\end{align}
+
+
+\subsection{Integração Temporal e solução do problema não-linear}
+
+Para a resolução do problema não-linear, vamos reescrever o princípio da estacionariedade em função da variável $\SolidPos$, que consiste em um vetor que contém todos os parâmetros nodais da estrutura (posições, vetores generalizados e taxa de variação linear da espessura) da seguinte forma:
+
+\begin{align}
+	\frac{\partial\totalEnergy}{\partial\SolidPos} = \frac{\partial\extEnergy}{\partial \SolidPos} + \frac{\partial\kinEnergy}{\partial \SolidPos} + \frac{\partial\intEnergy}{\partial \SolidPos} = \mathbf{0},
+\end{align}
+
+\noindent ou ainda,
+
+\begin{align}
+	- \concLoad^{ext}(t) + \solidMass\SolidAccel_{}+ \concLoad^{int}(\SolidPos) + \solidDamping\SolidVel_{} = \mathbf{0}, \label{eq:equi_forma_matricial}
+\end{align}
+
+\noindent na qual $ \concLoad^{int}(\SolidPos)$ representa as forças internas provenientes da variação da energia potencial interna, $\solidMass$ é a conhecida como matriz de massa proveniente da variação da energia cinética e $\mathbf{F}^{ext}$ representam as forças externas na estrutura fruto da variação da energia potencial das forças externas. O termo $\solidDamping$ representa uma matriz de amortecimento proporcional a massa, e $\SolidVel_{}$ a velocidade nodal.
+
+Nesse trabalho, para a discretização temporal das equações, será utilizado o integrador de Newmark, visto que o mesmo demonstrou estabilidade e eficácia na vasta gama de trabalhos envolvendo o MEF posicional com sua aplicação (\cite{CodaG:2004,CodaP:2010,CarrazedoC:2010,CodaP:2011,SanchesC:2016}).
+  
+A integração temporal das equações inicia-se com a discretização do tempo de maneira que:
+
+\begin{align}
+	t_{n+1} = t_{n} + \Delta t, \label{eq:disc_tempo}
+\end{align}
+
+\noindent na qual $t_{n+1}$ representa o tempo no instante atual, $t_{n}$ o instante de tempo anterior e  $\Delta t$ o intervalo de tempo utilizado na discretização. Utilizando as aproximações de Newmark, posição, velocidade e aceleração nos tempos $n+1$ e $n$ são relacionados por:
+
+\begin{gather}
+	\SolidPos_{n+1}=\SolidPos_{n} + \timeStep \SolidVel_{n}+\left(\frac{1}{2}-\beta\right) \timeStep^2 \SolidAccel_{n}+ \beta \timeStep^2 \SolidAccel_{n+1},\label{eq:newmark1}\\
+	\SolidVel_{n+1} = \SolidVel_{n}+(1-\gamma)\timeStep \SolidAccel_{n}+\gamma \timeStep \SolidAccel_{n+1},\label{eq:newmark2}
+\end{gather}
+
+\noindent em que $\beta$ e $\gamma$ são parâmetros dependentes do comportamento assumido para a aceleração. Para um aceleração constante adotada-se nesse trabalho $\gamma=\sfrac{1}{2}$ e $\beta=\sfrac{1}{4}$.
+
+Partindo das equações Eq. \ref{eq:newmark1} e Eq. \ref{eq:newmark2} é possível escrever a aceleração e a velocidade atual em função das posições no instante $n+1$, as incógnitas do problema, e das demais variáveis do passo anterior:
+
+\begin{align}
+	\SolidAccel_{n+1} = \frac{1}{\beta \Delta_{t}^2}\SolidPos_{n+1} - \mathbf{Q}(t_n), \label{eq:accel_newmark}
+\end{align}
+
+\begin{align}
+	\SolidVel_{n+1} = \frac{\gamma}{\beta \Delta_{t}}\SolidPos_{n+1} + \mathbf{R}(t_n) - \gamma \Delta_{t} \mathbf{Q}(t_n), \label{eq:vel_newmark}
+\end{align}
+
+\noindent em que:
+
+\begin{gather}
+	\mathbf{Q}(t_n) = \frac{\SolidPos_n}{\beta \timeStep^2} + \frac{\SolidVel_n}{\beta \timeStep} + \left(\frac{1}{2\beta} -1 \right)\SolidAccel_n,\label{eq:Qn}\\
+	\mathbf{R}(t_n) = \SolidVel_n+\timeStep(1-\gamma)\SolidAccel_n.\label{eq:Rn}
+\end{gather}
+
+Utilizando as equações Eq. \ref{eq:accel_newmark} e Eq. \ref{eq:vel_newmark} na equação do equilíbrio em forma matricial (Eq. \ref{eq:equi_forma_matricial}), tem-se para o instante $t_{n+1}$ a seguinte relação:
+
+\begin{gather}
+	\concLoad^{int}_{n+1}- \concLoad^{ext}_{n+1} + \frac{\solidMass}{\beta \timeStep^2} \SolidPos_{n+1}-\solidMass \mathbf{Q}_n+ \solidDamping\mathbf{R}_n + \frac{\gamma \solidDamping}{\beta \timeStep}\SolidPos_{n+1} - \gamma\timeStep \solidDamping\mathbf{Q}_n = \mathbf{0},
+	\label{eq:equilibrio_tn+1}
+\end{gather}
+  
+Pode-se escrever ainda o problema não linear definido pela Eq.
+\eqref{eq:equilibrio_tn+1} em função do resíduo da equação governante
+discretizada no espaço e no tempo, como:
+
+\begin{gather}
+\NNSS\left(\SolidPos_{n+1}\right) = \concLoad^{int}_{n+1}- \concLoad^{ext}_{n+1} + \frac{\solidMass}{\beta \timeStep^2} \SolidPos_{n+1}-\solidMass \mathbf{Q}_n+ \solidDamping\mathbf{R}_n + \frac{\gamma \solidDamping}{\beta \timeStep}\SolidPos_{n+1} - \gamma\timeStep \solidDamping\mathbf{Q}_n= \mathbf{0}.
+\label{eq:residuo_equilibrio_newmark}
+\end{gather}
+
+O problema não linear da Eq. \eqref{eq:residuo_equilibrio_newmark} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
+
+\begin{gather}
+\NNSS\left(\SolidPos_{n+1}^{i+1}\right) \approx \NNSS\left(\SolidPos_{n+1}^{i}\right) + \Delta\NNSS\left(\SolidPos_{n+1}^{i}\right)\Delta\SolidPos_{n+1}^{i} 
+\end{gather}
+
+\noindent em que $i$ indica o índice da iteração atual. Na primeira iteração para o cálculo de $\SolidPos_{n+1}$ utiliza-se como predição da iteração anterior os valores das variáveis no passo de tempo $n$. O método de Newton-Raphson consiste em resolver o seguinte sistema:
+
+\begin{gather}
+\Delta\NNSS\left(\SolidPos_{n+1}^{i}\right)\Delta\SolidPos_{n+1}^{i} = -\NNSS\left(\SolidPos_{n+1}^{i}\right) \label{eq:NR}
+\end{gather}
+
+\noindent com:
+
+\begin{gather}
+\Delta\NNSS\left(\SolidPos_{n+1}^{i}\right) = \frac{\partial^{2}\totalEnergy}{\partial\SolidPos^{2}} = \frac{\partial^{2}\intEnergy}{\partial \SolidPos^{2}} + \frac{\solidMass}{\beta \timeStep^2} + \frac{\gamma \solidDamping}{\beta \timeStep}.
+\end{gather}
+
+A cada iteração de Newton-Raphson atualiza-se a posição, a aceleração e a velocidade de acordo com as seguintes equações:
+
+\begin{gather}
+\SolidPos_{n+1}^{i+1} = \SolidPos_{n+1}^{i} + \Delta\SolidPos_{n+1}^{i} \label{UD1}\\
+\SolidAccel_{n+1}^{i+1} = \frac{\SolidPos_{n+1}^{i+1}}{\beta \timeStep^2} + \mathbf{Q}_n  \label{UD2} \\
+\SolidVel_{n+1}^{i+1} = \frac{\gamma \SolidPos_{n+1}^{i+1}}{\beta \timeStep} + \mathbf{R}_n - \gamma\Delta t \mathbf{Q}_n  \label{UD3}
+\end{gather}
+
+Para mais detalhes a cerca da obtenção das matrizes e vetores do método, recomenda-se a consulta de \citeonline{Coda:2018}.
+
+\subsection{Implementação Computacional}
+
+Emprega-se nesse estudo, o programa computacional de análise não-linear dinâmica de sólidos cedido pelo aluno de doutorado Rosicley Junior Rodrigues Rosa, que faz parte do grupo de pesquisa da presente autora (GRUMEC) no Programa de Pós-Graduação em Engenharia de Estruturas da Escola de Engenharia de São Carlos - USP. O referido autor começou a desenvolver o código em seu trabalho de dissertação \cite{Rosa:2021}, o qual continua em desenvolvimento atualmente em sua tese de doutorado.
+
+O código foi desenvolvido em linguagem C++ utilizando paralelização em protocolo MPI. Ressalta-se que a implementação conta com uma estratégia de acoplamento entre elementos não coplanares, que pode ser vista em \citeonline{Coda:2018}. O algoritmo que descreve a implementação computacional pode ser visualizado em Alg. \ref{alg:algoritmo_solid}. No algoritmo a variável $\mathbf{X}$ consiste em um vetor das variáveis nodais na configuração inicial.
+
+\begin{algorithm}
+	\caption{Algoritmo para problemas não-lineares dinâmicos utilizando MEF posicional}
+	\label{alg:algoritmo_solid}
+	\begin{algorithmic}[1]
+		\State Adota-se $\SolidPos = \mathbf{X}$;
+		\For {o passo de tempo $0$ até $\totalTime$} 
+		\State $i=0$;
+		\State Predição da solução: 
+		\begin{align}
+		\SolidPos_{n+1}^{0} = \SolidPos_{n},\\
+		\SolidVel_{n+1}^{0} = \SolidVel_{n},\\
+		\SolidAccel_{n+1}^{0} = \SolidAccel_{n};
+		\end{align}
+		\State Calcula-se  nível de força aplicado $\concLoad^{ext}_{n+1}(t_{n+1})$ e/ou as posições prescritas $\SolidPos_{n+1}$;
+		\State Calculam-se os valores de $\mathbf{Q}_n$ (Eq. \eqref{eq:Qn}) e $\mathbf{R}_n$ (Eq. \eqref{eq:Rn});
+		\While{($\epsilon$ < tolerância)}
+		\State $i$++;
+		\State Cálculo do incremento da variável do problema: $\SolidPos_{n+1}^{i}$ de acordo com a Eq. \eqref{eq:NR};
+		\State Atualização da solução: calculada de acordo com Eq. \eqref{UD1}, Eq. \eqref{UD2} e Eq. \eqref{UD3}.
+		\State Cálculo do erro:
+		\begin{align}
+		\epsilon = \lVert \Delta\NNSS\left(\SolidPos_{n+1}^{i+1}\right) \lVert_{L^2} 
+		\end{align}
+		ou,
+		\begin{align}
+		\epsilon = \lVert\Delta\SolidPos_{n+1}^{i+1}\lVert_{L^2} 
+		\end{align}
+		\EndWhile
+		\State Atualiza-se a solução do passo anterior:
+		\begin{align}
+		\SolidPos_{n} = \SolidPos_{n+1},\\
+		\SolidVel_{n} = \SolidVel_{n+1},\\
+		\SolidAccel_{n} = \SolidAccel_{n+1};
+		\end{align}
+		\EndFor
+	\end{algorithmic}
+\end{algorithm}
+
+\section{Exemplo de aplicação - Casca cilíndrica com \textit{snap through} dinâmico}
+
+
+Nesta seção apresenta-se um problema clássico que trata-se de uma casca cilíndrica submetida a um carregamento concentrado em seu centro geométrico. Proposto inicialmente no trabalho de 
+\cite{KuhlR:1999}, o problema apresenta grande não-linearidade geométrica devido ao efeito de \textit{snap-through}. 
+
+A geometria do problema em questão é apresentada na Fig. \ref{fig:casca_geometria}, sendo a espessura da casca equivalente a 0,1m.  A malha de elementos finitos que representa a superfície média da estrutura utilizada pode ser visualizada na Fig. \ref{fig:casca_malha}, a qual é composta por 104 elementos quadráticos e 233 nós. 
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[\label{fig:casca_geometria} Geometria ]{\includegraphics[scale=0.23, trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_geometria.pdf}} 
+	\subfloat[\label{fig:casca_malha} Malha ]{\includegraphics[scale=1.1,trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap4/casca_malha.pdf}}
+	\caption{Casca: Geometria e Malha.}
+	\label{fig:Casca}
+\end{figure}
+
+Os contornos esquerdo e direito da chapa são considerados simplesmente apoiados. O carregamento aplicado ao ponto central (ponto A) $P(t)$ é aplicado linearmente no intervalo $t=0s$ até $t=0,2s$, com $P(0)=0kN$ e $P(2s) = 200000kN$, e então mantido constante. As características físicas do material utilizado são: $\elasticModulus = 200GPa$, $\poisonsRatio = 0,25$ e $\rho = 10000 kg/m^3$ e o passo de tempo adotado na simulação é $\Delta_{t} = 0,001s$.
+
+O deslocamento vertical do nó central da casca pode ser visualizado na Fig. \ref{fig:casca_deslocamentoA}. O resultado obtido está de acordo com os resultados de \citeonline{ArgyrisPM:2003}, conforme pode ser visto na Fig. \ref{fig:casca_deslocamento_referencia}. Os campos de deslocamentos para os instantes $t = 140ms$, $t = 165ms$, $t = 174ms$ e $t = 177ms$ são apresentados na Fig. \ref{fig:casca_campos_deslocamentos}.
+
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[\label{fig:casca_deslocamentoA} Presente trabalho]{\includegraphics[scale=.6, trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_deslocamentoA.eps}} \\
+	\subfloat[\label{fig:casca_deslocamento_referencia} Referência ]{\includegraphics[scale=0.25,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_deslocamento_referencia.png}}\\
+	Fonte: \citeonline{ArgyrisPM:2003}
+	\caption{Casca: Deslocamento vertical nó central A}
+	\label{fig:casca_deslocamento_no_central}
+\end{figure}
+
+
+\begin{figure}[!htb]
+	\centering
+	\subfloat[\label{fig:casca_140ms} $t = 140ms$.]{\includegraphics[scale=1.3, trim=0.8cm 0.4cm 0.8cm 0cm, clip=true]{Imagens/Cap4/casca_140ms.pdf}}
+	\subfloat[\label{fig:casca_165ms} $t = 165ms$.]{\includegraphics[scale=1.3, trim=0.8cm 0.4cm 0.8cm 0cm, clip=true]{Imagens/Cap4/casca_165ms.pdf}} \\
+	\subfloat[\label{fig:casca_174ms} $t = 174ms$.]{\includegraphics[scale=1.3, trim=0.7cm 0.4cm 0.7cm 0cm, clip=true]{Imagens/Cap4/casca_174ms.pdf}}
+	\subfloat[\label{fig:casca_177ms} $t = 177ms$.]{\includegraphics[scale=1.3, trim=0.7cm 0.4cm 0.7cm 0cm, clip=true]{Imagens/Cap4/casca_177ms.pdf}} \\
+	{\includegraphics[scale=0.015,trim=0cm 20.0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_legenda.pdf}}
+	\caption{Casca: Campos de deslocamentos}
+	\label{fig:casca_campos_deslocamentos}
+\end{figure}
+
 
 \end{document}

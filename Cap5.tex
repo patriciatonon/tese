@@ -5,71 +5,74 @@
 % ---------------------------------------------------------- 
 % Métodos de malhas sobrepostas
 % ----------------------------------------------------------
-\chapter[Técnica de decomposição de domínios]{Técnica de decomposição de domínios} \label{capitulo:Cap5}
+\chapter[Técnica de partição de domínios]{Técnica de partição de domínios} \label{capitulo:Cap5}
 % ----------------------------------------------------------
 
 Muitas aplicações de engenharia envolvem efeitos localizados, são os casos, por exemplo, de fissuras na mecânica dos sólidos, interface entre dois tipos diferentes de fluidos na mecânica dos fluidos, ou ainda, a camada limite na interface entre sólido e fluido, entre outros. Para uma análise computacional realística desses problemas, os efeitos locais devem ser apropriadamente representados e a um custo computacional razoável. 
 
 Neste trabalho aplica-se um método decomposição de domínios que permite utilizar uma malha local mais refinada sobreposta a uma malha global com discretização mais grosseira com o intuito de melhorar a precisão local da análise numérica ou simplesmente representar a geometria local e as condições de contorno adequadamente. A malha local pode ter uma escala diferente de discretização, ou até mesmo uma aproximação numérica diferente, como no caso deste trabalho em que se utiliza o método dos elementos finitos em conjunto com a análise isogeométrica.
 
+Nesta seção apresenta-se inicialmente a técnica de combinação de espaços de funções, para posteriormente introduzir as particularidades da implementação numérica, e ao final, um exemplo de aplicação é apresentado.
+
 \section{Combinação de espaços de funções}
 
-Para o entendimento da técnica de sobreposição de malhas define-se inicialmente um dom\'inio global $\Omega_G$, de acordo com a Fig. \ref{fig:global_domain}, e um dom\'inio local, $\Omega_L$, apresentado na Fig. \ref{fig:local_domain}, menor que o dom\'inio global e que cont\'em a regi\~ao com efeitos localizados. O dom\'inio total de estudo \'e ent\~ao composto por: $\Omega = \Omega_G \cup \Omega_L$.
+Para o entendimento da técnica de partição de domínios define-se inicialmente um domínio global $\Omega_G$, de acordo com a Fig. \ref{fig:dominio_global}, e um domínio local, $\Omega_L$, apresentado na Fig. \ref{fig:dominio_local}, menor que o domínio global e que contém a região com efeitos localizados. O domínio total de estudo é então composto por: $\Omega = \Omega_G \cup \Omega_L$.
 
-Adicionalmente definem-se os contornos desses dom\'inios, conforme Fig. \ref{fig:overlap_domain}, como: $\Gamma_{G}$ contorno f\'isico de $\Omega$ determinado pelo dom\'inio global; $\Gamma_{L}$ contorno f\'isico de $\Omega$ pertencente ao dom\'inio local; $(\Gamma_{G})_{B}$ contorno que define a regi\~ao de sobreposi\c{c}\~ao pertencente ao dom\'inio global e $(\Gamma_{L})_{B}$ contorno que define a regi\~ao de sobreposi\c{c}\~ao pertencente ao dom\'inio local. \'E importante observar que os dom\'inios ditos f\'isicos podem ou n\~ao estarem presentes nos problemas de sobreposi\c{c}\~ao. A zona dita de sobreposi\c{c}\~ao $\Omega_{B} = \Omega_G \cap \Omega_L$ \'e definida pelos contornos $(\Gamma_{L})_{B}$ e $(\Gamma_{G})_{B}$.
+Adicionalmente definem-se os contornos desses domínios, conforme Fig. \ref{fig:dominio_sobreposto}, como: $\Gamma_{G}$ contorno físico de $\Omega$ determinado pelo domínio global; $\Gamma_{L}$ contorno físico de $\Omega$ pertencente ao domínio local; $(\Gamma_{G})_{B}$ contorno que define a região de sobreposição pertencente ao domínio global e $(\Gamma_{L})_{B}$ contorno que define a região de sobreposição pertencente ao domínio local. É importante ressaltar que os contornos ditos físicos podem ou não estarem presentes nos problemas de sobreposição. A zona de sobreposição, $\Omega_{B}$, é definida como: $ \Omega_{B} = \Omega_G \cap \Omega_L$, sendo limitada pelos contornos $(\Gamma_{L})_{B}$ e $(\Gamma_{G})_{B}$.
 
 
 \begin{figure}[!htb]
 	\centering
-	\subfloat[\label{fig:global_domain} Domínio Global]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominioglobal.pdf}} 
-	\subfloat[\label{fig:local_domain} Domínio Local]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominiolocal.pdf}} \\
-	\subfloat[\label{fig:overlap_domain} Domínios sobrepostos]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominiosobreposto.pdf}} 
-	\caption{Definição dos domínios global,local e de sobreposição. }
+	\subfloat[\label{fig:dominio_global} Domínio Global]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_global.pdf}} 
+	\subfloat[\label{fig:dominio_local} Domínio Local]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_local.pdf}} \\
+	\subfloat[\label{fig:dominio_sobreposto} Domínios sobrepostos]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_sobreposto.pdf}} 
+	\caption{Definição dos domínios global, local e de zona de sobreposição }
 	\label{fig:domains}
 \end{figure}
 
-O espa\c{c}o de fun\c{c}\~oes tentativa global $u_{G}(\mathbf{x})$ \'e definido como $\usolution^{G}$, e o espa\c{c}o das fun\c{c}\~oes tentativa local $u_{L}(\mathbf{x})$ por $\usolution^{L}$, com funções peso global $w_{G}(\mathbf{x})$ e local $w_{L}(\mathbf{x})$ definidas nos espa\c{c}o $\uweighting^{G}$ e $\uweighting^{L}$ respectivamente. A uni\~ao direta dos espaços de funções na zona de sobreposição obviamente não resulta em um espaço que respeita a partição da unidade. 
-Dessa forma, utiliza-se uma fun\c{c}\~ao ponderadora de combinação $b(\mathbf{x})$, de maneira a criar um novo espaço de funções tentativa e peso definidas por:
+Considerando um problema cujas as funções tentativas no domínio global sejam caracterizadas por $u_{G}(\pos)$ e definidas no espaço finito de funções $\usolution^{G}$, e cujas funções tentativas locais, $u_{L}(\pos)$, sejam definidas no espaço finito de funções $\usolution^{L}$. Define-se também, as funções peso global $w_{G}(\pos)$ e local $w_{L}(\pos)$ nos espaços das funções teste $\uweighting^{G}$ e $\uweighting^{L}$ respectivamente. A união direta dos espaços de funções na zona de sobreposição obviamente não resulta em um espaço que respeita a partição da unidade. 
+Dessa forma, utiliza-se uma função ponderadora de combinação $b(\pos)$, de maneira a criar um novo espaço de funções tentativa e peso, definido por:
 
 \begin{align}
-u(\mathbf{x}) = b(\mathbf{x})u_{G}(\mathbf{x}) + (1-b(\mathbf{x}))u_{L}(\mathbf{x}),\\
-w(\mathbf{x}) = b(\mathbf{x})w_{G}(\mathbf{x}) + (1-b(\mathbf{x}))w_{L}(\mathbf{x}),
+u(\pos) = b(\pos)u_{G}(\pos) + (1-b(\pos))u_{L}(\pos),\\
+w(\pos) = b(\pos)w_{G}(\pos) + (1-b(\pos))w_{L}(\pos),
 \end{align}
 
-\noindent com a função $b(\mathbf{x})$ apresentando valor unitário sobre o domínio global livre (sem sobreposições), e valor zero no domínio local livre, e com uma transição suave na região de sobreposição. 
+\noindent com $b(\pos)$ apresentando valor unitário sobre o domínio global livre (sem sobreposições), valor zero no domínio local livre, e apresentando uma transição suave na região de sobreposição. 
 
-Os espaços enriquecidos na região de sobreposição de malhas, s\~ao definidos por $\mathcal{S}_{enr}^{h}$ e $\mathcal{V}_{enr}^{h}$, correspondentes às fun\c{c}\~oes tentativa e teste respectivamente. A solu\c{c}\~ao de um problema de valor de contorno recai em encontrar $u^{h} \in \mathcal{S}_{enr}^{h}$ tal que $\forall$ $ w^{h} \in \mathcal{V}_{enr}^{h}$: 
+Os espaços enriquecidos na região de sobreposição de malhas, são definidos por $\mathcal{S}_{enr}$ e $\mathcal{V}_{enr}$, correspondentes às funções tentativa e teste respectivamente. A solução de um problema de valor de contorno recai em encontrar $u^{h} \in \mathcal{S}_{enr}$ tal que $\forall$ $ w^{h} \in \mathcal{V}_{enr}$: 
 
 \begin{align}
 B(u^{h},w^{h}) = F(w^{h}),
 \end{align}
 
-\noindent com $B(\bullet,\bullet)$ e $F(\bullet)$ sendo operadores bilineares e lineares respectivamente. A discretiza\c{c}\~ao de $u(\mathbf{x})$ e $w(\mathbf{x})$ no contexto dos elementos finitos \'e obtida atrav\'es das seguintes rela\c{c}\~oes:
+\noindent com $B(\bullet,\bullet)$ e $F(\bullet)$ sendo operadores bilineares e lineares respectivamente. A discretização de $u^{h}(\pos)$ e $w^{h}(\pos)$ no contexto dos elementos finitos é obtida através das seguintes relações:
 
 \begin{align}
-u^{h}(\mathbf{x}) = \sum_{A = 1}^{(n_{np})_G} (u_{G})_{A}b(\mathbf{x})(N_{G})_{A}(\mathbf{x}) + \sum_{A = 1}^{(n_{np})_L} (u_{L})_{A}(1-b(\mathbf{x}))(N_{L})_{A}(\mathbf{x}),\\
-w^{h}(\mathbf{x}) = \sum_{A = 1}^{(n_{np})_G} (w_{G})_{A}b(\mathbf{x})(N_{G})_{A}(\mathbf{x}) + \sum_{A = 1}^{(n_{np})_L} (w_{L})_{A}(1-b(\mathbf{x}))(N_{L})_{A}(\mathbf{x}),
+u^{h}(\pos) = \sum_{A = 1}^{(n_{np})_G} (u_{G})_{A}b(\pos)(N_{G})_{A}(\pos) + \sum_{A = 1}^{(n_{np})_L} (u_{L})_{A}(1-b(\pos))(N_{L})_{A}(\pos),\\
+w^{h}(\pos) = \sum_{A = 1}^{(n_{np})_G} (w_{G})_{A}b(\pos)(N_{G})_{A}(\pos) + \sum_{A = 1}^{(n_{np})_L} (w_{L})_{A}(1-b(\pos))(N_{L})_{A}(\pos),
 \end{align}
 
 \noindent com $N_{G}$ e $N_{L}$ sendo as fun\c{c}\~oes de forma global e local; e $(n_{np})_G$ e $(n_{np})_L$ o n\'umero de fun\c{c}\~oes de forma nas discretiza\c{c}\~oes global e local respectivamente. 
 
+
 \subsection{Função ponderadora de combinação}
 
-De maneira a se obter uma solu\c{c}\~ao  \'unica deseja-se que as fun\c{c}\~oes $b(\mathbf{x})(N_{G})$ e $(1-b(\mathbf{x}))(N_{L})$ sejam linearmente independentes sobre $\Omega_{B}$. Esta não é uma questão simples de ser garantida de forma geral. Considerando que as fun\c{c}\~oes base local e global possuem grau polinomial $p$ e s\~ao linearmente independentes, e que $b(\mathbf{x})$ e $(1-b(\mathbf{x}))$ s\~ao linearmente independentes, adota-se $b(\mathbf{x})$ com grau polinomial 1 vez superior as fun\c{c}\~oes base ($p+1$). Isso resulta um espaço enriquecido onde o número de funções de forma em cada ponto da zona de superposição é compatível com o grau do polinômio.  
+De maneira a se obter uma solução  única deseja-se que as funções $b(\pos)(N_{G})$ e $(1-b(\pos))(N_{L})$ sejam linearmente independentes sobre $\Omega_{B}$. Considerando que as funções base local e global possuem grau polinomial $p$ e são linearmente independentes, e que $b(\pos)$ e $(1-b(\pos))$ são linearmente independentes, adota-se $b(\pos)$ com grau polinomial uma vez superior as funções base ($p+1$). Isso resulta um espaço enriquecido onde o número de funções de forma em cada ponto da zona de superposição é compatível com o grau do polinômio.  
 
 Nesse trabalho aplicam-se funções de forma locais e globais de grau polinomial quadrático. Dessa forma, a função de combinação foi definida como cúbica e é expressa por:
 
 \begin{align}
-b(\mathbf{x}) =  \begin{cases} 2\left(\frac{X_{L}(\mathbf{x})}{\delta\mathbf(x)}\right)^3  -   3\left(\frac{X_{L}(\mathbf{x})}{\delta\mathbf(x)}\right)^2   \mbox{se } X_{G}(\mathbf{x})> 0 \ e \ X_{L}(\mathbf{x})> 0 \\
-1  \ X_{L}(\mathbf{x}) \leq 0  \\
-0  \ X_{G}(\mathbf{x}) \leq 0 \end{cases},
+b(\pos) =  \begin{cases} 2\left(\frac{Y_{L}(\pos)}{\delta\pos}\right)^3  -   3\left(\frac{Y_{L}(\pos)}{\delta\pos}\right)^2   \mbox{se } Y_{G}(\pos)> 0 \ e \ Y_{L}(\pos)> 0 \\
+1  \ Y_{L}(\pos) \leq 0  \\
+0  \ Y_{G}(\pos) \leq 0 \end{cases},
 \end{align}
 
-\noindent com $X_{L}(\mathbf{x})$ a função distância assinalada medida a partir de $(\Gamma_{L})_{B}$, com valores positivos dentro do domínio local e negativos fora, e $X_{G}(\mathbf{x})$ a função distância assinalada medida a partir de $(\Gamma_{G})_{B}$, sendo positivo se o ponto pertence à $\Omega_{G}$ e negativos caso contr\'ario. Nota-se que os pontos em que ambas funções distância assinalada são positivos estão contidos dentro da zona de sobreposição. O parâmetro $\delta$ \'e obtido por $\delta(\mathbf{x}) = X_{L}(\mathbf{x}) + X_{G}(\mathbf{x})$, e coincide com a espessura da zona de sobreposi\c{c}\~ao quando $(\Gamma_{L})_{B}$ e $(\Gamma_{G})_{B}$ s\~ao paralelos.
+\noindent com $Y_{L}(\pos)$ a função distância assinalada medida a partir de $(\Gamma_{L})_{B}$, com valores positivos dentro do domínio local e negativos fora, e $Y_{G}(\pos)$ a função distância assinalada medida a partir de $(\Gamma_{G})_{B}$, sendo positivo se o ponto pertence à $\Omega_{G}$ e negativos caso contrário. Nota-se que os pontos em que ambas funções distância assinalada são positivos estão contidos dentro da zona de sobreposição. O parâmetro $\delta$ é obtido por $\delta(\pos) = Y_{L}(\pos) + X_{G}(\pos)$, e coincide com a espessura da zona de sobreposição quando $(\Gamma_{L})_{B}$ e $(\Gamma_{G})_{B}$ são paralelos.
 
-Na pr\'atica, considera-se que o dom\'inio global tem o tamanho do dom\'inio total, ficando a defini\c{c}\~ao de $(\Gamma_{G})_{B}$ para uma etapa posterior, baseado na forma do modelo local, e os elementos e n\'os sem suporte f\'isico ap\'os a obten\c{c}\~ao do novo espa\c{c}o de fun\c{c}\~oes s\~ao desativados da an\'alise.
+Na prática, considera-se que o domínio global tem o tamanho do domínio total, ficando a definição de $(\Gamma_{G})_{B}$ para uma etapa posterior, baseado na forma do modelo local, e os elementos e nós sem suporte físico após a obtenção do novo espaço de funções são desativados da análise.
 
-O contorno $(\Gamma_{G})_{B}$ pode ser obtido atrav\'es de uma r\'eplica do contorno $(\Gamma_{L})_{B}$ a uma dist\^ancia paralela $\delta$ do mesmo.  Na Fig. \ref{fig:ZonadeSobreposicao} apresenta-se um exemplo do espaço de funções obtido para um caso unidimensional a partir de funções base Lagrangianas quadráticas para os domínios global e local.
+O contorno $(\Gamma_{G})_{B}$ pode ser obtido através de uma réplica do contorno $(\Gamma_{L})_{B}$ a uma distância paralela $\delta$ do mesmo.  Na Fig. \ref{fig:ZonadeSobreposicao} apresenta-se um exemplo do espaço de funções obtido para um caso unidimensional a partir de funções base Lagrangianas quadráticas para os domínios global e local.
 
 
 \begin{figure}[!htb]
@@ -93,12 +96,21 @@ Após a definição $(\Gamma_{G})_{B}$ é necessária uma metodologia eficiente 
 Os parâmetros de estabilização utilizados nesta formulação ainda necessitam um estudo mais aprofundado. No presente trabalho, faz-se a combinação dos parâmetros calculados em cada discretização:
 
 \begin{align}
-\SUPG(\mathbf{x}) =  b(\mathbf{x})\SUPG^{G}(\mathbf{x}) + (1-b(\mathbf{x}))\SUPG^{L}(\mathbf{x}),\\
-\PSPG(\mathbf{x}) =  b(\mathbf{x})\PSPG^{G}(\mathbf{x}) + (1-b(\mathbf{x}))\PSPG^{L}(\mathbf{x}),\\
-\LSIC(\mathbf{x}) =  b(\mathbf{x})\LSIC^{G}(\mathbf{x}) + (1-b(\mathbf{x}))\LSIC^{L}(\mathbf{x}),
+\SUPG(\pos) =  b(\pos)\SUPG^{G}(\pos) + (1-b(\pos))\SUPG^{L}(\pos),\\
+\PSPG(\pos) =  b(\pos)\PSPG^{G}(\pos) + (1-b(\pos))\PSPG^{L}(\pos),\\
+\LSIC(\pos) =  b(\pos)\LSIC^{G}(\pos) + (1-b(\pos))\LSIC^{L}(\pos),
 \end{align}
 
 \noindent com $\SUPG^{G}$, $\PSPG^{G}$ e $\LSIC^{G}$ sendo os parâmetros de estabilização na malha global e $\SUPG^{L}$, $\PSPG^{L}$ e  $\LSIC^{L}$ sendo os parâmetros de estabilização na malha local.
+
+
+
+Para a aplicação da metodologia no contexto da dinâmica dos fluidos computacional, na qual as variáveis de interesse são: $\velocityh(\pos,t)$ e $\pressh(\pos,t)$ e as funções teste são: $\utesth(\pos)$, $\ptesth(\pos)$ 
+
+%\velocityh(\pos,t)
+%\pressh(\pos,t)
+%\utesth(\pos)
+%\ptesth(\pos)
 
 
 \section{Implementação Computacional}
@@ -122,7 +134,7 @@ O algoritmo que descreve esse processo de solução das equações da DFC consid
 		\State Determinação dos elementos e células da zona de sobreposição;
 		\State Busca dos pontos de integração na malha global equivalentes aos definidos para à malha local;
 		\State Definição dos nós inativos da malha global;
-		\For {o passo de tempo $0$ até \timeInterval} 
+		\For {o passo de tempo $0$ até $\totalTime$} 
 		\State $i=0$;
 		\State Predição da solução: aplicação das Eq. \eqref{eq:Pred1}, Eq. \eqref{eq:Pred2} e Eq. \eqref{eq:Pred3};
 		\While{($\epsilon$ < tolerância)}
