@@ -384,15 +384,13 @@ Ressalta-se ainda, que na interface entre os \textit{patches}, devido a natureza
 	\label{fig:multiplos_patches}
 \end{figure}
 
-parei \aquiiiiii
 \section{Análise Isogeométrica}\label{capitulo:Cap3:IGA}
 
+Para a aplicação da IGA no contexto da Dinâmica dos Fluidos Computacional, é utilizada a mesma metodologia apresentada no Cap. \ref{capitulo:Cap2}. A aproximação da geometria, realizada no contexto do MEF pela Eq. \ref{eq:interp_geo} é substituída pela abordagem Isogeométrica através do uso de geometrias NURBS, descritas pelas equações: Eq. \ref{eq:curveNURBS}, Eq. \ref{eq:surfaceNURBS} ou Eq. \ref{eq:solidNURBS} para os casos de curvas, superfícies ou sólidos, respectivamente. As funções tentativa para velocidade e pressão, e as funções teste associadas à elas, apresentadas nas Eqs. (\ref{eq:interp_vel} - \ref{eq:inter_ptest}) seguem exatamente a mesma lógiga, poré, as funções de form $N$, são substituidas pelas funções base NURBS $\fNURBS_{i,p}(\xsi)$, $\fNURBS_{i,j:p,q}(\xsi,\eta)$ e $\fNURBS_{i,j,k:p,q,r}(\xsi,\eta,\zeta)$, a depender da geometria em análise.
 
-Para a aplicação da IGA no contexto da Dinâmica dos Fluidos Computacional, será utilizada como base a metodologia apresentada no Cap. \ref{capitulo:Cap2}. Nesse contexto, a aproximação da geometria, realizada no contexto do MEF pela Eq. \ref{eq:interp_geo}, será substituída pela abordagem Isogeométrica através do uso de geometrias NURBS, descritas pelas equações: Eq. \ref{eq:curveNURBS}, Eq. \ref{eq:surfaceNURBS} ou Eq. \ref{eq:solidNURBS} para os casos de curvas, superfícies ou sólidos, respectivamente.
+Assim, a implementação da IGA para escoamentos incompressíveis segue o mesmo roteiro apresentada no Alg. \ref{capitulo:Cap2:DFCComputationalCode}, levando-se em consideração as mudanças nas funções de forma, a forma de proceder com a integração numérica e as particularidades no cálculo do parâmetros de estabinização, conforme descritos na sequência desta seção.
 
-As funções tentativa para velocidade e pressão, e as funções teste associadas à elas, apresentadas nas Eq. \eqref{eq:interp_vel} à Eq. \eqref{eq:inter_ptest} como $N$, são equivalentes à $\fNURBS_{i,p}(\xsi)$, $\fNURBS_{i,j:p,q}(\xsi,\eta)$ e $\fNURBS_{i,j,k:p,q,r}(\xsi,\eta,\zeta)$ a depender da geometria em análise.
-
-A integração numérica nas células é realizada através da quadratura Gaussiana. Considerando o domínio paramétrico de uma célula: $\bar{\domain}^{e}$, e o domínio de integração ou parental: $\tilde{\domain}^{e}$, apresentados na Fig.\ref{fig:espacos_NURBS}, definidos respectivamente pelos vetores de coordenadas paramétricas $\coordAdimen\left(\xsi,\eta,\zeta\right)$ e $\tilde{\coordAdimen}(\tilde{\xsi},\tilde{\eta},\tilde{\zeta})$, a matriz jacobiana do mapeamento do espaço físico, com coordenadas $\pos \left(y_1,y_2,y_3\right)$,  para o espaço de quadratura, é definida por:
+A integração numérica é realizada no domínio de cada célula através da quadratura Gaussiana. Considerando o domínio paramétrico de uma célula: $\bar{\domain}^{e}$, e o domínio de integração ou parental: $\tilde{\domain}^{e}$, apresentados na Fig.\ref{fig:espacos_NURBS}, definidos respectivamente pelos vetores de coordenadas paramétricas $\coordAdimen\left(\xsi,\eta,\zeta\right)$ e $\tilde{\coordAdimen}(\tilde{\xsi},\tilde{\eta},\tilde{\zeta})$, a matriz jacobiana do mapeamento do espaço físico, com coordenadas $\pos \left(y_1,y_2,y_3\right)$,  para o espaço de quadratura, é definida por:
 
 \begin{align}
 \frac{d\pos}{d\tilde{\coordAdimen}} = \frac{d\pos}{d\coordAdimen} \frac{d\coordAdimen}{d\tilde{\coordAdimen}}, \label{eq:integ}
@@ -400,9 +398,9 @@ A integração numérica nas células é realizada através da quadratura Gaussi
 
 \noindent com $\tilde{\xi}, \tilde{\eta}, \tilde{\zeta} \in [-1, 1]$.
 
-O primeiro termo à direita da igualdade da Eq. \eqref{eq:integ} é calculado a partir das derivadas parciais da Equação: Eq. \eqref{eq:curveNURBS}, Eq. \eqref{eq:surfaceNURBS} ou Eq. \eqref{eq:solidNURBS}, a depender do tipo da geometria em questão (curva, superfície ou sólido, respectivamente).
+O primeiro termo à direita da igualdade da Eq. \eqref{eq:integ} é calculado a partir das derivadas parciais da Equação Eq. \eqref{eq:curveNURBS}, Eq. \eqref{eq:surfaceNURBS} ou Eq. \eqref{eq:solidNURBS}, a depender do tipo da geometria em questão (curva, superfície ou sólido, respectivamente).
 
-Para a obtenção do segundo termo à direita, primeiramente é necessário definir-se a relação entre as coordenadas  do domínio paramétrico e do domínio parental. Considerando-se a célula $\bar{\domain}^{e} = [\xsi_{i},\xsi_{i+1}] \times [\eta_{j},\eta_{j+1}] \times [\zeta_{k},\zeta_{k+1}]$, pode-se calcular $\xsi,\eta, \zeta$ $\in \bar{\domain}^{e}$ a partir de $\tilde{\xsi},\tilde{\eta}, \tilde{\zeta}$ $\in \tilde{\domain}^{e}$ através das seguintes relações: 
+Para a obtenção do segundo termo à direita, primeiramente é necessário definir a relação entre as coordenadas  do domínio paramétrico e do domínio parental. Considerando-se a célula $\bar{\domain}^{e} = [\xsi_{i},\xsi_{i+1}] \times [\eta_{j},\eta_{j+1}] \times [\zeta_{k},\zeta_{k+1}]$, pode-se calcular $\xsi,\eta, \zeta$ $\in \bar{\domain}^{e}$ a partir de $\tilde{\xsi},\tilde{\eta}, \tilde{\zeta}$ $\in \tilde{\domain}^{e}$ através das seguintes relações: 
 
 \begin{align}
 \xsi = \xsi_{i} + \left(\tilde{\xsi}+1\right) \left(\frac{\xsi_{i+1}-\xsi_{i}}{2}\right), \label{eq:derXsi}
@@ -418,14 +416,14 @@ Para a obtenção do segundo termo à direita, primeiramente é necessário defi
 \zeta = \zeta_{i} + \left(\tilde{\zeta}+1\right) \left(\frac{\zeta_{i+1}-\zeta_{i}}{2}\right), \label{eq:derZeta}
 \end{align}
 
-\noindent assim, $\frac{d\coordAdimen}{d\tilde{\coordAdimen}}$ é obtido derivando-se parcialmente às expressões apresentadas em: Eq. \ref{eq:derXsi}, Eq. \ref{eq:derNeta} e Eq. \ref{eq:derZeta}.
+\noindent assim, $\frac{d\coordAdimen}{d\tilde{\coordAdimen}}$ é obtido derivando-se parcialmente Eq. (\ref{eq:derXsi}, \ref{eq:derNeta} e \ref{eq:derZeta}).
 
 
 \subsection{Parâmetros de estabilização}\label{capitulo:Cap3:RepreGeo:taus2}
 
-Para a determinação dos parâmetros de estabilização $\tau$, de acordo com o exposto na Subseção \ref{capitulo:Cap2:FormaFraca:taus}, faz-se necessário a determinação de um tensor métrico, $\matrixG$ (Eq. \ref{eq:tensor_metrico}), o qual depende da matriz jacobiana transformada, $\matrixQhat$, definida na Eq. \ref{eq:q_chap}.
+Para a determinação dos parâmetros de estabilização $\tau$, de acordo com o exposto na Subseção \ref{capitulo:Cap2:FormaFraca:taus}, faz-se necessária a determinação de um tensor métrico, $\matrixG$ (Eq. \ref{eq:tensor_metrico}), o qual depende da matriz jacobiana transformada, $\matrixQhat$, definida na Eq. \ref{eq:q_chap}.
 
-Devido a diferença entre o espaço paramétrico utilizado na definição das funções de base e do espaço paramétrico de integração, definido aqui como espaço parental, a matriz $\matrixQ$ será reescrita como:
+Dada a diferença entre o espaço paramétrico utilizado na definição das funções de base e do espaço paramétrico de integração, definido aqui como espaço parental, a matriz $\matrixQ$ é reescrita como:
 
 \begin{align}
 	\matrixQ&=\left(\frac{\partial\pos}{\partial\tilde{\coordAdimen}}\right).
@@ -439,7 +437,7 @@ Para a obtenção de $\matrixQhat$, de acordo com a Eq. \ref{eq:q_chap}, define-
 
 \noindent que representa a relação entre o espaço paramétrico de preferência, onde o comprimento efetivo da célula deve ser medido, e o espaço de integração, onde são definidos os pontos de quadratura.
 
-O espaço paramétrico de preferência, para problemas unidimensionais, é definido para cada célula por meio de uma interpolação usando polinômios de Bernstein $B_{b}^{p}$ de ordem $p$:
+O espaço paramétrico de preferência para problemas unidimensionais é definido para cada célula por meio de uma interpolação usando polinômios de Bernstein $B_{b}^{p}$ de ordem $p$:
 
 \begin{align}
 	\hat{\xsi} \left(\tilde{\xsi}\right) = \sum_{b=0}^{p} \hat{\xsi}_b B_{b}^{p}\left(\tilde{\xsi}\right),
@@ -459,7 +457,7 @@ Os pontos de controle correspondentes no espaço de integração são dados por:
 	\tilde{\xsi}_a = \frac{\Delta{\hat{\xsi}}}{p} \sum_{b=0}^{p}b\left\{\matrixCinv\right\}_{ba},
 \end{align}
 
-\noindent com $a=0,...,p$. $\matrixC$ consiste no operador de extração de Bézier, que relaciona as funções B-spline globais às funções de Bernstein locais, cuja obtenção, nesse trabalho, é realizada de acordo com o exposto em \citeonline{BordenSEH}.
+\noindent com $a=0,...,p$. $\matrixC$  sendo o operador de extração de Bézier, que relaciona as funções B-spline globais às funções de Bernstein locais, cuja obtenção, neste trabalho, é realizada de acordo com o exposto em \citeonline{BordenSEH}.
 
 O comprimento efetivo da célula para $a = 1, ..., p$ pode ser calculado por:
 
@@ -469,7 +467,7 @@ O comprimento efetivo da célula para $a = 1, ..., p$ pode ser calculado por:
 \end{align}
 
 
-A partir disso pode-se definir o razão entre o comprimento da célula de Bézier e o comprimento efetivo da célula. Considerando um problema 1D, uma das proposta dos autores para $D$, utilizada nesse trabalho, chama-se \textit{RQD-MAX} e consiste em:
+A partir disso pode-se definir o razão entre o comprimento da célula de Bézier e o comprimento efetivo da célula. Considerando um problema 1D, uma das proposta dos autores para $D$, utilizada neste trabalho, chama-se \textit{RQD-MAX} e consiste em:
 
 
 \begin{align}
@@ -480,7 +478,7 @@ A partir disso pode-se definir o razão entre o comprimento da célula de Bézie
 
 \begin{align}
 	D&={p}\left(\min_{a=1,...,p} \sum_{b=0}^{p} b \left(\left\{\matrixCinv\right\}_{ba} - \left\{\matrixCinv\right\}_{ba-1}\right)\right)^{-1} \\
-	  &={p}\max_{a=1,...,p}\left(\sum_{b=0}^{p} b \left(\left\{\matrixCinv\right\}_{ba} - \left\{\matrixCinv\right\}_{ba-1}\right)\right)^{-1}
+	  &={p}\max_{a=1,...,p}\left(\sum_{b=0}^{p} b \left(\left\{\matrixCinv\right\}_{ba} - \left\{\matrixCinv\right\}_{ba-1}\right)\right)^{-1}.
 \end{align}
 
 Para múltiplas dimensões o coeficiente de transformação $D$ é obtido individualmente para cada uma das direções do espaço paramétrico, e os componentes da matriz de transformação $\matrixD$ são determinados como:
@@ -494,13 +492,15 @@ Para múltiplas dimensões o coeficiente de transformação $D$ é obtido indivi
 
 \section{Verificação e aplicações}
 
-Para aplicação da IGA em problemas da DFC utilizou-se o roteiro da implementação computacional apresentada no Alg. \ref{capitulo:Cap2:DFCComputationalCode}, levando-se em consideração as mudanças na formulação salientadas na Seção \ref{capitulo:Cap3:IGA}. Os exemplos escolhidos para a verificação do código computacional foram o escoamento sobre um cilindro, e um escoamento sobre canal com degrau, em ambas análises, fez-se uso de células 3d. Os resultados obtidos são apresentados nas subseções sequentes.
+ Os exemplos escolhidos para a verificação do código computacional IGA para escoamentos incompresséveis são o escoamento sobre um cilindro e o escoamento sobre canal com degrau. Em ambas análises empregou-se discretização tridimensional para uma verificação mais completa do código. 
 
-\subsection {Escoamento sobre um cilindro}
+\subsection {Escoamento sobre um cilindro - Discretização isogeométrica}
+
+\textcolor{red}{Descreva o problema aqui, mesmo que seja apenas para dizer que trata-se do mesmo problema simulado anteriormente}
 
 \subsubsection {Geração da malha NURBS} \label{Cap3:VerApl:Cilindro:Malha}
 
-Para a análise do problema de escoamento sobre um cilindro utilizando-se IGA  com células 3d, por se tratar de uma geometria de simples complexidade, a malha foi desenvolvida pela própria autora. Para isso, inicialmente, com base nas dimensões bidimensionais do exemplo apresentado na Subseção \ref{capitulo:Cap2:VerApl:Cilindo}, dividiu-se o domínio físico em 12 \textit{patches}, conforme pode ser observado no esquema apresentado na Fig. \ref{fig:cilindro_IGA_patches}.
+Para a análise do problema de escoamento sobre um cilindro utilizando-se discretização isogeométrica espacial, dada a simplicidade da geometria envolvida, a malha é desenvolvida pela própria autora, i.e., sem o emprego de programas CAD para geração da malha isogeométrica. Para isso, com base nas dimensões bidimensionais do exemplo apresentado na Subseção \ref{capitulo:Cap2:VerApl:Cilindo}, divide-se o domínio físico em 12 \textit{patches}, conforme pode ser ilustrado na Fig.~\ref{fig:cilindro_IGA_patches}.
 
 \begin{figure}[htb!]
 	\centering 
@@ -511,9 +511,9 @@ Para a análise do problema de escoamento sobre um cilindro utilizando-se IGA  c
 
 O processo de geração da malha, simplificadamente, consiste em se escolher vetores de $knots$, pontos de controle, e pesos adequados para a descrição da geometria de cada \textit{patch}, assegurando simultaneamente o refinamento necessário para a análise numérica.
 
-Para a geração do primeiro \textit{patch}, $P_0$, o qual contém $1/4$ do cilindro em seu interior, iniciou-se pela discretização de uma circunferência definida na direção paramétrica $\xsi$. Utilizando o número mínimo de pontos de controle necessários para representar exatamente $1/4$ de circunferência, de diâmetro D, com o uso de funções quadráticas NURBS, o vetor de \textit {knots} aberto foi definido por: $\Xsi=\left[0,0,0,1,1,1\right]$, os pontos de controle como: $\CP_0=[\frac{\sqrt{2}D}{4},-\frac{\sqrt{2}D}{4},0]$, $\CP_1=[\frac{D}{\sqrt{2}},0,0]$, $\CP_2=[\frac{\sqrt{2}D}{4},\frac{\sqrt{2}D}{4},0]$, e os pesos: $w_0 = 1$, $w_1 = \frac{\sqrt{2}}{2}$ e $w_2 = 1$. A disposição dos pontos de controle e a curva resultante, podem ser observados na Fig. \ref{fig:cilindro_circ_ini}.
+Para a geração do primeiro \textit{patch}, $P_0$, cobre $1/4$ da circunferência do cilindro, inicia-se pela discretização de uma circunferência definida na direção paramétrica $\xsi$. Utilizando o número mínimo de pontos de controle necessários para representar exatamente $1/4$ de circunferência de diâmetro D com o uso de funções quadráticas NURBS. O vetor de \textit{knots} aberto adotado é definido por: $\Xsi=\left[0,0,0,1,1,1\right]$, sendo os pontos de controle  $\CP_0=[\frac{\sqrt{2}D}{4},-\frac{\sqrt{2}D}{4},0]$, $\CP_1=[\frac{D}{\sqrt{2}},0,0]$ e $\CP_2=[\frac{\sqrt{2}D}{4},\frac{\sqrt{2}D}{4},0]$, e os pesos: $w_0 = 1$, $w_1 = \frac{\sqrt{2}}{2}$ e $w_2 = 1$. A disposição dos pontos de controle e a curva resultante é apresentada na Fig.˜\ref{fig:cilindro_circ_ini}.
 
-Na sequência realizou-se o procedimento de refinamento por inserção sucessiva de coordenadas paramétricas no vetor de \textit{knots}. O algoritmo utilizado para este procedimento pode ser encontrado em \citeonline {PiegT:1996}. Na Fig. \ref{fig:cilindro_circ_ref} apresenta-se um exemplo dos pontos de controle resultantes após a inserção das coordenadas paramétricas $1/4, 1/2 \ \text{e} \ 3/4$. Essa inserção resultará em três novas células físicas. A quantidade de coordenadas paramétricas a ser inserida depende da discretização requerida à analise numérica.
+Na sequência refina-se a discretização por inserção sucessiva de coordenadas paramétricas no vetor de \textit{knots}. O algoritmo utilizado para este procedimento pode ser encontrado em \citeonline {PiegT:1996}. Na Fig. \ref{fig:cilindro_circ_ref} apresenta-se um exemplo dos pontos de controle resultantes após a inserção das coordenadas paramétricas $1/4, 1/2 \ \text{e} \ 3/4$. Essa inserção resulta em três novas células físicas. A quantidade de coordenadas paramétricas a ser inserida depende da discretização desejada para a analise numérica.
 
 
 \begin{figure}[!t]
@@ -524,9 +524,9 @@ Na sequência realizou-se o procedimento de refinamento por inserção sucessiva
 	\label{fig:cilindro_geo0}
 \end{figure}
 
+Dando continuidade para a representação da geometria do \textit{patch} $P_0$, gera-se uma curva na direção paramétrica $\xsi$ que define o contorno direito do domínio. A curva é definida considerando o vetor de \textit{knots} atualizado $\Xsi=\left[0,0,0,1/4,1/2,3/4,1,1,1\right]$ e  consiste em uma reta cujas coordenadas de suas extremidades inicial e final são: $\pos_0 =[2,-2,0]$ e $\pos_1 =[2, 2 ,0]$, respectivamente. Os $6$ pontos de controle são distribuídos sobre a reta através de um espaçamento não uniforme: nas extremidades, a distância entre pontos consecutivos corresponde à metade do espaçamento adotado no interior, enquanto a região central é subdividida uniformemente, conforme pode ser observado na Fig. \ref{fig:cilindro_pc_superficie}. Essa distribuição não uniforme dos pontos de controle proporciona uma distribuição uniforme das células mapeadas no espaço físico. Para essa curva, todos os pesos são definidos como $1$.
 
-Dando continuidade a descrição exemplificativa da geometria do \textit{patch} $P_0$, gerou-se uma curva na direção paramétrica $\xsi$ que define o contorno direito do domínio. A curva é definida considerando o vetor de \textit{knots} atualizado $\Xsi=\left[0,0,0,1/4,1/2,3/4,1,1,1\right]$, e,  consiste em uma reta cujas coordenadas de suas extremidades inicial e final são: $\pos_0 =[2,-2,0]$ e $\pos_1 =[2, 2 ,0]$, respectivamente. Os $6$ pontos de controle são distribuídos sobre a reta através de um espaçamento não uniforme: nas extremidades, a distância entre pontos consecutivos corresponde à metade do espaçamento adotado no interior, enquanto a região central é subdividida uniformemente, conforme pode ser observado na Fig. \ref{fig:cilindro_pc_superficie}. Essa distribuição não uniforme dos pontos de controle, proporcionada para essa discretização, uma distribuição uniforme das células mapeadas no espaço físico. Para essa curva, os todos os pesos foram definidos como $1$.
-
+aquiiiiiiii
 A superfície do domínio foi gerada discretizando-se a direção $\eta$ do espaço paramétrico. Para isso, os $m+1$ pontos de controle nessa direção foram posicionados ao longo das retas que conectam os pontos de controle da primeira camada (circunferência) aos da última camada (reta). A distribuição desses pontos seguiu uma progressão geométrica, de modo que as células menores se localizassem próximas ao cilindro, captando adequadamente os efeitos de camada limite. Para garantir que essa distribuição também se refletisse nas células mapeadas para o espaço físico, aplicou-se um fator de correção aos pontos de controle intermediários $B_{i,1}$ e $B_{i,m-1}$, para $i = 0, 1, \dots , n$, deslocando-os em direção aos pontos de controle das extremidades.
 
 A fim de exemplificar a geração da superfície, adotou-se a discretização mínima necessária, utilizando apenas três pontos de controle na direção $\eta$, para o emprego de funções quadráticas e vetor de \textit{knots} aberto $\mathcal{H}=[0,0,0,1,1,1]$, conforme pode-se observar na Fig. \ref{fig:cilindro_pc_superficie}. Na fig. \ref{fig:cilindro_malhafisica_superficie} apresentam-se as células mapeadas do espaço paramétrico para o espaço físico. Salienta-se que os pontos de controle obtidos nessa etapa foram definidos com peso unitário.
