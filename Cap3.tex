@@ -49,7 +49,7 @@
 
 A Análise Isogeométrica (IGA) é uma técnica numérica introduzida por \citeonline{HughesCB:2005} para obtenção de soluções aproximadas de equações diferenciais. O método pode ser entendido como uma generalização do método dos elementos finitos clássico a partir do uso de funções base especiais. 
 
-Na Análise Isogeométrica, as funções base escolhidas na discretização da geometria do problema e de suas variáveis são aquelas utilizadas nos sistemas CAD, sendo as funções do tipo NURBS as mais aplicadas (ver, por exemplo, \citeonline{PiegT:1996}). O grande impulso para o desenvolvimento da técnica foi proporcionar a integração entre a engenharia de projeto, com modelos baseados em CAD, e as simulações numéricas, com modelos principalmente baseados no MEF, de forma que ambas trabalhem com somente um modelo geométrico.
+Na Análise Isogeométrica, as funções base escolhidas na discretização da geometria do problema e de suas variáveis são aquelas utilizadas nos sistemas CAD, sendo as funções do tipo NURBS \textcolor{red}{Definir as siglas CAD e NURBS} as mais aplicadas (ver, por exemplo, \citeonline{PiegT:1996}). O grande impulso para o desenvolvimento da técnica foi proporcionar a integração entre a engenharia de projeto, com modelos baseados em CAD, e as simulações numéricas, com modelos principalmente baseados no MEF, de forma que ambas trabalhem com somente um modelo geométrico.
 
 A IGA apresenta vantagens significativas, uma vez que permite a representação exata de diversas geometrias comuns, como cônicas, quádricas, círculos, cilindros, esferas e elipsoides, além de dispor de algoritmos eficientes e estáveis para a geração de objetos NURBS. As funções NURBS, em particular, possuem propriedades matemáticas que as tornam adequadas para aplicações numéricas, destacando-se a elevada suavidade, a alta capacidade de aproximação e a possibilidade de refinamento local por meio da inserção de \textit{knots}, os quais correspondem às coordenadas do espaço paramétrico nas quais as funções são definidas.
 
@@ -57,13 +57,11 @@ Este capítulo apresenta uma breve introdução à Análise Isogeométrica (IGA)
 
 %\vspace{-0.1cm}
 
-\section{Noções Gerais de IGA}
+\section{Representação Geométrica com B-splines e NURBS}
 
 No contexto do MEF isoparamétrico, a formulação é construída a partir da definição de uma malha e de seus elementos, os quais são representados tanto no espaço físico quanto no espaço de coordenadas naturais adimensionais.  Cada elemento é caracterizado pelas coordenadas de seus nós, sendo os graus de liberdade do problema associados aos valores das funções de forma interpolados nesses pontos nodais.
 
 Dentro da IGA têm-se duas noções de malha: uma malha de pontos de controle e uma malha física. A malha de pontos de controle é muito semelhante a uma malha de elementos finitos, entretanto, ela não define a geometria, ela é apenas um esqueleto que controla o formato da geometria (ver Fig. \ref{fig:espacos_NURBS}), visto que as funções de forma baseadas em \textit{B-Splines} não são necessariamente interpolatórias. Dessa forma, os graus de liberdade do problema são associados aos pontos de controle, cujas posições não coincidem, necessariamente, com a geometria representada.
-
-\aquiiii
 
 \begin{figure}[htb!]
 	\centering 
@@ -72,8 +70,7 @@ Dentro da IGA têm-se duas noções de malha: uma malha de pontos de controle e 
 	\label{fig:espacos_NURBS}
 \end{figure}
 
-\aquiiii
-A malha física representa a geometria discretizada. Dentro da malha física podem ser definidos dois tipos de elementos, um macro-elemento, denominado de \textit{patch}, e o \textit{knot span}, que é o equivalente a um elemento finito e será denominado como célula ao longo desse texto. Cada \textit{patch} é composto por um conjunto de células. Muitas geometrias simples podem ser discretizadas apenas com um \textit{patch}, entretanto, a depender da complexidade da geometria ou de requisitos de parametrização, se torna necessário o uso de um conjunto de \textit{patches}. As células são representações geométricas de linhas, superfícies e volumes nos espaços físicos unidimensional, bidimensional e tridimensional respectivamente.
+A malha física representa a geometria discretizada. Dentro da malha física podem ser definidos dois tipos de elementos, um macro-elemento, denominado de \textit{patch}, e o \textit{knot span}, que é o equivalente a um elemento finito e será denominado como célula ao longo deste texto. Cada \textit{patch} é composto por um conjunto de células. Muitas geometrias simples podem ser discretizadas apenas com um \textit{patch}, entretanto, a depender da complexidade da geometria ou de requisitos de parametrização, se torna necessário o uso de um conjunto de \textit{patches}. As células são representações geométricas de linhas, superfícies e volumes nos espaços físicos unidimensional, bidimensional e tridimensional respectivamente.
 
 Cada \textit{patch} e suas respectivas células possuem uma representação no espaço paramétrico (Fig. \ref{fig:espacos_NURBS}), que é o espaço onde as funções base são definidas. O espaço paramétrico, para os casos de funções univariadas, é definido por um \textit{knot vector}, aqui denominado de vetor de \textit{knots}, que é um conjunto de \textit{knots} ou coordenadas paramétricas. As células são constituídas pelo espaço entre dois \textit{knots} consecutivos. O espaço onde se representam todas as células, inclusive as nulas (quando mais de um \textit{knot} ocupa a mesma posição), é chamado de espaço indicial.
 
@@ -81,17 +78,13 @@ Por fim, na análise isogeométrica conta-se ainda com o espaço parental, que �
 
 \section{\textit{B-Splines}} \label{capitulo:Cap3:Bsplines}´
 
-Para a construção de uma geometria NURBS, é fundamental compreender as funções base \textit{B-splines} e suas particularidades. Essas funções servem como o ponto de partida para a definição de curvas, superfícies e sólidos NURBS, sendo essenciais para o entendimento da flexibilidade e controle geométrico oferecido por esse modelo. As \textit{B-splines} são funções construídas através de um vetor de coordenadas paramétricas (vetor de \textit{knots}) e que dependem de um conjunto de pontos de controle, sendo esses elementos responsáveis por estabelecer a forma geométrica e o grau de continuidade da curva ou superfície.
-
+Para a construção de geometriaa NURBS, que serão empregadas neste trabalhos, é fundamental compreender as funções base \textit{B-splines} e suas particularidades. Essas funções servem como o ponto de partida para a definição de curvas, superfícies e sólidos NURBS, sendo essenciais para o entendimento da flexibilidade e controle geométrico oferecido por esse modelo. As \textit{B-splines} são funções construídas através de um vetor de coordenadas paramétricas (vetor de \textit{knots}) e que dependem de um conjunto de pontos de controle, sendo esses elementos responsáveis por estabelecer a forma geométrica e o grau de continuidade da curva ou superfície.
 
 \subsection{Vetor de \textit{knots}}
 
-As funções \textit{B-Splines}, utilizadas na construção das NURBS, são definidas em um espaço paramétrico que é comum a um conjunto de células ou \textit{patch}. O espaço paramétrico unidimensional é construído através de um vetor de \textit{knots}, que consiste em um conjunto não decrescente de coordenadas paramétricas, definido como: $\Xsi=\left[\xsi_{0},\xsi_{1},...,\xsi_{n+p+1}\right]$,  sendo que $\xsi_{i}\in \realspace$ e representa a i-ésima coordenada paramétrica  com $i = 0, 1, ..., n+p+1$, e $p$ corresponde ao grau polinomial das funções. O parâmetro 
-$n$ equivale ao índice da última função base nesta direção paramétrica, sendo o conjunto de funções base indexado de 
-$0 \ \text{a}  \ n$, totalizando $n+1$ funções. Os \textit{knots spans}, ou intervalo entre \textit{knots}, definem células no espaço paramétrico, cujos contornos são mapeados pelas funções base para formar a malha no espaço físico. 
+As funções \textit{B-Splines}, utilizadas na construção das NURBS, são definidas em um espaço paramétrico que é comum a um conjunto de células ou \textit{patch}. O espaço paramétrico unidimensional é construído através de um vetor de \textit{knots}, que consiste em um conjunto não decrescente de coordenadas paramétricas, definido como: $\Xsi=\left[\xsi_{0},\xsi_{1},...,\xsi_{n+p+1}\right]$,  sendo que $\xsi_{i}\in \realspace$ e representa a i-ésima coordenada paramétrica  com $i = 0, 1, ..., n+p+1$, e $p$ corresponde ao grau polinomial das funções. O parâmetro $n$ equivale ao índice da última função base nesta direção paramétrica, sendo o conjunto de funções base indexado de $0 \ \text{a}  \ n$, totalizando $n+1$ funções. Os \textit{knots spans}, ou intervalo entre \textit{knots}, definem células no espaço paramétrico, cujos contornos são mapeados pelas funções base para formar a malha no espaço físico. 
 
-O vetor de \textit{knots} pode ser classificado como uniforme, quando as coordenadas paramétricas são igualmente espaçadas, e como não-uniformes, caso contrário.
-A multiplicidade de um \textit{knot} pode ser superior a um, influenciando diretamente na continuidade e na forma das funções base, conforme será visto posteriormente.  Os vetores de \textit{knots} conhecidos como abertos, são frequentemente utilizados nas literaturas de CAD, e caracterizam-se por ter a primeira e a última coordenada paramétrica repetidas $p+1$ vezes. Este fato garante que as funções sejam interpolatórias nos extremos do espaço paramétrico e nas bordas entre \textit{patches}, proporcionando, por exemplo, a homogeneidade com respeito às condições de contorno essenciais. 
+O vetor de \textit{knots} é classificado como uniforme quando as coordenadas paramétricas são igualmente espaçadas, e como não-uniformes, caso contrário. A multiplicidade de um \textit{knot} pode ser superior a um, influenciando diretamente na continuidade e na forma das funções base, conforme será visto posteriormente.  Os vetores de \textit{knots} conhecidos como abertos, são frequentemente utilizados nas literaturas de CAD, e caracterizam-se por ter a primeira e a última coordenada paramétrica repetidas $p+1$ vezes. Este fato garante que as funções sejam interpolatórias nos extremos do espaço paramétrico e nas bordas entre \textit{patches}, proporcionando, por exemplo, a homogeneidade com respeito às condições de contorno essenciais. 
 
 \subsection{Funções base e suas derivadas}
 
@@ -102,7 +95,7 @@ As funções base \textit{B-Splines} ($\Nb$) univariadas são definidas a partir
 0 & \mbox{caso contrário } \end{cases}, \label{eq:bsplines_0}
 \end{align}
 
-\noindent enquanto que para funções com $p\geq1$ são definidas como:
+\noindent enquanto que para funções com $p \geq 1$ podem ser definidas por recorrência de:
 
 \begin{align}
 \Nb_{i,p}(\xsi)=\frac{\xsi-\xsi_{i}}{\xsi_{i+p}-\xsi_{i}}\Nb_{i,p-1}(\xsi) + 
@@ -111,10 +104,11 @@ As funções base \textit{B-Splines} ($\Nb$) univariadas são definidas a partir
 
 \noindent com $i=0,1,...,n$.
 
-Essas equações são conhecidas como a fórmula recursiva de \textit{Cox-de Boor} \cite{Cox1972,DEBOOR1972}. Para funções \textit{B-Splines} de grau $p=0$ ou $p=1$, obtêm-se, respectivamente, as mesmas funções constantes e lineares por partes utilizadas no método dos elementos finitos clássico.
+Essa equação é conhecida como fórmula recursiva de \textit{Cox-de Boor} \cite{Cox1972,DEBOOR1972}. Para funções \textit{B-Splines} de grau $p=0$ ou $p=1$, obtêm-se, respectivamente, as mesmas funções constantes e lineares por partes utilizadas no método dos elementos finitos clássico.
 
-Na Fig.\ref{fig:bspline_funcoes}, pode-se observar funções \textit{B-Splines} quadráticas construídas sobre o vetor de \textit{knots} não-uniforme aberto $\Xsi=\left[0,0,0,1,2,3,3,4,4,4\right]$. A figura evidencia que, devido à repetição de $p+1$ vezes dos \textit{knots} nas extremidades do vetor, as funções base se tornam interpolatórias nesses pontos. Ademais, a presença de um \textit{knot} com multiplicidade 2 em $\xsi=3$ reduz a regularidade da função base nesse ponto, resultando na descontinuidade da sua derivada. Em termos gerais, a continuidade de uma função \textit{B-Spline} em uma coordenada paramétrica é dada por $C^{p-m}$, onde $m$ é a multiplicidade do \textit{knot}.
+Na Fig.~\ref{fig:bspline_funcoes}, pode-se observar funções \textit{B-Splines} quadráticas construídas sobre o vetor de \textit{knots} não-uniforme aberto $\Xsi=\left[0; 0; 0; 1; 2; 3; 3; 4; 4; 4\right]$. A figura evidencia que, devido à repetição de $p+1$ vezes dos \textit{knots} nas extremidades do vetor, as funções base se tornam interpolatórias nesses pontos. Ademais, a presença de um \textit{knot} com multiplicidade 2 em $\xsi=3$ reduz a regularidade da função base nesse ponto, resultando na descontinuidade da sua derivada. Em termos gerais, a continuidade de uma função \textit{B-Spline} em uma coordenada paramétrica é dada por $C^{p-m}$, onde $m$ é a multiplicidade do \textit{knot}.
 
+\textcolor{red}{ARRUAR A LEGENDA DE TODAS AS FIGURAS DE ACORDO COM A NORMA ATUAL (LEGENDA ACIMA DA FIGURA E COLOCAR A AUTORIA)}
 \begin{figure}[htb!]
 	\centering 
 	\includegraphics[scale=0.7,trim=1.5cm 11.5cm 1.5cm 13cm, clip=true]{Imagens/Cap3/bspline_funcoes.pdf}	
@@ -143,7 +137,7 @@ Essa expressão pode ser generalizada para derivadas de ordem superior através 
 	\frac{\deriv^{k}}{\deriv \xsi^{k}} \Nb_{i,p}(\xsi) = \frac{p!}{\left(p-k\right)!} \sum_{j=0}^{k}{\alpha_{k,j}\Nb_{i+j,p-k}(\xsi)},
 \end{align}
 
-sendo $k$ a k-ésima derivada da função $\Nb_{i,p}(\xsi)$ e:
+\noindent que representa a $k$-ésima derivada da função $\Nb_{i,p}(\xsi)$, onde:
 
 \begin{align}
 	\alpha_{0,0} = 1,
@@ -162,14 +156,13 @@ Algoritmos eficientes para a determinação das funções de forma \textit{B-Spl
 
 \subsection{Geometrias \textit{B-Splines}}
 
-Uma curva \textit{B-Spline} é construída a partir da combinação linear entre funções base e um conjunto de pontos de controle. Considerando um conjunto de $n+1$ funções base $\Nb_{i,p}$ e respectivos pontos de controle $\CP_i$ $\in \nrealspace$ com $i = 0,1,...,n$,
-uma curva polinomial por partes \textit{B-Spline} univariada é definida como:
+Uma curva \textit{B-Spline} é construída a partir da combinação linear entre funções base e um conjunto de pontos de controle. Considerando um conjunto de $n+1$ funções base $\Nb_{i,p}$ e respectivos pontos de controle $\CP_i$ $\in \nrealspace$ com $i = 0,1,...,n$, uma curva polinomial por partes \textit{B-Spline} univariada é definida como:
 
 \begin{align}
 \mathbf{C} =\pos\left(\xsi\right) = \sum_{i=0}^{n}\Nb_{i,p}(\xsi)\CP_i,
 \end{align}
 
-\noindent com $y_1$, $y_2$ e $y_3$ as componentes do vetor de coordenadas físicas $\pos$. Utilizando as funções \textit{B-Splines} apresentadas na Fig.\ref{fig:bspline_funcoes} e uma malha de $n+1$ pontos de controle, obtém-se a curva apresentada na Fig.\ref{fig:bspline_malhaPC}. Na Fig.\ref{fig:bspline_curva} pode-se observar as células físicas equivalentes a essa combinação.
+\noindent com $y_1$, $y_2$ e $y_3$ sendo as componentes do vetor de coordenadas físicas $\pos$. Utilizando as funções \textit{B-Splines} apresentadas na Fig.~\ref{fig:bspline_funcoes} e uma malha de $n+1$ pontos de controle, obtém-se a curva apresentada na Fig.~\ref{fig:bspline_malhaPC}. Na Fig.~\ref{fig:bspline_curva} pode-se observar as células físicas equivalentes a essa combinação.
 
 \begin{figure}[!htb]
 	\centering	
@@ -178,11 +171,11 @@ uma curva polinomial por partes \textit{B-Spline} univariada é definida como:
 	\caption{Curva \textit{B-Spline}}
 \end{figure}
 
-A partir da Fig.\ref{fig:bspline_malhaPC} pode-se constatar que a curva \textit{B-Spline} interpola o primeiro e o último ponto de controle, que é uma característica das curvas construídas com funções descritas a partir de vetores de \textit{knots} abertos. Adicionalmente nota-se que, devido à multiplicidade do \textit{knot} de coordenada paramétrica $\xsi=3$, existe um ponto de controle intermediário também interpolando a curva. 
+A partir da Fig.~\ref{fig:bspline_malhaPC} nota-se que a curva \textit{B-Spline} interpola o primeiro e o último ponto de controle, o que é uma característica das curvas construídas com funções descritas a partir de vetores de \textit{knots} abertos. Adicionalmente, devido à multiplicidade do \textit{knot} de coordenada paramétrica $\xsi=3$, existe um ponto de controle intermediário também interpolando a curva. 
 Coordenadas paramétricas com multiplicidade maior ou igual ao grau polinomial $p$ resultam, por definição, em interpolação dos pontos de controle associados.
 Além disso, a curva possui continuidade $C^{p-1} = C^{1}$ em todos os lugares, exceto em $\xsi = 3$, onde equivale a $C^{p-2} = C^{0}$, que trata-se de uma propriedade herdada das funções base.
 
-Conforme observado nas figuras: Fig.\ref{fig:bspline_malhaPC} e Fig. \ref{fig:bspline_curva}, muitas das características de curvas \textit{B-Splines} são consequências das propriedades das funções \textit{B-splines}. Outra importante propriedade dessas curvas é a Transformação Afim, que significa que uma transformação afim de uma curva B-spline é obtida aplicando a transformação diretamente aos pontos de controle. Além disso, devido ao suporte compacto das funções base, as curvas \textit{B-Splines} possuem característica denominada de \textit{localidade}, que significa que, movendo-se um ponto de controle, afeta-se não mais do que $p+1$ células na curva. Outras propriedades matemáticas das curvas \textit{B-Splines} podem ser consultadas em detalhes em \citeonline{PiegT:1996}.
+Conforme observado nas figuras: Fig.~\ref{fig:bspline_malhaPC} e Fig. \ref{fig:bspline_curva}, muitas das características de curvas \textit{B-Splines} são consequências das propriedades das funções \textit{B-splines}. Outra importante propriedade dessas curvas é a Transformação Afim, que significa que uma transformação afim de uma curva B-spline é obtida aplicando a transformação diretamente aos pontos de controle. Além disso, devido ao suporte compacto das funções base, as curvas \textit{B-Splines} possuem característica denominada de \textit{localidade}, que significa que, movendo-se um ponto de controle, afeta-se não mais do que $p+1$ células na curva. Outras propriedades matemáticas das curvas \textit{B-Splines} podem ser consultadas em detalhes em \citeonline{PiegT:1996}.
 
 Uma superfície \textit{B-spline} é obtida analogamente à curva \textit{B-spline}. Dado uma rede de pontos de controle $\CP_{i,j}$ $\in \nrealspace$ com $i = 0,1,...,n$ e $j = 0,1,..., m$, e vetores de \textit{knots} $\Xsi = \left[\xsi_{0},\xsi_{1},...,\xsi_{p+n+1}\right]$, $\mathcal{H} = \left[\eta_{0},\eta_{1},...,\eta_{q+m+1}\right]$, a superfície é obtida através do produto tensorial entre $(n+1)$ funções univariadas $\Nb_{i,p}$ e $(m+1)$ funções univariadas $\Mb_{j,q}$ da seguinte forma:
 
@@ -212,9 +205,9 @@ Por fim, um sólido \textit{B-Spline} é obtido através do produto tensorial en
 
 Um dos aspectos mais relevantes das \textit{B-splines} é a flexibilidade na forma de enriquecimento da base, permitindo aprimorar sua representação sem alterar a geometria subjacente nem sua parametrização. Dentre os principais procedimentos utilizados, destacam-se: a inserção de \textit{knots} (ou refinamento $h$), que consiste na subdivisão da malha; a elevação de grau (ou refinamento $p$), que aumenta a ordem polinomial das funções base; o refinamento $k$, que promove simultaneamente um aumento da ordem e da continuidade entre células; e, por fim, o refinamento $hpk$, que combina de forma coordenada as três estratégias anteriores, oferecendo maior controle e eficiência na representação da geometria e na solução numérica de problemas.
 
-Neste trabalho, será adotado na geração das geometrias o refinamento $h$, baseado na inserção de \textit{knots}. Por essa razão, somente essa estratégia será abordada ao longo desse texto.
+Neste trabalho, é adotado apenas o refinamento $h$ na geração das geometrias baseado na inserção de \textit{knots}.
 
-O enriquecimento das funções base utilizando a inserção de \textit{knots} é realizado sem que se altere uma curva geometricamente ou parametricamente. Para essa finalidade, considerando o vetor de \textit{knots} $\Xsi = [\xsi_0,\xsi_1, ..., \xsi_{n+p+1}]$, será introduzido o conceito de vetor de \textit{knots} estendido, o qual compreende em: $\bar{\Xsi} = [\bar{\xsi}_0 = \xsi_0,\bar{\xsi}_1, ..., \bar{\xsi}_{n+m+p+1}= \xsi_{n+p+1}]$. As $(n+m+1)$ novas funções de base \textit{B-Splines} são determinadas através da Eq. \ref{eq:bsplines_0} e Eq. \ref{eq:bsplines_n}, aplicando-as ao vetor de \textit{knots} $\bar{\Xsi}$. Os $(n+m+1)$ novos pontos de controle  $\bar{\mathcal{B}} = [\bar{\CP}_0,\bar{\CP}_1,..., \bar{\CP}_{n+m}]^{T}$ são obtidos através da combinação linear dos $(n+1)$ pontos de controle originais, $\mathcal{B} = [\CP_0,\CP_1,..., \CP_{n}]^{T}$, por:
+O enriquecimento da base de funçÕes utilizando a inserção de \textit{knots} é realizado sem que se altere uma curva geometricamente ou parametricamente. Para essa finalidade, partindo-se de um vetor de \textit{knots} $\Xsi = [\xsi_0,\xsi_1, ..., \xsi_{n+p+1}]$, introduz-se o conceito de vetor de \textit{knots} estendido, o qual é representado por: $\bar{\Xsi} = [\bar{\xsi}_0 = \xsi_0,\bar{\xsi}_1, ..., \bar{\xsi}_{n+m+p+1}= \xsi_{n+p+1}]$. As $(n+m+1)$ novas funções base \textit{B-Splines} são determinadas através das Eqs. (\ref{eq:bsplines_0} e \ref{eq:bsplines_n}), aplicando-as ao vetor de \textit{knots} $\bar{\Xsi}$. Os $(n+m+1)$ novos pontos de controle  $\bar{\mathcal{B}} = [\bar{\CP}_0,\bar{\CP}_1,..., \bar{\CP}_{n+m}]^{T}$ são obtidos através da combinação linear dos $(n+1)$ pontos de controle originais, $\mathcal{B} = [\CP_0,\CP_1,..., \CP_{n}]^{T}$, por:
 
 
 \begin{align}
@@ -225,16 +218,18 @@ O enriquecimento das funções base utilizando a inserção de \textit{knots} é
 
 \begin{align}
 	\mathbf{T}_{ij}^{0} = \begin{cases} 1 &\mbox{se } \bar{\xsi}_i \in \left[\xsi_j,\xsi_{j+1}\right) \\
-		0 & \mbox{caso contrário } \end{cases}, 
+		0 & \mbox{caso contrário } \end{cases} 
 \end{align}
+
+\noindent e
 
 \begin{align}
 	\mathbf{T}_{ij}^{q+1} = \frac{\bar{\xsi}_{i+q}-\xsi_j}{\xsi_{j+q}-\xsi_j}\mathbf{T}_{ij}^{q} + \frac{\xsi_{j+q+1}-\bar{\xsi}_{i+q}}{\xsi_{j+q+1}-\xsi_{j+1}}\mathbf{T}_{ij+1}^{q} \ \text{com} \ q=0,1,2,...,p-1,
 \end{align}
 
-\noindent sendo $i=0,1,...,(n+m)$ e $j=0,1,...,n$.
+\noindent com $i=0,1,...,(n+m)$ e $j=0,1,...,n$.
 
-Considerando uma curva quadrática \textit{B-spline} construída sobre um vetor de \textit{knots} aberto $\Xsi=[0,0,0,1,1,1]$ apresentada na Fig. \ref{fig:bspline_pc_ai} juntamente com sua rede de pontos de controle. Essa curva, possui apenas uma célula no espaço físico, conforme pode ser observado na Fig. \ref{fig:bspline_curva_ai}, e $3$ funções base no espaço paramétrico (Fig. \ref{fig:bspline_base_ai}). Ao realizar-se a inserção de um \textit{knot}, $\xsi=1/2$, o vetor de \textit{knots} estendido fica definido como: $\bar{\Xsi}=[0,0,0,1/2,1,1,1]$. Aplicando-se as Eq. \ref{eq:bsplines_0} e Eq. \ref{eq:bsplines_n} à esse vetor de coordenadas paramétricas, obtém-se as $4$ funções base apresentadas na Fig.\ref{fig:bspline_base_di} definidas sobre 2 células do espaço paramétrico. Após o emprego do refinamento $h$, a geometria da curva é preservada. No entanto, como ilustrado na Fig. \ref{fig:bspline_curva_di}, uma nova célula física é inserida, além de que, de acordo com a Fig. \ref{fig:bspline_pc_di}, a malha de pontos de controle é modificada, com o acréscimo de um novo ponto e o reajuste de suas posições.
+Considerando uma curva quadrática \textit{B-spline} construída sobre um vetor de \textit{knots} aberto $\Xsi=[0,0,0,1,1,1]$ apresentada na Fig.~\ref{fig:bspline_pc_ai} juntamente com sua rede de pontos de controle, nota-se que essa curva, possui apenas uma célula no espaço físico e $3$ funções base no espaço paramétrico (Fig. \ref{fig:bspline_base_ai}). Ao realizar a inserção de um \textit{knot}, $\xsi=1/2$, o vetor de \textit{knots} estendido fica definido como: $\bar{\Xsi}=[0,0,0,1/2,1,1,1]$. Aplicando-se as Eq. \ref{eq:bsplines_0} e Eq. \ref{eq:bsplines_n} à esse vetor de coordenadas paramétricas, obtém-se as $4$ funções base apresentadas na Fig.\ref{fig:bspline_base_di} definidas sobre 2 células do espaço paramétrico. Após o emprego do refinamento $h$, a geometria da curva é preservada. No entanto, como ilustrado na Fig. \ref{fig:bspline_curva_di}, uma nova célula física é inserida, além de que, de acordo com a Fig. \ref{fig:bspline_pc_di}, a malha de pontos de controle é modificada, com o acréscimo de um novo ponto e o reajuste de suas posições.
 
 
 \begin{figure}[!t]
@@ -254,7 +249,7 @@ Para fins práticos, o processo de refinamento consiste na inserção consecutiv
 
 \section{NURBS}
 
-Uma geometria NURBS no $\nrealspace$ pode ser entendida, do ponto de vista geométrico, como a transformação projetiva de uma geometria \textit{B-Spline} no $\realspace^{\nsd+1}$. Nesse contexto, geometrias cônicas podem ser construídas exatamente através de curvas quadráticas por partes. Na Fig. \ref{fig:NURBS_curva_transProj}, apresenta-se uma curva NURBS $\mathbf{C}\left(\xsi\right)$ no $\realspace^{2}$ , que representa de forma exata uma circunferência, a qual foi obtida a partir da transformação projetiva de uma curva quadrática por partes \textit{B-Spline} ($\mathbf{C}^{w}\left(\xsi\right)$) no  $\realspace^{3}$. A transformação é realizada através da projeção em um plano $y_3 = 1$ de cada ponto da curva projetiva ($\mathbf{C}^{w}\left(\xsi\right)$) através de um raio que passa pela origem.
+Uma geometria NURBS no $\nrealspace$ pode ser entendida, do ponto de vista geométrico, como a transformação projetiva de uma geometria \textit{B-Spline} no $\realspace^{\nsd+1}$. Nesse contexto, geometrias cônicas podem ser construídas exatamente através de curvas quadráticas por partes. Na Fig.~\ref{fig:NURBS_curva_transProj}, apresenta-se uma curva NURBS $\mathbf{C}\left(\xsi\right)$ no $\realspace^{2}$ , que representa de forma exata uma circunferência, a qual foi obtida a partir da transformação projetiva de uma curva quadrática por partes \textit{B-Spline} ($\mathbf{C}^{w}\left(\xsi\right)$) no  $\realspace^{3}$. A transformação é realizada através da projeção em um plano $y_3 = 1$ de cada ponto da curva projetiva ($\mathbf{C}^{w}\left(\xsi\right)$) através de um raio que passa pela origem.
 
 \begin{figure}[!htb]
 	\centering	
@@ -291,7 +286,7 @@ Tanto $\mathbf{C}^w$ como $W(\xsi)$ são funções polinomiais por partes, dessa
 
 \subsection{Funções base NURBS e suas derivadas}
 
-Matematicamente, uma função NURBS é obtida pela racionalização de uma função \textit{B-Spline}. A racionalização dessa função ocorre através da razão entre dois polinômios. Uma função racional NURBS $\left(\fNURBS\right)$ é construída através da seguinte expressão:
+Matematicamente, uma função NURBS é obtida pela racionalização de uma função \textit{B-Spline}. Uma função racional NURBS $\left(\fNURBS\right)$ é construída através da seguinte expressão:
 
 \begin{align}
 \fNURBS_{i,p}(\xsi) = \frac{\Nb_{i,p}(\xsi)w_i}{\sum_{\hat{i}=0}^{n}\Nb_{\hat{i},p}(\xsi)w_{\hat{i}}}.  \label{eq:NURBS_function}
@@ -349,7 +344,7 @@ Uma curva NURBS é obtida através da combinação linear entre as funções bas
 
 \noindent cujos pontos de controle e pesos são escolhidos criteriosamente de forma a obter-se a geometria desejada.
 
-Analogamente uma superfície NURBS é obtida através das seguintes relações:
+Analogamente, uma superfície NURBS é obtida através das seguintes relações:
 
 \begin{align}
 \fNURBS_{i,j:p,q}(\xsi,\eta) = \frac{\Nb_{i,p}(\xsi)\Mb_{j,q}(\eta)w_{i,j}}{\sum_{\hat{i}=0}^{n}\sum_{\hat{j}=0}^{m}\Nb_{\hat{i},p}(\xsi)\Mb_{\hat{j},q}(\eta)w_{\hat{i},\hat{j}}},
@@ -374,13 +369,13 @@ Analogamente uma superfície NURBS é obtida através das seguintes relações:
 
 \subsection{Múltiplos \textit{Patches}}
 
-Na grande maioria das situações práticas, é necessário para descrever um domínio computacional o uso de múltiplos \textit{patches} NURBS, isto se deve ao fato que o produto tensorial do espaço paramétrico não é adequado para a representação de domínios complexos multiplamente conectados. Ademais, mesmo para domínios simples, do ponto de vista da simulação numérica, o uso de múltiplos \textit{patches} pode ser necessário em algumas circunstâncias, conforme será visto na seção de exemplos.
+Na grande maioria das situações práticas, é necessário o uso de múltiplos \textit{patches} NURBS para descrever um domínio computacional. Isso ocorre porque o produto tensorial do espaço paramétrico não é adequado para a representação de domínios complexos ou multiplamente conectados. Ademais, mesmo para domínios simples, do ponto de vista da simulação numérica, o uso de múltiplos \textit{patches} pode ser necessário em algumas circunstâncias, conforme será visto na seção de exemplos.
 
-\citeonline{HughesCB:2005} cita que o uso de múltiplos \textit{patches} pode facilitar a análise numérica quando diferentes materiais e modelos físicos são utilizados em diferentes partes do domínio. E, além disso, em processamento paralelo, pode se tornar conveniente, do ponto de vista de estruturas de dados, não ter um único \textit{patch} entre diferentes processadores.
+\citeonline{HughesCB:2005} destaca que o uso de múltiplos \textit{patches} pode facilitar a análise numérica quando diferentes materiais e modelos físicos são utilizados em distintas regiões do domínio. Além disso, em processamento paralelo, pode ser conveniente, do ponto de vista das estruturas de dados, não compartilhar um único \textit{patch} entre diferentes processadores.
 
-A utilização de múltiplos \textit{patches} implica na compatibilização da discretização na interface entre \textit{patches} adjacentes, ou seja, a parametrização e o mapeamento devem ser idênticos nesses locais. Cada ponto de controle em uma face de \textit{patches} adjacentes deve possuir um correspondente na outra face. Esses pontos iguais são tratados como um único ponto de controle dentro do sistema global resultante da análise numérica. 
+A utilização de múltiplos \textit{patches} implica a necessidade de compatibilizar a discretização na interface entre \textit{patches} adjacentes; ou seja, a parametrização e o mapeamento devem ser idênticos nesses locais. Cada ponto de controle em uma face de \textit{patches} adjacentes deve possuir um correspondente na face oposta. Esses pontos coincidentes são tratados como um único ponto de controle dentro do sistema global resultante da análise numérica.
 
-Ressalta-se ainda, que na interface entre os \textit{patches}, devido a natureza interpolatória do vetores de \textit{knots} abertos, as funções base terão continuidade $C_0$, conforme pode ser observado na Fig. \ref{fig:multiplos_patches}, onde apresentam-se as funções base univariadas na interface entre dois \textit{patches}.
+Ressalta-se ainda, que na interface entre os \textit{patches}, devido a natureza interpolatória do vetores de \textit{knots} abertos, as funções base possuem continuidade $C_0$, conforme pode ser observado na Fig. \ref{fig:multiplos_patches}, onde apresentam-se as funções base univariadas na interface entre dois \textit{patches}.
 
 \begin{figure}[htb!]
 	\centering 
@@ -389,7 +384,7 @@ Ressalta-se ainda, que na interface entre os \textit{patches}, devido a natureza
 	\label{fig:multiplos_patches}
 \end{figure}
 
-
+parei \aquiiiiii
 \section{Análise Isogeométrica}\label{capitulo:Cap3:IGA}
 
 

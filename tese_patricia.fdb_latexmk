@@ -1,20 +1,19 @@
 # Fdb version 3
-["bibtex tese_patricia"] 0 "tese_patricia.aux" "tese_patricia.bbl" "tese_patricia" 1759669425
+["bibtex tese_patricia"] 0 "tese_patricia.aux" "tese_patricia.bbl" "tese_patricia" 1759708316
   "/usr/local/Cellar/texlive/58837/share/texmf-dist/bibtex/bib/abntex2/abntex2-options.bib" 1618176823 5396 4eb260dac60f150ae608d45252853090 ""
   "/usr/local/Cellar/texlive/58837/share/texmf-dist/bibtex/bst/abntex2/abntex2-alf.bst" 1618176823 60064 0819ac8568f9a482510a46e3a8a6f605 ""
   "referencias.bib" 1759669404 141379 aa43649bd6314b8f7772b9012fd23ba9 ""
-  "tese_patricia.aux" 0 -1 0 "pdflatex"
+  "tese_patricia.aux" 1759706792 135676 f002623e9f6777372124b14a104fb3af "pdflatex"
   (generated)
   "tese_patricia.blg"
   "tese_patricia.bbl"
-["makeindex tese_patricia.idx"] 0 "tese_patricia.idx" "tese_patricia.ind" "tese_patricia" 1759669425
-  "tese_patricia.idx" 0 -1 0 "pdflatex"
+["makeindex tese_patricia.idx"] 1759708308 "tese_patricia.idx" "tese_patricia.ind" "tese_patricia" 1759708316
+  "tese_patricia.idx" 1759706788 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
-  "tese_patricia.ind"
   "tese_patricia.ilg"
-["pdflatex"] 1759669416 "/Users/raksanches/PatriciaTese/tese/tese_patricia.tex" "/Users/raksanches/PatriciaTese/tese/tese_patricia.pdf" "tese_patricia" 1759669425
-  "/Users/raksanches/PatriciaTese/tese/tese_patricia.aux" 1759669416 8 a94a2480d3289e625eea47cd1b285758 ""
-  "/Users/raksanches/PatriciaTese/tese/tese_patricia.ind" 0 -1 0 ""
+  "tese_patricia.ind"
+["pdflatex"] 1759708308 "/Users/raksanches/PatriciaTese/tese/tese_patricia.tex" "/Users/raksanches/PatriciaTese/tese/tese_patricia.pdf" "tese_patricia" 1759708316
+  "/Users/raksanches/PatriciaTese/tese/tese_patricia.aux" 1759706792 135676 f002623e9f6777372124b14a104fb3af ""
   "/Users/raksanches/PatriciaTese/tese/tese_patricia.tex" 1759669404 21856 a707befedf0a01fbcfaaea642c4684e0 ""
   "/usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1618176823 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/Cellar/texlive/58837/share/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc" 1618176823 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
@@ -383,7 +382,7 @@
   "/usr/local/Cellar/texlive/58837/share/texmf-dist/web2c/texmf.cnf" 1633533089 39975 4b05abf73e01b5eea84984a594557aa7 ""
   "/usr/local/Cellar/texlive/58837/share/texmf-var/web2c/pdftex/pdflatex.fmt" 1618176823 2724860 d5a17d04855a23ff3eceda7776609d4f ""
   "Cap2.tex" 1759669402 75553 89e12a30bec05e270f80ca628df2c5e3 ""
-  "Cap3.tex" 1759669402 68762 97a65fed650195727e8664de03a61c78 ""
+  "Cap3.tex" 1759708307 68934 41210ad9697d17ad9c7f2ffc467e79cc ""
   "Cap6.tex" 1759669403 62549 f924f8ea7c0859c2763bb54d9b105b75 ""
   "Cap7.tex" 1759668809 38099 355ebc9f0249a0b82782faa5b10266aa ""
   "Imagens/Cap2/cavidade_Re100.eps" 1759668809 25247 8a4579392625d7a99d63c7505d6f9780 ""
@@ -530,19 +529,22 @@
   "Imagens/Cap7/prisma_malhaPlaca.pdf" 1759668814 45275 f7a0055419631358961c75a33a9b03e0 ""
   "grumecSymbols.tex" 1759669404 15435 62c9e0ff127a05a1ea89d1e55308d036 ""
   "introducao.tex" 1759669404 50844 cd2317dc1de6201ecb635fcd585e5252 ""
-  "tese_patricia.aux" 0 -1 0 "pdflatex"
+  "tese_patricia.aux" 1759706792 135676 f002623e9f6777372124b14a104fb3af "pdflatex"
   "tese_patricia.bbl" 1759669407 44201 dfc5e8f08024bf504c820327c7fb49d2 "bibtex tese_patricia"
-  "tese_patricia.ind" 0 -1 0 "makeindex tese_patricia.idx"
+  "tese_patricia.ind" 1759708308 0 d41d8cd98f00b204e9800998ecf8427e "makeindex tese_patricia.idx"
+  "tese_patricia.lof" 0 -1 0 "pdflatex"
+  "tese_patricia.lot" 0 -1 0 "pdflatex"
   "tese_patricia.nls" 1759668814 294 be10ad9b8be1a97267a4c7f20aad8e3f ""
   "tese_patricia.tex" 1759669404 21856 a707befedf0a01fbcfaaea642c4684e0 ""
+  "tese_patricia.toc" 0 -1 0 "pdflatex"
   (generated)
-  "/Users/raksanches/PatriciaTese/tese/tese_patricia.pdf"
-  "tese_patricia.log"
-  "tese_patricia.lof"
-  "/Users/raksanches/PatriciaTese/tese/tese_patricia.log"
-  "tese_patricia.lot"
   "tese_patricia.toc"
-  "tese_patricia.nlo"
-  "tese_patricia.pdf"
+  "/Users/raksanches/PatriciaTese/tese/tese_patricia.pdf"
   "tese_patricia.aux"
+  "tese_patricia.nlo"
+  "tese_patricia.lof"
   "tese_patricia.idx"
+  "tese_patricia.lot"
+  "tese_patricia.log"
+  "tese_patricia.pdf"
+  "/Users/raksanches/PatriciaTese/tese/tese_patricia.log"
