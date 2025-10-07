@@ -1,98 +1,5 @@
-\documentclass[tese_patricia]{subfiles}% !TeX spellcheck = pt_BR
-
-\begin{document}
-%\nomenclature[B,01]{$\velocity$}{Vetor de velocidade com componentes $u_1$, $u_2$ e $u_3$;}
-%\nomenclature[B,02]{$\time$}{Instante de tempo arbitrário;}
-%\nomenclature[B,03]{$\density$}{Massa específica do fluido;}
-%\nomenclature[B,04]{$dV$}{Volume de controle infinitesimal;}
-%\nomenclature[B,05]{$dA_i$}{Área referente à face ortogonal ao eixo $y_i$ do volume de controle infinitesimal;}
-%\nomenclatura[B,06]{$dy_i$}{Dimensão do volume de controle infinitesimal na direção $y_i$;}
-%\nomenclatura[B,07]{$\mathbf{F}$}{Vetor da resultante das forças externas atuando em um volume de controle infinitesimal, com componentes $F_1$, $F_2$ e $F_3$}
-%\nomenclatura[B,08]{$\stressTensor$}{Tensor de tensões de Cauchy de componentes $\sigma_ij$ com $i,j = 1,2,3$;}
-%\nomenclatura[B,09]{$\mathbf{b}$}{Vetor forças de campo por unidade de volume com componentes $b_1$, $b_2$ e $b_3$;}
-%\nomenclatura[B,10]{$\mathbf{q}$}{Vetor resultante das forças externas por unidade de volume com componentes $q_1$, $q_2$ e $q_3$;}
-%\nomenclatura[B,11]{$\sbodyforce$}{Vetor que representa a força de campo por unidade de massa, com componentes $f_1$, $f_2$ e $f_3$;}
-%\nomenclature[B,12]{$\press$}{Campo de pressões de um escoamento;}
-%\nomenclature[B,13]{$\viscosity$}{Viscosidade dinâmica do fluido;}
-%\nomenclature[B,14]{$\straintensor(\bullet)$}{Tensor taxa de deformação infinitesimal;}
-%\nomenclature[B,15]{$\domain$}{Domínio espacial ou domínio atual do escoamento do fluido;}
-%\nomenclature[B,16]{$\nsd$}{Dimensão espacial;}
-%\nomenclature[B,17]{$\boundary$}{Contorno do domínio espacial que define o escoamento do fluido;}
-%\nomenclature[B,18]{$\boundaryD$}{Porção do contorno com condições de contorno de Dirichlet;}
-%\nomenclature[B,19]{$\boundaryN$}{Porção do contorno com condições de contorno de Neumann;}
-%\nomenclature[B,20]{$\totalTime$}{Intervalo de tempo total da análise;}
-%\nomenclature[B,21]{$\velocityD$}{Vetor de velocidades prescritas;}
-%\nomenclature[B,22]{$\surfaceLoad$}{Forças de superfície prescritas;}
-%\nomenclature[B,23]{$\snormal$}{Vetor normal ao contorno do domínio computacional;}
-%\nomenclature[B,24]{$\domainMat$}{Domínio inicial ou material do escoamento do fluido;}
-%\nomenclature[B,25]{$\posMat$}{Vetor das coordenadas dos pontos materiais de um ponto arbitrário;}
-%\nomenclature[B,26]{$\pos$}{Vetor das coordenadas atuais de um ponto arbitrário;}
-%\nomenclature[B,27]{$\domainRef$}{Domínio de referência do escoamento do fluido;}
-%\nomenclature[B,28]{$\posAle$}{Vetor das coordenadas de referência de um ponto arbitrário;}
-%\nomenclature[B,29]{$\fmapAI(\posMat,t)$}{Função mudança de configuração do domínio material para o domínio espacial;}
-%\nomenclature[B,30]{$\fmapAR(\posALE,t)$}{Função mudança de configuração do domínio de referência para o domínio espacial;}
-%\nomenclature[B,31]{$\fmapRI(\posMat,t)$}{Função mudança de configuração do domínio material para o domínio de referência;}	
-%\nomenclature[B,32]{$\velocityALE$}{Velocidade dos pontos de referência;}
-%\nomenclature[B,33]{$\FmapAI$}{Matriz jacobiana da função de mapeamento $\fmapAI(\posMat,t)$;}
-%\nomenclature[B,34]{$\FmapAR$}{Matriz jacobiana da função de mapeamento $\fmapAR(\posALE,t)$;}
-%\nomenclature[B,35]{$\FmapRI$}{Matriz jacobiana da função de mapeamento $\fmapRI(\posMat,t)$;}
-%\nomenclature[B,36]{$g,g^{*},g^{**}$}{Grandeza física escalar na configuração espacial, de referência e material respectivamente;}
-%\nomenclature[B,37]{$\usolution$}{Espaço vetorial das funções aproximadoras do campo de velocidades;}
-%\nomenclature[B,38]{$\psolution$}{Espaço vetorial das funções aproximadoras do campo de pressões;}
-%\nomenclature[B,39]{$\uweighting$}{Espaço vetorial das funções ponderadoras do campo de velocidades;}
-%\nomenclature[B,40]{$\pweighting$}{Espaço vetorial das funções ponderadoras do campo de pressões;}
-%\nomenclature[B,41]{$\utest$}{Função ponderadora pertencente ao espaço $\uweighting$;}
-%\nomenclature[B,42]{$\ptest$}{Função ponderadora pertencente ao espaço $\pweighting$;}
-%\nomenclature[B,43]{$(\bullet)^h$}{O superscrito $h$ indica, em todos os casos, a discretização em elementos finitos da variável;}
-%\nomenclature[B,44]{$\domainE$}{Domínio computacional de um elemento finito;}
-%\nomenclature[B,45]{$\nel$}{Número de subdomínios do domínio discreto;}
-%\nomenclature[B,46]{$\nnos$}{Número de nós ou pontos de controle do domínio discreto;}
-%\nomenclature[B,47]{$\boundary^{b}$}{Domínio computacional de um elemento finito no contorno;}
-%\nomenclature[B,48]{$\neb$}{Número de subdomínios do domínio discreto no contorno;}
-%\nomenclature[B,49]{$\shapef$}{Função de forma da discretização do domínio;}
-%\nomenclature[B,50]{$(\bullet)_A$}{O subscrito $A$ indica, em todos os casos, que se trata da variável respectiva ao nó $A$ da malha de elementos finitos;}
-%\nomenclature[B,51]{$\SUPG$}{Parâmetro de estabilização do método \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG);}
-%\nomenclature[B,52]{$\PSPG$}{Parâmetro de estabilização do método \textit{Pressure-Stabilizing/Petrov-Galerkin} (PSPG);}
-%\nomenclature[B,53]{$\LSIC$}{Parâmetro de estabilização do método \textit{Least-Squares on the Incompressibility Constraint} (LSIC);}
-%\nomenclature[B,54]{$\resMom$}{Resíduo da equação da quantidade de movimento;}
-%\nomenclature[B,55]{$\resPre$}{Resíduo da equação da continuidade;}
-%\nomenclature[B,56]{$\NNSM$}{Resíduo do vetor semidiscreto da equação da quantidade de movimento;}
-%\nomenclature[B,57]{$\NNSC$}{Resíduo do vetor semidiscreto da equação da continuidade;}
-%\nomenclature[B,58]{$\Acceleration$}{Vetor nodal dos graus de liberdade respectivo a aceleração;}
-%\nomenclature[B,59]{$\Velocity$}{Vetor nodal dos graus de liberdade respectivo a velocidade;}
-%\nomenclature[B,60]{$\Press$}{Vetor nodal dos graus de liberdade respectivo a pressão;}
-%\nomenclature[B,61]{$\matrixQ$}{Matriz Jacobiana do elemento;}
-%\nomenclature[B,62]{$\coordAdimen$}{Vetor das coordenadas paramétricas adimensionais do elemento com componentes $\xi$, $\eta$ $\zeta$;}
-%\nomenclature[B,63]{$\matrixD$}{Matriz que realiza mudança de escala em $\matrixQ$ para levar em conta o grau polinomial das funções de forma;}
-%\nomenclature[B,64]{$\matrixQhat$}{Matriz jacobiana escalonada;}
-%\nomenclature[B,65]{$\RGN$}{Comprimento direcional do elemento finito;}
-%\nomenclature[B,66]{$\rRGN$}{Vetor unitário no sentido do gradiente da intensidade da velocidade;}
-%\nomenclature[B,67]{$\matrixG$}{Tensor métrico do elemento;}
-%\nomenclature[B,68]{$h_{min}$}{Mínimo comprimento de escala do elemento finito;}
-%\nomenclature[B,69]{$h_{max}$}{Máximo comprimento de escala do elemento finito;}
-%\nomenclature[B,70]{$\lambda_{min},\lambda_{max}$}{mínimo e máximo autovalor da matriz $\matrixG$;}
-%\nomenclature[B,71]{$\SUGNi,\SUGNii,\SUGNiii$}{Parâmetros da estabilização SUPG/PSPG/LSIC correspondentes aos termos convectivos, inerciais e viscosos, respectivamente;}
-%\nomenclature[B,72]{$\rRGN_{reg}$}{Vetor unitário no sentido do gradiente da intensidade da velocidade do fluido modificado de maneira a evitar problemas numéricos devido divisão por zero;}
-%\nomenclature[B,73]{$\varepsilon$}{Constante pequena utilizada no cálculo de $\rRGN_{reg}$;}
-%\nomenclature[B,74]{$t_{n}$}{é o tempo atual, ou seja, o instante n-ésimo no qual a solução foi calculada.;}
-%\nomenclature[B,75]{$t_{n+1}$}{é o próximo instante de tempo, ou seja, o instante $n+1$ no qual solução será calculada;}
-%\nomenclature[B,76]{$\alpham, \alphaf, \gamma$}{Parâmetros reais do esquema de integração temporal $\alpha$-generalizado;}
-%\nomenclature[B,77]{$\specRadius$}{Raio espectral da matriz de amplificação;}
-%\nomenclature[B,78]{$\Reynolds$}{Número de Reynolds;}
-%\nomenclature[B,79]{$\velocinfty$}{Velocidade de referência;}
-%\nomenclature[B,80]{$L$}{Comprimento característico/de referência do escoamento;}
-%\nomenclature[B,81]{$\kviscosity$}{Viscosidade cinemática do fluido;}
-%\nomenclature[B,82]{$F_L, F_D$}{Forças de sustentação e arrasto, respectivamente;}
-%\nomenclature[B,83]{$C_L, C_D$}{Coeficiente de sustentação e arrasto, respectivamente;}
-%\nomenclature[B,84]{$\Strouhal$}{Número de Strouhal;}
-%\nomenclature[B,85]{$f_v$}{Frequência de desprendimento dos vórtices;}
-
-% ---------------------------------------------------------- 
-% Métodos de \part{\part{malhas}} sobrepostas
-% ----------------------------------------------------------
 \chapter[Dinâmica dos fluidos computacional]{Dinâmica dos fluidos computacional}
 \label{capitulo:Cap2}
-% ----------------------------------------------------------
 
 O escoamento isotérmico de um fluido newtoniano é descrito pelas equações advindas da conservação da quantidade de movimento, ou de Navier-Stokes, e da conservação de massa. Nos casos em que ocorram variações significativas no campo de temperatura, ou em escoamentos compressíveis, a equação da conservação de energia deve ser adicionada ao sistema. Essas equações governantes, juntamente com as relações constitutivas, resultam em um sistema de equações diferenciais não lineares que descrevem o comportamento do escoamento no tempo e no espaço. 
 
@@ -102,24 +9,20 @@ Para tratar questões numéricas recorrentes nesse sistema de equações, como a
 
 Ao final deste capítulo, é apresentado um algoritmo que detalha o esquema computacional de solução dos problemas da DFC, seguido pela resolução de alguns casos clássicos, utilizados como verificação da metodologia proposta.
 
-
 \section{Equações governantes na descrição Euleriana} 
-
 
 \subsection{Equação da conservação da massa}
 
+Considere um volume de controle infinitesimal fixo no espaço, permeável a matéria e submetido a uma escoamento de velocidade $\velocity$, com componentes $u_1, u_2$, e $u_3$ (conforme \autoref{fig:volInf_fluxoMassa}). Para um intervalo de tempo infinitesimal $\deriv t$, a lei da conservação da massa impõe que a variação de massa dentro do volume de controle seja igual ao fluxo líquido de massa que atravessa suas fronteiras, que pode ser expresso matematicamente da seguinte forma:
 
-Considere um volume de controle infinitesimal fixo no espaço, permeável a matéria e submetido a uma escoamento de velocidade $\velocity$, com componentes $u_1, u_2$, e $u_3$ (conforme Fig. \ref{fig:volInf_fluxoMassa}). Para um intervalo de tempo infinitesimal $\deriv t$, a lei da conservação da massa impõe que a variação de massa dentro do volume de controle seja igual ao fluxo líquido de massa que atravessa suas fronteiras, que pode ser expresso matematicamente da seguinte forma:
-
-\begin{figure}[htb!]
-	\centering 
-	%\vspace{-1em} % Diminui o espaço antes da figura
-	\includegraphics[scale=1.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/volInf_fluxoMassa.pdf}	
+\begin{figure}[!htbp]
 	\caption{Volume de controle infinitesimal: Fluxo de massa}
+	\begin{center}
+	\includegraphics[scale=1.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/volInf_fluxoMassa.pdf}	
+	\end{center}
+	\legend{Fonte: Elaborada pela autora}
 	\label{fig:volInf_fluxoMassa}
-	%\vspace{-1em} % Diminui o espaço antes da figura
 \end{figure}
-
 
 \begin{align}
 	\begin{split}
@@ -127,7 +30,7 @@ Considere um volume de controle infinitesimal fixo no espaço, permeável a mat�
 	\end{split}
 \end{align}
 
-\noindent com $\density$ a massa específica do fluido e $\deriv A_{i}$ a área referente à face ortogonal ao eixo $y_i$. Considerando que $\deriv V = \deriv y_1 \deriv y_2 \deriv y_3 = \deriv y_1 \deriv A_1 = \deriv y_2 \deriv A_2 = \deriv y_3 \deriv A_3 $  e manipulando-se algebricamente a Eq. \ref{eq:conser_massa_0} chega-se a seguinte expressão:
+\noindent com $\density$ a massa específica do fluido e $\deriv A_{i}$ a área referente à face ortogonal ao eixo $y_i$. Considerando que $\deriv V = \deriv y_1 \deriv y_2 \deriv y_3 = \deriv y_1 \deriv A_1 = \deriv y_2 \deriv A_2 = \deriv y_3 \deriv A_3 $  e manipulando-se algebricamente a \autoref{eq:conser_massa_0} chega-se a seguinte expressão:
 
 \begin{align}
 	\frac{\partial \density}{\partial t} = - \frac{\partial \density u_{1}}{\partial y_1} - \frac{\partial \density u_{2}}{\partial y_2}- \frac{\partial \density u_{3}}{\partial y_3}.
@@ -148,11 +51,9 @@ Para escoamentos incompressíveis, quando $\density$ é constante ao longo do te
 
 \subsection{Equação da quantidade de movimento}
 
-
 Para um volume de controle infinitesimal, a lei da conservação da quantidade de movimento afirma que a variação temporal da quantidade de movimento no interior do volume é determinada pela diferença entre o fluxo de quantidade de movimento que entra e o que sai pelas suas fronteiras, somada à resultante das forças aplicadas sobre o volume de controle.
 
-Para chegar-se à equação da quantidade de movimento em sua forma conservativa partindo desse princípio, inicia-se com a avaliação das forças que atuam sobre um volume de controle infinitesimal no instante atual. Considerando o equilíbrio das forças externas e internas na direção $y_1$, de acordo o volume apresentado na Fig. \ref{fig:volInf_tensao}, chega-se na seguinte relação:
-
+Para chegar-se à equação da quantidade de movimento em sua forma conservativa partindo desse princípio, inicia-se com a avaliação das forças que atuam sobre um volume de controle infinitesimal no instante atual. Considerando o equilíbrio das forças externas e internas na direção $y_1$, de acordo o volume apresentado na \autoref{fig:volInf_tensao}, chega-se na seguinte relação:
 
 \begin{align}
 	\begin{split}
@@ -160,19 +61,20 @@ Para chegar-se à equação da quantidade de movimento em sua forma conservativa
 	\end{split}
 \end{align}	
 
-\noindent onde $F_1$ representa a resultante das forças externas na direção $y_1$; $\stress_{ij}$ são as componentes $ij$ do tensor de tensões Cauchy ($\stressTensor$); e $b_1$ representa a componente na direção $y_1$ do vetor força de campo por unidade de volume $\mathbf{b}$. Dividindo-se Eq. \ref{eq:equil_forca_y1} por $\deriv V$ e efetuando as subtrações, têm-se a força resultante por unidade de volume ($q_1$) dada por:
+\noindent onde $F_1$ representa a resultante das forças externas na direção $y_1$; $\stress_{ij}$ são as componentes $ij$ do tensor de tensões Cauchy ($\stressTensor$); e $b_1$ representa a componente na direção $y_1$ do vetor força de campo por unidade de volume $\mathbf{b}$. Dividindo-se \autoref{eq:equil_forca_y1} por $\deriv V$ e efetuando as subtrações, têm-se a força resultante por unidade de volume ($q_1$) dada por:
 
 \begin{align}
 		q_1 =\frac{\partial \stress_{11}}{\partial y_1} + \frac{\partial \stress_{12}}{\partial y_2} + \frac{\partial \stress_{13}}{\partial y_3} + b_{1}.
 \end{align}	
 
-\begin{figure}[htb!]
-	\centering 
+\begin{figure}[!htbp]
+	\caption{Volume de controle infinitesimal: Componentes de força na direção $y_1$}
+	\begin{center} 
 	%\vspace{-1em} % Diminui o espaço antes da figura
 	\includegraphics[scale=1.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/volInf_tensao.pdf}	
-	\caption{Volume de controle infinitesimal: Componentes de força na direção $y_1$}
 	\label{fig:volInf_tensao}
-	%\vspace{-1em} % Diminui o espaço antes da figura
+	\end{center}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 Considerando-se o equilíbrio das forças nas direções $y_2$ e $y_3$, pode-se escrever também:
@@ -191,9 +93,7 @@ Considerando-se o equilíbrio das forças nas direções $y_2$ e $y_3$, pode-se 
 	\mathbf{q} = \divergence \cdot \stressTensor + \mathbf{b}.
 \end{align}
 
-
-Realizando-se o balanço da quantidade de movimento no volume de controle infinitesimal da Fig. \ref{fig:volInf_consQtdeMov}, e aplicando-se a lei da conservação da quantidade de movimento, pode-se chegar a seguinte equação:
-
+Realizando-se o balanço da quantidade de movimento no volume de controle infinitesimal da \autoref{fig:volInf_consQtdeMov}, e aplicando-se a lei da conservação da quantidade de movimento, pode-se chegar a seguinte equação:
 
 \begin{align}
 	\begin{split}
@@ -203,7 +103,7 @@ Realizando-se o balanço da quantidade de movimento no volume de controle infini
 	\end{split}
 \end{align}	
 
-\noindent dividindo-se a Eq. \ref{eq:QM_0} por $\deriv V$ e efetuando-se as subtrações, chega-se a:
+\noindent dividindo-se a \autoref{eq:QM_0} por $\deriv V$ e efetuando-se as subtrações, chega-se a:
 
 \begin{align}
 		\frac{\partial \density \velocity}{\partial t} = 
@@ -221,16 +121,16 @@ ou ainda:
 
 \noindent com $\sbodyforce = \density \mathbf{b}$ que representa a força de campo por unidade de massa.
 
-\begin{figure}[htb!]
-	\centering 
-	%\vspace{-1em} % Diminui o espaço antes da figura
-	\includegraphics[scale=1.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/volInf_consQtdeMov.pdf}	
+\begin{figure}[!htbp]
 	\caption{Volume de controle infinitesimal: Fluxo de quantidade de Movimento}
+	\begin{center}
+	\includegraphics[scale=1.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/volInf_consQtdeMov.pdf}	
+	\end{center}
+	\legend{Fonte: Elaborada pela autora}
 	\label{fig:volInf_consQtdeMov}
-	%\vspace{-1em} % Diminui o espaço antes da figura
 \end{figure}
 
-Da consideração da equação da continuidade, a Eq. \ref{eq:QM_2} pode ser rescrita ainda em sua forma convectiva como:
+Da consideração da equação da continuidade, a \autoref{eq:QM_2} pode ser rescrita ainda em sua forma convectiva como:
 
 \begin{align}
 	\density\left(\frac{\partial\velocity}{\partial t} + \left( \velocity \cdot \gradient \right)  \velocity  - \sbodyforce \right) - \divergence \cdot \stressTensor = \vzero. \label{eq:Navier-Stokes} 
@@ -244,7 +144,6 @@ O tensor de tensões de Cauchy $\stressTensor$ é definido para fluidos newtonia
 
 \noindent onde $\press$ representa a pressão, $\viscosity$ a viscosidade dinâmica do fluido e $\straintensor(\bullet)$ é o tensor taxa de deformação infinitesimal, definido como:
 
-
 \begin{align}
 \straintensor(\bullet) = \frac{1}{2}\left(\gradient (\bullet) + \gradient (\bullet)^{T}\right). 
 \label{eq:tensor_taxa_defor}
@@ -252,9 +151,9 @@ O tensor de tensões de Cauchy $\stressTensor$ é definido para fluidos newtonia
 
 \subsection{Formulação forte da mecânica dos fluidos}
 
-Seja $\domain \in \nrealspace$, com $\nsd = 1,2,3$ definindo a dimensão do domínio espacial do escoamento com contorno $\boundary = \boundaryD \cup \boundaryN$, no instante $t \in (0,\totalTime)$ (ver Fig. \ref{fig:dominioFluido}).
+Seja $\domain \in \nrealspace$, com $\nsd = 1,2,3$ definindo a dimensão do domínio espacial do escoamento com contorno $\boundary = \boundaryD \cup \boundaryN$, no instante $t \in (0,\totalTime)$ (ver \autoref{fig:dominioFluido}).
 
-Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pela equação da quantidade de movimento, ou equações de Navier-Stokes (Eq. \ref{eq:Navier-Stokes}) e da conservação de massa (Eq. \ref{eq:conser_massa_incom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas. Dessa forma, o escoamento é governado pelo seguinte conjunto de equações:
+Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pela equação da quantidade de movimento, ou equações de Navier-Stokes (\autoref{eq:Navier-Stokes}) e da conservação de massa (\autoref{eq:conser_massa_incom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas. Dessa forma, o escoamento é governado pelo seguinte conjunto de equações:
 
 \begin{equation}
 	\left\{
@@ -269,20 +168,20 @@ Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrit
 
 \noindent sendo $\boundaryD$ a porção do contorno com condições de contorno de Dirichlet, representadas pelo campo de velocidades $\velocityD$, e $\boundaryN$ aquela com condições de contorno de Neumann, descritas pelas forças de superfície $\surfaceLoad$. A variável $\snormal$ representa o vetor unitário normal ao contorno $\boundaryN$.
 
-\begin{figure}[htb!]
-	\centering 
-	%\vspace{-1em} % Diminui o espaço antes da figura
+\begin{figure}[!htbp]
+	\caption{Domínio para o problema da DFC}
+	\begin{center}
 	\includegraphics[scale=3.0,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/dominioFluido.pdf}	
-	\caption{Domínio para o problema da dinâmica dos fluidos computacional}
+	\end{center}
+	\legend{Fonte: Elaborada pela autora}
 	\label{fig:dominioFluido}
-	%\vspace{-1em} % Diminui o espaço antes da figura
 \end{figure}
 
 \section{Descrição Euleriana-Lagrangiana arbitrária (ALE)} \label{capitulo:Cap2:ALE}
 
 A descrição Lagrangiana-Euleriana arbitrária \cite{DoneaGH:1982} representa uma generalização da descrição puramente Lagrangiana e da descrição puramente Euleriana do movimento do contínuo. A descrição Lagrangiana fixa a atenção em pontos materiais do contínuo, enquanto que na descrição Euleriana considera-se uma porção fixa do espaço ocupada pelo contínuo, e analisam-se os pontos materiais que passam por essa porção ao longo do tempo. Como consequência, na descrição puramente Lagrangiana a malha computacional move-se com o contínuo, enquanto que na Euleriana a malha computacional mantém-se fixa. Por sua vez, na descrição Lagrangiana-Euleriana arbitrária, trabalha-se com pontos de referência que podem movimentar-se, mas de maneira independente do movimento dos pontos materiais do contínuo analisado.
 
-Para a aplicação dessa metodologia às equações governantes da mecânica dos fluidos é importante a definição de três domínios, de acordo com a Fig. \ref{fig:dominioAle}. O domínio inicial, chamado de \textbf{domínio material} ($\domainMat$), que é definido pelas coordenadas dos pontos materiais $\posMat$; O domínio atual, chamado de \textbf{domínio espacial} ($\domain$), definido pelas coordenadas $\pos$; e por fim, o \textbf{domínio de referência} ($\domainRef$) com coordenadas dos pontos de referência $\posALE$. 
+Para a aplicação dessa metodologia às equações governantes da mecânica dos fluidos é importante a definição de três domínios, de acordo com a \autoref{fig:dominioAle}. O domínio inicial, chamado de \textbf{domínio material} ($\domainMat$), que é definido pelas coordenadas dos pontos materiais $\posMat$; O domínio atual, chamado de \textbf{domínio espacial} ($\domain$), definido pelas coordenadas $\pos$; e por fim, o \textbf{domínio de referência} ($\domainRef$) com coordenadas dos pontos de referência $\posALE$. 
 
 Considera-se nesse texto, o domínio de referência, $\domainRef$, como sendo a configuração inicial da malha, enquanto que a configuração atual da malha e do contínuo consistem ambas na referência espacial $\domain$.
 
@@ -292,10 +191,12 @@ As coordenadas no domínio atual do contínuo, $\domain$, podem ser mapeadas a p
 	\pos = \fmapAI(\posMat,t) = \fmapAR(\posALE,t).
 \end{align}
 
-\begin{figure}[htb!]
-	\centering
-	\includegraphics[scale=1.0]{Imagens/Cap2/dominioALE.pdf}	
+\begin{figure}[!htbp]
 	\caption{Domínios utilizados para a descrição Lagrangiana-Euleriana arbitrária}
+	\begin{center}
+	\includegraphics[scale=1.0]{Imagens/Cap2/dominioALE.pdf}	
+	\end{center}
+	\legend{Fonte: Elaborada pela autora}
 	\label{fig:dominioAle}
 \end{figure}
 
@@ -317,7 +218,6 @@ A velocidade dos pontos da malha é calcula por:
 	\velocity = \left. \frac{\partial \fmapAI(\posMat,t)}{\partial t} \right|_{\posMat} = \left. \frac{\partial \pos(\posMat,t)}{\partial t} \right|_{\posMat}.
 \end{align}
 
-
 As matrizes jacobianas dos mapeamentos considerando a dependência do espaço e do tempo são dadas por:
 
 \begin{equation} 
@@ -338,7 +238,7 @@ As matrizes jacobianas dos mapeamentos considerando a dependência do espaço e 
 	\text{,}
 \end{equation}
 
-e
+\noindent e
 
 \begin{equation}
 	\FmapRI = \frac{\partial \left({\fmapRI}(\posMat,t),t\right)}{\partial (\posMat,t)}=
@@ -350,7 +250,6 @@ e
 \end{equation}
 
 \noindent sendo $\mathbf{w} = \left. \frac{\partial \posALE}{\partial t} \right|_{\posMat}$.
-
 
 Considerando que $\fmapAI\left(\posMat,t\right) = \fmapAR \circ \fmapRI$, pode-se escrever:
 
@@ -432,7 +331,6 @@ Essa expressão nos permite escrever a derivada temporal da variável na configu
 
 Usando essa mesma metodologia pode-se escrever a transformação de $g^{*}(\posALE,t)$ para a referência material da seguinte forma:
 
-
 \begin{align}
 	g^{**} = g^{*}  \circ \fmapRI,
 \end{align}
@@ -454,14 +352,13 @@ Usando essa mesma metodologia pode-se escrever a transformação de $g^{*}(\posA
 	\end{bmatrix},
 \end{align}
 
-
 \noindent com a segunda coluna resultando em:
 
 \begin{align}
 	\frac{\partial g^{**}}{\partial t} = \frac{\partial g^*}{\partial t} + \frac{\partial g*}{\partial \posALE} \cdot \mathbf{w}. \label{eq:ref_mat}
 \end{align}
 
-Utilizando-se a expressão apresenta na Eq. \ref{eq:vel_rel_mat_ALE} e substituindo-a em \ref{eq:ref_mat}, resulta em:
+Utilizando-se a expressão apresenta na \autoref{eq:vel_rel_mat_ALE} e substituindo-a em \ref{eq:ref_mat}, resulta em:
 
 \begin{align}
 	\frac{\partial g^{**}}{\partial t} = \frac{\partial g^*}{\partial t} + \frac{\partial g*}{\partial \pos} \cdot \left(\velocity - \velocityALE \right). 
@@ -473,19 +370,19 @@ Removendo-se os sobrescritos (**) e (*), chega-se a equação fundamental para o
 	\frac{Dg}{Dt} = \left . \frac{\partial g}{\partial t} \right|_{\posMat} = \left . \frac{\partial g}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right) \cdot \gradient g. \label{eq:der_mat_ALE}
 \end{align}
 
-Utilizando-se a definição de derivada material da Eq. \ref{eq:der_mat} e comparando com a Eq. \ref{eq:Navier-Stokes}, pode-se rescrever a equação da quantidade de movimento da seguinte forma:
+Utilizando-se a definição de derivada material da \autoref{eq:der_mat} e comparando com a \autoref{eq:Navier-Stokes}, pode-se rescrever a equação da quantidade de movimento da seguinte forma:
 
 \begin{align}
 	\density\left(\frac{D\velocity}{Dt} - \sbodyforce \right) - \divergence \cdot \stressTensor &= \vzero. \label{eq:Navier-Stokes_der_mat_Euleriana}
 \end{align}
 
-Para expressar então a equação da quantidade de movimento em uma descrição Euleriana-Lagrangeana, basta substituir na Eq. \ref{eq:Navier-Stokes_der_mat_Euleriana} a definição de derivada material apresentada na Eq. \ref{eq:der_mat_ALE}, e têm-se finalmente:
+Para expressar então a equação da quantidade de movimento em uma descrição Euleriana-Lagrangeana, basta substituir na \autoref{eq:Navier-Stokes_der_mat_Euleriana} a definição de derivada material apresentada na \autoref{eq:der_mat_ALE}, e têm-se finalmente:
 
 \begin{align}
 	\density\left(\left. \frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right) \cdot \gradient  \velocity  - \sbodyforce \right) - \divergence \cdot \stressTensor = \vzero. \label{eq:Navier-Stokes_ALE} 
 \end{align}
 
-A equação da continuidade independe da movimentação da malha. Dessa forma a Eq. \ref{eq:conser_massa_incom} se mantém a mesma para as análises usando uma descrição ALE. Assim, reescrevendo o conjunto de equações da DFC apresenta na Eq. \ref{eq:conj_eq_DFC} para um descrição ALE, têm-se:
+A equação da continuidade independe da movimentação da malha. Dessa forma a \autoref{eq:conser_massa_incom} se mantém a mesma para as análises usando uma descrição ALE. Assim, reescrevendo o conjunto de equações da DFC apresenta na \autoref{eq:conj_eq_DFC} para um descrição ALE, têm-se:
 
 \begin{equation}
 	\left\{
@@ -497,7 +394,6 @@ A equação da continuidade independe da movimentação da malha. Dessa forma a 
 	\end{array} \label{eq:conj_eq_DFC_ALE}
 	\right.
 \end{equation}
-
 
 \section{Forma fraca e discretização espacial das equações governantes} \label{capitulo:Cap2:FormaFraca}
 
@@ -521,13 +417,11 @@ O espaço das funções teste ou funções peso das equações da quantidade de 
 \uweighting = \left\{\utest \left . \right| \utest \left(\cdot\right) \in \left(H^{1}\left(\domain\right)\right)^{\nsd}, \utest = \vzero \textrm { em} \ \boundaryD \right\},
 \end{align}
 
-
 \begin{align}
 \pweighting = \psolution.
 \end{align}
 
-Aplicando-se o método dos resíduos ponderados sobre as equações Eq. \eqref{eq:Navier-Stokes_ALE} e Eq.\eqref{eq:conser_massa_incom}, integrando-se por partes o termo referente ao tensor de tensões de Cauchy, empregando-se o teorema da divergência e levando-se em consideração a condição de homogeneidade da função $\utest$ sobre o contorno $\boundaryD$, obtém-se a forma fraca. A solução do problema consiste então em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de tal modo que $\forall$ $\utest \in \uweighting$ e $\ptest \in \pweighting$, as seguintes expressões sejam verdadeiras:
-
+Aplicando-se o método dos resíduos ponderados sobre as equações \autoref{eq:Navier-Stokes_ALE} e \autoref{eq:conser_massa_incom}, integrando-se por partes o termo referente ao tensor de tensões de Cauchy, empregando-se o teorema da divergência e levando-se em consideração a condição de homogeneidade da função $\utest$ sobre o contorno $\boundaryD$, obtém-se a forma fraca. A solução do problema consiste então em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de tal modo que $\forall$ $\utest \in \uweighting$ e $\ptest \in \pweighting$, as seguintes expressões sejam verdadeiras:
 
 \begin{align}
 \int_{\domain} \utest \cdot \density  \left(\left . \frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right)\cdot\gradient \velocity - \sbodyforce \right) \deriv \domain + \int_{\domain} \straintensor(\utest) : \stressTensor  \deriv \domain - \int_{\boundaryN} \utest \cdot \surfaceLoad \deriv\boundaryN  \  &= 0,  \label{eq:QM_forma_fraca_0_cap2} 
@@ -537,10 +431,9 @@ Aplicando-se o método dos resíduos ponderados sobre as equações Eq. \eqref{e
 \int_{\domain} \ptest \left(\divergence \cdot \velocity\right) \deriv \domain &= 0. \label{eq:C_forma_fraca_0_cap2} 
 \end{align}
 
-
 \subsection{Método dos elementos finitos } \label{capitulo:Cap2:FormaFraca:ElementosFinitos}
 
-Antes de prosseguir com a discretização espacial da forma fraca do conjunto de equações da Mecânica dos Fluidos, é fundamental compreender os princípios básicos do Método dos Elementos Finitos.  A discretização espacial tanto pelo método dos elementos finitos, como pela técnica de análise isogeométrica (Cap. \ref{capitulo:Cap3}), consiste em, dado um problema com domínio $\domain$, dividi-lo em subdomínios $\domainE$, também chamados de elementos ou células, de forma que:
+Antes de prosseguir com a discretização espacial da forma fraca do conjunto de equações da Mecânica dos Fluidos, é fundamental compreender os princípios básicos do Método dos Elementos Finitos.  A discretização espacial tanto pelo método dos elementos finitos, como pela técnica de análise isogeométrica (\autoref{capitulo:Cap3}), consiste em, dado um problema com domínio $\domain$, dividi-lo em subdomínios $\domainE$, também chamados de elementos ou células, de forma que:
 
 \begin{align}
 	\domain \approx \domainh = {\bigcup_{e = 1}^{\nel}} \domainE,
@@ -558,13 +451,14 @@ Da mesma forma o contorno do domínio também é discretizado da seguinte forma:
 
 No Método dos Elementos Finitos, cada subdomínio, denominado elemento, é composto por um conjunto de pontos, chamados nós. As variáveis de interesse do problema, que incluem a geometria na abordagem isoparamétrica, são aproximadas pela combinação linear de um número finito de funções associadas aos nós, chamadas funções de forma, multiplicadas por variáveis chamadas parâmetros nodais. As funções de forma utilizadas no Método dos Elementos Finitos satisfazem, em geral, a propriedade de partição da unidade, ou seja, a soma das funções de forma associadas a todos os nós de um elemento resulta em 1 para qualquer ponto dentro do domínio paramétrico do elemento. A técnica de elementos finitos pode ser estudada nos diversos livros disponíveis sobre o assunto, tais como \citeonline{ZienkiewiczT:2005a,Reddy:2006}.
 
-Nesse trabalho são utilizadas funções de forma quadráticas do tipo polinômios de Lagrange, sendo empregados elementos isoparamétricos triangulares para o caso 2D e tetraédricos para o caso 3D. Na Fig. \ref{fig:elementoFinito2d} e Fig. \ref{fig:elementoFinito3d}, pode-se observar os elementos finitos 2D e 3D respectivamente bem como os espaços paramétricos adimensionais adotados para definir as funções de forma. 
+Nesse trabalho são utilizadas funções de forma quadráticas do tipo polinômios de Lagrange, sendo empregados elementos isoparamétricos triangulares para o caso 2D e tetraédricos para o caso 3D. Na Figura \ref{fig:elementoFinito2d} e Figura \ref{fig:elementoFinito3d}, pode-se observar os elementos finitos 2D e 3D respectivamente bem como os espaços paramétricos adimensionais adotados para definir as funções de forma. 
 
-\begin{figure}[!htb]
+\begin{figure}[!htbp]
+	\caption{Elementos Finitos: representação espacial e paramétrica}
 	\centering	
 	\subfloat[Elemento Finito 2d\label{fig:elementoFinito2d}]{\includegraphics[scale=0.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/elementoFinito2d.pdf}}\\
 	\subfloat[Elemento Finito 3d\label{fig:elementoFinito3d}]{\includegraphics[trim=0 0 0 0,clip,scale=0.65]{Imagens/Cap2/elementoFinito3d.pdf}}
-	\caption{Elementos Finitos: representação espacial e paramétrica}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 Adotar a abordagem isoparamétrica implica que a geometria do problema é descrita também pela combinação entre funções de forma e as coordenadas nodais da malha, conforme equação abaixo:
@@ -575,8 +469,7 @@ Adotar a abordagem isoparamétrica implica que a geometria do problema é descri
 
 \noindent sendo que para uma geometria tridimensional o vetor $\pos$ possui coordenadas $y_1,y_2$ e $y_3$, as quais representam as posições físicas do domínio; O subíndice "$A$" $ \ $ representa o índice dos nós da malha, $\nnos$ o número total de nós e $\shapef$ as funções de forma da discretização.
 
-A discretização das variáveis de interesse para DFC no contexto do método dos elementos finitos serão apresentados no seguinte capítulo (Cap. \ref{capitulo:Cap2:DiscEspacial}).
-
+A discretização das variáveis de interesse para DFC no contexto do método dos elementos finitos serão apresentados no seguinte capítulo (\autoref{capitulo:Cap2:DiscEspacial}).
 
 \subsection{Discretização Espacial} \label{capitulo:Cap2:DiscEspacial}
 
@@ -616,7 +509,7 @@ Neste trabalho, para estabilização da pressão, emprega-se a técnica \textit{
 
 Por fim, para prover maior estabilização em problemas com formação de vórtices, adiciona-se à equação da quantidade de movimento o resíduo da equação da continuidade ponderado por $ \LSIC \density \left(\divergence \cdot \utesth\right)$ \cite{TezduyarO:2000}, sendo $\LSIC$ um parâmetro de estabilização. A estabilização  $\LSIC$ dá origem a um termo do tipo mínimos quadrados, e que também introduz na formulação uma difusão artificial.
 
-Nota-se que a consistência da formulação estabilizada é garantida, uma vez que são adicionados às equações seus resíduos ponderados. Os parâmetros de estabilização $\SUPG$, $\PSPG$ e $\LSIC$ têm função de proporcionar uma solução estável e otimizar a convergência durante o refinamento de malha. A obtenção dos parâmetros estabilizadores será discutida na Subseção \ref{capitulo:Cap2:FormaFraca:taus}. 
+Nota-se que a consistência da formulação estabilizada é garantida, uma vez que são adicionados às equações seus resíduos ponderados. Os parâmetros de estabilização $\SUPG$, $\PSPG$ e $\LSIC$ têm função de proporcionar uma solução estável e otimizar a convergência durante o refinamento de malha. A obtenção dos parâmetros estabilizadores será discutida na \autoref{capitulo:Cap2:FormaFraca:taus}. 
 
 Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\velocityh \in \usolutionh$ e $\pressh \in \psolutionh$, de tal modo que $\forall$ $\utesth \in \uweightingh$ e $\ptesth \in \pweightingh$ as seguintes expressões sejam verdadeiras:
 
@@ -652,7 +545,7 @@ Por fim, o problema da dinâmica dos fluidos passa a ser a determinação de $\v
 \resPre\left(\velocityh\right)&=\divergence \cdot \velocityh.
 \end{align}
 
-A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho é conhecida como MJBS (Mesh-Jacobian Based Stiffening) introduzida por \citeonline{TezduyarBSJ:1992f} e será abordada na Subseção \ref{capitulo:Cap7:CondAcop:MovMalha}.
+A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho é conhecida como MJBS (Mesh-Jacobian Based Stiffening) introduzida por \citeonline{TezduyarBSJ:1992f} e será abordada na \autoref{capitulo:Cap7:CondAcop:MovMalha}.
 
 Visto que existem funções teste separadas para a velocidade e pressão, pode-se definir dois vetores residuais correspondentes a equação da quantidade de movimento ($\NNSM$) e a equação da continuidade ($\NNSC$). Considerando a arbitrariedade de $\utest_{A}$ e $\ptest_{A}$, têm-se:
 
@@ -697,8 +590,6 @@ Considerando $\Acceleration$, $\Velocity$ e $\Press$ os vetores nodais dos graus
 \begin{align}
 \NNSC(\Acceleration,\Velocity,\Press) = \vzero. \label{eq:resid_semi_discr_C}
 \end{align}
-
-
 
 \subsection{Parâmetros de estabilização}\label{capitulo:Cap2:FormaFraca:taus}
 
@@ -777,8 +668,7 @@ Para elementos simplex, buscando encontrar uma expressão que leve a um comprime
 	\end{bmatrix}.
 \end{align}
 
-
-A definição da matriz $\matrixD$ para elementos isogeométricos será descrita na Subseção \ref{capitulo:Cap3:RepreGeo:taus2}.
+A definição da matriz $\matrixD$ para elementos isogeométricos será descrita na \autoref{capitulo:Cap3:RepreGeo:taus2}.
 
 Além disso, nessa metodologia, o comprimento do elemento é limitado pelos mínimos e máximos valores representados abaixo:
 
@@ -866,11 +756,11 @@ Os parâmetros que definem o instante intermediário, no qual as variáveis ser�
 \alpham \ge \alphaf \ge 1/2.
 \end{gather}
 
-Para proporcionar a precisão de segunda-ordem de convergência e estabilidade da solução, pode-se calcular o parâmetro $\gamma$ de acordo com Eq. \ref {eq:gamma} e $\alpham$, $\alphaf$, através de \cite{Hughes:2000}:
+Para proporcionar a precisão de segunda-ordem de convergência e estabilidade da solução, pode-se calcular o parâmetro $\gamma$ de acordo com \autoref {eq:gamma} e $\alpham$, $\alphaf$, através de \cite{Hughes:2000}:
 
 
 \begin{gather}
-\alpham = \frac{1}{2}\left(\frac{3 - \specRadius}{1+\specRadius}\right)\label{eq:alpha_m}\\
+\alpham = \frac{1}{2}\left(\frac{3 - \specRadius}{1+\specRadius}\right)\label{eq:alpha_m}
 \end{gather}
 
 \noindent e
@@ -881,7 +771,7 @@ Para proporcionar a precisão de segunda-ordem de convergência e estabilidade d
 
 O parâmetro $\specRadius$ é conhecido como raio espectral da matriz de amplificação quando $\timeStep_{n} \rightarrow \infty$. Esse parâmetro controla a dissipação numérica em altas frequências realizada pelo processo de integração e está contido no intervalo de $[0,1]$. Para $\specRadius = 0$ a dissipação é máxima e para $\specRadius = 1$ não há introdução de difusão numérica ao método.
 
-Para a solução do sistema de equações não lineares compostas por Eq. \eqref{eq:resid_QM_alpha} e Eq. \eqref{eq:resid_cont_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva \cite{BazilevsTT:2013}.
+Para a solução do sistema de equações não lineares compostas por \autoref{eq:resid_QM_alpha} e \autoref{eq:resid_cont_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva \cite{BazilevsTT:2013}.
 
 Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a solução em $n+1$ com as seguintes equações:
 
@@ -899,7 +789,7 @@ Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a 
 
 \noindent onde o índice $0$ representa a iteração de número zero. 
 
-Na etapa iterativa corretiva, itera-se sobre a Eq. \eqref{eq:resid_QM_alpha} e Eq. \eqref{eq:resid_cont_alpha} até que elas sejam satisfeitas, considerando uma tolerância prescrita, ou até que se alcance uma quantidade máxima de iterações pré-estabelecida. Essa etapa é composta por três fases. A fase 1 consiste em determinar os valores no instante intermediário para as variáveis nodais na iteração $i$:
+Na etapa iterativa corretiva, itera-se sobre a \autoref{eq:resid_QM_alpha} e \autoref{eq:resid_cont_alpha} até que elas sejam satisfeitas, considerando uma tolerância prescrita, ou até que se alcance uma quantidade máxima de iterações pré-estabelecida. Essa etapa é composta por três fases. A fase 1 consiste em determinar os valores no instante intermediário para as variáveis nodais na iteração $i$:
 
 \begin{align}
 \Acceleration_{n+\alpham}^{i} = \Acceleration_n + \alpham \left( \Acceleration_{n+1}^{i} - \Acceleration_n \right), \label{eq:inter_acel_i}\\
@@ -907,7 +797,7 @@ Na etapa iterativa corretiva, itera-se sobre a Eq. \eqref{eq:resid_QM_alpha} e E
 \Press_{n+1}^{i} = \Press_{n+1}^{i} \label{eq:inter_press_i}.
 \end{align}
 
-Na fase 2, com os valores intermediários das variáveis nodais resolve-se o sistema linear resultante da linearização das equações Eq. \eqref{eq:resid_QM_alpha} e Eq. \eqref{eq:resid_cont_alpha} com respeito às variáveis de interesse $\Press_{n+1}$ e $\Acceleration_{n+1}$:
+Na fase 2, com os valores intermediários das variáveis nodais resolve-se o sistema linear resultante da linearização das equações \autoref{eq:resid_QM_alpha} e \autoref{eq:resid_cont_alpha} com respeito às variáveis de interesse $\Press_{n+1}$ e $\Acceleration_{n+1}$:
 
 \begin{align}
 \left .\frac{\partial\NNSM}{\partial\Acceleration_{n+1}}\right|_{i} \Delta \Acceleration_{n+1}^{i} + \left .\frac{\partial\NNSM}{\partial\Press_{n+1}}\right|_{i} \Delta \Press_{n+1}^{i} = -\NNSM^{i}, \label{eq:eq_lin_QM} \\
@@ -922,7 +812,7 @@ Por fim, na fase 3 atualiza-se a solução através das seguintes relações:
 \Press_{n+1}^{i+1} = \Press_{n+1}^{i} + \Delta\Press_{n+1}^{i}.\label{atu_press}
 \end{align}
 
-Na utilização do método $\alpha$-generalizado as integrais das equações Eq. \eqref{eq:resid_QM_alpha} e Eq. \eqref{eq:resid_cont_alpha} são avaliadas no instante $t = t_{n+\alpha_{f}}$, de forma que:
+Na utilização do método $\alpha$-generalizado as integrais das equações \autoref{eq:resid_QM_alpha} e \autoref{eq:resid_cont_alpha} são avaliadas no instante $t = t_{n+\alpha_{f}}$, de forma que:
 
 \begin{align}
 \int_{\domain} \left(.\right) \deriv \domain = \int_{\domainALEN} \left(.\right) \deriv \domain,
@@ -934,7 +824,6 @@ Na utilização do método $\alpha$-generalizado as integrais das equações Eq.
 \domainALEN = \left\{\posh \  |\  \posh(\posALEh,t_{(n+\alphaf)}) = \alphaf \posh(\posALEh,t_{n+1}) + (1-\alphaf) \posh(\posALEh,t_n)  \right\}.
 \end{align}
 
-
 \section{Implementação Computacional} \label{capitulo:Cap2:DFCComputationalCode}
 
 O Algoritmo que descreve a implementação computacional tanto de problemas utilizando o método dos elementos finitos, quanto para problemas utilizando a análise Isogeométrica, é apresentado no Alg. \ref{alg:fluid}.
@@ -945,12 +834,12 @@ O Algoritmo que descreve a implementação computacional tanto de problemas util
 	\begin{algorithmic}[1]
 		\For {o passo de tempo $0$ até $\totalTime$} 
 		\State $i=0$;
-		\State Predição da solução: aplicação das Eq. \eqref{eq:pred_acel}, Eq. \eqref{eq:pred_vel} e Eq. \eqref{eq:pred_press};
+		\State Predição da solução: aplicação das \autoref{eq:pred_acel}, \autoref{eq:pred_vel} e \autoref{eq:pred_press};
 		\While{($\epsilon$ < tolerância)}
 		\State $i$++;
-		\State Interpolação das variáveis do problema: aplicação da Eq. \eqref{eq:inter_acel_i}, Eq. \eqref {eq:inter_vel_i} e Eq. \eqref{eq:inter_press_i};
-		\State Cálculo do incremento nas variáveis do problema: $\Acceleration_{n+1}$ e $\Press_{n+1}$ de acordo com as Eq. \eqref{eq:eq_lin_QM} e Eq. \eqref{eq:eq_lin_cont};
-		\State Atualização da solução: calculadas de acordo com Eq. \eqref{atu_acel}, Eq. \eqref{atu_vel} e Eq. \eqref{atu_press}.
+		\State Interpolação das variáveis do problema: aplicação da \autoref{eq:inter_acel_i}, \autoref{eq:inter_vel_i} e \autoref{eq:inter_press_i};
+		\State Cálculo do incremento nas variáveis do problema: $\Acceleration_{n+1}$ e $\Press_{n+1}$ de acordo com as \autoref{eq:eq_lin_QM} e \autoref{eq:eq_lin_cont};
+		\State Atualização da solução: calculadas de acordo com \autoref{atu_acel}, \autoref{atu_vel} e \autoref{atu_press}.
 		\State Cálculo do erro:
 		\begin{align}
 		\epsilon =\left\| \NNSM^i \right\|_{L^2}
@@ -960,7 +849,6 @@ O Algoritmo que descreve a implementação computacional tanto de problemas util
 		\EndFor
 	\end{algorithmic}
 \end{algorithm}
-
 
 \section{Verificação e Aplicações} \label{capitulo:Cap2:VerApl}
 
@@ -976,15 +864,17 @@ O estudo do problema de um escoamento sobre um cilindro 2D teve como principal i
 
 \noindent com $L$ a dimensão característica do problema, sendo nesse caso o diâmetro do cilindro, e $\kviscosity$ a viscosidade cinemática do fluido. 
 
-A geometria e condições de contorno são apresentadas na Fig. \ref{fig:cilindro_geometria}. Como pode-se observar trata-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nas paredes superior e inferior. No contorno denominado como \textit{saída}, não se conhece o comportamento do escoamento, desta forma, determina-se sua posição no domínio computacional a uma distância grande o suficiente de maneira a não interferir no comportamento do escoamento.
+A geometria e condições de contorno são apresentadas na Figura \ref{fig:cilindro_geometria}. Como pode-se observar trata-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nas paredes superior e inferior. No contorno denominado como \textit{saída}, não se conhece o comportamento do escoamento, desta forma, determina-se sua posição no domínio computacional a uma distância grande o suficiente de maneira a não interferir no comportamento do escoamento.
 
-Na Fig. \ref{fig:cilindro_malha} pode-se observar a malha não-estruturada de elementos finitos utilizada para esse problema, composta por 9122 elementos triangulares quadráticos e 18508 nós. O problema foi simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$. 
+Na Figura \ref{fig:cilindro_malha} pode-se observar a malha não-estruturada de elementos finitos utilizada para esse problema, composta por 9122 elementos triangulares quadráticos e 18508 nós. O problema foi simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$. 
 
-\begin{figure}[!htb]
-	\centering
+\begin{figure}[!htbp]
+	\caption{Cilindro: Geometria, condições de contorno e malha de elementos finitos.}
+	\begin{center}
 	\subfloat[Geometria e condições de contorno\label{fig:cilindro_geometria}]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro_geometria.pdf}}\\
 	\subfloat[Discretização espacial\label{fig:cilindro_malha}]{\includegraphics[trim=0cm 2cm 0cm 2cm,clip,scale=0.4]{Imagens/Cap2/cilindro_malha.pdf}}
-	\caption{Cilindro: Geometria, condições de contorno e malha de elementos finitos.}
+	\end{center}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 Para o cálculo dos coeficientes aerodinâmicos é necessário definir-se primeiramente as forças de arrasto - horizontal ($F_D$) e de sustentação - vertical ($F_L$), que são induzidas por tensões desviadores e hidrostáticas e são calculadas pelas seguintes equações:
@@ -1015,116 +905,110 @@ Devido ao fenômeno de desprendimento de vórtices que ocorre a partir de determ
 
 \noindent com $f_{v}$ sendo a frequência de desprendimento dos vórtices.
 
-Como pode-se observar na Fig. \ref{fig:cilindro_coefAero} para $\Reynolds = 40$, os coeficientes de arrasto e de sustentação, após o escoamento entrar em fase estacionária, se mantém constantes ao longo de todo o tempo de análise. Isso ocorre, visto que para Reynolds entre 5 à 50, aproximadamente, formam-se dois vórtices simétricos e estacionários na região logo após o cilindro. Posteriormente, o par de vórtices se quebra e passa existir a chamada esteira de Von Karmán, que ocorre devido à formação de vórtices de maneira alternada entre as regiões superior e inferior do cilindro, o que pode ser notado também na Fig. \ref{fig:cilindro_coefAero}  para $\Reynolds = 100$ e $\Reynolds=1000$. Os valores do coeficiente de Strouhal, para $\Reynolds = 100$ e $\Reynolds=1000$, assim como os valores médios obtidos para o coeficiente de arrasto ($C_{Dmed}$) para $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$ são apresentados na Tab. \ref{tab:cilindro_CD_ST} juntamente com os valores de referência provenientes do trabalho de \citeonline{WANDERLEY2002445}.
+Como pode-se observar na Figura \ref{fig:cilindro_coefAero} para $\Reynolds = 40$, os coeficientes de arrasto e de sustentação, após o escoamento entrar em fase estacionária, se mantém constantes ao longo de todo o tempo de análise. Isso ocorre, visto que para Reynolds entre 5 à 50, aproximadamente, formam-se dois vórtices simétricos e estacionários na região logo após o cilindro. Posteriormente, o par de vórtices se quebra e passa existir a chamada esteira de Von Karmán, que ocorre devido à formação de vórtices de maneira alternada entre as regiões superior e inferior do cilindro, o que pode ser notado também na Figura \ref{fig:cilindro_coefAero}  para $\Reynolds = 100$ e $\Reynolds=1000$. Os valores do coeficiente de Strouhal, para $\Reynolds = 100$ e $\Reynolds=1000$, assim como os valores médios obtidos para o coeficiente de arrasto ($C_{Dmed}$) para $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$ são apresentados na Tab. \ref{tab:cilindro_CD_ST} juntamente com os valores de referência provenientes do trabalho de \citeonline{WANDERLEY2002445}.
 
-\begin{figure}[!htb]
+\begin{figure}[!htbp]
+	\caption{Cilindro: Coeficientes aerodinâmicos}
 	\centering
 	\subfloat[\label{fig:cilindro_Cd}Coeficiente de arrasto $ C_D$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro_CD.eps}}\\ 
 	\subfloat[\label{fig:cilindro_Cl}Coeficiente de sustentação $C_L$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro_CL.eps}}\\ 
-	\caption{Cilindro: Coeficientes aerodinâmicos. }
 	\label{fig:cilindro_coefAero}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
-
 
 \begin{table}[h!]
 	\centering
-	\caption{Comparação entre valores obtidos e valores de referência para $C_{Dmed}$ e $St$ em diferentes números de Reynolds.}
-	\begin{tabular}{|c|c|c|c|c|}
-		\hline
-		\multirow{2}{*}{$Re$} & \multicolumn{2}{c|}{$C_{Dmed}$} & \multicolumn{2}{c|}{$St$} \\ \cline{2-5}
-		& Presente estudo & Referência & Presente estudo & Referência \\ \hline
-		40   & 1,54  & 1,59 & - & - \\ \hline
-		100  & 1,35 &  1,33 & 0,166 & 0,163 \\ \hline
-		1000 & 1,52 &  1,51 & 0,238 & 0,235 \\ \hline
+	\caption{Comparação entre valores obtidos e valores de referência}
+	\begin{tabular}{ccccc}
+		\toprule
+		\multirow{2}{*}{$Re$} & \multicolumn{2}{c}{$C_{Dmed}$} & \multicolumn{2}{c}{$St$} \\ \cline{2-5}
+		& Presente estudo & Referência & Presente estudo & Referência \\ \midrule \midrule
+		40   & 1,54  & 1,59 & - & - \\ \midrule
+		100  & 1,35 &  1,33 & 0,166 & 0,163 \\ \midrule
+		1000 & 1,52 &  1,51 & 0,238 & 0,235 \\ \bottomrule
 	\end{tabular}
 	\label{tab:cilindro_CD_ST}
+	\fonte{Elaborada pela autora.}%
 \end{table}
 
-Nas Fig. \ref{fig:cilindro_camposVel} e Fig. \ref{fig:cilindro_camposPressao} podem ser observados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices para $\Reynolds = 100$. Pode-se notar nessas imagens, a formação e o desprendimento de vórtices na esteira de Von Karmán.
+Nas Figura \ref{fig:cilindro_camposVel} e Figura \ref{fig:cilindro_camposPressao} podem ser observados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices para $\Reynolds = 100$. Pode-se notar nessas imagens, a formação e o desprendimento de vórtices na esteira de Von Karmán.
 
-\begin{figure}[htb!]
-	\centering
-	\subfloat[$T_n$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2020.pdf}} \
-	\subfloat[$T_n + T_n/6$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2030.pdf}} \\
-	\subfloat[$T_n + T_n/3$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2040.pdf}} \
-	\subfloat[$T_n + T_n/2$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2050.pdf}} \\
-	\subfloat[$T_n + 2T_n/3$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2060.pdf}} \
-	\subfloat[$T_n + 5T_n/6$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2070.pdf}} \\
-	{\includegraphics[trim=0cm 0cm 0cm 0cm,clip=true,scale=0.3]{Imagens/Cap2/cilindro_legendaVel.pdf}} \\
+\begin{figure}[!htbp]
 	\caption{Cilindro: Campos de velocidade para $\Reynolds = 100$}
-	\label{fig:cilindro_camposVel}
-\end{figure}
-
-\begin{figure}[htb!]
 	\centering
-	\subfloat[$T_n$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2020.pdf}} \
-	\subfloat[$T_n + T_n/6$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2030.pdf}} \\
-	\subfloat[$T_n + T_n/3$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2040.pdf}} \
-	\subfloat[$T_n + T_n/2$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2050.pdf}} \\
-	\subfloat[$T_n + 2T_n/3$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2060.pdf}} \
-	\subfloat[$T_n + 5T_n/6$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2070.pdf}} \\
-	{\includegraphics[trim=0cm 0cm 0cm 0cm,clip=true,scale=0.3]{Imagens/Cap2/cilindro_legendaPress.pdf}} \\
-	\caption{Cilindro: Campos de pressão para $\Reynolds = 100$}
-	\label{fig:cilindro_camposPressao}
+	\subfloat[$nT$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2020.pdf}} \
+	\subfloat[$nT + nT/6$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2030.pdf}} \\
+	\subfloat[$nT + nT/3$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2040.pdf}} \
+	\subfloat[$nT + nT/2$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2050.pdf}} \\
+	\subfloat[$nT + n2T/3$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2060.pdf}} \
+	\subfloat[$nT + n5T/6$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_vel2070.pdf}} \\
+	{\includegraphics[trim=0cm 0.2cm 0cm 0cm,clip=true,scale=0.3]{Imagens/Cap2/cilindro_legendaVel.pdf}}
+	\label{fig:cilindro_camposVel}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
+\begin{figure}[!htbp]
+	\caption{Cilindro: Campos de pressão para $\Reynolds = 100$}
+	\centering
+	\subfloat[$nT$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2020.pdf}} \
+	\subfloat[$nT + nT/6$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2030.pdf}} \\
+	\subfloat[$nT + nT/3$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2040.pdf}} \
+	\subfloat[$nT + nT/2$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2050.pdf}} \\
+	\subfloat[$nT + n2T/3$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2060.pdf}} \
+	\subfloat[$nT + n5T/6$]{\includegraphics[scale=0.15,trim=5cm 5cm 5cm 6cm, clip=true]{Imagens/Cap2/cilindro_press2070.pdf}} \\
+	{\includegraphics[trim=0cm 0.2cm 0cm 0cm,clip=true,scale=0.3]{Imagens/Cap2/cilindro_legendaPress.pdf}}
+	\label{fig:cilindro_camposPressao}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
 
 \subsection{Cavidade quadrada} \label{capitulo:Cap2:VerApl:CavQuad}
 
-Para a verificação do código 3D utilizando elementos finitos o problema de uma cavidade quadrada com velocidade prescrita $u_{\infty}$ em sua parede superior foi estudado. A geometria do problema em questão e o conjunto de suas condições de contorno são apresentadas na Fig. \ref{fig:cavidade_geometria}. As paredes da cavidade são rígidas, com paredes laterais e do fundo com condição de aderência, e adicionalmente, condição de simetria na direção $y_3$. A cavidade possui na direção $y_3$ uma espessura de 0,03. A discretização espacial em elementos finitos utilizada é apresentada na Fig.  \ref{fig:cavidade_malha}, a qual consiste em 7252 elementos tetraédricos quadráticos e 14727 nós.
+Para a verificação do código 3D utilizando elementos finitos o problema de uma cavidade quadrada com velocidade prescrita $u_{\infty}$ em sua parede superior foi estudado. A geometria do problema em questão e o conjunto de suas condições de contorno são apresentadas na Figura \ref{fig:cavidade_geometria}. As paredes da cavidade são rígidas, com paredes laterais e do fundo com condição de aderência, e adicionalmente, condição de simetria na direção $y_3$. A cavidade possui na direção $y_3$ uma espessura de 0,03. A discretização espacial em elementos finitos utilizada é apresentada na Figura \ref{fig:cavidade_malha}, a qual consiste em 7252 elementos tetraédricos quadráticos e 14727 nós.
 
-O problema é estudado para os números de Reynolds: 100, 400 e 1000. O número de Reynolds foi calculado de acordo com Eq. \eqref{eq:Reynolds}, com $L$ equivalente ao comprimento do lado da cavidade. O problema foi simulado para uma velocidade na parede superior de $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0$, sendo a viscosidade do fluido variada de modo a alterar o número de Reynolds. A simulação foi mantida até que se atingiu o estado estacionário de escoamento. 
-
-\begin{figure}[!htb]
-	\centering
-	\subfloat[Geometria e condições de contorno\label{fig:cavidade_geometria}]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cavidade_geometria.pdf}} \quad
-	\subfloat[Discretização espacial.\label{fig:cavidade_malha}]{\includegraphics[trim=0 0 0 0,clip,scale=0.2]{Imagens/Cap2/cavidade_malha.png}}
+\begin{figure}[!htbp]
 	\caption{Cavidade quadrada: Geometria, condições de contorno e malha de elementos finitos}
+	\centering
+	\subfloat[Geometria e condições de contorno\label{fig:cavidade_geometria}]{\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cavidade_geometria.pdf}} \quad
+	\subfloat[Discretização espacial.\label{fig:cavidade_malha}]{\includegraphics[trim=0 0 0 0,clip,scale=0.15]{Imagens/Cap2/cavidade_malha.png}}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ posicionadas no centro da espessura da direção $y_3$ da cavidade são apresentados na Fig. \ref{fig:cavidade_graficos} e comparados com a referência de \citeonline{GhiaGS:1982}.
 
+O problema é estudado para os números de Reynolds: 100, 400 e 1000. O número de Reynolds foi calculado de acordo com \autoref{eq:Reynolds}, com $L$ equivalente ao comprimento do lado da cavidade. O problema foi simulado para uma velocidade na parede superior de $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0$, sendo a viscosidade do fluido variada de modo a alterar o número de Reynolds. A simulação foi mantida até que se atingiu o estado estacionário de escoamento. 
 
-\begin{figure}[!t]
-	\centering
-	\subfloat[\label{fig:cavidade_Re100}$Re$=100]{\includegraphics[scale=.8,trim=0.55cm 0cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re100.eps}} \subfloat[\label{fig:cavidade_Re400}$Re$=400]{\includegraphics[scale=.8,trim=0.55cm 0cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re400.eps}}\\ 
-	\subfloat[\label{fig:cavidade_Re1000}$Re$=1000]{\includegraphics[scale=.8,trim=0.55cm 0cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re1000.eps}} \\
-	\subfloat{\includegraphics[scale=1.]{Imagens/Cap2/cavidade_legenda.pdf}} 
+Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ posicionadas no centro da espessura da direção $y_3$ da cavidade são apresentados na Figura \ref{fig:cavidade_graficos} e comparados com a referência de \citeonline{GhiaGS:1982}.
+
+\begin{figure}[!htbp]
 	\caption{Cavidade quadrada: Perfis de velocidade adimensionalizados nas direções $y_1$ e $y_2$  }
+	\centering
+	\subfloat[\label{fig:cavidade_Re100}$Re$=100]{\includegraphics[scale=0.6,trim=0.55cm 0cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re100.eps}} \subfloat[\label{fig:cavidade_Re400}$Re$=400]{\includegraphics[scale=0.6,trim=0.55cm 0cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re400.eps}}\\ 
+	\subfloat[\label{fig:cavidade_Re1000}$Re$=1000]{\includegraphics[scale=0.6,trim=0.55cm 0cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re1000.eps}} \ 
+	\subfloat{\includegraphics[scale=1.]{Imagens/Cap2/cavidade_legenda.pdf}} 
+	\legend{Fonte: Elaborada pela autora}
 	\label{fig:cavidade_graficos}
 \end{figure}
 
 Os campos de velocidade e de pressão são apresentados nas figuras Fig \ref{fig:cavidade_vel} e \ref{fig:cavidade_press} respectivamente. Ressalta-se que para a solução do problema, por se tratar de um problema com todos os contornos com condição de Dirichlet impostos, a pressão torna-se indefinida. Por esse motivo, prescreveu-se uma pressão $\press = \press_{ref} =  0.0$ no canto superior direito da cavidade. 
 
-
-\begin{figure}[!t]
+\begin{figure}[!htbp]
+	\caption{Cavidade quadrada: Campos de velocidade -  plano $y_1$$y_2$}
 	\centering
 	\setlength{\lineskip}{-10pt}
-	\subfloat[\label{fig:cavidade_vel_Re100}$Re$=100]{\includegraphics[scale=0.25,trim=12cm 5.5cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_velRe100.pdf}} 
-	\subfloat[\label{fig:cavidade_vel_Re400}$Re$=400]{\includegraphics[scale=0.25,trim=12cm 5.5cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_velRe400.pdf}}\\ 
-	\subfloat[\label{fig:cavidade_vel_Re1000}$Re$=1000]{\includegraphics[scale=0.25,trim=12cm 5.5cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_velRe1000.pdf}}\\[3.0ex]
+	\subfloat[\label{fig:cavidade_vel_Re100}$Re$=100]{\includegraphics[scale=0.20,trim=12cm 5.5cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_velRe100.pdf}} 
+	\subfloat[\label{fig:cavidade_vel_Re400}$Re$=400]{\includegraphics[scale=0.20,trim=12cm 5.5cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_velRe400.pdf}}\\ 
+	\subfloat[\label{fig:cavidade_vel_Re1000}$Re$=1000]{\includegraphics[scale=0.20,trim=12cm 5.5cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_velRe1000.pdf}}\\[3.0ex]
 	% Barra de cores (legenda) separada
-	\includegraphics[scale=0.4,trim=12cm 0cm 12cm 32.5cm, clip=true]{Imagens/Cap2/cavidade_velRe1000.pdf}
-	\caption{Cavidade quadrada: Campos de velocidade -  plano $y_1$$y_2$}
+	\includegraphics[scale=0.3,trim=12cm 2cm 12cm 32.5cm, clip=true]{Imagens/Cap2/cavidade_velRe1000.pdf}
+	\legend{Fonte: Elaborada pela autora}
 	\label{fig:cavidade_vel}
 \end{figure}
 
-\begin{figure}[!t]
-	\centering
-	\setlength{\lineskip}{-10pt}
-	\subfloat[\label{fig:cavidade_press_Re100}$Re$=100]{\includegraphics[scale=0.25,trim=12cm 2cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_pressRe100.pdf}} 
-	\subfloat[\label{fig:cavidade_press_Re400}$Re$=400]{\includegraphics[scale=0.25,trim=12cm 2cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_pressRe400.pdf}}\\ 
-	\subfloat[\label{fig:cavidade_press_Re1000}$Re$=1000]{\includegraphics[scale=0.25,trim=12cm 2cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_pressRe1000.pdf}}
+\begin{figure}[!htbp]
 	\caption{Cavidade quadrada: Campos de pressão - plano $y_1$$y_2$}
+	\centering
+	\subfloat[\label{fig:cavidade_press_Re100}$Re$=100]{\includegraphics[scale=0.20,trim=12cm 2cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_pressRe100.pdf}} 
+	\subfloat[\label{fig:cavidade_press_Re400}$Re$=400]{\includegraphics[scale=0.20,trim=12cm 2cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_pressRe400.pdf}}\\ 
+	\subfloat[\label{fig:cavidade_press_Re1000}$Re$=1000]{\includegraphics[scale=0.20,trim=12cm 2cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_pressRe1000.pdf}}
+	\legend{Fonte: Elaborada pela autora}
 	\label{fig:cavidade_press}
 \end{figure}
-
-
-
-%
-%\clearpage[e ]
-%
-%\textcolor{white}{ }
-
-
-\end{document}

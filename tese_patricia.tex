@@ -81,6 +81,7 @@
 \setlength{\@fptop}{0pt}
 \makeatother
 
+
 \makenomenclature
 \renewcommand{\nomname}{Lista de Símbolos}
 \renewcommand{\nompreamble}{Nesta seção são apresentados os principais símbolos matemáticos, operadores e variáveis utilizadados neste trabalho. De um modo geral, símbolos em negrito denotam grandezas vetoriais ou tensoriais, enquanto os escritos em estilo de formatação normal ou itálico representam grandezas escalares. Os casos omissos são descritos ao longo do texto.}
@@ -483,10 +484,13 @@
 		TONON, P. \textbf{Combinação de discretizações isogeométrica e por elementos finitos na análise de interação fluido-estrutura.} 2021. \pageref{LastPage} p. Qualifica\c{c}\~ao da Tese (Doutorado em Engenharia de Estruturas) – Departamento de Engenharia de Estruturas, Escola de Engenharia de São Carlos, Universidade de São Paulo, São Carlos, 2021.\newline 
 	\end{flushleft}
 	\noindent
-	O presente trabalho tem como principal intuito a construção de uma ferramenta computacional robusta para análise de problemas de interação fluido-estrutura onde o domínio fluido é discretizado combinando-se aproximações baseadas em análise isogeométrica e método dos elementos finitos tradicional. 
-	São considerados escoamentos incompressíveis, sendo que o domínio fluido possui uma discretização global, em descrição Euleriana, à qual é sobreposta uma discretização local, mais refinada. As discretizações local e global são diferentes, sendo uma isogeométrica e outra por elementos finitos. Os dois modelos são acoplados por uma técnica de partição de domínio com sobreposição de malhas, a qual baseia-se na modificação das funções de forma de ambas as discretizações em uma região de sobreposição e posterior união dos espaços de funções local e global de modo a formar um espaço enriquecido que garanta a partição da unidade. A malha local é adaptada à estrutura e deforma-se dinamicamente para acomodar a movimentação da estrutura, enquanto a malha global permanece fixa. Com isso o método proposto compartilha vantagens dos métodos de rastreamento de interface (malhas móveis) e de captura de interface (contornos imersos), visto que o fluido próximo à estrutura é adequadamente discretizado garantindo a captura de efeitos localizados, ao mesmo tempo em que a malha local, por ser menor, tolera maiores deformações, e em caso de necessidade de remalhamento, apenas essa malha precisa ser reconstruída. Adota-se uma formulação estabilizada para o escoamento incompressível, permitindo aproximação de mesma ordem para velocidades e pressão, e a integração temporal é feita através do método $\alpha$-generalizado. A estrutura é modelada empregando-se uma abordagem do método dos elementos finitos baseada em posições aplicada a elementos de casca com grandes deslocamentos. O acoplamento fluido-estrutura é particionado do tipo bloco-iterativo. 
+	O presente trabalho teve como principal objetivo o desenvolvimento de uma ferramenta computacional robusta para a análise de problemas de interação fluido-estrutura, incorporando uma técnica de partição de domínios no escoamento fluido, de modo a capturar efeitos localizados.
+	Adota-se uma formulação estabilizada para análise dos escoamentos incompressíveis isotérmicos, permitindo aproximação de mesma ordem para as variáveis de velocidades e pressão, com uma integração temporal implicita realizada através do método $\alpha$-generalizado. A análise não-linear dinâmica da estrutura é modelada empregando-se uma abordagem do método dos elementos finitos baseada em posições aplicada a elementos de casca com integrador temporal de Newmark.
+	Nessa formulação, levam-se em conta os efeitos localizados no modelo do fluido através do uso de um modelo local mais refinado superposto a um modelo global com discretização mais grosseira. As discretizações utilizam aproximações baseadas na análise isogeométrica ou no método dos elementos finitos clássico. A união entre malha global e malha local é realizada através de uma formulação estabilizada do método de Arlequin, o qual efetua o cruzamento e colagem entre os modelos em uma zona de colagem através da utilização de campos de multiplicadores de Lagrange. Para garantir a estabilidade do campo de multiplicadores de Lagrange, e, ao mesmo tempo, fornecer maior flexibilidade a formulação, adiciona-se um termo consistente de estabilização, baseado no resíduo das equações governantes.
+ 	O acoplamento fluido-estrutura é do tipo particionado forte bloco-iterativo. Neste acoplamento, a malha local é adaptada à estrutura e deforma-se dinamicamente para acomodar a movimentação da estrutura, através de uma formulação ALE (Arbitrary Lagrangian–Eulerian), enquanto que a malha global permanece fixa. O  método de acoplamento proposto pode ser caracterizado como uma abordagem híbrida e  compartilha vantagens dos métodos de rastreamento de interface (malhas móveis) e de captura de interface (contornos imersos), visto que o fluido próximo à estrutura é adequadamente discretizado garantindo a captura de efeitos localizados, ao mesmo tempo em que a malha local, por ser menor, tolera maiores deformações, e em caso de necessidade de remalhamento, apenas essa malha precisa ser reconstruída. 
+ 	Os resultados obtidos nas simulações computacionais demonstraram a robustez e eficiência da formulação, evidenciando que trata-se de uma nova alternativa para análise de problemas de IFE com efeitos localizados.
 	\newline \newline
-  	\textbf{Palavras-chave}:\textit{Interação Fluido-Estrutura.  Análise Isogeométrica. Método dos Elementos Finitos. Técnica de sobreposição de malhas.}  \cleardoublepage
+  	\textbf{Palavras-chave}:\textit{Interação Fluido-Estrutura.  Análise Isogeométrica. Método dos Elementos Finitos. Partição de domínios.}  \cleardoublepage
 \end{resumo}
 \end{SingleSpace}
 
@@ -497,10 +501,13 @@
 		\begin{flushleft}
 			TONON, P. \textbf{Combination of isogeometric and finite element discretizations for fluid-structure interaction analysis.} 2021. \pageref{LastPage} p. Thesis qualification (Doctorate in Structural Engineering) – Department of Structural Engineering, São Carlos School of Engineering, University of São Paulo, São Carlos, 2021. \newline 
 		\end{flushleft}
-		This work aims the construction of a robust computational tool for fluid-structure interaction analysis where the fluid domain is discretized combining isogeometric and traditional finite elements approximations. The flow is considered to be incompressible and the fluid domain has a global discretization, under Eulerian description, with an overlapping of a local one more refined. Local and global discretizations are differents, being one isogeometric and the other a traditional finite element discretization, coupled by a domain partitioning technique that relies on the modification of both, local and global, shape functions over and overlapping region and subsequent union of local and global spaces of functions generating an enriched space that fulfills unity partition. The local mesh is adapted to the structure and deforms dynamicaly to accomodate structural movements while the globla one remains fixed.
-		Therefore, the proposed method shares advantages of both, interface tracking (moving mesh) and interface capturing (immersed boundary) methods, once the fluid/structure interface is adequately discretized for local effects, at the same time that the local mesh, being smaller, tolerates larger deformatios, and, in case of need for re-meshing, only the local mesh needs to be rebuilt. The incompressible flow is modeled by a stabilized formulation, allowing equal order pressure-velocity interpolation, with time integration by the $\alpha$-generalized method. The structure is modeled in a position-based large-displacement shell finite element formulation. The fluid-structure coupling is a block iterative type partitioned scheme. 
-    	\newline \newline 
-    	{\textbf{Keywords}: \textit{Fluid-structure interaction. Isogeometric analysis. Finite Element Method. Overlap techique. }}
+		The main objective of this work was the development of a robust computational tool for the analysis of fluid–structure interaction (FSI) problems, incorporating a domain partitioning technique in the fluid flow to capture localized effects.
+		A stabilized formulation is adopted for the analysis of incompressible isothermal flows, allowing equal-order interpolation for velocity and pressure variables, with implicit time integration performed through the generalized-$\alpha$ method. The nonlinear dynamic analysis of the structure is modeled using a position-based finite element approach applied to shell elements, with time integration carried out by the Newmark method.
+		In this formulation, localized effects in the fluid model are taken into account through the use of a refined local model superimposed on a coarser global model. The discretizations employ either isogeometric analysis or the classical finite element method. The coupling between the global and local meshes is achieved through a stabilized Arlequin method, which performs the coupling between models within an overlapping zone using Lagrange multiplier fields. To ensure the stability of the Lagrange multiplier field while providing greater flexibility to the formulation, a consistent stabilization term based on the residual of the governing equations is added.
+		The fluid–structure coupling is strongly partitioned and block-iterative. In this coupling, the local mesh conforms to the structure and deforms dynamically to accommodate its motion through an Arbitrary Lagrangian–Eulerian (ALE) formulation, while the global mesh remains fixed. The proposed coupling method can be characterized as a hybrid approach, combining advantages of interface-tracking (moving-mesh) and interface-capturing (immersed-boundary) methods. The fluid near the structure is properly discretized to capture localized effects, while the smaller local mesh tolerates larger deformations; in case remeshing is required, only this local mesh needs to be reconstructed.
+		The results obtained from the computational simulations demonstrated the robustness and efficiency of the formulation, showing that it provides a novel and effective alternative for the analysis of FSI problems with localized effects.
+  		\newline \newline 
+    	{\textbf{Keywords}: \textit{Fluid-structure interaction. Isogeometric analysis. Finite Element Method. Domain Decomposition.}}
 	\end{otherlanguage*}
 \end{resumo}
 \end{SingleSpace}
@@ -533,7 +540,6 @@
 
 \cleardoublepage
 % ---
-
 % ---
 % inserir o sumario
 % ---
@@ -558,7 +564,7 @@
 \subfile{Cap5}
 \subfile{Cap6}
 \subfile{Cap7}
-%\subfile{ConclusoesParciais}
+\subfile{Conclusoes}
 
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS

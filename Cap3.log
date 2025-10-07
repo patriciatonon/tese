@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  16 SEP 2025 09:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  6 OCT 2025 16:43
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1676,26 +1676,26 @@ Package hyperref Info: Option `breaklinks' set `true' on input line 72.
 \@nomenclaturefile=\write5
 \openout5 = `Cap3.nlo'.
 
-Package nomencl Info: Writing nomenclature file Cap3.nlo on input line 84.
-LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 141.
+Package nomencl Info: Writing nomenclature file Cap3.nlo on input line 85.
+LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 142.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\newline' on input line 292.
+(hyperref)                removing `\newline' on input line 293.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\newline' on input line 292.
+(hyperref)                removing `\newline' on input line 293.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\newline' on input line 292.
+(hyperref)                removing `\newline' on input line 293.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\newline' on input line 292.
+(hyperref)                removing `\newline' on input line 293.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 292.
+Package hyperref Info: Option `colorlinks' set `true' on input line 293.
 \Cap3@idxfile=\write6
 \openout6 = `Cap3.idx'.
 
@@ -1859,16 +1859,16 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 8
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-LaTeX Warning: Citation `HughesCB:2005' on page 1 undefined on input line 50.
+LaTeX Warning: Citation `HughesCB:2005' on page 1 undefined on input line 11.
 
 
-LaTeX Warning: Citation `PiegT:1996' on page 1 undefined on input line 52.
+LaTeX Warning: Citation `PiegT:1996' on page 1 undefined on input line 13.
 
 
-LaTeX Warning: Citation `HughesCB:2005' on page 1 undefined on input line 56.
+LaTeX Warning: Citation `HughesCB:2005' on page 1 undefined on input line 17.
 
 
-LaTeX Warning: Citation `PiegT:1996' on page 1 undefined on input line 56.
+LaTeX Warning: Citation `PiegT:1996' on page 1 undefined on input line 17.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1884,7 +1884,7 @@ inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Imagens/Cap3/espacos_NURBS.pdf, id=17, 597.81442pt x 386.81116pt>
 File: Imagens/Cap3/espacos_NURBS.pdf Graphic file (type pdf)
 <use Imagens/Cap3/espacos_NURBS.pdf>
-Package pdftex.def Info: Imagens/Cap3/espacos_NURBS.pdf  used on input line 68.
+Package pdftex.def Info: Imagens/Cap3/espacos_NURBS.pdf  used on input line 30.
 
 (pdftex.def)             Requested size: 418.46724pt x 270.76596pt.
 [2] [3
@@ -1892,62 +1892,62 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.90 
+l.52 
      {/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc
 /dvips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/us
 r/share/texmf/fonts/enc/dvips/lm/lm-ts1.enc} <./Imagens/Cap3/espacos_NURBS.pdf>
 ]
 
-LaTeX Warning: Citation `Cox1972' on page 4 undefined on input line 112.
+LaTeX Warning: Citation `Cox1972' on page 4 undefined on input line 74.
 
 
-LaTeX Warning: Citation `DEBOOR1972' on page 4 undefined on input line 112.
+LaTeX Warning: Citation `DEBOOR1972' on page 4 undefined on input line 74.
 
-<Imagens/Cap3/bspline_funcoes.pdf, id=7679, 597.55246pt x 845.07718pt>
+<Imagens/Cap3/bspline_funcoes.pdf, id=7676, 597.55246pt x 845.07718pt>
 File: Imagens/Cap3/bspline_funcoes.pdf Graphic file (type pdf)
 <use Imagens/Cap3/bspline_funcoes.pdf>
-Package pdftex.def Info: Imagens/Cap3/bspline_funcoes.pdf  used on input line 1
-18.
+Package pdftex.def Info: Imagens/Cap3/bspline_funcoes.pdf  used on input line 8
+1.
 (pdftex.def)             Requested size: 358.53351pt x 103.58858pt.
 [4{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}]
 
-LaTeX Warning: Citation `PiegT:1996' on page 5 undefined on input line 159.
+LaTeX Warning: Citation `PiegT:1996' on page 5 undefined on input line 122.
 
 [5
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.166 \begin{align}
-                    <./Imagens/Cap3/bspline_funcoes.pdf>]
+l.128 
+       <./Imagens/Cap3/bspline_funcoes.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/bspline_malhaPC.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/bspline_malhaPC.pdf, id=7722, 540.98235pt x 401.2769pt>
+<Imagens/Cap3/bspline_malhaPC.pdf, id=7721, 540.98235pt x 401.2769pt>
 File: Imagens/Cap3/bspline_malhaPC.pdf Graphic file (type pdf)
 <use Imagens/Cap3/bspline_malhaPC.pdf>
 Package pdftex.def Info: Imagens/Cap3/bspline_malhaPC.pdf  used on input line 1
-74.
+38.
 (pdftex.def)             Requested size: 216.3891pt x 160.50792pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/bspline_curva.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/bspline_curva.pdf, id=7724, 523.30675pt x 415.80438pt>
+<Imagens/Cap3/bspline_curva.pdf, id=7723, 523.30675pt x 415.80438pt>
 File: Imagens/Cap3/bspline_curva.pdf Graphic file (type pdf)
 <use Imagens/Cap3/bspline_curva.pdf>
-Package pdftex.def Info: Imagens/Cap3/bspline_curva.pdf  used on input line 175
+Package pdftex.def Info: Imagens/Cap3/bspline_curva.pdf  used on input line 139
 .
 (pdftex.def)             Requested size: 209.31898pt x 158.3522pt.
 
-LaTeX Warning: Citation `PiegT:1996' on page 6 undefined on input line 183.
+LaTeX Warning: Citation `PiegT:1996' on page 6 undefined on input line 147.
 
 [6
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.186 
+l.148 
        <./Imagens/Cap3/bspline_malhaPC.pdf> <./Imagens/Cap3/bspline_curva.pdf>]
 [7]
 
@@ -1956,7 +1956,7 @@ inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Imagens/Cap3/bspline_pc_ai.pdf, id=7767, 288.9278pt x 288.9278pt>
 File: Imagens/Cap3/bspline_pc_ai.pdf Graphic file (type pdf)
 <use Imagens/Cap3/bspline_pc_ai.pdf>
-Package pdftex.def Info: Imagens/Cap3/bspline_pc_ai.pdf  used on input line 240
+Package pdftex.def Info: Imagens/Cap3/bspline_pc_ai.pdf  used on input line 202
 .
 (pdftex.def)             Requested size: 202.24806pt x 182.33128pt.
 
@@ -1966,7 +1966,7 @@ inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Imagens/Cap3/bspline_pc_di.pdf, id=7769, 288.9278pt x 288.9278pt>
 File: Imagens/Cap3/bspline_pc_di.pdf Graphic file (type pdf)
 <use Imagens/Cap3/bspline_pc_di.pdf>
-Package pdftex.def Info: Imagens/Cap3/bspline_pc_di.pdf  used on input line 241
+Package pdftex.def Info: Imagens/Cap3/bspline_pc_di.pdf  used on input line 203
 .
 (pdftex.def)             Requested size: 202.24806pt x 182.33128pt.
 
@@ -1977,7 +1977,7 @@ DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: Imagens/Cap3/bspline_curva_ai.pdf Graphic file (type pdf)
 <use Imagens/Cap3/bspline_curva_ai.pdf>
 Package pdftex.def Info: Imagens/Cap3/bspline_curva_ai.pdf  used on input line 
-242.
+204.
 (pdftex.def)             Requested size: 202.24806pt x 182.33128pt.
 
 
@@ -1987,7 +1987,7 @@ DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: Imagens/Cap3/bspline_curva_di.pdf Graphic file (type pdf)
 <use Imagens/Cap3/bspline_curva_di.pdf>
 Package pdftex.def Info: Imagens/Cap3/bspline_curva_di.pdf  used on input line 
-243.
+205.
 (pdftex.def)             Requested size: 202.24806pt x 182.33128pt.
 
 
@@ -1997,7 +1997,7 @@ F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: Imagens/Cap3/bspline_base_ai.pdf Graphic file (type pdf)
 <use Imagens/Cap3/bspline_base_ai.pdf>
 Package pdftex.def Info: Imagens/Cap3/bspline_base_ai.pdf  used on input line 2
-44.
+06.
 (pdftex.def)             Requested size: 213.98543pt x 197.00305pt.
 
 
@@ -2007,291 +2007,213 @@ F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 File: Imagens/Cap3/bspline_base_di.pdf Graphic file (type pdf)
 <use Imagens/Cap3/bspline_base_di.pdf>
 Package pdftex.def Info: Imagens/Cap3/bspline_base_di.pdf  used on input line 2
-45.
+07.
 (pdftex.def)             Requested size: 202.24806pt x 194.28148pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 245.
+(Font)              <10> on input line 207.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 245.
+(Font)              <7> on input line 207.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 245.
+(Font)              <5> on input line 207.
 
-LaTeX Warning: Citation `PiegT:1996' on page 8 undefined on input line 250.
+LaTeX Warning: Citation `PiegT:1996' on page 8 undefined on input line 212.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [8]
 
-LaTeX Warning: Text page 9 contains only floats.
-
-
-Underfull \vbox (badness 6792) has occurred while \output is active []
-
- [9
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.256 
-       <./Imagens/Cap3/bspline_pc_ai.pdf> <./Imagens/Cap3/bspline_pc_di.pdf> <.
-/Imagens/Cap3/bspline_curva_ai.pdf> <./Imagens/Cap3/bspline_curva_di.pdf> <./Im
-agens/Cap3/bspline_base_ai.pdf> <./Imagens/Cap3/bspline_base_di.pdf>]
-
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/NURBS_pc_projetiva.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/NURBS_PC_projetiva.pdf, id=7884, 505.21747pt x 371.02515pt>
+<Imagens/Cap3/NURBS_PC_projetiva.pdf, id=7793, 505.21747pt x 371.02515pt>
 File: Imagens/Cap3/NURBS_PC_projetiva.pdf Graphic file (type pdf)
 <use Imagens/Cap3/NURBS_PC_projetiva.pdf>
 Package pdftex.def Info: Imagens/Cap3/NURBS_PC_projetiva.pdf  used on input lin
-e 259.
+e 221.
 (pdftex.def)             Requested size: 202.0834pt x 148.40742pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/NURBS_curva_projetiva.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/NURBS_curva_projetiva.pdf, id=7886, 505.41022pt x 371.02515pt>
+<Imagens/Cap3/NURBS_curva_projetiva.pdf, id=7795, 505.41022pt x 371.02515pt>
 File: Imagens/Cap3/NURBS_curva_projetiva.pdf Graphic file (type pdf)
 <use Imagens/Cap3/NURBS_curva_projetiva.pdf>
 Package pdftex.def Info: Imagens/Cap3/NURBS_curva_projetiva.pdf  used on input 
-line 260.
+line 222.
 (pdftex.def)             Requested size: 202.1605pt x 148.40742pt.
-[10
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.5}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.289 
-       <./Imagens/Cap3/NURBS_pc_projetiva.pdf> <./Imagens/Cap3/NURBS_curva_proj
-etiva.pdf>] [11]
+[9] [10]
 
-LaTeX Warning: Citation `HughesCB:2005' on page 12 undefined on input line 377.
+LaTeX Warning: Citation `HughesCB:2005' on page 11 undefined on input line 339.
 
 
-[12]
-<Imagens/Cap3/patches.pdf, id=10337, 722.6744pt x 216.51836pt>
+<Imagens/Cap3/patches.pdf, id=7831, 722.6744pt x 216.51836pt>
 File: Imagens/Cap3/patches.pdf Graphic file (type pdf)
 <use Imagens/Cap3/patches.pdf>
-Package pdftex.def Info: Imagens/Cap3/patches.pdf  used on input line 385.
+Package pdftex.def Info: Imagens/Cap3/patches.pdf  used on input line 348.
 (pdftex.def)             Requested size: 361.3363pt x 108.25891pt.
 
-
-LaTeX Warning: Reference `capitulo:Cap2' on page 13 undefined on input line 394
+LaTeX Warning: Reference `capitulo:Cap2' on page 11 undefined on input line 355
 .
 
 
-LaTeX Warning: Reference `eq:interp_geo' on page 13 undefined on input line 394
+LaTeX Warning: Reference `eq:interp_geo' on page 11 undefined on input line 355
+.
+
+[11]
+
+LaTeX Warning: Reference `eq:interp_vel' on page 12 undefined on input line 357
 .
 
 
-LaTeX Warning: Reference `eq:interp_vel' on page 13 undefined on input line 396
+LaTeX Warning: Reference `eq:inter_ptest' on page 12 undefined on input line 35
+7.
+
+
+LaTeX Warning: Reference `capitulo:Cap2:FormaFraca:taus' on page 12 undefined o
+n input line 389.
+
+
+LaTeX Warning: Reference `eq:tensor_metrico' on page 12 undefined on input line
+ 389.
+
+
+LaTeX Warning: Reference `eq:q_chap' on page 12 undefined on input line 389.
+
+[12]
+
+LaTeX Warning: Reference `eq:q_chap' on page 13 undefined on input line 397.
+
+
+LaTeX Warning: Citation `OtoguroTT:2020' on page 13 undefined on input line 397
 .
 
 
-LaTeX Warning: Reference `eq:inter_ptest' on page 13 undefined on input line 39
-6.
-
-[13
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.6}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.412 \end{align}
-                  <./Imagens/Cap3/patches.pdf>]
-
-LaTeX Warning: Reference `capitulo:Cap2:FormaFraca:taus' on page 14 undefined o
-n input line 429.
+LaTeX Warning: Citation `BordenSEH' on page 13 undefined on input line 425.
 
 
-LaTeX Warning: Reference `eq:tensor_metrico' on page 14 undefined on input line
- 429.
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+
+LaTeX Warning: Reference `capitulo:Cap2:DFCComputationalCode' on page 14 undefi
+ned on input line 457.
 
 
-LaTeX Warning: Reference `eq:q_chap' on page 14 undefined on input line 429.
+LaTeX Warning: Reference `capitulo:Cap2:VerApl:Cilindo' on page 14 undefined on
+ input line 463.
 
 
-LaTeX Warning: Reference `eq:q_chap' on page 14 undefined on input line 437.
-
-
-LaTeX Warning: Citation `OtoguroTT:2020' on page 14 undefined on input line 437
-.
-
-
-Underfull \vbox (badness 1264) has occurred while \output is active []
-
- [14]
-
-LaTeX Warning: Citation `BordenSEH' on page 15 undefined on input line 465.
-
-
-LaTeX Warning: Reference `capitulo:Cap2:DFCComputationalCode' on page 15 undefi
-ned on input line 500.
-
-
-LaTeX Warning: Reference `capitulo:Cap2:VerApl:Cilindo' on page 15 undefined on
- input line 506.
-
-[15]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_iga_patches.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_iga_patches.pdf, id=10388, 439.52733pt x 232.39095pt>
+<Imagens/Cap3/cilindro_iga_patches.pdf, id=7881, 439.52733pt x 232.39095pt>
 File: Imagens/Cap3/cilindro_iga_patches.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_iga_patches.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_iga_patches.pdf  used on input l
-ine 510.
+ine 468.
 (pdftex.def)             Requested size: 307.66702pt x 162.67255pt.
+[14]
 
-LaTeX Warning: Citation `PiegT:1996' on page 16 undefined on input line 519.
+LaTeX Warning: Citation `PiegT:1996' on page 15 undefined on input line 477.
 
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_circ_ini.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_circ_ini.pdf, id=10392, 291.01123pt x 288.92671pt>
+<Imagens/Cap3/cilindro_circ_ini.pdf, id=7896, 291.01123pt x 288.92671pt>
 File: Imagens/Cap3/cilindro_circ_ini.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_circ_ini.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_circ_ini.pdf  used on input line
- 524.
+ 482.
 (pdftex.def)             Requested size: 191.75629pt x 202.24731pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_circ_ref.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_circ_ref.pdf, id=10394, 205.94391pt x 267.09561pt>
+<Imagens/Cap3/cilindro_circ_ref.pdf, id=7898, 205.94391pt x 267.09561pt>
 File: Imagens/Cap3/cilindro_circ_ref.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_circ_ref.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_circ_ref.pdf  used on input line
- 525.
+ 483.
 (pdftex.def)             Requested size: 144.15974pt x 167.04886pt.
 
-Underfull \hbox (badness 1168) in paragraph at lines 525--525
+Underfull \hbox (badness 1168) in paragraph at lines 483--483
 []\T1/lmr/m/n/10 (+20) (b) |[][]Curva re-fi-nada e rede de
  []
 
-[16
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.7}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.532 
-       <./Imagens/Cap3/cilindro_iga_patches.pdf>]
-Underfull \vbox (badness 2409) has occurred while \output is active []
 
- [17
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.8}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.538 
-       <./Imagens/Cap3/cilindro_circ_ini.pdf> <./Imagens/Cap3/cilindro_circ_ref
-.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_pc_superficie.p
 df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_pc_superficie.pdf, id=10457, 291.012pt x 288.92743pt>
+<Imagens/Cap3/cilindro_pc_superficie.pdf, id=7903, 291.012pt x 288.92743pt>
 File: Imagens/Cap3/cilindro_pc_superficie.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_pc_superficie.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_pc_superficie.pdf  used on input
- line 541.
+ line 499.
 (pdftex.def)             Requested size: 232.8099pt x 208.38pt.
-<Imagens/Cap3/cilindro_malhafisica_superficie.pdf, id=10459, 361.33719pt x 361.
-33719pt>
+<Imagens/Cap3/cilindro_malhafisica_superficie.pdf, id=7905, 361.33719pt x 361.3
+3719pt>
 File: Imagens/Cap3/cilindro_malhafisica_superficie.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_malhafisica_superficie.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_malhafisica_superficie.pdf  used
- on input line 542.
+ on input line 500.
 (pdftex.def)             Requested size: 152.49673pt x 232.16458pt.
-<Imagens/Cap3/cilindro_pc_solido.pdf, id=10463, 433.03671pt x 433.03671pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [15]
+<Imagens/Cap3/cilindro_pc_solido.pdf, id=7917, 433.03671pt x 433.03671pt>
 File: Imagens/Cap3/cilindro_pc_solido.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_pc_solido.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_pc_solido.pdf  used on input lin
-e 551.
+e 510.
 (pdftex.def)             Requested size: 232.61868pt x 209.85645pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_malhafisica_sol
 ido.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
 owed
-<Imagens/Cap3/cilindro_malhafisica_solido.pdf, id=10465, 187.07541pt x 172.1245
-6pt>
+<Imagens/Cap3/cilindro_malhafisica_solido.pdf, id=7919, 187.07541pt x 172.12456
+pt>
 File: Imagens/Cap3/cilindro_malhafisica_solido.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_malhafisica_solido.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_malhafisica_solido.pdf  used on 
-input line 552.
+input line 511.
 (pdftex.def)             Requested size: 187.07494pt x 172.12413pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [18
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.9}) 
-has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.560 
-       <./Imagens/Cap3/cilindro_pc_superficie.pdf> <./Imagens/Cap3/cilindro_mal
-hafisica_superficie.pdf>]
-
-LaTeX Warning: Reference `capitulo:Cap2:VerApl:Cilindo' on page 19 undefined on
- input line 566.
+LaTeX Warning: Reference `capitulo:Cap2:VerApl:Cilindo' on page 16 undefined on
+ input line 524.
 
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_geometria3d.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_geometria3d.pdf, id=10498, 566.53136pt x 277.1839pt>
+<Imagens/Cap3/cilindro_geometria3d.pdf, id=7924, 566.53136pt x 277.1839pt>
 File: Imagens/Cap3/cilindro_geometria3d.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_geometria3d.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_geometria3d.pdf  used on input l
-ine 575.
+ine 533.
 (pdftex.def)             Requested size: 339.92143pt x 166.31161pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_malha.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_malha.pdf, id=10500, 229.78609pt x 127.71463pt>
+<Imagens/Cap3/cilindro_malha.pdf, id=7926, 229.78609pt x 127.71463pt>
 File: Imagens/Cap3/cilindro_malha.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_malha.pdf>
-Package pdftex.def Info: Imagens/Cap3/cilindro_malha.pdf  used on input line 57
-6.
+Package pdftex.def Info: Imagens/Cap3/cilindro_malha.pdf  used on input line 53
+4.
 (pdftex.def)             Requested size: 275.74191pt x 153.25676pt.
+[16]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: Reference `eq:F_D' on page 19 undefined on input line 628.
+LaTeX Warning: Reference `eq:F_D' on page 17 undefined on input line 586.
 
 
-LaTeX Warning: Reference `eq:F_L' on page 19 undefined on input line 628.
+LaTeX Warning: Reference `eq:F_L' on page 17 undefined on input line 586.
 
-[19
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.10})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.629 
-       <./Imagens/Cap3/cilindro_pc_solido.pdf> <./Imagens/Cap3/cilindro_malhafi
-sica_solido.pdf>]
-Underfull \vbox (badness 4013) has occurred while \output is active []
 
- [20
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.11})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.639 N
-       as Figs. \ref{fig:cilindro_cd3d} e \ref{fig:cilindro_cl3d}, apresenta...
-
-pdfTeX warning (ext4): destination with the same identifier (name{table.1.1}) h
-as been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.639 N
-       as Figs. \ref{fig:cilindro_cd3d} e \ref{fig:cilindro_cl3d}, apresenta...
- <./Imagens/Cap3/cilindro_geometria3d.pdf> <./Imagens/Cap3/cilindro_malha.pdf>]
-
-LaTeX Warning: Reference `capitulo:Cap2:VerApl:Cilindo' on page 21 undefined on
- input line 639.
+LaTeX Warning: Reference `capitulo:Cap2:VerApl:Cilindo' on page 17 undefined on
+ input line 596.
 
 Package epstopdf Info: Source file: <Imagens/Cap3/cilindro_CD.eps>
 (epstopdf)                    date: 2025-09-08 10:11:34
@@ -2302,14 +2224,14 @@ pdf>
 (epstopdf)                    size: 46213 bytes
 (epstopdf)             Command: <epstopdf --outfile=Imagens/Cap3/cilindro_CD-ep
 s-converted-to.pdf Imagens/Cap3/cilindro_CD.eps>
-(epstopdf)             \includegraphics on input line 643.
+(epstopdf)             \includegraphics on input line 601.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap3/cilindro_CD-eps-converted-to.pdf, id=10658, 454.69875pt x 255.956
-25pt>
+<Imagens/Cap3/cilindro_CD-eps-converted-to.pdf, id=7940, 454.69875pt x 255.9562
+5pt>
 File: Imagens/Cap3/cilindro_CD-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_CD-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_CD-eps-converted-to.pdf  used on
- input line 643.
+ input line 601.
 (pdftex.def)             Requested size: 363.75949pt x 204.76526pt.
 Package epstopdf Info: Source file: <Imagens/Cap3/cilindro_CL.eps>
 (epstopdf)                    date: 2025-09-08 10:11:32
@@ -2320,388 +2242,456 @@ pdf>
 (epstopdf)                    size: 43773 bytes
 (epstopdf)             Command: <epstopdf --outfile=Imagens/Cap3/cilindro_CL-ep
 s-converted-to.pdf Imagens/Cap3/cilindro_CL.eps>
-(epstopdf)             \includegraphics on input line 644.
+(epstopdf)             \includegraphics on input line 602.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap3/cilindro_CL-eps-converted-to.pdf, id=10660, 454.69875pt x 255.956
-25pt>
+<Imagens/Cap3/cilindro_CL-eps-converted-to.pdf, id=7942, 454.69875pt x 255.9562
+5pt>
 File: Imagens/Cap3/cilindro_CL-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_CL-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_CL-eps-converted-to.pdf  used on
- input line 644.
+ input line 602.
 (pdftex.def)             Requested size: 363.75949pt x 204.76526pt.
-<Imagens/Cap3/Legenda.pdf, id=10662, 194.40463pt x 22.38222pt>
+<Imagens/Cap3/Legenda.pdf, id=7944, 194.40463pt x 22.38222pt>
 File: Imagens/Cap3/Legenda.pdf Graphic file (type pdf)
 <use Imagens/Cap3/Legenda.pdf>
-Package pdftex.def Info: Imagens/Cap3/Legenda.pdf  used on input line 645.
+Package pdftex.def Info: Imagens/Cap3/Legenda.pdf  used on input line 603.
 (pdftex.def)             Requested size: 252.72597pt x 29.09686pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_vel_tn.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_vel_tn.pdf, id=10665, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_vel_tn.pdf, id=7947, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_vel_tn.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_vel_tn.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_vel_tn.pdf  used on input line 6
-55.
+13.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_vel_tn6.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_vel_tn6.pdf, id=10667, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_vel_tn6.pdf, id=7949, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_vel_tn6.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_vel_tn6.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_vel_tn6.pdf  used on input line 
-656.
+614.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_vel_tn3.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_vel_tn3.pdf, id=10669, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_vel_tn3.pdf, id=7951, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_vel_tn3.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_vel_tn3.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_vel_tn3.pdf  used on input line 
-657.
+615.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_vel_tn2.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_vel_tn2.pdf, id=10671, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_vel_tn2.pdf, id=7953, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_vel_tn2.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_vel_tn2.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_vel_tn2.pdf  used on input line 
-658.
+616.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_vel_2tn3.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_vel_2tn3.pdf, id=10673, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_vel_2tn3.pdf, id=7955, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_vel_2tn3.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_vel_2tn3.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_vel_2tn3.pdf  used on input line
- 659.
+ 617.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_vel_5tn6.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_vel_5tn6.pdf, id=10675, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_vel_5tn6.pdf, id=7957, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_vel_5tn6.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_vel_5tn6.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_vel_5tn6.pdf  used on input line
- 660.
+ 618.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_vel_legenda.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_vel_legenda.pdf, id=10677, 116.35278pt x 30.78731pt>
+<Imagens/Cap3/cilindro_vel_legenda.pdf, id=7959, 116.35278pt x 30.78731pt>
 File: Imagens/Cap3/cilindro_vel_legenda.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_vel_legenda.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_vel_legenda.pdf  used on input l
-ine 661.
+ine 619.
 (pdftex.def)             Requested size: 162.89275pt x 43.10193pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_press_tn.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_press_tn.pdf, id=10679, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_press_tn.pdf, id=7961, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_press_tn.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_press_tn.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_press_tn.pdf  used on input line
- 668.
+ 627.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_press_tn6.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_press_tn6.pdf, id=10681, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_press_tn6.pdf, id=7963, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_press_tn6.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_press_tn6.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_press_tn6.pdf  used on input lin
-e 669.
+e 628.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_press_tn3.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_press_tn3.pdf, id=10683, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_press_tn3.pdf, id=7965, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_press_tn3.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_press_tn3.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_press_tn3.pdf  used on input lin
-e 670.
+e 629.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_press_tn2.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_press_tn2.pdf, id=10685, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_press_tn2.pdf, id=7967, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_press_tn2.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_press_tn2.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_press_tn2.pdf  used on input lin
-e 671.
+e 630.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_press_2tn3.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_press_2tn3.pdf, id=10687, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_press_2tn3.pdf, id=7969, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_press_2tn3.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_press_2tn3.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_press_2tn3.pdf  used on input li
-ne 672.
+ne 631.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_press_5tn6.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_press_5tn6.pdf, id=10689, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/cilindro_press_5tn6.pdf, id=7971, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/cilindro_press_5tn6.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_press_5tn6.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_press_5tn6.pdf  used on input li
-ne 673.
+ne 632.
 (pdftex.def)             Requested size: 194.26044pt x 109.27148pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/cilindro_press_legenda.p
 df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/cilindro_press_legenda.pdf, id=10691, 112.59952pt x 31.8342pt>
+<Imagens/Cap3/cilindro_press_legenda.pdf, id=7973, 112.59952pt x 31.8342pt>
 File: Imagens/Cap3/cilindro_press_legenda.pdf Graphic file (type pdf)
 <use Imagens/Cap3/cilindro_press_legenda.pdf>
 Package pdftex.def Info: Imagens/Cap3/cilindro_press_legenda.pdf  used on input
- line 674.
+ line 633.
 (pdftex.def)             Requested size: 157.63824pt x 44.56755pt.
-[21
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.12})
- has been already used, duplicate ignored
+[17
+pdfTeX warning (ext4): destination with the same identifier (name{table.1.1}) h
+as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.683 
-       <./Imagens/Cap3/Legenda.pdf> <./Imagens/Cap3/cilindro_CD-eps-converted-t
-o.pdf> <./Imagens/Cap3/cilindro_CL-eps-converted-to.pdf>] [22
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.13})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.685 
-       <./Imagens/Cap3/cilindro_vel_tn.pdf> <./Imagens/Cap3/cilindro_vel_tn6.pd
-f> <./Imagens/Cap3/cilindro_vel_tn3.pdf> <./Imagens/Cap3/cilindro_vel_tn2.pdf> 
-<./Imagens/Cap3/cilindro_vel_2tn3.pdf> <./Imagens/Cap3/cilindro_vel_5tn6.pdf> <
-./Imagens/Cap3/cilindro_vel_legenda.pdf>]
+l.641 
+      ]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_geometria.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_geometria.pdf, id=10786, 314.11325pt x 87.62437pt>
+<Imagens/Cap3/degrau_geometria.pdf, id=7987, 314.11325pt x 87.62437pt>
 File: Imagens/Cap3/degrau_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap3/degrau_geometria.pdf  used on input line 
-688.
+647.
 (pdftex.def)             Requested size: 376.934pt x 105.14871pt.
-[23
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.14})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.695 
-      
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.15})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.695 
-       <./Imagens/Cap3/cilindro_press_tn.pdf> <./Imagens/Cap3/cilindro_press_tn
-6.pdf> <./Imagens/Cap3/cilindro_press_tn3.pdf> <./Imagens/Cap3/cilindro_press_t
-n2.pdf> <./Imagens/Cap3/cilindro_press_2tn3.pdf> <./Imagens/Cap3/cilindro_press
-_5tn6.pdf> <./Imagens/Cap3/cilindro_press_legenda.pdf> <./Imagens/Cap3/degrau_g
-eometria.pdf>]
+
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_malha.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_malha.pdf, id=10848, 227.24115pt x 41.0293pt>
+<Imagens/Cap3/degrau_malha.pdf, id=7991, 227.24115pt x 41.0293pt>
 File: Imagens/Cap3/degrau_malha.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_malha.pdf>
-Package pdftex.def Info: Imagens/Cap3/degrau_malha.pdf  used on input line 698.
+Package pdftex.def Info: Imagens/Cap3/degrau_malha.pdf  used on input line 658.
 
 (pdftex.def)             Requested size: 454.48117pt x 76.36752pt.
-
-LaTeX Warning: Citation `ArmalyDP:1983' on page 24 undefined on input line 735.
-
-
-[24
-pdfTeX warning (ext4): destination with the same identifier (name{figure.1.16})
- has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.736 
-      
+[18
 pdfTeX warning (ext4): destination with the same identifier (name{table.1.2}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.736 
-       <./Imagens/Cap3/degrau_malha.pdf>]
+l.692 \end{align}
+                 ]
 
-LaTeX Warning: Citation `ArmalyDP:1983' on page 25 undefined on input line 743.
-
-
-
-LaTeX Warning: Citation `ArmalyDP:1983' on page 25 undefined on input line 745.
+LaTeX Warning: Citation `ArmalyDP:1983' on page 19 undefined on input line 696.
 
 
 
-LaTeX Warning: Citation `ArmalyDP:1983' on page 25 undefined on input line 747.
+LaTeX Warning: Citation `ArmalyDP:1983' on page 19 undefined on input line 704.
 
 
 
-LaTeX Warning: Citation `WilliamsB:1999' on page 25 undefined on input line 747
+LaTeX Warning: Citation `ArmalyDP:1983' on page 19 undefined on input line 706.
+
+
+
+LaTeX Warning: Citation `ArmalyDP:1983' on page 19 undefined on input line 708.
+
+
+
+LaTeX Warning: Citation `WilliamsB:1999' on page 19 undefined on input line 708
 .
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_vort_prim.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_vort_prim.pdf, id=10888, 284.06125pt x 255.95625pt>
+<Imagens/Cap3/degrau_vort_prim.pdf, id=8017, 284.06125pt x 255.95625pt>
 File: Imagens/Cap3/degrau_vort_prim.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_vort_prim.pdf>
 Package pdftex.def Info: Imagens/Cap3/degrau_vort_prim.pdf  used on input line 
-755.
+717.
 (pdftex.def)             Requested size: 340.87177pt x 307.14595pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_vel_100.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_vel_100.pdf, id=10890, 265.99374pt x 50.84329pt>
+<Imagens/Cap3/degrau_vel_100.pdf, id=8019, 265.99374pt x 50.84329pt>
 File: Imagens/Cap3/degrau_vel_100.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_vel_100.pdf>
-Package pdftex.def Info: Imagens/Cap3/degrau_vel_100.pdf  used on input line 76
-2.
+Package pdftex.def Info: Imagens/Cap3/degrau_vel_100.pdf  used on input line 72
+5.
 (pdftex.def)             Requested size: 412.29008pt x 78.80704pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_vor_100.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_vor_100.pdf, id=10892, 112.88083pt x 64.86842pt>
+<Imagens/Cap3/degrau_vor_100.pdf, id=8021, 112.88083pt x 64.86842pt>
 File: Imagens/Cap3/degrau_vor_100.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_vor_100.pdf>
-Package pdftex.def Info: Imagens/Cap3/degrau_vor_100.pdf  used on input line 76
-3.
+Package pdftex.def Info: Imagens/Cap3/degrau_vor_100.pdf  used on input line 72
+6.
 (pdftex.def)             Requested size: 174.96518pt x 100.54599pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_vel_400.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_vel_400.pdf, id=10894, 264.99pt x 49.48833pt>
+<Imagens/Cap3/degrau_vel_400.pdf, id=8023, 264.99pt x 49.48833pt>
 File: Imagens/Cap3/degrau_vel_400.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_vel_400.pdf>
-Package pdftex.def Info: Imagens/Cap3/degrau_vel_400.pdf  used on input line 77
-0.
+Package pdftex.def Info: Imagens/Cap3/degrau_vel_400.pdf  used on input line 73
+4.
 (pdftex.def)             Requested size: 410.7343pt x 76.70683pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_vor_400.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_vor_400.pdf, id=10896, 171.7818pt x 69.48227pt>
+<Imagens/Cap3/degrau_vor_400.pdf, id=8025, 171.7818pt x 69.48227pt>
 File: Imagens/Cap3/degrau_vor_400.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_vor_400.pdf>
-Package pdftex.def Info: Imagens/Cap3/degrau_vor_400.pdf  used on input line 77
-1.
+Package pdftex.def Info: Imagens/Cap3/degrau_vor_400.pdf  used on input line 73
+5.
 (pdftex.def)             Requested size: 266.26164pt x 107.69743pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_vel_800.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_vel_800.pdf, id=10898, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/degrau_vel_800.pdf, id=8027, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/degrau_vel_800.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_vel_800.pdf>
-Package pdftex.def Info: Imagens/Cap3/degrau_vel_800.pdf  used on input line 77
-8.
+Package pdftex.def Info: Imagens/Cap3/degrau_vel_800.pdf  used on input line 74
+3.
 (pdftex.def)             Requested size: 430.15083pt x 109.65465pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_vor_800.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_vor_800.pdf, id=10900, 277.51682pt x 156.10321pt>
+<Imagens/Cap3/degrau_vor_800.pdf, id=8029, 277.51682pt x 156.10321pt>
 File: Imagens/Cap3/degrau_vor_800.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_vor_800.pdf>
-Package pdftex.def Info: Imagens/Cap3/degrau_vor_800.pdf  used on input line 77
-9.
+Package pdftex.def Info: Imagens/Cap3/degrau_vor_800.pdf  used on input line 74
+4.
 (pdftex.def)             Requested size: 430.15083pt x 100.83444pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_vor_sec_800.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_vor_sec_800.pdf, id=10902, 275.47032pt x 105.21156pt>
+<Imagens/Cap3/degrau_vor_sec_800.pdf, id=8031, 275.47032pt x 105.21156pt>
 File: Imagens/Cap3/degrau_vor_sec_800.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_vor_sec_800.pdf>
 Package pdftex.def Info: Imagens/Cap3/degrau_vor_sec_800.pdf  used on input lin
-e 780.
+e 745.
 (pdftex.def)             Requested size: 385.6558pt x 99.49503pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_press_100.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_press_100.pdf, id=10904, 263.90793pt x 54.65938pt>
+<Imagens/Cap3/degrau_press_100.pdf, id=8033, 263.90793pt x 54.65938pt>
 File: Imagens/Cap3/degrau_press_100.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_press_100.pdf>
 Package pdftex.def Info: Imagens/Cap3/degrau_press_100.pdf  used on input line 
-788.
+753.
 (pdftex.def)             Requested size: 395.8609pt x 81.98883pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_press_400.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_press_400.pdf, id=10906, 265.71913pt x 53.84428pt>
+<Imagens/Cap3/degrau_press_400.pdf, id=8035, 265.71913pt x 53.84428pt>
 File: Imagens/Cap3/degrau_press_400.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_press_400.pdf>
 Package pdftex.def Info: Imagens/Cap3/degrau_press_400.pdf  used on input line 
-789.
+754.
 (pdftex.def)             Requested size: 398.57771pt x 80.76622pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap3/degrau_press_800.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap3/degrau_press_800.pdf, id=10908, 262.23364pt x 54.77405pt>
+<Imagens/Cap3/degrau_press_800.pdf, id=8037, 262.23364pt x 54.77405pt>
 File: Imagens/Cap3/degrau_press_800.pdf Graphic file (type pdf)
 <use Imagens/Cap3/degrau_press_800.pdf>
 Package pdftex.def Info: Imagens/Cap3/degrau_press_800.pdf  used on input line 
-790.
+755.
 (pdftex.def)             Requested size: 393.34947pt x 82.16084pt.
-[25] [26
+[20] [21
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                     <./Imagens/Cap3/bspline_pc_ai.pdf> <./Imagens/Cap3/bspline
+_pc_di.pdf> <./Imagens/Cap3/bspline_curva_ai.pdf> <./Imagens/Cap3/bspline_curva
+_di.pdf> <./Imagens/Cap3/bspline_base_ai.pdf> <./Imagens/Cap3/bspline_base_di.p
+df>] [22
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.5}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.6}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.7}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                     <./Imagens/Cap3/NURBS_pc_projetiva.pdf> <./Imagens/Cap3/NU
+RBS_curva_projetiva.pdf> <./Imagens/Cap3/patches.pdf> <./Imagens/Cap3/cilindro_
+iga_patches.pdf>] [23
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.8}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.9}) 
+has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                     <./Imagens/Cap3/cilindro_circ_ini.pdf> <./Imagens/Cap3/cil
+indro_circ_ref.pdf> <./Imagens/Cap3/cilindro_pc_superficie.pdf> <./Imagens/Cap3
+/cilindro_malhafisica_superficie.pdf>] [24
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.10})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.11})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                     <./Imagens/Cap3/cilindro_pc_solido.pdf> <./Imagens/Cap3/ci
+lindro_malhafisica_solido.pdf> <./Imagens/Cap3/cilindro_geometria3d.pdf> <./Ima
+gens/Cap3/cilindro_malha.pdf>] [25
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.12})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                     <./Imagens/Cap3/Legenda.pdf> <./Imagens/Cap3/cilindro_CD-e
+ps-converted-to.pdf> <./Imagens/Cap3/cilindro_CL-eps-converted-to.pdf>]
+[26
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.13})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                     <./Imagens/Cap3/cilindro_vel_tn.pdf> <./Imagens/Cap3/cilin
+dro_vel_tn6.pdf> <./Imagens/Cap3/cilindro_vel_tn3.pdf> <./Imagens/Cap3/cilindro
+_vel_tn2.pdf> <./Imagens/Cap3/cilindro_vel_2tn3.pdf> <./Imagens/Cap3/cilindro_v
+el_5tn6.pdf> <./Imagens/Cap3/cilindro_vel_legenda.pdf>] [27
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.14})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                    
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.15})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                     <./Imagens/Cap3/cilindro_press_tn.pdf> <./Imagens/Cap3/cil
+indro_press_tn6.pdf> <./Imagens/Cap3/cilindro_press_tn3.pdf> <./Imagens/Cap3/ci
+lindro_press_tn2.pdf> <./Imagens/Cap3/cilindro_press_2tn3.pdf> <./Imagens/Cap3/
+cilindro_press_5tn6.pdf> <./Imagens/Cap3/cilindro_press_legenda.pdf> <./Imagens
+/Cap3/degrau_geometria.pdf>] [28
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.16})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.760 \end{document}
+                    
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.17})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.795 \end{document}
-                    
+l.760 \end{document}
+                     <./Imagens/Cap3/degrau_malha.pdf> <./Imagens/Cap3/degrau_v
+ort_prim.pdf>] [29
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.18})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.795 \end{document}
-                     <./Imagens/Cap3/degrau_vort_prim.pdf> <./Imagens/Cap3/degr
-au_vel_100.pdf> <./Imagens/Cap3/degrau_vor_100.pdf>] [27
+l.760 \end{document}
+                    
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.19})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.795 \end{document}
-                    
+l.760 \end{document}
+                     <./Imagens/Cap3/degrau_vel_100.pdf> <./Imagens/Cap3/degrau
+_vor_100.pdf> <./Imagens/Cap3/degrau_vel_400.pdf> <./Imagens/Cap3/degrau_vor_40
+0.pdf>] [30
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.20})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.795 \end{document}
-                     <./Imagens/Cap3/degrau_vel_400.pdf> <./Imagens/Cap3/degrau
-_vor_400.pdf> <./Imagens/Cap3/degrau_vel_800.pdf> <./Imagens/Cap3/degrau_vor_80
-0.pdf> <./Imagens/Cap3/degrau_vor_sec_800.pdf>] [28
+l.760 \end{document}
+                     <./Imagens/Cap3/degrau_vel_800.pdf> <./Imagens/Cap3/degrau
+_vor_800.pdf> <./Imagens/Cap3/degrau_vor_sec_800.pdf>] [31
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.21})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.795 \end{document}
+l.760 \end{document}
                      <./Imagens/Cap3/degrau_press_100.pdf> <./Imagens/Cap3/degr
 au_press_400.pdf> <./Imagens/Cap3/degrau_press_800.pdf>]
 
@@ -2717,13 +2707,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 40771 strings out of 474222
- 773450 string characters out of 5748733
- 1943975 words of memory out of 5000000
- 61730 multiletter control sequences out of 15000+600000
- 672241 words of font info for 279 fonts, out of 8000000 for 9000
+ 40772 strings out of 474222
+ 773431 string characters out of 5748733
+ 1959975 words of memory out of 5000000
+ 61732 multiletter control sequences out of 15000+600000
+ 671947 words of font info for 277 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 130i,16n,124p,1186b,649s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 130i,16n,124p,1182b,674s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/shar
@@ -2740,10 +2730,10 @@ fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/lm/lmri12
 .pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf/fonts
 /type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy8.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Cap3.pdf (28 pages, 12760838 bytes).
+Output written on Cap3.pdf (31 pages, 12761143 bytes).
 PDF statistics:
- 11279 PDF objects out of 12825 (max. 8388607)
- 7539 compressed objects within 76 object streams
- 163 named destinations out of 1000 (max. 500000)
+ 11293 PDF objects out of 12825 (max. 8388607)
+ 7550 compressed objects within 76 object streams
+ 166 named destinations out of 1000 (max. 500000)
  67283 words of extra memory for PDF output out of 74296 (max. 10000000)
 

@@ -1,54 +1,6 @@
-% !TeX spellcheck = pt_BR
-\documentclass[tese_patricia]{subfiles}
-\begin{document}
-
-
-\begin{comment}
-	\nomenclature[F,01]{$(\bullet)_{0}, (\bullet)_{1}$}{Subíndices que designam o modelo Global e o modelo Local respectivamente;}
-	\nomenclature[F,02]{$\overlappingZone$}{Zona de superposição;}
-	\nomenclature[F,03]{$\gluingZone$}{Zona de colagem;}
-	\nomenclature[F,04]{$\freeZone$}{Zona livre;}
-	\nomenclature[F,05]{$\lagrangeMultiplier$}{Campo de multiplicadores de Lagrange;}
-	\nomenclature[F,06]{$k_{0},k_{1}$}{Constantes dos operadores de acoplamento;}
-	\nomenclature[F,07]{$L^{2}$}{Operador de acoplamento de ordem 0;}
-	\nomenclature[F,08]{$H^{1}$}{Operador de acoplamento de ordem 1;}
-	\nomenclature[F,09]{$\arlequinWF$}{Função ponderadora;}
-	\nomenclature[F,10]{$k_{a}$}{Constante arbitrária do método de Arlequin;}
-	\nomenclature[F,11]{$\lagSolution$}{Espaço vetorial das funções aproximadoras do campo de multiplicadores de Lagrange;}
-	\nomenclature[F,12]{$\lagTest$}{Espaço vetorial das funções ponderadoras do campo de multiplicadores de Lagrange;}
-	\nomenclature[F,13]{$\lagrangeMultiplierWFh$}{Função ponderadora pertencente ao espaço $\lagTest$;}
-	\nomenclature[F,14]{$\chi$}{Função lógica para determinação do pertencimento de um ponto à $\gluingZone$;}
-	\nomenclature[F,15]{$\tauArlequin$}{Parâmetro de estabilização da técnica RBSAM;}
-	 \nomenclature[F,16]{$\mathbf{K}_{i}$}{Matriz que representa os termos provenientes das matrizes referentes as equações da quantidade de movimento e da continuidade para o modelo $i$;}
-	 \nomenclature[F,17]{$\mathbf{\hat{L}}_{i}$}{Matriz que representa os termos oriundos do acoplamento do modelo $i$;;}
-	 \nomenclature[F,18]{$\mathbf{L}_{i}^{T}$}{Matriz procedente dos termos da equação de restrição e de componentes da estabilização RBSAM do modelo $i$;}
-	 \nomenclature[F,19]{$\mathbf{E}$}{Matriz com termos oriundos da estabilização RBSAM;}
-	 \nomenclature[F,20]{$\mathbf{\bar{U}}_{i}$}{Representa os vetores nodais dos graus de liberdade respectivos a velocidade e pressão do modelo $i$;}
-	 \nomenclature[F,21]{$\LagrangeMultiplier$}{Representa os graus de liberdade respectivos aos multiplicadores de Lagrange;}
-	 \nomenclature[F,22]{$\mathbf{F}_{i}$}{Representam os vetores provenientes das equações da quantidade de movimento e da continuidade do modelo $i$;}
-	 \nomenclature[F,23]{$\mathbf{F}_{\LagrangeMultiplier}$}{Representa os termos vetoriais advindos da estabilização RBSAM;}
-	\nomenclature[F,24]{$\NNSL$}{Resíduo da versão semidiscreta da equação de restrição}
-	\nomenclature[F,25]{$\tau_{A},\tau_{A}^{0},\tau_{A}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-	\nomenclature[F,26]{$\tau_{B},\tau_{B}^{0},\tau_{B}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-	\nomenclature[F,27]{$\tau_{C},\tau_{C}^{0},\tau_{C}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-	\nomenclature[F,28]{$\tau_{D},\tau_{D}^{0},\tau_{D}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-	\nomenclature[F,29]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-	\nomenclature[F,30]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}	
-	\nomenclature[F,31]{$\mathbf{M}_{\lambda},\mathbf{t}, \mathbf{j}, \mathbf{k}, \mathbf{p}, \mathbf{\boundary}$}{Vetores elementares da formulação usadas na definição de $\tauArlequin$, relativo aos termos de restrição, convectivos, inerciais, viscosos, pressão e de acoplamento respectivamente;}
-	\nomenclature[F,32]{$C$}{Corda: distância entre o bordo ataque e de fuga do aerofólio;}	
-	\nomenclature[F,33]{$\theta, \theta_{max}, \theta_{min}$}{Ângulo de ataque; Ângulo de ataque máximo; Ângulo de ataque mínimo;}	
-	\nomenclature[F,34]{$f_{o}$}{Frequência de oscilação;}
-
-	
-\end{comment}
-
-% ---------------------------------------------------------- 
-% Métodos de malhas sobrepostas
-% ----------------------------------------------------------
 \chapter[Método de Arlequin estabilizado]{Técnica de decomposição de domínios através do Método de Arlequin estabilizado - RBSAM} \label{capitulo:Cap6}
-% ----------------------------------------------------------
 
-Com intuito de superar as dificuldades encontrados com a técnica de partição de domínios apresentada no Cap. \ref{capitulo:Cap5}, neste capítulo será apresentado o método multiescala Arlequin que permite também levar em conta efeitos localizados através do uso de um modelo local mais refinado superposto a um modelo global com discretização mais grosseira. No método Arlequin, o processo é realizado através do cruzamento e colagem entre os modelos em uma zona de colagem através da utilização de um operador de acoplamento.
+Com intuito de superar as dificuldades encontrados com a técnica de partição de domínios apresentada no \autoref{capitulo:Cap5}, neste capítulo será apresentado o método multiescala Arlequin que permite também levar em conta efeitos localizados através do uso de um modelo local mais refinado superposto a um modelo global com discretização mais grosseira. No método Arlequin, o processo é realizado através do cruzamento e colagem entre os modelos em uma zona de colagem através da utilização de um operador de acoplamento.
 
 A primeira parte deste capítulo descreve o método clássico de Arlequin, introduzido por \citeonline{Dhia:1998}. Em seguida, será apresentada a técnica de estabilização (RBSAM) proposta por \citeonline{FernandesEtAll:2020} para o método de Arlequin no contexto de escoamentos incompressíveis. Na sequência, será discutida a extensão dessa metodologia para problemas com contornos móveis. Por fim, serão apresentados o algoritmo da implementação computacional e exemplos de validação
 
@@ -56,7 +8,7 @@ A primeira parte deste capítulo descreve o método clássico de Arlequin, intro
 
 O método Arlequin, introduzido por \citeonline{Dhia:1998}, consiste na superposição de um domínio local a um domínio global em uma região de efeitos localizados. Os modelos, local e global, são acoplados em uma zona de colagem através de um operador de acoplamento conveniente.
 
-O  método de Arlequin, de acordo com \citeonline{DhiaR:2005}, é baseado em três principais ideias (ver Fig. \ref{fig:dominioArlequin}):
+O  método de Arlequin, de acordo com \citeonline{DhiaR:2005}, é baseado em três principais ideias (ver \autoref{fig:dominioArlequin}):
 
 \begin{itemize}
 	\item Um domínio local $\localModel$ é sobreposto em um domínio global  $\globalModel$ em uma zona de interesse de modo a representar efeitos locais;
@@ -64,13 +16,12 @@ O  método de Arlequin, de acordo com \citeonline{DhiaR:2005}, é baseado em tr�
 	\item  Garante-se a distribuição da energia entre os modelos através do emprego de uma função ponderadora, definida a partir da partição da unidade;
 \end{itemize}
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Domínio local e global}
 	\centering 
-	%\vspace{-1em} % Diminui o espaço antes da figura
 	\includegraphics[scale=1.5,trim=0cm 0cm 0cm 0.0cm, clip=true]{Imagens/Cap6/dominioArlequin.pdf}	
-	\caption{Domínio local e global.}
 	\label{fig:dominioArlequin}
-	%\vspace{-1em} % Diminui o espaço antes da figura
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 Dessa forma, o domínio computacional do problema é definido por:
@@ -105,7 +56,6 @@ A definição do espaço de funções para os operadores de Lagrange é muito im
 
 Por fim, para que o método não adicione energia ao sistema, é necessário que seja definida uma função ponderadora, denominada ($\arlequinWF$), que garanta a distribução da energia do sistema ao longo dos modelos sobrepostos. Em geral, essa função é definida da seguinte forma:
 
-
 \begin{align}
 	\begin{cases} \arlequinWFGlobal \in [ka;1] \ em \ \domain, \\ 
 	\arlequinWFGlobal = 1 \ em \ \globalModel \textbackslash \localModel,  \\
@@ -114,18 +64,15 @@ Por fim, para que o método não adicione energia ao sistema, é necessário que
 	\end{cases} \label{eq:funcPondeArleq}
 \end{align}
 
-\noindent com $k_a$ uma constante arbitrariamente pequena para o método de Arlequin ser relevante \cite{Dhia:2008}, conforme pode ser observado na Fig. \ref{fig:funcPondArlq}.
+\noindent com $k_a$ uma constante arbitrariamente pequena para o método de Arlequin ser relevante \cite{Dhia:2008}, conforme pode ser observado na \autoref{fig:funcPondArlq}.
 
-
-\begin{figure}[htb!]
-	\centering 
-	%\vspace{-1em} % Diminui o espaço antes da figura
-	\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0.0cm, clip=true]{Imagens/Cap6/funcPondArlq.pdf}	
+\begin{figure}[!htbp]
 	\caption{Função Ponderadora}
+	\centering 
+	\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0.0cm, clip=true]{Imagens/Cap6/funcPondArlq.pdf}	
 	\label{fig:funcPondArlq}
-	%\vspace{-1em} % Diminui o espaço antes da figura
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
-
 
 \section{Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}
 
@@ -135,7 +82,7 @@ De acordo com os autores \citeonline{JamondD:2013} a principal dificuldade encon
 
 A solução proposta pelos autores nesse trabalho foi a aplicação da condição de incompressibilidade em cada ponto do domínio computacional apenas uma vez. A metodologia consiste então da remoção da condição de incompressibilidade dos elementos total ou parcialmente encontrados na zona de colagem ($\gluingZone$) em um dos modelos. Indiferente do modelo eleito para a remoção da condição de incompressibilidade na zona de colagem, na zona livre, a condição de incompressibilidade é removida do modelo global. Deve-se destacar que no trabalho citado existem algumas recomendações com relação a estabilidade da metodologiam, como, por exemplo, a necessidade de existir pelo menos um elemento global na zona livre. Tal trabalho não explora as possíveis mudanças que acarretariam na estabilidade numérica em caso de sucessivas remoções e inclusões de condição de incompressibilidade no caso de um modelo local móvel.
 
-Por esse motivo, e pelas pesquisas anteriores já realizadas pela presente autora e seu grupo de pesquisa, optou-se pela adoção de elementos estabilizados, os quais já foram retratos no Cap. \ref{capitulo:Cap2}.
+Por esse motivo, e pelas pesquisas anteriores já realizadas pela presente autora e seu grupo de pesquisa, optou-se pela adoção de elementos estabilizados, os quais já foram retratos no \autoref{capitulo:Cap2}.
 
 Para a construção do método de Arlequin clássico precisamos retomar às equações para um monomodelo apresentadas no Cap. \ref{capitulo:Cap2} que representam a forma fraca discretizada espacialmente e estabilizada das equações da quantidade de movimento e da continuidade. Entretanto, será usada inicialmente uma descrição Euleriana dessas equações nesse capítulo.
 
@@ -153,7 +100,7 @@ Considerando os espaços de dimensão finita das funções tentativa que descrev
 	\uArlequinTest = \left\{\utest_{i}^{h} \left . \right| \utest_{i}^{h} \left(\cdot\right) \in H^{1h}\left(\arlqModel\right), \utest_{i}^{h} = \vzero  \textrm { em} \ \boundary_{D_i} \right\},
 \end{align}
 
-e,
+\noindent e,
 
 \begin{align}
 	\pArlequinTest = \pArlequinSolution.
@@ -164,7 +111,6 @@ Analogamente, os espaços das funções tentativas ($\lagSolution$) e teste ($\l
 \begin{align}
 	\lagSolution = \left\{ \lagrangeMultiplier^{h} \,\middle|\, \lagrangeMultiplier^{h}(\cdot) \in H^{1h}(\gluingZone) \right\}
 \end{align}
-
 
 \begin{align}
 	\lagTest = \lagSolution.
@@ -187,7 +133,6 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 	\end{split}
 \end{align}
 
-
 \begin{align}
 	\begin{split}
 		&	\int_{\globalModel} \arlequinWFGlobal \qglobalh \divergence \cdot \uglobalh \ \deriv \globalModel +
@@ -195,7 +140,6 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 		\label{eq:C_forma_fraca_0}
 	\end{split}
 \end{align}
-
 
 \begin{align}
 	\begin{split}
@@ -213,7 +157,6 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 	\end{split}
 \end{align}
 
-
 \begin{align}
 	\begin{split}
 		&	\int_{\localModel} \arlequinWFLocal \qlocalh \divergence \cdot \ulocalh \ \deriv \localModel +
@@ -226,8 +169,6 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 	\int_{\gluingZone}  \lagrangeMultiplierWFh  \cdot \left(\uglobalh - \ulocalh \right) \ \deriv \gluingZone = 0, 
 		\label{eq:lag_acopl}
 \end{align}
-
-
 
 \noindent onde $\resMomI$ e ${\resPreI}$ são os resíduos da equação da quantidade de movimento e da equação da continuidade, com $i=0,1$, respectivamente, dados por:
 
@@ -243,7 +184,6 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 
 \noindent com $\chi_{i}$ descrito da maneira que se segue:
 
-
 \begin{align}
 	\chi_{i} = \begin{cases} (-1)^{i} \ se \ \pos \in \gluingZone \\
 			   0 \ se \ \pos \notin \gluingZone. \end{cases}						. 
@@ -256,7 +196,6 @@ Em \citeonline{GuidaultAndBelytschko2007} pode-se encontrar uma vasta análise m
 O problema descrito no método Arlequin clássico é análogo a formulação mista em elementos finitos para escoamentos incompressíveis, que limita a escolha das funções aproximadoras para o campo de velocidade e pressão. No caso da mecânica dos fluidos, conforme apresentado no Cap. \ref{capitulo:Cap2}, uma forma de superar esta restrição LBB é o uso de métodos estabilizados como o PSPG. Seguindo essa mesma filosofia,  \citeonline{FernandesEtAll:2020} introduzem uma técnica de estabilização consistente que será apresentada na seguinte seção. 
 
 \section{Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}
-
 
 Com intuito de superar a condição LBB para o problema de Arlequin, \citeonline{FernandesEtAll:2020} desenvolvem uma técnica de estabilização consistente baseada em resíduo. Para isso, introduz-se uma parcela adicional à equação dos campos de multiplicadores de Lagrange, que leva em conta o gradiente de $\lagrangeMultiplierWFh$ e o resíduo da equação da quantidade de movimento:
 
@@ -284,7 +223,6 @@ Dessa forma, pode-se definir a solução do problema de Navier-Stokes para escoa
 	\end{split}
 \end{align}
 
-
 \begin{align}
 	\begin{split}
 		&	\int_{\globalModel} \arlequinWFGlobal \qglobalh \divergence \cdot \uglobalh \ \deriv \globalModel +
@@ -292,7 +230,6 @@ Dessa forma, pode-se definir a solução do problema de Navier-Stokes para escoa
 		\label{eq:C_forma_fraca_0_atu}
 	\end{split}
 \end{align}
-
 
 \begin{align}
 	\begin{split}
@@ -310,7 +247,6 @@ Dessa forma, pode-se definir a solução do problema de Navier-Stokes para escoa
 	\end{split}
 \end{align}
 
-
 \begin{align}
 	\begin{split}
 		&	\int_{\localModel} \arlequinWFLocal \qlocalh \divergence \cdot \ulocalh \ \deriv \localModel +
@@ -327,7 +263,7 @@ Dessa forma, pode-se definir a solução do problema de Navier-Stokes para escoa
 \end{split}
 \end{align}
 
-\noindent com os resíduos $\resMomI$ e $\resPreI$ escritos conforme as Eq. \ref{eq:res_QM_i} e Eq .\ref{eq:res_C_i}.
+\noindent com os resíduos $\resMomI$ e $\resPreI$ escritos conforme as \autoref{eq:res_QM_i} e Eq .\ref{eq:res_C_i}.
 
 O sistema resultante pode ser reescrito em notação matricial como:
 
@@ -351,11 +287,11 @@ O sistema resultante pode ser reescrito em notação matricial como:
 	\label{eq:sistema_result_ArlqRBSAM}
 \end{align}	
 
-Considerando $i=0,1$ designando os modelos global e local respectivamente têm-se a definição dos termos da Eq. \ref{eq:sistema_result_ArlqRBSAM} como: $\mathbf{K}_{i}$ é uma matriz que representa os termos provenientes das matrizes referentes as equações da quantidade de movimento e da continuidade para o modelo $i$; $\mathbf{\hat{L}}_{i}$ matriz que representa os termos de acoplamento do modelo $i$; $\mathbf{L}_{i}^{T}$ matriz procedente dos termos da equação de restrição e de componentes da estabilização RBSAM do modelo $i$; $\mathbf{E}$ apresenta termos oriundos da estabilização RBSAM; $\mathbf{\bar{U}}_{i}$ representa os vetores nodais dos graus de liberdade respectivos a velocidade e pressão do modelo $i$; $\LagrangeMultiplier$ representa os graus de liberdade respectivos aos multiplicadores de Lagrange; $\mathbf{F}_i$ representa os vetores provenientes das equações da quantidade de movimento e da continuidade para o modelo $i$; $\mathbf{F}_{\LagrangeMultiplier}$ representa os termos vetoriais advindos da estabilização RBSAM. 
+Considerando $i=0,1$ designando os modelos global e local respectivamente têm-se a definição dos termos da \autoref{eq:sistema_result_ArlqRBSAM} como: $\mathbf{K}_{i}$ é uma matriz que representa os termos provenientes das matrizes referentes as equações da quantidade de movimento e da continuidade para o modelo $i$; $\mathbf{\hat{L}}_{i}$ matriz que representa os termos de acoplamento do modelo $i$; $\mathbf{L}_{i}^{T}$ matriz procedente dos termos da equação de restrição e de componentes da estabilização RBSAM do modelo $i$; $\mathbf{E}$ apresenta termos oriundos da estabilização RBSAM; $\mathbf{\bar{U}}_{i}$ representa os vetores nodais dos graus de liberdade respectivos a velocidade e pressão do modelo $i$; $\LagrangeMultiplier$ representa os graus de liberdade respectivos aos multiplicadores de Lagrange; $\mathbf{F}_i$ representa os vetores provenientes das equações da quantidade de movimento e da continuidade para o modelo $i$; $\mathbf{F}_{\LagrangeMultiplier}$ representa os termos vetoriais advindos da estabilização RBSAM. 
 
 Note que na estabilização Arlequin baseada no resíduo (RBSAM) não existem elementos zeros na diagonal da matriz, diferente do mesmo problema na formulação clássica Arlequin. No trabalho de \citeonline{FernandesEtAll:2020} pode-se encontrar a análise de estabilidade dessa técnica e testes numéricos que avaliam o condicionamento do sistema algébrico e a convergência do método.
 
-O problema de Arlequin não linear apresentado nas equações: Eq. \ref{eq:QM_forma_fraca_0_atu} à \ref{eq:lag_acopl_tARLQ} pode ser reescrito em sua forma semi-discreta residual para $i=0,1$, da seguinte maneira:
+O problema de Arlequin não linear apresentado nas equações: \autoref{eq:QM_forma_fraca_0_atu} à \ref{eq:lag_acopl_tARLQ} pode ser reescrito em sua forma semi-discreta residual para $i=0,1$, da seguinte maneira:
 
 \begin{align}
 	\begin{split}
@@ -370,9 +306,6 @@ O problema de Arlequin não linear apresentado nas equações: Eq. \ref{eq:QM_fo
 		- \int_{\arlqBoundary} \arlequinWFi\, \wArlqi \cdot \arlqSurfaceLoadh \, \deriv \arlqBoundary
 	\end{split}
 \end{align}
-
-
-
 
 \begin{align}
 	\begin{split}
@@ -410,11 +343,9 @@ Considerando $\Acceleration_i$, $\Velocity_i$, $\Press_i$ e $\LagrangeMultiplier
 	\NNSL(\Acceleration_0,\Velocity_0,\Press_0,\Acceleration_1,\Velocity_1,\Press_1,\LagrangeMultiplier) = \vzero. \label{eq:resid_semi_discr_acopla}
 \end{align}
 
-
 \subsection{Integração Temporal}
 
-
-Quanto ao procedimento de integração temporal, utilizou-se o método $\alpha$-generalizado. Conforme a metodologia apresentado na Seção \ref{capitulo:Cap2:IntegTemp}, para a solução do sistema de equações não lineares compostas por Eq. \eqref{eq:resid_semi_discr_QM_0} à Eq. \eqref{eq:resid_semi_discr_acopla} utiliza-se o método de Newton-Raphson. A solução resulta em uma etapa preditiva e outra iterativa corretiva.
+Quanto ao procedimento de integração temporal, utilizou-se o método $\alpha$-generalizado. Conforme a metodologia apresentado na \autoref{capitulo:Cap2:IntegTemp}, para a solução do sistema de equações não lineares compostas por \autoref{eq:resid_semi_discr_QM_0} à \autoref{eq:resid_semi_discr_acopla} utiliza-se o método de Newton-Raphson. A solução resulta em uma etapa preditiva e outra iterativa corretiva.
 
 Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a solução no passo seguinte ($n+1$) através das seguintes relações:
 
@@ -448,7 +379,7 @@ Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a 
 
 \noindent onde o superíndice $0$ representa a iteração de número zero, enquanto que os subíndices $0$ e $1$ representam as variáveis do modelo global e local respectivamente.
 
-Na etapa iterativa corretiva, itera-se sobre a Eq. \eqref{eq:resid_semi_discr_QM_0} à Eq. \eqref{eq:resid_semi_discr_acopla} até que elas sejam satisfeitas, seja através de uma tolerância prescrita, ou até que se alcance uma quantidade máxima de iterações pré-estabelecida. A etapa iterativa corretiva é constituída por três fases. A fase 1 consiste em determinar os valores no instante intermediário para as variáveis nodais na iteração $i$:
+Na etapa iterativa corretiva, itera-se sobre a \autoref{eq:resid_semi_discr_QM_0} à \autoref{eq:resid_semi_discr_acopla} até que elas sejam satisfeitas, seja através de uma tolerância prescrita, ou até que se alcance uma quantidade máxima de iterações pré-estabelecida. A etapa iterativa corretiva é constituída por três fases. A fase 1 consiste em determinar os valores no instante intermediário para as variáveis nodais na iteração $i$:
 
 \begin{align}
 	\Acceleration_{0({n+\alpham})}^{i} = \Acceleration_{0(n)} + \alpham \left( \Acceleration_{0(n+1)}^{i} - \Acceleration_{0(n)} \right), \label{eq:inter_acel_0}\\
@@ -460,7 +391,7 @@ Na etapa iterativa corretiva, itera-se sobre a Eq. \eqref{eq:resid_semi_discr_QM
 	\LagrangeMultiplier_{(n+1)}^{i} = \LagrangeMultiplier_{(n+1)}^{i}. \label{eq:inter_lag_mult}
 \end{align}
 
-Na fase 2, com os valores intermediários das variáveis nodais resolve-se o sistema linear resultante da linearização das equações Eq. \eqref{eq:resid_semi_discr_QM_0} à Eq. \eqref{eq:resid_semi_discr_acopla} com respeito às variáveis de interesse $\Acceleration_{0(n+1)}$, $\Press_{0(n+1)}$,  $\Acceleration_{1(n+1)}$, $\Press_{1(n+1)}$ e $\LagrangeMultiplier_{(n+1)}$:
+Na fase 2, com os valores intermediários das variáveis nodais resolve-se o sistema linear resultante da linearização das equações \autoref{eq:resid_semi_discr_QM_0} à \autoref{eq:resid_semi_discr_acopla} com respeito às variáveis de interesse $\Acceleration_{0(n+1)}$, $\Press_{0(n+1)}$,  $\Acceleration_{1(n+1)}$, $\Press_{1(n+1)}$ e $\LagrangeMultiplier_{(n+1)}$:
 
 \begin{align}
 	\begin{bmatrix}
@@ -500,8 +431,7 @@ Atualiza-se então na fase 3 a solução através das seguintes relações:
 	\LagrangeMultiplier_{1(n+1)}^{i+1} = \LagrangeMultiplier_{0(n+1)}^{i} + \Delta\LagrangeMultiplier_{1(n+1)}^{i}. \label{eq:atu_lag_mult}
 \end{align}
 
-Na utilização do método $\alpha$-generalizado as integrais das equações são avaliadas no instante $t = t_{n+\alphaf}$. As relações entre velocidade e aceleração, e os parâmetros utilizados pelo método podem ser consultados na Seção \ref{capitulo:Cap2:IntegTemp}.
-
+Na utilização do método $\alpha$-generalizado as integrais das equações são avaliadas no instante $t = t_{n+\alphaf}$. As relações entre velocidade e aceleração, e os parâmetros utilizados pelo método podem ser consultados na \autoref{capitulo:Cap2:IntegTemp}.
 
 \subsection{Parâmetro de estabilização para técnica RBSAM}
 
@@ -546,7 +476,6 @@ Propõe-se como critério a obtenção de termos de estabilização com magnitud
 	\tau_{A_i^{0}} = \frac{|| \mathbf{M}_{\lambda_0} || }{||\mathbf{t}_{i} ||}; \ \ \ \ \  & \tau_{A_i^{1}} = \frac{|| \mathbf{M}_{\lambda_1} || }{||\mathbf{t}_{i} ||};
 \end{align}
 
-
 \begin{align}
 	\tau_{B_i^{0}} = \frac{|| \mathbf{M}_{\lambda_0} || }{||\mathbf{j}_{i} ||}; \ \ \ \ \  &  \tau_{B_i^{1}} = \frac{|| \mathbf{M}_{\lambda_1} || }{||\mathbf{j}_{i} ||}; 
 \end{align}
@@ -555,18 +484,15 @@ Propõe-se como critério a obtenção de termos de estabilização com magnitud
 	\tau_{C_i^{0}} = \frac{|| \mathbf{M}_{\lambda_0} || }{||\mathbf{k}_{i} ||}; \ \ \ \ \  & \tau_{C_i^{1}} = \frac{|| \mathbf{M}_{\lambda_1} || }{||\mathbf{k}_{i} ||};
 \end{align}
 
-
 \begin{align}
 	\tau_{D_i^{0}} = \frac{|| \mathbf{M}_{\lambda_0} || }{||\mathbf{p}_{i} ||}; \ \ \ \ \  & \tau_{D_i^{1}} = \frac{|| \mathbf{M}_{\lambda_1} || }{||\mathbf{p}_{i} ||}; 
 \end{align}
-
 
 \begin{align}
 	\tau_{E_i^{0}} = \frac{|| \mathbf{M}_{\lambda_0} || }{||\mathbf{\Gamma}_{i} ||}; \ \ \ \ \  & \tau_{E_i^{1}} = \frac{|| \mathbf{M}_{\lambda_1} || }{||\mathbf{\Gamma}_{i} ||};
 \end{align}
 
 Por fim, os vetores em questão, são definidos através das seguintes relações:
-
 
 \begin{align}
 	\mathbf{M}_{\lambda_0} = \int_{\gluingZone} \shapef_{k} \cdot \uglobalh \deriv \gluingZone,
@@ -596,19 +522,15 @@ Por fim, os vetores em questão, são definidos através das seguintes relaçõe
 	\mathbf{\Gamma}_{i} = \int_{\gluingZone} \gradient \shapef_{k} : \gradient \left(\chi (i) \lagrangeMultiplierh\right)    \deriv \gluingZone,
 \end{align}
 
-
 \noindent com $k$ representando o índice dos graus de liberdade do campo de multiplicadores de Lagrange.
-
 
 \section{Superposição de modelos móveis}
 
-As equações Eq. \eqref{eq:QM_forma_fraca_0_atu} à Eq. \eqref{eq:lag_acopl_tARLQ} resolvem problemas de escoamentos incompressíveis em uma discretização Euleriana. Entretanto, como têm-se como alvo à movimentação do domínio local do fluido (ver Fig. \ref{fig:dominioArlequinMovel}) para acomodar a movimentação da estrutura em problemas de IFE ou representar o deslocamento de um objeto imerso na DFC, faz-se o uso de uma descrição Lagrangiana-Euleriana Arbitrária (ALE) no modelo local ($\localModel$) enquanto que o domínio global ($\globalModel$) mantém-se fixo e com descrição Euleriana. 
+As equações \autoref{eq:QM_forma_fraca_0_atu} à \autoref{eq:lag_acopl_tARLQ} resolvem problemas de escoamentos incompressíveis em uma discretização Euleriana. Entretanto, como têm-se como alvo à movimentação do domínio local do fluido (ver \autoref{fig:dominioArlequinMovel}) para acomodar a movimentação da estrutura em problemas de IFE ou representar o deslocamento de um objeto imerso na DFC, faz-se o uso de uma descrição Lagrangiana-Euleriana Arbitrária (ALE) no modelo local ($\localModel$) enquanto que o domínio global ($\globalModel$) mantém-se fixo e com descrição Euleriana. 
 
-Para o entendimento da metodologia de superposição de modelos móveis em um esquema Euleriano-ALE, pode-se analisar a Fig. \ref{fig:dominioArlequinMovel}. Nela, pode-se observar a mudança de configuração dos modelos de fluido do passo $t_n$ para o passo $t_{n+1}$. Nota-se que o modelo global mantém sua geometria inalterada na mudança de passo de tempo, enquanto que o modelo local é movimentado para representar uma nova localização de um objeto imerso. Vale ressaltar que o contorno do domínio do modelo local ($\localBoundary$) é conhecido em $t_n$ e em $t_{n+1}$, e que a zona de superposição $\overlappingZone$ é definida em diferentes posições em cada instante.
+Para o entendimento da metodologia de superposição de modelos móveis em um esquema Euleriano-ALE, pode-se analisar a \autoref{fig:dominioArlequinMovel}. Nela, pode-se observar a mudança de configuração dos modelos de fluido do passo $t_n$ para o passo $t_{n+1}$. Nota-se que o modelo global mantém sua geometria inalterada na mudança de passo de tempo, enquanto que o modelo local é movimentado para representar uma nova localização de um objeto imerso. Vale ressaltar que o contorno do domínio do modelo local ($\localBoundary$) é conhecido em $t_n$ e em $t_{n+1}$, e que a zona de superposição $\overlappingZone$ é definida em diferentes posições em cada instante.
 
-
-Para análise de domínios móveis do tipo Euleriano-ALE, a Eq. \ref{eq:QM_forma_fraca_1_atu} será reescrita, levando-se em consideração as definições apresentadas na Seção \ref{capitulo:Cap2:ALE}, como:
-
+Para análise de domínios móveis do tipo Euleriano-ALE, a \autoref{eq:QM_forma_fraca_1_atu} será reescrita, levando-se em consideração as definições apresentadas na \autoref{capitulo:Cap2:ALE}, como:
 
 \begin{align}
 	\begin{split}
@@ -625,8 +547,7 @@ Para análise de domínios móveis do tipo Euleriano-ALE, a Eq. \ref{eq:QM_forma
 	\end{split}
 \end{align}
 
-\noindent e o resíduo apresentado na Eq. \ref{eq:res_QM_i} ficará reescrito para i = 1, como:
-
+\noindent e o resíduo apresentado na \autoref{eq:res_QM_i} ficará reescrito para i = 1, como:
 
 \begin{align}
 	\resMomLocal \left(\ulocalh,\plocalh,\lagrangeMultiplierh \right)&=\arlequinWFLocal \density\left(\left. \frac{\partial\ulocalh}{\partial t} \right|_{\posALE}+ \left(\ulocalh - \velocityALEh_{1}\right) \cdot \gradient \ulocalh  - \localsbodyforceh\right) - \arlequinWFLocal \divergence \cdot \stressTensor\left(\ulocalh,\plocalh,\right)+ \chi_{1} \lagrangeMultiplierh \label{eq:res_QM_ALE}.
@@ -638,18 +559,17 @@ Além da consideração da descrição ALE para o modelo local, deve-se ressalta
 	\arlequinWF_{i(n+\alphaf)} = \arlequinWF_{i(n)} + \alphaf(\arlequinWF_{i(n+1)} - \arlequinWF_{i(n)}).
 \end{align}
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Domínio Arlequin móvel}
 	\centering 
 	{\includegraphics[scale=1.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/dominioArlequinMovel.pdf}}	
-	\caption{Domínio Arlequin móvel}
 	\label{fig:dominioArlequinMovel}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho é conhecida como MJBS (Mesh-Jacobian Based Stiffening) introduzida por \citeonline{TezduyarBSJ:1992f} e será abordada na Subseção \ref{capitulo:Cap7:CondAcop:MovMalha}.
-
+A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho é conhecida como MJBS (Mesh-Jacobian Based Stiffening) introduzida por \citeonline{TezduyarBSJ:1992f} e será abordada na  \autoref{capitulo:Cap7:CondAcop:MovMalha}.
 
 \section{Implementação Computacional}
-
 
 Previamente à explicação a cerca da implementação computacional, é importante indicar que o campo dos multiplicadores de Lagrange é definido neste estudo na malha local. Tal escolha ocorre pelo fato de que mesmo em problemas em que se tenham grandes deslocamentos, a quantidade de elementos locais da zona de superposição permanece inalterada, fazendo com que o sistema algébrico mantenha-se com dimensão constante ao longo do tempo, diminuindo assim, o custo computacional.
 
@@ -659,13 +579,13 @@ A etapa 1 consiste em determinar a distância assinalada com relação ao contor
 
 Na etapa 2, a partir da distância assinalada, são definidos os elementos locais que fazem parte da zona de colagem em função da espessura dessa região que foi previamente indicada pelo usuário do código.
 
-A função ponderadora para os modelos (etapa 3) é  determinada conforme Eq. \refeq{eq:funcPondeArleq}. Além disso, a função ponderadora ($\arlequinWF$), para os modelos local e global, foi definida como uma função linear nesse trabalho. 
+A função ponderadora para os modelos (etapa 3) é  determinada conforme \autoref{eq:funcPondeArleq}. Além disso, a função ponderadora ($\arlequinWF$), para os modelos local e global, foi definida como uma função linear nesse trabalho. 
 
 Uma das maiores dificuldades da técnica de Arlequin diz respeito à integração numérica do operador de acoplamento quando se tem na composição da integral funções definidas em modelos distintos. Neste estudo, as integrais são definidas sobre a malha local, desta forma, durante o pré-processamento realiza-se um processo de busca de correspondência (etapa 4) na malha global para cada ponto de integração da malha local. O processo de busca consiste em encontrar a coordenada paramétrica e elemento da malha global correspondente a cada ponto de integração da malha local na zona de colagem.
 
 Para contemplar a solução de problemas com contornos móveis utilizando a técnica Arlequin, a cada passo de tempo, algumas tarefas adicionais devem ser realizadas: atualização da configuração da malha; atualização da distância assinalada com relação ao contorno $\localBoundary$ de todos os pontos (nós para malha de elementos finitos ou pontos de controle para malha isogeométrica) que compõe cada um dos modelos;  Alteração da função ponderadora; e atualização das correspondências entre pontos de integração da malha local na malha global.
 
-O Algoritmo que descreve a implementação computacional é apresentado no Alg. \ref{alg:fluidARLQ}. A implementação computacional e resolução do sistema de equações resultantes ocorreu de forma análoga ao monomodelo descrito na Seção \ref{capitulo:Cap2:DFCComputationalCode}. O índice $i$ apresentado diz respeito à iteração de Newton-Raphson.
+O Algoritmo que descreve a implementação computacional é apresentado no Alg. \ref{alg:fluidARLQ}. A implementação computacional e resolução do sistema de equações resultantes ocorreu de forma análoga ao monomodelo descrito na \autoref{capitulo:Cap2:DFCComputationalCode}. O índice $i$ apresentado diz respeito à iteração de Newton-Raphson.
 
 \begin{algorithm}
 	\caption{Algoritmo para problemas móveis da DFC utilizando técnica ARLEQUIN RBSAM}
@@ -673,23 +593,23 @@ O Algoritmo que descreve a implementação computacional é apresentado no Alg. 
 	\begin{algorithmic}[1]
 		\State Cálculo da distância assinalada dos nós e pontos de controle ao contorno $\localBoundary$;
 		\State Determinação da zona de colagem $\gluingZone$;
-		\State Definição da função de ponderadora de acordo com Eq. \refeq{eq:funcPondeArleq};
+		\State Definição da função de ponderadora de acordo com \autoref{eq:funcPondeArleq};
 		\State Busca pela correspondência entre os pontos de integração da malha local na malha global;
 		\For {o passo de tempo $0$ até \totalTime} 
 		\State Movimentação da Malha;
 		\State $i=0$;
-		\State Predição da solução: aplicação da Eq. \eqref{eq:pred_acel_0}, Eq. \eqref{eq:pred_vel_0}, Eq. \eqref{eq:pred_press_0},
-		Eq. \eqref{eq:pred_acel_1}, Eq. \eqref{eq:pred_vel_1}, Eq. \eqref{eq:pred_press_1} e Eq. \eqref{eq:pred_lag_mult};
+		\State Predição da solução: aplicação da \autoref{eq:pred_acel_0}, \autoref{eq:pred_vel_0}, \autoref{eq:pred_press_0},
+		\autoref{eq:pred_acel_1}, \autoref{eq:pred_vel_1}, \autoref{eq:pred_press_1} e \autoref{eq:pred_lag_mult};
 		\While{($\epsilon$ < tolerância)}
 		\State $i$++;
 		\State Atualização da distância assinalada;
 		\State Atualização da função ponderadora;
 		\State Atualização das correspondência entre os pontos de integração da malha local na malha global;
-		\State Interpolação das variáveis do problema: aplicação da Eq. \eqref{eq:inter_acel_0}, Eq. \eqref{eq:inter_vel_0}, Eq. \eqref{eq:inter_press_0},
-		Eq. \eqref{eq:inter_acel_1}, Eq. \eqref{eq:inter_vel_1}, Eq. \eqref{eq:inter_press_1} e Eq. \eqref{eq:inter_lag_mult}; 
-		\State Cálculo do incremento nas variáveis do problema: Resolução do sistema apresentado na Eq. \eqref{eq:sistema_linear_Arlq};
-		\State Atualização da solução: cálculo de acordo com \eqref{eq:atu_acel_0}, Eq. \eqref{eq:atu_vel_0}, Eq. \eqref{eq:atu_press_0},
-		Eq. \eqref{eq:atu_acel_1}, Eq. \eqref{eq:atu_vel_1}, Eq. \eqref{eq:atu_press_1} e Eq. \eqref{eq:atu_lag_mult};
+		\State Interpolação das variáveis do problema: aplicação da \autoref{eq:inter_acel_0}, \autoref{eq:inter_vel_0}, \autoref{eq:inter_press_0},
+		\autoref{eq:inter_acel_1}, \autoref{eq:inter_vel_1}, \autoref{eq:inter_press_1} e \autoref{eq:inter_lag_mult}; 
+		\State Cálculo do incremento nas variáveis do problema: Resolução do sistema apresentado na \autoref{eq:sistema_linear_Arlq};
+		\State Atualização da solução: cálculo de acordo com \eqref{eq:atu_acel_0}, \autoref{eq:atu_vel_0}, \autoref{eq:atu_press_0},
+		\autoref{eq:atu_acel_1}, \autoref{eq:atu_vel_1}, \autoref{eq:atu_press_1} e \autoref{eq:atu_lag_mult};
 		\State Cálculo do erro:
 		\begin{align}
 			\epsilon =\left\| \NNSMGlobal^{i} + \NNSMLocal^{i}  \right\|_{L^2}
@@ -699,99 +619,133 @@ O Algoritmo que descreve a implementação computacional é apresentado no Alg. 
 	\end{algorithmic}
 \end{algorithm}
 
-
 \section{Exemplos}\label{capitulo:Cap6:Exemplos}
 
 Para a validação da método Arlequin estabilizado, dois exemplos amplamente explorados nas bibliografias, serão avaliados. O primeiro exemplo, trata-se de um problema de escoamento sobre um aerofólio NACA 0012, e o segundo, com intuito de validação da técnica de movimentação de domínios, consistirá no aerofólio NACA 0012 com um movimento de arfagem prescrito. 
 
 \subsection{Escoamento sobre um aerofólio NACA 0012} \label{capitulo:Cap6:Exemplos:NACA0012}
 
-Para simulação do problema de escoamento sobre um aerofólio NACA 0012, com 1 unidade de corda de dimensão e ângulo de ataque de $10^{\circ}$, utilizou-se o domínio apresentado na Fig. \ref{fig:aerofolio_geometria}. O contorno da entrada de fluxo está localizado a 6 cordas (C) do bordo de ataque do aerofólio, com velocidade de entrada $u_{\infty}$ na direção $y_1$. Os contornos superior e inferior da geometria, com condições de contorno de parede lisa, também estão afastados do aerofólio em 6 unidades de corda. O contorno direito do domínio é localizado a 20 unidades de corda a jusante do bordo de fuga do aerofólio. 
+Para simulação do problema de escoamento sobre um aerofólio NACA 0012, com 1 unidade de corda de dimensão e ângulo de ataque de $10^{\circ}$, utilizou-se o domínio apresentado na \autoref{fig:aerofolio_geometria}. O contorno da entrada de fluxo está localizado a 6 cordas (C) do bordo de ataque do aerofólio, com velocidade de entrada $u_{\infty}$ na direção $y_1$. Os contornos superior e inferior da geometria, com condições de contorno de parede lisa, também estão afastados do aerofólio em 6 unidades de corda. O contorno direito do domínio é localizado a 20 unidades de corda a jusante do bordo de fuga do aerofólio. 
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Aerofólio: Geometria}
 	\centering 
 	{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_geometria.pdf}}	
-	\caption{Aerofólio: Geometria}
 	\label{fig:aerofolio_geometria}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 A análise é realizada para um número de Reynolds ($\Reynolds$) 1000 calculado a partir da dimensão do aerofólio e da velocidade de entrada do escoamento. Foram utilizados ainda como parâmetros de análise: $u_{\infty} = 1,0$,  $\density = 1,0$,  $\timeStep = 0,02$, e $\specRadius = 0,75$.
 
 Para validação da teoria apresentada nesse capítulo, compararam-se os resultados de coeficientes de arrasto e sustentação ao longo do tempo para duas discretizações distintas: 1. Monomodelo; 2. Combinação de duas malhas através do método Arlequin estabilizado.
 
-O monomodelo foi discretizado através de elementos finitos (Fig. \ref{fig:aerofolio_malhaMonoFEM}), com malha constituída de 9240 elementos triangulares quadráticos e 18792 nós. 
+O monomodelo foi discretizado através de elementos finitos (\autoref{fig:aerofolio_malhaMonoFEM}), com malha constituída de 9240 elementos triangulares quadráticos e 18792 nós. 
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Aerofólio: Malha Monomodelo (MEF)}
 	\centering 
 	{\includegraphics[scale=2.5,trim=0cm 0.9cm 0cm 0.8cm, clip=true]{Imagens/Cap6/aerofolio_malhaMonoFEM.pdf}}	
-	\caption{Aerofólio: Malha Monomodelo (MEF) }
 	\label{fig:aerofolio_malhaMonoFEM}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
+Para o método Arlequin, duas malhas foram utilizadas, uma malha global com discretização isogeométrica (IGA) e uma malha local, mais refinada, em elementos finitos (MEF). Uma visão global da composição do domínio é apresentada na Figura \ref{fig:aerofolio_malhaArlequin}. Uma vista aproximada do aerofólio e da malha local pode ser visualizada na Figura \ref{fig:aerofolio_detalheLocal}.
 
-Para o método Arlequin, duas malhas foram utilizadas, uma malha global em elementos isogeométricos (IGA) e uma malha local, mais refinada, em elementos finitos (MEF). Uma visão global da composição do domínio é apresentada na Fig. \ref{fig:aerofolio_malhaArlequin}. Uma vista aproximada do aerofólio e da malha local pode ser visualizada na Fig. \ref{fig:aerofolio_detalheLocal}.
-
-\begin{figure}[!htb]
-	\centering
-	\subfloat[Discretização da malha global (IGA) e local (MEF)\label{fig:aerofolio_malhaArlequin}]{\includegraphics[scale=3.0,trim=0cm 1cm 0cm 0.6cm, clip=true]{Imagens/Cap6/aerofolio_malhaArlequin.pdf}}\\
-	\subfloat[Discretização da malha local\label{fig:aerofolio_detalheLocal}]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.5]{Imagens/Cap6/aerofolio_detalheLocal.pdf}}
+\begin{figure}[!htbp]
 	\caption{Aerofólio: Discretização das malhas global e local}
+	\centering
+	\subfloat[Discretização da malha global (IGA) e local (MEF)\label{fig:aerofolio_malhaArlequin}]{\includegraphics[scale=3.0,trim=0cm 1cm 0cm 0.8cm, clip=true]{Imagens/Cap6/aerofolio_malhaArlequin.pdf}}\\
+	\subfloat[Discretização da malha local\label{fig:aerofolio_detalheLocal}]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.5]{Imagens/Cap6/aerofolio_detalheLocal.pdf}}
 	\label{fig:aerofolio_malhaArlequin_detalheLocal}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-A malha global em elementos isogeométricos quadráticos foi obtida através da utilização de 9 $patches$, que totalizaram 15561 pontos de controle e 14025 elementos. A malha local por sua vez é composta por 5214 elementos triangulares quadráticos e 10670 nós. 
+A malha global isogeométrica foi obtida através da utilização de 9 $patches$, que totalizaram 15561 pontos de controle e 14025 células. A discretização em cada \textit{patch} pode ser visualizada na \autoref{tab:aerofolio_discretização_patches}. A malha local por sua vez é composta por 5214 elementos triangulares quadráticos e 10670 nós. 
 
-Na Fig. \ref{fig:aerofolio_detalheLocal} pode observar em vermelho os elementos que fazem parte da zona de colagem. A espessura da zona de colagem foi definida como $0,2$, totalizando 628 elementos triangulares quadráticos e 1428 nós nessa região. A constante do operador de acoplamento $L^{2}$ foi definida como $k_{0} = 10$. 
+\begin{table}[h]
+	\caption{Aerofólio: Número de pontos de controle por \textit{patch}}
+	\label{tab:aerofolio_discretização_patches}
+	\centering
+	\begin{minipage}{0.49\textwidth}
+		\centering
+		\begin{tabular}{cccc} 
+			\toprule
+			\textit{Patch} & $\xsi$ & $\eta$\\ 
+			\midrule \midrule
+			0 & 27 & 27\\
+			\midrule
+			1 & 62 & 27\\
+			\midrule
+			2 & 82 & 27\\
+			\midrule
+			3 & 27 & 37\\
+			\midrule
+			4 & 62 & 37\\
+			\midrule
+			5 & 82 & 37\\ 
+			\midrule
+			6 & 27 & 27\\ 
+			\midrule
+			7 & 62 & 27\\ 
+			\midrule
+			8 & 82 & 27\\ 
+			\bottomrule
+		\end{tabular}
+	\end{minipage}%
+	\fonte{Elaborada pelo autor.}%
+\end{table}
 
+Na Figura \ref{fig:aerofolio_detalheLocal} pode observar em vermelho os elementos que fazem parte da zona de colagem. A espessura da zona de colagem foi definida como $0,2$, totalizando 628 elementos triangulares quadráticos e 1428 nós nessa região. A constante do operador de acoplamento $L^{2}$ foi definida como $k_{0} = 10$. 
 
 Nesse problema observa-se o surgimento de uma esteira de vórtices a jusante do aerofólio, que resulta em um número de Strouhal ($\Strouhal$) equivalente a 0,877. Esse valor encontra-se em concordância com o obtido por \citeonline{MittalT:1994} de 0,862. 
 
-Nas Fig. \ref{fig:aerofolio_CD} e Fig. \ref{fig:aerofolio_CL} apresentam-se os resultados de coeficiente de arrasto e sustentação obtidos para as análises realizadas. Pode-se observar que os resultados obtidos com o modelo baseado no método Arlequin estabilizados estão de acordo com os obtidos para o modelo usando monomodelo.
+Nas Figura \ref{fig:aerofolio_CD} e Figura \ref{fig:aerofolio_CL} apresentam-se os resultados de coeficiente de arrasto e sustentação obtidos para as análises realizadas. Pode-se observar que os resultados obtidos com o modelo baseado no método Arlequin estabilizados estão de acordo com os obtidos para o modelo usando monomodelo.
 
-
-\begin{figure}[htb!]
-	\centering 
-	{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_CD.eps}}	
+\begin{figure}[!htbp]
 	\caption{Aerofólio: Coeficiente de Arrasto}
-	\label{fig:aerofolio_CD}
-\end{figure}
-
-\begin{figure}[htb!]
 	\centering 
-	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_CL.eps}	
-	\caption{Aerofólio: Coeficiente de Sustentação}
+	{\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_CD.eps}}	
+	\label{fig:aerofolio_CD}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Aerofólio: Coeficiente de Arrasto}
+	\centering 
+	\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_CL.eps}	
 	\label{fig:aerofolio_CL}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Nas Fig. \ref{fig:aerofolio_velocidade} e Fig. \ref{fig:aerofolio_pressao} estão apresentados os campos de velocidade e pressão respectivamente para um período de um ciclo das curvas referentes aos coeficientes de arrasto e sustentação. 
+Nas Figura \ref{fig:aerofolio_velocidade} e Figura \ref{fig:aerofolio_pressao} estão apresentados os campos de velocidade e pressão respectivamente para um período de um ciclo das curvas referentes aos coeficientes de arrasto e sustentação. 
 
-\begin{figure}[htb!]
-	\centering
-	\subfloat[$T_n$]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_velTn.pdf}} \ \
-	\subfloat[$T_n + T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolio_velTn4.pdf}} \\
-	\subfloat[$T_n + T_n/2 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_velTn2.pdf}} \ \
-	\subfloat[$T_n + 3T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolio_velTn34.pdf}} \\
-	{\includegraphics[trim=0 0 0 0,clip=true,scale=0.4]{Imagens/Cap6/aerofolio_velLegenda.png}}
+\begin{figure}[!htbp]
 	\caption{Aerofólio: Campo de velocidade}
+	\centering
+	\subfloat[$nT$]{\includegraphics[scale=0.13,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_velTn.pdf}} \ \
+	\subfloat[$nT + nT/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.13]{Imagens/Cap6/aerofolio_velTn4.pdf}} \\
+	\subfloat[$nT + nT/2$]{\includegraphics[scale=0.13,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_velTn2.pdf}} \ \
+	\subfloat[$nT + n3T/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.13]{Imagens/Cap6/aerofolio_velTn34.pdf}} \\
+	{\includegraphics[trim=0 0.2cm 0 0,clip=true,scale=0.4]{Imagens/Cap6/aerofolio_velLegenda.png}}
 	\label{fig:aerofolio_velocidade}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-\begin{figure}[htb!]
-	\centering
-	\subfloat[$T_n$]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_pressTn.pdf}} \ \
-	\subfloat[$T_n + T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolio_pressTn4.pdf}} \\
-	\subfloat[$T_n + T_n/2 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_pressTn2.pdf}} \ \
-	\subfloat[$T_n + 3T_n/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolio_pressTn34.pdf}}\\
-	{\includegraphics[trim=0 0.5cm 0 0cm,clip=true,scale=0.4]{Imagens/Cap6/aerofolio_pressLegenda.png}}
+\begin{figure}[!htbp]
 	\caption{Aerofólio: Campo de pressão}
+	\centering
+	\subfloat[$nT$]{\includegraphics[scale=0.13,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_pressTn.pdf}} \ \
+	\subfloat[$nT + nT/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.13]{Imagens/Cap6/aerofolio_pressTn4.pdf}} \\
+	\subfloat[$nT + nT/2 $]{\includegraphics[scale=0.13,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolio_pressTn2.pdf}} \ \
+	\subfloat[$nT + n3T/4$]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.13]{Imagens/Cap6/aerofolio_pressTn34.pdf}}\\
+	{\includegraphics[trim=0 0.8cm 0 0cm,clip=true,scale=0.4]{Imagens/Cap6/aerofolio_pressLegenda.png}}
+	\legend{Fonte: Elaborada pela autora}
 	\label{fig:aerofolio_pressao}
 \end{figure}
 
-
 \subsection{Aerofólio com movimento de arfagem prescrito}
 
-
-Para a validação computacional da técnica Arlequin estabilizada em domínios móveis  utilizou-se um problema envolvendo um aerofólio NACA 0012, semelhante ao apresentado na Subseção \ref{capitulo:Cap6:Exemplos:NACA0012}, aplicando-se, entretanto, um movimento de arfagem ao mesmo. O aerofólio apresenta variação do ângulo de ataque em $20^{\circ}$, iniciando o movimento em $10^{\circ}$ e finalizando-o em $30^{\circ}$. 
+Para a validação computacional da técnica Arlequin estabilizada em domínios móveis  utilizou-se um problema envolvendo um aerofólio NACA 0012, semelhante ao apresentado na \autoref{capitulo:Cap6:Exemplos:NACA0012}, aplicando-se, entretanto, um movimento de arfagem ao mesmo. O aerofólio apresenta variação do ângulo de ataque em $20^{\circ}$, iniciando o movimento em $10^{\circ}$ e finalizando-o em $30^{\circ}$. 
 
 Para descrever-se tal movimento aplica-se, tendo como centro a corda média do aerofólio, o movimento de rotação de corpo rígido através da seguinte relação:
 
@@ -801,56 +755,59 @@ Para descrever-se tal movimento aplica-se, tendo como centro a corda média do a
 
 \noindent com $\omega_{f} = 2\pi f_{o}$, sendo $f_{o}$ a frequência de oscilação, adotada nesse estudo como 1.0, $\theta_{max} = 30^{\circ}$ e $\theta_{min} = 10^{\circ}$.
 
-As dimensões da geometria do domínio computacional são alteradas (ver Fig. \ref{fig:aerofolioMov_geometria}) para capturar os efeitos dos desprendimentos de vórtices, que para esse problema, se desprendem em uma faixa mais ampla. Os demais parâmetros de análise foram mantidos iguais aos apresentados no exemplo da Subseção \ref{capitulo:Cap6:Exemplos:NACA0012}. 
+As dimensões da geometria do domínio computacional são alteradas (ver \autoref{fig:aerofolioMov_geometria}) para capturar os efeitos dos desprendimentos de vórtices, que para esse problema, se desprendem em uma faixa mais ampla. Os demais parâmetros de análise foram mantidos iguais aos apresentados no exemplo da \autoref{capitulo:Cap6:Exemplos:NACA0012}. 
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Aerofólio Mov.: Geometria}
 	\centering 
 	{\includegraphics[scale=2.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_geometria.pdf}}	
-	\caption{Aerofólio Mov.: Geometria}
 	\label{fig:aerofolioMov_geometria}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 Novamente são analisadas 2 discretizações: 1. Monomodelo; 2. Combinação de duas malhas através do método Arlequin estabilizado.
-O monomodelo consiste em uma malha com 12438 elementos triangulares quadráticos e 25188 elementos. As malhas global e local do método Arlequin mantiveram-se com a mesma discretização do problema da Subseção \ref{capitulo:Cap6:Exemplos:NACA0012}, incluindo a quantidade de elementos na zona de colagem.
+O monomodelo consiste em uma malha com 12438 elementos triangulares quadráticos e 25188 elementos. As malhas global e local do método Arlequin mantiveram-se com a mesma discretização do problema da \autoref{capitulo:Cap6:Exemplos:NACA0012}, incluindo a quantidade de elementos na zona de colagem.
 
 É importante ressaltar que para a simulação desse exemplo, utilizou-se como campo inicial de velocidade e pressão, valores obtidos em uma solução de longo termo do aerofólio na condição de repouso.
 
-A variação dos coeficientes de arrasto e sustentação ao longo do tempo são apresentados nas Fig. \ref{fig:aerofolioMov_CD} e Fig. \ref{fig:aerofolioMov_CL}. Nota-se nas imagens que o monomodelo e o modelo Arlequin estão consistentes em suas respostas. Soluções semelhantes podem ser observados no trabalho de \citeonline{Fernandes:2020}.
+A variação dos coeficientes de arrasto e sustentação ao longo do tempo são apresentados nas \autoref{fig:aerofolioMov_CD} e \autoref{fig:aerofolioMov_CL}. Nota-se nas imagens que o monomodelo e o modelo Arlequin estão consistentes em suas respostas. Soluções semelhantes podem ser observados no trabalho de \citeonline{Fernandes:2020}.
 
-\begin{figure}[htb!]
-	\centering 
-	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_CD.eps}	
+\begin{figure}[!htbp]
 	\caption{Aerofólio Mov.: Coeficiente de Arrasto}
-	\label{fig:aerofolioMov_CD}
-\end{figure}
-
-\begin{figure}[htb!]
 	\centering 
-	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_CL.eps}	
+	\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_CD.eps}	
+	\label{fig:aerofolioMov_CD}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
 	\caption{Aerofólio Mov.: Coeficiente de Sustentação}
+	\centering 
+	\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_CL.eps}	
 	\label{fig:aerofolioMov_CL}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Nas figuras Fig. \ref{fig:aerofolioMov_velocidade} e Fig. \ref{fig:aerofolioMov_pressao} são apresentados os campos de velocidade e pressão em alguns instantes para um ciclo do movimento oscilatório preescrito.
+Na Figura \ref{fig:aerofolioMov_velocidade} e Figura \ref{fig:aerofolioMov_pressao} são apresentados os campos de velocidade e pressão em alguns instantes para um ciclo do movimento oscilatório prescrito.
 
-\begin{figure}[htb!]
-	\centering
-	\subfloat[$t = 8,0 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_vel400.pdf}} \
-	\subfloat[$t = 8,3 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolioMov_vel415.pdf}}\\
-	\subfloat[$t = 8,5 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_vel425.pdf}} \
-	\subfloat[$t = 8,8 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolioMov_vel440.pdf}}\\
+\begin{figure}[!htbp]
 	\caption{Aerofólio Mov.: Campos de velocidade}
-	\label{fig:aerofolioMov_velocidade}
-\end{figure}
-
-\begin{figure}[htb!]
 	\centering
-	\subfloat[$t = 8,0 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_press400.pdf}} \
-	\subfloat[$t = 8,3 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolioMov_press415.pdf}}\\
-	\subfloat[$t = 8,5 $]{\includegraphics[scale=0.1,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_press425.pdf}} \
-	\subfloat[$t = 8,8 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.1]{Imagens/Cap6/aerofolioMov_press440.pdf}}\\
-	\caption{Aerofólio Mov.: Campos de pressão}
-	\label{fig:aerofolioMov_pressao}
+	\subfloat[$t = 8,0 $]{\includegraphics[scale=0.13,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_vel400.pdf}} \
+	\subfloat[$t = 8,3 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.13]{Imagens/Cap6/aerofolioMov_vel415.pdf}}\\
+	\subfloat[$t = 8,5 $]{\includegraphics[scale=0.13,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_vel425.pdf}} \
+	\subfloat[$t = 8,8 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.13]{Imagens/Cap6/aerofolioMov_vel440.pdf}}
+	\label{fig:aerofolioMov_velocidade}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-\end{document}
+\begin{figure}[!htbp]
+	\caption{Aerofólio Mov.: Campos de pressão}
+	\centering
+	\subfloat[$t = 8,0 $]{\includegraphics[scale=0.13,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_press400.pdf}} \
+	\subfloat[$t = 8,3 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.13]{Imagens/Cap6/aerofolioMov_press415.pdf}}\\
+	\subfloat[$t = 8,5 $]{\includegraphics[scale=0.13,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_press425.pdf}} \
+	\subfloat[$t = 8,8 $]{\includegraphics[trim=0 0 0 0,clip=true,scale=0.13]{Imagens/Cap6/aerofolioMov_press440.pdf}}
+	\label{fig:aerofolioMov_pressao}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}

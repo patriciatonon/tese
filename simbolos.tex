@@ -1,0 +1,85 @@
+\nomenclature[B,01]{$\velocity$}{Vetor de velocidade com componentes $u_1$, $u_2$ e $u_3$;}
+\nomenclature[B,02]{$\time$}{Instante de tempo arbitrário;}
+\nomenclature[B,03]{$\density$}{Massa específica do fluido;}
+\nomenclature[B,04]{$dV$}{Volume de controle infinitesimal;}
+\nomenclature[B,05]{$dA_i$}{Área referente à face ortogonal ao eixo $y_i$ do volume de controle infinitesimal;}
+\nomenclatura[B,06]{$dy_i$}{Dimensão do volume de controle infinitesimal na direção $y_i$;}
+\nomenclatura[B,07]{$\mathbf{F}$}{Vetor da resultante das forças externas atuando em um volume de controle infinitesimal, com componentes $F_1$, $F_2$ e $F_3$}
+\nomenclatura[B,08]{$\stressTensor$}{Tensor de tensões de Cauchy de componentes $\sigma_ij$ com $i,j = 1,2,3$;}
+\nomenclatura[B,09]{$\mathbf{b}$}{Vetor forças de campo por unidade de volume com componentes $b_1$, $b_2$ e $b_3$;}
+\nomenclatura[B,10]{$\mathbf{q}$}{Vetor resultante das forças externas por unidade de volume com componentes $q_1$, $q_2$ e $q_3$;}
+\nomenclatura[B,11]{$\sbodyforce$}{Vetor que representa a força de campo por unidade de massa, com componentes $f_1$, $f_2$ e $f_3$;}
+\nomenclature[B,12]{$\press$}{Campo de pressões de um escoamento;}
+\nomenclature[B,13]{$\viscosity$}{Viscosidade dinâmica do fluido;}
+\nomenclature[B,14]{$\straintensor(\bullet)$}{Tensor taxa de deformação infinitesimal;}
+\nomenclature[B,15]{$\domain$}{Domínio espacial ou domínio atual do escoamento do fluido;}
+\nomenclature[B,16]{$\nsd$}{Dimensão espacial;}
+\nomenclature[B,17]{$\boundary$}{Contorno do domínio espacial que define o escoamento do fluido;}
+\nomenclature[B,18]{$\boundaryD$}{Porção do contorno com condições de contorno de Dirichlet;}
+\nomenclature[B,19]{$\boundaryN$}{Porção do contorno com condições de contorno de Neumann;}
+\nomenclature[B,20]{$\totalTime$}{Intervalo de tempo total da análise;}
+\nomenclature[B,21]{$\velocityD$}{Vetor de velocidades prescritas;}
+\nomenclature[B,22]{$\surfaceLoad$}{Forças de superfície prescritas;}
+\nomenclature[B,23]{$\snormal$}{Vetor normal ao contorno do domínio computacional;}
+\nomenclature[B,24]{$\domainMat$}{Domínio inicial ou material do escoamento do fluido;}
+\nomenclature[B,25]{$\posMat$}{Vetor das coordenadas dos pontos materiais de um ponto arbitrário;}
+\nomenclature[B,26]{$\pos$}{Vetor das coordenadas atuais de um ponto arbitrário;}
+\nomenclature[B,27]{$\domainRef$}{Domínio de referência do escoamento do fluido;}
+\nomenclature[B,28]{$\posAle$}{Vetor das coordenadas de referência de um ponto arbitrário;}
+\nomenclature[B,29]{$\fmapAI(\posMat,t)$}{Função mudança de configuração do domínio material para o domínio espacial;}
+\nomenclature[B,30]{$\fmapAR(\posALE,t)$}{Função mudança de configuração do domínio de referência para o domínio espacial;}
+\nomenclature[B,31]{$\fmapRI(\posMat,t)$}{Função mudança de configuração do domínio material para o domínio de referência;}	
+\nomenclature[B,32]{$\velocityALE$}{Velocidade dos pontos de referência;}
+\nomenclature[B,33]{$\FmapAI$}{Matriz jacobiana da função de mapeamento $\fmapAI(\posMat,t)$;}
+\nomenclature[B,34]{$\FmapAR$}{Matriz jacobiana da função de mapeamento $\fmapAR(\posALE,t)$;}
+\nomenclature[B,35]{$\FmapRI$}{Matriz jacobiana da função de mapeamento $\fmapRI(\posMat,t)$;}
+\nomenclature[B,36]{$g,g^{*},g^{**}$}{Grandeza física escalar na configuração espacial, de referência e material respectivamente;}
+\nomenclature[B,37]{$\usolution$}{Espaço vetorial das funções aproximadoras do campo de velocidades;}
+\nomenclature[B,38]{$\psolution$}{Espaço vetorial das funções aproximadoras do campo de pressões;}
+\nomenclature[B,39]{$\uweighting$}{Espaço vetorial das funções ponderadoras do campo de velocidades;}
+\nomenclature[B,40]{$\pweighting$}{Espaço vetorial das funções ponderadoras do campo de pressões;}
+\nomenclature[B,41]{$\utest$}{Função ponderadora pertencente ao espaço $\uweighting$;}
+\nomenclature[B,42]{$\ptest$}{Função ponderadora pertencente ao espaço $\pweighting$;}
+\nomenclature[B,43]{$(\bullet)^h$}{O superscrito $h$ indica, em todos os casos, a discretização em elementos finitos da variável;}
+\nomenclature[B,44]{$\domainE$}{Domínio computacional de um elemento finito;}
+\nomenclature[B,45]{$\nel$}{Número de subdomínios do domínio discreto;}
+\nomenclature[B,46]{$\nnos$}{Número de nós ou pontos de controle do domínio discreto;}
+\nomenclature[B,47]{$\boundary^{b}$}{Domínio computacional de um elemento finito no contorno;}
+\nomenclature[B,48]{$\neb$}{Número de subdomínios do domínio discreto no contorno;}
+\nomenclature[B,49]{$\shapef$}{Função de forma da discretização do domínio;}
+\nomenclature[B,50]{$(\bullet)_A$}{O subscrito $A$ indica, em todos os casos, que se trata da variável respectiva ao nó $A$ da malha de elementos finitos;}
+\nomenclature[B,51]{$\SUPG$}{Parâmetro de estabilização do método \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG);}
+\nomenclature[B,52]{$\PSPG$}{Parâmetro de estabilização do método \textit{Pressure-Stabilizing/Petrov-Galerkin} (PSPG);}
+\nomenclature[B,53]{$\LSIC$}{Parâmetro de estabilização do método \textit{Least-Squares on the Incompressibility Constraint} (LSIC);}
+\nomenclature[B,54]{$\resMom$}{Resíduo da equação da quantidade de movimento;}
+\nomenclature[B,55]{$\resPre$}{Resíduo da equação da continuidade;}
+\nomenclature[B,56]{$\NNSM$}{Resíduo do vetor semidiscreto da equação da quantidade de movimento;}
+\nomenclature[B,57]{$\NNSC$}{Resíduo do vetor semidiscreto da equação da continuidade;}
+\nomenclature[B,58]{$\Acceleration$}{Vetor nodal dos graus de liberdade respectivo a aceleração;}
+\nomenclature[B,59]{$\Velocity$}{Vetor nodal dos graus de liberdade respectivo a velocidade;}
+\nomenclature[B,60]{$\Press$}{Vetor nodal dos graus de liberdade respectivo a pressão;}
+\nomenclature[B,61]{$\matrixQ$}{Matriz Jacobiana do elemento;}
+\nomenclature[B,62]{$\coordAdimen$}{Vetor das coordenadas paramétricas adimensionais do elemento com componentes $\xi$, $\eta$ $\zeta$;}
+\nomenclature[B,63]{$\matrixD$}{Matriz que realiza mudança de escala em $\matrixQ$ para levar em conta o grau polinomial das funções de forma;}
+\nomenclature[B,64]{$\matrixQhat$}{Matriz jacobiana escalonada;}
+\nomenclature[B,65]{$\RGN$}{Comprimento direcional do elemento finito;}
+\nomenclature[B,66]{$\rRGN$}{Vetor unitário no sentido do gradiente da intensidade da velocidade;}
+\nomenclature[B,67]{$\matrixG$}{Tensor métrico do elemento;}
+\nomenclature[B,68]{$h_{min}$}{Mínimo comprimento de escala do elemento finito;}
+\nomenclature[B,69]{$h_{max}$}{Máximo comprimento de escala do elemento finito;}
+\nomenclature[B,70]{$\lambda_{min},\lambda_{max}$}{mínimo e máximo autovalor da matriz $\matrixG$;}
+\nomenclature[B,71]{$\SUGNi,\SUGNii,\SUGNiii$}{Parâmetros da estabilização SUPG/PSPG/LSIC correspondentes aos termos convectivos, inerciais e viscosos, respectivamente;}
+\nomenclature[B,72]{$\rRGN_{reg}$}{Vetor unitário no sentido do gradiente da intensidade da velocidade do fluido modificado de maneira a evitar problemas numéricos devido divisão por zero;}
+\nomenclature[B,73]{$\varepsilon$}{Constante pequena utilizada no cálculo de $\rRGN_{reg}$;}
+\nomenclature[B,74]{$t_{n}$}{é o tempo atual, ou seja, o instante n-ésimo no qual a solução foi calculada.;}
+\nomenclature[B,75]{$t_{n+1}$}{é o próximo instante de tempo, ou seja, o instante $n+1$ no qual solução será calculada;}
+\nomenclature[B,76]{$\alpham, \alphaf, \gamma$}{Parâmetros reais do esquema de integração temporal $\alpha$-generalizado;}
+\nomenclature[B,77]{$\specRadius$}{Raio espectral da matriz de amplificação;}
+\nomenclature[B,78]{$\Reynolds$}{Número de Reynolds;}
+\nomenclature[B,79]{$\velocinfty$}{Velocidade de referência;}
+\nomenclature[B,80]{$L$}{Comprimento característico/de referência do escoamento;}
+\nomenclature[B,81]{$\kviscosity$}{Viscosidade cinemática do fluido;}
+\nomenclature[B,82]{$F_L, F_D$}{Forças de sustentação e arrasto, respectivamente;}
+\nomenclature[B,83]{$C_L, C_D$}{Coeficiente de sustentação e arrasto, respectivamente;}
+\nomenclature[B,84]{$\Strouhal$}{Número de Strouhal;}
+\nomenclature[B,85]{$f_v$}{Frequência de desprendimento dos vórtices;}

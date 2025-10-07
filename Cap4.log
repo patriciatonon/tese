@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  4 OCT 2025 09:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  6 OCT 2025 17:00
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1676,26 +1676,26 @@ Package hyperref Info: Option `breaklinks' set `true' on input line 72.
 \@nomenclaturefile=\write5
 \openout5 = `Cap4.nlo'.
 
-Package nomencl Info: Writing nomenclature file Cap4.nlo on input line 84.
-LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 141.
+Package nomencl Info: Writing nomenclature file Cap4.nlo on input line 85.
+LaTeX Font Info:    Redeclaring math alphabet \mathcal on input line 142.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\newline' on input line 292.
+(hyperref)                removing `\newline' on input line 293.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\newline' on input line 292.
+(hyperref)                removing `\newline' on input line 293.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\newline' on input line 292.
+(hyperref)                removing `\newline' on input line 293.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\newline' on input line 292.
+(hyperref)                removing `\newline' on input line 293.
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 292.
+Package hyperref Info: Option `colorlinks' set `true' on input line 293.
 \Cap4@idxfile=\write6
 \openout6 = `Cap4.idx'.
 
@@ -1800,38 +1800,37 @@ erthousand on input line 3.
 LaTeX Info: Redefining \ohm on input line 3.
 Package gensymb Info: Using \textohm for \ohm on input line 3.
 Package gensymb Info: Using \textmu for \micro on input line 3.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
-5.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 5
+.
 
 (/usr/share/texmf/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
-5.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 5
+.
 
 (/usr/share/texmf/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-95.
+5.
 
 (/usr/share/texmf/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-95.
+5.
 
 (/usr/share/texmf/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 95.
+(Font)              <12> on input line 5.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 95.
+(Font)              <8> on input line 5.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 95.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
-
+(Font)              <6> on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1839,8 +1838,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
-
+LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1848,29 +1846,29 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 95
-.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 5.
+
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9
-5.
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
+.
 
 (/usr/share/texmf/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 
-LaTeX Warning: Citation `Ogden:1984' on page 1 undefined on input line 102.
+LaTeX Warning: Citation `Ogden:1984' on page 1 undefined on input line 11.
 
 
-LaTeX Warning: Citation `Coda:2018' on page 1 undefined on input line 102.
+LaTeX Warning: Citation `Coda:2018' on page 1 undefined on input line 11.
 
 
-LaTeX Warning: Citation `Coda:2003' on page 1 undefined on input line 104.
+LaTeX Warning: Citation `Coda:2003' on page 1 undefined on input line 13.
 
 
-LaTeX Warning: Citation `Coda:2018' on page 1 undefined on input line 104.
+LaTeX Warning: Citation `Coda:2018' on page 1 undefined on input line 13.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1886,23 +1884,23 @@ pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_cinematica.pdf): PDF
 <Imagens/Cap4/sol_cinematica.pdf, id=17, 122.28009pt x 100.55693pt>
 File: Imagens/Cap4/sol_cinematica.pdf Graphic file (type pdf)
 <use Imagens/Cap4/sol_cinematica.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_cinematica.pdf  used on input line 11
-5.
+Package pdftex.def Info: Imagens/Cap4/sol_cinematica.pdf  used on input line 24
+.
 (pdftex.def)             Requested size: 207.87526pt x 170.94603pt.
 [2{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.1}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.127 
-      {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc} <./Imagens/Cap4/sol_c
-inematica.pdf>]
+l.36 
+     {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathit.enc} <./Imagens/Cap4/sol_ci
+nematica.pdf>]
 
-LaTeX Warning: Citation `Ogden:1984' on page 3 undefined on input line 132.
+LaTeX Warning: Citation `Ogden:1984' on page 3 undefined on input line 41.
 
 
-LaTeX Warning: Reference `solido_def_vol' on page 3 undefined on input line 152
-.
+LaTeX Warning: Reference `solido_def_vol' on page 3 undefined on input line 61.
+
 
 
 
@@ -1911,7 +1909,7 @@ clusion: found PDF version <1.7>, but at most version <1.5> allowed
 <Imagens/Cap4/sol_def_vol.pdf, id=48, 118.7139pt x 94.52199pt>
 File: Imagens/Cap4/sol_def_vol.pdf Graphic file (type pdf)
 <use Imagens/Cap4/sol_def_vol.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_def_vol.pdf  used on input line 176.
+Package pdftex.def Info: Imagens/Cap4/sol_def_vol.pdf  used on input line 86.
 (pdftex.def)             Requested size: 237.42722pt x 189.04349pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1920,10 +1918,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_def_area.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/sol_def_area.pdf, id=66, 49.18375pt x 29.10875pt>
+<Imagens/Cap4/sol_def_area.pdf, id=65, 49.18375pt x 29.10875pt>
 File: Imagens/Cap4/sol_def_area.pdf Graphic file (type pdf)
 <use Imagens/Cap4/sol_def_area.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_def_area.pdf  used on input line 199.
+Package pdftex.def Info: Imagens/Cap4/sol_def_area.pdf  used on input line 110.
 
 (pdftex.def)             Requested size: 295.10165pt x 140.50946pt.
 [4
@@ -1931,21 +1929,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.211 
+l.116 
       
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.3}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.211 
+l.116 
        <./Imagens/Cap4/sol_def_vol.pdf> <./Imagens/Cap4/sol_def_area.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_vol_equi.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/sol_vol_equi.pdf, id=105, 323.4188pt x 278.33739pt>
+<Imagens/Cap4/sol_vol_equi.pdf, id=104, 323.4188pt x 278.33739pt>
 File: Imagens/Cap4/sol_vol_equi.pdf Graphic file (type pdf)
 <use Imagens/Cap4/sol_vol_equi.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_vol_equi.pdf  used on input line 227.
+Package pdftex.def Info: Imagens/Cap4/sol_vol_equi.pdf  used on input line 139.
 
 (pdftex.def)             Requested size: 161.709pt x 139.16835pt.
 [5
@@ -1953,124 +1951,130 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1.4})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.246 \begin{align}
-                   {/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc} <./Image
-ns/Cap4/sol_vol_equi.pdf>]
+l.145 
+       <./Imagens/Cap4/sol_vol_equi.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_tetra_equi.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/sol_tetra_equi.pdf, id=124, 489.32813pt x 377.91188pt>
+<Imagens/Cap4/sol_tetra_equi.pdf, id=121, 489.32813pt x 377.91188pt>
 File: Imagens/Cap4/sol_tetra_equi.pdf Graphic file (type pdf)
 <use Imagens/Cap4/sol_tetra_equi.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_tetra_equi.pdf  used on input line 26
-6.
+Package pdftex.def Info: Imagens/Cap4/sol_tetra_equi.pdf  used on input line 17
+9.
 (pdftex.def)             Requested size: 244.66345pt x 188.95547pt.
-[6
+
+Underfull \vbox (badness 1163) has occurred while \output is active []
+
+ [6{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathex.enc}
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.5}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.281 
-       <./Imagens/Cap4/sol_tetra_equi.pdf>]
+l.188 \end{align}
+                  <./Imagens/Cap4/sol_tetra_equi.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_cargas.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/sol_cargas.pdf, id=140, 50.80663pt x 44.78166pt>
+<Imagens/Cap4/sol_cargas.pdf, id=137, 50.80663pt x 44.78166pt>
 File: Imagens/Cap4/sol_cargas.pdf Graphic file (type pdf)
 <use Imagens/Cap4/sol_cargas.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_cargas.pdf  used on input line 296.
+Package pdftex.def Info: Imagens/Cap4/sol_cargas.pdf  used on input line 210.
 (pdftex.def)             Requested size: 203.22595pt x 179.12616pt.
 [7
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.6}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.328 
+l.228 
        <./Imagens/Cap4/sol_cargas.pdf>] [8] [9]
 
 LaTeX Warning: Reference `capitulo:Cap2:FormaFraca:ElementosFinitos' on page 10
- undefined on input line 442.
+ undefined on input line 354.
 
 
-LaTeX Warning: Citation `CodaP:2007' on page 10 undefined on input line 448.
+LaTeX Warning: Citation `CodaP:2007' on page 10 undefined on input line 360.
 
 
-LaTeX Warning: Citation `CodaP:2008' on page 10 undefined on input line 448.
+LaTeX Warning: Citation `CodaP:2008' on page 10 undefined on input line 360.
 
-
+[10]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_super_media.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_super_media.pdf, id=198, 374.6896pt x 295.29674pt>
+<Imagens/Cap4/casca_super_media.pdf, id=207, 374.6896pt x 295.29674pt>
 File: Imagens/Cap4/casca_super_media.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_super_media.pdf>
 Package pdftex.def Info: Imagens/Cap4/casca_super_media.pdf  used on input line
- 461.
+ 374.
 (pdftex.def)             Requested size: 299.75209pt x 236.2377pt.
-[10]
+
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_vetores_generaliza
 dos.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
 owed
-<Imagens/Cap4/casca_vetores_generalizados.pdf, id=213, 359.82704pt x 287.48389p
+<Imagens/Cap4/casca_vetores_generalizados.pdf, id=210, 359.82704pt x 287.48389p
 t>
 File: Imagens/Cap4/casca_vetores_generalizados.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_vetores_generalizados.pdf>
 Package pdftex.def Info: Imagens/Cap4/casca_vetores_generalizados.pdf  used on 
-input line 477.
+input line 391.
 (pdftex.def)             Requested size: 287.86201pt x 229.98741pt.
 [11
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.7}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.499 \begin{align}
-                    <./Imagens/Cap4/casca_super_media.pdf>] [12
+l.401 \end{align}
+                  <./Imagens/Cap4/casca_super_media.pdf>]
+Underfull \vbox (badness 1609) has occurred while \output is active []
+
+ [12
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.8}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.530 \end{align}
-                  <./Imagens/Cap4/casca_vetores_generalizados.pdf>]
+l.431 P
+       artindo do mapeamento apresentado é possível escrever o funcional d...
+ <./Imagens/Cap4/casca_vetores_generalizados.pdf>]
 
-LaTeX Warning: Citation `CodaG:2004' on page 13 undefined on input line 540.
-
-
-LaTeX Warning: Citation `CodaP:2010' on page 13 undefined on input line 540.
+LaTeX Warning: Citation `CodaG:2004' on page 13 undefined on input line 453.
 
 
-LaTeX Warning: Citation `CarrazedoC:2010' on page 13 undefined on input line 54
-0.
+LaTeX Warning: Citation `CodaP:2010' on page 13 undefined on input line 453.
 
 
-LaTeX Warning: Citation `CodaP:2011' on page 13 undefined on input line 540.
+LaTeX Warning: Citation `CarrazedoC:2010' on page 13 undefined on input line 45
+3.
 
 
-LaTeX Warning: Citation `SanchesC:2016' on page 13 undefined on input line 540.
+LaTeX Warning: Citation `CodaP:2011' on page 13 undefined on input line 453.
 
 
-LaTeX Font Info:    Calculating math sizes for size <8.4> on input line 555.
+LaTeX Warning: Citation `SanchesC:2016' on page 13 undefined on input line 453.
+
+
+LaTeX Font Info:    Calculating math sizes for size <8.4> on input line 468.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8.4> on input line 555.
+(Font)              <8.4> on input line 468.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.87996> on input line 555.
+(Font)              <5.87996> on input line 468.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <4.2> on input line 555.
+(Font)              <4.2> on input line 468.
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <4.2> not available
-(Font)              size <5> substituted on input line 555.
+(Font)              size <5> substituted on input line 468.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/b/it' in size <4.2> not available
-(Font)              size <5> substituted on input line 555.
+(Font)              size <5> substituted on input line 468.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/b/n' in size <4.2> not available
-(Font)              size <5> substituted on input line 555.
+(Font)              size <5> substituted on input line 468.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.2> not available
-(Font)              size <5> substituted on input line 555.
+(Font)              size <5> substituted on input line 468.
 
 
 Package microtype Warning: Unknown slot number of character
@@ -2090,51 +2094,48 @@ Package microtype Warning: Unknown slot number of character
 (microtype)                in font encoding `TS1' in protrusion list
 (microtype)                `cmr-textcomp'.
 
-
+[13]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [13]
+ [14]
 
-LaTeX Warning: Citation `Coda:2018' on page 14 undefined on input line 616.
+LaTeX Warning: Citation `Coda:2018' on page 15 undefined on input line 528.
 
 
-LaTeX Warning: Citation `Rosa:2021' on page 14 undefined on input line 620.
+LaTeX Warning: Citation `Rosa:2021' on page 15 undefined on input line 532.
 
-[14]
 
-LaTeX Warning: Citation `Coda:2018' on page 15 undefined on input line 622.
+LaTeX Warning: Citation `Coda:2018' on page 15 undefined on input line 534.
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 625.
+put line 537.
 
-LaTeX Warning: Citation `KuhlR:1999' on page 15 undefined on input line 666.
+LaTeX Warning: Citation `KuhlR:1999' on page 15 undefined on input line 577.
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [15]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_geometria.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_geometria.pdf, id=300, 882.32033pt x 579.90425pt>
+<Imagens/Cap4/casca_geometria.pdf, id=282, 882.32033pt x 579.90425pt>
 File: Imagens/Cap4/casca_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_geometria.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_geometria.pdf  used on input line 6
-72.
+Package pdftex.def Info: Imagens/Cap4/casca_geometria.pdf  used on input line 5
+84.
 (pdftex.def)             Requested size: 202.9294pt x 133.37517pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_malha.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_malha.pdf, id=302, 277.51682pt x 156.10321pt>
+<Imagens/Cap4/casca_malha.pdf, id=284, 277.51682pt x 156.10321pt>
 File: Imagens/Cap4/casca_malha.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_malha.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_malha.pdf  used on input line 673.
+Package pdftex.def Info: Imagens/Cap4/casca_malha.pdf  used on input line 585.
 (pdftex.def)             Requested size: 180.07695pt x 140.41597pt.
 
-LaTeX Warning: Citation `ArgyrisPM:2003' on page 16 undefined on input line 680
+LaTeX Warning: Citation `ArgyrisPM:2003' on page 15 undefined on input line 592
 .
 
+[15]
 Package epstopdf Info: Source file: <Imagens/Cap4/casca_deslocamentoA.eps>
 (epstopdf)                    date: 2025-10-04 08:17:47
 (epstopdf)                    size: 29624 bytes
@@ -2144,98 +2145,109 @@ rted-to.pdf>
 (epstopdf)                    size: 8147 bytes
 (epstopdf)             Command: <epstopdf --outfile=Imagens/Cap4/casca_deslocam
 entoA-eps-converted-to.pdf Imagens/Cap4/casca_deslocamentoA.eps>
-(epstopdf)             \includegraphics on input line 685.
+(epstopdf)             \includegraphics on input line 597.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf, id=307, 454.69875pt x 2
+<Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf, id=302, 454.69875pt x 2
 55.95625pt>
 File: Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf Graphic file (type 
 pdf)
 <use Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf>
 Package pdftex.def Info: Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf 
- used on input line 685.
+ used on input line 597.
 (pdftex.def)             Requested size: 272.82135pt x 153.57492pt.
-<Imagens/Cap4/casca_deslocamento_referencia.png.png, id=309, 1104.125pt x 640.3
+<Imagens/Cap4/casca_deslocamento_referencia.png.png, id=304, 1104.125pt x 640.3
 925pt>
 File: Imagens/Cap4/casca_deslocamento_referencia.png.png Graphic file (type png
 )
 <use Imagens/Cap4/casca_deslocamento_referencia.png.png>
 Package pdftex.def Info: Imagens/Cap4/casca_deslocamento_referencia.png.png  us
-ed on input line 686.
+ed on input line 605.
 (pdftex.def)             Requested size: 276.03058pt x 160.09773pt.
 
-LaTeX Warning: Citation `ArgyrisPM:2003' on page 16 undefined on input line 687
+
+LaTeX Warning: Citation `ArgyrisPM:2003' on page 16 undefined on input line 606
+.
+
+
+LaTeX Warning: Citation `ArgyrisPM:2003' on page 16 undefined on input line 606
 .
 
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_140ms.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_140ms.pdf, id=311, 187.45032pt x 108.405pt>
+<Imagens/Cap4/casca_140ms.pdf, id=306, 187.45032pt x 108.405pt>
 File: Imagens/Cap4/casca_140ms.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_140ms.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_140ms.pdf  used on input line 695.
+Package pdftex.def Info: Imagens/Cap4/casca_140ms.pdf  used on input line 613.
 (pdftex.def)             Requested size: 184.50345pt x 126.13129pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 695.
+(Font)              <10> on input line 613.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 695.
+(Font)              <7> on input line 613.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_165ms.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_165ms.pdf, id=313, 187.45032pt x 108.405pt>
+<Imagens/Cap4/casca_165ms.pdf, id=308, 187.45032pt x 108.405pt>
 File: Imagens/Cap4/casca_165ms.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_165ms.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_165ms.pdf  used on input line 696.
+Package pdftex.def Info: Imagens/Cap4/casca_165ms.pdf  used on input line 614.
 (pdftex.def)             Requested size: 184.50345pt x 126.13129pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_174ms.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_174ms.pdf, id=315, 187.45032pt x 108.405pt>
+<Imagens/Cap4/casca_174ms.pdf, id=310, 187.45032pt x 108.405pt>
 File: Imagens/Cap4/casca_174ms.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_174ms.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_174ms.pdf  used on input line 697.
+Package pdftex.def Info: Imagens/Cap4/casca_174ms.pdf  used on input line 615.
 (pdftex.def)             Requested size: 191.90161pt x 126.13129pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_177ms.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_177ms.pdf, id=317, 187.45032pt x 108.405pt>
+<Imagens/Cap4/casca_177ms.pdf, id=312, 187.45032pt x 108.405pt>
 File: Imagens/Cap4/casca_177ms.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_177ms.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_177ms.pdf  used on input line 698.
+Package pdftex.def Info: Imagens/Cap4/casca_177ms.pdf  used on input line 616.
 (pdftex.def)             Requested size: 191.90161pt x 126.13129pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_legenda.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_legenda.pdf, id=319, 11141.86418pt x 3363.57802pt>
+<Imagens/Cap4/casca_legenda.pdf, id=314, 11141.86418pt x 3363.57802pt>
 File: Imagens/Cap4/casca_legenda.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_legenda.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_legenda.pdf  used on input line 699
+Package pdftex.def Info: Imagens/Cap4/casca_legenda.pdf  used on input line 617
 .
 (pdftex.def)             Requested size: 167.12074pt x 41.91603pt.
-[16
+[16] [17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.9}) 
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.705 \end{document}
-                     <./Imagens/Cap4/casca_geometria.pdf> <./Imagens/Cap4/casca
-_malha.pdf>] [17
+l.622 \end{document}
+                    
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.10})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.705 \end{document}
-                     <./Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf> 
-<./Imagens/Cap4/casca_deslocamento_referencia.png.png>] [18
+l.622 \end{document}
+                    
 pdfTeX warning (ext4): destination with the same identifier (name{figure.1.11})
  has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.705 \end{document}
+l.622 \end{document}
+                     <./Imagens/Cap4/casca_geometria.pdf> <./Imagens/Cap4/casca
+_malha.pdf> <./Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf> <./Imagen
+s/Cap4/casca_deslocamento_referencia.png.png>] [18
+pdfTeX warning (ext4): destination with the same identifier (name{figure.1.12})
+ has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.622 \end{document}
                      <./Imagens/Cap4/casca_140ms.pdf> <./Imagens/Cap4/casca_165
 ms.pdf> <./Imagens/Cap4/casca_174ms.pdf> <./Imagens/Cap4/casca_177ms.pdf> <./Im
 agens/Cap4/casca_legenda.pdf>]
@@ -2256,13 +2268,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 40701 strings out of 474222
- 765964 string characters out of 5748733
- 1942975 words of memory out of 5000000
- 61664 multiletter control sequences out of 15000+600000
- 729656 words of font info for 349 fonts, out of 8000000 for 9000
+ 40685 strings out of 474222
+ 765671 string characters out of 5748733
+ 1943975 words of memory out of 5000000
+ 61659 multiletter control sequences out of 15000+600000
+ 729211 words of font info for 344 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 130i,15n,124p,1001b,624s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 130i,15n,124p,1001b,659s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr/sha
@@ -2277,10 +2289,10 @@ hare/texmf/fonts/type1/public/lm/lmr8.pfb></usr/share/texmf/fonts/type1/public/
 lm/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/te
 xmf/fonts/type1/public/lm/lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb>
-Output written on Cap4.pdf (18 pages, 2005205 bytes).
+Output written on Cap4.pdf (18 pages, 2003851 bytes).
 PDF statistics:
  553 PDF objects out of 1000 (max. 8388607)
  440 compressed objects within 5 object streams
- 130 named destinations out of 1000 (max. 500000)
+ 129 named destinations out of 1000 (max. 500000)
  118044 words of extra memory for PDF output out of 128383 (max. 10000000)
 

@@ -1,99 +1,4 @@
-% !TeX spellcheck = pt_BR
-\documentclass[tese_patricia]{subfiles}
-\begin{document}
-	
-\begin{comment}
-	\nomenclature[D,01]{$\Omega_{x}$}{Domínio inicial de um sólido deformável;}
-	\nomenclature[D,02]{$\lPosition$}{Coordenadas ou posições materiais do domínio inicial;}
-	\nomenclature[D,03]{$\Omega_{y}$}{Domínio atual de um sólido deformável;}
-	\nomenclature[D,04]{$\ePosition$}{Coordenadas ou posições espaciais do domínio atual;}
-	\nomenclature[D,05]{$\deformation$}{Função mudança de configuração para um descrição Lagrangiana;}
-	\nomenclature[D,06]{$\greenStrain$}{Tensor de deformações de Green-Lagrange;}
-	\nomenclature[D,07]{$\cauchyStretch$}{Tensor de alongamento à direita de Cauchy-Green;}
-	\nomenclature[D,08]{$\gradDeformation$}{Grandiente da função mudança de configuração;}
-	\nomenclature[D,09]{$\mathbf{u}$}{Vetor qualquer definido na configuração inicial;}
-	\nomenclature[D,10]{$\mathbf{v}$}{Vetor qualquer definido na configuração atual;}
-	\nomenclature[D,11]{$dV_{0}$}{Infinitésimo de volume definido na configuração inicial;}
-	\nomenclature[D,12]{$dV$}{Infinitésimo de81 volume definido na configuração atual;}
-	\nomenclature[D,13]{$\mathbf{dx}^{i}$}{Vetor que define o lado $i$ de um infinitésimo de volume na configuração inicial, com $i = 1,2,3$;}
-	\nomenclature[D,14]{$dx_{j}^{i}$}{Componente do vetor $mathbf{dx}^{i}$ na direção do eixo $x_{j}$;}
-	\nomenclature[D,15]{$\mathbf{dy}^{i}$}{Vetor que define o lado $i$ de um infinitésimo de volume na configuração atual, com $i = 1,2,3$;}
-	\nomenclature[D,16]{$dy_{j}^{i}$}{Componente do vetor $mathbf{dy}^{i}$ na direção do eixo $y_{j}$;}
-	\nomenclature[D,17]{J}{Jacobiano da transformação, definido como $det(\gradDeformation)$};
-	\nomenclature[D,18]{$\mathbf{dA}_{0}$}{Vetor de área da seção transversal de um volume na configuração inicial;}
-	\nomenclature[D,19]{$\mathbf{dA}$}{Vetor de área da seção transversal de um volume na configuração atual;}
-	\nomenclature[D,20]{$\mathbf{N}$}{Vetor normal a uma superfície na configuração inicial;}
-	\nomenclature[D,21]{$\mathbf{n}$}{Vetor normal a uma superfície na configuração atual;}
-	\nomenclature[D,22]{${dA}_{0}$}{Área da seção transversal de um volume na configuração inicial;}
-	\nomenclature[D,23]{${dA}$}{Área da seção transversal de um volume na configuração atual;}
-	\nomenclature[D,24]{$\mathbf{B}$}{Tensor definido como $\mathbf{B} = \gradDeformation^{-t}$;}
-	\nomenclature[D,25]{$\extEnergy$}{Energia potencial das forças externas;}
-	\nomenclature[D,26]{$\intEnergy$}{Energia de deformação;}
-	\nomenclature[D,27]{$\kinEnergy$}{Energia cinética;}
-	\nomenclature[D,28]{$\totalEnergy$}{Energia total mecânica;}
-	\nomenclature[D,29]{$\delta(\bullet)$}{Variação aplicada a variável $(\bullet)$;}
-	\nomenclature[D,30]{$\ebodyLoad$}{Forças de corpo na configuração atual;}
-	\nomenclature[D,31]{$\tractionLoad$}{Forças de superfície na configuração atual;}
-	\nomenclature[D,32]{$\stressTensor$}{Tensor de tensões de Cauchy;}
-	\nomenclature[D,33]{$\rho$}{Massa específica do sólido;}
-	\nomenclature[D,34]{$\solidAccel$}{Aceleração do sólido;}
-	\nomenclature[D,35]{$\strainratetensor$}{Tensor de deformação linear de engenharia;}
-	\nomenclature[D,36]{$M$}{Massa de um corpo;}
-	\nomenclature[D,37]{$t$}{Instante de tempo qualquer da análise;}
-	\nomenclature[D,38]{$\rho_{0}$}{Massa específica do corpo na configuração inicial;}
-	\nomenclature[D,39]{$\ebodyLoad^{0}$}{Forças de corpo na configuração inicial;}
-	\nomenclature[D,40]{$\mathbf{P}$}{Tensor de tensões de Piola Kirchhoff;}
-	\nomenclature[D,41]{$\tractionLoad^{0}$}{Forças de superfície na configuração inicial;}
-	\nomenclature[D,42]{$\piolaStress$}{Segundo tensor de tensões de Piola Kirchhoff;}
-	\nomenclature[D,43]{$u_{e}$} {Expressão generalizada da energia de deformação;}
-	\nomenclature[D,44]{$\constitutiveTensor$}{Tensor constitutivo elástico isotrópico;}
-	\nomenclature[D,45]{$\bulkModulus$}{Módulo volumétrico;}
-	\nomenclature[D,46]{$\shearModulus$}{Módulo de cisalhamento;}
-	\nomenclature[D,47]{$\elasticModulus$ }{Módulo de elasticidade;}
-	\nomenclature[D,48]{$\poisonsRatio$}{Coeficiente de Poisson;}
-	\nomenclature[D,49]{$\deformation^{m0}$}{Função mudança de configuração da superfície média de uma casca que mapeia o domínio paramétrico para o domínio inicial;}
-	\nomenclature[D,50]{$\lPosition^{m}$}{Posições da superfície média de uma casca na configuração inicial;}
-	\nomenclature[D,51]{$\bm{\xi}$}{Coordenadas adimensionais que definem o espaço paramétrico}
-	\nomenclature[D,52]{$\mathbf{X}$}{Posições discretas nodais de um elemento de casca na configuração inicial;}
-	\nomenclature[D,53]{$N$}{Funções de forma}
-	\nomenclature[D,54]{$\deformation^{m1}$}{Função mudança de configuração da superfície média de uma casca que mapeia o domínio paramétrico para o domínio atual;}
-	\nomenclature[D,55]{$\ePosition^{m}$}{Posições da superfície média de uma casca na configuração atual;}
-	\nomenclature[D,56]{$\SolidPos$}{Posições discretas nodais de um elemento de casca na configuração atual;}
-	\nomenclature[D,57]{$\mathbf{v}^{0}$}{Vetor posição definido a partir da superfície média da casca em sua configuração inicial;}
-	\nomenclature[D,58]{$\mathbf{v}^{1}$}{Vetor posição definido a partir da superfície média da casca em sua configuração atual;}
-	\nomenclature[D,59]{$h_{0}$}{Espessura média inicial de um elemento de casca;}
-	\nomenclature[D,60]{$\mathbf{V}^{0}$}{Vetor posição discreto nodal na configuração inicial;}
-	\nomenclature[D,61]{$\mathbf{V}^{1}$}{Vetor posição discreto nodal na configuração atual;}
-	\nomenclature[D,62]{$\alpha$}{Taxa linear de variação da espessura de um elemento de casca;}
-	\nomenclature[D,63]{$\Lambda$}{Taxa linear discreta nodal da variação da espessura de um elemento de casca;}
-	\nomenclature[D,64]{$\deformation^{0}$}{Função mudança de configuração de uma casca que mapeia o domínio paramétrico para o domínio inicial;}
-	\nomenclature[D,65]{$\deformation^{1}$}{Função mudança de configuração de uma casca que mapeia o domínio paramétrico para o domínio atual;}
-	\nomenclature[D,66]{$\mathbf{F}$}{Vetor de forças nodais aplicadas na configuração inicial;}
-	\nomenclature[D,67]{$\gradDeformation^{1}$}{Gradiente da função mudança de configuração $\deformation^{1}$;}
-	\nomenclature[D,68]{$\gradDeformation^{0}$}{Gradiente da função mudança de configuração $\deformation^{0}$;}
-	\nomenclature[D,69]{$\mathbf{B}^{0}$}{Vetor discreto nodal que define as forças de corpo na configuração inicial;}
-	\nomenclature[D,70]{$\mathbf{Q}^{0}$}{Vetor discreto nodal que define as forças de superfície na configuração inicial;}
-	\nomenclature[D,71]{$\mathbf{\ddot{Y}}$}{Vetor discreto nodal que define a aceleração;}
-	\nomenclature[D,72]{$\concLoad^{ext}$}{Vetor discreto nodal que define as forças externas atuantes em um sólido;}
-	\nomenclature[D,73]{$\solidMass$}{Matriz de massa de um elemento;}
-	\nomenclature[D,74]{$\concLoad^{int}$}{Vetor discreto nodal que define as forças internas atuantes em um sólido;}
-	\nomenclature[D,75]{$\solidDamping$}{Matriz de amortecimento de um elemento;}
-	\nomenclature[D,76]{$\SolidVel_{}$}{Vetor discreto nodal que define a velocidade;}
-	\nomenclature[D,77]{$t_{n+1}$}{Tempo discreto no instante atual;} 
-	\nomenclature[D,78]{$t_{n}$}{Tempo discreto no instante anterior;} 
-	\nomenclature[D,79]{$\Delta t$}{Intervalo de tempo da discretização temporal;}
-	\nomenclature[D,80]{$\beta$}{Parâmetro da aproximação temporal de Newmark;}
-	\nomenclature[D,81]{$\gamma$}{Parâmetro da aproximação temporal de Newmark;}
-	\nomenclature[D,82]{$\mathbf{Q}_n$ e $\mathbf{R}_n$}{Termos da aproximação de Newmark que relacionam velocidade, aceleração e posições em um instante de tempo anterior;}
-	\nomenclature[D,83]{$\NNSS$}{Vetor discreto que representa o resíduo da equação de equilíbrio discretizada no espaço e tempo;}
-	
-\end{comment}
-
-% ---------------------------------------------------------- 
-% Métodos de malhas sobrepostas
-% ----------------------------------------------------------
 \chapter[Dinâmica dos sólidos computacional]{Dinâmica dos sólidos computacional} \label{capitulo:Cap4}
-% ----------------------------------------------------------
 
 Assim como no caso da Mecânica dos Fluidos, um sólido é modelado como um corpo contínuo, com seu movimento governado por um conjunto de equações provenientes da lei da conservação da quantidade de movimento, lei da conservação da massa e lei da conservação de energia. Entretanto, diferentemente dos fluidos, os sólidos possuem resistência aos esforços normais e tangenciais até que alcancem seu limite resistente, e por isso, apresentam deslocamentos e deformações finitos. As variáveis de interesse na resolução do conjunto de equações que descrevem o comportamento do sólido são os deslocamentos, ou, posições atuais ao longo do tempo, dessa forma, uma descrição do tipo Lagrangiana é mais adequada para essas análises.
 
@@ -105,16 +10,16 @@ Em muitos problemas da IFE, como \textit{flutter} e \textit{buffeting}, grandes 
 
 Neste capítulo, a formulação é apresentada a partir da descrição da cinemática e das condições de equilíbrio dos corpos deformáveis, com o objetivo de se deduzirem as equações globais de equilíbrio na formulação Lagrangiana, seguida pela introdução do modelo constitutivo de \textit{Saint-Venant–Kirchhoff}. Em seguida, aborda-se o método dos elementos finitos posicional aplicado ao elemento finito de casca, incluindo a técnica de integração temporal empregada. Na sequência, apresenta-se o algoritmo de implementação computacional adotado e, por fim, são expostos os resultados de um exemplo de validação.
 
-
 \section{Cinemática dos corpos deformáveis}
 
-Um sólido deformável quando sujeito à ações externas, sofre uma mudança de configuração. Na Fig. \ref{fig:solido_cinematica}, pode-se observar um sólido na sua configuração inicial $\Omega_{0}$, com coordenadas materiais descritas por $\lPosition$, e, o sólido no instante atual, representado por $\Omega$, com coordenadas espaciais $\ePosition$. 
+Um sólido deformável quando sujeito à ações externas, sofre uma mudança de configuração. Na \autoref{fig:solido_cinematica}, pode-se observar um sólido na sua configuração inicial $\Omega_{0}$, com coordenadas materiais descritas por $\lPosition$, e, o sólido no instante atual, representado por $\Omega$, com coordenadas espaciais $\ePosition$. 
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Cinemática de um sólido deformável}
 	\centering
 	\includegraphics[scale=1.7]{Imagens/Cap4/sol_cinematica.pdf}	
-	\caption{Cinemática de um sólido deformável}
 	\label{fig:solido_cinematica}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 A função mudança de configuração, denominada de $\fmap$, mapeia cada ponto da posição inicial para a atual, de modo que:
@@ -149,7 +54,7 @@ A partir do gradiente da função mudança de configuração pode-se estabelecer
 
 Para a obtenção posteriormente das equações de equilíbrio em descrição Lagrangiana, faz-se necessário abordar as relações de mudança de volume e de área que ocorrem da configuração inicial para a atual. 
 
-No estabelecimento de uma relação entre o volume inicial e final, definem-se dois volumes infinitesimais, um inicial $dV_{0}$ e um final $dV$, apresentados na Fig. \ref{solido_def_vol}. O volume infinitesimal inicial $dV_{0}$ pode ser calculado por:
+No estabelecimento de uma relação entre o volume inicial e final, definem-se dois volumes infinitesimais, um inicial $dV_{0}$ e um final $dV$, apresentados na \autoref{fig:solido_def_vol}. O volume infinitesimal inicial $dV_{0}$ pode ser calculado por:
 
 \begin{align}
 dV_{0} = (\mathbf{dx}_{1} \wedge \mathbf{dx}_{2}) \cdot \mathbf{dx}_{3} = \det{(\mathbf{dx_1},\mathbf{dx_2},\mathbf{dx_3})},
@@ -163,7 +68,7 @@ dV = (\mathbf{dy}_{1} \wedge \mathbf{dy}_{2}) \cdot \mathbf{dy}_{3} = \det{(\mat
 
 \noindent  sendo $\mathbf{dy}_1,\mathbf{dy}_2$ e $\mathbf{dy}_3$ os vetores que definem o volume atual.
 
-Tendo em vista a expressão \ref{eq:rel_vet}, pode-se reescrever a Eq. \ref{eq:vol_atual}, como:
+Tendo em vista a expressão \ref{eq:rel_vet}, pode-se reescrever a \autoref{eq:vol_atual}, como:
 
 \begin{align}
 dV = \det{\left(\gradDeformation\right)} \cdot \det{(\mathbf{dx_1},\mathbf{dx_2},\mathbf{dx_3})}  = JdV_{0} \label {eq:vol_atual2},
@@ -171,14 +76,15 @@ dV = \det{\left(\gradDeformation\right)} \cdot \det{(\mathbf{dx_1},\mathbf{dx_2}
 
 \noindent na qual $J$ representa o determinante Jacobiano da função mudança de configuração.
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Mudança no volume}
 	\centering
 	\includegraphics[scale=2.0]{Imagens/Cap4/sol_def_vol.pdf}	
-	\caption{Mudança no volume}
 	\label{fig:solido_def_vol}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Para escrever a relação entre as áreas inicial e atual se tomará como referência os cilindros da Fig. \ref{fig:solido_def_area}. Considerando um vetor área inicial $\mathbf{dA}_{0}$ e um vetor área atual $\mathbf{dA}$ como:
+Para escrever a relação entre as áreas inicial e atual se tomará como referência os cilindros da \autoref{fig:solido_def_area}. Considerando um vetor área inicial $\mathbf{dA}_{0}$ e um vetor área atual $\mathbf{dA}$ como:
 
 \begin{align}
 \mathbf{dA}_{0} = \mathbf{N}dA_{0},\\
@@ -194,20 +100,21 @@ dV = \mathbf{v} \cdot \mathbf{dA} = \mathbf{v} \cdot \mathbf{n} dA \label{eq:vol
 
 \noindent com $\mathbf{u}$ e $\mathbf{v}$ vetores não coplanares com as áreas inicial e atual, respectivamente.
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Mudança de área}
 	\centering
 	\includegraphics[scale=6.0,trim=0cm 0.2cm 0cm 0cm, clip=true]{Imagens/Cap4/sol_def_area.pdf}	
-	\caption{Mudança de área}
 	\label{fig:solido_def_area}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Considerando a relação da Eq. \eqref{eq:rel_vet}, pode-se escrever o volume na configuração atual, $dV$, como:
+Considerando a relação da \autoref{eq:rel_vet}, pode-se escrever o volume na configuração atual, $dV$, como:
 
 \begin{align}
 	dV = \mathbf{u} \cdot \gradDeformation^{t} \cdot \mathbf{n} dA = J dV_0 = J \mathbf{u} \cdot \mathbf{N} dA_0. \label{eq:dv}
 \end{align}
 
-Pré-multiplicando-se a Eq. \refeq{eq:dv} por $\mathbf{B}$ ($(\gradDeformation^{t})^{-1}$) e considerando-se a arbitrariedade de $\mathbf{u}$, chega-se a conhecida fórmula de Nanson, descrita como:
+Pré-multiplicando-se a \autoref{eq:dv} por $\mathbf{B}$ ($(\gradDeformation^{t})^{-1}$) e considerando-se a arbitrariedade de $\mathbf{u}$, chega-se a conhecida fórmula de Nanson, descrita como:
 
 \begin{align}
 \mathbf{n}dA = J \mathbf{B} \cdot \mathbf{N} dA_{0}. \label{eq:Nanson}
@@ -220,13 +127,14 @@ Pré-multiplicando-se a Eq. \refeq{eq:dv} por $\mathbf{B}$ ($(\gradDeformation^{
 
 Um corpo contínuo, ao ser submetido a ações externas, desenvolve forças internas de modo a garantir o equilíbrio dinâmico ou estático. A medida em cada ponto dessas forças internas é fundamental dentro da mecânica dos sólidos para a aplicação das leis da física às partículas do corpo.
 
-Considerando um corpo qualquer, na configuração atual, sujeito a um conjunto equilibrado de forças externas, ao fazer-se a extração de um volume elementar infinitesimal, conforme pode ser observado na Fig. \ref{fig:sol_equi}, surgem em suas faces, por ação e reação, uma distribuição de forças por unidade de superfície. Decompondo essas tensões em componentes cartesianas, obtém-se em cada face uma componente normal e duas componentes tangenciais de tensão. As componentes de tensão são designadas por $\sigma_{ij}$, com $i$ referindo-se ao plano de atuação e $j$ indicando a direção de atuação da tensão. Na Fig. \ref{fig:sol_equi} podem ser observadas as componentes positivas de tensão em cada plano. No plano paralelo oposto, pela lei da ação e reação, as tensões possuem mesma intensidade, porém sentido contrário.
+Considerando um corpo qualquer, na configuração atual, sujeito a um conjunto equilibrado de forças externas, ao fazer-se a extração de um volume elementar infinitesimal, conforme pode ser observado na \autoref{fig:sol_equi}, surgem em suas faces, por ação e reação, uma distribuição de forças por unidade de superfície. Decompondo essas tensões em componentes cartesianas, obtém-se em cada face uma componente normal e duas componentes tangenciais de tensão. As componentes de tensão são designadas por $\sigma_{ij}$, com $i$ referindo-se ao plano de atuação e $j$ indicando a direção de atuação da tensão. Na \autoref{fig:sol_equi} podem ser observadas as componentes positivas de tensão em cada plano. No plano paralelo oposto, pela lei da ação e reação, as tensões possuem mesma intensidade, porém sentido contrário.
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Volume infinitesimal: componentes de tensão}
 	\centering
 	\includegraphics[scale=0.5,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap4/sol_vol_equi.pdf}	
-	\caption{Volume infinitesimal: componentes de tensão}
 	\label{fig:sol_equi}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 O tensor de tensões de Cauchy ($\cauchyStress$) contém todas as informações de tensão em um ponto e será representado como:
@@ -255,17 +163,18 @@ Ao realizar-se o equilíbrio de momentos sobre um elemento infinitesimal, nota-s
 
 Vale ressaltar que, a tensão de Cauchy é definida na configuração atual do contínuo, e por isso, trata-se de uma medida Euleriana de tensão.
 
-Se extraíssemos do corpo contínuo um volume tetraédrico (Fig. \ref{fig:sol_tetra}), no plano inclinado, cujo versor normal é $\mathbf{n}$, surge um vetor de tensões designado por $\mathbf{t}$. Considerando que a área do plano inclinado foi definida como $dA$, enquanto que as áreas correspondentes aos planos coordenados são suas projeções, pode-se calcular o equilíbrio do tetraedro em cada direção, chegando-se a seguinte expressão:
+Se extraíssemos do corpo contínuo um volume tetraédrico (\autoref{fig:sol_tetra}), no plano inclinado, cujo versor normal é $\mathbf{n}$, surge um vetor de tensões designado por $\mathbf{t}$. Considerando que a área do plano inclinado foi definida como $dA$, enquanto que as áreas correspondentes aos planos coordenados são suas projeções, pode-se calcular o equilíbrio do tetraedro em cada direção, chegando-se a seguinte expressão:
 
 \begin{align}
 	\mathbf{t} = \cauchyStress^{t} \cdot \mathbf{n} =  \cauchyStress \cdot \mathbf{n}.
 \end{align}
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Tetraedro elementar}
 	\centering
 	\includegraphics[scale=0.5,,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap4/sol_tetra_equi.pdf}	
-	\caption{Tetraedro elementar}
 	\label{fig:sol_tetra}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 Essa expressão é conhecida por fórmula de Cauchy. Considerando que o plano inclinado refere-se a superfície externa, essa equação pode ser utilizada para relacionar o estado de tensão em um ponto com as forças de superfície ($\mathbf{p}$), como:
@@ -277,7 +186,7 @@ Essa expressão é conhecida por fórmula de Cauchy. Considerando que o plano in
 
 \subsection{Equilíbrio local Lagrangeano}
 
-Para a obtenção das equações de equilíbrio local em descrição Lagrangeana, será utilizada como ponto de partida a equação de equilíbrio local Euleriana. Para isso, considere o sólido apresentado na Fig. \ref{fig:sol_cargas}, o qual está submetido a forças de corpo, $\ebodyLoad$, e a forças de superfície, $\tractionLoad$. Extraindo-se um elemento infinitesimal deste corpo que sofreu mudança de configuração, e aplicando-se a segunda Lei de Newton, o  equilíbrio local pode ser descrito:
+Para a obtenção das equações de equilíbrio local em descrição Lagrangeana, será utilizada como ponto de partida a equação de equilíbrio local Euleriana. Para isso, considere o sólido apresentado na \autoref{fig:sol_cargas}, o qual está submetido a forças de corpo, $\ebodyLoad$, e a forças de superfície, $\tractionLoad$. Extraindo-se um elemento infinitesimal deste corpo que sofreu mudança de configuração, e aplicando-se a segunda Lei de Newton, o  equilíbrio local pode ser descrito:
 
 \begin{align}
 	\gradient \cdot \stressTensor^{t} + \ebodyLoad = \rho  \solidAccel, \label{eq:equi_local_euleriano}
@@ -291,14 +200,15 @@ Para a obtenção das equações de equilíbrio local em descrição Lagrangeana
 
 \noindent com $\rho$ representando a massa específica do material que compõe o sólido e $\solidAccel$ é a derivada material da velocidade do ponto material (aceleração do corpo).
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Sólido sob carregamento externo}
 	\centering
 	\includegraphics[scale=4,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap4/sol_cargas.pdf}	
-	\caption{Sólido sujeito a um conjunto de carregamento externo}
 	\label{fig:sol_cargas}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Ao integrar-se a Eq. \ref{eq:equi_local_euleriano} no volume do sólido e utilizar-se o Teorema da Divergência chega-se a:
+Ao integrar-se a \autoref{eq:equi_local_euleriano} no volume do sólido e utilizar-se o Teorema da Divergência chega-se a:
 
 \begin{align}
 	\int_{A} {\stressTensor}^{t} \cdot \mathbf{n} dA + \int_{V} \ebodyLoad dV = \int_{V} \rho  \solidAccel dV \label{eq:eq_global_euleriano}
@@ -310,13 +220,13 @@ Ao integrar-se a Eq. \ref{eq:equi_local_euleriano} no volume do sólido e utiliz
 	\int_{A} \mathbf{p} dA + \int_{V} \ebodyLoad dV = \int_{V} \rho  \solidAccel dV 
 \end{align}
 
-Considerando as relações de mudança de área e volume, apresentadas nas equações Eq. \ref{eq:vol_atual2} e Eq. \ref{eq:Nanson}, e que da equação da conservação da massa ($M$) tem-se que:
+Considerando as relações de mudança de área e volume, apresentadas nas equações \autoref{eq:vol_atual2} e \autoref{eq:Nanson}, e que da equação da conservação da massa ($M$) tem-se que:
 
 \begin{align}
 	M = \int_{V_{0}} \rho_{0}dV_{0} = \int_{V(t)} \rho(t)dV, \label{eq:conser_massa}
 \end{align}
 
-\noindent escreve-se a equação global de equilíbrio Lagrangeana, a partir da Eq. \ref{eq:eq_global_euleriano} como:
+\noindent escreve-se a equação global de equilíbrio Lagrangeana, a partir da \autoref{eq:eq_global_euleriano} como:
 
 \begin{align}
 	\int_{A_0} \mathbf{P}^t \cdot \mathbf{N} dA_0 + \int_{V_0} \bodyLoad dV_0 = \int_{V_0} \rho_0  \solidAccel dV_0, \label{eq:equi_global_lagrangeano}
@@ -324,7 +234,7 @@ Considerando as relações de mudança de área e volume, apresentadas nas equa�
 
 \noindent na qual o primeiro tensor de tensões transposto de Piola-Kirchhoff ($\mathbf{P}^t$), não simétrico, é definido como $\mathbf{P}^t = J \stressTensor^t \cdot \mathbf{B}$, e o subíndice $0$, refere-se a variável no instante inicial.
 
-Ao aplicar-se o Teorema da Divergência a Eq. \ref{eq:equi_global_lagrangeano} e da consideração da arbitrariedade do volume, chega-se a versão local da equação de equilíbrio Lagrangeano, expressa por:
+Ao aplicar-se o Teorema da Divergência a \autoref{eq:equi_global_lagrangeano} e da consideração da arbitrariedade do volume, chega-se a versão local da equação de equilíbrio Lagrangeano, expressa por:
 
 \begin{align}
 	\lGrad \cdot \mathbf{P}^t +  \bodyLoad = \rho_0  \solidAccel. \label{eq:equi_local_lagrangeano}
@@ -351,19 +261,19 @@ O princípio da estacionariedade da energia define que um corpo quando em equil�
 	\delta\totalEnergy = \delta\extEnergy + \delta\kinEnergy + \delta\intEnergy.
 \end{align}
 
-Um incremento de energia mecânica específica (energia mecânica por unidade de volume) pode ser obtido pelo produto escalar da Eq. \ref{eq:equi_local_lagrangeano} por um incremento de posição $\delta\ePosition$, e, integrando-se sobre o domínio inicial, têm-se:
+Um incremento de energia mecânica específica (energia mecânica por unidade de volume) pode ser obtido pelo produto escalar da \autoref{eq:equi_local_lagrangeano} por um incremento de posição $\delta\ePosition$, e, integrando-se sobre o domínio inicial, têm-se:
 
 \begin{align}
 	\delta\totalEnergy = \int_{V_0} \left(\rho_0 \solidAccel - \lGrad \cdot \mathbf{P}^t -  \ebodyLoad_0 \right) \cdot  \delta\ePosition dV_0 = 0 \label{eq:equi_local_forma_frac}
 \end{align}
 
-Ao integrar-se por partes o segundo termo da Eq. \ref{eq:equi_local_forma_frac} e utilizar-se o Teorema da Divergência, chega-se a seguinte expressão:
+Ao integrar-se por partes o segundo termo da \autoref{eq:equi_local_forma_frac} e utilizar-se o Teorema da Divergência, chega-se a seguinte expressão:
 
 \begin{align}
 	\delta\totalEnergy = \int_{V_0} \rho_0 \solidAccel \cdot \delta\ePosition dV_0 - \int_{A_0} \mathbf{P}^t \cdot \mathbf{N} \cdot  \delta\ePosition dA_0  + \int_{V_0} \mathbf{P}^t : \lGrad(\delta\ePosition) dV_0 - \int_{V_0} \mathbf{b_0} \cdot \delta \ePosition dV_0 = 0 \label{eq:equi_local_forma_frac2}
 \end{align}
 
-A equação Eq. \ref {eq:equi_local_forma_frac2} pode ainda ser reformulada, considerando que $\lGrad (\delta\ePosition) = \delta \gradDeformation$ e que $\mathbf{P}^t \cdot \mathbf{N}$ representa as forças de superfície na configuração inicial ($\ltractionLoad$) como:
+A \autoref {eq:equi_local_forma_frac2} pode ainda ser reformulada, considerando que $\lGrad (\delta\ePosition) = \delta \gradDeformation$ e que $\mathbf{P}^t \cdot \mathbf{N}$ representa as forças de superfície na configuração inicial ($\ltractionLoad$) como:
 
 \begin{align}
 \delta\totalEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} + \int_{V_{0}} \mathbf{P}^{t} : \delta\gradDeformation dV_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} = 0. \label{eq:equi_local_forma_frac3}
@@ -377,26 +287,25 @@ Conforme relatou-se, o tensor de Piola-Kirchhoff de primeira espécie não é ne
 
 \noindent com $\piolaStress$ conhecido como tensor de Piola-Kirchhoff de segunda espécie. 
 
-Utilizando-se a relação apresentada na Eq. \ref{eq:piola-kircchoff} na Eq. \ref{eq:equi_local_forma_frac3}, chega-se a:
+Utilizando-se a relação apresentada na \autoref{eq:piola-kircchoff} na \autoref{eq:equi_local_forma_frac3}, chega-se a:
 
 \begin{align}
 \delta\totalEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} +  \int_{V_{0}} \piolaStress : \delta\greenStrain dV_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} = 0.
 \label{eq:equi_local_forma_final0}
 \end{align}
 
-A Eq.\ref{eq:equi_local_forma_final0}, será adicionada ainda uma parcela referente a possibilidade de carregamentos pontuais, sendo expressa então, por:
+A \autoref{eq:equi_local_forma_final0}, será adicionada ainda uma parcela referente a possibilidade de carregamentos pontuais, sendo expressa então, por:
 
 \begin{align}
 	\delta\totalEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} +  \int_{V_{0}} \piolaStress : \delta\greenStrain dV_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} - \mathbf{F} \cdot \delta\ePosition = 0.
 	\label{eq:equi_local_forma_final}
 \end{align}
 
-Partindo-se da Eq. \ref{eq:equi_local_forma_final}, encontra-se a relação entre suas componentes e as parcelas de energia mecânica, dessa forma, têm-se:
+Partindo-se da \autoref{eq:equi_local_forma_final}, encontra-se a relação entre suas componentes e as parcelas de energia mecânica, dessa forma, têm-se:
 
 \begin{align}
 	 \delta\extEnergy = - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} - \mathbf{F} \cdot \delta\ePosition,
 \end{align}
-
 
 \begin{align}
 	\delta\kinEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0},
@@ -420,7 +329,6 @@ u_{e} = \frac{1}{2} \greenStrain : \constitutiveTensor : \greenStrain,
 u_{e} = \frac{1}{2} E_{kl} C_{klij} E_{ij}
 \end{align}
 
-
 \noindent com $\constitutiveTensor$ representando o tensor constitutivo elástico isotrópico, que é um tensor de quarta ordem definido como:
 
 \begin{gather}
@@ -439,7 +347,7 @@ u_{e} = \frac{1}{2} E_{kl} C_{klij} E_{ij}
 
 \section{Método dos Elementos Finitos Posicional}
 
-Conforme discutido na Subseção \ref{capitulo:Cap2:FormaFraca:ElementosFinitos}, o método dos elementos finitos baseia-se na substituição do contínuo por um conjunto finito de subdomínios, denominados elementos finitos. Em cada um desses elementos, as variáveis de interesse — incluindo a própria geometria — são aproximadas, de modo que o problema contínuo é convertido em um problema discreto, caracterizado por um número finito de incógnitas.
+Conforme discutido na \autoref{capitulo:Cap2:FormaFraca:ElementosFinitos}, o método dos elementos finitos baseia-se na substituição do contínuo por um conjunto finito de subdomínios, denominados elementos finitos. Em cada um desses elementos, as variáveis de interesse — incluindo a própria geometria — são aproximadas, de modo que o problema contínuo é convertido em um problema discreto, caracterizado por um número finito de incógnitas.
 
 Nesta subseção será apresentado o desenvolvimento da formulação posicional do Método dos Elementos Finitos aplicada a cinemática de cascas.
 
@@ -447,7 +355,7 @@ Nesta subseção será apresentado o desenvolvimento da formulação posicional 
 
 A formulação não-linear geométrica de casca posicional foi desenvolvida por \citeonline{CodaP:2007}, e consistia inicialmente em 6 graus de liberdade por nó, sendo 3 referentes à posições e 3 referentes às componentes do vetor generalizado. Em \citeonline{CodaP:2008} incluí-se a formulação um sétimo parâmetro, que considera a taxa de variação linear da espessura, para lidar com o fenômeno de travamento volumétrico. Essa última cinemática será utilizada nesse trabalho.
 
-As cascas são sólidos que possuem uma de suas dimensões muito menor do que as outras, assim o mapeamento da configuração do sólido pode ser facilitado tomando-se a superfície média como referência. Os mapeamentos das configurações inicial e atual dos pontos da superfície média, conforme pode ser observado na Fig. \ref{fig:casca:map_super_media}, são definidos respectivamente como:
+As cascas são sólidos que possuem uma de suas dimensões muito menor do que as outras, assim o mapeamento da configuração do sólido pode ser facilitado tomando-se a superfície média como referência. Os mapeamentos das configurações inicial e atual dos pontos da superfície média, conforme pode ser observado na \autoref{fig:casca:map_super_media}, são definidos respectivamente como:
 
 \begin{align}
 \fmap^{mh}_{0}(\xi_{1},\xi_{2}) = \lPosition^{mh}(\xi_{1},\xi_{2}) = N_{l} (\xi_{1},\xi_{2}) \lPosition_{l}^{mh}\label{eq:casca_Lposition_m}\\
@@ -456,14 +364,15 @@ As cascas são sólidos que possuem uma de suas dimensões muito menor do que as
 
 \noindent com $\lPosition_{l}^{mh}$ e $\ePosition_{l}^{mh}$ representando os vetores dos parâmetros de posição inicial e atual da linha média respectivos ao nó $l$, e, $N_{l} (\xi_{1},\xi_{2})$ é o valor da função de forma do nó $l$ calculado no ponto de coordenadas paramétricas $(\xi_{1},\xi_{2})$.
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Mapeamento da superfície média da casca}
 	\centering
 	\includegraphics[scale=0.8,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_super_media.pdf}	
-	\caption{Mapeamento da superfície média da casca}
 	\label{fig:casca:map_super_media}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Para completar a cinemática da casca, os demais pontos são mapeados por meio da soma da posição de um ponto na superfície média com um vetor generalizado $\mathbf{g}^{h}_{0}$ ou $\mathbf{g}^{h}_{0}$ nas configurações inicial e atual, respectivamente.  $\mathbf{g}^{h}_{0}$ é normal a linha de referência na configuração inicial, conforme pode ser observado na Fig. \ref{fig:casca_vetores_generalizados}. Desta forma, o mapeamento completo fica definido por:
+Para completar a cinemática da casca, os demais pontos são mapeados por meio da soma da posição de um ponto na superfície média com um vetor generalizado $\mathbf{g}^{h}_{0}$ ou $\mathbf{g}^{h}_{0}$ nas configurações inicial e atual, respectivamente.  $\mathbf{g}^{h}_{0}$ é normal a linha de referência na configuração inicial, conforme pode ser observado na \autoref{fig:casca_vetores_generalizados}. Desta forma, o mapeamento completo fica definido por:
 
 \begin{align}
 \fmap^{h}_{0}(\xi_{1},\xi_{2},\xi_{3}) = \lPosition^{h}(\xi_{1},\xi_{2},\xi_{3}) = \fmap^{mh}_{0}(\xi_{1},\xi_{2}) + \mathbf{g}^{h}_{0} (\xi_{1},\xi_{2}, \xi_{3}) \label{eq:fmap0}\\
@@ -472,11 +381,12 @@ Para completar a cinemática da casca, os demais pontos são mapeados por meio d
 
 \noindent em que $\xi_3$ é a coordenada adimensional na espessura da casca variando de -1 a 1.
 
-\begin{figure}[htb!]
+\begin{figure}[!htbp]
+	\caption{Vetores generalizados}
 	\centering
 	\includegraphics[scale=0.8,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_vetores_generalizados.pdf}	
-	\caption{Vetores generalizados.}
 	\label{fig:casca_vetores_generalizados}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 Os vetores generalizados $\mathbf{g}^{h}_{0}$ e $\mathbf{g}^{h}_{1}$ representados na discretização por elementos finitos ficam expressos por:
@@ -520,7 +430,6 @@ Partindo do mapeamento apresentado é possível escrever o funcional de energia 
 	\frac{\partial\totalEnergy^{h}}{\partial \ePosition_{l}^{mh}} = \frac{\partial\totalEnergy^{h}}{\partial (\mathbf{e}_y)_l} = \frac{\partial\totalEnergy^{h}}{\partial \eta_l} = \mathbf{0}.
 \end{align}
 
-
 \subsection{Integração Temporal e solução do problema não-linear}
 
 Para a resolução do problema não-linear, vamos reescrever o princípio da estacionariedade em função da variável $\SolidPos$, que consiste em um vetor que contém todos os parâmetros nodais da estrutura (posições, vetores generalizados e taxa de variação linear da espessura) da seguinte forma:
@@ -554,7 +463,7 @@ A integração temporal das equações inicia-se com a discretização do tempo 
 
 \noindent em que $\beta$ e $\gamma$ são parâmetros dependentes do comportamento assumido para a aceleração. Para um aceleração constante adotada-se nesse trabalho $\gamma=\sfrac{1}{2}$ e $\beta=\sfrac{1}{4}$.
 
-Partindo das equações Eq. \ref{eq:newmark1} e Eq. \ref{eq:newmark2} é possível escrever a aceleração e a velocidade atual em função das posições no instante $n+1$, as incógnitas do problema, e das demais variáveis do passo anterior:
+Partindo das equações \autoref{eq:newmark1} e \autoref{eq:newmark2} é possível escrever a aceleração e a velocidade atual em função das posições no instante $n+1$, as incógnitas do problema, e das demais variáveis do passo anterior:
 
 \begin{align}
 	\SolidAccel_{n+1} = \frac{1}{\beta \Delta_{t}^2}\SolidPos_{n+1} - \mathbf{Q}(t_n), \label{eq:accel_newmark}
@@ -571,15 +480,14 @@ Partindo das equações Eq. \ref{eq:newmark1} e Eq. \ref{eq:newmark2} é possív
 	\mathbf{R}(t_n) = \SolidVel_n+\timeStep(1-\gamma)\SolidAccel_n.\label{eq:Rn}
 \end{gather}
 
-Utilizando as equações Eq. \ref{eq:accel_newmark} e Eq. \ref{eq:vel_newmark} na equação do equilíbrio em forma matricial (Eq. \ref{eq:equi_forma_matricial}), tem-se para o instante $t_{n+1}$ a seguinte relação:
+Utilizando as equações \autoref{eq:accel_newmark} e \autoref{eq:vel_newmark} na equação do equilíbrio em forma matricial (\autoref{eq:equi_forma_matricial}), tem-se para o instante $t_{n+1}$ a seguinte relação:
 
 \begin{gather}
 	\concLoad^{int}_{n+1}- \concLoad^{ext}_{n+1} + \frac{\solidMass}{\beta \timeStep^2} \SolidPos_{n+1}-\solidMass \mathbf{Q}_n+ \solidDamping\mathbf{R}_n + \frac{\gamma \solidDamping}{\beta \timeStep}\SolidPos_{n+1} - \gamma\timeStep \solidDamping\mathbf{Q}_n = \mathbf{0},
 	\label{eq:equilibrio_tn+1}
 \end{gather}
   
-Pode-se escrever ainda o problema não linear definido pela Eq.
-\eqref{eq:equilibrio_tn+1} em função do resíduo da equação governante
+Pode-se escrever ainda o problema não linear definido pela \autoref{eq:equilibrio_tn+1} em função do resíduo da equação governante
 discretizada no espaço e no tempo, como:
 
 \begin{gather}
@@ -587,7 +495,7 @@ discretizada no espaço e no tempo, como:
 \label{eq:residuo_equilibrio_newmark}
 \end{gather}
 
-O problema não linear da Eq. \eqref{eq:residuo_equilibrio_newmark} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
+O problema não linear da \autoref{eq:residuo_equilibrio_newmark} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
 
 \begin{gather}
 \NNSS\left(\SolidPos_{n+1}^{i+1}\right) \approx \NNSS\left(\SolidPos_{n+1}^{i}\right) + \Delta\NNSS\left(\SolidPos_{n+1}^{i}\right)\Delta\SolidPos_{n+1}^{i} 
@@ -635,11 +543,11 @@ O código foi desenvolvido em linguagem C++ utilizando paralelização em protoc
 		\SolidAccel_{n+1}^{0} = \SolidAccel_{n};
 		\end{align}
 		\State Calcula-se  nível de força aplicado $\concLoad^{ext}_{n+1}(t_{n+1})$ e/ou as posições prescritas $\SolidPos_{n+1}$;
-		\State Calculam-se os valores de $\mathbf{Q}_n$ (Eq. \eqref{eq:Qn}) e $\mathbf{R}_n$ (Eq. \eqref{eq:Rn});
+		\State Calculam-se os valores de $\mathbf{Q}_n$ (\autoref{eq:Qn}) e $\mathbf{R}_n$ (\autoref{eq:Rn});
 		\While{($\epsilon$ < tolerância)}
 		\State $i$++;
-		\State Cálculo do incremento da variável do problema: $\SolidPos_{n+1}^{i}$ de acordo com a Eq. \eqref{eq:NR};
-		\State Atualização da solução: calculada de acordo com Eq. \eqref{UD1}, Eq. \eqref{UD2} e Eq. \eqref{UD3}.
+		\State Cálculo do incremento da variável do problema: $\SolidPos_{n+1}^{i}$ de acordo com a \autoref{eq:NR};
+		\State Atualização da solução: calculada de acordo com \autoref{UD1}, \autoref{UD2} e \autoref{UD3}.
 		\State Cálculo do erro:
 		\begin{align}
 		\epsilon = \lVert \Delta\NNSS\left(\SolidPos_{n+1}^{i+1}\right) \lVert_{L^2} 
@@ -661,45 +569,48 @@ O código foi desenvolvido em linguagem C++ utilizando paralelização em protoc
 
 \section{Exemplo de aplicação - Casca cilíndrica com \textit{snap through} dinâmico}
 
-
 Nesta seção apresenta-se um problema clássico que trata-se de uma casca cilíndrica submetida a um carregamento concentrado em seu centro geométrico. Proposto inicialmente no trabalho de 
 \cite{KuhlR:1999}, o problema apresenta grande não-linearidade geométrica devido ao efeito de \textit{snap-through}. 
 
-A geometria do problema em questão é apresentada na Fig. \ref{fig:casca_geometria}, sendo a espessura da casca equivalente a 0,1m.  A malha de elementos finitos que representa a superfície média da estrutura utilizada pode ser visualizada na Fig. \ref{fig:casca_malha}, a qual é composta por 104 elementos quadráticos e 233 nós. 
+A geometria do problema em questão é apresentada na Figura \ref{fig:casca_geometria}, sendo a espessura da casca equivalente a 0,1m.  A malha de elementos finitos que representa a superfície média da estrutura utilizada pode ser visualizada na Figura \ref{fig:casca_malha}, a qual é composta por 104 elementos quadráticos e 233 nós. 
 
-\begin{figure}[!htb]
+\begin{figure}[!htbp]
+	\caption{Casca: Geometria e Malha}
 	\centering
 	\subfloat[\label{fig:casca_geometria} Geometria ]{\includegraphics[scale=0.23, trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_geometria.pdf}} 
 	\subfloat[\label{fig:casca_malha} Malha ]{\includegraphics[scale=1.1,trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap4/casca_malha.pdf}}
-	\caption{Casca: Geometria e Malha.}
 	\label{fig:Casca}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 Os contornos esquerdo e direito da chapa são considerados simplesmente apoiados. O carregamento aplicado ao ponto central (ponto A) $P(t)$ é aplicado linearmente no intervalo $t=0s$ até $t=0,2s$, com $P(0)=0kN$ e $P(2s) = 200000kN$, e então mantido constante. As características físicas do material utilizado são: $\elasticModulus = 200GPa$, $\poisonsRatio = 0,25$ e $\rho = 10000 kg/m^3$ e o passo de tempo adotado na simulação é $\Delta_{t} = 0,001s$.
 
-O deslocamento vertical do nó central da casca pode ser visualizado na Fig. \ref{fig:casca_deslocamentoA}. O resultado obtido está de acordo com os resultados de \citeonline{ArgyrisPM:2003}, conforme pode ser visto na Fig. \ref{fig:casca_deslocamento_referencia}. Os campos de deslocamentos para os instantes $t = 140ms$, $t = 165ms$, $t = 174ms$ e $t = 177ms$ são apresentados na Fig. \ref{fig:casca_campos_deslocamentos}.
+O deslocamento vertical do nó central da casca obtido nesse trabalho pode ser visualizado na \autoref{fig:casca_deslocamentoA}, enquanto que, para o autor de referência na \autoref{fig:casca_deslocamento_ref}. O resultado obtido está de acordo com os resultados de \citeonline{ArgyrisPM:2003}. Os campos de deslocamentos para os instantes $t = 140ms$, $t = 165ms$, $t = 174ms$ e $t = 177ms$ são apresentados na Figura \ref{fig:casca_campos_deslocamentos}.
 
-
-\begin{figure}[!htb]
-	\centering
-	\subfloat[\label{fig:casca_deslocamentoA} Presente trabalho]{\includegraphics[scale=.6, trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_deslocamentoA.eps}} \\
-	\subfloat[\label{fig:casca_deslocamento_referencia} Referência ]{\includegraphics[scale=0.25,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_deslocamento_referencia.png}}\\
-	Fonte: \citeonline{ArgyrisPM:2003}
+\begin{figure}[!htbp]
 	\caption{Casca: Deslocamento vertical nó central A}
-	\label{fig:casca_deslocamento_no_central}
-\end{figure}
-
-
-\begin{figure}[!htb]
 	\centering
-	\subfloat[\label{fig:casca_140ms} $t = 140ms$.]{\includegraphics[scale=1.3, trim=0.8cm 0.4cm 0.8cm 0cm, clip=true]{Imagens/Cap4/casca_140ms.pdf}}
-	\subfloat[\label{fig:casca_165ms} $t = 165ms$.]{\includegraphics[scale=1.3, trim=0.8cm 0.4cm 0.8cm 0cm, clip=true]{Imagens/Cap4/casca_165ms.pdf}} \\
-	\subfloat[\label{fig:casca_174ms} $t = 174ms$.]{\includegraphics[scale=1.3, trim=0.7cm 0.4cm 0.7cm 0cm, clip=true]{Imagens/Cap4/casca_174ms.pdf}}
-	\subfloat[\label{fig:casca_177ms} $t = 177ms$.]{\includegraphics[scale=1.3, trim=0.7cm 0.4cm 0.7cm 0cm, clip=true]{Imagens/Cap4/casca_177ms.pdf}} \\
-	{\includegraphics[scale=0.015,trim=0cm 20.0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_legenda.pdf}}
-	\caption{Casca: Campos de deslocamentos}
-	\label{fig:casca_campos_deslocamentos}
+	{\includegraphics[scale=.6, trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_deslocamentoA.eps}}
+	\label{fig:casca_deslocamentoA}
+	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
+\begin{figure}[!htbp]
+	\caption{Casca: Deslocamento vertical nó central A - referência}
+	\centering
+	{\includegraphics[scale=0.25,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_deslocamento_referencia.png}}
+	\legend{Fonte: \citeonline{ArgyrisPM:2003}}
+	\label{fig:casca_deslocamento_ref}
+\end{figure}
 
-\end{document}
+\begin{figure}[!htbp]
+	\caption{Casca: Campos de deslocamentos}
+	\centering
+	\subfloat[\label{fig:casca_140ms} $t = 140ms$.]{\includegraphics[scale=1.3, trim=0.8cm 0.4cm 0.8cm 0.8cm, clip=true]{Imagens/Cap4/casca_140ms.pdf}}
+	\subfloat[\label{fig:casca_165ms} $t = 165ms$.]{\includegraphics[scale=1.3, trim=0.8cm 0.4cm 0.8cm 0.8cm, clip=true]{Imagens/Cap4/casca_165ms.pdf}} \\
+	\subfloat[\label{fig:casca_174ms} $t = 174ms$.]{\includegraphics[scale=1.3, trim=0.7cm 0.4cm 0.7cm 0.8cm, clip=true]{Imagens/Cap4/casca_174ms.pdf}}
+	\subfloat[\label{fig:casca_177ms} $t = 177ms$.]{\includegraphics[scale=1.3, trim=0.7cm 0.4cm 0.7cm 0.8cm, clip=true]{Imagens/Cap4/casca_177ms.pdf}} \\
+	{\includegraphics[scale=0.015,trim=0cm 20.0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_legenda.pdf}}
+	\label{fig:casca_campos_deslocamentos}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}

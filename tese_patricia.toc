@@ -3,12 +3,12 @@
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{15}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Apresentação do texto}{17}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Estado da Arte}{18}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Dinâmica dos fluidos computacional}{18}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Dinâmica de estruturas computacional considerando grandes deslocamentos}{21}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Acoplamento fluido-estrutura}{22}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.1}Dinâmica dos fluidos computacional}{19}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Dinâmica de estruturas computacional considerando grandes deslocamentos}{22}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Acoplamento fluido-estrutura}{23}{subsection.1.2.3}%
 \contentsline {subsection}{\numberline {1.2.4}Métodos Multiescala e Técnicas de partição de domínios}{25}{subsection.1.2.4}%
 \contentsline {section}{\numberline {1.3}Objetivos}{27}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Metodologia}{27}{section.1.4}%
+\contentsline {section}{\numberline {1.4}Metodologia}{28}{section.1.4}%
 \contentsline {section}{\numberline {1.5}Justificativa}{29}{section.1.5}%
 \contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Dinâmica dos fluidos computacional}}{31}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Equações governantes na descrição Euleriana}{32}{section.2.1}%
@@ -55,11 +55,12 @@
 \contentsline {subsection}{\numberline {4.3.2}Integração Temporal e solução do problema não-linear}{101}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Implementação Computacional}{103}{subsection.4.3.3}%
 \contentsline {section}{\numberline {4.4}Exemplo de aplicação - Casca cilíndrica com \textit {snap through} dinâmico}{103}{section.4.4}%
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Técnica de decomposição de domínios}}{107}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Combinação de espaços de funções}{107}{section.5.1}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Técnica de partição de domínios}}{107}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Combinação de espaços de funções}{108}{section.5.1}%
 \contentsline {subsection}{\numberline {5.1.1}Função ponderadora de combinação}{109}{subsection.5.1.1}%
-\contentsline {section}{\numberline {5.2}Implementação Computacional}{110}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Exemplo de aplicação}{112}{section.5.3}%
+\contentsline {subsection}{\numberline {5.1.2}Aplicação da técnica a Dinâmica dos Fluidos Computacional}{112}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Implementação Computacional}{112}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Exemplo de aplicação}{113}{section.5.3}%
 \contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Método de Arlequin estabilizado}}{117}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Método Arlequin}{117}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{120}{section.6.2}%
@@ -79,7 +80,8 @@
 \contentsline {subsection}{\numberline {7.3.1}Implementação Computacional}{146}{subsection.7.3.1}%
 \contentsline {section}{\numberline {7.4}Exemplos}{147}{section.7.4}%
 \contentsline {subsection}{\numberline {7.4.1}Cavidade com fundo flexível - 2D}{148}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Cavidade com fundo flexível - 3D}{150}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.2}Cavidade com fundo flexível - 3D}{151}{subsection.7.4.2}%
 \contentsline {subsection}{\numberline {7.4.3}\textit {Flutter} em painel flexível}{152}{subsection.7.4.3}%
+\contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase []{Conclusões}}{165}{chapter.8}%
 \vspace {\cftbeforechapterskip }
-\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{159}{section*.8}%
+\contentsline {chapter}{\MakeTextUppercase []{Refer\^encias}}{169}{section*.8}%
