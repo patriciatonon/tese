@@ -1,0 +1,24 @@
+%% USPSC-Abstract.tex
+%\autor{Silva, M. J.}
+\begin{resumo}[Abstract]
+ \begin{otherlanguage*}{english}
+	\begin{flushleft} 
+		\setlength{\absparsep}{0pt} % ajusta o espaçamento dos parágrafos do resumo		
+ 		\SingleSpacing  		\imprimirautorabr~~\textbf{\imprimirtitleabstract}.	\imprimirdata.  \pageref{LastPage} p. 
+		%Substitua p. por f. quando utilizar oneside em \documentclass
+		%\pageref{LastPage} f.
+		\imprimirtipotrabalhoabs~-~\imprimirinstituicao, \imprimirlocal, 	\imprimirdata. 
+ 	\end{flushleft}
+	\OnehalfSpacing 
+   		The main objective of this work was the development of a robust computational tool for the analysis of fluid–structure interaction (FSI) problems, incorporating a domain partitioning technique in the fluid flow to capture localized effects.
+   A stabilized formulation is adopted for the analysis of incompressible isothermal flows, allowing equal-order interpolation for velocity and pressure variables, with implicit time integration performed through the generalized-$\alpha$ method. The nonlinear dynamic analysis of the structure is modeled using a position-based finite element approach applied to shell elements, with time integration carried out by the Newmark method.
+   In this formulation, localized effects in the fluid model are taken into account through the use of a refined local model superimposed on a coarser global model. The discretizations employ either isogeometric analysis or the classical finite element method. The coupling between the global and local meshes is achieved through a stabilized Arlequin method, which performs the coupling between models within an overlapping zone using Lagrange multiplier fields. To ensure the stability of the Lagrange multiplier field while providing greater flexibility to the formulation, a consistent stabilization term based on the residual of the governing equations is added.
+   The fluid–structure coupling is strongly partitioned and block-iterative. In this coupling, the local mesh conforms to the structure and deforms dynamically to accommodate its motion through an Arbitrary Lagrangian–Eulerian (ALE) formulation, while the global mesh remains fixed. The proposed coupling method can be characterized as a hybrid approach, combining advantages of interface-tracking (moving-mesh) and interface-capturing (immersed-boundary) methods. The fluid near the structure is properly discretized to capture localized effects, while the smaller local mesh tolerates larger deformations; in case remeshing is required, only this local mesh needs to be reconstructed.
+   The results obtained from the computational simulations demonstrated the robustness and efficiency of the formulation, showing that it provides a novel and effective alternative for the analysis of FSI problems with localized effects.
+
+   \vspace{\onelineskip}
+ 
+   \noindent 
+   \textbf{Keywords}: Fluid-structure interaction. Isogeometric analysis. Finite Element Method. Domain Decomposition. 
+ \end{otherlanguage*}
+\end{resumo}

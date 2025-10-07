@@ -1,0 +1,20 @@
+%% USPSC-Resumo.tex
+\setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo		
+\begin{resumo}
+	\begin{flushleft} 
+			\setlength{\absparsep}{0pt} % ajusta o espaçamento da referência	
+			\SingleSpacing 
+			\imprimirautorabr~~\textbf{\imprimirtituloresumo}.	\imprimirdata. \pageref{LastPage} p. 
+			%Substitua p. por f. quando utilizar oneside em \documentclass
+			%\pageref{LastPage} f.
+			\imprimirtipotrabalho~-~\imprimirinstituicao, \imprimirlocal, \imprimirdata. 
+ 	\end{flushleft}
+\OnehalfSpacing 			
+	O presente trabalho teve como principal objetivo o desenvolvimento de uma ferramenta computacional robusta para a análise de problemas de interação fluido-estrutura, incorporando uma técnica de partição de domínios no escoamento fluido, de modo a capturar efeitos localizados.
+Adota-se uma formulação estabilizada para análise dos escoamentos incompressíveis isotérmicos, permitindo aproximação de mesma ordem para as variáveis de velocidades e pressão, com uma integração temporal implicita realizada através do método $\alpha$-generalizado. A análise não-linear dinâmica da estrutura é modelada empregando-se uma abordagem do método dos elementos finitos baseada em posições aplicada a elementos de casca com integrador temporal de Newmark.
+Nessa formulação, levam-se em conta os efeitos localizados no modelo do fluido através do uso de um modelo local mais refinado superposto a um modelo global com discretização mais grosseira. As discretizações utilizam aproximações baseadas na análise isogeométrica ou no método dos elementos finitos clássico. A união entre malha global e malha local é realizada através de uma formulação estabilizada do método de Arlequin, o qual efetua o cruzamento e colagem entre os modelos em uma zona de colagem através da utilização de campos de multiplicadores de Lagrange. Para garantir a estabilidade do campo de multiplicadores de Lagrange, e, ao mesmo tempo, fornecer maior flexibilidade a formulação, adiciona-se um termo consistente de estabilização, baseado no resíduo das equações governantes.
+O acoplamento fluido-estrutura é do tipo particionado forte bloco-iterativo. Neste acoplamento, a malha local é adaptada à estrutura e deforma-se dinamicamente para acomodar a movimentação da estrutura, através de uma formulação ALE (Arbitrary Lagrangian–Eulerian), enquanto que a malha global permanece fixa. O  método de acoplamento proposto pode ser caracterizado como uma abordagem híbrida e  compartilha vantagens dos métodos de rastreamento de interface (malhas móveis) e de captura de interface (contornos imersos), visto que o fluido próximo à estrutura é adequadamente discretizado garantindo a captura de efeitos localizados, ao mesmo tempo em que a malha local, por ser menor, tolera maiores deformações, e em caso de necessidade de remalhamento, apenas essa malha precisa ser reconstruída. 
+Os resultados obtidos nas simulações computacionais demonstraram a robustez e eficiência da formulação, evidenciando que trata-se de uma nova alternativa para análise de problemas de IFE com efeitos localizados.
+
+ \textbf{Palavras-chave}: Interação Fluido-Estrutura.  Análise Isogeométrica. Método dos Elementos Finitos. Partição de domínios.
+\end{resumo}

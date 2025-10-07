@@ -1,0 +1,106 @@
+Instruções:
+
+- Entende-se que o usuário esteja utilizando USPSC-3.1 ou posterior.
+- Copie as figuras em anexo e insira na pasta USPSC-3.1\USPSC-img.
+- Apesar dos comandos estarem ativos para mestrado, repare que foram providos em forma de comentários os comandos para doutorado.
+- Vão ser necessárias alterações no arquivo USPSC-modelo-EESC.tex.
+
+1 - Logo depois do \makeindex, antes do \begin{document}, insira os seguintes comandos:
+
+%---------------------------------------------------------------------
+% Imagem da capa para mestrado
+\newcommand\BackgroundPicMestrado{
+\put(-5pt,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight]{USPSC-img/CapaEESC_m.png}
+\vfill
+}}}
+
+% Imagem no final do arquivo para mestrado
+\newcommand\BackgroundLastPicMestrado{
+\put(-5pt,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight]{USPSC-img/ContraCapaEESC_m.png}
+}}}
+
+% Imagem da capa para doutorado
+\newcommand\BackgroundPicDoutorado{
+\put(-5pt,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight]{USPSC-img/CapaEESC_m.png}
+\vfill
+}}}
+
+% Imagem no final do arquivo para doutorado
+\newcommand\BackgroundLastPicDoutorado{
+\put(-5pt,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight]{USPSC-img/ContraCapaEESC_d.png}
+}}}
+
+% Página em branco
+\newcommand\BackgroundLimpo{
+\put(-5pt,0){
+\parbox[b][\paperheight]{\paperwidth}{
+\vfill
+\centering
+\includegraphics[width=\paperwidth,height=\paperheight,keepaspectratio]{USPSC-img/USPSC-PaginaEmBranco.jpg}
+\vfill
+}}}
+%---------------------------------------------------------------------
+
+2 - Depois disso, nos elementos pré-textuais, substitua o \imprimircapa, pelos comandos abaixo:
+
+%---------------------------------------------------------------------
+%\imprimircapa
+\AddToShipoutPicture{\BackgroundPicMestrado}
+%\AddToShipoutPicture{\BackgroundPicDoutorado}
+
+%-------------
+\begin{minipage}[c]{144mm}
+\centering
+\begin{textblock*}{144mm}(61mm,65mm)
+\vspace*{1,2cm}
+\linespread{0.5}
+\ABNTEXchapterfont\bfseries\Large
+\textcolor{capa-azul}{\nohyphens{\imprimirtitulo}}
+\end{textblock*}
+\end{minipage}
+\vfill
+\vspace*{5cm}
+\begin{minipage}[t][65mm][t]{125mm}
+\begin{textblock*}{125mm}(81mm,123mm)
+\ABNTEXchapterfont\bfseries\Large
+\textcolor{capa-azul}{\nohyphens{\imprimirautor}}
+\vfill
+\vspace{9pt}
+\ABNTEXsubsectionfontsize\small
+\renewcommand{\ABNTEXsubsectionfontsize}{\fontsize{10}{6}\normalfont}
+\ABNTEXsubsectionfontsize
+\textcolor{capa-azul}{\nohyphens{Disserta\c{c}\~ao de Mestrado do Programa de P\'os-Gradua\c{c}\~ao em Engenharia Civil (Engenharia de Estruturas) da Escola de Engenharia de S\~ao Carlos, Universidade de S\~ao Paulo}}
+%\textcolor{capa-azul}{\nohyphens{Tese de Doutorado do Programa de P\'os-Gradua\c{c}\~ao em Engenharia Civil (Engenharia de Estruturas) da Escola de Engenharia de S\~ao Carlos, Universidade de S\~ao Paulo}}
+\renewcommand{\ABNTEXsubsectionfontsize}{\fontsize{12}{12}\normalfont}
+\end{textblock*}
+\end{minipage}
+\newpage
+\AddToShipoutPicture{\BackgroundLimpo}
+%---------------------------------------------------------------------
+  
+3 - Com relação ao verso do trabalho, insira, logo antes do \end{document}, os seguintes comandos:
+
+%---------------------------------------------------------------------
+\newpage
+\thispagestyle{empty}
+\AddToShipoutPicture{\BackgroundLastPicMestrado}
+%\AddToShipoutPicture{\BackgroundLastPicDoutorado}
+\phantom{ }
+%---------------------------------------------------------------------
+
+
+Pronto! Se não deu certo, é por que você fez errado! Boa sorte!

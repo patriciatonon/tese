@@ -1,6 +1,3 @@
-\documentclass[tese_patricia.tex]{subfiles}
-\begin{document}
-
 \chapter[Introdução]{Introdução}\label{capitulo:introducao}
 
 A interação fluido-estrutura caracteriza-se por ser uma classe de problemas em que existe uma interdependência nos comportamentos do fluido e da estrutura. O comportamento do fluido depende do formato da estrutura e sua movimentação, assim como, o movimento e a deformação da estrutura dependem das forças que provém do fluido.
@@ -178,7 +175,7 @@ As malhas de elementos finitos utilizadas nas análises são obtidas através do
 
 No que diz respeito à infraestrutura, utiliza-se o \textit{cluster} disponível no Laboratório de Informática e de Mecânica Computacional (LIMC) do SET para a simulação de problemas mais complexos, e um computador pessoal para a simulação de problemas mais simples.
 
- \section[Justificativa]{Justificativa}
+\section[Justificativa]{Justificativa}
 
 Os problemas de interação fluido-estrutura estão presentes em todas as partes, na engenharia, nas ciências, na medicina e também no dia-a-dia das pessoas.
 O projeto de estruturas cada vez mais esbeltas, a necessidade de obtenção de energia elétrica a partir de fontes de energia limpa, como as usinas eólicas, o estudo de \textit{airbags}, o bombeamento do sangue pelos ventrículos do coração humano e o abrir e fechar das válvulas do coração, são apenas alguns dos exemplos que demonstram a necessidade de se aprofundar nos estudos da interação fluido-estrutura computacional.
@@ -186,5 +183,3 @@ O projeto de estruturas cada vez mais esbeltas, a necessidade de obtenção de e
 Enquanto que no campo engenharia estrutural os pacotes comerciais baseados em MEF estão em constante evolução, e podem resolver uma grande gama de problemas, os softwares que tratam de problemas da dinâmica dos fluidos computacional e de problemas multifísicos, como os problemas da IFE, ainda precisam evoluir muito para suprirem a demanda dos pesquisadores. A simulação numérica de problemas reais de IFE é ainda muito difícil de ser realizada em função do elevado custo computacional, e muitas vezes, devido a grande complexidade dos problemas, ainda é impossível simulá-los sem que sejam realizadas grandes simplificações. Dessa forma, os ensaios experimentais, ainda são em grande parte das vezes, a melhor forma de se estudar o comportamento de IFE, embora, sejam muito custosos e demorados.
 
 Dentro desse contexto, muitos pesquisadores tem se esforçado para que a análise de problemas da IFE computacionalmente seja possível e eficiente. Com essa mesma proposta, nesse projeto pretende-se desenvolver uma ferramenta computacional eficiente para análise tridimensional de problemas de interação fluido-estrutura utilizando uma combinação entre método dos elementos finitos e análise isogeométrica.  Nesse trabalho, será aplicado o método Arlequin para a superposição de malhas no modelo do fluido, com uma malha local mais refinada e deformável em contato com a superfície da estrutura sobreposta a uma malha global fixa e com discretização mais grosseira. Dessa forma, ainda que a estrutura mude drasticamente, não se faz necessário o remalhamento de toda a malha que compõe o fluido, diminuindo assim o custo computacional. Esta proposta compartilha as vantagens dos métodos de malhas adaptadas e de malhas não adaptadas, possuindo a possibilidade de alcançar uma ótima convergência.
-
-\end{document}

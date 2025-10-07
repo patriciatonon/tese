@@ -1,0 +1,265 @@
+% USPSC-Simbolos.tex
+\begin{simbolos}
+%  \item[$ \velocity $] Vetor de velocidade com componentes $u_1$, $u_2$ e $u_3$
+  %\nomenclature[B,02]{$\time$}{Instante de tempo arbitrário;}
+  %\nomenclature[B,03]{$\density$}{Massa específica do fluido;}
+  %\nomenclature[B,04]{$dV$}{Volume de controle infinitesimal;}
+  %\nomenclature[B,05]{$dA_i$}{Área referente à face ortogonal ao eixo $y_i$ do volume de controle infinitesimal;}
+  %\nomenclature[B,06]{$dy_i$}{Dimensão do volume de controle infinitesimal na direção $y_i$;}
+  %\nomenclature[B,07]{$\mathbf{F}$}{Vetor da resultante das forças externas atuando em um volume de controle infinitesimal, com componentes $F_1$, $F_2$ e $F_3$}
+  %\nomenclature[B,08]{$\stressTensor$}{Tensor de tensões de Cauchy de componentes $\sigma_ij$ com $i,j = 1,2,3$;}
+  %\nomenclature[B,09]{$\mathbf{b}$}{Vetor forças de campo por unidade de volume com componentes $b_1$, $b_2$ e $b_3$;}
+  %\nomenclature[B,10]{$\mathbf{q}$}{Vetor resultante das forças externas por unidade de volume com componentes $q_1$, $q_2$ e $q_3$;}
+  %\nomenclature[B,11]{$\sbodyforce$}{Vetor que representa a força de campo por unidade de massa, com componentes $f_1$, $f_2$ e $f_3$;}
+  %\nomenclature[B,12]{$\press$}{Campo de pressões de um escoamento;}
+  %\nomenclature[B,13]{$\viscosity$}{Viscosidade dinâmica do fluido;}
+  %\nomenclature[B,14]{$\straintensor(\bullet)$}{Tensor taxa de deformação infinitesimal;}
+  %\nomenclature[B,15]{$\domain$}{Domínio espacial ou domínio atual do escoamento do fluido;}
+  %\nomenclature[B,16]{$\nsd$}{Dimensão espacial;}
+  %\nomenclature[B,17]{$\boundary$}{Contorno do domínio espacial que define o escoamento do fluido;}
+  %\nomenclature[B,18]{$\boundaryD$}{Porção do contorno com condições de contorno de Dirichlet;}
+  %\nomenclature[B,19]{$\boundaryN$}{Porção do contorno com condições de contorno de Neumann;}
+  %\nomenclature[B,20]{$\totalTime$}{Intervalo de tempo total da análise;}
+  %\nomenclature[B,21]{$\velocityD$}{Vetor de velocidades prescritas;}
+  %\nomenclature[B,22]{$\surfaceLoad$}{Forças de superfície prescritas;}
+  %\nomenclature[B,23]{$\snormal$}{Vetor normal ao contorno do domínio computacional;}
+  %\nomenclature[B,24]{$\domainMat$}{Domínio inicial ou material do escoamento do fluido;}
+  %\nomenclature[B,25]{$\posMat$}{Vetor das coordenadas dos pontos materiais de um ponto arbitrário;}
+  %\nomenclature[B,26]{$\pos$}{Vetor das coordenadas atuais de um ponto arbitrário;}
+  %\nomenclature[B,27]{$\domainRef$}{Domínio de referência do escoamento do fluido;}
+  %\nomenclature[B,28]{$\posAle$}{Vetor das coordenadas de referência de um ponto arbitrário;}
+  %\nomenclature[B,29]{$\fmapAI(\posMat,t)$}{Função mudança de configuração do domínio material para o domínio espacial;}
+  %\nomenclature[B,30]{$\fmapAR(\posALE,t)$}{Função mudança de configuração do domínio de referência para o domínio espacial;}
+  %\nomenclature[B,31]{$\fmapRI(\posMat,t)$}{Função mudança de configuração do domínio material para o domínio de referência;}	
+  %\nomenclature[B,32]{$\velocityALE$}{Velocidade dos pontos de referência;}
+  %\nomenclature[B,33]{$\FmapAI$}{Matriz jacobiana da função de mapeamento $\fmapAI(\posMat,t)$;}
+  %\nomenclature[B,34]{$\FmapAR$}{Matriz jacobiana da função de mapeamento $\fmapAR(\posALE,t)$;}
+  %\nomenclature[B,35]{$\FmapRI$}{Matriz jacobiana da função de mapeamento $\fmapRI(\posMat,t)$;}
+  %\nomenclature[B,36]{$g,g^{*},g^{**}$}{Grandeza física escalar na configuração espacial, de referência e material respectivamente;}
+  %\nomenclature[B,37]{$\usolution$}{Espaço vetorial das funções aproximadoras do campo de velocidades;}
+  %\nomenclature[B,38]{$\psolution$}{Espaço vetorial das funções aproximadoras do campo de pressões;}
+  %\nomenclature[B,39]{$\uweighting$}{Espaço vetorial das funções ponderadoras do campo de velocidades;}
+  %\nomenclature[B,40]{$\pweighting$}{Espaço vetorial das funções ponderadoras do campo de pressões;}
+  %\nomenclature[B,41]{$\utest$}{Função ponderadora pertencente ao espaço $\uweighting$;}
+  %\nomenclature[B,42]{$\ptest$}{Função ponderadora pertencente ao espaço $\pweighting$;}
+  %\nomenclature[B,43]{$(\bullet)^h$}{O superscrito $h$ indica, em todos os casos, a discretização em elementos finitos da variável;}
+  %\nomenclature[B,44]{$\domainE$}{Domínio computacional de um elemento finito;}
+  %\nomenclature[B,45]{$\nel$}{Número de subdomínios do domínio discreto;}
+  %\nomenclature[B,46]{$\nnos$}{Número de nós ou pontos de controle do domínio discreto;}
+  %\nomenclature[B,47]{$\boundary^{b}$}{Domínio computacional de um elemento finito no contorno;}
+  %\nomenclature[B,48]{$\neb$}{Número de subdomínios do domínio discreto no contorno;}
+  %\nomenclature[B,49]{$\shapef$}{Função de forma da discretização do domínio;}
+  %\nomenclature[B,50]{$(\bullet)_A$}{O subscrito $A$ indica, em todos os casos, que se trata da variável respectiva ao nó $A$ da malha de elementos finitos;}
+  %\nomenclature[B,51]{$\SUPG$}{Parâmetro de estabilização do método \textit{Streamline-Upwind/Petrov-Galerkin} (SUPG);}
+  %\nomenclature[B,52]{$\PSPG$}{Parâmetro de estabilização do método \textit{Pressure-Stabilizing/Petrov-Galerkin} (PSPG);}
+  %\nomenclature[B,53]{$\LSIC$}{Parâmetro de estabilização do método \textit{Least-Squares on the Incompressibility Constraint} (LSIC);}
+  %\nomenclature[B,54]{$\resMom$}{Resíduo da equação da quantidade de movimento;}
+  %\nomenclature[B,55]{$\resPre$}{Resíduo da equação da continuidade;}
+  %\nomenclature[B,56]{$\NNSM$}{Resíduo do vetor semidiscreto da equação da quantidade de movimento;}
+  %\nomenclature[B,57]{$\NNSC$}{Resíduo do vetor semidiscreto da equação da continuidade;}
+  %\nomenclature[B,58]{$\Acceleration$}{Vetor nodal dos graus de liberdade respectivo a aceleração;}
+  %\nomenclature[B,59]{$\Velocity$}{Vetor nodal dos graus de liberdade respectivo a velocidade;}
+  %\nomenclature[B,60]{$\Press$}{Vetor nodal dos graus de liberdade respectivo a pressão;}
+  %\nomenclature[B,61]{$\matrixQ$}{Matriz Jacobiana do elemento;}
+  %\nomenclature[B,62]{$\coordAdimen$}{Vetor das coordenadas paramétricas adimensionais do elemento com componentes $\xi$, $\eta$ $\zeta$;}
+  %\nomenclature[B,63]{$\matrixD$}{Matriz que realiza mudança de escala em $\matrixQ$ para levar em conta o grau polinomial das funções de forma;}
+  %\nomenclature[B,64]{$\matrixQhat$}{Matriz jacobiana escalonada;}
+  %\nomenclature[B,65]{$\RGN$}{Comprimento direcional do elemento finito;}
+  %\nomenclature[B,66]{$\rRGN$}{Vetor unitário no sentido do gradiente da intensidade da velocidade;}
+  %\nomenclature[B,67]{$\matrixG$}{Tensor métrico do elemento;}
+  %\nomenclature[B,68]{$h_{min}$}{Mínimo comprimento de escala do elemento finito;}
+  %\nomenclature[B,69]{$h_{max}$}{Máximo comprimento de escala do elemento finito;}
+  %\nomenclature[B,70]{$\lambda_{min},\lambda_{max}$}{mínimo e máximo autovalor da matriz $\matrixG$;}
+  %\nomenclature[B,71]{$\SUGNi,\SUGNii,\SUGNiii$}{Parâmetros da estabilização SUPG/PSPG/LSIC correspondentes aos termos convectivos, inerciais e viscosos, respectivamente;}
+  %\nomenclature[B,72]{$\rRGN_{reg}$}{Vetor unitário no sentido do gradiente da intensidade da velocidade do fluido modificado de maneira a evitar problemas numéricos devido divisão por zero;}
+  %\nomenclature[B,73]{$\varepsilon$}{Constante pequena utilizada no cálculo de $\rRGN_{reg}$;}
+  %\nomenclature[B,74]{$t_{n}$}{é o tempo atual, ou seja, o instante n-ésimo no qual a solução foi calculada.;}
+  %\nomenclature[B,75]{$t_{n+1}$}{é o próximo instante de tempo, ou seja, o instante $n+1$ no qual solução será calculada;}
+  %\nomenclature[B,76]{$\alpham, \alphaf, \gamma$}{Parâmetros reais do esquema de integração temporal $\alpha$-generalizado;}
+  %\nomenclature[B,77]{$\specRadius$}{Raio espectral da matriz de amplificação;}
+  %\nomenclature[B,78]{$\Reynolds$}{Número de Reynolds;}
+  %\nomenclature[B,79]{$\velocinfty$}{Velocidade de referência;}
+  %\nomenclature[B,80]{$L$}{Comprimento característico/de referência do escoamento;}
+  %\nomenclature[B,81]{$\kviscosity$}{Viscosidade cinemática do fluido;}
+  %\nomenclature[B,82]{$F_L, F_D$}{Forças de sustentação e arrasto, respectivamente;}
+  %\nomenclature[B,83]{$C_L, C_D$}{Coeficiente de sustentação e arrasto, respectivamente;}
+  %\nomenclature[B,84]{$\Strouhal$}{Número de Strouhal;}
+  %\nomenclature[B,85]{$f_v$}{Frequência de desprendimento dos vórtices;}
+  %\nomenclature[C,01]{$p$}{Grau das funções base na direção paramétrica $\xsi$;}
+  %\nomenclature[C,02]{$\xsi$}{Vetor de \textit{knots} na direção paramétrica $\xsi$;}
+  %\nomenclature[C,03]{$\xsi$}{Uma das direções paramémtricas nas quais as funções base são definidas;}
+  %\nomenclature[C,04]{$n$}{Número de funções base na direção paramétrica $\xsi$ ;}
+  %\nomenclature[C,05]{$N$}{Função base \textit {B-Spline} na direção paramétrica $\xsi$ ;}
+  %\nomenclature[C,06]{$\CP$}{Pontos de controle que descrevem a geometria \textit{B-Spline} ou NURBS;}
+  %\nomenclature[C,07]{$\mathbf{C}$}{Curva \textit {B-Spline} ou NURBS;}
+  %\nomenclature[C,08]{$m$}{Grau das funções base na direção paramétrica $\eta$;}
+  %\nomenclature[C,09]{$\mathcal{H}$}{Vetor de \textit{knots} na direção paramétrica $\eta$;}
+  %\nomenclature[C,10]{$q$}{Número de funções base na direção paramétrica $\eta$ ;}
+  %\nomenclature[C,11]{$\eta$}{Uma das direções paramémtricas nas quais as funções base são definidas;}
+  %\nomenclature[C,12]{$M$}{Função base \textit {B-Spline} na direção paramétrica $\eta$ ;}
+  %\nomenclature[C,13]{$\mathbf{S}$}{Superfície \textit {B-Spline} ou NURBS;}
+  %\nomenclature[C,14]{$\hat{N}$}{Função \textit {B-Spline} fruto do produto tensorial entre funções base descritas em um espaço paramétrico qualquer;}
+  %\nomenclature[C,15]{$L$}{Função base \textit {B-Spline} na direção paramétrica $\zeta$ ;}
+  %\nomenclature[C,16]{$r$}{Grau das funções base na direção paramétrica $\zeta$;}
+  %\nomenclature[C,17]{$\mathcal{Z}$}{Vetor de \textit{knots} na direção paramétrica $\zeta$;}
+  %\nomenclature[C,18]{$\zeta$}{Uma das direções paramémtricas nas quais as funções base são definidas;}
+  %\nomenclature[C,19]{$l$}{Número de funções base na direção paramétrica $\zeta$ ;}
+  %\nomenclature[C,20]{$\mathbf{T}$}{Sólido \textit {B-Spline} ou NURBS;}
+  %\nomenclature[C,21]{$\mathbf{C}^{w}$}{Curva \textit{B-Spline} no $\realspace^{d+1}$ cuja projeção transformativa gera uma curva \mathbf{C} no $\realspace^{d}$;}
+  %\nomenclature[C,22]{$R$}{Função base NURBS;}
+  %\nomenclature[C,23]{$w$}{Peso respectivo a um ponto de controle;}
+  %\nomenclature[C,24]{$\mathbf{\hat{\xsi}}$}{Coordenadas do espaço parental, no qual realiza-se a integração numérica;}
+  %\nomenclature[C,25]{$\hat{\xsi}$}{Uma das direções do espaço parental;}
+  %\nomenclature[C,26]{$\hat{\eta}$}{Uma das direções do espaço parental;}
+  %\nomenclature[C,27]{$\hat{\zeta}$}{Uma das direções do espaço parental;}
+  %\nomenclature[C,28]{$\tilde{\Omega^{e}}$}{Domínio de uma célula no espaço paramétrico;}
+  %\nomenclature[C,29]{$\hat{\Omega^{e}}$}{Domínio de um uma célula o no espaço parental;}
+  %\nomenclature[C,30]{$h$}{Dimensão na direção $y$ da entrada do perfil parabólico no problema do escoamento sobre canal com degrau;}
+  %\nomenclature[C,31]{$s$}{Dimensão  na direção $y$ do degrau que compõe o problema do escoamento sobre canal com degrau;}
+  %\nomenclature[C,32]{$x_{e}$}{Dimensão na direção $x$  do degrau que compõe o problema do escoamento sobre canal com degrau;}
+  %\nomenclature[C,33]{$x_{f}$}{Dimensão na direção $x$  do \textit{patch} $P1$ do problema do escoamento sobre canal com degrau;}
+  %\nomenclature[C,34]{$x_{t}$}{Dimensão do canal após o degrau na direção $x$ do problema do escoamento sobre canal com degrau;}
+  %\nomenclature[C,35]{$V_{max}$}{Velocidade máxima do perfil parabólico na entrada do problema do escoamento sobre canal com degrau;}
+  %\nomenclature[C,36]{$x_{r}$}{Dimensão do vórtice primário que se forma no problema de escoamento sobre canal com degrau;}
+  %\nomenclature[C,37]{$P_{i}$}{Patch de número $i$;}
+%  	\nomenclature[D,01]{$\Omega_{x}$}{Domínio inicial de um sólido deformável;}
+%  \nomenclature[D,02]{$\lPosition$}{Coordenadas ou posições materiais do domínio inicial;}
+%  \nomenclature[D,03]{$\Omega_{y}$}{Domínio atual de um sólido deformável;}
+%  \nomenclature[D,04]{$\ePosition$}{Coordenadas ou posições espaciais do domínio atual;}
+%  \nomenclature[D,05]{$\deformation$}{Função mudança de configuração para um descrição Lagrangiana;}
+%  \nomenclature[D,06]{$\greenStrain$}{Tensor de deformações de Green-Lagrange;}
+%  \nomenclature[D,07]{$\cauchyStretch$}{Tensor de alongamento à direita de Cauchy-Green;}
+%  \nomenclature[D,08]{$\gradDeformation$}{Grandiente da função mudança de configuração;}
+%  \nomenclature[D,09]{$\mathbf{u}$}{Vetor qualquer definido na configuração inicial;}
+%  \nomenclature[D,10]{$\mathbf{v}$}{Vetor qualquer definido na configuração atual;}
+%  \nomenclature[D,11]{$dV_{0}$}{Infinitésimo de volume definido na configuração inicial;}
+%  \nomenclature[D,12]{$dV$}{Infinitésimo de81 volume definido na configuração atual;}
+%  \nomenclature[D,13]{$\mathbf{dx}^{i}$}{Vetor que define o lado $i$ de um infinitésimo de volume na configuração inicial, com $i = 1,2,3$;}
+%  \nomenclature[D,14]{$dx_{j}^{i}$}{Componente do vetor $mathbf{dx}^{i}$ na direção do eixo $x_{j}$;}
+%  \nomenclature[D,15]{$\mathbf{dy}^{i}$}{Vetor que define o lado $i$ de um infinitésimo de volume na configuração atual, com $i = 1,2,3$;}
+%  \nomenclature[D,16]{$dy_{j}^{i}$}{Componente do vetor $mathbf{dy}^{i}$ na direção do eixo $y_{j}$;}
+%  \nomenclature[D,17]{J}{Jacobiano da transformação, definido como $det(\gradDeformation)$};
+%  \nomenclature[D,18]{$\mathbf{dA}_{0}$}{Vetor de área da seção transversal de um volume na configuração inicial;}
+%  \nomenclature[D,19]{$\mathbf{dA}$}{Vetor de área da seção transversal de um volume na configuração atual;}
+%  \nomenclature[D,20]{$\mathbf{N}$}{Vetor normal a uma superfície na configuração inicial;}
+%  \nomenclature[D,21]{$\mathbf{n}$}{Vetor normal a uma superfície na configuração atual;}
+%  \nomenclature[D,22]{${dA}_{0}$}{Área da seção transversal de um volume na configuração inicial;}
+%  \nomenclature[D,23]{${dA}$}{Área da seção transversal de um volume na configuração atual;}
+%  \nomenclature[D,24]{$\mathbf{B}$}{Tensor definido como $\mathbf{B} = \gradDeformation^{-t}$;}
+%  \nomenclature[D,25]{$\extEnergy$}{Energia potencial das forças externas;}
+%  \nomenclature[D,26]{$\intEnergy$}{Energia de deformação;}
+%  \nomenclature[D,27]{$\kinEnergy$}{Energia cinética;}
+%  \nomenclature[D,28]{$\totalEnergy$}{Energia total mecânica;}
+%  \nomenclature[D,29]{$\delta(\bullet)$}{Variação aplicada a variável $(\bullet)$;}
+%  \nomenclature[D,30]{$\ebodyLoad$}{Forças de corpo na configuração atual;}
+%  \nomenclature[D,31]{$\tractionLoad$}{Forças de superfície na configuração atual;}
+%  \nomenclature[D,32]{$\stressTensor$}{Tensor de tensões de Cauchy;}
+%  \nomenclature[D,33]{$\rho$}{Massa específica do sólido;}
+%  \nomenclature[D,34]{$\solidAccel$}{Aceleração do sólido;}
+%  \nomenclature[D,35]{$\strainratetensor$}{Tensor de deformação linear de engenharia;}
+%  \nomenclature[D,36]{$M$}{Massa de um corpo;}
+%  \nomenclature[D,37]{$t$}{Instante de tempo qualquer da análise;}
+%  \nomenclature[D,38]{$\rho_{0}$}{Massa específica do corpo na configuração inicial;}
+%  \nomenclature[D,39]{$\ebodyLoad^{0}$}{Forças de corpo na configuração inicial;}
+%  \nomenclature[D,40]{$\mathbf{P}$}{Tensor de tensões de Piola Kirchhoff;}
+%  \nomenclature[D,41]{$\tractionLoad^{0}$}{Forças de superfície na configuração inicial;}
+%  \nomenclature[D,42]{$\piolaStress$}{Segundo tensor de tensões de Piola Kirchhoff;}
+%  \nomenclature[D,43]{$u_{e}$} {Expressão generalizada da energia de deformação;}
+%  \nomenclature[D,44]{$\constitutiveTensor$}{Tensor constitutivo elástico isotrópico;}
+%  \nomenclature[D,45]{$\bulkModulus$}{Módulo volumétrico;}
+%  \nomenclature[D,46]{$\shearModulus$}{Módulo de cisalhamento;}
+%  \nomenclature[D,47]{$\elasticModulus$ }{Módulo de elasticidade;}
+%  \nomenclature[D,48]{$\poisonsRatio$}{Coeficiente de Poisson;}
+%  \nomenclature[D,49]{$\deformation^{m0}$}{Função mudança de configuração da superfície média de uma casca que mapeia o domínio paramétrico para o domínio inicial;}
+%  \nomenclature[D,50]{$\lPosition^{m}$}{Posições da superfície média de uma casca na configuração inicial;}
+%  \nomenclature[D,51]{$\bm{\xi}$}{Coordenadas adimensionais que definem o espaço paramétrico}
+%  \nomenclature[D,52]{$\mathbf{X}$}{Posições discretas nodais de um elemento de casca na configuração inicial;}
+%  \nomenclature[D,53]{$N$}{Funções de forma}
+%  \nomenclature[D,54]{$\deformation^{m1}$}{Função mudança de configuração da superfície média de uma casca que mapeia o domínio paramétrico para o domínio atual;}
+%  \nomenclature[D,55]{$\ePosition^{m}$}{Posições da superfície média de uma casca na configuração atual;}
+%  \nomenclature[D,56]{$\SolidPos$}{Posições discretas nodais de um elemento de casca na configuração atual;}
+%  \nomenclature[D,57]{$\mathbf{v}^{0}$}{Vetor posição definido a partir da superfície média da casca em sua configuração inicial;}
+%  \nomenclature[D,58]{$\mathbf{v}^{1}$}{Vetor posição definido a partir da superfície média da casca em sua configuração atual;}
+%  \nomenclature[D,59]{$h_{0}$}{Espessura média inicial de um elemento de casca;}
+%  \nomenclature[D,60]{$\mathbf{V}^{0}$}{Vetor posição discreto nodal na configuração inicial;}
+%  \nomenclature[D,61]{$\mathbf{V}^{1}$}{Vetor posição discreto nodal na configuração atual;}
+%  \nomenclature[D,62]{$\alpha$}{Taxa linear de variação da espessura de um elemento de casca;}
+%  \nomenclature[D,63]{$\Lambda$}{Taxa linear discreta nodal da variação da espessura de um elemento de casca;}
+%  \nomenclature[D,64]{$\deformation^{0}$}{Função mudança de configuração de uma casca que mapeia o domínio paramétrico para o domínio inicial;}
+%  \nomenclature[D,65]{$\deformation^{1}$}{Função mudança de configuração de uma casca que mapeia o domínio paramétrico para o domínio atual;}
+%  \nomenclature[D,66]{$\mathbf{F}$}{Vetor de forças nodais aplicadas na configuração inicial;}
+%  \nomenclature[D,67]{$\gradDeformation^{1}$}{Gradiente da função mudança de configuração $\deformation^{1}$;}
+%  \nomenclature[D,68]{$\gradDeformation^{0}$}{Gradiente da função mudança de configuração $\deformation^{0}$;}
+%  \nomenclature[D,69]{$\mathbf{B}^{0}$}{Vetor discreto nodal que define as forças de corpo na configuração inicial;}
+%  \nomenclature[D,70]{$\mathbf{Q}^{0}$}{Vetor discreto nodal que define as forças de superfície na configuração inicial;}
+%  \nomenclature[D,71]{$\mathbf{\ddot{Y}}$}{Vetor discreto nodal que define a aceleração;}
+%  \nomenclature[D,72]{$\concLoad^{ext}$}{Vetor discreto nodal que define as forças externas atuantes em um sólido;}
+%  \nomenclature[D,73]{$\solidMass$}{Matriz de massa de um elemento;}
+%  \nomenclature[D,74]{$\concLoad^{int}$}{Vetor discreto nodal que define as forças internas atuantes em um sólido;}
+%  \nomenclature[D,75]{$\solidDamping$}{Matriz de amortecimento de um elemento;}
+%  \nomenclature[D,76]{$\SolidVel_{}$}{Vetor discreto nodal que define a velocidade;}
+%  \nomenclature[D,77]{$t_{n+1}$}{Tempo discreto no instante atual;} 
+%  \nomenclature[D,78]{$t_{n}$}{Tempo discreto no instante anterior;} 
+%  \nomenclature[D,79]{$\Delta t$}{Intervalo de tempo da discretização temporal;}
+%  \nomenclature[D,80]{$\beta$}{Parâmetro da aproximação temporal de Newmark;}
+%  \nomenclature[D,81]{$\gamma$}{Parâmetro da aproximação temporal de Newmark;}
+%  \nomenclature[D,82]{$\mathbf{Q}_n$ e $\mathbf{R}_n$}{Termos da aproximação de Newmark que relacionam velocidade, aceleração e posições em um instante de tempo anterior;}
+%  \nomenclature[D,83]{$\NNSS$}{Vetor discreto que representa o resíduo da equação de equilíbrio discretizada no espaço e tempo;}
+%	\nomenclature[F,01]{$(\bullet)_{0}, (\bullet)_{1}$}{Subíndices que designam o modelo Global e o modelo Local respectivamente;}
+%	\nomenclature[F,02]{$\overlappingZone$}{Zona de superposição;}
+%	\nomenclature[F,03]{$\gluingZone$}{Zona de colagem;}
+%	\nomenclature[F,04]{$\freeZone$}{Zona livre;}
+%	\nomenclature[F,05]{$\lagrangeMultiplier$}{Campo de multiplicadores de Lagrange;}
+%	\nomenclature[F,06]{$k_{0},k_{1}$}{Constantes dos operadores de acoplamento;}
+%	\nomenclature[F,07]{$L^{2}$}{Operador de acoplamento de ordem 0;}
+%	\nomenclature[F,08]{$H^{1}$}{Operador de acoplamento de ordem 1;}
+%	\nomenclature[F,09]{$\arlequinWF$}{Função ponderadora;}
+%	\nomenclature[F,10]{$k_{a}$}{Constante arbitrária do método de Arlequin;}
+%	\nomenclature[F,11]{$\lagSolution$}{Espaço vetorial das funções aproximadoras do campo de multiplicadores de Lagrange;}
+%	\nomenclature[F,12]{$\lagTest$}{Espaço vetorial das funções ponderadoras do campo de multiplicadores de Lagrange;}
+%	\nomenclature[F,13]{$\lagrangeMultiplierWFh$}{Função ponderadora pertencente ao espaço $\lagTest$;}
+%	\nomenclature[F,14]{$\chi$}{Função lógica para determinação do pertencimento de um ponto à $\gluingZone$;}
+%	\nomenclature[F,15]{$\tauArlequin$}{Parâmetro de estabilização da técnica RBSAM;}
+%	\nomenclature[F,16]{$\mathbf{K}_{i}$}{Matriz que representa os termos provenientes das matrizes referentes as equações da quantidade de movimento e da continuidade para o modelo $i$;}
+%	\nomenclature[F,17]{$\mathbf{\hat{L}}_{i}$}{Matriz que representa os termos oriundos do acoplamento do modelo $i$;;}
+%	\nomenclature[F,18]{$\mathbf{L}_{i}^{T}$}{Matriz procedente dos termos da equação de restrição e de componentes da estabilização RBSAM do modelo $i$;}
+%	\nomenclature[F,19]{$\mathbf{E}$}{Matriz com termos oriundos da estabilização RBSAM;}
+%	\nomenclature[F,20]{$\mathbf{\bar{U}}_{i}$}{Representa os vetores nodais dos graus de liberdade respectivos a velocidade e pressão do modelo $i$;}
+%	\nomenclature[F,21]{$\LagrangeMultiplier$}{Representa os graus de liberdade respectivos aos multiplicadores de Lagrange;}
+%	\nomenclature[F,22]{$\mathbf{F}_{i}$}{Representam os vetores provenientes das equações da quantidade de movimento e da continuidade do modelo $i$;}
+%	\nomenclature[F,23]{$\mathbf{F}_{\LagrangeMultiplier}$}{Representa os termos vetoriais advindos da estabilização RBSAM;}
+%	\nomenclature[F,24]{$\NNSL$}{Resíduo da versão semidiscreta da equação de restrição}
+%	\nomenclature[F,25]{$\tau_{A},\tau_{A}^{0},\tau_{A}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+%	\nomenclature[F,26]{$\tau_{B},\tau_{B}^{0},\tau_{B}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+%	\nomenclature[F,27]{$\tau_{C},\tau_{C}^{0},\tau_{C}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+%	\nomenclature[F,28]{$\tau_{D},\tau_{D}^{0},\tau_{D}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+%	\nomenclature[F,29]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
+%	\nomenclature[F,30]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}	
+%	\nomenclature[F,31]{$\mathbf{M}_{\lambda},\mathbf{t}, \mathbf{j}, \mathbf{k}, \mathbf{p}, \mathbf{\boundary}$}{Vetores elementares da formulação usadas na definição de $\tauArlequin$, relativo aos termos de restrição, convectivos, inerciais, viscosos, pressão e de acoplamento respectivamente;}
+%	\nomenclature[F,32]{$C$}{Corda: distância entre o bordo ataque e de fuga do aerofólio;}	
+%	\nomenclature[F,33]{$\theta, \theta_{max}, \theta_{min}$}{Ângulo de ataque; Ângulo de ataque máximo; Ângulo de ataque mínimo;}	
+%	\nomenclature[F,34]{$f_{o}$}{Frequência de oscilação;}
+%	\nomenclature[G,01]{$\domainFSI$}{Domínio computacional de problemas de Interação Fluido Estrutura;}
+%	\nomenclature[G,02]{$(\bullet)_{F}, (\bullet)_{E}, (\bullet)_{M}$}{Subíndices que designam fluido, estrutura e malha respectivamente;}
+%	\nomenclature[G,03]{$\boundaryFSI$}{Contorno que define a interface fluido-estrutura;}
+%	\nomenclature[G,04]{$._{\tildet}$}{Subíndice que designa tempo de referência$;}
+%	\nomenclature[G,05]{$\testfunction$}{Função peso respectiva ao deslocamento da malha;}
+%	\nomenclature[G,06]{$\dispMh$}{Vetor de deslocamento da malha medido a partir de uma configuração de referência;}
+%	\nomenclature[G,07]{$\dispMtth}$}{Vetor de deslocamento da malha no tempo $\tilde{t}$ medido a partir de uma configuração de referência;}
+%\nomenclature[G,08]{$\dispM$}{Vetor de deslocamentos da malha;}
+%\nomenclature[G,09]{$elasticityM$}{Módulo de elasticidade fictício da malha;}
+%\nomenclature[G,10]{$poissonm$}{Coeficiente de poisson fictício da malha;}
+%\nomenclature[G,11]{$\jacM$}{Jacobiano da malha;}
+%\nomenclature[G,12]{$(\jacM)_{0}$}{Parâmetro livre;}
+%\nomenclature[G,12]{$\chi_M$}{Parâmetro que determina a ordem pelo qual os elementos menores serão enrijecidos mais do que os maiores;}
+%\nomenclature[G,14]{$\Ni$}{Equação que descreve o comportamento do problema de IFE com i = 1,3 (1- fluido, 2-estrutura e 3-malha);}
+%\nomenclature[G,15]{$\mathbf{d}_{i}$}{Vetores com as variáveis nodais do problema de IFE com i = 1,3 (1- fluido, 2-estrutura e 3-malha);}
+%\nomenclature[G,16]{$\mA_{ij}$}{$\mA{ij} = \frac{\partial\Ni}{\partial\djj}$;}
+%\nomenclature[G,17]{$\mathbf{x}_{i}$}{Incremento às soluções  $\mathbf{d}_{i}$;}
+%\nomenclature[G,18]{$\mathbf{c}_{i}$}{$\mathbf{c}_{i} = -\Ni$}
+%\nomenclature[G,19]{$\mathbf{t^{E}}$}{Forças de superfície no contorno $\boundaryFSI$ aplicadas a estrutura;}
+%\nomenclature[G,20]{$h$}{Espessura da placa;}
+%\nomenclature[G,21]{$f_{f}$}{Frequência de desprendimento de vórtices do fluido;}
+%\nomenclature[G,22]{$f_{i}$}{i-ésima frequência natural da estrutura;}
+
+\end{simbolos}
