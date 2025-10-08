@@ -1,18 +1,24 @@
 \chapter[Dinâmica dos sólidos computacional]{Dinâmica dos sólidos computacional} \label{capitulo:Cap4}
 
-Assim como no caso da Mecânica dos Fluidos, um sólido é modelado como um corpo contínuo, com seu movimento governado por um conjunto de equações provenientes da lei da conservação da quantidade de movimento, lei da conservação da massa e lei da conservação de energia. Entretanto, diferentemente dos fluidos, os sólidos possuem resistência aos esforços normais e tangenciais até que alcancem seu limite resistente, e por isso, apresentam deslocamentos e deformações finitos. As variáveis de interesse na resolução do conjunto de equações que descrevem o comportamento do sólido são os deslocamentos, ou, posições atuais ao longo do tempo, dessa forma, uma descrição do tipo Lagrangiana é mais adequada para essas análises.
+Assim como no caso da Mecânica dos Fluidos, um sólido é modelado como um corpo contínuo, com seu movimento governado por um conjunto de equações provenientes da lei da conservação da quantidade de movimento, lei da conservação da massa e lei da conservação de energia. Entretanto, diferentemente dos fluidos, os sólidos possuem resistência às solicitações tangenciais até que alcance seu limite resistente, e por isso, apresentam deslocamentos e deformações finitos. 
 
-No contexto da mecânica dos sólidos, o comportamento estrutural pode ser classificado como linear ou não linear. As não linearidades podem ser de natureza geométrica, quando associadas à presença de grandes deslocamentos e rotações que invalidam a hipótese de pequenas deformações, ou de natureza física, quando resultam de modificações na relação constitutiva do material.
+As variáveis de interesse na resolução do conjunto de equações que descrevem o comportamento do sólido são os deslocamentos, ou, posições atuais ao longo do tempo, dessa forma, uma descrição do tipo Lagrangiana é mais adequada para essas análises.
 
-Para problemas de sólidos com comportamento elástico, quando houver a possibilidade de grandes deslocamentos, a não-linearidade geométrica deve ser contemplada. Para essa análise, altera-se a forma de consideração do equilíbrio das forças no sólido. Enquanto que em uma modelagem linear, o equilíbrio é realizado em relação a configuração inicial, que é muito próxima a configuração atual do corpo, em uma análise não-linear, o equilíbrio é considerado na configuração atual (ver, por exemplo \citeonline{Ogden:1984} e \citeonline{Coda:2018}).
+Nesse contexto, o comportamento estrutural pode ser classificado como linear ou não linear. No contexto do comportamento não linear, em geral, as não linearidades envolvidas podem ser de natureza geométrica, quando associadas à presença de grandes deslocamentos e rotações que não permitem aproximar a configuração atual pela inicial, ou de natureza física, quando resultam de modificações na relação constitutiva do material.
 
-Em muitos problemas da IFE, como \textit{flutter} e \textit{buffeting}, grandes deslocamentos estão envolvidos. Por isso, nesse estudo, utiliza-se uma formulação não-linear geométrica dinâmica baseada em uma descrição Lagrangiana Total para as análises das estruturas. A formulação é baseada no método dos elementos finitos com abordagem posicional \cite{Coda:2003,Coda:2018}, onde as variáveis principais são as posições nodais. Escolheu-se trabalhar com elementos de cascas, uma vez que esses podem representar a maioria dos problemas estruturais tridimensionais. No casos das cascas, vetores generalizados e um termo que considera a variação linear da espessura do elemento para permitir o mapeamento completo do sólido, são adicionadas às incógnitas nodais do problema. 
+Para problemas de sólidos com comportamento elástico, quando houver a possibilidade de grandes deslocamentos, a não-linearidade geométrica deve ser contemplada no modelo matemático. Para isso, altera-se a forma de consideração do equilíbrio das forças no sólido. Enquanto que em uma modelagem geometricamente linear o equilíbrio é considerado na configuração inicial, que é muito próxima a configuração atual do corpo, em uma análise não-linear geométrica, o equilíbrio é considerado na configuração atual (ver, por exemplo \citeonline{Ogden:1984} e \citeonline{Coda:2018}).
 
-Neste capítulo, a formulação é apresentada a partir da descrição da cinemática e das condições de equilíbrio dos corpos deformáveis, com o objetivo de se deduzirem as equações globais de equilíbrio na formulação Lagrangiana, seguida pela introdução do modelo constitutivo de \textit{Saint-Venant–Kirchhoff}. Em seguida, aborda-se o método dos elementos finitos posicional aplicado ao elemento finito de casca, incluindo a técnica de integração temporal empregada. Na sequência, apresenta-se o algoritmo de implementação computacional adotado e, por fim, são expostos os resultados de um exemplo de validação.
+Em muitos problemas da IFE, tal como o \textit{flutter}, grandes deslocamentos estão envolvidos. Desse modo, neste estudo utiliza-se uma formulação não-linear geométrica dinâmica de cascas baseada em uma descrição Lagrangiana Total para as análise dinâmica de estruturas. 
+
+A formulação é baseada no método dos elementos finitos com abordagem posicional \cite{Coda:2003,Coda:2018}, onde as variáveis principais são as posições nodais. Escolheu-se trabalhar com elementos de cascas, uma vez que esses podem representar a maioria dos problemas estruturais tridimensionais. 
+
+Considera-se a cinemática de Reissner-Mindlin, e adotam-se como parâmetros nodais as posições da superfície média, vetores generalizados, inicialmente unitários e perpendiculares à superfície média, e um termo de enriquecimento que permite considerar variação linear de deformação na direção da espessura, de acordo com \citeonline{SanchesC:2013}. Isso permite um mapeamento completo e flexível do elemento deformado. 
+
+Neste capítulo, a formulação é apresentada a partir da descrição da cinemática e das condições de equilíbrio dos corpos deformáveis, com o objetivo de se deduzirem as equações globais de equilíbrio na descrição Lagrangiana, seguida pela introdução do modelo constitutivo de \textit{Saint-Venant–Kirchhoff}. Em seguida, aborda-se a formulação do método dos elementos finitos baseada em posição para ao elemento finito de casca adotado, a técnica de integração temporal e o algoritmo para solução, juntamente com um exemplo. Essa formulação foi desenvolvida, verificada e validada em diversos estudos \cite{Coda.., SanchesC:2013, SanchesC:2014, FernandesCS:2018} \textcolor{red}{citar trabalhos com casca dinâmica} e o código computacional já disponível no grupo de pesquisa foi aproveitado, de modo que não se preocupa com validação do código. 
 
 \section{Cinemática dos corpos deformáveis}
 
-Um sólido deformável quando sujeito à ações externas, sofre uma mudança de configuração. Na \autoref{fig:solido_cinematica}, pode-se observar um sólido na sua configuração inicial $\Omega_{0}$, com coordenadas materiais descritas por $\lPosition$, e, o sólido no instante atual, representado por $\Omega$, com coordenadas espaciais $\ePosition$. 
+Um sólido deformável quando sujeito à ações externas, sofre uma mudança de configuração. Nesta seção busca-se definir medidas pontuais para a deformação. Na \autoref{fig:solido_cinematica}, pode-se observar um sólido na sua configuração inicial $\Omega_{0}$, com coordenadas materiais descritas por $\lPosition$, e o mesmo sólido no instante atual, representado por $\Omega$, com coordenadas espaciais $\ePosition$. 
 
 \begin{figure}[!htbp]
 	\caption{Cinemática de um sólido deformável}
@@ -28,19 +34,21 @@ A função mudança de configuração, denominada de $\fmap$, mapeia cada ponto 
 	\ePosition = \fmap(\lPosition,t).
 \end{align}
 
-Uma medida de deformação Lagrangeana deve quantificar a mudança de forma em cada ponto do contínuo em relação ao estado inicial. Para o caso de grandes deslocamentos, assunto desse estudo, a medida de deformação deve ser independente de movimento de corpo rígido ou da escolha dos eixos de referência, ou seja, deve ser uma medida objetiva de deformação. A medida de deformação é descrita em termos do gradiente da função mudança de configuração, $\gradDeformation$, definido matematicamente como:
+Uma medida de deformação Lagrangeana deve quantificar a mudança de forma em cada ponto do contínuo em relação ao estado inicial. Para o caso de grandes deslocamentos, assunto deste estudo, a medida de deformação deve ser independente de movimento de corpo rígido ou da escolha dos eixos de referência, ou seja, deve ser uma medida objetiva. A medida de deformação é descrita em termos do gradiente da função mudança de configuração, $\gradDeformation$, definido como:
 
 \begin{align}
 	\gradDeformation = \lGrad\left(\fmap\right) = \lGrad\ePosition.
 \end{align}
 
-Nesse contexto, o tensor de deformações de Green-Lagrange, respeita a condição de medida de deformação objetiva, sendo descrito de acordo com \citeonline{Ogden:1984} pela seguinte expressão: 
+\noindent onde o subscrito $\lPosition$ indica que o gradiente é tomado segundo as coordenadas da configuração material inicial.
+
+A partir de $\gradDeformation$, é possível definir o tensor de deformações de Green-Lagrange (ver por exemplo \citeonline{Ogden:1984}), que é uma medida de deformação objetiva e normalizada dada por: 
 
 \begin{align}
 \greenStrain = \frac{1}{2}\left(\cauchyStretch - \unittensor\right),
 \end{align}
 
-\noindent sendo $\cauchyStretch$ um tensor simétrico denominado de tensor de alongamento à direita de Cauchy-Green, o qual é escrito como:
+\noindent onde $\cauchyStretch$ é um tensor simétrico denominado de tensor de alongamento à direita de Cauchy-Green dado por:
 
 \begin{align}
 \cauchyStretch = \gradDeformation^{t} \cdot \gradDeformation =  \gradDeformation \cdot \gradDeformation^{t}.
@@ -60,13 +68,13 @@ No estabelecimento de uma relação entre o volume inicial e final, definem-se d
 dV_{0} = (\mathbf{dx}_{1} \wedge \mathbf{dx}_{2}) \cdot \mathbf{dx}_{3} = \det{(\mathbf{dx_1},\mathbf{dx_2},\mathbf{dx_3})},
 \end{align}
 
-\noindent com $\mathbf{dx}_1,\mathbf{dx}_2$ e $\mathbf{dx}_3$ vetores que definem o volume inicial. O volume atual pode ser expresso então, por:
+\noindent com $\mathbf{dx}_1,\mathbf{dx}_2$ e $\mathbf{dx}_3$ vetores materiais que definem o volume inicial. O volume atual pode ser expresso então, por:
 
 \begin{align}
 dV = (\mathbf{dy}_{1} \wedge \mathbf{dy}_{2}) \cdot \mathbf{dy}_{3} = \det{(\mathbf{dy_1},\mathbf{dy_2},\mathbf{dy_3})}, \label{eq:vol_atual}
 \end{align}
 
-\noindent  sendo $\mathbf{dy}_1,\mathbf{dy}_2$ e $\mathbf{dy}_3$ os vetores que definem o volume atual.
+\noindent  sendo $\mathbf{dy}_1,\mathbf{dy}_2$ e $\mathbf{dy}_3$ aos mesmos vetores $\mathbf{dx}_1,\mathbf{dx}_2$ e $\mathbf{dx}_3$ após a mudança de configuração.
 
 Tendo em vista a expressão \ref{eq:rel_vet}, pode-se reescrever a \autoref{eq:vol_atual}, como:
 
@@ -84,21 +92,14 @@ dV = \det{\left(\gradDeformation\right)} \cdot \det{(\mathbf{dx_1},\mathbf{dx_2}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Para escrever a relação entre as áreas inicial e atual se tomará como referência os cilindros da \autoref{fig:solido_def_area}. Considerando um vetor área inicial $\mathbf{dA}_{0}$ e um vetor área atual $\mathbf{dA}$ como:
-
-\begin{align}
-\mathbf{dA}_{0} = \mathbf{N}dA_{0},\\
-\mathbf{dA} = \mathbf{n}dA \label{eq:areas},
-\end{align}
-
-\noindent com $\mathbf{N}$ e $\mathbf{n}$ os versores unitários normais às áreas inicial $dA_{0}$ e atual $dA$. O volume na configuração inicial ($dV_{0}$) e na configuração atual ($dV$) são calculados por:
+Para escrever a relação entre uma área definida na configuração inicial e o seu valor na configuração atual, considera-se o cilindro apresentado na \autoref{fig:solido_def_area} em suas configurações inicial e atual. Sendo $\mathbf{N}$ e $\mathbf{n}$ os versores unitários normais às áreas inicial $dA_{0}$ e atual $dA$. Os volumes na configuração inicial ($dV_{0}$) e na configuração atual ($dV$) são calculados por:
 
 \begin{align}
 dV_{0} = \mathbf{u} \cdot \mathbf{dA}_{0} = \mathbf{u} \cdot \mathbf{N} dA_0 ,\\
 dV = \mathbf{v} \cdot \mathbf{dA} = \mathbf{v} \cdot \mathbf{n} dA \label{eq:vol_func_area},
 \end{align}
 
-\noindent com $\mathbf{u}$ e $\mathbf{v}$ vetores não coplanares com as áreas inicial e atual, respectivamente.
+\noindent com $\mathbf{u}$ e $\mathbf{v}$ vetores não coplanares com as áreas inicial e atual, que ligam os centros da base e do topo do cilindro.
 
 \begin{figure}[!htbp]
 	\caption{Mudança de área}
@@ -114,12 +115,13 @@ Considerando a relação da \autoref{eq:rel_vet}, pode-se escrever o volume na c
 	dV = \mathbf{u} \cdot \gradDeformation^{t} \cdot \mathbf{n} dA = J dV_0 = J \mathbf{u} \cdot \mathbf{N} dA_0. \label{eq:dv}
 \end{align}
 
-Pré-multiplicando-se a \autoref{eq:dv} por $\mathbf{B}$ ($(\gradDeformation^{t})^{-1}$) e considerando-se a arbitrariedade de $\mathbf{u}$, chega-se a conhecida fórmula de Nanson, descrita como:
+Pré-multiplicando-se a \autoref{eq:dv} por ($(\gradDeformation^{t})^{-1}$) e considerando-se a arbitrariedade de $\mathbf{u}$, chega-se a conhecida fórmula de Nanson, descrita como:
 
 \begin{align}
-\mathbf{n}dA = J \mathbf{B} \cdot \mathbf{N} dA_{0}. \label{eq:Nanson}
+\mathbf{n}dA = J \gradDeformation^{-t} \cdot \mathbf{N} dA_{0}. \label{eq:Nanson}
 \end{align}
 
+aquiiiii.....
 
 \section{Equilíbrio de corpos deformáveis} \label{capitulo:Cap3:EquilibrioCorposDeformaveis}
 
