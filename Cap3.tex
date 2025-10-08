@@ -498,9 +498,13 @@ Para múltiplas dimensões o coeficiente de transformação $D$ é obtido indivi
 
 \textcolor{red}{Descreva o problema aqui, mesmo que seja apenas para dizer que trata-se do mesmo problema simulado anteriormente}
 
+Este é o mesmo exemplo simulado com elementos finitos na subseção \ref{capitulo:Cap2:VerApl:Cilindo}, porém considerando-se discretização tridimensional do domínio como representado na Fig. \ref{fig:cilindro_geometria3d}. São adotados os mesmos parâmetros de análise sendo considerados também os 3 valores de número de Reynolds: $\Reynolds =$ 40, 100 e, 1000. . A dimensão $t$ na direção $y_3$ é equivalente à $0,01D$. Aplica-se um perfil de velocidade constante na entrada do domínio, $\velocity=[u_\infty,0,0]$, e condições de parede lisa são atribuídas às paredes superior e inferior, enquanto que para as frontal e dos fundos condições de simetria são aplicadas.
+
+Por se tratar do primeiro exemplo com discretização isogeométrica, descreve-se de maneira detalhada a geração da discretização espacial, enquanto nos demais problemas a discretização é apenas apresentada.
+
 \subsubsection {Geração da malha NURBS} \label{Cap3:VerApl:Cilindro:Malha}
 
-Para a análise do problema de escoamento sobre um cilindro utilizando-se discretização isogeométrica espacial, dada a simplicidade da geometria envolvida, a malha é desenvolvida pela própria autora, i.e., sem o emprego de programas CAD para geração da malha isogeométrica. Para isso, com base nas dimensões bidimensionais do exemplo apresentado na Subseção \ref{capitulo:Cap2:VerApl:Cilindo}, divide-se o domínio físico em 12 \textit{patches}, conforme pode ser ilustrado na Fig.~\ref{fig:cilindro_IGA_patches}.
+Dada a simplicidade da geometria envolvida, a malha é desenvolvida pela própria autora, i.e., sem o emprego de programas CAD para geração da malha isogeométrica. Para isso, com base nas dimensões bidimensionais do exemplo apresentado na Subseção \ref{capitulo:Cap2:VerApl:Cilindo}, divide-se o domínio físico em 12 \textit{patches}, conforme pode ser ilustrado na Fig.~\ref{fig:cilindro_IGA_patches}.
 
 \begin{figure}[htb!]
 	\centering 
@@ -524,14 +528,13 @@ Na sequência refina-se a discretização por inserção sucessiva de coordenada
 	\label{fig:cilindro_geo0}
 \end{figure}
 
-Dando continuidade para a representação da geometria do \textit{patch} $P_0$, gera-se uma curva na direção paramétrica $\xsi$ que define o contorno direito do domínio. A curva é definida considerando o vetor de \textit{knots} atualizado $\Xsi=\left[0,0,0,1/4,1/2,3/4,1,1,1\right]$ e  consiste em uma reta cujas coordenadas de suas extremidades inicial e final são: $\pos_0 =[2,-2,0]$ e $\pos_1 =[2, 2 ,0]$, respectivamente. Os $6$ pontos de controle são distribuídos sobre a reta através de um espaçamento não uniforme: nas extremidades, a distância entre pontos consecutivos corresponde à metade do espaçamento adotado no interior, enquanto a região central é subdividida uniformemente, conforme pode ser observado na Fig. \ref{fig:cilindro_pc_superficie}. Essa distribuição não uniforme dos pontos de controle proporciona uma distribuição uniforme das células mapeadas no espaço físico. Para essa curva, todos os pesos são definidos como $1$.
+Para a representação da geometria do \textit{patch} $P_0$, gera-se uma curva na direção paramétrica $\xsi$ que define o contorno direito do domínio. A curva é definida considerando o vetor de \textit{knots} atualizado $\Xsi=\left[0,0,0,1/4,1/2,3/4,1,1,1\right]$ e  consiste em uma reta cujas coordenadas de suas extremidades inicial e final são: $\pos_0 =[2,-2,0]$ e $\pos_1 =[2, 2 ,0]$, respectivamente. Os $6$ pontos de controle são distribuídos sobre a reta através de um espaçamento não uniforme: nas extremidades, a distância entre pontos consecutivos corresponde à metade do espaçamento adotado no interior, enquanto a região central é subdividida uniformemente, conforme pode ser observado na Fig. \ref{fig:cilindro_pc_superficie}. Essa distribuição não uniforme dos pontos de controle proporciona uma distribuição uniforme das células mapeadas no espaço físico. Para essa curva, todos os pesos são definidos como $1$.
 
-aquiiiiiiii
-A superfície do domínio foi gerada discretizando-se a direção $\eta$ do espaço paramétrico. Para isso, os $m+1$ pontos de controle nessa direção foram posicionados ao longo das retas que conectam os pontos de controle da primeira camada (circunferência) aos da última camada (reta). A distribuição desses pontos seguiu uma progressão geométrica, de modo que as células menores se localizassem próximas ao cilindro, captando adequadamente os efeitos de camada limite. Para garantir que essa distribuição também se refletisse nas células mapeadas para o espaço físico, aplicou-se um fator de correção aos pontos de controle intermediários $B_{i,1}$ e $B_{i,m-1}$, para $i = 0, 1, \dots , n$, deslocando-os em direção aos pontos de controle das extremidades.
+A superfície do domínio é gerada discretizando-se a direção $\eta$ do espaço paramétrico. Para isso, os $m+1$ pontos de controle nessa direção são posicionados ao longo das retas que conectam os pontos de controle da primeira camada (circunferência) aos da última camada (reta). A distribuição desses pontos segue uma progressão geométrica de modo que as células menores fiquem próximas ao cilindro garantindo uma melhor resolução para captar os efeitos de camada limite. Para garantir que essa distribuição também se refleta nas células mapeadas para o espaço físico, aplica um fator de correção aos pontos de controle intermediários $B_{i,1}$ e $B_{i,m-1}$, para $i = 0, 1, \dots , n$, deslocando-os em direção aos pontos de controle das extremidades.
 
-A fim de exemplificar a geração da superfície, adotou-se a discretização mínima necessária, utilizando apenas três pontos de controle na direção $\eta$, para o emprego de funções quadráticas e vetor de \textit{knots} aberto $\mathcal{H}=[0,0,0,1,1,1]$, conforme pode-se observar na Fig. \ref{fig:cilindro_pc_superficie}. Na fig. \ref{fig:cilindro_malhafisica_superficie} apresentam-se as células mapeadas do espaço paramétrico para o espaço físico. Salienta-se que os pontos de controle obtidos nessa etapa foram definidos com peso unitário.
+Esse processo é exemplificado na Fig. \ref{fig:cilindro_pc_superficie} com a discretização mínima necessária para o emprego de funções quadráticas, utilizando-se apenas três pontos de controle na direção $\eta$, com o vetor de \textit{knots} aberto $\mathcal{H}=[0,0,0,1,1,1]$. Na fig. \ref{fig:cilindro_malhafisica_superficie} apresentam-se as células mapeadas do espaço paramétrico para o espaço físico. Salienta-se que os pontos de controle obtidos nessa etapa foram definidos com peso unitário.
 
-Para a simulação numérica apresentada na sequência a quantidade de pontos de controle na direção $\eta$ foi definida em função da necessidade de discretização para o problema. Para um vetor de \textit{knots} abertos com coordenadas interiores de multiplicidade unitária, a quantidade de células ($ncel$) está relacionada a quantidade de pontos de controle por $ncel = npc-deg$, sendo $npc$ o número de pontos de controle e $deg$ o grau das funções na direção paramétrica em questão.
+Para a simulação numérica apresentada na sequência, a quantidade de pontos de controle na direção $\eta$ foi definida em função da necessidade de discretização para o problema. Para um vetor de \textit{knots} abertos com coordenadas interiores de multiplicidade unitária, a quantidade de células ($ncel$) está relacionada número de pontos de controle $npc$ por $ncel = npc-deg$,  sendo $deg$ o grau das funções na direção paramétrica em questão.
 
 \begin{figure}[!t]
 	\centering
@@ -541,7 +544,7 @@ Para a simulação numérica apresentada na sequência a quantidade de pontos de
 	\label{fig:cilindro_geo1}
 \end{figure}
 
-Por fim, para a geração do sólido NURBS, com apenas uma camada de células na direção paramétrica $\zeta$, correspondente à direção $y_3$ do espaço físico deste problema, foram utilizadas funções quadráticas, um vetor de \textit{knots} aberto $\mathcal{Z} = \left[0,0,0,1,1,1\right]$, assim como pontos de controle distribuídos uniformemente e de peso unitário. Na Fig. \ref{fig:cilindro_pc_solido} pode-se observar a rede de pontos de controle resultante, na qual a nomenclatura dos pontos foi omitida para facilitar a visualização. Na fig. \ref{fig:cilindro_malhafisica_solido} apresenta-se a malha física derivada da discretização exemplificativa do \textit{patch} $P_0$.
+Por fim, para a geração do volume NURBS, adota-se apenas uma camada de células na direção paramétrica $\zeta$, correspondente à direção $y_3$ do espaço físico deste problema. São empregadas funções quadráticas, com vetor de \textit{knots} aberto $\mathcal{Z} = \left[0,0,0,1,1,1\right]$ na direção $\zeta$ e pontos de controle distribuídos uniformemente e com peso unitário. Nas Figs. \ref{fig:cilindro_pc_solido} e \ref{fig:cilindro_malhafisica_solido} apresenta-se a rede de pontos e a malha física para a geração do volume equivalente ao \textit{patch} $P_0$ com a discretização mínima necessária.
 
 \begin{figure}[!t]
 	\centering
@@ -553,16 +556,7 @@ Por fim, para a geração do sólido NURBS, com apenas uma camada de células na
 
 Para os \textit{patches} $P_1$, $P_2$ e $P_3$, utiliza-se a mesma parametrização de $P_0$, obtendo-se seus pontos de controle por rotação dos pontos de controle de $P_0$, de modo que cada um seja ajustado ao quadrante do cilindro correspondente.
 
-Para a geração dos demais \textit{patches} retangulares, $P_4$ à $P_{11}$, definiu-se a direção paramétrica $\xsi$ respectiva à direção física $y_1$, $\eta$ correspondente à $y_2$ e $\zeta$ à $y_3$. A quantidade de pontos de controle em cada direção foi definida a partir do número de células desejadas para a análise numérica. Considerando o exposto anterior para o \textit{patch} $P_0$, a distribuição dos pontos de controle foi realizada de forma a se obter células físicas igualmente espaçadas, ou, arranjadas com um espaçamento que segue uma distribuição geométrica. Os pontos de controle foram definidos com peso unitário. Os vetores de \textit{knots} são abertos e com espaçamento interior subdividido de maneira uniforme. As funções NURBS utilizadas foram quadráticas. 
-
-Destaca-se que na discretização de todos os \textit{patches} é necessário garantir uma parametrização idêntica nos planos que apresentam fronteira com outro \textit{patch}.
-
-
-\subsubsection {Análise numérica}
-
-Conforme exposto na Subseção \ref{capitulo:Cap2:VerApl:Cilindo} o estudo do problema de escoamento sobre um cilindro proporciona avaliar se o modelo computacional implementado é capaz de reproduzir os fenômenos relacionados à formação e desprendimentos de vórtices, além de propiciar a validação do código através da comparação dos coeficientes aerodinâmicos medidos ao longo do tempo com referências bibliográficas disponíveis na literatura especializada. Visando a verificação do código de IGA com células 3D analisa-se o problema do escoamento sobre o cilindro para $\Reynolds = 40$, $\Reynolds = 100$, e, $\Reynolds = 1000$.
-
-O domínio do problema simulado é um volume retangular discretizado em função do diâmetro do cilindro e é apresentado na Fig. \ref{fig:cilindro_geometria3d}. A dimensão $t$ na direção $y_3$ é equivalente à $0,01D$. Aplica-se um perfil de velocidade constante na entrada do domínio, $\velocity=[u_\infty,0,0]$, e condições de parede lisa são atribuídas às paredes superior e inferior, enquanto que para as frontal e dos fundos condições de simetria são aplicadas.
+Para a geração dos\textit{patches} retangulares, $P_4$ à $P_{11}$, definiu-se a direção paramétrica $\xsi$ respectiva à direção física $y_1$, $\eta$ correspondente à $y_2$ e $\zeta$ à $y_3$. A quantidade de pontos de controle em cada direção foi definida a partir do número de células desejadas para a análise numérica e garantir compatibilidade com os \textit{patches} $P_0$ - $P_3$, adotando-se pesos unitários para os pontos de controle, vetores de \textit{knots} abertos e com espaçamento uniforme e funções NURBS quadráticas. 
 
 A malha isogeométrica utilizada é apresentada na Fig. \ref{fig:cilindro_malha3d} e na Tab. \ref{tab:cilindro_discretização_patches} pode-se observar a quantidade de pontos de controle em cada uma das direções paramétricas utilizados na discretização de cada um dos \textit{patches} que compõe a malha, resultando em 30228 pontos de controle e 8728 células físicas.
 
@@ -621,8 +615,10 @@ A malha isogeométrica utilizada é apresentada na Fig. \ref{fig:cilindro_malha3
 	\end{minipage}
 \end{table}
 
+\textcolor{red}{Qual a espessura adotada??}
 
-O problema é simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\rho = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$, sendo a viscosidade variada de acordo com o número de Reynolds desejado.  Calculam-se os coeficientes aerodinâmicos, $C_{D}$ e $C_{L}$, a partir das definições de forças de arrasto e de sustentação apresentadas respectivamente nas Eq. \ref{eq:F_D} e Eq.\ref{eq:F_L}, através das seguintes equações:
+\subsubsection {Análise numérica}
+O problema é simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\rho = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$, sendo a viscosidade variada de acordo com o número de Reynolds desejado.  Para a discretização 3D, calculam-se os coeficientes aerodinâmicos $C_{D}$ e $C_{L}$ a partir das definições de forças de arrasto e de sustentação através das seguintes equações:
 
 \begin{align}
 	C_D = \frac{F_D}{0,5\density \lVert \velocinfty \lVert^{2} L t},
@@ -633,7 +629,7 @@ O problema é simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\rho =
 \end{align}.
 
 
-Nas Figs. \ref{fig:cilindro_cd3d} e \ref{fig:cilindro_cl3d}, apresenta-se a variação ao longo do tempo dos coeficientes aerodinâmicos $C_{D}$ e $C_{L}$. Os valores do coeficiente de arrasto médio obtidos com a malha isogeométrica com células 3d foram: $C_{Dmed} = 1,54$ para $\Reynolds = 40$, $C_{Dmed} = 1,36$ para $\Reynolds = 100$ e $C_{Dmed} = 1,49$ para $\Reynolds = 1000$. Ressalta-se, que apesar dos valores de $C_{Dmed}$ estarem bem próximos aos da simulação com MEF tradicional da Subseção \ref{capitulo:Cap2:VerApl:Cilindo}, para as análises utilizando IGA, foram necessários mais passos de tempo para o início do processo de desprendimento de vórtices, nos casos de $\Reynolds = 100$ e $\Reynolds = 1000$. 
+As Figs. \ref{fig:cilindro_cd3d} e \ref{fig:cilindro_cl3d} apresentam a história de $C_{D}$ e $C_{L}$. Os valores do coeficiente de arrasto médio obtidos com a malha isogeométrica com células 3d foram: $C_{Dmed} = 1,54$ para $\Reynolds = 40$, $C_{Dmed} = 1,36$ para $\Reynolds = 100$ e $C_{Dmed} = 1,49$ para $\Reynolds = 1000$. Ressalta-se, que apesar dos valores de $C_{Dmed}$ estarem bem próximos aos da simulação com MEF tradicional da Subseção \ref{capitulo:Cap2:VerApl:Cilindo}, para as análises utilizando IGA, foram necessários mais passos de tempo para o início do processo de desprendimento de vórtices nos casos de $\Reynolds = 100$ e $\Reynolds = 1000$, o que está associado tanto à melhor uniformidade da discretização quanto à diferença na resolução da malha no plano $y_1\times y_2$. 
 
 \begin{figure}[!htb]
 	\centering
@@ -644,7 +640,7 @@ Nas Figs. \ref{fig:cilindro_cd3d} e \ref{fig:cilindro_cl3d}, apresenta-se a vari
 	\label{fig:cilindro_coeficientes3d}
 \end{figure}
 
-Nas Fig. \ref{fig:cilindro_iga_camposVel} e Fig. \ref{fig:cilindro_iga_camposPressao} são apresentados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices para $\Reynolds = 1000$.
+Os campos de velocidade e pressão para diferentes instantes ao longo de um ciclo de desprendimento de vórtices para $\Reynolds = 1000$ são apresentados nas Fig. \ref{fig:cilindro_iga_camposVel} e Fig. \ref{fig:cilindro_iga_camposPressao}, onde observa-se resultados qualitativamente consistentes com o esperado.
 
 
 \begin{figure}[htb!]
@@ -676,9 +672,21 @@ Nas Fig. \ref{fig:cilindro_iga_camposVel} e Fig. \ref{fig:cilindro_iga_camposPre
 
 \subsection {Escoamento em um canal com degrau}
 
-O problema de escoamento em canal com degrau consiste na aplicação de um perfil de velocidade parabólico na entrada de um canal, o qual caracteriza-se pela presença de um degrau próximo a entrada do escoamento. A existência do degrau acarreta na formação de um vórtice de recirculação, chamado aqui de vórtice primário, o qual aumenta de tamanho, a medida que se eleva o número de Reynolds do escoamento. A dimensão do vórtice primário, para diferentes números de Reynolds, será alvo de avaliação nessa seção, através da análise comparativa deste dado com bibliografias de referência.
+Este problema consiste num escoamento em um canal fechado com um degrau à jusante da entrada, causando expansão abrupta da altura do canal, conforme apresentado na Fig.\ref{fig:degrau_geometria}, onde é descrita a a geometria do canal em vista no plano $y_1\times y_2$, sendo as dimensões: $h = 1,0m$, $s = 0,94m$, $x_{e}= 1,0m$, $x_{f}= 15m$ e $x_{t} = 30m$. A espessura adotada, na direção $y_3$, é constante e igual a $0,1m$.  
 
-Na Fig.\ref{fig:degrau_geometria} apresenta-se a configuração geral da geometria do canal, que foi discretizado através do uso de células isogeométricas 3d definidas dentro de cinco \textit{patches} que descrevem o domínio do problema. As dimensões do canal são: $h = 1,0m$, $s = 0,94m$, $x_{e}= 1,0m$, $x_{f}= 15m$ e $x_{t} = 30m$. A profundidade do canal adotada, na direção $y_3$, é equivalente a $0,1m$. Devido a pequena dimensão definida em $y_3$ a simulação numérica realizada é caracterizada como um escoamento em domínio bidimensional.
+Considera-se condição de aderência nas paredes paralelas aos planos $y_1$$y_3$ e $y_1$$y_3$ com $u_1=u_2=u_3=0$, enquanto as paredes paralelas ao plano $y_1$$y_2$ são consideradas lisas, com apenas $u_3=0$. Na entrada prescreve-se o perfil parabólico para $u_1$ dado por:
+
+\begin{align}
+u_{1} = V_{max} \left(1-\left(\frac{\left(y_2-s\right)-h/2}{h/2}\right)^{2}\right),
+\end{align}
+
+\noindent com velocidade $V_{max} = 10 m/s$ e $u_{2} = u_{3} = 0$.
+
+O escoamento sobre o degrau é caracterizado por produzir áreas de recirculação onde o fluido se separa e forma vórtices. A distância entre o degrau e o ponto de recolamento do vórtice principal, $x_{r}$, é uma das principais características verificadas nesse problema. A dimensão dos vórtices varia em função do número de $\Reynolds$, o qual é calculado de acordo com \citeonline {ArmalyDP:1983}, por:
+
+\begin{align}
+\Reynolds =\frac{\rho\left(\frac{2V_{max}}{3}\right)2h}{\viscosity}.
+\end{align}
 
 \begin{figure}[htb!]
 	\centering
@@ -687,8 +695,10 @@ Na Fig.\ref{fig:degrau_geometria} apresenta-se a configuração geral da geometr
 	\label{fig:degrau_geometria}
 \end{figure}
 
-Para a geração da geometria NURBS, os 5 \textit{patches}, denominados $P_{0},P_{1},P_{2},P_{3}$ e $P_{4}$, são discretizados em todas as direções paramétricas com funções base quadráticas e com vetores de \textit{knots} abertos de coordenadas paramétricas igualmente espaçados em seu interior. Os pontos de controle para os \textit{patches} $P_0$, $P_1$ e $P_2$ foram distribuídos no espaço físico, direções $y_1$, $y_2$ e $y_3$, de maneira a se obter células igualmente espaçadas. Ressalta-se, que o número de células está relacionado a quantidade de pontos de controle por $ncel = npc-deg$.
-Para os \textit{patches} $P_3$ e $P_4$, na direção do espaço físico $y_2$ e $y_3$, os pontos de controle são posicionadas de maneira a gerar células uniformes, e, na direção $y_1$, são distribuídos de maneira a se obter células em progressão geométrica, aumentando de tamanho no sentido do contorno de saída, conforme pode ser observado na Fig. \ref{fig:degrau_malha}. Na Tab. \ref{tab:degrau_discretização_patches} apresenta-se o número de pontos de controle em cada direção paramétrica para cada \textit{patch}, resultando em 17640 pontos de controle e 4800 células.
+Embora o problema possua caráter bidimensional, para fins de verificação do código, adota-se discretização isoparamétrica 3d com cinco \textit{patches} e um total de 17640 pontos de controle e 4800 células, conforme pode ser observado na Fig. \ref{fig:degrau_malha}. Na Tab. \ref{tab:degrau_discretização_patches} apresenta-se o número de pontos de controle em cada direção paramétrica para cada \textit{patch}. 
+
+% Para a geração da geometria NURBS, os 5 \textit{patches}, denominados $P_{0},P_{1},P_{2},P_{3}$ e $P_{4}$, são discretizados em todas as direções paramétricas com funções base quadráticas e com vetores de \textit{knots} abertos de coordenadas paramétricas igualmente espaçados em seu interior. Os pontos de controle para os \textit{patches} $P_0$, $P_1$ e $P_2$ foram distribuídos no espaço físico, direções $y_1$, $y_2$ e $y_3$, de maneira a se obter células igualmente espaçadas. Ressalta-se, que o número de células está relacionado a quantidade de pontos de controle por $ncel = npc-deg$.
+%Para os \textit{patches} $P_3$ e $P_4$, na direção do espaço físico $y_2$ e $y_3$, os pontos de controle são posicionadas de maneira a gerar células uniformes, e, na direção $y_1$, são distribuídos de maneira a se obter células em progressão geométrica, aumentando de tamanho no sentido do contorno de saída, 
 
 \begin{figure}[htb!]
 	\centering
@@ -721,29 +731,18 @@ Para os \textit{patches} $P_3$ e $P_4$, na direção do espaço físico $y_2$ e 
 	\end{table}
 \end{center}
 
-Para a simulação numérica, aplicou-se condição de aderência nos contornos contidos nos planos $y_1$$y_3$ e $y_1$$y_3$, exceto naqueles com condições de entrada ou de saída. Nos contornos contidos nos planos $y_1$$y_2$ aplicou-se condição de simetria. O perfil parabólico adotado na entrada do domínio é descrito pela seguinte equação:
 
-\begin{align}
-u_{1} = V_{max} \left(1-\left(\frac{\left(y_2-s\right)-h/2}{h/2}\right)^{2}\right),
-\end{align}
+São simulados três diferentes número de Reynolds para as análises: $\Reynolds = 100$, $\Reynolds = 400$ e $\Reynolds = 800$, os quais são obtidos a partir da variação da viscosidade do fluido. Considera-se  $\rho = 1kg/m^{3}$, $\timeStep = 0,05s$, e $\specRadius = 0,5$. As simulações são mantidas até que seja atingido o estado estacionário, sobre o qual são feitas as análises.
 
-\noindent com velocidade $V_{max} = 10 m/s$ e $u_{2} = u_{3} = 0$ nesse contorno.
+De acordo com os experimentos realizados por \citeonline{ArmalyDP:1983}, as medições do comprimento do vórtice primário, logo a jusante do degrau na parte inferior, identificam o regime do escoamento como laminar ($\Reynolds < 1200$), transiente ($1200 < \Reynolds < 6600$) e turbulento ($\Reynolds > 6600$). Além disso, o autor constata em seus ensaios que para $\Reynolds < 400$ o escoamento é predominantemente bidimensional, enquanto que para Reynolds superiores,  o escoamento apresenta regiões de comportamento tridimensional. 
 
-O escoamento sobre o degrau é caracterizado por produzir áreas de recirculação onde o fluido se separa e forma vórtices. A distância entre o degrau e o ponto de recolamento do vórtice principal, $x_{r}$, é uma das principais características verificadas nesse problema. A dimensão dos vórtices varia em função do número de $\Reynolds$, o qual é calculado de acordo com \citeonline {ArmalyDP:1983}, por:
+\citeonline{ArmalyDP:1983} em suas análises constatou o surgimento de uma bolha de separação adicional ao longo do piso do canal, a jusante da separação primária, a qual desaparece para $\Reynolds > 2300$. Outra região de separação secundária também é observada ao longo da parede superior à jusante do degrau. Isso desenvolve-se a partir de Re 400 e permanece durante todo o regime de transição.
 
-\begin{align}
-\Reynolds =\frac{\rho\left(\frac{2V_{max}}{3}\right)2h}{\viscosity}.
-\end{align}
+Na Fig. \ref{fig:degrau_comprimento_vortice_principal} são apresentados os comprimentos de recolamento do vórtice primário adimensionalizados ($x_{r}/s$) obtidos nesse trabalho, juntamente com os valores experimentais reportados por \citeonline{ArmalyDP:1983} e os resultados de análises numéricas 2d e 3d de \citeonline{WilliamsB:1999}. 
 
-Foram selecionados três diferentes número de Reynolds para as análises: $\Reynolds = 100$, $\Reynolds = 400$ e $\Reynolds = 800$, os quais são obtidos a partir da variação da viscosidade do fluido. Considerou-se  $\rho = 1kg/m^{3}$, $\timeStep = 0,05s$, e $\specRadius = 0,5$.
+Com essa figura é possível observar que a medida que o número de Reynolds aumenta, os resultados obtidos do presente estudo se afastam dos valores de referência respectivos ao estudo experimental e da simulação tridimensional. Este fato ocorre visto que o ensaio experimental foi realizado em um canal com $2m$ profundidade na direção $y_3$, enquanto que a simulação atual conta com apenas uma célula nessa direção, sendo então incapaz de captar os fenômenos tridimensionais que ocorrem a medida que o número de Reynolds cresce. 
 
-De acordo com os experimentos realizados por \citeonline{ArmalyDP:1983}, as medições do comprimento do vórtice primário, logo a jusante do degrau na parte inferior, identificam o regime do escoamento como laminar ($\Reynolds < 1200$), transiente ($1200 < \Reynolds < 6600$) e turbulento ($\Reynolds > 6600$). Além disso, o autor constatou em seus ensaios que para $\Reynolds < 400$ o escoamento é predominantemente bidimensional, enquanto que para Reynolds superiores,  o escoamento apresenta regiões de comportamento tridimensional. 
-
-\citeonline{ArmalyDP:1983} em suas análises constatou o surgimento de uma bolha de separação adicional ao longo do piso do canal, a jusante da separação primária, a qual desaparece para $\Reynolds > 2300$. Outra região de separação secundária também foi observada ao longo da parede superior, a jusante do degrau, desenvolvendo-se a partir de Re 400 e permanecendo durante todo o regime de transição.
-
-Na Fig. \ref{fig:degrau_comprimento_vortice_principal} são apresentados os comprimentos de recolamento do vórtice primário adimensionalizados ($x_{r}/s$) obtidos nesse trabalho, juntamente com os valores adaptados dos ensaios experimentais de \citeonline{ArmalyDP:1983} e os resultados de análises 2d e 3d de \citeonline{WilliamsB:1999}. Com essa figura é possível observar que a medida que o número de Reynolds aumenta, os resultados obtidos do presente estudo se afastam dos valores de referência respectivos ao estudo experimental e da simulação tridimensional. Este fato ocorre visto que o ensaio experimental foi realizado em um canal com $2m$ profundidade na direção $y_3$, enquanto que a simulação atual conta com apenas uma célula nessa direção, sendo então incapaz de captar os fenômenos tridimensionais que ocorrem a medida que o número de Reynolds cresce. 
-
-Na Fig.\ref {fig:degrau_campos_velocidade_Re100} pode-se observar o campo de velocidade para o domínio completo e para a região do vórtice primário para $\Reynolds = 100$, enquanto que na Fig. \ref {fig:degrau_campos_velocidade_Re400} e na Fig. \ref {fig:degrau_campos_velocidade_Re800} são apresentados para $\Reynolds = 400$ e $\Reynolds = 800$ respectivamente. Para $\Reynolds = 800$ constatou-se a formação de um vórtice secundário na parede superior, conforme havia sido relatado pelos autores previamente citados, conforme pode ser observado na Fig. \ref{fig:degrau_vor_sec_re800}.
+Na Fig.\ref {fig:degrau_campos_velocidade_Re100} pode-se observar a distribuição do módulo da velocidade para o domínio completo e para a região do vórtice primário para $\Reynolds = 100$, enquanto nas Figs. \ref {fig:degrau_campos_velocidade_Re400} e \ref {fig:degrau_campos_velocidade_Re800} apresenta-se o mesmo para $\Reynolds = 400$ e $\Reynolds = 800$ respectivamente. Para $\Reynolds = 800$ constata-se a formação de um vórtice secundário na parede superior (Fig. \ref{fig:degrau_vor_sec_re800}), que está de acordo com o relato dos autores previamente citados.
 
 Por fim, na Fig. \ref{fig:degrau_campos_pressao} é possível observa-se os campos de pressão para todos os números de Reynolds simulados.
 
