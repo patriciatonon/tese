@@ -121,15 +121,14 @@ Pré-multiplicando-se a \autoref{eq:dv} por ($(\gradDeformation^{t})^{-1}$) e co
 \mathbf{n}dA = J \gradDeformation^{-t} \cdot \mathbf{N} dA_{0}. \label{eq:Nanson}
 \end{align}
 
-aquiiiii.....
 
 \section{Equilíbrio de corpos deformáveis} \label{capitulo:Cap3:EquilibrioCorposDeformaveis}
 
 \subsection{Estado de tensão em um ponto}
 
-Um corpo contínuo, ao ser submetido a ações externas, desenvolve forças internas de modo a garantir o equilíbrio dinâmico ou estático. A medida em cada ponto dessas forças internas é fundamental dentro da mecânica dos sólidos para a aplicação das leis da física às partículas do corpo.
+Um corpo contínuo, ao ser submetido a ações externas, desenvolve forças internas de modo a garantir o equilíbrio dinâmico ou estático. A medida dessas forças internas em cada ponto material é fundamental dentro da para a aplicação das leis que governam o movimento dos sólidos.
 
-Considerando um corpo qualquer, na configuração atual, sujeito a um conjunto equilibrado de forças externas, ao fazer-se a extração de um volume elementar infinitesimal, conforme pode ser observado na \autoref{fig:sol_equi}, surgem em suas faces, por ação e reação, uma distribuição de forças por unidade de superfície. Decompondo essas tensões em componentes cartesianas, obtém-se em cada face uma componente normal e duas componentes tangenciais de tensão. As componentes de tensão são designadas por $\sigma_{ij}$, com $i$ referindo-se ao plano de atuação e $j$ indicando a direção de atuação da tensão. Na \autoref{fig:sol_equi} podem ser observadas as componentes positivas de tensão em cada plano. No plano paralelo oposto, pela lei da ação e reação, as tensões possuem mesma intensidade, porém sentido contrário.
+Considerando um corpo qualquer, na configuração atual, sujeito a um conjunto equilibrado de forças externas, ao fazer-se a extração de um volume elementar infinitesimal , conforme pode ser observado na \autoref{fig:sol_equi}, considerando as forças que o restante do corpo exerce de forma distribuída sobre cada uma de suas faces são obtidas as componentes cartesianas de tensão, com uma componente normal e duas componentes tangenciais (de cisalhamento) em cada face. Essa medida de tensão é denominada tensão de Cauchy, sendo suas componentes designadas por $\sigma_{ij}$, com $i$ referindo-se ao plano de atuação e $j$ indicando a direção de atuação da componente.
 
 \begin{figure}[!htbp]
 	\caption{Volume infinitesimal: componentes de tensão}
@@ -139,7 +138,7 @@ Considerando um corpo qualquer, na configuração atual, sujeito a um conjunto e
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-O tensor de tensões de Cauchy ($\cauchyStress$) contém todas as informações de tensão em um ponto e será representado como:
+O tensor de tensões de Cauchy ($\cauchyStress$) contém todas as informações de tensão em um ponto, sendo representado por:
 
 \begin{align}
 \cauchyStress =
@@ -163,9 +162,9 @@ Ao realizar-se o equilíbrio de momentos sobre um elemento infinitesimal, nota-s
 	.
 \end{align}
 
-Vale ressaltar que, a tensão de Cauchy é definida na configuração atual do contínuo, e por isso, trata-se de uma medida Euleriana de tensão.
+Vale ressaltar que, a tensão de Cauchy é definida na configuração atual do contínuo, e por isso, trata-se de uma medida Euleriana de tensão, portanto inadequada para a formulação pretendida.
 
-Se extraíssemos do corpo contínuo um volume tetraédrico (\autoref{fig:sol_tetra}), no plano inclinado, cujo versor normal é $\mathbf{n}$, surge um vetor de tensões designado por $\mathbf{t}$. Considerando que a área do plano inclinado foi definida como $dA$, enquanto que as áreas correspondentes aos planos coordenados são suas projeções, pode-se calcular o equilíbrio do tetraedro em cada direção, chegando-se a seguinte expressão:
+Extraindo-se do corpo contínuo um volume tetraédrico (\autoref{fig:sol_tetra}), no plano inclinado, cujo versor normal é $\mathbf{n}$, surge o vetor tensão de Cauchy designado por $\mathbf{t}$. Considerando que a área do plano inclinado seja $dA$, enquanto que as áreas correspondentes aos planos coordenados são suas projeções, pode-se calcular o equilíbrio do tetraedro em cada direção, chegando-se a seguinte expressão:
 
 \begin{align}
 	\mathbf{t} = \cauchyStress^{t} \cdot \mathbf{n} =  \cauchyStress \cdot \mathbf{n}.
@@ -179,16 +178,16 @@ Se extraíssemos do corpo contínuo um volume tetraédrico (\autoref{fig:sol_tet
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Essa expressão é conhecida por fórmula de Cauchy. Considerando que o plano inclinado refere-se a superfície externa, essa equação pode ser utilizada para relacionar o estado de tensão em um ponto com as forças de superfície ($\mathbf{p}$), como:
+Essa expressão é conhecida por fórmula de Cauchy. Caso o plano inclinado esteja no contorno do corpo (superfície externa), $\mathbf{t}$ se iguala às forças de superfície ($\mathbf{p}$) que atuam no ponto considerado do contorno, ou seja:
  
 \begin{align}
 	\mathbf{p} = \cauchyStress^{t} \cdot \mathbf{n} =  \cauchyStress \cdot \mathbf{n}.
 \end{align}
 
 
-\subsection{Equilíbrio local Lagrangeano}
+\subsection{Equilíbrio em descrição Lagrangiana}
 
-Para a obtenção das equações de equilíbrio local em descrição Lagrangeana, será utilizada como ponto de partida a equação de equilíbrio local Euleriana. Para isso, considere o sólido apresentado na \autoref{fig:sol_cargas}, o qual está submetido a forças de corpo, $\ebodyLoad$, e a forças de superfície, $\tractionLoad$. Extraindo-se um elemento infinitesimal deste corpo que sofreu mudança de configuração, e aplicando-se a segunda Lei de Newton, o  equilíbrio local pode ser descrito:
+Para a obtenção das equações de equilíbrio em descrição Lagrangiana, será utilizada como ponto de partida a equação de equilíbrio local na descrição Euleriana. Para isso, considere o sólido apresentado na \autoref{fig:sol_cargas}, o qual está submetido a forças de corpo, $\ebodyLoad$, e a forças de superfície, $\tractionLoad$. Extraindo-se um elemento infinitesimal deste corpo que sofreu mudança de configuração, e aplicando-se a segunda Lei de Newton sobre esse elemento, chega-se à equação do movimento de Cauchy, que define o  equilíbrio de forma local (forma local da primeira Lei do movimento de Euler), também chamada de equação da quantidade de movimento:
 
 \begin{align}
 	\gradient \cdot \stressTensor^{t} + \ebodyLoad = \rho  \solidAccel, \label{eq:equi_local_euleriano}
@@ -200,7 +199,7 @@ Para a obtenção das equações de equilíbrio local em descrição Lagrangeana
 	\sigma_{ji,j} + b_i  = \rho  \ddot{y_i},
 \end{align}
 
-\noindent com $\rho$ representando a massa específica do material que compõe o sólido e $\solidAccel$ é a derivada material da velocidade do ponto material (aceleração do corpo).
+\noindent com $\rho$ representando a massa específica do material na configuração atual e $\solidAccel$ é a derivada material da velocidade do ponto material (aceleração do corpo).
 
 \begin{figure}[!htbp]
 	\caption{Sólido sob carregamento externo}
@@ -210,7 +209,7 @@ Para a obtenção das equações de equilíbrio local em descrição Lagrangeana
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Ao integrar-se a \autoref{eq:equi_local_euleriano} no volume do sólido e utilizar-se o Teorema da Divergência chega-se a:
+Ao integrar-se a \autoref{eq:equi_local_euleriano} no volume do sólido, utilizando o Teorema da Divergência, chega-se a:
 
 \begin{align}
 	\int_{A} {\stressTensor}^{t} \cdot \mathbf{n} dA + \int_{V} \ebodyLoad dV = \int_{V} \rho  \solidAccel dV \label{eq:eq_global_euleriano}
@@ -225,25 +224,25 @@ Ao integrar-se a \autoref{eq:equi_local_euleriano} no volume do sólido e utiliz
 Considerando as relações de mudança de área e volume, apresentadas nas equações \autoref{eq:vol_atual2} e \autoref{eq:Nanson}, e que da equação da conservação da massa ($M$) tem-se que:
 
 \begin{align}
-	M = \int_{V_{0}} \rho_{0}dV_{0} = \int_{V(t)} \rho(t)dV, \label{eq:conser_massa}
+	M = \int_{V_{0}} \rho_{0}dV_{0} = \int_{V(t)} \rho(t)dV. \label{eq:conser_massa}
 \end{align}
 
-\noindent escreve-se a equação global de equilíbrio Lagrangeana, a partir da \autoref{eq:eq_global_euleriano} como:
+Considerando as Eqs. (\ref{eq:vol_atual2, eq:Nanson} e \ref{ eq:conser_massa}) na \autoref{eq:eq_global_euleriano2}, escreve-se a forma global da equação da quantidade de movimento na descrição Lagrangiana total como:
 
 \begin{align}
 	\int_{A_0} \mathbf{P}^t \cdot \mathbf{N} dA_0 + \int_{V_0} \bodyLoad dV_0 = \int_{V_0} \rho_0  \solidAccel dV_0, \label{eq:equi_global_lagrangeano}
 \end{align}
 
-\noindent na qual o primeiro tensor de tensões transposto de Piola-Kirchhoff ($\mathbf{P}^t$), não simétrico, é definido como $\mathbf{P}^t = J \stressTensor^t \cdot \mathbf{B}$, e o subíndice $0$, refere-se a variável no instante inicial.
+\noindent na qual o primeiro tensor de tensão de Piola-Kirchhoff ($\mathbf{P}$) é definido como $\mathbf{P}^t = J \stressTensor^t \cdot \gradDeformation^{-t}$, e o subíndice $0$, refere-se à configuração inicial.
 
-Ao aplicar-se o Teorema da Divergência a \autoref{eq:equi_global_lagrangeano} e da consideração da arbitrariedade do volume, chega-se a versão local da equação de equilíbrio Lagrangeano, expressa por:
+Considerando-se o Teorema da Divergência a \autoref{eq:equi_global_lagrangeano} e a arbitrariedade do volume, chega-se à versão local da equação de equilíbrio em descrição Lagrangiana, expressa por:
 
 \begin{align}
 	\lGrad \cdot \mathbf{P}^t +  \bodyLoad = \rho_0  \solidAccel. \label{eq:equi_local_lagrangeano}
 \end{align}
 
 
-\subsection{Princípio de Estacionariedade de energia}
+\subsection{Conservação da Energia e Equilíbrio}
 
 No estudo do equilíbrio de corpos deformáveis a análise da energia mecânica é um assunto de grande importância. A energia mecânica é formada basicamente por três parcelas: energia potencial das forças externas ($\extEnergy$), energia de deformação ($\intEnergy$) e energia cinética ($\kinEnergy$). A energia total mecânica ($\totalEnergy$) é um funcional obtido pela soma dessas três parcelas, sendo escrita da seguinte maneira:
 
@@ -345,16 +344,16 @@ u_{e} = \frac{1}{2} E_{kl} C_{klij} E_{ij}
 \lameParameter=\frac{\poisonsRatio \elasticModulus}{(1+\poisonsRatio)(1-2\poisonsRatio)},
 \end{gather}
 
-\noindent com $\elasticModulus$ sendo o módulo de elasticidade longitudinal e $\poisonsRatio$ o coeficiente de Poisson. Ressalta-se que essa lei constitutiva aqui utilizada é adequada para grandes deslocamentos, entretanto, a mesma é adequada somente para deformações pequenas a moderadas.
+\noindent com $\elasticModulus$ sendo o módulo de elasticidade longitudinal e $\poisonsRatio$ o coeficiente de Poisson. Ressalta-se que essa lei constitutiva aqui utilizada é adequada para grandes deslocamentos, entretanto, a mesma é adequada somente para deformações pequenas a moderadas por permitir a inversão do material.
 
-\section{Método dos Elementos Finitos Posicional}
+\section{Método dos Elementos Finitos}
 
 Conforme discutido na \autoref{capitulo:Cap2:FormaFraca:ElementosFinitos}, o método dos elementos finitos baseia-se na substituição do contínuo por um conjunto finito de subdomínios, denominados elementos finitos. Em cada um desses elementos, as variáveis de interesse — incluindo a própria geometria — são aproximadas, de modo que o problema contínuo é convertido em um problema discreto, caracterizado por um número finito de incógnitas.
 
-Nesta subseção será apresentado o desenvolvimento da formulação posicional do Método dos Elementos Finitos aplicada a cinemática de cascas.
+Nesta subseção será apresentada formulação do Método dos Elementos Finitos baseada em posições aplicada à cinemática de cascas.
 
 \subsection{Elemento finito de Casca} \label{capitulo:Cap4:Mef:Casca}
-
+\aquiiiii
 A formulação não-linear geométrica de casca posicional foi desenvolvida por \citeonline{CodaP:2007}, e consistia inicialmente em 6 graus de liberdade por nó, sendo 3 referentes à posições e 3 referentes às componentes do vetor generalizado. Em \citeonline{CodaP:2008} incluí-se a formulação um sétimo parâmetro, que considera a taxa de variação linear da espessura, para lidar com o fenômeno de travamento volumétrico. Essa última cinemática será utilizada nesse trabalho.
 
 As cascas são sólidos que possuem uma de suas dimensões muito menor do que as outras, assim o mapeamento da configuração do sólido pode ser facilitado tomando-se a superfície média como referência. Os mapeamentos das configurações inicial e atual dos pontos da superfície média, conforme pode ser observado na \autoref{fig:casca:map_super_media}, são definidos respectivamente como:
