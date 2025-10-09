@@ -353,17 +353,17 @@ Conforme discutido na \autoref{capitulo:Cap2:FormaFraca:ElementosFinitos}, o mé
 Nesta subseção será apresentada formulação do Método dos Elementos Finitos baseada em posições aplicada à cinemática de cascas.
 
 \subsection{Elemento finito de Casca} \label{capitulo:Cap4:Mef:Casca}
-\aquiiiii
-A formulação não-linear geométrica de casca posicional foi desenvolvida por \citeonline{CodaP:2007}, e consistia inicialmente em 6 graus de liberdade por nó, sendo 3 referentes à posições e 3 referentes às componentes do vetor generalizado. Em \citeonline{CodaP:2008} incluí-se a formulação um sétimo parâmetro, que considera a taxa de variação linear da espessura, para lidar com o fenômeno de travamento volumétrico. Essa última cinemática será utilizada nesse trabalho.
 
-As cascas são sólidos que possuem uma de suas dimensões muito menor do que as outras, assim o mapeamento da configuração do sólido pode ser facilitado tomando-se a superfície média como referência. Os mapeamentos das configurações inicial e atual dos pontos da superfície média, conforme pode ser observado na \autoref{fig:casca:map_super_media}, são definidos respectivamente como:
+Esta formulação foi desenvolvida por \citeonline{CodaP:2007}, e consistia inicialmente em 6 graus de liberdade por nó, sendo 3 referentes à posições e 3 referentes às componentes do vetor generalizado. Em \citeonline{CodaP:2008} incluí-se a formulação um sétimo parâmetro, que considera a taxa de variação linear da espessura, para lidar com o fenômeno de travamento volumétrico. \citeonline{SanchesC:2013} apresentam a formulação dinâmica empregando a cinemática com 7 graus de liberdade  aplicada ao problema de interação fluido-estrutura, sendo essa a abordagem adotada aqui.
+
+As cascas são sólidos que possuem uma de suas dimensões muito menor do que as outras, assim o mapeamento do seu domínio pode ser facilitado tomando-se a superfície média como referência. Os mapeamentos das configurações inicial e atual dos pontos da superfície média, conforme pode ser observado na \autoref{fig:casca:map_super_media}, são definidos respectivamente como:
 
 \begin{align}
 \fmap^{mh}_{0}(\xi_{1},\xi_{2}) = \lPosition^{mh}(\xi_{1},\xi_{2}) = N_{l} (\xi_{1},\xi_{2}) \lPosition_{l}^{mh}\label{eq:casca_Lposition_m}\\
 \fmap^{mh}_{1}(\xi_{1},\xi_{2}) = \ePosition^{mh}(\xi_{1},\xi_{2}) = N_{l} (\xi_{1},\xi_{2}) \ePosition_{l}^{mh}, \label{eq:casca_Eposition_m}
 \end{align}
 
-\noindent com $\lPosition_{l}^{mh}$ e $\ePosition_{l}^{mh}$ representando os vetores dos parâmetros de posição inicial e atual da linha média respectivos ao nó $l$, e, $N_{l} (\xi_{1},\xi_{2})$ é o valor da função de forma do nó $l$ calculado no ponto de coordenadas paramétricas $(\xi_{1},\xi_{2})$.
+\noindent onde $\lPosition_{l}^{mh}$ e $\ePosition_{l}^{mh}$ representam, respectivamente, os vetores dos parâmetros de posição inicial e atual da superfície média respectivos ao nó $l$, com $N_{l} (\xi_{1},\xi_{2})$ sendo a forma do nó $l$ calculada no ponto de coordenadas paramétricas $(\xi_{1},\xi_{2})$.
 
 \begin{figure}[!htbp]
 	\caption{Mapeamento da superfície média da casca}
@@ -373,14 +373,14 @@ As cascas são sólidos que possuem uma de suas dimensões muito menor do que as
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Para completar a cinemática da casca, os demais pontos são mapeados por meio da soma da posição de um ponto na superfície média com um vetor generalizado $\mathbf{g}^{h}_{0}$ ou $\mathbf{g}^{h}_{0}$ nas configurações inicial e atual, respectivamente.  $\mathbf{g}^{h}_{0}$ é normal a linha de referência na configuração inicial, conforme pode ser observado na \autoref{fig:casca_vetores_generalizados}. Desta forma, o mapeamento completo fica definido por:
+Os demais pontos do domínio são mapeados por meio da soma da posição de um ponto na superfície média com um vetor generalizado $\mathbf{g}^{h}_{0}$ para a configuração inicial ou ou $\mathbf{g}^{h}_{1}$ para a configuração atual. Observa-se que $\mathbf{g}^{h}_{0}$ é normal à superfície média na configuração inicial, conforme pode ser observado na \autoref{fig:casca_vetores_generalizados}, enquanto $\mathbf{g}^{h}_{1}$ pode não ser normal à superfície média deformada. Desta forma, o mapeamento completo de um elemento de casca é:
 
 \begin{align}
 \fmap^{h}_{0}(\xi_{1},\xi_{2},\xi_{3}) = \lPosition^{h}(\xi_{1},\xi_{2},\xi_{3}) = \fmap^{mh}_{0}(\xi_{1},\xi_{2}) + \mathbf{g}^{h}_{0} (\xi_{1},\xi_{2}, \xi_{3}) \label{eq:fmap0}\\
-\fmap^{h}_{1}(\xi_{1},\xi_{2},\xi_{3}) = \ePosition^{h}(\xi_{1},\xi_{2},\xi_{3}) = \fmap^{mh}_{1}(\xi_{1},\xi_{2}) + \mathbf{g}^{h}_{1} (\xi_{1},\xi_{2}, \xi_{3})  \label{eq:fmap1}
+\fmap^{h}_{1}(\xi_{1},\xi_{2},\xi_{3}) = \ePosition^{h}(\xi_{1},\xi_{2},\xi_{3}) = \fmap^{mh}_{1}(\xi_{1},\xi_{2}) + \mathbf{g}^{h}_{1} (\xi_{1},\xi_{2}, \xi_{3}),  \label{eq:fmap1}
 \end{align}
 
-\noindent em que $\xi_3$ é a coordenada adimensional na espessura da casca variando de -1 a 1.
+\noindent em que $\xi_3$ é a coordenada adimensional na direção da espessura da casca, variando de -1 a 1.
 
 \begin{figure}[!htbp]
 	\caption{Vetores generalizados}
@@ -390,16 +390,16 @@ Para completar a cinemática da casca, os demais pontos são mapeados por meio d
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Os vetores generalizados $\mathbf{g}^{h}_{0}$ e $\mathbf{g}^{h}_{1}$ representados na discretização por elementos finitos ficam expressos por:
+Os vetores generalizados $\mathbf{g}^{h}_{0}$ e $\mathbf{g}^{h}_{1}$ podem ser expressos por:
 
 \begin{align}
 \mathbf{g}^{h}_{0} (\xi_{1},\xi_{2}, \xi_{3}) = \frac{h_{0}}{2}\xi_{3} N_{l}\left(\xi_{1},\xi_{2}\right) \cdot  (\mathbf{e}_x)_l, \\
 \mathbf{g}^{h}_{1} (\xi_{1},\xi_{2}, \xi_{3}) = \frac{h_{0}}{2}\left[\xi_{3} + \eta_l N_l\left(\xi_{1},\xi_{2}\right)\xi_{3}^2\right]N_{l}\left(\xi_{1},\xi_{2}\right) \cdot (\mathbf{e}_y)_l,
 \end{align}
 
-\noindent com $h_{0}$ representando a espessura média inicial do elemento de casca, $(\mathbf{e}_x)_l$ é o l-ésimo valor nodal do vetor unitário normal à linha de referência inicial, $(\mathbf{e}_y)_l$ o l-ésimo valor nodal do vetor generalizado na configuração atual e $\eta_l$ é o l-ésimo valor nodal da chamada de taxa linear de variação da espessura.
+\noindent onde $h_{0}$ representa a espessura média inicial do elemento de casca, $(\mathbf{e}_x)_l$ é o $l$-ésimo valor nodal do vetor unitário normal à linha de referência inicial, $(\mathbf{e}_y)_l$ o l-ésimo valor nodal do vetor generalizado, de norma irrestrita, na configuração atual e $\eta_l$ é o $l$-ésimo valor nodal da chamada de taxa linear de variação da espessura.
 
-Finalmente, defini-se a função mudança de configura, através da seguinte relação:
+Dessa form, a função mudança de configuração pode ser definida através da seguinte relação:
 
 \begin{align}
 	\fmap^{h} = \fmap^{h}_{1} \circ  (\fmap^{h}_{0})^{-1} \label{eq:eq_mud_conf}.
@@ -422,6 +422,7 @@ Assim, o alongamento à direta de Cauchy-Green e a deformação de Green podem s
 \begin{align}
 	\greenStrain = \frac{1}{2}\left(\cauchyStretch - \unittensor\right) = \frac{1}{2}\left(\left(\gradDeformation^{h}_{1} \cdot (\gradDeformation^{h}_{0})^{-1}\right)^{t} \cdot \left(\gradDeformation^{h}_{1} \cdot (\gradDeformation^{h}_{0})^{-1}\right) - \unittensor\right).
 \end{align}
+
 
 Neste trabalho, aplicou-se nas discretizações um elemento triangular quadrático com 6 nós.
 
