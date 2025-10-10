@@ -1,0 +1,605 @@
+\documentclass[
+	12pt,		
+	openright,
+	twoside,	
+	a4paper,			
+	english,	
+	french,		
+	spanish,		
+	brazil				
+	]{abntex2}
+
+\input{grumecSymbols.tex}
+
+% ---
+% Pacotes
+% ---
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lastpage}			
+\usepackage{indentfirst}	
+\usepackage[table]{xcolor}	
+\usepackage{graphicx,multicol}		
+\usepackage{microtype} 			
+\usepackage{lipsum}		
+\usepackage[]{xcolor,soulutf8}
+\usepackage{subeqnarray}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{amsfonts,eufrak}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{xfrac}		
+\usepackage{tabularx}
+\usepackage[alf,abnt-etal-list=0,abnt-etal-cite=3]{abntex2cite} % Citações padrão ABNT
+\usepackage{hhline}
+\usepackage{ucs}
+\usepackage{multirow}
+\usepackage{bm}
+\usepackage{subfiles}
+\usepackage{morefloats}
+\usepackage[caption=false]{subfig}
+\usepackage{pdfpages}
+\usepackage{mathtools}
+\usepackage{gensymb}
+\usepackage{nomencl}
+\usepackage[]{algpseudocode}
+\usepackage{algorithm}
+%\usepackage{algorithm2e}
+\usepackage{pdfpages}
+\usepackage{etoolbox}
+\usepackage{mathrsfs}
+\usepackage{chngcntr}
+\usepackage{hyperref}
+\usepackage{nameref}
+\usepackage{cancel}
+\usepackage{lastpage}
+\usepackage{setspace}
+\usepackage{bm} 
+\usepackage[export]{adjustbox}
+\usepackage{parskip}
+\usepackage{lmodern}
+\usepackage{epstopdf}
+
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter} 
+%\usepackage[hyphenbreaks]{breakurl}
+
+\usepackage{tikz}
+\usetikzlibrary{calc,arrows}
+\usetikzlibrary{positioning,shapes}
+\usetikzlibrary{backgrounds}
+\hypersetup{breaklinks=true}
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{corollary}{Corolário}[theorem]
+\newtheorem{lemma}[theorem]{Lema}
+\newtheorem{definition}[theorem]{Definição}
+
+%
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
+\makenomenclature
+\renewcommand{\nomname}{Lista de Símbolos}
+\renewcommand{\nompreamble}{Nesta seção são apresentados os principais símbolos matemáticos, operadores e variáveis utilizadados neste trabalho. De um modo geral, símbolos em negrito denotam grandezas vetoriais ou tensoriais, enquanto os escritos em estilo de formatação normal ou itálico representam grandezas escalares. Os casos omissos são descritos ao longo do texto.}
+
+\RequirePackage{ifthen}
+\renewcommand{\nomgroup}[1]{%
+	\ifthenelse{\equal{#1}{B}}{\item[]\textbf{Capítulo \ref{capitulo:Cap2} - \nameref{capitulo:Cap2}}}
+}
+
+\makeatletter
+\renewcommand{\ALG@name}{Algoritmo}
+\makeatother
+
+
+
+
+% Algoritmos com Declaracoes em Português
+\algrenewcommand\algorithmicend{\textbf{fim}}
+\algrenewcommand\algorithmicdo{\textbf{faça}}
+\algrenewcommand\algorithmicrequire{\textbf{Requer}}
+\algrenewcommand\algorithmicwhile{\textbf{enquanto}}
+\algrenewcommand\algorithmicfor{\textbf{para}}
+\algrenewcommand\algorithmicif{\textbf{se}}
+\algrenewcommand\algorithmicthen{\textbf{então}}
+\algrenewcommand\algorithmicelse{\textbf{senão}}
+\algrenewcommand\algorithmicreturn{\textbf{devolve}}
+\algrenewcommand\algorithmicfunction{\textbf{função}}
+%
+%% Rearranja os finais de cada estrutura
+\algrenewtext{EndWhile}{\algorithmicend\ \algorithmicwhile}
+\algrenewtext{EndFor}{\algorithmicend\ \algorithmicfor}
+\algrenewtext{EndIf}{\algorithmicend\ \algorithmicif}
+\algrenewtext{EndFunction}{\algorithmicend\ \algorithmicfunction}
+
+% O comando For, a seguir, retorna 'para #1 -- #2 até #3 faça'
+%\algnewcommand\algorithmicto{\textbf{até}}
+%\algrenewtext{For}[3]%
+%{\algorithmicfor\ #1 $\gets$ #2 \algorithmicto\ #3 \algorithmicdo}
+
+
+
+\renewcommand{\ABNTEXchapterfont}{\rmfamily\bfseries}
+%insere numero do capitulo junto ao numero da figura e tabela
+
+
+\AtBeginDocument{%
+	\setlength\abovedisplayskip{-0.2cm}
+	\setlength\belowdisplayskip{0.3cm}} 
+%\setlength{\belowdisplayshortskip}{0.0cm}
+%\setlength{\abovedisplayshortskip}{-0.4cm}
+
+% altera o tamanho da fonte dos capítulos e seções
+\renewcommand{\ABNTEXchapterfontsize}{\HUGE}
+\renewcommand{\ABNTEXsectionfontsize}{\LARGE}
+\renewcommand{\ABNTEXsubsectionfontsize}{\large} 
+% ---
+%mantem o alfabeto caligrafico
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\DeclareMathAlphabet{\mathbfcal}{OMS}{cmsy}{b}{n}
+% ----------------------------------
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+% ----------------------------------
+
+
+
+% configura o uso do hífen na separação silábica
+\hyphenpenalty=2000
+\tolerance=200
+
+
+%================================================================================
+% Configuração dos Estilo dos Capítulo
+%================================================================================
+
+\setboolean{ABNTEXupperchapter}{true}
+\makechapterstyle{icmc}{%
+	\renewcommand{\chapterheadstart}{} 
+	
+	% Secao secundaria (Section) Caixa baixa, Negrito
+	\renewcommand*{\cftsectionfont}{\bfseries}
+	% Secao terciaria (Subsection) Caixa baixa, Negrito, italico
+	\renewcommand*{\cftsubsectionfont}{\itshape}
+	% Secao quaternaria (Subsubsection) Caixa baixa, italico
+	\renewcommand*{\cftsubsubsectionfont}{\itshape}
+	% Secao quinquenária (Subsubsubsection) Caixa baixa
+	\renewcommand*{\cftparagraphfont}{\normalsize}
+	
+	%\renewcommand*{\cftpartfont}{\cftchapterfont}
+	%\renewcommand*{\cftpartpagefont}{\cftchapterpagefont}
+	
+	% tamanhos de fontes de chapter e part
+	\ifthenelse{\equal{\ABNTEXisarticle}{true}}{%
+		\setlength\beforechapskip{\baselineskip}
+		\renewcommand{\chaptitlefont}{\ABNTEXsectionfont\ABNTEXsectionfontsize}
+	}{%else
+		\setlength{\beforechapskip}{0pt}
+		\renewcommand{\ABNTEXchapterfontsize}{\HUGE}
+		
+		%\renewcommand{\ABNTEXchapterfont}{\sffamily\bfseries}  %alteração da fonte dos capítulos, seções e subseções
+		\renewcommand{\chaptitlefont}{\ABNTEXchapterfont\bfseries\ABNTEXchapterfontsize}
+	}
+	
+	\renewcommand{\chapnumfont}{\chaptitlefonts}
+	\renewcommand{\parttitlefont}{\ABNTEXpartfont\bfseries\Huge\ABNTEXchapterupperifneeded}
+	\renewcommand{\partnumfont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+	\renewcommand{\partnamefont}{\ABNTEXpartfont\ABNTEXpartfontsize}
+	
+	% tamanhos de fontes de section, subsection, subsubsection e subsubsubsection
+	\setsecheadstyle{\ABNTEXsectionfont\ABNTEXsectionfontsize\bfseries\ABNTEXsectionupperifneeded}
+	\setsubsecheadstyle{\ABNTEXsubsectionfont\ABNTEXsubsectionfontsize\bfseries\itshape\ABNTEXsubsectionupperifneeded}
+	\setsubsubsecheadstyle{\ABNTEXsubsubsectionfont\ABNTEXsubsubsectionfontsize\itshape\ABNTEXsubsubsectionupperifneeded}
+	\setsubsubsubsecheadstyle{\ABNTEXsubsubsubsectionfont\ABNTEXsubsubsubsectionfontsize\ABNTEXsubsubsubsectionupperifneeded}
+	
+	% impressao do numero do capitulo
+	\renewcommand{\chapternamenum}{}
+	
+	% impressao do nome do capitulo
+	\renewcommand{\printchaptername}{%
+		%\chaptitlefont
+		%\ifthenelse{\boolean{abntex@apendiceousecao}}{\appendixname}{\chaptername}%
+	}
+	
+	% impressao do titulo do capitulo
+	\def\printchaptertitle##1{%
+		
+		\setboolean{ABNTEXupperchapter}{true}
+		
+		\ifthenelse{\boolean{abntex@innonumchapter}}{
+			\vskip 0ex \hrulefill\chaptitlefont\bfseries\ABNTEXchapterupperifneeded{##1}
+			\vskip -0.6ex\hfill\rule{\textwidth}{0.5pt} 
+			\vskip -2.8ex\hfill\rule{\textwidth}{2pt}
+			\vskip 1.5ex
+			
+		}{%
+			% else
+			{\hrulefill
+				{\renewcommand{\arraystretch}{1.5} %  1 is the default, change whatever you need
+					\begin{tabular}{|c|}
+						\rowcolor{black}\color{white}\normalsize\ABNTEXchapterfont
+						\ifthenelse{\boolean{abntex@apendiceousecao}}{\MakeTextUppercase{\appendixname}}{\MakeTextUppercase{\chaptername}}  \\ 
+						\vspace{-1.5ex}\\ %coloquei para aumentar o espaço entre o título e o número
+						\resizebox{!}{1.5cm}{\ABNTEXchapterfont\thechapter}
+						\\[2.5ex]
+						\hline
+			\end{tabular}}} \\
+			\vskip 4.3ex \flushright\chaptitlefont\bfseries\ABNTEXchapterupperifneeded{##1} \\
+			\vskip -0.6ex\hfill\rule{\textwidth}{0.5pt} \\
+			\vskip -2.8ex\hfill\rule{\textwidth}{2pt}\\
+			\vskip 1.5ex
+		}    
+		
+	}
+	
+	% impressao do numero do capitulo     	
+	\renewcommand{\printchapternum}{%
+		\setboolean{abntex@innonumchapter}{false}
+	}
+	\renewcommand{\afterchapternum}{}
+	
+	% impressao do capitulo nao numerado
+	\renewcommand\printchapternonum{%
+		\setboolean{abntex@innonumchapter}{true}%
+	}
+}
+\chapterstyle{icmc}
+
+
+
+
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+
+\titulo{\textit{Combinação de discretizações isogeométrica e por elementos finitos na análise de interação fluido-estrutura \textcolor{red}{(Colocar a capa oficial)}}}
+
+\autor{PATRICIA TONON}
+\local{SÃO CARLOS/SP}
+\data{2021}
+
+\orientador{Prof. Dr. Rodolfo André Kuche Sanches}
+\instituicao{%
+  Universidade de São Paulo - USP
+  \par
+  Escola de Engenharia de São Carlos - EESC
+  \par
+  Programa de Pós-Graduação em Engenharia de Estruturas}
+\preambulo{Texto apresentado para o exame de qualifica\c{c}\~ao ao doutorado no Programa de Pós-Graduação em Engenharia de Estruturas da Escola de Engenharia de São Carlos da Universidade de São Paulo, como parte dos requisitos para obtenção do título de Doutor em Ciências, Programa: Engenharia Civil (Estruturas). \newline \newline Área de Concentração: Estruturas \newline \newline Orientador: Prof. Dr. Rodolfo André Kuche Sanches}
+% ---
+
+\definecolor{black}{RGB}{0,0,0}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,       	
+    	linkcolor=black,          	
+    	citecolor=black,        	
+    	filecolor=black,      	
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% O espaçamento entre linhas é 1 espaço e meio (default)
+%
+
+%outras opções incluem:
+%\SingleSpacing
+%\DoubleSpacing
+
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.0cm}  % tente também \onelineskip
+
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+
+
+
+
+\renewcommand{\imprimircapa}{
+	\begin{capa}
+		
+	\center \large \textbf{UNIVERSIDADE DE SÃO PAULO \\ ESCOLA DE ENGENHARIA DE SÃO CARLOS \\ DEPARTAMENTO DE ENGENHARIA DE ESTRUTURAS}
+	\vspace*{3cm}
+	
+	{\large \imprimirautor}
+	\vfill
+	\begin{center}
+	\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+	\end{center}
+	\vfill
+	\large\imprimirlocal \\
+	\large\imprimirdata
+	\end{capa}
+}
+
+
+
+\makeatletter
+
+\renewcommand{\imprimirfolhaderosto}{
+	\begin{center}
+
+		{\large\imprimirautor}
+		
+		\vspace*{\fill}\vspace*{\fill}
+		
+		\begin{center}
+			\ABNTEXchapterfont\bfseries\LARGE\imprimirtitulo
+		\end{center}
+		
+%		\vspace*{\fill}\vspace*{\fill}
+		
+%		\normalsize{VERSÃO CORRIGIDA}\\
+%		\normalsize{A versão original encontra-se na Escola de Engenharia de São Carlos}	
+		
+		\vspace*{\fill}\vspace*{\fill}
+		
+		\abntex@ifnotempty{\imprimirpreambulo}{%
+			\hspace{.45\textwidth}
+			\begin{minipage}{.5\textwidth}
+				\SingleSpacing
+				\imprimirpreambulo
+			\end{minipage}%
+			\vspace*{\fill}
+		}%
+		\vspace*{\fill}		
+		
+		{\large\imprimirlocal}
+		
+		\par
+		
+		{\large\imprimirdata}
+	\end{center}
+}
+
+\makeatother
+
+
+
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+	
+
+
+
+% Muda o espaçamento antes e após fórmulas
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+\allowdisplaybreaks
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+\imprimirfolhaderosto
+%\newpage
+% ---
+% Inserir a ficha bibliografica e folha de aprovação
+% ---
+%\includepdf[pages=1]{ficha_catalografica.pdf}
+%\newpage
+%\includepdf[pages=1]{imagens/folhadeaprovacao.pdf}
+%\cleardoublepage
+
+
+
+% ---
+% Dedicatória
+% ---
+%\begin{dedicatoria}
+%	\vspace*{\fill
+%	%	\centering
+%	\noindent
+%	\begin{flushright}
+%% 		\textit{Dedicatória.}
+%		\textit{Dedico este trabalho à minha mãe (in memorian).}
+%	\end{flushright}
+%	\vspace*{\fill}
+%\end{dedicatoria}
+%% ---
+%\cleardoublepage
+%% ---
+%% Epígrafe
+%% ---
+%\begin{epigrafe}
+%	\vspace*{\fill}
+%	\begin{flushright}
+%		\textit{``Há pessoas que desejam saber só por saber, e isso é curiosidade; outras, para alcançarem fama, e isso é vaidade; outras, para enriquecerem com a sua ciência, e isso é um negócio torpe; outras, para serem edificadas, e isso é prudência; outras, para edificarem os outros, e isso é caridade.''\\ (Santo Agostinho)}
+%	\end{flushright}
+%\end{epigrafe}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+%\begin{agradecimentos}
+%\chapter*{Agradecimentos}
+%
+%Primeiramente agradeço à Deus, por conduzir meus passos até este momento e ter sido a fonte de esperança nos momentos mais difíceis. 
+%
+%Aos meus familiares. Em especial agradeço à minha mãe, que infelizmente partiu cedo demais, mas que dedicou seu amor incondicional à mim e me ensinou sobre as coisas mais importantes da vida. Você continua sendo o meu norte e a minha inspiração. 
+%
+%Ao meu orientador, prof. Dr. Rodolfo André Kuche Sanches, pela orientação exemplar, amizade e confiança em mim depositados durante tantos anos de trabalho em conjunto.
+%
+%Aos professores do Departamento de Engenharia de Estruturas, com quem tive o prazer de conviver nos últimos anos, por compartilhar seus conhecimentos e experiências.
+%
+%Aos muitos outros professores que cruzaram o meu caminho durante essa jornada e, que apesar de todas as dificuldades enfrentadas no sistema público de ensino, continuam firmes no objetivo de oferecer educação de qualidade e acreditando no potencial de seus alunos.
+%
+%Às instituições de ensino pelas quais passei, por oferecer a infraestrutura necessária para que eu chegasse até aqui. Sobretudo, agradeço ao Departamento de Engenharia de Estruturas que foi um divisor de águas na minha carreira.
+%
+%Agradeço também os incontáveis amigos que fiz durante o período de mestrado e doutorado. Com certeza tudo seria mais difícil sem vocês. Obrigado por todo o tempo, suporte e companheirismo compartilhados.
+%
+%Ao prof. Dr. Andrea Barbarulo, que supervisionou a minha pesquisa no período de estágio de doutorado sanduíche na França. Muito obrigado por me acolher no MSSMat, pela atenção depositada e ajuda no desenvolvimento deste trabalho. \textit{(Au prof. Andrea Barbarulo, qui a supervisé mes recherches pendant la période de doctorat sandwich en France. Merci beaucoup de m’accueillir au MSSMat, pour l’attention et l’aide dans le développement de ce travail.)}
+%
+%Aos amigos que fiz durante o período de intercâmbio, com os quais compartilhei tantos aprendizados.
+%
+%Aos funcionários do SET, que sempre atenderam prontamente à todas as minhas demandas.
+%
+%Por fim, agradeço ao CNPq pela bolsa de doutorado e à CAPES pela oportunidade e bolsa concedida no período de doutorado sanduíche no exterior.
+%
+%\cleardoublepage
+%\end{agradecimentos}
+% ---
+
+
+\begin{SingleSpace}
+\begin{resumo}[Resumo]
+	\begin{flushleft}
+		TONON, P. \textbf{Combinação de discretizações isogeométrica e por elementos finitos na análise de interação fluido-estrutura.} 2021. \pageref{LastPage} p. Qualifica\c{c}\~ao da Tese (Doutorado em Engenharia de Estruturas) – Departamento de Engenharia de Estruturas, Escola de Engenharia de São Carlos, Universidade de São Paulo, São Carlos, 2021.\newline 
+	\end{flushleft}
+	\noindent
+	\textcolor{red}{revisar ao final}
+	O presente trabalho tem como principal intuito a construção de uma ferramenta computacional robusta para análise de problemas de interação fluido-estrutura onde o domínio fluido é discretizado combinando-se aproximações baseadas em análise isogeométrica e método dos elementos finitos tradicional. 
+	São considerados escoamentos incompressíveis, sendo que o domínio fluido possui uma discretização global, em descrição Euleriana, à qual é sobreposta uma discretização local, mais refinada. As discretizações local e global são diferentes, sendo uma isogeométrica e outra por elementos finitos. Os dois modelos são acoplados por uma técnica de partição de domínio com sobreposição de malhas, a qual baseia-se na modificação das funções de forma de ambas as discretizações em uma região de sobreposição e posterior união dos espaços de funções local e global de modo a formar um espaço enriquecido que garanta a partição da unidade. A malha local é adaptada à estrutura e deforma-se dinamicamente para acomodar a movimentação da estrutura, enquanto a malha global permanece fixa. Com isso o método proposto compartilha vantagens dos métodos de rastreamento de interface (malhas móveis) e de captura de interface (contornos imersos), visto que o fluido próximo à estrutura é adequadamente discretizado garantindo a captura de efeitos localizados, ao mesmo tempo em que a malha local, por ser menor, tolera maiores deformações, e em caso de necessidade de remalhamento, apenas essa malha precisa ser reconstruída. Adota-se uma formulação estabilizada para o escoamento incompressível, permitindo aproximação de mesma ordem para velocidades e pressão, e a integração temporal é feita através do método $\alpha$-generalizado. A estrutura é modelada empregando-se uma abordagem do método dos elementos finitos baseada em posições aplicada a elementos de casca com grandes deslocamentos. O acoplamento fluido-estrutura é particionado do tipo bloco-iterativo. 
+	\newline \newline
+  	\textbf{Palavras-chave}:\textit{Interação Fluido-Estrutura.  Análise Isogeométrica. Método dos Elementos Finitos. Técnica de sobreposição de malhas.}  \cleardoublepage
+\end{resumo}
+\end{SingleSpace}
+
+% resumo em inglês
+\begin{SingleSpace}
+\begin{resumo}[Abstract]
+	\begin{otherlanguage*}{english}		
+		\begin{flushleft}
+			TONON, P. \textbf{Combination of isogeometric and finite element discretizations for fluid-structure interaction analysis.} 2021. \pageref{LastPage} p. Thesis qualification (Doctorate in Structural Engineering) – Department of Structural Engineering, São Carlos School of Engineering, University of São Paulo, São Carlos, 2021. \newline 
+		\end{flushleft}
+			\textcolor{red}{review at the end}
+		This work aims the construction of a robust computational tool for fluid-structure interaction analysis where the fluid domain is discretized combining isogeometric and traditional finite elements approximations. The flow is considered to be incompressible and the fluid domain has a global discretization, under Eulerian description, with an overlapping of a local one more refined. Local and global discretizations are differents, being one isogeometric and the other a traditional finite element discretization, coupled by a domain partitioning technique that relies on the modification of both, local and global, shape functions over and overlapping region and subsequent union of local and global spaces of functions generating an enriched space that fulfills unity partition. The local mesh is adapted to the structure and deforms dynamicaly to accomodate structural movements while the globla one remains fixed.
+		Therefore, the proposed method shares advantages of both, interface tracking (moving mesh) and interface capturing (immersed boundary) methods, once the fluid/structure interface is adequately discretized for local effects, at the same time that the local mesh, being smaller, tolerates larger deformatios, and, in case of need for re-meshing, only the local mesh needs to be rebuilt. The incompressible flow is modeled by a stabilized formulation, allowing equal order pressure-velocity interpolation, with time integration by the $\alpha$-generalized method. The structure is modeled in a position-based large-displacement shell finite element formulation. The fluid-structure coupling is a block iterative type partitioned scheme. 
+    	\newline \newline 
+    	{\textbf{Keywords}: \textit{Fluid-structure interaction. Isogeometric analysis. Finite Element Method. Overlap techique. }}
+	\end{otherlanguage*}
+\end{resumo}
+\end{SingleSpace}
+
+
+
+% ---
+% inserir lista de ilustrações
+% ---
+\renewcommand{\listfigurename}{Lista de Figuras}
+\pdfbookmark[0]{\listfigurename}{lof}
+
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+\pdfbookmark[0]{\nomname}{las}
+\printnomenclature
+
+\cleardoublepage
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\renewcommand{\baselinestretch}{1.0}%\normalsize
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+\renewcommand{\baselinestretch}{1.3}%\normalsize
+
+% ---
+%\DoubleSpacing
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+\subfile{introducao}
+\subfile{Cap2}
+\subfile{Cap3}
+\subfile{Cap4}
+\subfile{Cap5}
+\subfile{Cap6}
+\subfile{Cap7}
+%\subfile{ConclusoesParciais}
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual 
+
+%\bibliographystyle{abntex2-num}
+\bibliography{referencias.bib}
+%
+%\clearpage
+%\textcolor{white}{ }
+
+\printindex
+
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+%\begin{apendicesenv}
+%	\subfile{apendices}
+%\end{apendicesenv}
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+%\begin{anexosenv}
+%
+%\subfile{anexos}
+%
+%\end{anexosenv}
+
+
+\end{document}

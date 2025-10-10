@@ -495,6 +495,9 @@ discretizada no espaço e no tempo, como:
 \label{eq:residuo_equilibrio_newmark}
 \end{gather}
 
+
+
+
 O problema não linear da \autoref{eq:residuo_equilibrio_newmark} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
 
 \begin{gather}
@@ -530,42 +533,70 @@ O código empregado para a simulação das estruturas de cascas neste trabalho f
 O código foi desenvolvido em linguagem C++ utilizando paralelização em protocolo MPI e conta com elementos triangulares de 3, 6 ou 10 nós, respectivamente com aproximação linear, quadrática e cúbica. Ressalta-se que a implementação conta com uma estratégia de acoplamento entre elementos não coplanares, que pode ser vista em \citeonline{Coda:2018}. O algoritmo que descreve a implementação computacional pode ser visualizado em Alg. \ref{alg:algoritmo_solid}. No algoritmo a variável $\mathbf{X}$ consiste em um vetor das variáveis nodais na configuração inicial.
 
 \begin{algorithm}
-	\caption{Algoritmo para problemas não-lineares dinâmicos utilizando MEF posicional}
-	\label{alg:algoritmo_solid}
-	\begin{algorithmic}[1]
-		\State Adota-se $\SolidPos = \mathbf{X}$;
-		\For {o passo de tempo $0$ até $\totalTime$} 
-		\State $i=0$;
-		\State Predição da solução: 
-		\begin{align}
-		\SolidPos_{n+1}^{0} = \SolidPos_{n},\\
-		\SolidVel_{n+1}^{0} = \SolidVel_{n},\\
-		\SolidAccel_{n+1}^{0} = \SolidAccel_{n};
-		\end{align}
-		\State Calcula-se  nível de força aplicado $\concLoad^{ext}_{n+1}(t_{n+1})$ e/ou as posições prescritas $\SolidPos_{n+1}$;
-		\State Calculam-se os valores de $\mathbf{Q}_n$ (\autoref{eq:Qn}) e $\mathbf{R}_n$ (\autoref{eq:Rn});
-		\While{($\epsilon$ < tolerância)}
-		\State $i$++;
-		\State Cálculo do incremento da variável do problema: $\SolidPos_{n+1}^{i}$ de acordo com a \autoref{eq:NR};
-		\State Atualização da solução: calculada de acordo com \autoref{UD1}, \autoref{UD2} e \autoref{UD3}.
-		\State Cálculo do erro:
-		\begin{align}
-		\epsilon = \lVert \Delta\NNSS\left(\SolidPos_{n+1}^{i+1}\right) \lVert_{L^2} 
-		\end{align}
-		ou,
-		\begin{align}
-		\epsilon = \lVert\Delta\SolidPos_{n+1}^{i+1}\lVert_{L^2} 
-		\end{align}
-		\EndWhile
-		\State Atualiza-se a solução do passo anterior:
-		\begin{align}
-		\SolidPos_{n} = \SolidPos_{n+1},\\
-		\SolidVel_{n} = \SolidVel_{n+1},\\
-		\SolidAccel_{n} = \SolidAccel_{n+1};
-		\end{align}
-		\EndFor
-	\end{algorithmic}
+  \caption{Algoritmo para problemas não-lineares dinâmicos utilizando MEF posicional}
+  \label{alg:algoritmo_solid}
+  \begin{algorithmic}[1]
+    \State Adota-se $\SolidPos = \mathbf{X}$;
+    \For{cada passo de tempo $0$ até $\totalTime$}
+      \State $i \gets 0$;
+      \State Predição da solução:
+      \State $\SolidPos_{n+1}^{0} = \SolidPos_{n}$;
+      \State $\SolidVel_{n+1}^{0} = \SolidVel_{n}$;
+      \State $\SolidAccel_{n+1}^{0} = \SolidAccel_{n}$;
+      \State Calcula-se o nível de força aplicado $\concLoad^{ext}_{n+1}(t_{n+1})$ e/ou as posições prescritas $\SolidPos_{n+1}$;
+      \State Calculam-se os valores de $\mathbf{Q}_n$ (\autoref{eq:Qn}) e $\mathbf{R}_n$ (\autoref{eq:Rn});
+      \While{$\epsilon >$ tolerância}
+        \State $i \gets i + 1$;
+        \State Cálculo do incremento da variável do problema $\SolidPos_{n+1}^{i}$ de acordo com a \autoref{eq:NR};
+        \State Atualização da solução de acordo com \autoref{UD1}, \autoref{UD2} e \autoref{UD3};
+        \State Cálculo do erro:
+        \State $\epsilon = \lVert \Delta\NNSS(\SolidPos_{n+1}^{i+1}) \rVert_{L^2}$ \text{ ou } $\epsilon = \lVert \Delta\SolidPos_{n+1}^{i+1} \rVert_{L^2}$;
+      \EndWhile
+      \State Atualiza-se a solução do passo anterior:
+      \State $\SolidPos_{n} = \SolidPos_{n+1}$;
+      \State $\SolidVel_{n} = \SolidVel_{n+1}$;
+      \State $\SolidAccel_{n} = \SolidAccel_{n+1}$;
+    \EndFor
+  \end{algorithmic}
 \end{algorithm}
+
+% \begin{algorithm}
+% 	\caption{Algoritmo para problemas não-lineares dinâmicos utilizando MEF posicional}
+% 	\label{alg:algoritmo_solid}
+% 	\begin{algorithmic}[1]
+% 		\State Adota-se $\SolidPos = \mathbf{X}$;
+% 		\For {o passo de tempo $0$ até $\totalTime$} 
+% 		\State $i=0$;
+% 		\State Predição da solução: 
+% 		\begin{align}
+% 		\SolidPos_{n+1}^{0} = \SolidPos_{n},\\
+% 		\SolidVel_{n+1}^{0} = \SolidVel_{n},\\
+% 		\SolidAccel_{n+1}^{0} = \SolidAccel_{n};
+% 		\end{align}
+% 		\State Calcula-se  nível de força aplicado $\concLoad^{ext}_{n+1}(t_{n+1})$ e/ou as posições prescritas $\SolidPos_{n+1}$;
+% 		\State Calculam-se os valores de $\mathbf{Q}_n$ (\autoref{eq:Qn}) e $\mathbf{R}_n$ (\autoref{eq:Rn});
+% 		\While{($\epsilon$ < tolerância)}
+% 		\State $i$++;
+% 		\State Cálculo do incremento da variável do problema: $\SolidPos_{n+1}^{i}$ de acordo com a \autoref{eq:NR};
+% 		\State Atualização da solução: calculada de acordo com \autoref{UD1}, \autoref{UD2} e \autoref{UD3}.
+% 		\State Cálculo do erro:
+% 		\begin{align}
+% 		\epsilon = \lVert \Delta\NNSS\left(\SolidPos_{n+1}^{i+1}\right) {\rVert}_{L^2} 
+% 		\end{align}
+% 		ou,
+% 		\begin{align}
+% 		\epsilon = \lVert \Delta\SolidPos_{n+1}^{i+1} {\rlVert}_{L^2} 
+% 		\end{align}
+% 		\EndWhile
+% 		\State Atualiza-se a solução do passo anterior:
+% 		\begin{align}
+% 		\SolidPos_{n} = \SolidPos_{n+1},\\
+% 		\SolidVel_{n} = \SolidVel_{n+1},\\
+% 		\SolidAccel_{n} = \SolidAccel_{n+1};
+% 		\end{align}
+% 		\EndFor
+% 	\end{algorithmic}
+% \end{algorithm}
 
 \section{Exemplo de aplicação - Casca cilíndrica com \textit{snap through} dinâmico}
 
@@ -613,3 +644,4 @@ O deslocamento vertical do nó central da casca obtido nesse trabalho pode ser v
 	{\includegraphics[scale=0.015,trim=0cm 20.0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_legenda.pdf}}
 	\label{fig:casca_campos_deslocamentos}
 	\legend{Fonte: Elaborada pela autora}
+\end{figure}

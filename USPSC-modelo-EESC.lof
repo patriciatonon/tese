@@ -106,11 +106,11 @@
 \contentsline {figure}{\numberline {37}{\ignorespaces Volume infinitesimal: componentes de tensão}}{100}{figure.4.37}%
 \contentsline {figure}{\numberline {38}{\ignorespaces Tetraedro elementar}}{101}{figure.4.38}%
 \contentsline {figure}{\numberline {39}{\ignorespaces Sólido sob carregamento externo}}{102}{figure.4.39}%
-\contentsline {figure}{\numberline {40}{\ignorespaces Mapeamento da superfície média da casca}}{106}{figure.4.40}%
-\contentsline {figure}{\numberline {41}{\ignorespaces Vetores generalizados}}{107}{figure.4.41}%
-\contentsline {figure}{\numberline {42}{\ignorespaces Casca: Geometria e Malha}}{113}{figure.4.42}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Geometria }}}{113}{subfigure.43.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Malha }}}{113}{subfigure.43.2}%
+\contentsline {figure}{\numberline {40}{\ignorespaces Mapeamento da superfície média da casca}}{107}{figure.4.40}%
+\contentsline {figure}{\numberline {41}{\ignorespaces Vetores generalizados}}{108}{figure.4.41}%
+\contentsline {figure}{\numberline {42}{\ignorespaces Casca: Geometria e Malha}}{112}{figure.4.42}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Geometria }}}{112}{subfigure.43.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Malha }}}{112}{subfigure.43.2}%
 \contentsline {figure}{\numberline {43}{\ignorespaces Casca: Deslocamento vertical nó central A}}{113}{figure.4.43}%
 \contentsline {figure}{\numberline {44}{\ignorespaces Casca: Deslocamento vertical nó central A - referência}}{113}{figure.4.44}%
 \contentsline {figure}{\numberline {45}{\ignorespaces Casca: Campos de deslocamentos}}{114}{figure.4.45}%
@@ -118,24 +118,24 @@
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces { $t = 165ms$.}}}{114}{subfigure.46.2}%
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces { $t = 174ms$.}}}{114}{subfigure.46.3}%
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces { $t = 177ms$.}}}{114}{subfigure.46.4}%
-\contentsline {figure}{\numberline {46}{\ignorespaces Definição dos domínios global, local e de zona de sobreposição}}{116}{figure.5.46}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Domínio Global}}}{116}{subfigure.47.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Domínio Local}}}{116}{subfigure.47.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces { Domínios sobrepostos}}}{116}{subfigure.47.3}%
-\contentsline {figure}{\numberline {47}{\ignorespaces Espaços de funções na técnica de partição de domínios - Problema unidimensional}}{119}{figure.5.47}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Funções globais e função ponderadora ($b$).}}}{119}{subfigure.48.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Funções locais e função ponderadora ($1-b$) }}}{119}{subfigure.48.2}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces { Novo espaço de funções}}}{119}{subfigure.48.3}%
+\contentsline {figure}{\numberline {46}{\ignorespaces Partição de domínios para a técnica dos espaços de funções combinados}}{117}{figure.5.46}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Domínio Global}}}{117}{subfigure.47.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Domínio Local}}}{117}{subfigure.47.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces { Domínios sobrepostos}}}{117}{subfigure.47.3}%
+\contentsline {figure}{\numberline {47}{\ignorespaces Espaços de funções na técnica de partição de domínios - Problema unidimensional}}{120}{figure.5.47}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Funções globais e função ponderadora ($b$).}}}{120}{subfigure.48.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Funções locais e função ponderadora ($1-b$) }}}{120}{subfigure.48.2}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces { Novo espaço de funções}}}{120}{subfigure.48.3}%
 \contentsline {figure}{\numberline {48}{\ignorespaces Cavidade: geometria e condições de contorno}}{122}{figure.5.48}%
-\contentsline {figure}{\numberline {49}{\ignorespaces Cavidade 2D: Malhas Global e Local}}{122}{figure.5.49}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Malha Local}}}{122}{subfigure.50.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Malha Global }}}{122}{subfigure.50.2}%
+\contentsline {figure}{\numberline {49}{\ignorespaces Cavidade 2D: Malhas Global e Local}}{123}{figure.5.49}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Malha Local}}}{123}{subfigure.50.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Malha Global }}}{123}{subfigure.50.2}%
 \contentsline {figure}{\numberline {50}{\ignorespaces Cavidade 2D: Zona de sobreposição}}{123}{figure.5.50}%
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Malha Local}}}{123}{subfigure.51.1}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Malha Global }}}{123}{subfigure.51.2}%
-\contentsline {figure}{\numberline {51}{\ignorespaces Cavidade 2D: Solução do problema de Navier Stokes para $Re = 100$}}{123}{figure.5.51}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Campo de Velocidade}}}{123}{subfigure.52.1}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Campo de Pressão }}}{123}{subfigure.52.2}%
+\contentsline {figure}{\numberline {51}{\ignorespaces Cavidade 2D: Solução do problema de Navier Stokes para $Re = 100$}}{124}{figure.5.51}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces { Campo de Velocidade}}}{124}{subfigure.52.1}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces { Campo de Pressão }}}{124}{subfigure.52.2}%
 \contentsline {figure}{\numberline {52}{\ignorespaces Cavidade 2D: Perfis de velocidade}}{124}{figure.5.52}%
 \contentsline {figure}{\numberline {53}{\ignorespaces Domínio local e global}}{126}{figure.6.53}%
 \contentsline {figure}{\numberline {54}{\ignorespaces Função Ponderadora}}{127}{figure.6.54}%

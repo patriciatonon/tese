@@ -49,7 +49,7 @@ w^{h}(\pos) = \sum_{A = 1}^{(n_{np})_G} (w_{G})_{A}b(\pos)(N_{G})_{A}(\pos) + \s
 
 \noindent com $N_{G}$ e $N_{L}$ sendo as funções de forma global e local; e $(n_{np})_G$ e $(n_{np})_L$ o número de funções de forma nas discretizações global e local respectivamente. 
 
-\subsection{Função de combinação}
+\section{Função de combinação}
 
 Considerando que as funções $b(\pos)(N_{G})$ e $(1-b(\pos))(N_{L})$ sejam linearmente independentes sobre $\Omega_{B}$, e que as funções base local e global sejam discretizadas com polinômios de igual ordem $p$ e constituam funções base independentes dentro das discretizações local e global, a escolha de $b$ um grau acima das funções base, ou seja, grau $p+1$, irá proporcionar uma nova base de grau consistente com o número de funções base disponíveis em cada ponto da zona de superposição. A nova base, que continua sendo um polinômio de grau $p$ fora do domínio de sobreposição, torna-se um polinômio de ordem $2p+1$ dentro da zona de sobreposição, evitando dependência linear entre as funções de forma e cumprindo a partição da unidade.
 
@@ -85,7 +85,7 @@ Na Figura \ref{fig:funcoes_tecnica_particao} apresenta-se um exemplo unidimensio
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-\subsection{Aplicação da técnica a Dinâmica dos Fluidos Computacional}
+\section{Aplicação da técnica a Dinâmica dos Fluidos Computacional}
 
 Para o emprego da metodologia nas análises da DFC as aproximações apresentadas nas \autoref{eq:u_mod} e \autoref{eq:w_mod} devem ser aplicadas nas funções tentativa para velocidade e pressão, e nas funções teste associadas à elas, apresentadas nas \autoref{eq:interp_vel} à \autoref{eq:inter_ptest}.
 
@@ -97,19 +97,17 @@ Conforme relatado, os parâmetros de estabilização utilizados na técnica da D
 \LSIC(\pos) =  b(\pos)(\LSIC)^{G}(\pos) + (1-b(\pos))(\LSIC)^{L}(\pos),
 \end{align}
 
-\noindent com $(\SUPG)^{G}$, $(\PSPG)^{G}$ e $(\LSIC)^{G}$ os parâmetros de estabilização na malha global;$(\SUPG)^{L}$, $(\PSPG)^{L}$ e  $(\LSIC)^{L}$ os parâmetros de estabilização na malha local.
+\noindent com $(\SUPG)^{G}$, $(\PSPG)^{G}$ e $(\LSIC)^{G}$ os parâmetros de estabilização calculados na malha global;$(\SUPG)^{L}$, $(\PSPG)^{L}$ e  $(\LSIC)^{L}$ os parâmetros de estabilização calculados na malha local, todos conforme a Eq. \textcolor{red}{Colocar referência para a eq que define os parâmetros}.
 
 \section{Implementação Computacional}
 
-O algoritmo de partição de domínios foi implementado para a solução de escoamentos incompressíveis seguindo a formulação apresentada nos capítulos \ref{capitulo:Cap2} e \ref{capitulo:Cap3}. Nesse código, após a leitura dos dados respectivos às malhas global e local, segue-se com a definição da distância assinalada respectiva a todos os nós da malha global e da malha local com respeito aos contornos $(\Gamma_{G})_{B}$ e $(\Gamma_{L})_{B}$, respectivamente. O contorno  $(\Gamma_{G})_{B}$ é obtido a partir dos dados de entrada, onde define-se a espessura da zona de sobreposição. De posse da distância assinalada e espessura da zona de sobreposição, são definidos quais elementos das malhas local e global fazem parte da zona de sobreposição. Qualquer elemento que possua 1 ou mais nós dentro da zona de sobreposição é considerado como um elemento pertencente a ela.
+O método dos espaços de funções combinados foi implementado para a solução de escoamentos incompressíveis seguindo a formulação apresentada nos capítulos \ref{capitulo:Cap2} e \ref{capitulo:Cap3}. Nesse código, após a leitura dos dados respectivos às malhas global e local, segue-se com a definição da distância assinalada respectiva a todos os nós da malha global e da malha local com respeito aos contornos $(\Gamma_{G})_{B}$ e $(\Gamma_{L})_{B}$, respectivamente. O contorno  $(\Gamma_{G})_{B}$ é obtido a partir dos dados de entrada, onde define-se a espessura da zona de sobreposição. De posse da distância assinalada e espessura da zona de sobreposição, são definidos quais elementos das malhas local e global fazem parte da zona de sobreposição. Qualquer elemento que possua 1 ou mais nós dentro da zona de sobreposição é considerado como um elemento contribui com ela.
 
 As equações na região de sobreposição são integradas sobre o elemento local, dessa forma, no pré-processamento, os pontos de integração da malha local são projetados sobre a malha global e o elemento global e suas coordenadas paramétricas correspondentes a cada ponto são armazenados. 
 
-Na etapa de pré-processamento determinam-se ainda os nós inativos da malha global, sejam porque encontram-se fora da zona de sobreposição, ou, porque possuem pequena influência dentro da mesma, de acordo com a expressão apresentada na \autoref{eq:influence}.
+Na etapa de pré-processamento, são determinados ainda os nós inativos da malha global, sejam porque o domínio de suas funções de forma encontram-se fora da zona de sobreposição, ou, porque possuem pequena influência dentro da mesma, de acordo com a expressão apresentada na \autoref{eq:influence}.
 
-Finalmente, o processo de marcha no tempo se inicia da maneira explicitada no Item \ref{capitulo:Cap2:DFCComputationalCode} levando-se em consideração que as funções tentativa e peso, e os parâmetros de estabilização são modificados de acordo com o apresentado neste capítulo.
-
-O algoritmo que descreve esse processo de solução das equações da DFC considerando a partição de domínios pode ser visualizado no Alg. \ref{alg:overlap}.
+Finalmente, o processo de marcha no tempo se inicia da maneira explicitada no Item \ref{capitulo:Cap2:DFCComputationalCode} levando-se em consideração que as funções tentativa e peso, e os parâmetros de estabilização são modificados de acordo com o apresentado neste capítulo. O algoritmo que descreve esse processo de solução pode ser visualizado no Alg. \ref{alg:overlap}.
 
 \begin{algorithm}
 	\caption{Algoritmo para problemas da dinâmica dos fluidos computacional com a técnica de partição de domínios}
@@ -137,7 +135,7 @@ O algoritmo que descreve esse processo de solução das equações da DFC consid
 	\end{algorithmic}
 \end{algorithm}
 
-\section{Exemplo de aplicação} \label{capitulo:cap5:Exemplo}
+\section{Exemplo - Cavidade com partição de domínio e combinação MEF-IGA} \label{capitulo:cap5:Exemplo}
 
 Para verificar a metodologia de partição de domínios com sobreposição de malhas, neste item apresenta-se a solução estacionária do problema de Navier Stokes para a cavidade 2D.
 
@@ -192,3 +190,5 @@ Os campos de velocidade e pressão obtidos são apresentados nas Figura \ref{fig
 	\label{fig:cav2d_perfil_vel_Re100}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
+
+\textcolor{Por enquanto vamos deixar assim, mas acho que devemos incluir mais exemplos aqui... Pelo menos exemplos que eu rodei. Na verdade, o importante seria colocar exemplos que apresentaram problema de convergência.}

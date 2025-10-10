@@ -55,21 +55,20 @@
 \contentsline {section}{\numberline {4.1}Cinemática dos corpos deformáveis}{96}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Equilíbrio de corpos deformáveis}{99}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Estado de tensão em um ponto}{99}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Equilíbrio local Lagrangeano}{101}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Princípio de Estacionariedade de energia}{103}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.2}Equilíbrio em descrição Lagrangiana}{101}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Conservação da Energia e Equilíbrio}{103}{subsection.4.2.3}%
 \contentsline {subsection}{\numberline {4.2.4}Modelo constitutivo de Saint-Venant-Kirchhoff}{105}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Método dos Elementos Finitos Posicional}{105}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Método dos Elementos Finitos}{106}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Elemento finito de Casca}{106}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Integração Temporal e solução do problema não-linear}{108}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.2}Integração Temporal e solução do problema não-linear}{109}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Implementação Computacional}{111}{subsection.4.3.3}%
 \contentsline {section}{\numberline {4.4}Exemplo de aplicação - Casca cilíndrica com \textit {snap through} dinâmico}{111}{section.4.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Técnica de partição de domínios}}{115}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Combinação de espaços de funções}{115}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Função ponderadora de combinação}{117}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Aplicação da técnica a Dinâmica dos Fluidos Computacional}{118}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Implementação Computacional}{120}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Exemplo de aplicação}{121}{section.5.3}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase {Técnica de partição de domínio por combinação dos espaços de funções}}{115}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Função de combinação}{117}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Aplicação da técnica a Dinâmica dos Fluidos Computacional}{119}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Implementação Computacional}{119}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Exemplo - Cavidade com partição de domínio e combinação MEF-IGA}{121}{section.5.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase {Método de Arlequin estabilizado}}{125}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Método Arlequin}{125}{section.6.1}%
