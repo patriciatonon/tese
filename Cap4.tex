@@ -424,8 +424,6 @@ Assim, o alongamento à direta de Cauchy-Green e a deformação de Green podem s
 \end{align}
 
 
-Neste trabalho, aplicou-se nas discretizações um elemento triangular quadrático com 6 nós.
-
 Partindo do mapeamento apresentado é possível escrever o funcional de energia mecânica em função dos parâmetros nodais apresentados, e ao discretizar-se as equações no tempo, a solução do problema consiste encontrar os parâmetros nodais que satisfaçam:
 
 \begin{align}
@@ -434,7 +432,7 @@ Partindo do mapeamento apresentado é possível escrever o funcional de energia 
 
 \subsection{Integração Temporal e solução do problema não-linear}
 
-Para a resolução do problema não-linear, vamos reescrever o princípio da estacionariedade em função da variável $\SolidPos$, que consiste em um vetor que contém todos os parâmetros nodais da estrutura (posições, vetores generalizados e taxa de variação linear da espessura) da seguinte forma:
+Para a tornar o equacionamento mais compacto, reescreve-se o equilíbrio baseado na energia da variável $\SolidPos$, que consiste em um vetor que contém todos os parâmetros nodais da estrutura (posições, vetores generalizados e taxa de variação linear da espessura) de forma que:
 
 \begin{align}
 	\frac{\partial\totalEnergy}{\partial\SolidPos} = \frac{\partial\extEnergy}{\partial \SolidPos} + \frac{\partial\kinEnergy}{\partial \SolidPos} + \frac{\partial\intEnergy}{\partial \SolidPos} = \mathbf{0},
@@ -446,9 +444,9 @@ Para a resolução do problema não-linear, vamos reescrever o princípio da est
 	- \concLoad^{ext}(t) + \solidMass\SolidAccel_{}+ \concLoad^{int}(\SolidPos) + \solidDamping\SolidVel_{} = \mathbf{0}, \label{eq:equi_forma_matricial}
 \end{align}
 
-\noindent na qual $ \concLoad^{int}(\SolidPos)$ representa as forças internas provenientes da variação da energia potencial interna, $\solidMass$ é a conhecida como matriz de massa proveniente da variação da energia cinética e $\mathbf{F}^{ext}$ representam as forças externas na estrutura fruto da variação da energia potencial das forças externas. O termo $\solidDamping$ representa uma matriz de amortecimento proporcional a massa, e $\SolidVel_{}$ a velocidade nodal.
+\noindent onde $ \concLoad^{int}(\SolidPos)$ representa as forças internas provenientes da variação da energia potencial interna, $\solidMass$ é a conhecida como matriz de massa e $\mathbf{F}^{ext}$ advém da variação da energia potencial das forças externas. O termo $\solidDamping$ representa uma matriz de amortecimento viscoso e os pontos sobrescritos indicam derivadas materiais no tempo.
 
-Nesse trabalho, para a discretização temporal das equações, será utilizado o integrador de Newmark, visto que o mesmo demonstrou estabilidade e eficácia na vasta gama de trabalhos envolvendo o MEF posicional com sua aplicação (\cite{CodaG:2004,CodaP:2010,CarrazedoC:2010,CodaP:2011,SanchesC:2016}).
+Neste trabalho, para a discretização temporal das equações, será utilizado o integrador de Newmark, visto que o mesmo demonstrou estabilidade e eficácia na vasta gama de trabalhos envolvendo o MEF posicional com sua aplicação (\cite{CodaG:2004,CodaP:2010,CarrazedoC:2010,CodaP:2011,SanchesC:2016}).
   
 A integração temporal das equações inicia-se com a discretização do tempo de maneira que:
 
@@ -456,14 +454,14 @@ A integração temporal das equações inicia-se com a discretização do tempo 
 	t_{n+1} = t_{n} + \Delta t, \label{eq:disc_tempo}
 \end{align}
 
-\noindent na qual $t_{n+1}$ representa o tempo no instante atual, $t_{n}$ o instante de tempo anterior e  $\Delta t$ o intervalo de tempo utilizado na discretização. Utilizando as aproximações de Newmark, posição, velocidade e aceleração nos tempos $n+1$ e $n$ são relacionados por:
+\noindent onde $t_{n+1}$ representa o instante atual, $t_{n}$ o instante final do passo de tempo anterior e  $\Delta t$ o intervalo do passo de tempo utilizado na discretização. Utilizando as aproximações de Newmark, posição, velocidade e aceleração nos instantes $n+1$ e $n$ são relacionados por:
 
 \begin{gather}
 	\SolidPos_{n+1}=\SolidPos_{n} + \timeStep \SolidVel_{n}+\left(\frac{1}{2}-\beta\right) \timeStep^2 \SolidAccel_{n}+ \beta \timeStep^2 \SolidAccel_{n+1},\label{eq:newmark1}\\
 	\SolidVel_{n+1} = \SolidVel_{n}+(1-\gamma)\timeStep \SolidAccel_{n}+\gamma \timeStep \SolidAccel_{n+1},\label{eq:newmark2}
 \end{gather}
 
-\noindent em que $\beta$ e $\gamma$ são parâmetros dependentes do comportamento assumido para a aceleração. Para um aceleração constante adotada-se nesse trabalho $\gamma=\sfrac{1}{2}$ e $\beta=\sfrac{1}{4}$.
+\noindent em que $\beta$ e $\gamma$ são parâmetros dependentes do comportamento assumido para a aceleração. Para um aceleração constante, hipótese adotada neste trabalho, $\gamma=\sfrac{1}{2}$ e $\beta=\sfrac{1}{4}$.
 
 Partindo das equações \autoref{eq:newmark1} e \autoref{eq:newmark2} é possível escrever a aceleração e a velocidade atual em função das posições no instante $n+1$, as incógnitas do problema, e das demais variáveis do passo anterior:
 
@@ -527,9 +525,9 @@ Para mais detalhes a cerca da obtenção das matrizes e vetores do método, reco
 
 \subsection{Implementação Computacional}
 
-Emprega-se nesse estudo, o programa computacional de análise não-linear dinâmica de sólidos cedido pelo aluno de doutorado Rosicley Junior Rodrigues Rosa, que faz parte do grupo de pesquisa da presente autora (GRUMEC) no Programa de Pós-Graduação em Engenharia de Estruturas da Escola de Engenharia de São Carlos - USP. O referido autor começou a desenvolver o código em seu trabalho de dissertação \cite{Rosa:2021}, o qual continua em desenvolvimento atualmente em sua tese de doutorado.
+O código empregado para a simulação das estruturas de cascas neste trabalho foi desenvolvido anteriormente dentro do grupo de pesquisas, sendo a versão utilizada aqui desenvolvida pelo doutorando Rosicley Junior Rodrigues Rosa, e empregada também no trabalho de mestrado de \citeonline{MatheusHaubert}, ambos do Programa de Pós-Graduação em Engenharia de Estruturas da Escola de Engenharia de São Carlos - USP. 
 
-O código foi desenvolvido em linguagem C++ utilizando paralelização em protocolo MPI. Ressalta-se que a implementação conta com uma estratégia de acoplamento entre elementos não coplanares, que pode ser vista em \citeonline{Coda:2018}. O algoritmo que descreve a implementação computacional pode ser visualizado em Alg. \ref{alg:algoritmo_solid}. No algoritmo a variável $\mathbf{X}$ consiste em um vetor das variáveis nodais na configuração inicial.
+O código foi desenvolvido em linguagem C++ utilizando paralelização em protocolo MPI e conta com elementos triangulares de 3, 6 ou 10 nós, respectivamente com aproximação linear, quadrática e cúbica. Ressalta-se que a implementação conta com uma estratégia de acoplamento entre elementos não coplanares, que pode ser vista em \citeonline{Coda:2018}. O algoritmo que descreve a implementação computacional pode ser visualizado em Alg. \ref{alg:algoritmo_solid}. No algoritmo a variável $\mathbf{X}$ consiste em um vetor das variáveis nodais na configuração inicial.
 
 \begin{algorithm}
 	\caption{Algoritmo para problemas não-lineares dinâmicos utilizando MEF posicional}
@@ -615,4 +613,3 @@ O deslocamento vertical do nó central da casca obtido nesse trabalho pode ser v
 	{\includegraphics[scale=0.015,trim=0cm 20.0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_legenda.pdf}}
 	\label{fig:casca_campos_deslocamentos}
 	\legend{Fonte: Elaborada pela autora}
-\end{figure}
