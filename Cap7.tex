@@ -228,7 +228,7 @@ A placa fina possui condições de deslocamentos nulos em suas laterais esquerda
 
 No que diz respeito a integração temporal utilizou-se $\timeStep = 0,1$, e $\specRadius = 0,0$. A escolha por uma integração temporal com máxima dissipação se deu por conta do trabalho de \citeonline{Forsteretal:2007} que reporta que a regra trapezoidal de integração leva a resultados instáveis para esse problema.
 
-Foram utilizadas nas análises três diferentes discretizações para o modelo Arlequin, sendo as malhas globais em discretização isogeométrica com funções de forma quadráticas (IGA) e as malhas locais, mais refinadas e estruturadas, em elementos finitos (MEF) tetraédricos quadráticos. Além disso, os resultados foram comparados com uma discretização somente em elementos finitos tetraédricos quadráticos, chamada de monomodelo. A quantidade de nós, ou pontos de controle (PC), e de elementos ou células, para cada uma dessas discretizações é apresentada na \autoref{tab:CF2DD}, assim como detalhes da discretização da placa, na qual foram utilizados elementos triangulares quadráticos estruturados. Na tabela ML e MG são abreviações para malha local e malha global respectivamente, e El representa os elementos ou células.
+Foram utilizadas nas análises três diferentes discretizações para o modelo Arlequin, sendo as malhas globais em discretização isogeométrica com funções de forma quadráticas (AIG) e as malhas locais, mais refinadas e estruturadas, em elementos finitos (MEF) tetraédricos quadráticos. Além disso, os resultados foram comparados com uma discretização somente em elementos finitos tetraédricos quadráticos, chamada de monomodelo. A quantidade de nós, ou pontos de controle (PC), e de elementos ou células, para cada uma dessas discretizações é apresentada na \autoref{tab:CF2DD}, assim como detalhes da discretização da placa, na qual foram utilizados elementos triangulares quadráticos estruturados. Na tabela ML e MG são abreviações para malha local e malha global respectivamente, e El representa os elementos ou células.
 	
 	\begin{center}
 		\begin{table}[!htbp]
@@ -326,7 +326,7 @@ O problema da cavidade tridimensional com fundo flexível foi proposto inicialme
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Foram utilizadas nas análises desse problema duas diferentes discretizações: 1. Modelo Arlequin (ver Figura \ref{fig:cavFF3d_malha}), sendo a malha global em discretização isogeométrica (IGA) com funções base quadráticas e a malha local, mais refinada e estrutura, em elementos finitos (MEF) tetraédricos quadráticos; 2 . Monomodelo (Figura \ref{fig:cavFF3d_malha_mono.pdf}) discretizado com elementos finitos tetraédricos quadráticos. Para ambos modelos utilizou-se uma placa discretizada com elementos finitos triangulares quadráticos, apresentada na Figura \ref{fig:cavFF3d_malhaPlaca}.
+Foram utilizadas nas análises desse problema duas diferentes discretizações: 1. Modelo Arlequin (ver Figura \ref{fig:cavFF3d_malha}), sendo a malha global em discretização isogeométrica (AIG) com funções base quadráticas e a malha local, mais refinada e estrutura, em elementos finitos (MEF) tetraédricos quadráticos; 2 . Monomodelo (Figura \ref{fig:cavFF3d_malha_mono.pdf}) discretizado com elementos finitos tetraédricos quadráticos. Para ambos modelos utilizou-se uma placa discretizada com elementos finitos triangulares quadráticos, apresentada na Figura \ref{fig:cavFF3d_malhaPlaca}.
 
 \begin{figure}[!htbp]
 	\caption{Cavidade fundo flexível 3D: Discretização}
@@ -462,5 +462,138 @@ Considerando um ciclo de movimento da estrutura $T$ (aproximadamente periódico)
 	\centering 
 	\includegraphics[scale=1.0,trim=1cm 0.2cm 1cm 0.2cm, clip=true]{Imagens/Cap7/prism_malha_def.pdf}	
 	\label{fig:prisma_defor_malha}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\subsection{Turbina}
+
+Este último exemplo tem intuito de expor um caráter mais prático de aplicação da técnica relatada nessa tese. A primeira parte dessa subseção dedica-se a apresentar a simulação do funcionamento de um rotor de turbina hidráulica. Para isso, utiliza-se um tubo para representar o domínio do fluido, o qual é discretizado em sua totalidade com elementos finitos. Dentro desse tubo encontra-se um eixo rígido no qual acopla-se a estrutura flexível do rotor, discretizados em elementos finitos de casca. Durante a rotação da turbina, o eixo rígido acompanha o movimento das pás, e toda a malha de elementos finitos do fluido se deforma e desloca para acomodar a nova posição da estrutura.
+
+Na segunda parte do exemplo, realiza-se a simulação do funcionamento dessa mesma turbina hidráulica, entretanto, adicionam-se pás diretoras fixas e rígidas ao eixo rígido a montante do rotor. Para essa finalidade, utiliza-se o modelo Arlequin estabilizado para o domínio do fluido, de maneira a permitir que apenas o domínio na região do cubo do rotor gire, enquanto que o restante da malha mantém-se fixa.   
+
+\subsubsection{Turbina - Monomodelo}
+
+A simulação do escoamento através de uma turbina hidráulica instalada em um tubo foi realizada com base na geometria ilustrada na \autoref{fig:turbina_mono_geo}, que apresenta as principais características do domínio computacional considerado.
+
+\begin{figure}[!htbp]
+	\caption{Turbina monomodelo: Geometria}
+	\centering 
+	\includegraphics[scale=3.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_geo.pdf}	
+	\label{fig:turbina_mono_geo}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+No que diz respeito ao fluido, seu domínio consiste em tubo de comprimento 17L, com $L = 0,684dm$, e diâmetro exterior $D_t = 1,74dm$. O seu interior é discretizado de maneira a acomodar o rotor de uma turbina acoplado em um eixo rígido. O fluido possui propriedades físicas da água, que consistem em viscosidade dinâmica de $\viscosity=1,00\times10^{-4} kg/(dm.s)$ e massa específica equivalente a $\rho_{f} = 1,00 kg/dm^3 $. Ao domínio do fluido, aplica-se condição de não deslizamento para as paredes do tubo, e para as paredes do eixo rígido. Além disso, uma força de superfície na entrada do domínio equivalente a $100kPa$ é empregada.
+
+O rotor consiste em 4 pás de espessura constante $t_p = 0,02dm$, acopladas em um cubo (\textit{hub}) de diâmetro  $d = 0,3dm$ e espessura $t_c=0,1dm$, e apresentam diâmetro de ponta (\textit{tip}) $D=0,75dm$. A geometria da pás foi gerada utilizando o software CFturbo® \footnote{Disponível em: \url{https://www.cfturbo.com}}. Selecionou-se um aço para compor o material do cubo e das pás do rotor, que caracteriza-se por uma massa específica de $\rho_{e} =  8,0 Kg/dm^3 $, e módulo de elasticidade de $E = 2,0\times10^{10} kg/(dm.s^2)$. O eixo rígido apresenta diâmetro igual ao do cubo. Para permitir a rotação da turbina, no nó central da superfície superior do eixo rígido (superfície de entrada do escoamento), travaram-se os deslocamentos em $y_1,y_2$ e $y_3$, enquanto que para os demais nós desta superfície restringiram-se os deslocamentos na direção de $y_3$.
+
+No que diz respeito a integração temporal utilizou-se $\timeStep = 1\times10^{-3}$, e para o fluido um raio espectral $\specRadius = 0,5$.
+
+A malha utilizada para a discretização do domínio do fluido, é apresentada na \autoref{fig:turbina_mono_malha_fluido} e é composta por 49239 elementos tetraédricos quadráticos e 76548 nós, enquanto que, a malha da discretização da estrutura completa (eixo rígido e turbina) é composta por 3807 elementos de casca triangulares quadráticos e 7791 nós.
+
+\begin{figure}[!htbp]
+	\caption{Turbina monomodelo: Malhas}
+	\centering 
+	\subfloat[malha fluido \label{fig:turbina_mono_malha_fluido}]{\includegraphics[scale=2.0,trim=0cm 0cm 0.0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_malha.pdf}} \ \
+	\subfloat[malha estrutura \label{fig:turbina_malha_estrutura}]{\includegraphics[scale=2.0,trim=0cm 0cm 0.2cm 0cm, clip=true]{Imagens/Cap7/turbina_malha_estrutura.pdf}} 
+	\label{fig:turbina_mono_malha}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Turbina monomodelo: Deslocamento no ponto A}
+	\centering 
+	\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_deslocamento.eps}	
+	\label{fig:turbina_mono_deslA}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Turbina monomodelo: Velocidade angular no ponto A}
+	\centering 
+	\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_velocidade_angular.eps}	
+	\label{fig:turbina_mono_velAngA}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Turbina monomodelo: Campos de velocidade}
+	\centering
+\subfloat[$t=0,414s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel414.pdf}} \
+\subfloat[$t=0,430s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel430.pdf}} \\
+\subfloat[$t=0,446s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel446.pdf}} \
+\subfloat[$t=0,462s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel462.pdf}} 
+	\label{fig:turbina_mono_vel}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Turbina monomodelo: Campos de pressão}
+	\centering
+	\subfloat[$t=0,414s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 2.8cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press414.pdf}} \
+	\subfloat[$t=0,430s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press430.pdf}} \\
+	\subfloat[$t=0,446s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press446.pdf}} \
+	\subfloat[$t=0,462s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press462.pdf}} 
+	\label{fig:turbina_mono_press}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+
+\subsubsection{Turbina - Modelo Arlequin}
+
+Na segunda etapa de análise, adicionam-se pás diretoras rígidas e fixas ao eixo rígido que também 
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Geometria}
+	\centering 
+	\includegraphics[scale=3.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_arlq_geo.pdf}	
+	\label{fig:turbina_arlq_geo}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Malhas}
+	\centering 
+	\includegraphics[scale=2.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_arlq_malha.pdf}	
+	\label{fig:turbina_arlq_malha}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Deslocamento no ponto A}
+	\centering 
+	\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_arlq_deslocamento.eps}	
+	\label{fig:turbina_arlq_deslA}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Velocidade angular no ponto A}
+	\centering 
+	\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_arlq_velocidade_angular.eps}	
+	\label{fig:turbina_arlq_velAngA}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Campos de velocidade}
+	\centering
+	\subfloat[$t=0,226s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_vel226.pdf}} \
+	\subfloat[$t=0,229s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_vel229.pdf}} \\
+	\subfloat[$t=0,232s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_vel232.pdf}} \
+	\subfloat[$t=0,235s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_vel235.pdf}} 
+	\label{fig:turbina_arlq_vel}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Campos de pressão}
+	\centering
+	\subfloat[$t=0,226s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_press226.pdf}} \
+	\subfloat[$t=0,229s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_press229.pdf}} \\
+	\subfloat[$t=0,232s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_press232.pdf}} \
+	\subfloat[$t=0,235s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_press235.pdf}} 
+	\label{fig:turbina_arlq_press}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}

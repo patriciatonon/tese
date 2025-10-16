@@ -3,7 +3,7 @@
 
 O escoamento isotérmico de um fluido newtoniano é descrito pelas equações advindas da conservação da quantidade de movimento, ou de Navier-Stokes, e da conservação de massa. Nos casos em que ocorram variações significativas no campo de temperatura, ou em escoamentos compressíveis, a equação da conservação de energia deve ser adicionada ao sistema. Essas equações governantes, juntamente com as relações constitutivas, resultam em um sistema de equações diferenciais não lineares que descrevem o comportamento do escoamento no tempo e no espaço. 
 
-Neste trabalho, são investigados escoamentos incompressíveis, isotérmicos e com contornos móveis. As seções seguintes apresentam a abordagem adotada para a resolução desse tipo de problema, bem como sua implementação computacional. Utiliza-se uma formulação Arbitrária Euleriana-Lagrangiana (ALE) para representar as equações, e a discretização espacial é realizada por meio do método dos elementos finitos (FEM) ou da análise isogeométrica (IGA).
+Neste trabalho, são investigados escoamentos incompressíveis, isotérmicos e com contornos móveis. As seções seguintes apresentam a abordagem adotada para a resolução desse tipo de problema, bem como sua implementação computacional. Utiliza-se uma formulação Arbitrária Euleriana-Lagrangiana (ALE) para representar as equações, e a discretização espacial é realizada por meio do método dos elementos finitos (FEM) ou da análise isogeométrica (AIG).
 
 Para tratar questões numéricas recorrentes nesse sistema de equações, como as oscilações espúrias em casos de convecção dominante, típicas da aplicação do método dos resíduos ponderados baseado na formulação clássica de Galerkin, emprega-se a metodologia SUPG. Adicionalmente, a estabilização PSPG é aplicada com o objetivo de contornar a condição imposta pelo critério de \textit{Ladyzhenskaya-Babuška-Brezzi} (LBB). A integração no tempo é conduzida por meio do método $\alpha$-generalizado.
 
@@ -597,7 +597,7 @@ Para a utilização da metologia estabilizada da DFC, descrita nesse capítulo, 
 
 Desde os primeiros desenvolvimentos relacionados aos métodos estabilizados houve um amadurecimento das expressões de definição dos parâmetros $\tau$, as quais passam a levar em consideração formulações mais robustas, sendo adaptadas tanto para elementos de ordem elevadas, quanto para malhas mais complexas, como as usadas em análise isogeométrica.
 
-Considerando que nesse trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em IGA, adotam-se os parâmetros propostos mais recentemente por \citeonline{TakizawaTO:2018}, \citeonline{TakizawaUT:2019},\citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. 
+Considerando que nesse trabalho dois tipos de aproximações espaciais são utilizadas, uma baseada no FEM e outra baseada em AIG, adotam-se os parâmetros propostos mais recentemente por \citeonline{TakizawaTO:2018}, \citeonline{TakizawaUT:2019},\citeonline{OtoguroTT:2020}, que são adequados para ambas aproximações. 
 
 Para essa opção é necessário definir-se o tensor métrico do elemento no espaço. Com essa finalidade, descreve-se inicialmente a matriz Jacobiana $\matrixQ$, como:
 

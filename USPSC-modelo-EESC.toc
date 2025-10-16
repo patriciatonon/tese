@@ -9,92 +9,96 @@
 \contentsline {section}{\numberline {1.1}Apresentação do texto}{18}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Estado da Arte}{20}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}Dinâmica dos fluidos computacional}{20}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Dinâmica de estruturas computacional considerando grandes deslocamentos}{23}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Acoplamento fluido-estrutura}{24}{subsection.1.2.3}%
-\contentsline {subsection}{\numberline {1.2.4}Métodos Multiescala e Técnicas de partição de domínios}{27}{subsection.1.2.4}%
-\contentsline {section}{\numberline {1.3}Objetivos}{29}{section.1.3}%
-\contentsline {section}{\numberline {1.4}Metodologia}{29}{section.1.4}%
-\contentsline {section}{\numberline {1.5}Justificativa}{31}{section.1.5}%
+\contentsline {subsection}{\numberline {1.2.2}Análise Isogeométrica}{23}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Dinâmica de estruturas computacional considerando grandes deslocamentos}{24}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}Acoplamento fluido-estrutura}{25}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Métodos Multiescala e Técnicas de partição de domínios}{28}{subsection.1.2.5}%
+\contentsline {section}{\numberline {1.3}Objetivos}{30}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Metodologia}{30}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Justificativa}{32}{section.1.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Dinâmica dos fluidos computacional}}{33}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Equações governantes na descrição Euleriana}{33}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}Equação da conservação da massa}{33}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Equação da quantidade de movimento}{35}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}Formulação forte da mecânica dos fluidos}{37}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}Descrição Euleriana-Lagrangiana arbitrária (ALE)}{38}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Forma fraca e discretização espacial das equações governantes}{43}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Método dos elementos finitos }{44}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Discretização Espacial}{45}{subsection.2.3.2}%
-\contentsline {subsection}{\numberline {2.3.3}Parâmetros de estabilização}{49}{subsection.2.3.3}%
-\contentsline {section}{\numberline {2.4}Integração Temporal}{52}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Implementação Computacional}{55}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Verificação e Aplicações}{55}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Escoamento sobre um cilindro}{56}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Cavidade quadrada}{58}{subsection.2.6.2}%
+\contentsline {chapter}{\chapternumberline {2}\MakeTextUppercase []{Dinâmica dos fluidos computacional}}{35}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Equações governantes na descrição Euleriana}{35}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Equação da conservação da massa}{35}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Equação da quantidade de movimento}{37}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Formulação forte da mecânica dos fluidos}{39}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Descrição Euleriana-Lagrangiana arbitrária (ALE)}{40}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Forma fraca e discretização espacial das equações governantes}{45}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Método dos elementos finitos }{46}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Discretização Espacial}{47}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Parâmetros de estabilização}{51}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Integração Temporal}{54}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Implementação Computacional}{57}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Verificação e Aplicações}{57}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Escoamento sobre um cilindro}{58}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Cavidade quadrada}{60}{subsection.2.6.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Análise isogeométrica aplicada à Dinâmica dos Fluidos Computacional}}{65}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Noções Gerais de IGA}{65}{section.3.1}%
-\contentsline {section}{\numberline {3.2}\textit {B-Splines}}{67}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Vetor de \textit {knots}}{67}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Funções base e suas derivadas}{68}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Geometrias \textit {B-Splines}}{70}{subsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.2.4}Refinamento}{72}{subsection.3.2.4}%
-\contentsline {section}{\numberline {3.3}NURBS}{73}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Funções base NURBS e suas derivadas}{75}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Geometria NURBS}{76}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Múltiplos \textit {Patches}}{77}{subsection.3.3.3}%
-\contentsline {section}{\numberline {3.4}Análise Isogeométrica}{78}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Parâmetros de estabilização}{79}{subsection.3.4.1}%
-\contentsline {section}{\numberline {3.5}Verificação e aplicações}{81}{section.3.5}%
-\contentsline {subsection}{\numberline {3.5.1}Escoamento sobre um cilindro}{81}{subsection.3.5.1}%
-\contentsline {subsubsection}{\numberline {3.5.1.1}Geração da malha NURBS}{81}{subsubsection.3.5.1.1}%
-\contentsline {subsubsection}{\numberline {3.5.1.2}Análise numérica}{85}{subsubsection.3.5.1.2}%
-\contentsline {subsection}{\numberline {3.5.2}Escoamento em um canal com degrau}{88}{subsection.3.5.2}%
+\contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Análise isogeométrica aplicada à Dinâmica dos Fluidos Computacional}}{67}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Noções Gerais de AIG}{67}{section.3.1}%
+\contentsline {section}{\numberline {3.2}\textit {B-Splines}}{69}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Vetor de \textit {knots}}{69}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Funções base e suas derivadas}{70}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Geometrias \textit {B-Splines}}{72}{subsection.3.2.3}%
+\contentsline {subsection}{\numberline {3.2.4}Refinamento}{74}{subsection.3.2.4}%
+\contentsline {section}{\numberline {3.3}NURBS}{75}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Funções base NURBS e suas derivadas}{77}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Geometria NURBS}{78}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Múltiplos \textit {Patches}}{79}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Análise Isogeométrica}{80}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Parâmetros de estabilização}{81}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}Verificação e aplicações}{83}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}Escoamento sobre um cilindro}{83}{subsection.3.5.1}%
+\contentsline {subsubsection}{\numberline {3.5.1.1}Geração da malha NURBS}{83}{subsubsection.3.5.1.1}%
+\contentsline {subsubsection}{\numberline {3.5.1.2}Análise numérica}{87}{subsubsection.3.5.1.2}%
+\contentsline {subsection}{\numberline {3.5.2}Escoamento em um canal com degrau}{90}{subsection.3.5.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Dinâmica dos sólidos computacional}}{95}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Cinemática dos corpos deformáveis}{96}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Equilíbrio de corpos deformáveis}{99}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Estado de tensão em um ponto}{99}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Equilíbrio local Lagrangeano}{100}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Princípio de Estacionariedade de energia}{102}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Modelo constitutivo de Saint-Venant-Kirchhoff}{104}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Método dos Elementos Finitos Posicional}{105}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Elemento finito de Casca}{105}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Integração Temporal e solução do problema não-linear}{108}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Implementação Computacional}{111}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Exemplo de aplicação - Casca cilíndrica com \textit {snap through} dinâmico}{111}{section.4.4}%
+\contentsline {chapter}{\chapternumberline {4}\MakeTextUppercase []{Dinâmica dos sólidos computacional}}{97}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Cinemática dos corpos deformáveis}{98}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Equilíbrio de corpos deformáveis}{101}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Estado de tensão em um ponto}{101}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Equilíbrio local Lagrangeano}{102}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Princípio de Estacionariedade de energia}{104}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Modelo constitutivo de Saint-Venant-Kirchhoff}{106}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Método dos Elementos Finitos Posicional}{107}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Elemento finito de Casca}{107}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Integração Temporal e solução do problema não-linear}{110}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Implementação Computacional}{113}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Exemplo de aplicação - Casca cilíndrica com \textit {snap through} dinâmico}{113}{section.4.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Técnica de partição de domínios}}{115}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Combinação de espaços de funções}{115}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Função ponderadora de combinação}{117}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Aplicação da técnica a Dinâmica dos Fluidos Computacional}{118}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Implementação Computacional}{120}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Exemplo de aplicação}{121}{section.5.3}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Técnica de partição de domínios}}{117}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Combinação de espaços de funções}{117}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Função ponderadora de combinação}{119}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Aplicação da técnica a Dinâmica dos Fluidos Computacional}{120}{subsection.5.1.2}%
+\contentsline {section}{\numberline {5.2}Implementação Computacional}{122}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Exemplo de aplicação}{123}{section.5.3}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Método de Arlequin estabilizado}}{125}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Método Arlequin}{125}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{128}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{131}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Integração Temporal}{134}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Parâmetro de estabilização para técnica RBSAM}{136}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}Superposição de modelos móveis}{138}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Implementação Computacional}{139}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Exemplos}{142}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Escoamento sobre um aerofólio NACA 0012}{142}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{146}{subsection.6.6.2}%
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Método de Arlequin estabilizado}}{127}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Método Arlequin}{127}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{130}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{133}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Integração Temporal}{136}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Parâmetro de estabilização para técnica RBSAM}{138}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Superposição de modelos móveis}{140}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Implementação Computacional}{141}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Exemplos}{144}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Escoamento sobre um aerofólio NACA 0012}{144}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{148}{subsection.6.6.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Acoplamento Fluido-Estrutura}}{151}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Condições de acoplamento}{151}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Movimentação da Malha}{153}{subsection.7.1.1}%
-\contentsline {section}{\numberline {7.2}Discretizações não coincidentes entre os meios}{154}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Acoplamento Particionado Forte - Bloco-Iterativo}{155}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Implementação Computacional}{156}{subsection.7.3.1}%
-\contentsline {section}{\numberline {7.4}Exemplos}{156}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Cavidade com fundo flexível - 2D}{157}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Cavidade com fundo flexível - 3D}{160}{subsection.7.4.2}%
-\contentsline {subsection}{\numberline {7.4.3}\textit {Flutter} em painel flexível}{164}{subsection.7.4.3}%
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Acoplamento Fluido-Estrutura}}{153}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Condições de acoplamento}{153}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Movimentação da Malha}{155}{subsection.7.1.1}%
+\contentsline {section}{\numberline {7.2}Discretizações não coincidentes entre os meios}{156}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Acoplamento Particionado Forte - Bloco-Iterativo}{157}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Implementação Computacional}{158}{subsection.7.3.1}%
+\contentsline {section}{\numberline {7.4}Exemplos}{158}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Cavidade com fundo flexível - 2D}{159}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Cavidade com fundo flexível - 3D}{162}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}\textit {Flutter} em painel flexível}{166}{subsection.7.4.3}%
+\contentsline {subsection}{\numberline {7.4.4}Turbina}{171}{subsection.7.4.4}%
+\contentsline {subsubsection}{\numberline {7.4.4.1}Turbina - Monomodelo}{172}{subsubsection.7.4.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.4.2}Turbina - Modelo Arlequin}{176}{subsubsection.7.4.4.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase []{Conclusões}}{175}{chapter.8}%
+\contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase []{Conclusões}}{185}{chapter.8}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{179}{section*.9}%
+\contentsline {chapter}{\uppercase {Refer\^encias}}{189}{section*.9}%

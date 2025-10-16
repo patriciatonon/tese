@@ -25,12 +25,6 @@ Dispon{\'\i}vel em: \url{https://doi.org/10.1115/1.3124648}.}
 {ANDERSON, J.~D. \textbf{Computational fluid dynamic - the basics with
   applications}. 1. ed. New York, USA: McGraw-Hill Book Company, 1995.}
 
-\bibitem[Argyris 1982]{Argyris:1982}
-\abntrefinfo{Argyris}{Argyris}{1982}
-{ARGYRIS, J. An excursion into large rotations.
-\textbf{Computer Methods in Applied Mechanics and Engineering}, v.~32, p.
-  85--155, 1982.}
-
 \bibitem[Argyris, Papadrakakis e Mouroutis 2003]{ArgyrisPM:2003}
 \abntrefinfo{Argyris, Papadrakakis e Mouroutis}{Argyris; Papadrakakis;
   Mouroutis}{2003}
@@ -53,25 +47,11 @@ Dispon{\'\i}vel em: \url{https://doi.org/10.1115/1.3124648}.}
 2023. Tese (Doutorado) --- SET-EESC-USP, São Carlos, São Paulo, Brasil,
   2023.}
 
-\bibitem[Avancini e Sanches 2020]{AvanciniS:2020}
-\abntrefinfo{Avancini e Sanches}{Avancini; Sanches}{2020}
-{AVANCINI, G.; SANCHES, R.~A. A total lagrangian position-based finite element
-  formulation for free-surface incompressible flows.
-\textbf{Finite Elements in Analysis and Design}, v.~169, p. 103348, 2020.}
-
 \bibitem[Badia, Nobile e Vergara 2008]{BadiaNV:2008}
 \abntrefinfo{Badia, Nobile e Vergara}{Badia; Nobile; Vergara}{2008}
 {BADIA, S.; NOBILE, F.; VERGARA, C. Fluid-structure partitioned procedures
   based on robin transmission conditions.
 \textbf{Journal of Computational Physics}, v.~227, p. 7027--7051, 2008.}
-
-\bibitem[Battini e Pacoste 2006]{BattiniP:2006}
-\abntrefinfo{Battini e Pacoste}{Battini; Pacoste}{2006}
-{BATTINI, J.~M.; PACOSTE, C. On the choice of the linear element for
-  corotational triangular shells.
-\textbf{Computer Methods in Applied Mechanicas and Engineering}, v.~195, n.
-  44-47, p. 6362--6377, 2006.
-ISSN 0045-7825.}
 
 \bibitem[Bauman \textit{et al.} 2008]{BaumanDEOP:2008}
 \abntrefinfo{Bauman \textit{et al.}}{Bauman \textit{et al.}}{2008}
@@ -98,13 +78,6 @@ ISSN 0021-9991.}
 {BAZILEVS, Y. \textit{et al.} Isogeometric fluid-structure interaction: theory,
   algorithms, and computations.
 \textbf{Computational Mechanics}, v.~43, p. 3--37, 2008.}
-
-\bibitem[Bazilevs \textit{et al.} 2011]{BazilevsHKWB:2011}
-\abntrefinfo{Bazilevs \textit{et al.}}{Bazilevs \textit{et al.}}{2011}
-{BAZILEVS, Y. \textit{et al.} 3d simulation of wind turbine rotors at full
-  scale. part ii: Fluid-structure interaction modeling with composite blades.
-\textbf{International Journal for Numerical Methods in Fluids}, v.~65, p. 236
-  -- 253, 01 2011.}
 
 \bibitem[Bazilevs \textit{et al.} 2010]{BazilevsMCH:2010}
 \abntrefinfo{Bazilevs \textit{et al.}}{Bazilevs \textit{et al.}}{2010}
@@ -356,6 +329,11 @@ Dispon{\'\i}vel em:
 \textbf{Computer Methods in Applied Mechanics and Engineering}, v.~33, n.~1-3,
   p. 689--723, 1982.}
 
+\bibitem[Donea e Huerta 2003]{DoneaH:2003}
+\abntrefinfo{Donea e Huerta}{Donea; Huerta}{2003}
+{DONEA, J.; HUERTA, A. \textbf{Finite Element Methods for flow problems}.
+  Chichester, UK: John Wiley \& Sons, 2003.}
+
 \bibitem[Farhat, Harari e Franca 2001]{FarhatHF:2001}
 \abntrefinfo{Farhat, Harari e Franca}{Farhat; Harari; Franca}{2001}
 {FARHAT, C.; HARARI, I.; FRANCA, L.~P. {The discontinuous enrichment method}.
@@ -368,14 +346,6 @@ Dispon{\'\i}vel em:
   mechanical systems.
 \textbf{Computer Methods in Applied Mechanics and Engineering}, v.~190, n.
   24-25, p. 3247--3270, 2001.}
-
-\bibitem[Fernandes 2016]{Fernandes:2016}
-\abntrefinfo{Fernandes}{Fernandes}{2016}
-{FERNANDES, J. W.~D.
-\textbf{Interação fluido-estrutura com escoamentos incompressíveis
-  utilizando o método dos elementos finitos}.
-2016. Disserta\c{c}\~{a}o (Mestrado) --- SET-EESC-USP, São Carlos, São Paulo,
-  Brasil, 2016.}
 
 \bibitem[Fernandes 2020]{Fernandes:2020}
 \abntrefinfo{Fernandes}{Fernandes}{2020}
@@ -556,22 +526,6 @@ ISSN 0045-7825.}
   paradimg for computational mechanics.
 \textbf{Comput. Methods Appl. Mech. Engrg}, v.~166, p. 3--24, 1998.}
 
-\bibitem[Hughes e Liu 1981]{HughesL:1981a}
-\abntrefinfo{Hughes e Liu}{Hughes; Liu}{1981a}
-{HUGHES, T. J.~R.; LIU, W.~K. {Nonlinear finite element analysis of shells:
-  Part I. three-dimensional shells}.
-\textbf{Computer Methods in Applied Mechanics and Engineering}, v.~26, n.~3, p.
-  331--362, 1981.
-A. ISSN 0045-7825.}
-
-\bibitem[Hughes e Liu 1981]{HughesL:1981b}
-\abntrefinfo{Hughes e Liu}{Hughes; Liu}{1981b}
-{HUGHES, T. J.~R.; LIU, W.~K. {Nonlinear finite element analysis of shells:
-  Part II. two-dimensional shells}.
-\textbf{Computer Methods in Applied Mechanics and Engineering}, v.~27, n.~2, p.
-  167--181, 1981.
-A. ISSN 0045-7825.}
-
 \bibitem[Hughes, Oberai e Mazzei 2001]{Hughesetal:2001}
 \abntrefinfo{Hughes, Oberai e Mazzei}{Hughes; Oberai; Mazzei}{2001}
 {HUGHES, T. J.~R.; OBERAI, A.~A.; MAZZEI, L. {Large Eddy Simulation} of
@@ -585,12 +539,6 @@ A. ISSN 0045-7825.}
   equations.
 \textbf{Computer Methods in Applied Mechanics and Engineering}, v.~45, p.
   217--284, 1984.}
-
-\bibitem[Ibrahimbegovic e Taylor 2002]{Ibrahimbegovic:2002}
-\abntrefinfo{Ibrahimbegovic e Taylor}{Ibrahimbegovic; Taylor}{2002}
-{IBRAHIMBEGOVIC, A.; TAYLOR, R.~L. On the role of frame-invariance in
-  structural mechanics models at finite rotations.
-\textbf{Comput. Methods Appl. Mech. Engrg.}, v.~191, p. 5159--5176, 2002.}
 
 \bibitem[Irons e Tuck 1969]{IronsT:1969}
 \abntrefinfo{Irons e Tuck}{Irons; Tuck}{1969}
@@ -737,6 +685,16 @@ Dispon{\'\i}vel em:
 ISBN 9783319639703. Dispon{\'\i}vel em:
   \url{https://books.google.com.br/books?id=hsEyDwAAQBAJ}.}
 
+\bibitem[Rosa, Coda e Sanches 2022]{Rosa:2022}
+\abntrefinfo{Rosa, Coda e Sanches}{Rosa; Coda; Sanches}{2022}
+{ROSA, R.; CODA, H.; SANCHES, R. Blended isogeometric-finite element analysis
+  for large displacements linear elastic fracture mechanics.
+\textbf{Computer Methods in Applied Mechanics and Engineering}, v.~392, p.
+  114622, 2022.
+ISSN 0045-7825.
+Dispon{\'\i}vel em:
+  \url{https://www.sciencedirect.com/science/article/pii/S0045782522000366}.}
+
 \bibitem[Rosa 2021]{Rosa:2021}
 \abntrefinfo{Rosa}{Rosa}{2021}
 {ROSA, R. J.~R.
@@ -745,27 +703,6 @@ ISBN 9783319639703. Dispon{\'\i}vel em:
   elementos finitos}.
 2021. Disserta\c{c}\~{a}o (Mestrado) --- SET-EESC-USP, São Carlos, São Paulo,
   Brasil, 2021.}
-
-\bibitem[Roux e Garaud 2009]{RouxG:2009}
-\abntrefinfo{Roux e Garaud}{Roux; Garaud}{2009}
-{ROUX, F.~X.; GARAUD, J.~D. Domain decomposition methodology with robin
-  interface matching conditions for solving strongly coupled fluid-structure
-  problems.
-\textbf{International Journal for Multiscale Computational Engineering}, v.~7,
-  p. 29--38, 2009.}
-
-\bibitem[Sanches e Coda 2010a]{SanchesC:2010a}
-\abntrefinfo{Sanches e Coda}{Sanches; Coda}{2010a}
-{SANCHES, R. A.~K.; CODA, H.~B. An embedded domain technique based on
-  level-sets for finite element method {(FEM)} fluid-shell coupling.
-\textbf{Mecánica Computacional}, XXIX, p. 4801--4818, 2010a.}
-
-\bibitem[Sanches e Coda 2010b]{SanchesC:2010b}
-\abntrefinfo{Sanches e Coda}{Sanches; Coda}{2010b}
-{SANCHES, R. A.~K.; CODA, H.~B. Fluid-structure interaction using an arbitrary
-  {Lagrangian-Eulerian Fluid} solver coupled to a positional {Lagrangian} shell
-  solver.
-\textbf{Mecánica Computacional}, XXIX, p. 1627--1647, 2010b.}
 
 \bibitem[Sanches e Coda 2013]{SanchesC:2013}
 \abntrefinfo{Sanches e Coda}{Sanches; Coda}{2013}
@@ -787,12 +724,6 @@ ISBN 9783319639703. Dispon{\'\i}vel em:
   formulation applied to structural progressive collapse analysis}.
 \textbf{Latin American Journal of Solids and Structures}, v.~13, n.~16, p.
   52--71, 2016.}
-
-\bibitem[Simo e Fox 1989]{SimoF:1989}
-\abntrefinfo{Simo e Fox}{Simo; Fox}{1989}
-{SIMO, J.~C.; FOX, D.~D. {On a stress resultant geometrically exact shell
-  model. Part I: formulation and optimal parametrization}.
-\textbf{Comput. Methods Appl. Mech. Engrg.}, v.~72, p. 267--304, 1989.}
 
 \bibitem[Speziale 1991]{Speziale1991}
 \abntrefinfo{Speziale}{Speziale}{1991}

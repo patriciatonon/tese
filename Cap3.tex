@@ -1,18 +1,18 @@
 \chapter[Análise isogeométrica aplicada à Dinâmica dos Fluidos Computacional]{Análise isogeométrica aplicada à Dinâmica dos Fluidos Computacional} \label{capitulo:Cap3}
 
-A Análise Isogeométrica (IGA) é uma técnica numérica introduzida por \citeonline{HughesCB:2005} para obtenção de soluções aproximadas de equações diferenciais. O método pode ser entendido como uma generalização do método dos elementos finitos clássicos a partir do uso de funções base especiais. 
+A Análise Isogeométrica (AIG) é uma técnica numérica introduzida por \citeonline{HughesCB:2005} para obtenção de soluções aproximadas de equações diferenciais. O método pode ser entendido como uma generalização do método dos elementos finitos clássicos a partir do uso de funções base especiais. 
 
 Na Análise Isogeométrica, as funções base escolhidas na discretização da geometria do problema e de suas variáveis são aquelas utilizadas nos sistemas CAD, sendo as funções do tipo NURBS as mais aplicadas (ver, por exemplo, \citeonline{PiegT:1996}). O grande impulso para o desenvolvimento da técnica foi proporcionar a integração entre a engenharia de \textit{design}, com modelos baseados em CAD, e as simulações numéricas, com modelos principalmente baseados no MEF, de forma que ambas trabalhem com somente um modelo geométrico.
 
-A IGA apresenta vantagens significativas, uma vez que permite a representação exata de diversas geometrias comuns, como seções cônicas, círculos, cilindros, esferas e elipsoides, além de dispor de algoritmos eficientes e estáveis para a geração de objetos NURBS. As funções NURBS, em particular, possuem propriedades matemáticas que as tornam adequadas para aplicações numéricas, destacando-se a elevada suavidade, a alta capacidade de aproximação e a possibilidade de refinamento local por meio da inserção de \textit{knots}, os quais correspondem às coordenadas do espaço paramétrico nas quais as funções são definidas.
+A AIG apresenta vantagens significativas, uma vez que permite a representação exata de diversas geometrias comuns, como seções cônicas, círculos, cilindros, esferas e elipsoides, além de dispor de algoritmos eficientes e estáveis para a geração de objetos NURBS. As funções NURBS, em particular, possuem propriedades matemáticas que as tornam adequadas para aplicações numéricas, destacando-se a elevada suavidade, a alta capacidade de aproximação e a possibilidade de refinamento local por meio da inserção de \textit{knots}, os quais correspondem às coordenadas do espaço paramétrico nas quais as funções são definidas.
 
-Este capítulo apresenta uma breve introdução à Análise Isogeométrica (IGA) e sua relação com o Método dos Elementos Finitos clássico. Inicialmente, são descritas as funções base B-spline, suas principais características e a construção de geometrias associadas. Em seguida, introduzem-se as funções NURBS, destacando sua formulação e aplicações geométricas. A análise isogeométrica é então introduzida no contexto da dinâmica dos fluidos computacional, enfatizando suas particularidades quanto à discretização das variáveis e da geometria, aos métodos de integração numérica e à determinação dos parâmetros de estabilização. Por fim, são apresentados exemplos numéricos que validam a formulação proposta. As referências bibliográficas que fundamentam esta construção são \citeonline{HughesCB:2005} e \citeonline{PiegT:1996}. 
+Este capítulo apresenta uma breve introdução à Análise Isogeométrica (AIG) e sua relação com o Método dos Elementos Finitos clássico. Inicialmente, são descritas as funções base B-spline, suas principais características e a construção de geometrias associadas. Em seguida, introduzem-se as funções NURBS, destacando sua formulação e aplicações geométricas. A análise isogeométrica é então introduzida no contexto da dinâmica dos fluidos computacional, enfatizando suas particularidades quanto à discretização das variáveis e da geometria, aos métodos de integração numérica e à determinação dos parâmetros de estabilização. Por fim, são apresentados exemplos numéricos que validam a formulação proposta. As referências bibliográficas que fundamentam esta construção são \citeonline{HughesCB:2005} e \citeonline{PiegT:1996}. 
 
-\section{Noções Gerais de IGA}
+\section{Noções Gerais de AIG}
 
 No contexto do MEF isoparamétrico, a formulação é construída a partir da definição de uma malha e de seus elementos, os quais são representados tanto no espaço físico quanto no espaço paramétrico. Cada elemento é caracterizado pelas coordenadas de seus nós, sendo os graus de liberdade do problema associados aos valores das funções de forma interpolados nesses pontos nodais.
 
-Dentro da IGA têm-se duas noções de malha: uma malha de pontos de controle e uma malha física. A malha de pontos de controle é muito semelhante a uma malha de elementos finitos, entretanto, ela não define a geometria, ela é apenas um esqueleto que controla o formato da geometria (ver \autoref{fig:espacos_NURBS}), visto que as funções de forma baseadas em \textit{B-Splines} não são necessariamente interpolatórias. Dessa forma, os graus de liberdade do problema são associados aos pontos de controle, cujas posições não coincidem, necessariamente, com a geometria representada.
+Dentro da AIG têm-se duas noções de malha: uma malha de pontos de controle e uma malha física. A malha de pontos de controle é muito semelhante a uma malha de elementos finitos, entretanto, ela não define a geometria, ela é apenas um esqueleto que controla o formato da geometria (ver \autoref{fig:espacos_NURBS}), visto que as funções de forma baseadas em \textit{B-Splines} não são necessariamente interpolatórias. Dessa forma, os graus de liberdade do problema são associados aos pontos de controle, cujas posições não coincidem, necessariamente, com a geometria representada.
 
 \begin{figure}[!htbp]
 	\caption{NURBS: espaço físico, espaço paramétrico, espaço indicial e espaço parental}
@@ -339,9 +339,9 @@ Ressalta-se ainda, que na interface entre os \textit{patches}, devido a natureza
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-\section{Análise Isogeométrica}\label{capitulo:Cap3:IGA}
+\section{Análise Isogeométrica}\label{capitulo:Cap3:AIG}
 
-Para a aplicação da IGA no contexto da Dinâmica dos Fluidos Computacional, será utilizada como base a metodologia apresentada no \autoref{capitulo:Cap2}. Nesse contexto, a aproximação da geometria, realizada no contexto do MEF pela \autoref{eq:interp_geo}, será substituída pela abordagem Isogeométrica através do uso de geometrias NURBS, descritas pelas equações: \autoref{eq:curveNURBS}, \autoref{eq:surfaceNURBS} ou \autoref{eq:solidNURBS} para os casos de curvas, superfícies ou sólidos, respectivamente.
+Para a aplicação da AIG no contexto da Dinâmica dos Fluidos Computacional, será utilizada como base a metodologia apresentada no \autoref{capitulo:Cap2}. Nesse contexto, a aproximação da geometria, realizada no contexto do MEF pela \autoref{eq:interp_geo}, será substituída pela abordagem Isogeométrica através do uso de geometrias NURBS, descritas pelas equações: \autoref{eq:curveNURBS}, \autoref{eq:surfaceNURBS} ou \autoref{eq:solidNURBS} para os casos de curvas, superfícies ou sólidos, respectivamente.
 
 As funções tentativa para velocidade e pressão, e as funções teste associadas à elas, apresentadas nas \autoref{eq:interp_vel} à \autoref{eq:inter_ptest} como $N$, são equivalentes à $\fNURBS_{i,p}(\xsi)$, $\fNURBS_{i,j:p,q}(\xsi,\eta)$ e $\fNURBS_{i,j,k:p,q,r}(\xsi,\eta,\zeta)$ a depender da geometria em análise.
 
@@ -443,19 +443,19 @@ Para múltiplas dimensões o coeficiente de transformação $D$ é obtido indivi
 
 \section{Verificação e aplicações}
 
-Para aplicação da IGA em problemas da DFC utilizou-se o roteiro da implementação computacional apresentada no \autoref{capitulo:Cap2:DFCComputationalCode}, levando-se em consideração as mudanças na formulação salientadas na \autoref{capitulo:Cap3:IGA}. Os exemplos escolhidos para a verificação do código computacional foram o escoamento sobre um cilindro, e um escoamento sobre canal com degrau, em ambas análises, fez-se uso de células 3d. Os resultados obtidos são apresentados nas subseções sequentes.
+Para aplicação da AIG em problemas da DFC utilizou-se o roteiro da implementação computacional apresentada no \autoref{capitulo:Cap2:DFCComputationalCode}, levando-se em consideração as mudanças na formulação salientadas na \autoref{capitulo:Cap3:AIG}. Os exemplos escolhidos para a verificação do código computacional foram o escoamento sobre um cilindro, e um escoamento sobre canal com degrau, em ambas análises, fez-se uso de células 3d. Os resultados obtidos são apresentados nas subseções sequentes.
 
 \subsection {Escoamento sobre um cilindro}
 
 \subsubsection {Geração da malha NURBS} \label{Cap3:VerApl:Cilindro:Malha}
 
-Para a análise do problema de escoamento sobre um cilindro utilizando-se IGA  com células 3d, por se tratar de uma geometria de simples complexidade, a malha foi desenvolvida pela própria autora. Para isso, inicialmente, com base nas dimensões bidimensionais do exemplo apresentado na \autoref{capitulo:Cap2:VerApl:Cilindo}, dividiu-se o domínio físico em 12 \textit{patches}, conforme pode ser observado no esquema apresentado na \autoref{fig:cilindro_IGA_patches}.
+Para a análise do problema de escoamento sobre um cilindro utilizando-se AIG  com células 3d, por se tratar de uma geometria de simples complexidade, a malha foi desenvolvida pela própria autora. Para isso, inicialmente, com base nas dimensões bidimensionais do exemplo apresentado na \autoref{capitulo:Cap2:VerApl:Cilindo}, dividiu-se o domínio físico em 12 \textit{patches}, conforme pode ser observado no esquema apresentado na \autoref{fig:cilindro_AIG_patches}.
 
 \begin{figure}[!htbp]
 	\caption{Cilindro: Divisão dos \textit{Patches}}
 	\centering 
-	\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_iga_patches.pdf}	
-	\label{fig:cilindro_IGA_patches}
+	\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_AIG_patches.pdf}	
+	\label{fig:cilindro_AIG_patches}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
@@ -510,7 +510,7 @@ Destaca-se que na discretização de todos os \textit{patches} é necessário ga
 
 \subsubsection {Análise numérica}
 
-Conforme exposto na \autoref{capitulo:Cap2:VerApl:Cilindo} o estudo do problema de escoamento sobre um cilindro proporciona avaliar se o modelo computacional implementado é capaz de reproduzir os fenômenos relacionados à formação e desprendimentos de vórtices, além de propiciar a validação do código através da comparação dos coeficientes aerodinâmicos medidos ao longo do tempo com referências bibliográficas disponíveis na literatura especializada. Visando a verificação do código de IGA com células 3D analisa-se o problema do escoamento sobre o cilindro para $\Reynolds = 40$, $\Reynolds = 100$, e, $\Reynolds = 1000$.
+Conforme exposto na \autoref{capitulo:Cap2:VerApl:Cilindo} o estudo do problema de escoamento sobre um cilindro proporciona avaliar se o modelo computacional implementado é capaz de reproduzir os fenômenos relacionados à formação e desprendimentos de vórtices, além de propiciar a validação do código através da comparação dos coeficientes aerodinâmicos medidos ao longo do tempo com referências bibliográficas disponíveis na literatura especializada. Visando a verificação do código de AIG com células 3D analisa-se o problema do escoamento sobre o cilindro para $\Reynolds = 40$, $\Reynolds = 100$, e, $\Reynolds = 1000$.
 
 O domínio do problema simulado é um volume retangular discretizado em função do diâmetro do cilindro e é apresentado na Figura \ref{fig:cilindro_geometria3d}. A dimensão $t$ na direção $y_3$ é equivalente à $0,01D$. Aplica-se um perfil de velocidade constante na entrada do domínio, $\velocity=[u_\infty,0,0]$, e condições de parede lisa são atribuídas às paredes superior e inferior, enquanto que para as frontal e dos fundos condições de simetria são aplicadas.
 
@@ -582,7 +582,7 @@ O problema é simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\rho =
 	C_L = \frac{F_L}{0,5\density \lVert \velocinfty \lVert^{2} L t},
 \end{align}.
 
-Nas Figs. \ref{fig:cilindro_cd3d} e \ref{fig:cilindro_cl3d}, apresenta-se a variação ao longo do tempo dos coeficientes aerodinâmicos $C_{D}$ e $C_{L}$. Os valores do coeficiente de arrasto médio obtidos com a malha isogeométrica com células 3d foram: $C_{Dmed} = 1,54$ para $\Reynolds = 40$, $C_{Dmed} = 1,36$ para $\Reynolds = 100$ e $C_{Dmed} = 1,49$ para $\Reynolds = 1000$. Ressalta-se, que apesar dos valores de $C_{Dmed}$ estarem bem próximos aos da simulação com MEF tradicional da  \autoref{capitulo:Cap2:VerApl:Cilindo}, para as análises utilizando IGA, foram necessários mais passos de tempo para o início do processo de desprendimento de vórtices, nos casos de $\Reynolds = 100$ e $\Reynolds = 1000$. 
+Nas Figs. \ref{fig:cilindro_cd3d} e \ref{fig:cilindro_cl3d}, apresenta-se a variação ao longo do tempo dos coeficientes aerodinâmicos $C_{D}$ e $C_{L}$. Os valores do coeficiente de arrasto médio obtidos com a malha isogeométrica com células 3d foram: $C_{Dmed} = 1,54$ para $\Reynolds = 40$, $C_{Dmed} = 1,36$ para $\Reynolds = 100$ e $C_{Dmed} = 1,49$ para $\Reynolds = 1000$. Ressalta-se, que apesar dos valores de $C_{Dmed}$ estarem bem próximos aos da simulação com MEF tradicional da  \autoref{capitulo:Cap2:VerApl:Cilindo}, para as análises utilizando AIG, foram necessários mais passos de tempo para o início do processo de desprendimento de vórtices, nos casos de $\Reynolds = 100$ e $\Reynolds = 1000$. 
 
 \begin{figure}[!htbp]
 	\caption{Cilindro: Coeficientes aerodinâmicos}
@@ -594,7 +594,7 @@ Nas Figs. \ref{fig:cilindro_cd3d} e \ref{fig:cilindro_cl3d}, apresenta-se a vari
 	\label{fig:cilindro_coeficientes3d}
 \end{figure}
 
-Nas Figura \ref{fig:cilindro_iga_camposVel} e Figura \ref{fig:cilindro_iga_camposPressao} são apresentados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices para $\Reynolds = 1000$.
+Nas Figura \ref{fig:cilindro_AIG_camposVel} e Figura \ref{fig:cilindro_AIG_camposPressao} são apresentados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices para $\Reynolds = 1000$.
 
 \begin{figure}[!htbp]
 	\caption{Cilindro: Campos de velocidade para $\Reynolds = 1000$ - plano $y_1$$y_2$}
@@ -607,7 +607,7 @@ Nas Figura \ref{fig:cilindro_iga_camposVel} e Figura \ref{fig:cilindro_iga_campo
 	\subfloat[$T_n + 5T_n/6$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_vel_5tn6.pdf}} \\
 	{\includegraphics[trim=0cm 0cm 0cm 0cm,clip=true,scale=1.4]{Imagens/Cap3/cilindro_vel_legenda.pdf}}
 	\legend{Fonte: Elaborada pela autora}
-	\label{fig:cilindro_iga_camposVel}
+	\label{fig:cilindro_AIG_camposVel}
 \end{figure}
 
 \begin{figure}[!htbp]
@@ -621,7 +621,7 @@ Nas Figura \ref{fig:cilindro_iga_camposVel} e Figura \ref{fig:cilindro_iga_campo
 	\subfloat[$T_n + 5T_n/6$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_press_5tn6.pdf}} \\
 	{\includegraphics[trim=0cm 0cm 0cm 0cm,clip=true,scale=1.4]{Imagens/Cap3/cilindro_press_legenda.pdf}}
 	\legend{Fonte: Elaborada pela autora}
-	\label{fig:cilindro_iga_camposPressao}
+	\label{fig:cilindro_AIG_camposPressao}
 \end{figure}
 
 \subsection {Escoamento em um canal com degrau}
