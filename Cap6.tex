@@ -567,7 +567,7 @@ Além da consideração da descrição ALE para o modelo local, deve-se ressalta
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho é conhecida como MJBS (Mesh-Jacobian Based Stiffening) introduzida por \citeonline{TezduyarBSJ:1992f} e será abordada na  \autoref{capitulo:Cap7:CondAcop:MovMalha}.
+A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho é conhecida como MJBS (Mesh-Jacobian Based Stiffening) introduzida por \citeonline{TezduyarBSJ:1992c} e será abordada na  \autoref{capitulo:Cap7:CondAcop:MovMalha}.
 
 \section{Implementação Computacional}
 
@@ -585,7 +585,7 @@ Uma das maiores dificuldades da técnica de Arlequin diz respeito à integraçã
 
 Para contemplar a solução de problemas com contornos móveis utilizando a técnica Arlequin, a cada passo de tempo, algumas tarefas adicionais devem ser realizadas: atualização da configuração da malha; atualização da distância assinalada com relação ao contorno $\localBoundary$ de todos os pontos (nós para malha de elementos finitos ou pontos de controle para malha isogeométrica) que compõe cada um dos modelos;  Alteração da função ponderadora; e atualização das correspondências entre pontos de integração da malha local na malha global.
 
-O Algoritmo que descreve a implementação computacional é apresentado no Alg. \ref{alg:fluidARLQ}. A implementação computacional e resolução do sistema de equações resultantes ocorreu de forma análoga ao monomodelo descrito na \autoref{capitulo:Cap2:DFCComputationalCode}. O índice $i$ apresentado diz respeito à iteração de Newton-Raphson.
+O Algoritmo que descreve a implementação computacional é apresentado no Alg. \ref{alg:fluidARLQ}. A implementação computacional e resolução do sistema de equações resultantes ocorreu de forma análoga ao monomodelo descrito no Algoritmo \ref{alg:fluid}. O índice $i$ apresentado diz respeito à iteração de Newton-Raphson.
 
 \begin{algorithm}
 	\caption{Algoritmo para problemas móveis da DFC utilizando técnica ARLEQUIN RBSAM}

@@ -25,6 +25,12 @@ Dispon{\'\i}vel em: \url{https://doi.org/10.1115/1.3124648}.}
 {ANDERSON, J.~D. \textbf{Computational fluid dynamic - the basics with
   applications}. 1. ed. New York, USA: McGraw-Hill Book Company, 1995.}
 
+\bibitem[Argyris 1982]{Argyris:1982}
+\abntrefinfo{Argyris}{Argyris}{1982}
+{ARGYRIS, J. An excursion into large rotations.
+\textbf{Computer Methods in Applied Mechanics and Engineering}, v.~32, p.
+  85--155, 1982.}
+
 \bibitem[Argyris, Papadrakakis e Mouroutis 2003]{ArgyrisPM:2003}
 \abntrefinfo{Argyris, Papadrakakis e Mouroutis}{Argyris; Papadrakakis;
   Mouroutis}{2003}
@@ -52,6 +58,14 @@ Dispon{\'\i}vel em: \url{https://doi.org/10.1115/1.3124648}.}
 {BADIA, S.; NOBILE, F.; VERGARA, C. Fluid-structure partitioned procedures
   based on robin transmission conditions.
 \textbf{Journal of Computational Physics}, v.~227, p. 7027--7051, 2008.}
+
+\bibitem[Battini e Pacoste 2006]{BattiniP:2006}
+\abntrefinfo{Battini e Pacoste}{Battini; Pacoste}{2006}
+{BATTINI, J.~M.; PACOSTE, C. On the choice of the linear element for
+  corotational triangular shells.
+\textbf{Computer Methods in Applied Mechanicas and Engineering}, v.~195, n.
+  44-47, p. 6362--6377, 2006.
+ISSN 0045-7825.}
 
 \bibitem[Bauman \textit{et al.} 2008]{BaumanDEOP:2008}
 \abntrefinfo{Bauman \textit{et al.}}{Bauman \textit{et al.}}{2008}
@@ -96,11 +110,12 @@ ISSN 0045-7825.}
 \textbf{Mathematical Models and Methods in Applied Sciences}, v.~23, p.
   215--221, 02 2013b.}
 
-\bibitem[Bazilevs, Takizawa e Tezduyar 2013]{BazilevsTT:2013}
-\abntrefinfo{Bazilevs, Takizawa e Tezduyar}{Bazilevs; Takizawa; Tezduyar}{2013}
+\bibitem[Bazilevs, Takizawa e Tezduyar 2013a]{BazilevsTT:2013a}
+\abntrefinfo{Bazilevs, Takizawa e Tezduyar}{Bazilevs; Takizawa;
+  Tezduyar}{2013a}
 {BAZILEVS, Y.; TAKIZAWA, K.; TEZDUYAR, T.~E. \textbf{Computational
   Fluid-Structure Interaction: Methods and Applications}. Chichester, UK: John
-  Wiley \& Sons, 2013.}
+  Wiley \& Sons, 2013a.}
 
 \bibitem[Bazilevs \textit{et al.} 2014]{BazilevsTT:2014}
 \abntrefinfo{Bazilevs \textit{et al.}}{Bazilevs \textit{et al.}}{2014}
@@ -115,24 +130,6 @@ ISSN 0045-7825.}
   dynamic fracture}.
 \textbf{International Journal of Solids and Structures}, v.~32, n. 17–18, p.
   2547--2570, 1995.}
-
-\bibitem[Ben{ }Dhia 1998]{Dhia:1998}
-\abntrefinfo{Ben{ }Dhia}{Ben{ }Dhia}{1998}
-{BEN{ }DHIA, H. Multiscale mechanical problems: The {Arlequin} method.
-\textbf{Comptes Rendus Acad. Sci. S\'er. Ilb.}, v.~326, p. 899--904, 1998.}
-
-\bibitem[Ben{ }Dhia 2008]{Dhia:2008}
-\abntrefinfo{Ben{ }Dhia}{Ben{ }Dhia}{2008}
-{BEN{ }DHIA, H. Further insights by theoretical investigations of the
-  multiscale {Arlequin} method.
-\textbf{International Journal for Multiscale Computational Engineering}, v.~6,
-  n.~3, p. 215--232, 2008.}
-
-\bibitem[Ben{ }Dhia e Rateau 2001]{DhiaR:2001}
-\abntrefinfo{Ben{ }Dhia e Rateau}{Ben{ }Dhia; Rateau}{2001}
-{BEN{ }DHIA, H.; RATEAU, G. Mathematical analysis of the mixed {Arlequin}
-  method.
-\textbf{Comptes Rendus Acad. Sci. Paris S\'erie I}, v.~332, p. 649--654, 2001.}
 
 \bibitem[Benek \textit{et al.} 1986]{BenekSDB:1986}
 \abntrefinfo{Benek \textit{et al.}}{Benek \textit{et al.}}{1986}
@@ -273,8 +270,8 @@ ISSN 0021-8936.}
 \textbf{Finite Elements in Analysis and Design}, v.~47, n.~4, p. 319--333,
   2011.}
 
-\bibitem[COX 1972]{Cox1972}
-\abntrefinfo{COX}{COX}{1972}
+\bibitem[Cox 1972]{Cox1972}
+\abntrefinfo{Cox}{Cox}{1972}
 {COX, M.~G. The numerical evaluation of b-splines*.
 \textbf{IMA Journal of Applied Mathematics}, v.~10, n.~2, p. 134--149, 10 1972.
 ISSN 0272-4960.
@@ -288,26 +285,29 @@ ISSN 0021-9045.
 Dispon{\'\i}vel em:
   \url{https://www.sciencedirect.com/science/article/pii/0021904572900809}.}
 
+\bibitem[Dhia 1998]{Dhia:1998}
+\abntrefinfo{Dhia}{Dhia}{1998}
+{DHIA, H.~B. Multiscale mechanical problems: The {Arlequin} method.
+\textbf{Comptes Rendus Acad. Sci. S\'er. Ilb.}, v.~326, p. 899--904, 1998.}
+
+\bibitem[Dhia 2008]{Dhia:2008}
+\abntrefinfo{Dhia}{Dhia}{2008}
+{DHIA, H.~B. Further insights by theoretical investigations of the multiscale
+  {Arlequin} method.
+\textbf{International Journal for Multiscale Computational Engineering}, v.~6,
+  n.~3, p. 215--232, 2008.}
+
 \bibitem[Dhia e Jamond 2010]{DhiaJ:2010}
 \abntrefinfo{Dhia e Jamond}{Dhia; Jamond}{2010}
-{DHIA, H.; JAMOND, O. {On the use of XFEM within the Arlequin framework for the
-  simulation of crack propagation}.
+{DHIA, H.~B.; JAMOND, O. {On the use of XFEM within the Arlequin framework for
+  the simulation of crack propagation}.
 \textbf{Computer Methods in Applied Mechanics and Engineering}, v.~199, n.
   21-22, p. 1403--1414, 2010.}
 
-\bibitem[Dhia e Rateau 2005]{DhiaR:2005}
-\abntrefinfo{Dhia e Rateau}{Dhia; Rateau}{2005}
-{DHIA, H.; RATEAU, G. The {Arlequin} method as a flexible engineering design
-  tool.
-\textbf{International Journal for Numerical Methods in Engineering}, v.~62,
-  n.~11, p. 1442--1462, 2005.}
-
-\bibitem[Dhia e Torkhani 2011]{DhiaT:2011}
-\abntrefinfo{Dhia e Torkhani}{Dhia; Torkhani}{2011}
-{DHIA, H.; TORKHANI, M. Modeling and computation of fretting wear of structures
-  under sharp contact.
-\textbf{International Journal for Numerical Methods in Engineering}, v.~85, p.
-  61--83, 2011.}
+\bibitem[Dhia e Rateau 2001]{DhiaR:2001}
+\abntrefinfo{Dhia e Rateau}{Dhia; Rateau}{2001}
+{DHIA, H.~B.; RATEAU, G. Mathematical analysis of the mixed {Arlequin} method.
+\textbf{Comptes Rendus Acad. Sci. Paris S\'erie I}, v.~332, p. 649--654, 2001.}
 
 \bibitem[Dhia e Rateau 2002]{DhiaR:2002}
 \abntrefinfo{Dhia e Rateau}{Dhia; Rateau}{2002}
@@ -315,6 +315,20 @@ Dispon{\'\i}vel em:
   with defects}.
 \textbf{Revue Européenne des Éléments Finis}, Taylor \& Francis, v.~11,
   n.~2-4, p. 291--304, 2002.}
+
+\bibitem[Dhia e Rateau 2005]{DhiaR:2005}
+\abntrefinfo{Dhia e Rateau}{Dhia; Rateau}{2005}
+{DHIA, H.~B.; RATEAU, G. The {Arlequin} method as a flexible engineering design
+  tool.
+\textbf{International Journal for Numerical Methods in Engineering}, v.~62,
+  n.~11, p. 1442--1462, 2005.}
+
+\bibitem[Dhia e Torkhani 2011]{DhiaT:2011}
+\abntrefinfo{Dhia e Torkhani}{Dhia; Torkhani}{2011}
+{DHIA, H.~B.; TORKHANI, M. Modeling and computation of fretting wear of
+  structures under sharp contact.
+\textbf{International Journal for Numerical Methods in Engineering}, v.~85, p.
+  61--83, 2011.}
 
 \bibitem[Donea 1984]{Donea:1984}
 \abntrefinfo{Donea}{Donea}{1984}
@@ -526,6 +540,22 @@ ISSN 0045-7825.}
   paradimg for computational mechanics.
 \textbf{Comput. Methods Appl. Mech. Engrg}, v.~166, p. 3--24, 1998.}
 
+\bibitem[Hughes e Liu 1981]{HughesL:1981a}
+\abntrefinfo{Hughes e Liu}{Hughes; Liu}{1981a}
+{HUGHES, T. J.~R.; LIU, W.~K. {Nonlinear finite element analysis of shells:
+  Part I. three-dimensional shells}.
+\textbf{Computer Methods in Applied Mechanics and Engineering}, v.~26, n.~3, p.
+  331--362, 1981.
+A. ISSN 0045-7825.}
+
+\bibitem[Hughes e Liu 1981]{HughesL:1981b}
+\abntrefinfo{Hughes e Liu}{Hughes; Liu}{1981b}
+{HUGHES, T. J.~R.; LIU, W.~K. {Nonlinear finite element analysis of shells:
+  Part II. two-dimensional shells}.
+\textbf{Computer Methods in Applied Mechanics and Engineering}, v.~27, n.~2, p.
+  167--181, 1981.
+A. ISSN 0045-7825.}
+
 \bibitem[Hughes, Oberai e Mazzei 2001]{Hughesetal:2001}
 \abntrefinfo{Hughes, Oberai e Mazzei}{Hughes; Oberai; Mazzei}{2001}
 {HUGHES, T. J.~R.; OBERAI, A.~A.; MAZZEI, L. {Large Eddy Simulation} of
@@ -540,6 +570,12 @@ ISSN 0045-7825.}
 \textbf{Computer Methods in Applied Mechanics and Engineering}, v.~45, p.
   217--284, 1984.}
 
+\bibitem[Ibrahimbegovic e Taylor 2002]{Ibrahimbegovic:2002}
+\abntrefinfo{Ibrahimbegovic e Taylor}{Ibrahimbegovic; Taylor}{2002}
+{IBRAHIMBEGOVIC, A.; TAYLOR, R.~L. On the role of frame-invariance in
+  structural mechanics models at finite rotations.
+\textbf{Comput. Methods Appl. Mech. Engrg.}, v.~191, p. 5159--5176, 2002.}
+
 \bibitem[Irons e Tuck 1969]{IronsT:1969}
 \abntrefinfo{Irons e Tuck}{Irons; Tuck}{1969}
 {IRONS, B.~M.; TUCK, R.~C. {A version of the Aitken accelerator for computer
@@ -547,9 +583,9 @@ ISSN 0045-7825.}
 \textbf{International Journal for Numerical Methods in Engineering}, v.~1,
   n.~3, p. 275--277, 1969.}
 
-\bibitem[Jamond e Ben{ }Dhia 2013]{JamondD:2013}
-\abntrefinfo{Jamond e Ben{ }Dhia}{Jamond; Ben{ }Dhia}{2013}
-{JAMOND, O.; BEN{ }DHIA, H. Incompressibility in the multimodel {Arlequin}
+\bibitem[Jamond e Dhia 2013]{JamondD:2013}
+\abntrefinfo{Jamond e Dhia}{Jamond; Dhia}{2013}
+{JAMOND, O.; DHIA, H.~B. Incompressibility in the multimodel {Arlequin}
   framework.
 \textbf{Int. J. Numer. Meth. Engng.}, v.~94, p. 374--399, 2013.}
 
@@ -596,6 +632,13 @@ ISSN 0045-7825.}
 {LEFRAN{\c C}OIS, E. A simple mesh deformation technique for fluid-structure
   interaction based on a submesh approach.
 \textbf{Int. J. Numer. Meth. Engng.}, v.~75, p. 1085--1101, 2008.}
+
+\bibitem[Lienhard 1966]{Lienhard:1966}
+\abntrefinfo{Lienhard}{Lienhard}{1966}
+{LIENHARD, J.~H. \textbf{Synopsis of lift, drag, and vortex frequency data for
+  rigid circular cylinders}. Pullman, Wash: Technical Extension Service,
+  Washington State University, 1966.
+ (Bulletin / College of Engineering. Research Division ; 300).}
 
 \bibitem[Melenk e Babuska 1996]{MelenkB:1996}
 \abntrefinfo{Melenk e Babuska}{Melenk; Babuska}{1996}
@@ -725,6 +768,12 @@ Dispon{\'\i}vel em:
 \textbf{Latin American Journal of Solids and Structures}, v.~13, n.~16, p.
   52--71, 2016.}
 
+\bibitem[Simo e Fox 1989]{SimoF:1989}
+\abntrefinfo{Simo e Fox}{Simo; Fox}{1989}
+{SIMO, J.~C.; FOX, D.~D. {On a stress resultant geometrically exact shell
+  model. Part I: formulation and optimal parametrization}.
+\textbf{Comput. Methods Appl. Mech. Engrg.}, v.~72, p. 267--304, 1989.}
+
 \bibitem[Speziale 1991]{Speziale1991}
 \abntrefinfo{Speziale}{Speziale}{1991}
 {SPEZIALE, C.~G. Analytical methods for the development of reynolds-stress
@@ -781,7 +830,7 @@ Dispon{\'\i}vel em: \url{https://doi.org/10.1142/S0218202519500581}.}
   displacements.
 \textbf{Comput. Methods Appl. Mech. Engrg.}, v.~190, p. 3039--3067, 2001.}
 
-\bibitem[Tezduyar 1992]{Tezduyar:1992d}
+\bibitem[Tezduyar 1992]{Tezduyar:1992}
 \abntrefinfo{Tezduyar}{Tezduyar}{1992}
 {TEZDUYAR, T. Stabilized finite element formulations for incompressible flow
   computations. \textit{In}:  HUTCHINSON, J.~W.; WU, T.~Y. (ed.).
@@ -823,29 +872,28 @@ Dispon{\'\i}vel em: \url{https://doi.org/10.1142/S0218202519500581}.}
 \textbf{Computer Methods in Applied Mechanics and Engineering}, v.~190, p.
   403--410, 2000.}
 
-\bibitem[Tezduyar, Behr e Liou 1992b]{TezduyarBL:1992b}
-\abntrefinfo{Tezduyar, Behr e Liou}{Tezduyar; Behr; Liou}{1992b}
+\bibitem[Tezduyar, Behr e Liou 1992]{TezduyarBL:1992}
+\abntrefinfo{Tezduyar, Behr e Liou}{Tezduyar; Behr; Liou}{1992}
 {TEZDUYAR, T.~E.; BEHR, M.; LIOU, J. {A new strategy for finite element
   computations involving moving boundaries and interfaces - the
   deforming-spatial-domain/space-time procedure: I. The concept and the
   preliminary numerical tests}.
-\textbf{Comput. Methods Appl. Mech. Engrg.}, v.~94, p. 339--351, 1992b.}
+\textbf{Comput. Methods Appl. Mech. Engrg.}, v.~94, p. 339--351, 1992.}
 
-\bibitem[Tezduyar \textit{et al.} 1992c]{TezduyarBML:1992c}
-\abntrefinfo{Tezduyar \textit{et al.}}{Tezduyar \textit{et al.}}{1992c}
+\bibitem[Tezduyar \textit{et al.} 1992b]{TezduyarBML:1992b}
+\abntrefinfo{Tezduyar \textit{et al.}}{Tezduyar \textit{et al.}}{1992b}
 {TEZDUYAR, T.~E. \textit{et al.} {A new strategy for finite element
   computations involving moving boundaries and interfaces - the
   deforming-spatial-domain/space-time procedure: II. Computation of
   free-surface flows, two-loquid flows, and flows with drifting cylinders}.
-\textbf{Comput. Methods Appl. Mech. Engrg.}, v.~94, p. 353--371, 1992c.}
+\textbf{Comput. Methods Appl. Mech. Engrg.}, v.~94, p. 353--371, 1992b.}
 
-\bibitem[Tezduyar \textit{et al.} 1992f]{TezduyarBSJ:1992f}
-\abntrefinfo{Tezduyar \textit{et al.}}{Tezduyar \textit{et al.}}{1992f}
+\bibitem[Tezduyar \textit{et al.} 1992c]{TezduyarBSJ:1992c}
+\abntrefinfo{Tezduyar \textit{et al.}}{Tezduyar \textit{et al.}}{1992c}
 {TEZDUYAR, T.~E. \textit{et al.} Computation of unsteady incompressible flows
   with the finite element methods: Space--time formulations, iterative
-  strategies and massively parallel implementations. \textit{In}:  \textbf{New
-  Methods in Transient Analysis}. New York: ASME, 1992f.
-  (PVP-Vol.246/AMD-Vol.143), p. 7--24.}
+  strategies and massively parallel implementations.
+ASME, New York, p. 7--24, 1992c.}
 
 \bibitem[Tezduyar \textit{et al.} 1992a]{TezduyarMRS:1992a}
 \abntrefinfo{Tezduyar \textit{et al.}}{Tezduyar \textit{et al.}}{1992a}
@@ -946,18 +994,18 @@ Dispon{\'\i}vel em:
   p. 2943 -- 2959, 2007.
 ISSN 0045-7825.}
 
-\bibitem[Zienkiewicz, Taylor e Nithiarasu 2005]{ZienkiewiczTN:2005}
-\abntrefinfo{Zienkiewicz, Taylor e Nithiarasu}{Zienkiewicz; Taylor;
-  Nithiarasu}{2005}
-{ZIENKIEWICZ, O.~C.; TAYLOR, R.~L.; NITHIARASU, P. \textbf{The Finite Element
-  Method: Fluid Dynamics}. 6. ed. [\textit{S.l.: s.n.}]: Butterworth Heinemann
-  Linacre house, 2005. v.~3. 334 p.}
-
-\bibitem[Zienkiewicz, Taylor e Nithiarasu 2005a]{ZienkiewiczT:2005a}
+\bibitem[Zienkiewicz, Taylor e Nithiarasu 2005a]{ZienkiewiczTN:2005a}
 \abntrefinfo{Zienkiewicz, Taylor e Nithiarasu}{Zienkiewicz; Taylor;
   Nithiarasu}{2005a}
 {ZIENKIEWICZ, O.~C.; TAYLOR, R.~L.; NITHIARASU, P. \textbf{The Finite Element
   Method: The Basis}. 6. ed. [\textit{S.l.: s.n.}]: Butterworth Heinemann
   Linacre house, 2005a. v.~1. 689 p.}
+
+\bibitem[Zienkiewicz, Taylor e Nithiarasu 2005b]{ZienkiewiczTN:2005b}
+\abntrefinfo{Zienkiewicz, Taylor e Nithiarasu}{Zienkiewicz; Taylor;
+  Nithiarasu}{2005b}
+{ZIENKIEWICZ, O.~C.; TAYLOR, R.~L.; NITHIARASU, P. \textbf{The Finite Element
+  Method: Fluid Dynamics}. 6. ed. [\textit{S.l.: s.n.}]: Butterworth Heinemann
+  Linacre house, 2005b. v.~3. 334 p.}
 
 \end{thebibliography}

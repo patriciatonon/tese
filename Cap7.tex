@@ -46,7 +46,7 @@ Já a condição geométrica está relacionada ao fato que os domínios computac
 
 Para a satisfação da condição geométrica nos problemas de IFE desse trabalho, uma técnica adequada de movimentação de malha deve ser aplicada. É necessário que o método de movimentação de malha seja robusto o suficiente para que garanta ao longo de toda a análise dos problemas uma discretização de qualidade.
 
-Dentre as técnicas desenvolvidas até o momento, destacam-se aquelas que impõem os deslocamentos da estrutura na malha do fluido ao longo do contorno $\boundaryFSI$, determinando o campo de deslocamentos na malha do fluido por meio da resolução de um problema de valor de contorno (PVC). Neste trabalho, será adotada essa abordagem, formulando o problema com base na equivalência entre a movimentação da malha à um problema de mecânica dos sólidos, e aplicando-se a técnica de movimentação de malhas introduzida em \citeonline{TezduyarBSJ:1992f} e \citeonline{TezduyarABJ:1993} conhecida como MJBS (\textit{Mesh-Jacobian Based Stiffening}).
+Dentre as técnicas desenvolvidas até o momento, destacam-se aquelas que impõem os deslocamentos da estrutura na malha do fluido ao longo do contorno $\boundaryFSI$, determinando o campo de deslocamentos na malha do fluido por meio da resolução de um problema de valor de contorno (PVC). Neste trabalho, será adotada essa abordagem, formulando o problema com base na equivalência entre a movimentação da malha à um problema de mecânica dos sólidos, e aplicando-se a técnica de movimentação de malhas introduzida em \citeonline{TezduyarBSJ:1992c} e \citeonline{TezduyarABJ:1993} conhecida como MJBS (\textit{Mesh-Jacobian Based Stiffening}).
 
 Nesse método, o movimento da malha é determinado usando um problema da elasticidade de Dirichlet fictício, descrito como:
 
@@ -109,7 +109,7 @@ Dessa forma, as informações que serão transmitidas ao fluido pela estrutura s
 
 Os problemas de IFE são caracterizados pela interdependência entre o fluido e a estrutura, visto que o comportamento do escoamento depende do formato e do movimento da estrutura, enquanto que o movimento da estrutura e sua deformação dependem das forças do fluido que atuam sobre ela. Matematicamente pode-se dizer que os problemas de IFE são conjuntos de equações e condições de contorno associadas ao fluido e a estrutura que devem ser satisfeitas simultaneamente.
 
-As equações completas discretizadas da formulação IFE conduzem a um sistema de equações não-lineares que devem ser resolvidas a cada passo de tempo e podem ser representadas da seguinte maneira \cite{BazilevsTT:2013}:
+As equações completas discretizadas da formulação IFE conduzem a um sistema de equações não-lineares que devem ser resolvidas a cada passo de tempo e podem ser representadas da seguinte maneira \cite{BazilevsTT:2013a}:
 
 \begin{align}
 	\Nf\left(\df,\ds,\dm\right) = \vzero, \label{eq:N1}\\ 
@@ -142,11 +142,11 @@ A resolução dessas equações através do método de Newton-Raphson conduz ao 
 
 \noindent sendo $\cff = - \Nf$, $\css = - \Ns$, $\cmm = - \Nm$. $\xf$, $\xs$ e $\xm$ são os incrementos às soluções $\df$, $\ds$ e $\dm$ respectivamente e $\mA_{ij} = \frac{\partial\Ni}{\partial\djj}$. 
 
- \citeonline{BazilevsTT:2013} apresentam uma classificação da metodologia de acoplamento segundo a forma de resolver essas equações não-lineares. As categorias definidas pelos autores são: técnica direta, técnica bloco-iterativa e técnica quase-direta. 
+ \citeonline{BazilevsTT:2013a} apresentam uma classificação da metodologia de acoplamento segundo a forma de resolver essas equações não-lineares. As categorias definidas pelos autores são: técnica direta, técnica bloco-iterativa e técnica quase-direta. 
 
 A técnica direta seria equivalente aos esquemas de solução monolíticos citados ao longo do texto, e consiste na resolução a cada iteração de Newton-Raphson do sistema apresentado na \autoref{eq:sist_lin_IFE}. Essa técnica apresenta boa convergência, entretanto, devido aos grandes sistemas lineares gerados, ocorre um aumento do custo computacional.
 
-Nesse contexto, e buscando proporcionar um total desacoplamento entre os \textit{solvers} de fluido e de estrutura, adotou-se o um esquema de acoplamento do tipo particionado forte. Dentro da classificação dos autores \citeonline{BazilevsTT:2013} seria equivalente a técnica de acoplamento do tipo bloco iterativo.
+Nesse contexto, e buscando proporcionar um total desacoplamento entre os \textit{solvers} de fluido e de estrutura, adotou-se o um esquema de acoplamento do tipo particionado forte. Dentro da classificação dos autores \citeonline{BazilevsTT:2013a} seria equivalente a técnica de acoplamento do tipo bloco iterativo.
 
 Quando se utiliza um acoplamento do tipo bloco iterativo, os sistemas do fluido, da estrutura e da malha são tratados em blocos separados, e para cada iteração dentro de um passo de tempo, se resolve sequencialmente o seguinte conjunto de equações:
 
@@ -467,11 +467,11 @@ Considerando um ciclo de movimento da estrutura $T$ (aproximadamente periódico)
 
 \subsection{Turbina}
 
-Este último exemplo tem intuito de expor um caráter mais prático de aplicação da técnica relatada nessa tese. A primeira parte dessa subseção dedica-se a apresentar a simulação do funcionamento de um rotor de turbina hidráulica. Para isso, utiliza-se um tubo para representar o domínio do fluido, o qual é discretizado em sua totalidade com elementos finitos. Dentro desse tubo encontra-se um eixo rígido no qual acopla-se a estrutura flexível do rotor, discretizados em elementos finitos de casca. Durante a rotação da turbina, o eixo rígido acompanha o movimento das pás, e toda a malha de elementos finitos do fluido se deforma e desloca para acomodar a nova posição da estrutura.
+Este último exemplo tem intuito de expor um caráter mais prático de aplicação da formulação relatada nessa tese. A primeira parte dessa subseção dedica-se a apresentar a simulação de um escoamento hidráulico em um rotor de turbina. Para isso, utiliza-se um tubo, por onde ocorre o escoamento, e que define um dos contornos do domínio do fluido. Dentro desse tubo encontra-se um eixo, encapsulado em um tubo interno, e, acoplado a estrutura do rotor. A estrutura é discretizada através de elementos finitos de cascas, enquanto que, o domínio do fluido por elementos finitos tetraédricos . Durante a rotação da turbina, toda a malha de elementos finitos do fluido se deforma e desloca para acomodar a nova posição da estrutura.
 
-Na segunda parte do exemplo, realiza-se a simulação do funcionamento dessa mesma turbina hidráulica, entretanto, adicionam-se pás diretoras fixas e rígidas ao eixo rígido a montante do rotor. Para essa finalidade, utiliza-se o modelo Arlequin estabilizado para o domínio do fluido, de maneira a permitir que apenas o domínio na região do cubo do rotor gire, enquanto que o restante da malha mantém-se fixa.   
+Na segunda parte do exemplo, realiza-se a simulação do funcionamento dessa mesma turbina hidráulica, entretanto, adicionam-se pás diretoras fixas e rígidas ao tubo interno a montante do rotor. Para essa finalidade, utiliza-se o modelo Arlequin estabilizado para a discretização do domínio do fluido, de maneira a permitir que apenas o domínio na região do cubo do rotor gire, enquanto que o restante da malha mantém-se fixa.   
 
-\subsubsection{Turbina - Monomodelo}
+\subsubsection{Turbina - Monomodelo}\label{capitulo:Cap7:exemplos:Turbina:Mono}
 
 A simulação do escoamento através de uma turbina hidráulica instalada em um tubo foi realizada com base na geometria ilustrada na \autoref{fig:turbina_mono_geo}, que apresenta as principais características do domínio computacional considerado.
 
@@ -483,13 +483,13 @@ A simulação do escoamento através de uma turbina hidráulica instalada em um 
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-No que diz respeito ao fluido, seu domínio consiste em tubo de comprimento 17L, com $L = 0,684dm$, e diâmetro exterior $D_t = 1,74dm$. O seu interior é discretizado de maneira a acomodar o rotor de uma turbina acoplado em um eixo rígido. O fluido possui propriedades físicas da água, que consistem em viscosidade dinâmica de $\viscosity=1,00\times10^{-4} kg/(dm.s)$ e massa específica equivalente a $\rho_{f} = 1,00 kg/dm^3 $. Ao domínio do fluido, aplica-se condição de não deslizamento para as paredes do tubo, e para as paredes do eixo rígido. Além disso, uma força de superfície na entrada do domínio equivalente a $100kPa$ é empregada.
+No que diz respeito ao fluido, o contorno externo do seu domínio é composto por um tubo de comprimento $17L$, com $L = 0,684dm$, e diâmetro $D_t = 1,74dm$. O contorno interno do domínio está delimitado pelo tubo interno de diâmetro $d = 0,6dm$ e comprimento $8L$, e pela estrutura do rotor. O fluido possui propriedades físicas da água, que consistem em viscosidade dinâmica de $\viscosity=1,00\times10^{-4} kg/(dm.s)$ e massa específica equivalente a $\rho_{f} = 1,00 kg/dm^3 $. Ao domínio do fluido, aplica-se condição de não deslizamento para as paredes do tubo externo e interno. Além disso, uma força de superfície na entrada do domínio equivalente a $100kPa$ é empregada.
 
-O rotor consiste em 4 pás de espessura constante $t_p = 0,02dm$, acopladas em um cubo (\textit{hub}) de diâmetro  $d = 0,3dm$ e espessura $t_c=0,1dm$, e apresentam diâmetro de ponta (\textit{tip}) $D=0,75dm$. A geometria da pás foi gerada utilizando o software CFturbo® \footnote{Disponível em: \url{https://www.cfturbo.com}}. Selecionou-se um aço para compor o material do cubo e das pás do rotor, que caracteriza-se por uma massa específica de $\rho_{e} =  8,0 Kg/dm^3 $, e módulo de elasticidade de $E = 2,0\times10^{10} kg/(dm.s^2)$. O eixo rígido apresenta diâmetro igual ao do cubo. Para permitir a rotação da turbina, no nó central da superfície superior do eixo rígido (superfície de entrada do escoamento), travaram-se os deslocamentos em $y_1,y_2$ e $y_3$, enquanto que para os demais nós desta superfície restringiram-se os deslocamentos na direção de $y_3$.
+A estrutura, consistem em uma turbina de 4 pás de espessura constante, $t_p = 0,02dm$, com diâmetro de ponta (\textit{tip}) $D=1,5dm$. As pás são acopladas a um cubo (\textit{hub}) de diâmetro $d=0,60dm$ e espessura $t_c = 0,1dm$. Considera-se que o eixo possui o mesmo diâmetro e espessura do cubo e se prolonga até a entrada do escoamento dentro do tubo interno. A geometria da pás foi gerada utilizando o software CFturbo® \footnote{Disponível em: \url{https://www.cfturbo.com}}. Selecionou-se um aço para compor o material da estrutura, que caracteriza-se por uma massa específica de $\rho_{e} =  8,0 Kg/dm^3 $, e módulo de elasticidade de $E = 2,0\times10^{10} kg/(dm.s^2)$.Para permitir a rotação da turbina, no nó central ($p_c$) da superfície superior do eixo (superfície de entrada do escoamento), travaram-se os deslocamentos em $y_1,y_2$ e $y_3$, enquanto que para os demais nós desta superfície restringiram-se os deslocamentos na direção de $y_3$.
 
 No que diz respeito a integração temporal utilizou-se $\timeStep = 1\times10^{-3}$, e para o fluido um raio espectral $\specRadius = 0,5$.
 
-A malha utilizada para a discretização do domínio do fluido, é apresentada na \autoref{fig:turbina_mono_malha_fluido} e é composta por 49239 elementos tetraédricos quadráticos e 76548 nós, enquanto que, a malha da discretização da estrutura completa (eixo rígido e turbina) é composta por 3807 elementos de casca triangulares quadráticos e 7791 nós.
+A malha utilizada para a discretização do domínio do fluido, é apresentada na Figura \ref{fig:turbina_mono_malha_fluido} e é composta por 49239 elementos tetraédricos quadráticos e 76548 nós, enquanto que, a malha da discretização da estrutura (ver Figura \ref{fig:turbina_malha_estrutura}) é composta por 3807 elementos de casca triangulares quadráticos e 7791 nós.
 
 \begin{figure}[!htbp]
 	\caption{Turbina monomodelo: Malhas}
@@ -500,13 +500,18 @@ A malha utilizada para a discretização do domínio do fluido, é apresentada n
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
+Afim de se analisar os deslocamentos máximos nas pás ao longo do tempo na direção $y_3$, demarcou-se um ponto "A" na extremidade de uma das pás, conforme pode ser visualizado na \autoref{fig:turbina_mono_geo}. Os deslocamentos apresentados nesse nó ao longo do tempo, são apresentados na \autoref{fig:turbina_mono_deslA}. Ao realizar-se a média dos deslocamentos a partir do tempo $t=0,2$ até o final da análise, obteve-se um valor de $-0,0127355cm$. 
+
+
 \begin{figure}[!htbp]
-	\caption{Turbina monomodelo: Deslocamento no ponto A}
+	\caption{Turbina monomodelo: Deslocamento em $y_3$ no ponto A}
 	\centering 
 	\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_deslocamento.eps}	
 	\label{fig:turbina_mono_deslA}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
+
+Além disso, acompanhou-se a velocidade angular deste mesmo ponto ao longo do tempo. Conforme pode-se observar na \autoref{fig:turbina_mono_velAngA} a velocidade angular aumenta até o tempo $t=0,2s$ e depois mantém-se com valor aproximadamente constante de $96,25rad/s$.
 
 \begin{figure}[!htbp]
 	\caption{Turbina monomodelo: Velocidade angular no ponto A}
@@ -516,21 +521,25 @@ A malha utilizada para a discretização do domínio do fluido, é apresentada n
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
+Por fim, apresentam-se os campos de velocidade e de pressão obtidos ao longo de uma rotação completa das pás dos rotores. Os campos podem ser visualizados na Figura \ref{fig:turbina_mono_vel} e Figura \ref{fig:turbina_mono_press}.
+
 \begin{figure}[!htbp]
-	\caption{Turbina monomodelo: Campos de velocidade}
-	\centering
+\caption{Turbina monomodelo: Campos de velocidade}
+\centering
 \subfloat[$t=0,414s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel414.pdf}} \
 \subfloat[$t=0,430s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel430.pdf}} \\
 \subfloat[$t=0,446s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel446.pdf}} \
 \subfloat[$t=0,462s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel462.pdf}} 
-	\label{fig:turbina_mono_vel}
-	\legend{Fonte: Elaborada pela autora}
+\label{fig:turbina_mono_vel}
+\legend{Fonte: Elaborada pela autora}
 \end{figure}
+
+Considerando-se a velocidade média na saída do tubo no final da análise, obteve-se uma vazão do escoamento de $128,77dm^3/s$.
 
 \begin{figure}[!htbp]
 	\caption{Turbina monomodelo: Campos de pressão}
 	\centering
-	\subfloat[$t=0,414s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 2.8cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press414.pdf}} \
+	\subfloat[$t=0,414s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 2.8cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press414.pdf}}\
 	\subfloat[$t=0,430s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press430.pdf}} \\
 	\subfloat[$t=0,446s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press446.pdf}} \
 	\subfloat[$t=0,462s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press462.pdf}} 
@@ -541,7 +550,7 @@ A malha utilizada para a discretização do domínio do fluido, é apresentada n
 
 \subsubsection{Turbina - Modelo Arlequin}
 
-Na segunda etapa de análise, adicionam-se pás diretoras rígidas e fixas ao eixo rígido que também 
+Na segunda etapa de análise, adicionam-se 4 pás diretoras rígidas e fixas ao tubo interno do escoamento, conforme pode ser observado na \autoref{fig:turbina_arlq_geo}, mantendo-se as demais características do domínio do fluido e da estrutura, assim como as propriedades físicas dos meios apresentados em \autoref{capitulo:Cap7:exemplos:Turbina:Mono}, 
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Geometria}
@@ -551,14 +560,19 @@ Na segunda etapa de análise, adicionam-se pás diretoras rígidas e fixas ao ei
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
+Para permitir que as pás diretoras se mantenham fixas ao longo da análise do escoamento, será utilizado o método Arlequin estabilizado para a resolução do problema de IFE. O domínio local, no qual o rotor está contido, foi discretizado com uma malha em elementos finitos, de 26052 nós e 40766 elementos tetraédricos quadráticos, conforme pode ser observado na Figura \ref{fig:turbina_arlq_malha}. A malha global, foi discretizado com o auxílio de 21 \textit{patches} (ver Figura \ref{fig:turbina_arlq_patches}), e possui 21438 pontos de controle e 9660 células. 
+
+A zona de colagem, que é destacada na Figura \ref{fig:turbina_arlq_malha} com a cor vermelha, possui espessura de 0,129dm, totalizando uma quantidade de 6782 elementos finitos e 3257 nós. A constante do operador de acoplamento $L^{2}$ foi especificada como $k_{0} = 10$.
+
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Malhas}
 	\centering 
-	\includegraphics[scale=2.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_arlq_malha.pdf}	
-	\label{fig:turbina_arlq_malha}
+	\subfloat[Malha modelo Arlequin\label{fig:turbina_arlq_malha}]{\includegraphics[scale=2.0,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_arlq_malha.pdf}}\
+	\subfloat[Malha global - \textit{patches}\label{fig:turbina_arlq_patches}]{\includegraphics[scale=2.0,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap7/turbina_arlq_patches.pdf}}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
+Ressalta-se que, para a simulação deste problema, a turbina foi inicialmente considerada rígida. Após o completo desenvolvimento do escoamento, passou-se então a considerá-la como uma estrutura flexível, e o problema de interação fluido-estrutura pode ser analisado. Na \autoref{fig:turbina_arlq_deslA} pode ser observado o deslocamento vertical (direção $y_3$) no ponto A da pá do rotor (conforme \autoref{fig:turbina_mono_geo}), cuja a média ao longo do tempo foi de $-0.02436cm$.
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Deslocamento no ponto A}
@@ -568,6 +582,8 @@ Na segunda etapa de análise, adicionam-se pás diretoras rígidas e fixas ao ei
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
+Na \autoref{fig:turbina_arlq_velAngA} pode-se observar a velocidade angular ao longo do tempo. Fazendo-se a média da velocidade angular a partir de $t=0,15$ até o final da análise, obteve-se uma velocidade de  $119,75rad/s$.
+
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Velocidade angular no ponto A}
 	\centering 
@@ -575,6 +591,8 @@ Na segunda etapa de análise, adicionam-se pás diretoras rígidas e fixas ao ei
 	\label{fig:turbina_arlq_velAngA}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
+
+Na Figura \ref{fig:turbina_arlq_vel} são apresentados os campos de velocidade do escoamento ao longo de uma rotação das pás da turbina. Realizando-se o cálculo da vazão na seção de saída do escoamento no final do tempo de análise, obteve-se um valor de $139,58dm^3/s$. Nota-se que obteve-se um aumento de aproximadamente $8\%$ na vazão com o auxílio das pás diretoras.
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Campos de velocidade}
@@ -586,6 +604,8 @@ Na segunda etapa de análise, adicionam-se pás diretoras rígidas e fixas ao ei
 	\label{fig:turbina_arlq_vel}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
+
+Na Figura \ref{fig:turbina_arlq_press} pode-se observar os campos de pressão do escoamento ao longo de uma rotação da turbina.
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Campos de pressão}

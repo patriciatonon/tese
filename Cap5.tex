@@ -107,7 +107,7 @@ As equações na região de sobreposição são integradas sobre o elemento loca
 
 Na etapa de pré-processamento determinam-se ainda os nós inativos da malha global, sejam porque encontram-se fora da zona de sobreposição, ou, porque possuem pequena influência dentro da mesma, de acordo com a expressão apresentada na \autoref{eq:influence}.
 
-Finalmente, o processo de marcha no tempo se inicia da maneira explicitada no Item \ref{capitulo:Cap2:DFCComputationalCode} levando-se em consideração que as funções tentativa e peso, e os parâmetros de estabilização são modificados de acordo com o apresentado neste capítulo.
+Finalmente, o processo de marcha no tempo se inicia da maneira explicitada no Algoritmo \ref{alg:fluid} levando-se em consideração que as funções tentativa e peso, e os parâmetros de estabilização são modificados de acordo com o apresentado neste capítulo.
 
 O algoritmo que descreve esse processo de solução das equações da DFC considerando a partição de domínios pode ser visualizado no Alg. \ref{alg:overlap}.
 
@@ -126,7 +126,7 @@ O algoritmo que descreve esse processo de solução das equações da DFC consid
 		\State $i$++;
 		\State Interpolação das variáveis do problema: aplicação da \autoref{eq:inter_acel_i}, \autoref {eq:inter_vel_i} e \autoref{eq:inter_press_i};
 		\State Cálculo do incremento nas variáveis do problema: $\Acceleration_{n+1}$ e $\Press_{n+1}$ de acordo com as \autoref{eq:eq_lin_QM} e \autoref{eq:eq_lin_cont};
-		\State Atualização da solução: calculadas de acordo com \autoref{atu_acel}, \autoref{atu_vel} e \autoref{atu_press}.
+		\State Atualização da solução: calculadas de acordo com \autoref{eq:atu_acel}, \autoref{eq:atu_vel} e \autoref{eq:atu_press}.
 		\State Cálculo do erro:
 		\begin{align}
 			\epsilon =\left\| \NNSM^i \right\|_{L^2}
