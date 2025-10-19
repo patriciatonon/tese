@@ -56,14 +56,14 @@
 \contentsline {section}{\numberline {4.1}Cinemática dos corpos deformáveis}{100}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Equilíbrio de corpos deformáveis}{103}{section.4.2}%
 \contentsline {subsection}{\numberline {4.2.1}Estado de tensão em um ponto}{103}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Equilíbrio local Lagrangeano}{104}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Princípio de Estacionariedade de energia}{106}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Modelo constitutivo de Saint-Venant-Kirchhoff}{108}{subsection.4.2.4}%
-\contentsline {section}{\numberline {4.3}Método dos Elementos Finitos Posicional}{109}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Elemento finito de Casca}{109}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Integração Temporal e solução do problema não-linear}{112}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Implementação Computacional}{115}{subsection.4.3.3}%
-\contentsline {section}{\numberline {4.4}Exemplo de aplicação - Casca cilíndrica com \textit {snap through} dinâmico}{115}{section.4.4}%
+\contentsline {subsection}{\numberline {4.2.2}Equilíbrio em descrição Lagrangiana}{105}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Conservação da energia e equilíbrio}{107}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Modelo constitutivo de Saint-Venant-Kirchhoff}{109}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Método dos Elementos Finitos}{109}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Elemento finito de casca}{110}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Integração temporal e solução do problema não linear}{113}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Implementação computacional}{115}{subsection.4.3.3}%
+\contentsline {section}{\numberline {4.4}Exemplo de aplicação - casca cilíndrica com \textit {snap through} dinâmico}{116}{section.4.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Técnica de partição de domínios}}{119}{chapter.5}%
 \contentsline {section}{\numberline {5.1}Combinação de espaços de funções}{119}{section.5.1}%

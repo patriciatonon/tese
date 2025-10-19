@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  18 OCT 2025 23:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.3.12)  19 OCT 2025 11:07
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2273,7 +2273,7 @@ Overfull \hbox (1.5877pt too wide) detected at line 62
 
 
 Overfull \hbox (1.5877pt too wide) detected at line 66
- \T1/lmss/bx/n/12 115
+ \T1/lmss/bx/n/12 116
  []
 
 
@@ -4451,183 +4451,184 @@ File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 12.
+ng  used on input line 20.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 12.
+ginaEmBranco.jpg  used on input line 20.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [99]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_cinematica.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/sol_cinematica.pdf, id=12895, 122.28009pt x 100.55693pt>
+<Imagens/Cap4/sol_cinematica.pdf, id=12951, 122.28009pt x 100.55693pt>
 File: Imagens/Cap4/sol_cinematica.pdf Graphic file (type pdf)
 <use Imagens/Cap4/sol_cinematica.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_cinematica.pdf  used on input line 20
+Package pdftex.def Info: Imagens/Cap4/sol_cinematica.pdf  used on input line 28
 .
 (pdftex.def)             Requested size: 207.87526pt x 170.94603pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 41.
+ng  used on input line 40.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 41.
+ginaEmBranco.jpg  used on input line 40.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
 [100 <./Imagens/Cap4/sol_cinematica.pdf>]
-
-pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_def_vol.pdf): PDF in
-clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/sol_def_vol.pdf, id=12924, 118.7139pt x 94.52199pt>
-File: Imagens/Cap4/sol_def_vol.pdf Graphic file (type pdf)
-<use Imagens/Cap4/sol_def_vol.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_def_vol.pdf  used on input line 82.
-(pdftex.def)             Requested size: 237.42722pt x 189.04349pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 92.
+ng  used on input line 77.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 92.
+ginaEmBranco.jpg  used on input line 77.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
-[101]
+ [101]
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_def_vol.pdf): PDF in
+clusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap4/sol_def_vol.pdf, id=12988, 118.7139pt x 94.52199pt>
+File: Imagens/Cap4/sol_def_vol.pdf Graphic file (type pdf)
+<use Imagens/Cap4/sol_def_vol.pdf>
+Package pdftex.def Info: Imagens/Cap4/sol_def_vol.pdf  used on input line 92.
+(pdftex.def)             Requested size: 237.42722pt x 189.04349pt.
+
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_def_area.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/sol_def_area.pdf, id=12937, 49.18375pt x 29.10875pt>
+<Imagens/Cap4/sol_def_area.pdf, id=12990, 49.18375pt x 29.10875pt>
 File: Imagens/Cap4/sol_def_area.pdf Graphic file (type pdf)
 <use Imagens/Cap4/sol_def_area.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_def_area.pdf  used on input line 106.
+Package pdftex.def Info: Imagens/Cap4/sol_def_area.pdf  used on input line 109.
 
 (pdftex.def)             Requested size: 295.10165pt x 140.50946pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 129.
+ng  used on input line 118.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 129.
+ginaEmBranco.jpg  used on input line 118.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
 [102 <./Imagens/Cap4/sol_def_vol.pdf>]
+File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
+pe png)
+<use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
+Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
+ng  used on input line 145.
+(pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
+File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
+aphic file (type jpg)
+<use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
+Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
+ginaEmBranco.jpg  used on input line 145.
+(pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
+ [103 <./Imagens/Cap4/sol_def_area.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_vol_equi.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/sol_vol_equi.pdf, id=12955, 323.4188pt x 278.33739pt>
+<Imagens/Cap4/sol_vol_equi.pdf, id=13033, 323.4188pt x 278.33739pt>
 File: Imagens/Cap4/sol_vol_equi.pdf Graphic file (type pdf)
 <use Imagens/Cap4/sol_vol_equi.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_vol_equi.pdf  used on input line 135.
+Package pdftex.def Info: Imagens/Cap4/sol_vol_equi.pdf  used on input line 151.
 
 (pdftex.def)             Requested size: 161.709pt x 139.16835pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 141.
+ng  used on input line 180.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 141.
+ginaEmBranco.jpg  used on input line 180.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
-[103 <./Imagens/Cap4/sol_def_area.pdf> <./Imagens/Cap4/sol_vol_equi.pdf>]
+[104 <./Imagens/Cap4/sol_vol_equi.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_tetra_equi.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/sol_tetra_equi.pdf, id=12987, 489.32813pt x 377.91188pt>
+<Imagens/Cap4/sol_tetra_equi.pdf, id=13046, 489.32813pt x 377.91188pt>
 File: Imagens/Cap4/sol_tetra_equi.pdf Graphic file (type pdf)
 <use Imagens/Cap4/sol_tetra_equi.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_tetra_equi.pdf  used on input line 17
+Package pdftex.def Info: Imagens/Cap4/sol_tetra_equi.pdf  used on input line 18
 5.
 (pdftex.def)             Requested size: 244.66345pt x 188.95547pt.
-File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
-pe png)
-<use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
-Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 197.
-(pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
-File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
-aphic file (type jpg)
-<use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
-Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 197.
-(pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
-[104]
+
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/sol_cargas.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/sol_cargas.pdf, id=12998, 50.80663pt x 44.78166pt>
+<Imagens/Cap4/sol_cargas.pdf, id=13049, 50.80663pt x 44.78166pt>
 File: Imagens/Cap4/sol_cargas.pdf Graphic file (type pdf)
 <use Imagens/Cap4/sol_cargas.pdf>
-Package pdftex.def Info: Imagens/Cap4/sol_cargas.pdf  used on input line 206.
+Package pdftex.def Info: Imagens/Cap4/sol_cargas.pdf  used on input line 210.
 (pdftex.def)             Requested size: 203.22595pt x 179.12616pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 215.
+ng  used on input line 219.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 215.
+ginaEmBranco.jpg  used on input line 219.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
-[105 <./Imagens/Cap4/sol_tetra_equi.pdf> <./Imagens/Cap4/sol_cargas.pdf>]
+[105 <./Imagens/Cap4/sol_tetra_equi.pdf>]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 254.
+ng  used on input line 251.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 254.
+ginaEmBranco.jpg  used on input line 251.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
-
-[106]
+ [106 <./Imagens/Cap4/sol_cargas.pdf>]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 295.
+ng  used on input line 284.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 295.
+ginaEmBranco.jpg  used on input line 284.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
- [107]
+[107]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 336.
+ng  used on input line 327.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 336.
+ginaEmBranco.jpg  used on input line 327.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [108]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
@@ -4646,74 +4647,75 @@ ginaEmBranco.jpg  used on input line 360.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_super_media.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_super_media.pdf, id=13072, 374.6896pt x 295.29674pt>
+<Imagens/Cap4/casca_super_media.pdf, id=13125, 374.6896pt x 295.29674pt>
 File: Imagens/Cap4/casca_super_media.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_super_media.pdf>
 Package pdftex.def Info: Imagens/Cap4/casca_super_media.pdf  used on input line
- 370.
+ 376.
 (pdftex.def)             Requested size: 299.75209pt x 236.2377pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_vetores_generaliza
 dos.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
 owed
-<Imagens/Cap4/casca_vetores_generalizados.pdf, id=13075, 359.82704pt x 287.4838
+<Imagens/Cap4/casca_vetores_generalizados.pdf, id=13128, 359.82704pt x 287.4838
 9pt>
 File: Imagens/Cap4/casca_vetores_generalizados.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_vetores_generalizados.pdf>
 Package pdftex.def Info: Imagens/Cap4/casca_vetores_generalizados.pdf  used on 
-input line 387.
+input line 393.
 (pdftex.def)             Requested size: 287.86201pt x 229.98741pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 397.
+ng  used on input line 400.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 397.
+ginaEmBranco.jpg  used on input line 400.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
-[110 <./Imagens/Cap4/casca_super_media.pdf>]
+[110]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 419.
+ng  used on input line 400.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 419.
+ginaEmBranco.jpg  used on input line 400.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
- [111 <./Imagens/Cap4/casca_vetores_generalizados.pdf>]
+ [111 <./Imagens/Cap4/casca_super_media.pdf> <./Imagens/Cap4/casca_vetores_gene
+ralizados.pdf>]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 455.
+ng  used on input line 443.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 455.
+ginaEmBranco.jpg  used on input line 443.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [112]
-LaTeX Font Info:    Calculating math sizes for size <8.4> on input line 464.
+LaTeX Font Info:    Calculating math sizes for size <8.4> on input line 472.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8.4> on input line 464.
+(Font)              <8.4> on input line 472.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5.87996> on input line 464.
+(Font)              <5.87996> on input line 472.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <4.2> on input line 464.
+(Font)              <4.2> on input line 472.
 
 
 LaTeX Font Warning: Font shape `U/rsfs/m/n' in size <4.2> not available
-(Font)              size <5> substituted on input line 464.
+(Font)              size <5> substituted on input line 472.
 
 
 Package microtype Warning: Unknown slot number of character
@@ -4737,144 +4739,137 @@ File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 496.
+ng  used on input line 478.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 496.
+ginaEmBranco.jpg  used on input line 478.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
 [113]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 529.
+ng  used on input line 520.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 529.
+ginaEmBranco.jpg  used on input line 520.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [114]
+Underfull \vbox (badness 5161) has occurred while \output is active []
+
+File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
+pe png)
+<use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
+Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
+ng  used on input line 567.
+(pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
+File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
+aphic file (type jpg)
+<use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
+Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
+ginaEmBranco.jpg  used on input line 567.
+(pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
+ [115]
+File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
+pe png)
+<use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
+Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
+ng  used on input line 578.
+(pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
+File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
+aphic file (type jpg)
+<use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
+Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
+ginaEmBranco.jpg  used on input line 578.
+(pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
+
+[116]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_geometria.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_geometria.pdf, id=13171, 882.32033pt x 579.90425pt>
+<Imagens/Cap4/casca_geometria.pdf, id=13229, 882.32033pt x 579.90425pt>
 File: Imagens/Cap4/casca_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap4/casca_geometria.pdf  used on input line 5
-80.
+82.
 (pdftex.def)             Requested size: 202.9294pt x 133.37517pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_malha.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_malha.pdf, id=13173, 277.51682pt x 156.10321pt>
+<Imagens/Cap4/casca_malha.pdf, id=13231, 277.51682pt x 156.10321pt>
 File: Imagens/Cap4/casca_malha.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_malha.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_malha.pdf  used on input line 581.
+Package pdftex.def Info: Imagens/Cap4/casca_malha.pdf  used on input line 583.
 (pdftex.def)             Requested size: 180.07695pt x 140.41597pt.
-File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
-pe png)
-<use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
-Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 587.
-(pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
-File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
-aphic file (type jpg)
-<use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
-Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 587.
-(pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
-[115 <./Imagens/Cap4/casca_geometria.pdf> <./Imagens/Cap4/casca_malha.pdf>]
-File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
-pe png)
-<use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
-Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 587.
-(pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
-File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
-aphic file (type jpg)
-<use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
-Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 587.
-(pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
 
-[116]
-Package epstopdf Info: Source file: <Imagens/Cap4/casca_deslocamentoA.eps>
-(epstopdf)                    date: 2025-10-04 08:17:47
-(epstopdf)                    size: 29624 bytes
-(epstopdf)             Output file: <Imagens/Cap4/casca_deslocamentoA-eps-conve
-rted-to.pdf>
-(epstopdf)                    date: 2025-10-04 08:21:20
-(epstopdf)                    size: 8147 bytes
-(epstopdf)             Command: <epstopdf --outfile=Imagens/Cap4/casca_deslocam
-entoA-eps-converted-to.pdf Imagens/Cap4/casca_deslocamentoA.eps>
-(epstopdf)             \includegraphics on input line 593.
-Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf, id=13216, 454.69875pt x
- 255.95625pt>
-File: Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf Graphic file (type 
-pdf)
-<use Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf 
- used on input line 593.
+
+pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_deslocamentoA.pdf)
+: PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<Imagens/Cap4/casca_deslocamentoA.pdf, id=13233, 454.69875pt x 255.95625pt>
+File: Imagens/Cap4/casca_deslocamentoA.pdf Graphic file (type pdf)
+<use Imagens/Cap4/casca_deslocamentoA.pdf>
+Package pdftex.def Info: Imagens/Cap4/casca_deslocamentoA.pdf  used on input li
+ne 591.
 (pdftex.def)             Requested size: 272.82135pt x 153.57492pt.
-<Imagens/Cap4/casca_deslocamento_referencia.png.png, id=13218, 1104.125pt x 640
+<Imagens/Cap4/casca_deslocamento_referencia.png.png, id=13235, 1104.125pt x 640
 .3925pt>
 File: Imagens/Cap4/casca_deslocamento_referencia.png.png Graphic file (type png
 )
 <use Imagens/Cap4/casca_deslocamento_referencia.png.png>
 Package pdftex.def Info: Imagens/Cap4/casca_deslocamento_referencia.png.png  us
-ed on input line 601.
+ed on input line 599.
 (pdftex.def)             Requested size: 276.03058pt x 160.09773pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_140ms.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_140ms.pdf, id=13224, 187.45032pt x 108.405pt>
+<Imagens/Cap4/casca_140ms.pdf, id=13241, 187.45032pt x 108.405pt>
 File: Imagens/Cap4/casca_140ms.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_140ms.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_140ms.pdf  used on input line 609.
+Package pdftex.def Info: Imagens/Cap4/casca_140ms.pdf  used on input line 607.
 (pdftex.def)             Requested size: 184.50345pt x 96.54031pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_165ms.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_165ms.pdf, id=13226, 187.45032pt x 108.405pt>
+<Imagens/Cap4/casca_165ms.pdf, id=13243, 187.45032pt x 108.405pt>
 File: Imagens/Cap4/casca_165ms.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_165ms.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_165ms.pdf  used on input line 610.
+Package pdftex.def Info: Imagens/Cap4/casca_165ms.pdf  used on input line 608.
 (pdftex.def)             Requested size: 184.50345pt x 96.54031pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_174ms.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_174ms.pdf, id=13228, 187.45032pt x 108.405pt>
+<Imagens/Cap4/casca_174ms.pdf, id=13245, 187.45032pt x 108.405pt>
 File: Imagens/Cap4/casca_174ms.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_174ms.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_174ms.pdf  used on input line 611.
+Package pdftex.def Info: Imagens/Cap4/casca_174ms.pdf  used on input line 609.
 (pdftex.def)             Requested size: 191.90161pt x 96.54031pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_177ms.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_177ms.pdf, id=13230, 187.45032pt x 108.405pt>
+<Imagens/Cap4/casca_177ms.pdf, id=13247, 187.45032pt x 108.405pt>
 File: Imagens/Cap4/casca_177ms.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_177ms.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_177ms.pdf  used on input line 612.
+Package pdftex.def Info: Imagens/Cap4/casca_177ms.pdf  used on input line 610.
 (pdftex.def)             Requested size: 191.90161pt x 96.54031pt.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap4/casca_legenda.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap4/casca_legenda.pdf, id=13232, 11141.86418pt x 3363.57802pt>
+<Imagens/Cap4/casca_legenda.pdf, id=13249, 11141.86418pt x 3363.57802pt>
 File: Imagens/Cap4/casca_legenda.pdf Graphic file (type pdf)
 <use Imagens/Cap4/casca_legenda.pdf>
-Package pdftex.def Info: Imagens/Cap4/casca_legenda.pdf  used on input line 613
+Package pdftex.def Info: Imagens/Cap4/casca_legenda.pdf  used on input line 611
 .
 (pdftex.def)             Requested size: 167.12074pt x 41.91603pt.
 )
@@ -4890,8 +4885,8 @@ aphic file (type jpg)
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
 ginaEmBranco.jpg  used on input line 493.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
- [117 <./Imagens/Cap4/casca_deslocamentoA-eps-converted-to.pdf> <./Imagens/Cap4
-/casca_deslocamento_referencia.png.png>]
+ [117 <./Imagens/Cap4/casca_geometria.pdf> <./Imagens/Cap4/casca_malha.pdf> <./
+Imagens/Cap4/casca_deslocamentoA.pdf>]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
@@ -4904,9 +4899,9 @@ aphic file (type jpg)
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
 ginaEmBranco.jpg  used on input line 493.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
- [118 <./Imagens/Cap4/casca_140ms.pdf> <./Imagens/Cap4/casca_165ms.pdf> <./Imag
-ens/Cap4/casca_174ms.pdf> <./Imagens/Cap4/casca_177ms.pdf> <./Imagens/Cap4/casc
-a_legenda.pdf>]
+ [118 <./Imagens/Cap4/casca_deslocamento_referencia.png.png> <./Imagens/Cap4/ca
+sca_140ms.pdf> <./Imagens/Cap4/casca_165ms.pdf> <./Imagens/Cap4/casca_174ms.pdf
+> <./Imagens/Cap4/casca_177ms.pdf> <./Imagens/Cap4/casca_legenda.pdf>]
 \openout2 = `Cap5.aux'.
 
  (./Cap5.tex
@@ -4928,19 +4923,19 @@ ginaEmBranco.jpg  used on input line 16.
 
 
 ]
-<Imagens/Cap5/dominio_global.pdf, id=13294, 274.09047pt x 223.73445pt>
+<Imagens/Cap5/dominio_global.pdf, id=13333, 274.09047pt x 223.73445pt>
 File: Imagens/Cap5/dominio_global.pdf Graphic file (type pdf)
 <use Imagens/Cap5/dominio_global.pdf>
 Package pdftex.def Info: Imagens/Cap5/dominio_global.pdf  used on input line 20
 .
 (pdftex.def)             Requested size: 164.45554pt x 134.2417pt.
-<Imagens/Cap5/dominio_local.pdf, id=13296, 152.39647pt x 129.03342pt>
+<Imagens/Cap5/dominio_local.pdf, id=13335, 152.39647pt x 129.03342pt>
 File: Imagens/Cap5/dominio_local.pdf Graphic file (type pdf)
 <use Imagens/Cap5/dominio_local.pdf>
 Package pdftex.def Info: Imagens/Cap5/dominio_local.pdf  used on input line 21.
 
 (pdftex.def)             Requested size: 91.43857pt x 77.42062pt.
-<Imagens/Cap5/dominio_sobreposto.pdf, id=13298, 334.0105pt x 303.99461pt>
+<Imagens/Cap5/dominio_sobreposto.pdf, id=13337, 334.0105pt x 303.99461pt>
 File: Imagens/Cap5/dominio_sobreposto.pdf Graphic file (type pdf)
 <use Imagens/Cap5/dominio_sobreposto.pdf>
 Package pdftex.def Info: Imagens/Cap5/dominio_sobreposto.pdf  used on input lin
@@ -4958,9 +4953,8 @@ aphic file (type jpg)
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
 ginaEmBranco.jpg  used on input line 33.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
-
-[120 <./Imagens/Cap5/dominio_global.pdf> <./Imagens/Cap5/dominio_local.pdf> <./
-Imagens/Cap5/dominio_sobreposto.pdf>]
+ [120 <./Imagens/Cap5/dominio_global.pdf> <./Imagens/Cap5/dominio_local.pdf> <.
+/Imagens/Cap5/dominio_sobreposto.pdf>]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
@@ -4977,7 +4971,7 @@ ginaEmBranco.jpg  used on input line 62.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap5/funcoes_dom_global.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap5/funcoes_dom_global.pdf, id=13409, 635.37375pt x 303.38344pt>
+<Imagens/Cap5/funcoes_dom_global.pdf, id=13449, 635.37375pt x 303.38344pt>
 File: Imagens/Cap5/funcoes_dom_global.pdf Graphic file (type pdf)
 <use Imagens/Cap5/funcoes_dom_global.pdf>
 Package pdftex.def Info: Imagens/Cap5/funcoes_dom_global.pdf  used on input lin
@@ -4987,7 +4981,7 @@ e 81.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap5/funcoes_dom_local.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap5/funcoes_dom_local.pdf, id=13411, 631.60968pt x 297.36093pt>
+<Imagens/Cap5/funcoes_dom_local.pdf, id=13451, 631.60968pt x 297.36093pt>
 File: Imagens/Cap5/funcoes_dom_local.pdf Graphic file (type pdf)
 <use Imagens/Cap5/funcoes_dom_local.pdf>
 Package pdftex.def Info: Imagens/Cap5/funcoes_dom_local.pdf  used on input line
@@ -4997,7 +4991,7 @@ Package pdftex.def Info: Imagens/Cap5/funcoes_dom_local.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap5/funcoes_modificadas.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap5/funcoes_modificadas.pdf, id=13413, 623.32875pt x 292.84406pt>
+<Imagens/Cap5/funcoes_modificadas.pdf, id=13453, 623.32875pt x 292.84406pt>
 File: Imagens/Cap5/funcoes_modificadas.pdf Graphic file (type pdf)
 <use Imagens/Cap5/funcoes_modificadas.pdf>
 Package pdftex.def Info: Imagens/Cap5/funcoes_modificadas.pdf  used on input li
@@ -5046,19 +5040,19 @@ ginaEmBranco.jpg  used on input line 143.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap5/cav2d_geometria.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap5/cav2d_geometria.pdf, id=13474, 178.23654pt x 173.86223pt>
+<Imagens/Cap5/cav2d_geometria.pdf, id=13513, 178.23654pt x 173.86223pt>
 File: Imagens/Cap5/cav2d_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap5/cav2d_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap5/cav2d_geometria.pdf  used on input line 1
 49.
 (pdftex.def)             Requested size: 231.70746pt x 226.02084pt.
-<Imagens/Cap5/cav2d_malha_local.pdf, id=13478, 1517.00615pt x 1130.06052pt>
+<Imagens/Cap5/cav2d_malha_local.pdf, id=13517, 1517.00615pt x 1130.06052pt>
 File: Imagens/Cap5/cav2d_malha_local.pdf Graphic file (type pdf)
 <use Imagens/Cap5/cav2d_malha_local.pdf>
 Package pdftex.def Info: Imagens/Cap5/cav2d_malha_local.pdf  used on input line
  161.
 (pdftex.def)             Requested size: 200.96776pt x 180.4845pt.
-<Imagens/Cap5/cav2d_malha_global.png, id=13480, 2007.5pt x 1491.5725pt>
+<Imagens/Cap5/cav2d_malha_global.png, id=13519, 2007.5pt x 1491.5725pt>
 File: Imagens/Cap5/cav2d_malha_global.png Graphic file (type png)
 <use Imagens/Cap5/cav2d_malha_global.png>
 Package pdftex.def Info: Imagens/Cap5/cav2d_malha_global.png  used on input lin
@@ -5091,7 +5085,7 @@ ginaEmBranco.jpg  used on input line 168.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [126 <./Imagens/Cap5/cav2d_geometria.pdf> <./Imagens/Cap5/cav2d_malha_local.pd
 f> <./Imagens/Cap5/cav2d_malha_global.png (PNG copy)>]
-<Imagens/Cap5/cav2d_elementos_zs_local.png, id=13514, 2007.5pt x 1491.5725pt>
+<Imagens/Cap5/cav2d_elementos_zs_local.png, id=13554, 2007.5pt x 1491.5725pt>
 File: Imagens/Cap5/cav2d_elementos_zs_local.png Graphic file (type png)
 <use Imagens/Cap5/cav2d_elementos_zs_local.png>
 Package pdftex.def Info: Imagens/Cap5/cav2d_elementos_zs_local.png  used on inp
@@ -5106,7 +5100,7 @@ ut line 173.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap5/cav2d_campo_vel.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap5/cav2d_campo_vel.pdf, id=13522, 945.03871pt x 987.47618pt>
+<Imagens/Cap5/cav2d_campo_vel.pdf, id=13562, 945.03871pt x 987.47618pt>
 File: Imagens/Cap5/cav2d_campo_vel.pdf Graphic file (type pdf)
 <use Imagens/Cap5/cav2d_campo_vel.pdf>
 Package pdftex.def Info: Imagens/Cap5/cav2d_campo_vel.pdf  used on input line 1
@@ -5116,7 +5110,7 @@ Package pdftex.def Info: Imagens/Cap5/cav2d_campo_vel.pdf  used on input line 1
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap5/cav2d_campo_pressao.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap5/cav2d_campo_pressao.pdf, id=13524, 673.76718pt x 627.84563pt>
+<Imagens/Cap5/cav2d_campo_pressao.pdf, id=13564, 673.76718pt x 627.84563pt>
 File: Imagens/Cap5/cav2d_campo_pressao.pdf Graphic file (type pdf)
 <use Imagens/Cap5/cav2d_campo_pressao.pdf>
 Package pdftex.def Info: Imagens/Cap5/cav2d_campo_pressao.pdf  used on input li
@@ -5126,13 +5120,13 @@ ne 183.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap5/cav2d_perfil_vel_Re100.p
 df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap5/cav2d_perfil_vel_Re100.pdf, id=13526, 255.95625pt x 255.95625pt>
+<Imagens/Cap5/cav2d_perfil_vel_Re100.pdf, id=13566, 255.95625pt x 255.95625pt>
 File: Imagens/Cap5/cav2d_perfil_vel_Re100.pdf Graphic file (type pdf)
 <use Imagens/Cap5/cav2d_perfil_vel_Re100.pdf>
 Package pdftex.def Info: Imagens/Cap5/cav2d_perfil_vel_Re100.pdf  used on input
  line 190.
 (pdftex.def)             Requested size: 204.76526pt x 204.76526pt.
-<Imagens/Cap5/cav2d_legenda.pdf, id=13528, 122.34311pt x 27.63289pt>
+<Imagens/Cap5/cav2d_legenda.pdf, id=13568, 122.34311pt x 27.63289pt>
 File: Imagens/Cap5/cav2d_legenda.pdf Graphic file (type pdf)
 <use Imagens/Cap5/cav2d_legenda.pdf>
 Package pdftex.def Info: Imagens/Cap5/cav2d_legenda.pdf  used on input line 191
@@ -5174,7 +5168,7 @@ ginaEmBranco.jpg  used on input line 494.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/dominioArlequin.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/dominioArlequin.pdf, id=13593, 182.24275pt x 88.7982pt>
+<Imagens/Cap6/dominioArlequin.pdf, id=13632, 182.24275pt x 88.7982pt>
 File: Imagens/Cap6/dominioArlequin.pdf Graphic file (type pdf)
 <use Imagens/Cap6/dominioArlequin.pdf>
 Package pdftex.def Info: Imagens/Cap6/dominioArlequin.pdf  used on input line 2
@@ -5221,7 +5215,7 @@ LaTeX Warning: Command \textbackslash invalid in math mode on input line 65.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/funcPondArlq.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/funcPondArlq.pdf, id=13636, 645.6084pt x 278.63377pt>
+<Imagens/Cap6/funcPondArlq.pdf, id=13675, 645.6084pt x 278.63377pt>
 File: Imagens/Cap6/funcPondArlq.pdf Graphic file (type pdf)
 <use Imagens/Cap6/funcPondArlq.pdf>
 Package pdftex.def Info: Imagens/Cap6/funcPondArlq.pdf  used on input line 72.
@@ -5396,7 +5390,7 @@ ginaEmBranco.jpg  used on input line 548.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/dominioArlequinMovel.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/dominioArlequinMovel.pdf, id=13816, 279.08388pt x 146.06099pt>
+<Imagens/Cap6/dominioArlequinMovel.pdf, id=13855, 279.08388pt x 146.06099pt>
 File: Imagens/Cap6/dominioArlequinMovel.pdf Graphic file (type pdf)
 <use Imagens/Cap6/dominioArlequinMovel.pdf>
 Package pdftex.def Info: Imagens/Cap6/dominioArlequinMovel.pdf  used on input l
@@ -5452,13 +5446,13 @@ ginaEmBranco.jpg  used on input line 625.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_geometria.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolio_geometria.pdf, id=13892, 334.8314pt x 173.83626pt>
+<Imagens/Cap6/aerofolio_geometria.pdf, id=13931, 334.8314pt x 173.83626pt>
 File: Imagens/Cap6/aerofolio_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_geometria.pdf  used on input li
 ne 633.
 (pdftex.def)             Requested size: 334.83058pt x 173.83583pt.
-<Imagens/Cap6/aerofolio_malhaMonoFEM.pdf, id=13895, 144.54pt x 108.405pt>
+<Imagens/Cap6/aerofolio_malhaMonoFEM.pdf, id=13934, 144.54pt x 108.405pt>
 File: Imagens/Cap6/aerofolio_malhaMonoFEM.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_malhaMonoFEM.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_malhaMonoFEM.pdf  used on input
@@ -5477,13 +5471,13 @@ Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
 ginaEmBranco.jpg  used on input line 653.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
 [146 <./Imagens/Cap6/aerofolio_geometria.pdf>]
-<Imagens/Cap6/aerofolio_malhaArlequin.pdf, id=13912, 144.54pt x 108.405pt>
+<Imagens/Cap6/aerofolio_malhaArlequin.pdf, id=13951, 144.54pt x 108.405pt>
 File: Imagens/Cap6/aerofolio_malhaArlequin.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_malhaArlequin.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_malhaArlequin.pdf  used on inpu
 t line 657.
 (pdftex.def)             Requested size: 433.61888pt x 171.56946pt.
-<Imagens/Cap6/aerofolio_detalheLocal.pdf, id=13914, 143.95584pt x 107.60687pt>
+<Imagens/Cap6/aerofolio_detalheLocal.pdf, id=13953, 143.95584pt x 107.60687pt>
 File: Imagens/Cap6/aerofolio_detalheLocal.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_detalheLocal.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_detalheLocal.pdf  used on input
@@ -5513,7 +5507,7 @@ Package epstopdf Info: Source file: <Imagens/Cap6/aerofolio_CD.eps>
 ps-converted-to.pdf Imagens/Cap6/aerofolio_CD.eps>
 (epstopdf)             \includegraphics on input line 707.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/aerofolio_CD-eps-converted-to.pdf, id=13933, 397.485pt x 255.9562
+<Imagens/Cap6/aerofolio_CD-eps-converted-to.pdf, id=13972, 397.485pt x 255.9562
 5pt>
 File: Imagens/Cap6/aerofolio_CD-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_CD-eps-converted-to.pdf>
@@ -5531,7 +5525,7 @@ Package epstopdf Info: Source file: <Imagens/Cap6/aerofolio_CL.eps>
 ps-converted-to.pdf Imagens/Cap6/aerofolio_CL.eps>
 (epstopdf)             \includegraphics on input line 715.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/aerofolio_CL-eps-converted-to.pdf, id=13935, 397.485pt x 255.9562
+<Imagens/Cap6/aerofolio_CL-eps-converted-to.pdf, id=13974, 397.485pt x 255.9562
 5pt>
 File: Imagens/Cap6/aerofolio_CL-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_CL-eps-converted-to.pdf>
@@ -5542,7 +5536,7 @@ n input line 715.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_velTn.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolio_velTn.pdf, id=13939, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolio_velTn.pdf, id=13978, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_velTn.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_velTn.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_velTn.pdf  used on input line 7
@@ -5552,7 +5546,7 @@ Package pdftex.def Info: Imagens/Cap6/aerofolio_velTn.pdf  used on input line 7
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_velTn4.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolio_velTn4.pdf, id=13941, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolio_velTn4.pdf, id=13980, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_velTn4.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_velTn4.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_velTn4.pdf  used on input line 
@@ -5562,7 +5556,7 @@ Package pdftex.def Info: Imagens/Cap6/aerofolio_velTn4.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_velTn2.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolio_velTn2.pdf, id=13943, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolio_velTn2.pdf, id=13982, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_velTn2.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_velTn2.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_velTn2.pdf  used on input line 
@@ -5572,13 +5566,13 @@ Package pdftex.def Info: Imagens/Cap6/aerofolio_velTn2.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_velTn34.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolio_velTn34.pdf, id=13945, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolio_velTn34.pdf, id=13984, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_velTn34.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_velTn34.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_velTn34.pdf  used on input line
  728.
 (pdftex.def)             Requested size: 187.9086pt x 140.93144pt.
-<Imagens/Cap6/aerofolio_velLegenda.png, id=13947, 462.72874pt x 115.43124pt>
+<Imagens/Cap6/aerofolio_velLegenda.png, id=13986, 462.72874pt x 115.43124pt>
 File: Imagens/Cap6/aerofolio_velLegenda.png Graphic file (type png)
 <use Imagens/Cap6/aerofolio_velLegenda.png>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_velLegenda.png  used on input l
@@ -5588,7 +5582,7 @@ ine 729.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_pressTn.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolio_pressTn.pdf, id=13950, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolio_pressTn.pdf, id=13989, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_pressTn.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_pressTn.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_pressTn.pdf  used on input line
@@ -5598,7 +5592,7 @@ Package pdftex.def Info: Imagens/Cap6/aerofolio_pressTn.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_pressTn4.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolio_pressTn4.pdf, id=13952, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolio_pressTn4.pdf, id=13991, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_pressTn4.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_pressTn4.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_pressTn4.pdf  used on input lin
@@ -5608,7 +5602,7 @@ e 738.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_pressTn2.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolio_pressTn2.pdf, id=13954, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolio_pressTn2.pdf, id=13993, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_pressTn2.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_pressTn2.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_pressTn2.pdf  used on input lin
@@ -5618,13 +5612,13 @@ e 739.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolio_pressTn34.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolio_pressTn34.pdf, id=13956, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolio_pressTn34.pdf, id=13995, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolio_pressTn34.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolio_pressTn34.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_pressTn34.pdf  used on input li
 ne 740.
 (pdftex.def)             Requested size: 187.9086pt x 140.93144pt.
-<Imagens/Cap6/aerofolio_pressLegenda.png, id=13958, 443.6575pt x 151.56625pt>
+<Imagens/Cap6/aerofolio_pressLegenda.png, id=13997, 443.6575pt x 151.56625pt>
 File: Imagens/Cap6/aerofolio_pressLegenda.png Graphic file (type png)
 <use Imagens/Cap6/aerofolio_pressLegenda.png>
 Package pdftex.def Info: Imagens/Cap6/aerofolio_pressLegenda.png  used on input
@@ -5679,7 +5673,7 @@ ginaEmBranco.jpg  used on input line 759.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_geometria.p
 df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolioMov_geometria.pdf, id=14051, 157.38927pt x 93.03482pt>
+<Imagens/Cap6/aerofolioMov_geometria.pdf, id=14090, 157.38927pt x 93.03482pt>
 File: Imagens/Cap6/aerofolioMov_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_geometria.pdf  used on input
@@ -5714,7 +5708,7 @@ Package epstopdf Info: Source file: <Imagens/Cap6/aerofolioMov_CD.eps>
 D-eps-converted-to.pdf Imagens/Cap6/aerofolioMov_CD.eps>
 (epstopdf)             \includegraphics on input line 778.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/aerofolioMov_CD-eps-converted-to.pdf, id=14088, 397.485pt x 255.9
+<Imagens/Cap6/aerofolioMov_CD-eps-converted-to.pdf, id=14127, 397.485pt x 255.9
 5625pt>
 File: Imagens/Cap6/aerofolioMov_CD-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -5733,7 +5727,7 @@ Package epstopdf Info: Source file: <Imagens/Cap6/aerofolioMov_CL.eps>
 L-eps-converted-to.pdf Imagens/Cap6/aerofolioMov_CL.eps>
 (epstopdf)             \includegraphics on input line 786.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap6/aerofolioMov_CL-eps-converted-to.pdf, id=14090, 397.485pt x 255.9
+<Imagens/Cap6/aerofolioMov_CL-eps-converted-to.pdf, id=14129, 397.485pt x 255.9
 5625pt>
 File: Imagens/Cap6/aerofolioMov_CL-eps-converted-to.pdf Graphic file (type pdf)
 
@@ -5745,7 +5739,7 @@ d on input line 786.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_vel400.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolioMov_vel400.pdf, id=14094, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolioMov_vel400.pdf, id=14133, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_vel400.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_vel400.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_vel400.pdf  used on input li
@@ -5755,7 +5749,7 @@ ne 796.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_vel415.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolioMov_vel415.pdf, id=14096, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolioMov_vel415.pdf, id=14135, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_vel415.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_vel415.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_vel415.pdf  used on input li
@@ -5765,7 +5759,7 @@ ne 797.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_vel425.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolioMov_vel425.pdf, id=14098, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolioMov_vel425.pdf, id=14137, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_vel425.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_vel425.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_vel425.pdf  used on input li
@@ -5775,7 +5769,7 @@ ne 798.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_vel440.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolioMov_vel440.pdf, id=14100, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolioMov_vel440.pdf, id=14139, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_vel440.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_vel440.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_vel440.pdf  used on input li
@@ -5785,7 +5779,7 @@ ne 799.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_press400.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolioMov_press400.pdf, id=14102, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolioMov_press400.pdf, id=14141, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_press400.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_press400.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_press400.pdf  used on input 
@@ -5795,7 +5789,7 @@ line 807.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_press415.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolioMov_press415.pdf, id=14104, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolioMov_press415.pdf, id=14143, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_press415.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_press415.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_press415.pdf  used on input 
@@ -5805,7 +5799,7 @@ line 808.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_press425.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolioMov_press425.pdf, id=14106, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolioMov_press425.pdf, id=14145, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_press425.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_press425.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_press425.pdf  used on input 
@@ -5815,7 +5809,7 @@ line 809.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap6/aerofolioMov_press440.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap6/aerofolioMov_press440.pdf, id=14108, 1445.4pt x 1084.05pt>
+<Imagens/Cap6/aerofolioMov_press440.pdf, id=14147, 1445.4pt x 1084.05pt>
 File: Imagens/Cap6/aerofolioMov_press440.pdf Graphic file (type pdf)
 <use Imagens/Cap6/aerofolioMov_press440.pdf>
 Package pdftex.def Info: Imagens/Cap6/aerofolioMov_press440.pdf  used on input 
@@ -5872,7 +5866,7 @@ ioMov_press440.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/dominioIFE.pdf): PDF inc
 lusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/dominioIFE.pdf, id=14214, 129.8726pt x 64.03862pt>
+<Imagens/Cap7/dominioIFE.pdf, id=14253, 129.8726pt x 64.03862pt>
 File: Imagens/Cap7/dominioIFE.pdf Graphic file (type pdf)
 <use Imagens/Cap7/dominioIFE.pdf>
 Package pdftex.def Info: Imagens/Cap7/dominioIFE.pdf  used on input line 16.
@@ -5924,7 +5918,7 @@ ginaEmBranco.jpg  used on input line 84.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/contornoIFE.pdf): PDF in
 clusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/contornoIFE.pdf, id=14265, 228.54391pt x 87.85358pt>
+<Imagens/Cap7/contornoIFE.pdf, id=14304, 228.54391pt x 87.85358pt>
 File: Imagens/Cap7/contornoIFE.pdf Graphic file (type pdf)
 <use Imagens/Cap7/contornoIFE.pdf>
 Package pdftex.def Info: Imagens/Cap7/contornoIFE.pdf  used on input line 101.
@@ -5984,7 +5978,7 @@ ginaEmBranco.jpg  used on input line 216.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_geometria.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_geometria.pdf, id=14338, 101.20929pt x 75.62459pt>
+<Imagens/Cap7/cavFF2d_geometria.pdf, id=14377, 101.20929pt x 75.62459pt>
 File: Imagens/Cap7/cavFF2d_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_geometria.pdf  used on input line
@@ -6006,7 +6000,7 @@ ginaEmBranco.jpg  used on input line 232.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_malha.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_malha.pdf, id=14398, 182.77283pt x 156.3441pt>
+<Imagens/Cap7/cavFF2d_malha.pdf, id=14436, 182.77283pt x 156.3441pt>
 File: Imagens/Cap7/cavFF2d_malha.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_malha.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_malha.pdf  used on input line 266
@@ -6016,7 +6010,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF2d_malha.pdf  used on input line 266
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_malha_mono.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_malha_mono.pdf, id=14400, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF2d_malha_mono.pdf, id=14438, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF2d_malha_mono.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_malha_mono.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_malha_mono.pdf  used on input lin
@@ -6026,7 +6020,7 @@ e 267.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_malha_casca.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_malha_casca.pdf, id=14402, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF2d_malha_casca.pdf, id=14440, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF2d_malha_casca.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_malha_casca.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_malha_casca.pdf  used on input li
@@ -6056,7 +6050,7 @@ ted-to.pdf>
 eslA-eps-converted-to.pdf Imagens/Cap7/cavFF2d_Arlq_deslA.eps>
 (epstopdf)             \includegraphics on input line 280.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap7/cavFF2d_Arlq_deslA-eps-converted-to.pdf, id=14415, 397.485pt x 25
+<Imagens/Cap7/cavFF2d_Arlq_deslA-eps-converted-to.pdf, id=14454, 397.485pt x 25
 5.95625pt>
 File: Imagens/Cap7/cavFF2d_Arlq_deslA-eps-converted-to.pdf Graphic file (type p
 df)
@@ -6075,7 +6069,7 @@ o.pdf>
 eps-converted-to.pdf Imagens/Cap7/cavFF2d_deslA.eps>
 (epstopdf)             \includegraphics on input line 288.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap7/cavFF2d_deslA-eps-converted-to.pdf, id=14417, 397.485pt x 255.956
+<Imagens/Cap7/cavFF2d_deslA-eps-converted-to.pdf, id=14456, 397.485pt x 255.956
 25pt>
 File: Imagens/Cap7/cavFF2d_deslA-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_deslA-eps-converted-to.pdf>
@@ -6086,7 +6080,7 @@ on input line 288.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_vel4.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_vel4.pdf, id=14421, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF2d_vel4.pdf, id=14460, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF2d_vel4.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_vel4.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel4.pdf  used on input line 298.
@@ -6096,7 +6090,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel4.pdf  used on input line 298.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_vel8.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_vel8.pdf, id=14423, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF2d_vel8.pdf, id=14462, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF2d_vel8.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_vel8.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel8.pdf  used on input line 299.
@@ -6106,7 +6100,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel8.pdf  used on input line 299.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_vel14.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_vel14.pdf, id=14425, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF2d_vel14.pdf, id=14464, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF2d_vel14.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_vel14.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel14.pdf  used on input line 300
@@ -6116,7 +6110,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel14.pdf  used on input line 300
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_vel21.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_vel21.pdf, id=14427, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF2d_vel21.pdf, id=14466, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF2d_vel21.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_vel21.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel21.pdf  used on input line 301
@@ -6126,7 +6120,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF2d_vel21.pdf  used on input line 301
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_press4.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_press4.pdf, id=14429, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF2d_press4.pdf, id=14468, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF2d_press4.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_press4.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_press4.pdf  used on input line 30
@@ -6136,7 +6130,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF2d_press4.pdf  used on input line 30
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_press8.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_press8.pdf, id=14431, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF2d_press8.pdf, id=14470, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF2d_press8.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_press8.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_press8.pdf  used on input line 31
@@ -6146,7 +6140,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF2d_press8.pdf  used on input line 31
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_press14.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_press14.pdf, id=14433, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF2d_press14.pdf, id=14472, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF2d_press14.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_press14.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_press14.pdf  used on input line 3
@@ -6156,7 +6150,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF2d_press14.pdf  used on input line 3
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF2d_press21.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF2d_press21.pdf, id=14435, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF2d_press21.pdf, id=14474, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF2d_press21.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF2d_press21.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF2d_press21.pdf  used on input line 3
@@ -6166,7 +6160,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF2d_press21.pdf  used on input line 3
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_geometria.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_geometria.pdf, id=14440, 134.46771pt x 110.03534pt>
+<Imagens/Cap7/cavFF3d_geometria.pdf, id=14479, 134.46771pt x 110.03534pt>
 File: Imagens/Cap7/cavFF3d_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_geometria.pdf  used on input line
@@ -6176,7 +6170,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF3d_geometria.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_malha.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_malha.pdf, id=14445, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF3d_malha.pdf, id=14484, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF3d_malha.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_malha.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_malha.pdf  used on input line 334
@@ -6186,7 +6180,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF3d_malha.pdf  used on input line 334
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_malha_mono.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_malha_mono.pdf, id=14447, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF3d_malha_mono.pdf, id=14486, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF3d_malha_mono.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_malha_mono.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_malha_mono.pdf  used on input lin
@@ -6196,7 +6190,7 @@ e 335.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_malhaPlaca.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_malhaPlaca.pdf, id=14449, 1445.4pt x 1084.05pt>
+<Imagens/Cap7/cavFF3d_malhaPlaca.pdf, id=14488, 1445.4pt x 1084.05pt>
 File: Imagens/Cap7/cavFF3d_malhaPlaca.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_malhaPlaca.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_malhaPlaca.pdf  used on input lin
@@ -6241,7 +6235,7 @@ o.pdf>
 eps-converted-to.pdf Imagens/Cap7/cavFF3d_deslA.eps>
 (epstopdf)             \includegraphics on input line 347.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap7/cavFF3d_deslA-eps-converted-to.pdf, id=14514, 397.485pt x 255.956
+<Imagens/Cap7/cavFF3d_deslA-eps-converted-to.pdf, id=14552, 397.485pt x 255.956
 25pt>
 File: Imagens/Cap7/cavFF3d_deslA-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_deslA-eps-converted-to.pdf>
@@ -6252,7 +6246,7 @@ on input line 347.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_vel4.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_vel4.pdf, id=14519, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF3d_vel4.pdf, id=14557, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF3d_vel4.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_vel4.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_vel4.pdf  used on input line 357.
@@ -6262,7 +6256,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF3d_vel4.pdf  used on input line 357.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_vel8.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_vel8.pdf, id=14521, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF3d_vel8.pdf, id=14559, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF3d_vel8.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_vel8.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_vel8.pdf  used on input line 358.
@@ -6272,7 +6266,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF3d_vel8.pdf  used on input line 358.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_vel14.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_vel14.pdf, id=14523, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF3d_vel14.pdf, id=14561, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF3d_vel14.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_vel14.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_vel14.pdf  used on input line 359
@@ -6282,7 +6276,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF3d_vel14.pdf  used on input line 359
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_vel21.pdf): PDF 
 inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_vel21.pdf, id=14525, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF3d_vel21.pdf, id=14563, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF3d_vel21.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_vel21.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_vel21.pdf  used on input line 360
@@ -6323,7 +6317,7 @@ gens/Cap7/cavFF3d_geometria.pdf>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_press4.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_press4.pdf, id=14627, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF3d_press4.pdf, id=14665, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF3d_press4.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_press4.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_press4.pdf  used on input line 36
@@ -6333,7 +6327,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF3d_press4.pdf  used on input line 36
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_press8.pdf): PDF
  inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_press8.pdf, id=14629, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF3d_press8.pdf, id=14667, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF3d_press8.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_press8.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_press8.pdf  used on input line 36
@@ -6343,7 +6337,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF3d_press8.pdf  used on input line 36
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_press14.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_press14.pdf, id=14631, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF3d_press14.pdf, id=14669, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF3d_press14.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_press14.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_press14.pdf  used on input line 3
@@ -6353,7 +6347,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF3d_press14.pdf  used on input line 3
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/cavFF3d_press21.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/cavFF3d_press21.pdf, id=14633, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/cavFF3d_press21.pdf, id=14671, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/cavFF3d_press21.pdf Graphic file (type pdf)
 <use Imagens/Cap7/cavFF3d_press21.pdf>
 Package pdftex.def Info: Imagens/Cap7/cavFF3d_press21.pdf  used on input line 3
@@ -6363,7 +6357,7 @@ Package pdftex.def Info: Imagens/Cap7/cavFF3d_press21.pdf  used on input line 3
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/casca_desloc_40.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/casca_desloc_40.pdf, id=14635, 110.23384pt x 125.07198pt>
+<Imagens/Cap7/casca_desloc_40.pdf, id=14673, 110.23384pt x 125.07198pt>
 File: Imagens/Cap7/casca_desloc_40.pdf Graphic file (type pdf)
 <use Imagens/Cap7/casca_desloc_40.pdf>
 Package pdftex.def Info: Imagens/Cap7/casca_desloc_40.pdf  used on input line 3
@@ -6373,7 +6367,7 @@ Package pdftex.def Info: Imagens/Cap7/casca_desloc_40.pdf  used on input line 3
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/casca_desloc_80.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/casca_desloc_80.pdf, id=14637, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/casca_desloc_80.pdf, id=14675, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/casca_desloc_80.pdf Graphic file (type pdf)
 <use Imagens/Cap7/casca_desloc_80.pdf>
 Package pdftex.def Info: Imagens/Cap7/casca_desloc_80.pdf  used on input line 3
@@ -6383,7 +6377,7 @@ Package pdftex.def Info: Imagens/Cap7/casca_desloc_80.pdf  used on input line 3
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/casca_desloc_140.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/casca_desloc_140.pdf, id=14639, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/casca_desloc_140.pdf, id=14677, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/casca_desloc_140.pdf Graphic file (type pdf)
 <use Imagens/Cap7/casca_desloc_140.pdf>
 Package pdftex.def Info: Imagens/Cap7/casca_desloc_140.pdf  used on input line 
@@ -6393,7 +6387,7 @@ Package pdftex.def Info: Imagens/Cap7/casca_desloc_140.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/casca_desloc_210.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/casca_desloc_210.pdf, id=14641, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/casca_desloc_210.pdf, id=14679, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/casca_desloc_210.pdf Graphic file (type pdf)
 <use Imagens/Cap7/casca_desloc_210.pdf>
 Package pdftex.def Info: Imagens/Cap7/casca_desloc_210.pdf  used on input line 
@@ -6403,7 +6397,7 @@ Package pdftex.def Info: Imagens/Cap7/casca_desloc_210.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prisma_geometria.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prisma_geometria.pdf, id=14650, 744.36113pt x 414.3404pt>
+<Imagens/Cap7/prisma_geometria.pdf, id=14688, 744.36113pt x 414.3404pt>
 File: Imagens/Cap7/prisma_geometria.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prisma_geometria.pdf>
 Package pdftex.def Info: Imagens/Cap7/prisma_geometria.pdf  used on input line 
@@ -6426,7 +6420,7 @@ ginaEmBranco.jpg  used on input line 397.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prisma_malha.pdf): PDF i
 nclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prisma_malha.pdf, id=14678, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prisma_malha.pdf, id=14716, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prisma_malha.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prisma_malha.pdf>
 Package pdftex.def Info: Imagens/Cap7/prisma_malha.pdf  used on input line 408.
@@ -6436,7 +6430,7 @@ Package pdftex.def Info: Imagens/Cap7/prisma_malha.pdf  used on input line 408.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prisma_malha_mono.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prisma_malha_mono.pdf, id=14680, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prisma_malha_mono.pdf, id=14718, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prisma_malha_mono.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prisma_malha_mono.pdf>
 Package pdftex.def Info: Imagens/Cap7/prisma_malha_mono.pdf  used on input line
@@ -6446,7 +6440,7 @@ Package pdftex.def Info: Imagens/Cap7/prisma_malha_mono.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prisma_malhaPlaca.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prisma_malhaPlaca.pdf, id=14682, 1445.4pt x 1084.05pt>
+<Imagens/Cap7/prisma_malhaPlaca.pdf, id=14720, 1445.4pt x 1084.05pt>
 File: Imagens/Cap7/prisma_malhaPlaca.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prisma_malhaPlaca.pdf>
 Package pdftex.def Info: Imagens/Cap7/prisma_malhaPlaca.pdf  used on input line
@@ -6495,7 +6489,7 @@ Package epstopdf Info: Source file: <Imagens/Cap7/prisma_deslA.eps>
 ps-converted-to.pdf Imagens/Cap7/prisma_deslA.eps>
 (epstopdf)             \includegraphics on input line 425.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap7/prisma_deslA-eps-converted-to.pdf, id=14739, 454.69875pt x 255.95
+<Imagens/Cap7/prisma_deslA-eps-converted-to.pdf, id=14777, 454.69875pt x 255.95
 625pt>
 File: Imagens/Cap7/prisma_deslA-eps-converted-to.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prisma_deslA-eps-converted-to.pdf>
@@ -6537,7 +6531,7 @@ ginaEmBranco.jpg  used on input line 431.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_vel_19970.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_vel_19970.pdf, id=14821, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_vel_19970.pdf, id=14859, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_vel_19970.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_vel_19970.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_vel_19970.pdf  used on input line 4
@@ -6547,7 +6541,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_vel_19970.pdf  used on input line 4
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_vel_20010.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_vel_20010.pdf, id=14823, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_vel_20010.pdf, id=14861, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_vel_20010.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_vel_20010.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_vel_20010.pdf  used on input line 4
@@ -6557,7 +6551,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_vel_20010.pdf  used on input line 4
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_vel_20050.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_vel_20050.pdf, id=14825, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_vel_20050.pdf, id=14863, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_vel_20050.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_vel_20050.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_vel_20050.pdf  used on input line 4
@@ -6567,7 +6561,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_vel_20050.pdf  used on input line 4
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_vel_20080.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_vel_20080.pdf, id=14827, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_vel_20080.pdf, id=14865, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_vel_20080.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_vel_20080.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_vel_20080.pdf  used on input line 4
@@ -6577,7 +6571,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_vel_20080.pdf  used on input line 4
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_vel_20110.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_vel_20110.pdf, id=14829, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_vel_20110.pdf, id=14867, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_vel_20110.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_vel_20110.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_vel_20110.pdf  used on input line 4
@@ -6587,7 +6581,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_vel_20110.pdf  used on input line 4
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_vel_20150.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_vel_20150.pdf, id=14831, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_vel_20150.pdf, id=14869, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_vel_20150.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_vel_20150.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_vel_20150.pdf  used on input line 4
@@ -6597,7 +6591,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_vel_20150.pdf  used on input line 4
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_vel_20190.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_vel_20190.pdf, id=14833, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_vel_20190.pdf, id=14871, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_vel_20190.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_vel_20190.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_vel_20190.pdf  used on input line 4
@@ -6610,7 +6604,7 @@ LaTeX Warning: Float too large for page by 21.64694pt on input line 444.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_press_19970.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_press_19970.pdf, id=14835, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_press_19970.pdf, id=14873, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_press_19970.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_press_19970.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_press_19970.pdf  used on input line
@@ -6620,7 +6614,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_press_19970.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_press_20010.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_press_20010.pdf, id=14837, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_press_20010.pdf, id=14875, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_press_20010.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_press_20010.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_press_20010.pdf  used on input line
@@ -6630,7 +6624,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_press_20010.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_press_20050.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_press_20050.pdf, id=14839, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_press_20050.pdf, id=14877, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_press_20050.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_press_20050.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_press_20050.pdf  used on input line
@@ -6640,7 +6634,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_press_20050.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_press_20080.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_press_20080.pdf, id=14841, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_press_20080.pdf, id=14879, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_press_20080.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_press_20080.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_press_20080.pdf  used on input line
@@ -6650,7 +6644,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_press_20080.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_press_20110.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_press_20110.pdf, id=14843, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_press_20110.pdf, id=14881, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_press_20110.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_press_20110.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_press_20110.pdf  used on input line
@@ -6660,7 +6654,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_press_20110.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_press_20150.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_press_20150.pdf, id=14845, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_press_20150.pdf, id=14883, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_press_20150.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_press_20150.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_press_20150.pdf  used on input line
@@ -6670,7 +6664,7 @@ Package pdftex.def Info: Imagens/Cap7/prism_press_20150.pdf  used on input line
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_press_20190.pdf): 
 PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_press_20190.pdf, id=14847, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_press_20190.pdf, id=14885, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_press_20190.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_press_20190.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_press_20190.pdf  used on input line
@@ -6683,7 +6677,7 @@ LaTeX Warning: Float too large for page by 35.30508pt on input line 458.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/prism_malha_def.pdf): PD
 F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/prism_malha_def.pdf, id=14849, 277.51682pt x 156.10321pt>
+<Imagens/Cap7/prism_malha_def.pdf, id=14887, 277.51682pt x 156.10321pt>
 File: Imagens/Cap7/prism_malha_def.pdf Graphic file (type pdf)
 <use Imagens/Cap7/prism_malha_def.pdf>
 Package pdftex.def Info: Imagens/Cap7/prism_malha_def.pdf  used on input line 4
@@ -6706,7 +6700,7 @@ ginaEmBranco.jpg  used on input line 471.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_mono_geo.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_mono_geo.pdf, id=14873, 82.06714pt x 87.2284pt>
+<Imagens/Cap7/turbina_mono_geo.pdf, id=14912, 82.06714pt x 87.2284pt>
 File: Imagens/Cap7/turbina_mono_geo.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_mono_geo.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_mono_geo.pdf  used on input line 
@@ -6774,7 +6768,7 @@ ginaEmBranco.jpg  used on input line 488.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_mono_malha.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_mono_malha.pdf, id=15154, 42.46364pt x 154.85954pt>
+<Imagens/Cap7/turbina_mono_malha.pdf, id=15192, 42.46364pt x 154.85954pt>
 File: Imagens/Cap7/turbina_mono_malha.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_mono_malha.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_mono_malha.pdf  used on input lin
@@ -6785,7 +6779,7 @@ e 497.
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_malha_estrutura.
 pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
 
-<Imagens/Cap7/turbina_malha_estrutura.pdf, id=15156, 52.31534pt x 153.43268pt>
+<Imagens/Cap7/turbina_malha_estrutura.pdf, id=15194, 52.31534pt x 153.43268pt>
 File: Imagens/Cap7/turbina_malha_estrutura.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_malha_estrutura.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_malha_estrutura.pdf  used on inpu
@@ -6803,7 +6797,7 @@ Package epstopdf Info: Source file: <Imagens/Cap7/turbina_mono_deslocamento.eps
 eslocamento-eps-converted-to.pdf Imagens/Cap7/turbina_mono_deslocamento.eps>
 (epstopdf)             \includegraphics on input line 509.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap7/turbina_mono_deslocamento-eps-converted-to.pdf, id=15160, 454.698
+<Imagens/Cap7/turbina_mono_deslocamento-eps-converted-to.pdf, id=15198, 454.698
 75pt x 255.95625pt>
 File: Imagens/Cap7/turbina_mono_deslocamento-eps-converted-to.pdf Graphic file 
 (type pdf)
@@ -6824,7 +6818,7 @@ elocidade_angular-eps-converted-to.pdf Imagens/Cap7/turbina_mono_velocidade_ang
 ular.eps>
 (epstopdf)             \includegraphics on input line 519.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap7/turbina_mono_velocidade_angular-eps-converted-to.pdf, id=15163, 4
+<Imagens/Cap7/turbina_mono_velocidade_angular-eps-converted-to.pdf, id=15201, 4
 54.69875pt x 255.95625pt>
 File: Imagens/Cap7/turbina_mono_velocidade_angular-eps-converted-to.pdf Graphic
  file (type pdf)
@@ -6836,7 +6830,7 @@ rted-to.pdf  used on input line 519.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_mono_vel414.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_mono_vel414.pdf, id=15167, 50.25487pt x 153.39078pt>
+<Imagens/Cap7/turbina_mono_vel414.pdf, id=15205, 50.25487pt x 153.39078pt>
 File: Imagens/Cap7/turbina_mono_vel414.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_mono_vel414.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_mono_vel414.pdf  used on input li
@@ -6846,7 +6840,7 @@ ne 529.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_mono_vel430.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_mono_vel430.pdf, id=15169, 51.2815pt x 153.88313pt>
+<Imagens/Cap7/turbina_mono_vel430.pdf, id=15207, 51.2815pt x 153.88313pt>
 File: Imagens/Cap7/turbina_mono_vel430.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_mono_vel430.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_mono_vel430.pdf  used on input li
@@ -6856,7 +6850,7 @@ ne 530.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_mono_vel446.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_mono_vel446.pdf, id=15171, 51.99672pt x 155.6012pt>
+<Imagens/Cap7/turbina_mono_vel446.pdf, id=15209, 51.99672pt x 155.6012pt>
 File: Imagens/Cap7/turbina_mono_vel446.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_mono_vel446.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_mono_vel446.pdf  used on input li
@@ -6866,7 +6860,7 @@ ne 531.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_mono_vel462.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_mono_vel462.pdf, id=15173, 52.05698pt x 155.59851pt>
+<Imagens/Cap7/turbina_mono_vel462.pdf, id=15211, 52.05698pt x 155.59851pt>
 File: Imagens/Cap7/turbina_mono_vel462.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_mono_vel462.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_mono_vel462.pdf  used on input li
@@ -6876,7 +6870,7 @@ ne 532.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_mono_press414.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_mono_press414.pdf, id=15175, 138.387pt x 153.88126pt>
+<Imagens/Cap7/turbina_mono_press414.pdf, id=15213, 138.387pt x 153.88126pt>
 File: Imagens/Cap7/turbina_mono_press414.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_mono_press414.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_mono_press414.pdf  used on input 
@@ -6886,7 +6880,7 @@ line 542.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_mono_press430.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_mono_press430.pdf, id=15177, 52.59717pt x 152.90358pt>
+<Imagens/Cap7/turbina_mono_press430.pdf, id=15215, 52.59717pt x 152.90358pt>
 File: Imagens/Cap7/turbina_mono_press430.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_mono_press430.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_mono_press430.pdf  used on input 
@@ -6896,7 +6890,7 @@ line 543.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_mono_press446.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_mono_press446.pdf, id=15179, 48.09808pt x 153.79518pt>
+<Imagens/Cap7/turbina_mono_press446.pdf, id=15217, 48.09808pt x 153.79518pt>
 File: Imagens/Cap7/turbina_mono_press446.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_mono_press446.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_mono_press446.pdf  used on input 
@@ -6906,7 +6900,7 @@ line 544.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_mono_press462.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_mono_press462.pdf, id=15181, 52.64758pt x 153.11707pt>
+<Imagens/Cap7/turbina_mono_press462.pdf, id=15219, 52.64758pt x 153.11707pt>
 File: Imagens/Cap7/turbina_mono_press462.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_mono_press462.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_mono_press462.pdf  used on input 
@@ -6916,7 +6910,7 @@ line 545.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_arlq_geo.pdf): P
 DF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_arlq_geo.pdf, id=15185, 83.79727pt x 106.54982pt>
+<Imagens/Cap7/turbina_arlq_geo.pdf, id=15223, 83.79727pt x 106.54982pt>
 File: Imagens/Cap7/turbina_arlq_geo.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_arlq_geo.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_arlq_geo.pdf  used on input line 
@@ -6968,7 +6962,7 @@ f>]
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_arlq_malha.pdf):
  PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_arlq_malha.pdf, id=15325, 53.03001pt x 155.88724pt>
+<Imagens/Cap7/turbina_arlq_malha.pdf, id=15363, 53.03001pt x 155.88724pt>
 File: Imagens/Cap7/turbina_arlq_malha.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_arlq_malha.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_arlq_malha.pdf  used on input lin
@@ -6978,7 +6972,7 @@ e 570.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_arlq_patches.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_arlq_patches.pdf, id=15327, 99.41812pt x 155.10902pt>
+<Imagens/Cap7/turbina_arlq_patches.pdf, id=15365, 99.41812pt x 155.10902pt>
 File: Imagens/Cap7/turbina_arlq_patches.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_arlq_patches.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_arlq_patches.pdf  used on input l
@@ -7014,7 +7008,7 @@ Package epstopdf Info: Source file: <Imagens/Cap7/turbina_arlq_deslocamento.eps
 eslocamento-eps-converted-to.pdf Imagens/Cap7/turbina_arlq_deslocamento.eps>
 (epstopdf)             \includegraphics on input line 580.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap7/turbina_arlq_deslocamento-eps-converted-to.pdf, id=15393, 454.698
+<Imagens/Cap7/turbina_arlq_deslocamento-eps-converted-to.pdf, id=15431, 454.698
 75pt x 255.95625pt>
 File: Imagens/Cap7/turbina_arlq_deslocamento-eps-converted-to.pdf Graphic file 
 (type pdf)
@@ -7035,7 +7029,7 @@ elocidade_angular-eps-converted-to.pdf Imagens/Cap7/turbina_arlq_velocidade_ang
 ular.eps>
 (epstopdf)             \includegraphics on input line 590.
 Package epstopdf Info: Output file is already uptodate.
-<Imagens/Cap7/turbina_arlq_velocidade_angular-eps-converted-to.pdf, id=15396, 4
+<Imagens/Cap7/turbina_arlq_velocidade_angular-eps-converted-to.pdf, id=15434, 4
 54.69875pt x 255.95625pt>
 File: Imagens/Cap7/turbina_arlq_velocidade_angular-eps-converted-to.pdf Graphic
  file (type pdf)
@@ -7047,7 +7041,7 @@ rted-to.pdf  used on input line 590.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_arlq_vel226.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_arlq_vel226.pdf, id=15399, 55.81654pt x 150.78824pt>
+<Imagens/Cap7/turbina_arlq_vel226.pdf, id=15437, 55.81654pt x 150.78824pt>
 File: Imagens/Cap7/turbina_arlq_vel226.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_arlq_vel226.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_arlq_vel226.pdf  used on input li
@@ -7057,7 +7051,7 @@ ne 600.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_arlq_vel229.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_arlq_vel229.pdf, id=15401, 50.19783pt x 149.69182pt>
+<Imagens/Cap7/turbina_arlq_vel229.pdf, id=15439, 50.19783pt x 149.69182pt>
 File: Imagens/Cap7/turbina_arlq_vel229.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_arlq_vel229.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_arlq_vel229.pdf  used on input li
@@ -7067,7 +7061,7 @@ ne 601.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_arlq_vel232.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_arlq_vel232.pdf, id=15403, 52.83333pt x 153.72693pt>
+<Imagens/Cap7/turbina_arlq_vel232.pdf, id=15441, 52.83333pt x 153.72693pt>
 File: Imagens/Cap7/turbina_arlq_vel232.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_arlq_vel232.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_arlq_vel232.pdf  used on input li
@@ -7077,7 +7071,7 @@ ne 602.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_arlq_vel235.pdf)
 : PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_arlq_vel235.pdf, id=15405, 51.64635pt x 153.53017pt>
+<Imagens/Cap7/turbina_arlq_vel235.pdf, id=15443, 51.64635pt x 153.53017pt>
 File: Imagens/Cap7/turbina_arlq_vel235.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_arlq_vel235.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_arlq_vel235.pdf  used on input li
@@ -7087,7 +7081,7 @@ ne 603.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_arlq_press226.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_arlq_press226.pdf, id=15408, 58.98741pt x 151.8555pt>
+<Imagens/Cap7/turbina_arlq_press226.pdf, id=15446, 58.98741pt x 151.8555pt>
 File: Imagens/Cap7/turbina_arlq_press226.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_arlq_press226.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_arlq_press226.pdf  used on input 
@@ -7097,7 +7091,7 @@ line 613.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_arlq_press229.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_arlq_press229.pdf, id=15410, 50.19783pt x 149.69182pt>
+<Imagens/Cap7/turbina_arlq_press229.pdf, id=15448, 50.19783pt x 149.69182pt>
 File: Imagens/Cap7/turbina_arlq_press229.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_arlq_press229.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_arlq_press229.pdf  used on input 
@@ -7107,7 +7101,7 @@ line 614.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_arlq_press232.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_arlq_press232.pdf, id=15412, 60.46698pt x 152.19115pt>
+<Imagens/Cap7/turbina_arlq_press232.pdf, id=15450, 60.46698pt x 152.19115pt>
 File: Imagens/Cap7/turbina_arlq_press232.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_arlq_press232.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_arlq_press232.pdf  used on input 
@@ -7117,7 +7111,7 @@ line 615.
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Imagens/Cap7/turbina_arlq_press235.pd
 f): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<Imagens/Cap7/turbina_arlq_press235.pdf, id=15414, 55.63608pt x 154.70729pt>
+<Imagens/Cap7/turbina_arlq_press235.pdf, id=15452, 55.63608pt x 154.70729pt>
 File: Imagens/Cap7/turbina_arlq_press235.pdf Graphic file (type pdf)
 <use Imagens/Cap7/turbina_arlq_press235.pdf>
 Package pdftex.def Info: Imagens/Cap7/turbina_arlq_press235.pdf  used on input 
@@ -7319,91 +7313,91 @@ File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 395.
+ng  used on input line 402.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 395.
+ginaEmBranco.jpg  used on input line 402.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [194]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 492.
+ng  used on input line 499.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 492.
+ginaEmBranco.jpg  used on input line 499.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [195]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 585.
+ng  used on input line 592.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 585.
+ginaEmBranco.jpg  used on input line 592.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [196]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 683.
+ng  used on input line 690.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 683.
+ginaEmBranco.jpg  used on input line 690.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [197]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 776.
+ng  used on input line 783.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 776.
+ginaEmBranco.jpg  used on input line 783.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [198]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 874.
+ng  used on input line 881.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 874.
+ginaEmBranco.jpg  used on input line 881.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [199]
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
 pe png)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.p
-ng  used on input line 969.
+ng  used on input line 976.
 (pdftex.def)             Requested size: 597.50426pt x 845.02924pt.
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg Gr
 aphic file (type jpg)
 <use USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/PaginaEmBranco.jpg>
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
-ginaEmBranco.jpg  used on input line 969.
+ginaEmBranco.jpg  used on input line 976.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
  [200])
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/CapaDoutorado.png Graphic file (ty
@@ -7431,7 +7425,7 @@ aphic file (type jpg)
 Package pdftex.def Info: USPSC-TA-PreTextual/SET-CapaContraCapa/PaginaBranco/Pa
 ginaEmBranco.jpg  used on input line 541.
 (pdftex.def)             Requested size: 597.4945pt x 845.07095pt.
-<USPSC-TA-PreTextual/SET-CapaContraCapa/ContraCapaDoutorado.png, id=15875, 2497
+<USPSC-TA-PreTextual/SET-CapaContraCapa/ContraCapaDoutorado.png, id=15918, 2497
 .33pt x 3529.185pt>
 File: USPSC-TA-PreTextual/SET-CapaContraCapa/ContraCapaDoutorado.png Graphic fi
 le (type png)
@@ -7467,11 +7461,11 @@ LaTeX Font Warning: Size substitutions with differences
 
  ) 
 Here is how much of TeX's memory you used:
- 51358 strings out of 474222
- 1100588 string characters out of 5748733
- 1960975 words of memory out of 5000000
- 71093 multiletter control sequences out of 15000+600000
- 745974 words of font info for 476 fonts, out of 8000000 for 9000
+ 51362 strings out of 474222
+ 1100568 string characters out of 5748733
+ 1959975 words of memory out of 5000000
+ 71096 multiletter control sequences out of 15000+600000
+ 746471 words of font info for 481 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  99i,20n,107p,1461b,1267s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/euler/eufm10.pfb><
@@ -7491,10 +7485,10 @@ ic/lm/lmsso12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmsy6.pfb></usr/share/texmf/fonts/type1/public/lm
 /lmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qtmr.pfb>
-Output written on USPSC-modelo-EESC.pdf (202 pages, 93261019 bytes).
+Output written on USPSC-modelo-EESC.pdf (202 pages, 93328963 bytes).
 PDF statistics:
- 16510 PDF objects out of 18468 (max. 8388607)
- 11686 compressed objects within 117 object streams
- 1086 named destinations out of 1200 (max. 500000)
+ 16551 PDF objects out of 18468 (max. 8388607)
+ 11704 compressed objects within 118 object streams
+ 1077 named destinations out of 1200 (max. 500000)
  124133 words of extra memory for PDF output out of 128383 (max. 10000000)
 
