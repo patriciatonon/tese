@@ -6,7 +6,7 @@
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase []{Introdução}}{17}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Apresentação do texto}{18}{section.1.1}%
+\contentsline {section}{\numberline {1.1}Apresentação do texto}{19}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Estado da Arte}{20}{section.1.2}%
 \contentsline {subsection}{\numberline {1.2.1}Dinâmica dos fluidos computacional}{20}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Análise isogeométrica}{23}{subsection.1.2.2}%
@@ -65,24 +65,24 @@
 \contentsline {subsection}{\numberline {4.3.3}Implementação computacional}{115}{subsection.4.3.3}%
 \contentsline {section}{\numberline {4.4}Exemplo de aplicação - casca cilíndrica com \textit {snap through} dinâmico}{116}{section.4.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Técnica de partição de domínios}}{119}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Combinação de espaços de funções}{119}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Função ponderadora de combinação}{121}{subsection.5.1.1}%
-\contentsline {subsection}{\numberline {5.1.2}Aplicação da técnica a Dinâmica dos Fluidos Computacional}{122}{subsection.5.1.2}%
-\contentsline {section}{\numberline {5.2}Implementação Computacional}{124}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Exemplo de aplicação}{125}{section.5.3}%
+\contentsline {chapter}{\chapternumberline {5}\MakeTextUppercase []{Técnica de partição de domínio por combinação dos espaços de funções}}{119}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Técnica de combinação dos espaços de funções}{119}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Função de combinação}{121}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Aplicação da técnica à dinâmica dos fluidos computacional}{122}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Implementação computacional}{124}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Exemplo - cavidade com partição de domínio e combinação MEF-IGA}{124}{section.5.5}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Método de Arlequin estabilizado}}{129}{chapter.6}%
+\contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Método Arlequin estabilizado}}{129}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Método Arlequin}{129}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado à problemas de escoamentos incompressíveis}{132}{section.6.2}%
+\contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado a problemas de escoamentos incompressíveis}{131}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{135}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Integração Temporal}{138}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.1}Integração temporal}{138}{subsection.6.3.1}%
 \contentsline {subsection}{\numberline {6.3.2}Parâmetro de estabilização para técnica RBSAM}{140}{subsection.6.3.2}%
 \contentsline {section}{\numberline {6.4}Superposição de modelos móveis}{142}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Implementação Computacional}{143}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Exemplos}{146}{section.6.6}%
+\contentsline {section}{\numberline {6.5}Implementação computacional}{143}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Exemplos}{145}{section.6.6}%
 \contentsline {subsection}{\numberline {6.6.1}Escoamento sobre um aerofólio NACA 0012}{146}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{150}{subsection.6.6.2}%
+\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{149}{subsection.6.6.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Acoplamento Fluido-Estrutura}}{155}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Condições de acoplamento}{155}{section.7.1}%
@@ -101,4 +101,4 @@
 \contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase []{Conclusões}}{187}{chapter.8}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{191}{section*.115}%
+\contentsline {chapter}{\uppercase {Refer\^encias}}{191}{section*.114}%

@@ -78,7 +78,7 @@ No estabelecimento de uma relação entre o volume inicial e final, definem-se d
 
 \noindent  sendo $\mathbf{dy}_1,\mathbf{dy}_2$ e $\mathbf{dy}_3$ os mesmos vetores $\mathbf{dx}_1,\mathbf{dx}_2$ e $\mathbf{dx}_3$ após a mudança de configuração.
 
-Tendo em vista a Equação \eqref{eq:rel_vet}, pode-se reescrever a Equação \eqref{eq:vol_atual}, como:
+Tendo em vista a Equação~\eqref{eq:rel_vet}, pode-se reescrever a Equação~\eqref{eq:vol_atual}, como:
 
 \begin{align}
 	dV = \det{\left(\gradDeformation\right)} \cdot \det{(\mathbf{dx_1},\mathbf{dx_2},\mathbf{dx_3})}  = JdV_{0} \label {eq:vol_atual2},
@@ -111,13 +111,13 @@ Para escrever a relação entre uma área definida na configuração inicial e o
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Considerando a relação da Equação \eqref{eq:rel_vet}, pode-se escrever o volume na configuração atual, $dV$, como:
+Considerando a relação da Equação~\eqref{eq:rel_vet}, pode-se escrever o volume na configuração atual, $dV$, como:
 
 \begin{align}
 	dV = \mathbf{u} \cdot \gradDeformation^{t} \cdot \mathbf{n} dA = J dV_0 = J \mathbf{u} \cdot \mathbf{N} dA_0. \label{eq:dv}
 \end{align}
 
-Pré-multiplicando-se a Equação \eqref{eq:dv} por $(\gradDeformation^{t})^{-1}$ e considerando-se a arbitrariedade de $\mathbf{u}$, chega-se a conhecida fórmula de Nanson, descrita como:
+Pré-multiplicando-se a Equação~\eqref{eq:dv} por $(\gradDeformation^{t})^{-1}$ e considerando-se a arbitrariedade de $\mathbf{u}$, chega-se a conhecida fórmula de Nanson, descrita como:
 
 \begin{align}
 	\mathbf{n}dA = J \gradDeformation^{-t} \cdot \mathbf{N} dA_{0}. \label{eq:Nanson}
@@ -212,7 +212,7 @@ Para a obtenção das equações de equilíbrio em descrição Lagrangiana, ser�
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Ao integrar-se a Equação \eqref{eq:equi_local_euleriano} no volume do sólido, utilizando o Teorema da Divergência, chega-se a:
+Ao integrar-se a Equação~\eqref{eq:equi_local_euleriano} no volume do sólido, utilizando o Teorema da Divergência, chega-se a:
 
 \begin{align}
 	\int_{A} {\stressTensor}^{t} \cdot \mathbf{n} dA + \int_{V} \ebodyLoad dV = \int_{V} \rho  \solidAccel dV \label{eq:eq_global_euleriano}
@@ -224,13 +224,13 @@ Ao integrar-se a Equação \eqref{eq:equi_local_euleriano} no volume do sólido,
 	\int_{A} \mathbf{p} dA + \int_{V} \ebodyLoad dV = \int_{V} \rho  \solidAccel dV 
 \end{align}
 
-Considerando as relações de mudança de área e volume, apresentadas na Equação \eqref{eq:vol_atual2} e Equação \eqref{eq:Nanson}, e que da equação da conservação da massa ($M$) tem-se que:
+Considerando as relações de mudança de área e volume, apresentadas na Equação~\eqref{eq:vol_atual2} e Equação~\eqref{eq:Nanson}, e que da equação da conservação da massa ($M$) tem-se que:
 
 \begin{align}
 	M = \int_{V_{0}} \rho_{0}dV_{0} = \int_{V(t)} \rho(t)dV, \label{eq:conser_massa}
 \end{align}
 
-\noindent pode-se escreve-se a forma global da equação da quantidade de movimento na descrição Lagrangiana total, a partir da Equação \eqref{eq:eq_global_euleriano}, como:
+\noindent pode-se escreve-se a forma global da equação da quantidade de movimento na descrição Lagrangiana total, a partir da Equação~\eqref{eq:eq_global_euleriano}, como:
 
 \begin{align}
 	\int_{A_0} \mathbf{P}^t \cdot \mathbf{N} dA_0 + \int_{V_0} \bodyLoad dV_0 = \int_{V_0} \rho_0  \solidAccel dV_0, \label{eq:equi_global_lagrangeano}
@@ -238,7 +238,7 @@ Considerando as relações de mudança de área e volume, apresentadas na Equaç
 
 \noindent na qual o primeiro tensor de tensão de Piola-Kirchhoff ($\mathbf{P}$) é definido como $\mathbf{P}^t = J \stressTensor^t \cdot \gradDeformation^{-t}$, e o subíndice $0$, refere-se à configuração inicial.
 
-Considerando-se o Teorema da Divergência à Equação \eqref{eq:equi_global_lagrangeano} e a arbitrariedade do volume, chega-se à versão local da equação de equilíbrio em descrição Lagrangiana, expressa por:
+Considerando-se o Teorema da Divergência à Equação~\eqref{eq:equi_global_lagrangeano} e a arbitrariedade do volume, chega-se à versão local da equação de equilíbrio em descrição Lagrangiana, expressa por:
 
 \begin{align}
 	\lGrad \cdot \mathbf{P}^t +  \bodyLoad = \rho_0  \solidAccel. \label{eq:equi_local_lagrangeano}
@@ -265,13 +265,13 @@ O princípio da estacionariedade da energia define que um corpo quando em equil�
 	\delta\totalEnergy = \delta\extEnergy + \delta\kinEnergy + \delta\intEnergy.
 \end{align}
 
-Um incremento de energia mecânica específica (energia mecânica por unidade de volume) pode ser obtido pelo produto escalar da Equação \eqref{eq:equi_local_lagrangeano} por um incremento de posição $\delta\ePosition$, e, integrando-se sobre o domínio inicial, têm-se:
+Um incremento de energia mecânica específica (energia mecânica por unidade de volume) pode ser obtido pelo produto escalar da Equação~\eqref{eq:equi_local_lagrangeano} por um incremento de posição $\delta\ePosition$, e, integrando-se sobre o domínio inicial, têm-se:
 
 \begin{align}
 	\delta\totalEnergy = \int_{V_0} \left(\rho_0 \solidAccel - \lGrad \cdot \mathbf{P}^t -  \ebodyLoad_0 \right) \cdot  \delta\ePosition dV_0 = 0 \label{eq:equi_local_forma_frac}
 \end{align}
 
-Ao integrar-se por partes o segundo termo da Equação \eqref{eq:equi_local_forma_frac} e utilizar-se o Teorema da Divergência, chega-se a seguinte expressão:
+Ao integrar-se por partes o segundo termo da Equação~\eqref{eq:equi_local_forma_frac} e utilizar-se o Teorema da Divergência, chega-se a seguinte expressão:
 
 \begin{align}
 	\delta\totalEnergy = \int_{V_0} \rho_0 \solidAccel \cdot \delta\ePosition dV_0 - \int_{A_0} \mathbf{P}^t \cdot \mathbf{N} \cdot  \delta\ePosition dA_0  + \int_{V_0} \mathbf{P}^t : \lGrad(\delta\ePosition) dV_0 - \int_{V_0} \mathbf{b_0} \cdot \delta \ePosition dV_0 = 0. \label{eq:equi_local_forma_frac2}
@@ -291,21 +291,21 @@ Conforme relatou-se, o tensor de Piola-Kirchhoff de primeira espécie não é ne
 
 \noindent com $\piolaStress$ conhecido como tensor de Piola-Kirchhoff de segunda espécie. 
 
-Utilizando-se a relação apresentada na Equação \eqref{eq:piola-kircchoff} na Equação \eqref{eq:equi_local_forma_frac3}, chega-se a:
+Utilizando-se a relação apresentada na Equação~\eqref{eq:piola-kircchoff} na Equação~\eqref{eq:equi_local_forma_frac3}, chega-se a:
 
 \begin{align}
 	\delta\totalEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} +  \int_{V_{0}} \piolaStress : \delta\greenStrain dV_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} = 0.
 	\label{eq:equi_local_forma_final0}
 \end{align}
 
-À Equação \eqref{eq:equi_local_forma_final0}, será adicionada ainda uma parcela referente a possibilidade de carregamentos pontuais, sendo expressa então, por:
+À Equação~\eqref{eq:equi_local_forma_final0}, será adicionada ainda uma parcela referente a possibilidade de carregamentos pontuais, sendo expressa então, por:
 
 \begin{align}
 	\delta\totalEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} +  \int_{V_{0}} \piolaStress : \delta\greenStrain dV_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} - \mathbf{F} \cdot \delta\ePosition = 0.
 	\label{eq:equi_local_forma_final}
 \end{align}
 
-Partindo-se da Equação \eqref{eq:equi_local_forma_final}, encontra-se a relação entre suas componentes e as parcelas de energia mecânica, dessa forma, têm-se que:
+Partindo-se da Equação~\eqref{eq:equi_local_forma_final}, encontra-se a relação entre suas componentes e as parcelas de energia mecânica, dessa forma, têm-se que:
 
 \begin{align}
 	\delta\extEnergy = - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} - \mathbf{F} \cdot \delta\ePosition,
@@ -471,7 +471,7 @@ A integração temporal das equações inicia-se com a discretização do tempo 
 
 \noindent em que $\beta$ e $\gamma$ são parâmetros dependentes do comportamento assumido para a aceleração. Para um aceleração constante, hipótese adotada neste trabalho, $\gamma=\sfrac{1}{2}$ e $\beta=\sfrac{1}{4}$.
 
-Partindo da Equação \eqref{eq:newmark1} e Equação \eqref{eq:newmark2} é possível escrever a aceleração e a velocidade atual em função das posições no instante $n+1$, as incógnitas do problema, e das demais variáveis do passo anterior:
+Partindo da Equação~\eqref{eq:newmark1} e Equação~\eqref{eq:newmark2} é possível escrever a aceleração e a velocidade atual em função das posições no instante $n+1$, as incógnitas do problema, e das demais variáveis do passo anterior:
 
 \begin{align}
 	\SolidAccel_{n+1} = \frac{1}{\beta \Delta_{t}^2}\SolidPos_{n+1} - \mathbf{Q}(t_n), \label{eq:accel_newmark}
@@ -488,14 +488,14 @@ Partindo da Equação \eqref{eq:newmark1} e Equação \eqref{eq:newmark2} é pos
 	\mathbf{R}(t_n) = \SolidVel_n+\timeStep(1-\gamma)\SolidAccel_n.\label{eq:Rn}
 \end{gather}
 
-Utilizando a Equação \eqref{eq:accel_newmark} e Equação \eqref{eq:vel_newmark} na equação do equilíbrio em forma matricial (Equação \eqref{eq:equi_forma_matricial}), tem-se para o instante $t_{n+1}$ a seguinte relação:
+Utilizando a Equação~\eqref{eq:accel_newmark} e Equação~\eqref{eq:vel_newmark} na equação do equilíbrio em forma matricial (Equação~\eqref{eq:equi_forma_matricial}), tem-se para o instante $t_{n+1}$ a seguinte relação:
 
 \begin{gather}
 	\concLoad^{int}_{n+1}- \concLoad^{ext}_{n+1} + \frac{\solidMass}{\beta \timeStep^2} \SolidPos_{n+1}-\solidMass \mathbf{Q}_n+ \solidDamping\mathbf{R}_n + \frac{\gamma \solidDamping}{\beta \timeStep}\SolidPos_{n+1} - \gamma\timeStep \solidDamping\mathbf{Q}_n = \mathbf{0},
 	\label{eq:equilibrio_tn+1}
 \end{gather}
 
-Pode-se escrever ainda o problema não linear definido pela Equação \eqref{eq:equilibrio_tn+1} em função do resíduo da equação governante
+Pode-se escrever ainda o problema não linear definido pela Equação~\eqref{eq:equilibrio_tn+1} em função do resíduo da equação governante
 discretizada no espaço e no tempo, como:
 
 \begin{gather}
@@ -503,7 +503,7 @@ discretizada no espaço e no tempo, como:
 	\label{eq:residuo_equilibrio_newmark}
 \end{gather}
 
-O problema não linear da Equação \eqref{eq:residuo_equilibrio_newmark} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
+O problema não linear da Equação~\eqref{eq:residuo_equilibrio_newmark} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
 
 \begin{gather}
 	\NNSS\left(\SolidPos_{n+1}^{i+1}\right) \approx \NNSS\left(\SolidPos_{n+1}^{i}\right) + \Delta\NNSS\left(\SolidPos_{n+1}^{i}\right)\Delta\SolidPos_{n+1}^{i} 
@@ -542,18 +542,18 @@ O código foi desenvolvido em linguagem C++ utilizando paralelização em protoc
 	\label{alg:algoritmo_solid}
 	\begin{algorithmic}[1]
 		\State Adota-se $\SolidPos = \mathbf{X}$;
-		\For{cada passo de tempo $0$ até $\totalTime$}
+		\For {o passo de tempo $0$ até $npt-1$} 
 		\State $i \gets 0$;
 		\State Predição da solução:
 		\State $\SolidPos_{n+1}^{0} = \SolidPos_{n}$;
 		\State $\SolidVel_{n+1}^{0} = \SolidVel_{n}$;
 		\State $\SolidAccel_{n+1}^{0} = \SolidAccel_{n}$;
 		\State Calcula-se o nível de força aplicado $\concLoad^{ext}_{n+1}(t_{n+1})$ e/ou as posições prescritas $\SolidPos_{n+1}$;
-		\State Calculam-se os valores de $\mathbf{Q}_n$ (Equação \eqref{eq:Qn}) e $\mathbf{R}_n$ (Equação \eqref{eq:Rn});
+		\State Calculam-se os valores de $\mathbf{Q}_n$ (Equação~\eqref{eq:Qn}) e $\mathbf{R}_n$ (Equação~\eqref{eq:Rn});
 		\While{$\epsilon >$ tolerância}
 		\State $i \gets i + 1$;
-		\State Cálculo do incremento da variável do problema $\SolidPos_{n+1}^{i}$ de acordo com a Equação \eqref{eq:NR};
-		\State Atualização da solução de acordo com Equação \eqref{eq:UD1}, Equação \eqref{eq:UD2} e Equação \eqref{eq:UD3};
+		\State Cálculo do incremento da variável do problema $\SolidPos_{n+1}^{i}$ de acordo com a Equação~\eqref{eq:NR};
+		\State Atualização da solução de acordo com Equação~\eqref{eq:UD1}, Equação~\eqref{eq:UD2} e Equação~\eqref{eq:UD3};
 		\State Cálculo do erro:
 		\State $\epsilon = \lVert \Delta\NNSS(\SolidPos_{n+1}^{i+1}) \rVert_{L^2}$ \text{ ou } $\epsilon = \lVert \Delta\SolidPos_{n+1}^{i+1} \rVert_{L^2}$;
 		\EndWhile

@@ -730,8 +730,6 @@ level-sets for finite element method (FEM) fluid-shell coupling.
 Lagrangian-Eulerian fluid solver coupled to a positional Lagrangian shell solver.
 \textbf{Mecánica Computacional}, v.~29, p.1627--1647, 2010b.}
 
-
-
 \bibitem[Sanches e Coda 2013]{SanchesC:2013}
 \abntrefinfo{Sanches e Coda}{Sanches; Coda}{2013}
 {SANCHES, R. A.~K.; CODA, H.~B. Unconstrained vector nonlinear shell
@@ -747,10 +745,16 @@ Lagrangian-Eulerian fluid solver coupled to a positional Lagrangian shell solver
 
 \bibitem[Sanches e Coda 2016]{SanchesC:2016}
 \abntrefinfo{Sanches e Coda}{Sanches; Coda}{2016}
-{SANCHES, R. A.~K.; CODA, H.~B. {Flexible multibody dynamics finite element
-  formulation applied to structural progressive collapse analysis}.
+{SANCHES, R. A.~K.; CODA, H.~B. Flexible multibody dynamics finite element
+  formulation applied to structural progressive collapse analysis.
 \textbf{Latin American Journal of Solids and Structures}, v.~13, n.~16, p.
   52--71, 2016.}
+
+\bibitem[Sanches et al. 2019]{SanchesFTT:2019}
+\abntrefinfo{Sanches et al.}{Sanches, Fernandes, Takizawa e Tezduyar}{2019}
+{SANCHES, R. A.~K.\textit{et al.} \textit{Fluid-structure interaction computation with multi-scale overlapping meshes}.
+In: \textbf{\MakeUppercase{CILAMCE – IBERO-LATIN-AMERICAN CONGRESS ON COMPUTATIONAL METHODS IN ENGINEERING}}, 40., 2019, Natal, RN.
+\textit{Anais...} Natal: ABCM, 2019.}
 
 \bibitem[Simo e Fox 1989]{SimoF:1989}
 \abntrefinfo{Simo e Fox}{Simo; Fox}{1989}
@@ -809,11 +813,6 @@ DOI: \url{https://doi.org/10.1142/S0218202519500581}.}
 {TALLEC, P.~L.; MOURO, J. Fluid structure interaction with large structural
   displacements.
 \textbf{Computer Methods in Applied Mechanics and Engineering}, v.~190, p. 3039--3067, 2001.}
-
-\bibitem[Tezduyar 1992]{Tezduyar:1992}
-\abntrefinfo{Tezduyar}{Tezduyar}{1992}
-{TEZDUYAR, T. Stabilized finite element formulations for incompressible flow
-  computations. \textit{In}:  HUTCHINSON, J.~W.; WU, T.~Y. (ed.). \textbf{Advances in applied mechanics}. San Diego: Academic Press, 1992. p. 1-44. (Advances in Applied Mechanics, v.~28).}
 
 \bibitem[Tezduyar 1992]{Tezduyar:1992}
 \abntrefinfo{Tezduyar}{Tezduyar}{1992}

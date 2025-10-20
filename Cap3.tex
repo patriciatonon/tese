@@ -162,7 +162,7 @@ Um dos aspectos mais relevantes das \textit{B-splines} é a flexibilidade na for
 
 Neste trabalho, é adotado apenas o refinamento $h$ na geração das geometrias baseado na inserção de \textit{knots}.
 
-O enriquecimento da base de funções utilizando a inserção de \textit{knots} é realizado sem que se altere uma curva geometricamente ou parametricamente. Para essa finalidade, partindo-se de um vetor de \textit{knots} $\Xsi = [\xsi_0,\xsi_1, ..., \xsi_{n+p+1}]$, introduz-se o conceito de vetor de \textit{knots} estendido, o qual é representado por: $\bar{\Xsi} = [\bar{\xsi}_0 = \xsi_0,\bar{\xsi}_1, ..., \bar{\xsi}_{n+m+p+1}= \xsi_{n+p+1}]$. As $(n+m+1)$ novas funções base \textit{B-Splines} são determinadas através da Equação \eqref{eq:bsplines_0} e Equação \eqref{eq:bsplines_n}), aplicando-as ao vetor de \textit{knots} $\bar{\Xsi}$. Os $(n+m+1)$ novos pontos de controle  $\bar{\mathcal{B}} = [\bar{\CP}_0,\bar{\CP}_1,..., \bar{\CP}_{n+m}]^{T}$ são obtidos através da combinação linear dos $(n+1)$ pontos de controle originais, $\mathcal{B} = [\CP_0,\CP_1,..., \CP_{n}]^{T}$, por:
+O enriquecimento da base de funções utilizando a inserção de \textit{knots} é realizado sem que se altere uma curva geometricamente ou parametricamente. Para essa finalidade, partindo-se de um vetor de \textit{knots} $\Xsi = [\xsi_0,\xsi_1, ..., \xsi_{n+p+1}]$, introduz-se o conceito de vetor de \textit{knots} estendido, o qual é representado por: $\bar{\Xsi} = [\bar{\xsi}_0 = \xsi_0,\bar{\xsi}_1, ..., \bar{\xsi}_{n+m+p+1}= \xsi_{n+p+1}]$. As $(n+m+1)$ novas funções base \textit{B-Splines} são determinadas através da Equação~\eqref{eq:bsplines_0} e Equação~\eqref{eq:bsplines_n}), aplicando-as ao vetor de \textit{knots} $\bar{\Xsi}$. Os $(n+m+1)$ novos pontos de controle  $\bar{\mathcal{B}} = [\bar{\CP}_0,\bar{\CP}_1,..., \bar{\CP}_{n+m}]^{T}$ são obtidos através da combinação linear dos $(n+1)$ pontos de controle originais, $\mathcal{B} = [\CP_0,\CP_1,..., \CP_{n}]^{T}$, por:
 
 \begin{align}
 	\bar{\mathcal{B}} = \mathbf{T}^{p}\mathcal{B},
@@ -198,7 +198,7 @@ Considerando uma curva quadrática \textit{B-spline} construída sobre um vetor 
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Ao realizar a inserção de um \textit{knot}, $\xsi=1/2$, o vetor de \textit{knots} estendido fica definido como: $\bar{\Xsi}=[0,0,0,1/2,1,1,1]$. Aplicando-se a Equação \eqref{eq:bsplines_0} e Equação \eqref{eq:bsplines_n} à esse vetor de coordenadas paramétricas, obtém-se as $4$ funções base apresentadas na Figura \ref{fig:bspline_base_di} definidas sobre 2 células do espaço paramétrico. Após o emprego do refinamento $h$, a geometria da curva é preservada. No entanto, como ilustrado na Figura \ref{fig:bspline_curva_di}, uma nova célula física é inserida, além de que, de acordo com a Figura \ref{fig:bspline_pc_di}, a malha de pontos de controle é modificada, com o acréscimo de um novo ponto e o reajuste de suas posições.
+Ao realizar a inserção de um \textit{knot}, $\xsi=1/2$, o vetor de \textit{knots} estendido fica definido como: $\bar{\Xsi}=[0,0,0,1/2,1,1,1]$. Aplicando-se a Equação~\eqref{eq:bsplines_0} e Equação~\eqref{eq:bsplines_n} à esse vetor de coordenadas paramétricas, obtém-se as $4$ funções base apresentadas na Figura \ref{fig:bspline_base_di} definidas sobre 2 células do espaço paramétrico. Após o emprego do refinamento $h$, a geometria da curva é preservada. No entanto, como ilustrado na Figura \ref{fig:bspline_curva_di}, uma nova célula física é inserida, além de que, de acordo com a Figura \ref{fig:bspline_pc_di}, a malha de pontos de controle é modificada, com o acréscimo de um novo ponto e o reajuste de suas posições.
 
 Para fins práticos, o processo de refinamento consiste na inserção consecutiva de coordenadas paramétricas ao vetor de \textit(knots) até que se alcance a discretização desejada. Um algoritmo mais eficiente para realizar esse procedimento de refinamento pode ser encontrado em \citeonline{PiegT:1996}. Esse procedimento pode ser aplicado analogamente à superfícies e sólidos, aplicando-se a inserção de \textit{knots} nas direções paramétricas desejadas.
 
@@ -251,7 +251,7 @@ Matematicamente, uma função NURBS é obtida pela racionalização de uma funç
 
 \noindent com $w_{i}$ e $w_{\hat{i}}$ $\in \realspace$, sendo $i = \hat{i} =  0, 1, ... , n$.
 
-A derivada de uma função $\fNURBS_{i,p}$ é obtida aplicando simplesmente a regra do quociente à expressão da Equação \eqref{eq:NURBS_function}:
+A derivada de uma função $\fNURBS_{i,p}$ é obtida aplicando simplesmente a regra do quociente à expressão da Equação~\eqref{eq:NURBS_function}:
 
 \begin{align}
 	\frac{\deriv}{\deriv \xsi} \fNURBS_{i,p}(\xsi) = w_{i} \frac{W\left(\xsi\right)\Nbl\left(\xsi\right) - W^{'}\left(\xsi\right)\Nb_{i,p}\left(\xsi\right)}{\left(W\left(\xsi\right)\right)^2},
@@ -344,7 +344,7 @@ Ressalta-se ainda, que na interface entre os \textit{patches}, devido a natureza
 
 \section{Análise isogeométrica}\label{capitulo:Cap3:AIG}
 
-Para a aplicação da AIG no contexto da Dinâmica dos Fluidos Computacional, é utilizada a mesma metodologia apresentada no Cap. \ref{capitulo:Cap2}. A aproximação da geometria, realizada no contexto do MEF pela Equação \eqref{eq:interp_geo} é substituída pela abordagem isogeométrica através do uso de geometrias NURBS, descritas pelas equações: Equação. \eqref{eq:curveNURBS}, Equação \eqref{eq:surfaceNURBS} ou Equação \eqref{eq:solidNURBS} para os casos de curvas, superfícies ou sólidos, respectivamente. As funções tentativa para velocidade e pressão, e as funções teste associadas à elas, apresentadas na Equação \eqref{eq:interp_vel} à Equação \eqref{eq:inter_ptest}) seguem exatamente a mesma lógica, porém, as funções de forma $N$, são substituídas pelas funções base NURBS $\fNURBS_{i,p}(\xsi)$, $\fNURBS_{i,j:p,q}(\xsi,\eta)$ e $\fNURBS_{i,j,k:p,q,r}(\xsi,\eta,\zeta)$, a depender da geometria em análise.
+Para a aplicação da AIG no contexto da Dinâmica dos Fluidos Computacional, é utilizada a mesma metodologia apresentada no Cap. \ref{capitulo:Cap2}. A aproximação da geometria, realizada no contexto do MEF pela Equação~\eqref{eq:interp_geo} é substituída pela abordagem isogeométrica através do uso de geometrias NURBS, descritas pelas equações: Equação. \eqref{eq:curveNURBS}, Equação~\eqref{eq:surfaceNURBS} ou Equação~\eqref{eq:solidNURBS} para os casos de curvas, superfícies ou sólidos, respectivamente. As funções tentativa para velocidade e pressão, e as funções teste associadas à elas, apresentadas na Equação~\eqref{eq:interp_vel} à Equação~\eqref{eq:inter_ptest}) seguem exatamente a mesma lógica, porém, as funções de forma $N$, são substituídas pelas funções base NURBS $\fNURBS_{i,p}(\xsi)$, $\fNURBS_{i,j:p,q}(\xsi,\eta)$ e $\fNURBS_{i,j,k:p,q,r}(\xsi,\eta,\zeta)$, a depender da geometria em análise.
 
 Assim, a implementação da AIG para escoamentos incompressíveis segue o mesmo roteiro apresentada no Algoritmo \ref{alg:fluid}, levando-se em consideração as mudanças nas funções de forma, o modo de proceder com a integração numérica e as particularidades no cálculo dos parâmetros de estabilização, conforme descritos na sequência desta seção.
 
@@ -356,7 +356,7 @@ A integração numérica é realizada no domínio de cada célula através da qu
 
 \noindent com $\tilde{\xi}, \tilde{\eta}, \tilde{\zeta} \in [-1, 1]$.
 
-O primeiro termo à direita da igualdade da Equação \eqref{eq:integ} é calculado a partir das derivadas parciais da: Equação \eqref{eq:curveNURBS}, Equação \eqref{eq:surfaceNURBS} ou Equação \eqref{eq:solidNURBS}, a depender do tipo da geometria em questão (curva, superfície ou sólido, respectivamente).
+O primeiro termo à direita da igualdade da Equação~\eqref{eq:integ} é calculado a partir das derivadas parciais da: Equação~\eqref{eq:curveNURBS}, Equação~\eqref{eq:surfaceNURBS} ou Equação~\eqref{eq:solidNURBS}, a depender do tipo da geometria em questão (curva, superfície ou sólido, respectivamente).
 
 Para a obtenção do segundo termo à direita, primeiramente é necessário definir a relação entre as coordenadas  do domínio paramétrico e do domínio parental. Considerando-se a célula $\bar{\domain}^{e} = [\xsi_{i},\xsi_{i+1}] \times [\eta_{j},\eta_{j+1}] \times [\zeta_{k},\zeta_{k+1}]$, pode-se calcular $\xsi,\eta, \zeta$ $\in \bar{\domain}^{e}$ a partir de $\tilde{\xsi},\tilde{\eta}, \tilde{\zeta}$ $\in \tilde{\domain}^{e}$ através das seguintes relações: 
 
@@ -374,11 +374,11 @@ Para a obtenção do segundo termo à direita, primeiramente é necessário defi
 \zeta = \zeta_{i} + \left(\tilde{\zeta}+1\right) \left(\frac{\zeta_{i+1}-\zeta_{i}}{2}\right), \label{eq:derZeta}
 \end{align}
 
-\noindent assim, $\frac{d\coordAdimen}{d\tilde{\coordAdimen}}$ é obtido derivando-se parcialmente às expressões apresentadas em: Equação \eqref{eq:derXsi}, Equação \eqref{eq:derNeta} e Equação \eqref{eq:derZeta}.
+\noindent assim, $\frac{d\coordAdimen}{d\tilde{\coordAdimen}}$ é obtido derivando-se parcialmente às expressões apresentadas em: Equação~\eqref{eq:derXsi}, Equação~\eqref{eq:derNeta} e Equação~\eqref{eq:derZeta}.
 
 \subsection{Parâmetros de estabilização}\label{capitulo:Cap3:RepreGeo:taus2}
 
-Para a determinação dos parâmetros de estabilização $\tau$, de acordo com o exposto na  \autoref{capitulo:Cap2:FormaFraca:taus}, faz-se necessária a determinação de um tensor métrico, $\matrixG$ (Equação \eqref{eq:tensor_metrico}), o qual depende da matriz jacobiana transformada, $\matrixQhat$, definida na Equação \eqref{eq:q_chap}.
+Para a determinação dos parâmetros de estabilização $\tau$, de acordo com o exposto na  \autoref{capitulo:Cap2:FormaFraca:taus}, faz-se necessária a determinação de um tensor métrico, $\matrixG$ (Equação~\eqref{eq:tensor_metrico}), o qual depende da matriz jacobiana transformada, $\matrixQhat$, definida na Equação~\eqref{eq:q_chap}.
 
 Dada a diferença entre o espaço paramétrico utilizado na definição das funções de base e do espaço paramétrico de integração, definido aqui como espaço parental, a matriz $\matrixQ$ é reescrita como:
 
@@ -386,7 +386,7 @@ Dada a diferença entre o espaço paramétrico utilizado na definição das fun�
 	\matrixQ&=\left(\frac{\partial\pos}{\partial\tilde{\coordAdimen}}\right).
 \end{align}
 
-Para a obtenção de $\matrixQhat$, de acordo com a Equação \eqref{eq:q_chap}, define-se a matriz $\matrixD$ para análise isogeométrica, de acordo com o trabalho de \citeonline{OtoguroTT:2020}, como:
+Para a obtenção de $\matrixQhat$, de acordo com a Equação~\eqref{eq:q_chap}, define-se a matriz $\matrixD$ para análise isogeométrica, de acordo com o trabalho de \citeonline{OtoguroTT:2020}, como:
 
 \begin{align}
 	\matrixD&=\left(\frac{\partial\hat{\coordAdimen}}{\partial\tilde{\coordAdimen}}\right),

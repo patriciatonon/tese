@@ -21,7 +21,7 @@ Para obter a equação da conservação da massa na descrição espacial, consid
 	\end{split}
 \end{align}
 
-\noindent com $\density$ sendo a densidade de massa do fluido e $\deriv A_{i}$ a área referente à face ortogonal ao eixo $y_i$. Considerando que $\deriv V = \deriv y_1 \deriv y_2 \deriv y_3 = \deriv y_1 \deriv A_1 = \deriv y_2 \deriv A_2 = \deriv y_3 \deriv A_3 $  e manipulando-se algebricamente a Equação \eqref{eq:conser_massa_0}, resulta:
+\noindent com $\density$ sendo a densidade de massa do fluido e $\deriv A_{i}$ a área referente à face ortogonal ao eixo $y_i$. Considerando que $\deriv V = \deriv y_1 \deriv y_2 \deriv y_3 = \deriv y_1 \deriv A_1 = \deriv y_2 \deriv A_2 = \deriv y_3 \deriv A_3 $  e manipulando-se algebricamente a Equação~\eqref{eq:conser_massa_0}, resulta:
 
 \begin{align}
 	\frac{\partial \density}{\partial t} = - \frac{\partial \density u_{1}}{\partial y_1} - \frac{\partial \density u_{2}}{\partial y_2}- \frac{\partial \density u_{3}}{\partial y_3}.
@@ -63,7 +63,7 @@ Para chegar-se à equação da quantidade de movimento em sua forma conservativa
 	\end{split}
 \end{align}	
 
-\noindent onde $F_1$ representa a resultante das forças externas na direção $y_1$; $\stress_{ij}$ são as componentes $ij$ do tensor das tensões de Cauchy ($\stressTensor$); e $b_1$ representa a componente do vetor força de campo por unidade de volume na direção $y_1$. Dividindo-se Equação \eqref{eq:equil_forca_y1} por $\deriv V$ e efetuando as subtrações, tem-se a componente de força resultante por unidade de volume na direção de $y_1$ ($q_1$):
+\noindent onde $F_1$ representa a resultante das forças externas na direção $y_1$; $\stress_{ij}$ são as componentes $ij$ do tensor das tensões de Cauchy ($\stressTensor$); e $b_1$ representa a componente do vetor força de campo por unidade de volume na direção $y_1$. Dividindo-se Equação~\eqref{eq:equil_forca_y1} por $\deriv V$ e efetuando as subtrações, tem-se a componente de força resultante por unidade de volume na direção de $y_1$ ($q_1$):
 
 \begin{align}
 		q_1 =\frac{\partial \stress_{11}}{\partial y_1} + \frac{\partial \stress_{12}}{\partial y_2} + \frac{\partial \stress_{13}}{\partial y_3} + b_{1}.
@@ -107,7 +107,7 @@ Realizando-se o balanço da quantidade de movimento no volume de controle infini
 	\end{split}
 \end{align}	
 
-\noindent dividindo-se a Equação \eqref{eq:QM_0} por $\deriv V$ e efetuando-se as subtrações, chega-se a:
+\noindent dividindo-se a Equação~\eqref{eq:QM_0} por $\deriv V$ e efetuando-se as subtrações, chega-se a:
 
 \begin{align}
 		\frac{\partial \density \velocity}{\partial t} = 
@@ -134,7 +134,7 @@ Realizando-se o balanço da quantidade de movimento no volume de controle infini
 	\label{fig:volInf_consQtdeMov}
 \end{figure}
 
-Da consideração da equação da continuidade, a Equação \eqref{eq:QM_2} pode ser rescrita ainda em sua forma convectiva como:
+Da consideração da equação da continuidade, a Equação~\eqref{eq:QM_2} pode ser rescrita ainda em sua forma convectiva como:
 
 \begin{align}
 	\density\left(\frac{\partial\velocity}{\partial t} + \left( \velocity \cdot \gradient \right)  \velocity  - \sbodyforce \right) - \divergence \cdot \stressTensor = \vzero. \label{eq:Navier-Stokes} 
@@ -337,7 +337,7 @@ Usando essa mesma metodologia, pode-se escrever a transformação de $g^{*}(\pos
 	\frac{\partial g^{**}}{\partial t} = \frac{\partial g^*}{\partial t} + \frac{\partial g^*}{\partial \posALE} \cdot \mathbf{w}. \label{eq:ref_mat}
 \end{align}
 
-Utilizando-se a expressão apresentada na Equação \eqref{eq:vel_rel_mat_ALE} e substituindo-a na Equação \eqref{eq:ref_mat}, resulta em:
+Utilizando-se a expressão apresentada na Equação~\eqref{eq:vel_rel_mat_ALE} e substituindo-a na Equação~\eqref{eq:ref_mat}, resulta em:
 
 \begin{align}
 	\frac{\partial g^{**}}{\partial t} = \frac{\partial g^*}{\partial t} + \frac{\partial g^*}{\partial \pos} \cdot \left(\velocity - \velocityALE \right). 
@@ -349,19 +349,19 @@ Removendo-se os sobrescritos (** e *), chega-se a equação fundamental para os 
 	\frac{Dg}{Dt} = \left . \frac{\partial g}{\partial t} \right|_{\posMat} = \left . \frac{\partial g}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right) \cdot \gradient g. \label{eq:der_mat_ALE}
 \end{align}
 
-A partir da definição de derivada material da Equação \eqref{eq:der_mat} e comparando com a Equação \eqref{eq:Navier-Stokes}, pode-se rescrever a equação da quantidade de movimento da seguinte forma:
+A partir da definição de derivada material da Equação~\eqref{eq:der_mat} e comparando com a Equação~\eqref{eq:Navier-Stokes}, pode-se rescrever a equação da quantidade de movimento da seguinte forma:
 
 \begin{align}
 	\density\left(\frac{D\velocity}{Dt} - \sbodyforce \right) - \divergence \cdot \stressTensor &= \vzero. \label{eq:Navier-Stokes_der_mat_Euleriana}
 \end{align}
 
-Para expressar a equação da quantidade de movimento em uma descrição Euleriana-Lagrangeana, basta substituir na Equação \eqref{eq:Navier-Stokes_der_mat_Euleriana} a definição de derivada material apresentada na Equação \eqref{eq:der_mat_ALE}, resultando:
+Para expressar a equação da quantidade de movimento em uma descrição Euleriana-Lagrangeana, basta substituir na Equação~\eqref{eq:Navier-Stokes_der_mat_Euleriana} a definição de derivada material apresentada na Equação~\eqref{eq:der_mat_ALE}, resultando:
 
 \begin{align}
 	\density\left(\left. \frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right) \cdot \gradient  \velocity  - \sbodyforce \right) - \divergence \cdot \stressTensor = \vzero. \label{eq:Navier-Stokes_ALE} 
 \end{align}
 
-A equação da continuidade é independente da movimentação da malha. Dessa forma, a Equação \eqref{eq:conser_massa_incom} permanece válida para análises usando uma descrição ALE.
+A equação da continuidade é independente da movimentação da malha. Dessa forma, a Equação~\eqref{eq:conser_massa_incom} permanece válida para análises usando uma descrição ALE.
 
 \subsection{Forma forte do modelo para escoamentos incompressíveis com contornos móveis}
 
@@ -369,7 +369,7 @@ Nesta seção é apresentado o problema para escoamentos incompressíveis com co
 
 Seja $\domain \in \nrealspace$, com $\nsd = 1,2,3$ definindo a dimensão do domínio espacial do escoamento com contorno $\boundary = \boundaryD \cup \boundaryN$, no instante $t \in (0,\totalTime)$ (ver \autoref{fig:dominioFluido}).
 
-Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pela equação da quantidade de movimento, (Equação \eqref{eq:Navier-Stokes_der_mat_Euleriana}) e da continuidade (Equação \eqref{eq:conser_massa_incom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas. Dessa forma, o escoamento é governado pelo seguinte conjunto de equações:
+Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrito pela equação da quantidade de movimento, (Equação~\eqref{eq:Navier-Stokes_der_mat_Euleriana}) e da continuidade (Equação~\eqref{eq:conser_massa_incom}). Para completar a formulação da mecânica dos fluidos, condições de contorno devem ser especificadas. Em geral, em uma dada parte do contorno espacial, condições de contorno essenciais (Dirichlet) ou naturais (Neumann) são aplicadas. Dessa forma, o escoamento é governado pelo seguinte conjunto de equações:
 
 \begin{equation}
 	\left\{
@@ -382,7 +382,7 @@ Para escoamentos incompressíveis isotérmicos o fluido possui movimento descrit
 	\right.
 \end{equation}
 
-\noindent onde $\stressTensor$ é obtido por meio da Equação \eqref{eq:tensor_tensoes_fluido}, sendo $\boundaryD$ a porção do contorno sobre a qual são impostas as condições de contorno de Dirichlet, representadas pela distribuição de velocidade prescrita $\velocityD$, e $\boundaryN$ a porção com condições de Neumann, descritas pelas forças de superfície $\surfaceLoad$. A variável $\snormal$ representa o vetor unitário normal ao contorno $\boundaryN$.
+\noindent onde $\stressTensor$ é obtido por meio da Equação~\eqref{eq:tensor_tensoes_fluido}, sendo $\boundaryD$ a porção do contorno sobre a qual são impostas as condições de contorno de Dirichlet, representadas pela distribuição de velocidade prescrita $\velocityD$, e $\boundaryN$ a porção com condições de Neumann, descritas pelas forças de superfície $\surfaceLoad$. A variável $\snormal$ representa o vetor unitário normal ao contorno $\boundaryN$.
 
 \begin{figure}[H]
 	\caption{Domínio para o problema da DFC}
@@ -420,7 +420,7 @@ Os espaços das funções teste (ou funções ponderadoras) das equações da qu
 \pweighting = \psolution.
 \end{align}
 
-Aplicando-se o método dos resíduos ponderados às equações Equação \eqref{eq:Navier-Stokes_ALE} e Equação \eqref{eq:conser_massa_incom}, integrando-se por partes o termo referente ao tensor de tensões de Cauchy, empregando-se o teorema da divergência e levando-se em consideração a condição de homogeneidade da função $\utest$ sobre o contorno $\boundaryD$, obtém-se a forma fraca do problema, dada por:
+Aplicando-se o método dos resíduos ponderados às equações Equação~\eqref{eq:Navier-Stokes_ALE} e Equação~\eqref{eq:conser_massa_incom}, integrando-se por partes o termo referente ao tensor de tensões de Cauchy, empregando-se o teorema da divergência e levando-se em consideração a condição de homogeneidade da função $\utest$ sobre o contorno $\boundaryD$, obtém-se a forma fraca do problema, dada por:
 
 \begin{align}
 \int_{\domain} \utest \cdot \density  \left(\left . \frac{\partial\velocity}{\partial t} \right|_{\posALE} + \left(\velocity - \velocityALE \right)\cdot\gradient \velocity - \sbodyforce \right) \deriv \domain + \int_{\domain} \straintensor(\utest) : \stressTensor  \deriv \domain - \int_{\boundaryN} \utest \cdot \surfaceLoad \deriv\boundaryN  \  &= 0,  \label{eq:QM_forma_fraca_0_cap2} 
@@ -432,7 +432,7 @@ Aplicando-se o método dos resíduos ponderados às equações Equação \eqref{
 \int_{\domain} \ptest \left(\divergence \cdot \velocity\right) \deriv \domain &= 0. \label{eq:C_forma_fraca_0_cap2} 
 \end{align}
 
-A solução do problema consiste, então, em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de modo que para todo $\utest \in \uweighting$ e para todo $\ptest \in \pweighting$, Equação \eqref{eq:QM_forma_fraca_0_cap2} e Equação \eqref{eq:C_forma_fraca_0_cap2} sejam verdadeiras.
+A solução do problema consiste, então, em encontrar $\velocity \in \usolution$ e $\press \in \psolution$, de modo que para todo $\utest \in \uweighting$ e para todo $\ptest \in \pweighting$, Equação~\eqref{eq:QM_forma_fraca_0_cap2} e Equação~\eqref{eq:C_forma_fraca_0_cap2} sejam verdadeiras.
 
 \subsection{Método dos elementos finitos } \label{capitulo:Cap2:FormaFraca:ElementosFinitos}
 
@@ -475,7 +475,7 @@ Adotar a abordagem isoparamétrica implica que a geometria do problema é descri
 
 \subsection{Discretização espacial} \label{capitulo:Cap2:DiscEspacial}
 
-As funções tentativa para velocidade e pressão, bem as funções teste, assim com as coordenadas (Equação \eqref{eq:interp_geo}) são dadas pela combinação linear das funções de forma definidas sobre cada subdomínio:
+As funções tentativa para velocidade e pressão, bem as funções teste, assim com as coordenadas (Equação~\eqref{eq:interp_geo}) são dadas pela combinação linear das funções de forma definidas sobre cada subdomínio:
 
 \begin{align}
 	\velocityh(\pos,t) = \sum_{a = 1}^{\nnos} \velocity_{a}(t)\shapef_{a}(\adimensionalcoordinates), \label{eq:interp_vel}
@@ -690,11 +690,11 @@ Além disso, nessa metodologia, o comprimento do elemento é limitado pelos mín
 Por fim, os parâmetros de estabilização são escritos como:
 
 \begin{align}
-	\SUPG = \PSPG =\left(\frac{1}{\SUGNi^2} + \frac{1}{\SUGNii^2} + \frac{1}{\SUGNiii^2} \right)^{-\frac{1}{2}},
+	\SUPG = \PSPG =\left(\frac{1}{\SUGNi^2} + \frac{1}{\SUGNii^2} + \frac{1}{\SUGNiii^2} \right)^{-\frac{1}{2}}, \label{eq:tsupg_tpspg_cap2}
 \end{align}
 
 \begin{align}
-	\LSIC = \SUPG \lVert\velocityh - \velocityALEh\rVert^2,
+	\LSIC = \SUPG \lVert\velocityh - \velocityALEh\rVert^2 \label{eq:tlsic_cap2},
 \end{align}
 
 \noindent onde:
@@ -759,7 +759,7 @@ Os parâmetros que definem o instante intermediário, alteram as característica
 \alpham \ge \alphaf \ge 1/2.
 \end{gather}
 
-Para proporcionar a precisão de segunda-ordem de convergência, estabilidade incondicional da solução, e permitir dissipação ótima de altas frequências, calcula-se o parâmetro $\gamma$ de acordo com Equação \eqref{eq:gamma} e $\alpham$, $\alphaf$, através de \cite{Hughes:2000}:
+Para proporcionar a precisão de segunda-ordem de convergência, estabilidade incondicional da solução, e permitir dissipação ótima de altas frequências, calcula-se o parâmetro $\gamma$ de acordo com Equação~\eqref{eq:gamma} e $\alpham$, $\alphaf$, através de \cite{Hughes:2000}:
 
 \begin{gather}
 \alpham = \frac{1}{2}\left(\frac{3 - \specRadius}{1+\specRadius}\right)\label{eq:alpha_m}
@@ -773,7 +773,7 @@ Para proporcionar a precisão de segunda-ordem de convergência, estabilidade in
 
 O parâmetro $\specRadius$ é o raio espectral da matriz de amplificação quando $\timeStep \rightarrow \infty$, devendo estar contido no intervalo de $[0,1]$. Para $\specRadius = 0$ a dissipação de altas frequências é máxima e para $\specRadius = 1$ não há introdução de difusão numérica ao método.
 
-Para a solução do sistema de equações não lineares compostas pela Equação \eqref{eq:resid_QM_alpha} e Equação \eqref{eq:resid_cont_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva \cite{BazilevsTT:2013a}.
+Para a solução do sistema de equações não lineares compostas pela Equação~\eqref{eq:resid_QM_alpha} e Equação~\eqref{eq:resid_cont_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva \cite{BazilevsTT:2013a}.
 
 Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a solução em $n+1$ com as seguintes equações:
 
@@ -791,7 +791,7 @@ Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a 
 
 \noindent onde o índice $0$ representa a iteração de número zero. 
 
-Na etapa iterativa corretiva, itera-se sobre a Equação \eqref{eq:resid_QM_alpha} e Equação \eqref{eq:resid_cont_alpha} até que elas sejam satisfeitas, considerando uma tolerância prescrita, ou até que se alcance uma quantidade máxima de iterações pré-estabelecida. Essa etapa é composta por três fases. A fase 1 consiste em determinar os valores no instante intermediário para as variáveis nodais na iteração $i$:
+Na etapa iterativa corretiva, itera-se sobre a Equação~\eqref{eq:resid_QM_alpha} e Equação~\eqref{eq:resid_cont_alpha} até que elas sejam satisfeitas, considerando uma tolerância prescrita, ou até que se alcance uma quantidade máxima de iterações pré-estabelecida. Essa etapa é composta por três fases. A fase 1 consiste em determinar os valores no instante intermediário para as variáveis nodais na iteração $i$:
 
 \begin{align}
 \Acceleration_{n+\alpham}^{i} = \Acceleration_n + \alpham \left( \Acceleration_{n+1}^{i} - \Acceleration_n \right), \label{eq:inter_acel_i}\\
@@ -799,7 +799,7 @@ Na etapa iterativa corretiva, itera-se sobre a Equação \eqref{eq:resid_QM_alph
 \Press_{n+1}^{i} = \Press_{n+1}^{i} \label{eq:inter_press_i}.
 \end{align}
 
-Na fase 2, com os valores intermediários das variáveis nodais resolve-se o sistema linear resultante da linearização da Equação \eqref{eq:resid_QM_alpha} e Equação \eqref{eq:resid_cont_alpha} com respeito às variáveis de interesse $\Press_{n+1}$ e $\Acceleration_{n+1}$:
+Na fase 2, com os valores intermediários das variáveis nodais resolve-se o sistema linear resultante da linearização da Equação~\eqref{eq:resid_QM_alpha} e Equação~\eqref{eq:resid_cont_alpha} com respeito às variáveis de interesse $\Press_{n+1}$ e $\Acceleration_{n+1}$:
 
 \begin{align}
 \left .\frac{\partial\NNSM}{\partial\Acceleration_{n+1}}\right|_{i} \Delta \Acceleration_{n+1}^{i} + \left .\frac{\partial\NNSM}{\partial\Press_{n+1}}\right|_{i} \Delta \Press_{n+1}^{i} = -\NNSM^{i}, \label{eq:eq_lin_QM} \\
@@ -814,7 +814,7 @@ Por fim, na fase 3 atualiza-se a solução através das seguintes relações:
 \Press_{n+1}^{i+1} = \Press_{n+1}^{i} + \Delta\Press_{n+1}^{i}.\label{eq:atu_press}
 \end{align}
 
-Na utilização do método $\alpha$-generalizado as integrais da Equação \eqref{eq:resid_QM_alpha} e Equação \eqref{eq:resid_cont_alpha} são avaliadas no instante $t = t_{n+\alpha_{f}}$, de forma que:
+Na utilização do método $\alpha$-generalizado as integrais da Equação~\eqref{eq:resid_QM_alpha} e Equação~\eqref{eq:resid_cont_alpha} são avaliadas no instante $t = t_{n+\alpha_{f}}$, de forma que:
 
 \begin{align}
 \int_{\domain} \left(.\right) \deriv \domain = \int_{\domainALEN} \left(.\right) \deriv \domain,
@@ -834,12 +834,12 @@ Finalmente, é possível estabelecer o algoritmo para a solução dos problemas 
 	\begin{algorithmic}[1]
 		\For {o passo de tempo $0$ até $npt-1$} 
 		\State $i=0$;
-		\State Predição da solução: aplicação da Equação \eqref{eq:pred_acel}, Equação \eqref{eq:pred_vel} e Equação \eqref{eq:pred_press};
+		\State Predição da solução: aplicação da Equação~\eqref{eq:pred_acel}, Equação~\eqref{eq:pred_vel} e Equação~\eqref{eq:pred_press};
 		\While{($\epsilon$ < tolerância)}
 		\State $i=i+1$;
-		\State Interpolação das variáveis do problema: aplicação da Equação \eqref{eq:inter_acel_i}, Equação \eqref{eq:inter_vel_i} e Equação \eqref{eq:inter_press_i};
-		\State Cálculo do incremento nas variáveis do problema: $\Acceleration_{n+1}$ e $\Press_{n+1}$ de acordo com a Equação \eqref{eq:eq_lin_QM} e Equação \eqref{eq:eq_lin_cont};
-		\State Atualização da solução: calculadas de acordo com a Equação \eqref{eq:atu_acel}, Equação \eqref{eq:atu_vel} e Equação \eqref{eq:atu_press}.
+		\State Interpolação das variáveis do problema: aplicação da Equação~\eqref{eq:inter_acel_i}, Equação~\eqref{eq:inter_vel_i} e Equação~\eqref{eq:inter_press_i};
+		\State Cálculo do incremento nas variáveis do problema: $\Acceleration_{n+1}$ e $\Press_{n+1}$ de acordo com a Equação~\eqref{eq:eq_lin_QM} e Equação~\eqref{eq:eq_lin_cont};
+		\State Atualização da solução: calculadas de acordo com a Equação~\eqref{eq:atu_acel}, Equação~\eqref{eq:atu_vel} e Equação~\eqref{eq:atu_press}.
 		\State Cálculo do erro:
 		\begin{align}
 		\epsilon =\left\| \NNSM^i \right\|_{L^2}
@@ -978,7 +978,7 @@ Este exemplo considera uma cavidade hexaédrica com velocidade prescrita horizon
 \end{figure}
 
 
-O problema é estudado para 3 diferentes números de Reynolds (100, 400 e 1000), calculados de acordo com Equação \eqref{eq:Reynolds}, considerando $L$ como sendo o comprimento do lado da cavidade. O problema foi simulado para uma velocidade na parede superior de $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0$, sendo a viscosidade do fluido variada de modo a alterar o número de Reynolds. A simulação foi mantida até que se atingiu o estado estacionário de escoamento. 
+O problema é estudado para 3 diferentes números de Reynolds (100, 400 e 1000), calculados de acordo com Equação~\eqref{eq:Reynolds}, considerando $L$ como sendo o comprimento do lado da cavidade. O problema foi simulado para uma velocidade na parede superior de $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0$, sendo a viscosidade do fluido variada de modo a alterar o número de Reynolds. A simulação foi mantida até que se atingiu o estado estacionário de escoamento. 
 
 Os perfis de velocidade adimensionalizada ($\velocity/\velocinfty$) ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ posicionadas no centro da espessura da direção $y_3$, são apresentados na Figura \ref{fig:cavidade_graficos} e comparados com a referência de \citeonline{GhiaGS:1982}.
 

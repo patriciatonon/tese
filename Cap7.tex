@@ -173,7 +173,7 @@ O Algoritmo que descreve a implementação computacional do problema de IFE de a
 	\begin{algorithmic}[1]
 		\State Busca por coordenadas paramétricas correspondentes aos nós da malha do fluido na malha da estrutura;
 		\State Busca por coordenadas paramétricas correspondentes aos nós da malha da estrutura na malha do fluido;
-		\For {o passo de tempo $t=0$ até $t=\totalTime$} 
+		\For {o passo de tempo $0$ até $npt-1$} 
 		\State Atualiza as variáveis do fluido, estrutura e malha no passo de tempo $t = t-1$;
 		\For {número de iterações de Newton Raphson $it=0$ até $it=N_{it}$}
 		\State \textbf{Fluido}
@@ -572,7 +572,7 @@ A zona de colagem, que é destacada na Figura \ref{fig:turbina_arlq_malha} com a
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Ressalta-se que, para a simulação deste problema, a turbina foi inicialmente considerada rígida. Após o completo desenvolvimento do escoamento, passou-se então a considerá-la como uma estrutura flexível, e o problema de interação fluido-estrutura pode ser analisado. Na \autoref{fig:turbina_arlq_deslA} pode ser observado o deslocamento vertical (direção $y_3$) no ponto A da pá do rotor (conforme \autoref{fig:turbina_mono_geo}), cuja a média ao longo do tempo foi de $-0.02436cm$.
+Ressalta-se que, para a simulação deste problema, foram utilizados como campo inicial de pressão e velocidade, valores obtidos em uma solução de longo termo da turbina na condição de repouso. Na \autoref{fig:turbina_arlq_deslA} pode ser observado o deslocamento vertical (direção $y_3$) no ponto A da pá do rotor (conforme \autoref{fig:turbina_mono_geo}), cuja a média ao longo do tempo foi de $-0.02436cm$.
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Deslocamento no ponto A}
