@@ -61,7 +61,7 @@
 \contentsline {subsection}{\numberline {4.2.4}Modelo constitutivo de Saint-Venant-Kirchhoff}{109}{subsection.4.2.4}%
 \contentsline {section}{\numberline {4.3}Método dos Elementos Finitos}{109}{section.4.3}%
 \contentsline {subsection}{\numberline {4.3.1}Elemento finito de casca}{110}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Integração temporal e solução do problema não linear}{113}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.2}Integração temporal e solução do problema não-linear}{113}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Implementação computacional}{115}{subsection.4.3.3}%
 \contentsline {section}{\numberline {4.4}Exemplo de aplicação - casca cilíndrica com \textit {snap through} dinâmico}{116}{section.4.4}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
@@ -86,17 +86,17 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Acoplamento Fluido-Estrutura}}{155}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Condições de acoplamento}{155}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Movimentação da Malha}{157}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.1}Movimentação da malha}{157}{subsection.7.1.1}%
 \contentsline {section}{\numberline {7.2}Discretizações não coincidentes entre os meios}{158}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Acoplamento Particionado Forte - Bloco-Iterativo}{159}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Implementação Computacional}{160}{subsection.7.3.1}%
+\contentsline {section}{\numberline {7.3}Acoplamento particionado forte - bloco-iterativo}{158}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Implementação computacional}{160}{subsection.7.3.1}%
 \contentsline {section}{\numberline {7.4}Exemplos}{160}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Cavidade com fundo flexível - 2D}{161}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Cavidade com fundo flexível - 3D}{164}{subsection.7.4.2}%
-\contentsline {subsection}{\numberline {7.4.3}\textit {Flutter} em painel flexível}{168}{subsection.7.4.3}%
-\contentsline {subsection}{\numberline {7.4.4}Turbina}{173}{subsection.7.4.4}%
-\contentsline {subsubsection}{\numberline {7.4.4.1}Turbina - Monomodelo}{174}{subsubsection.7.4.4.1}%
-\contentsline {subsubsection}{\numberline {7.4.4.2}Turbina - Modelo Arlequin}{178}{subsubsection.7.4.4.2}%
+\contentsline {subsection}{\numberline {7.4.1}Cavidade com fundo flexível - 2D}{162}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Cavidade com fundo flexível - 3D}{166}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}\textit {Flutter} em painel flexível}{169}{subsection.7.4.3}%
+\contentsline {subsection}{\numberline {7.4.4}Turbina}{174}{subsection.7.4.4}%
+\contentsline {subsubsection}{\numberline {7.4.4.1}Turbina - monomodelo}{177}{subsubsection.7.4.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.4.2}Turbina - modelo Arlequin}{181}{subsubsection.7.4.4.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase []{Conclusões}}{187}{chapter.8}%
 \vspace {\cftbeforechapterskip }

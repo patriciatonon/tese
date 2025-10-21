@@ -1,7 +1,7 @@
 \chapter[Dinâmica dos fluidos computacional]{Dinâmica dos fluidos computacional}
 \label{capitulo:Cap2}
 
-O escoamento isotérmico de um fluido newtoniano é descrito pelas equações advindas da conservação da quantidade de movimento, ou de Navier-Stokes, e da conservação de massa. Nos casos em que ocorram variações significativas de temperatura ou em escoamentos compressíveis, a equação da conservação da energia deve ser incorporada ao sistema. Essas equações, em conjunto com a relação constitutiva, formam um sistema de equações diferenciais não lineares que descrevem o comportamento do escoamento no tempo e no espaço. 
+O escoamento isotérmico de um fluido newtoniano é descrito pelas equações advindas da conservação da quantidade de movimento, ou de Navier-Stokes, e da conservação de massa. Nos casos em que ocorram variações significativas de temperatura ou em escoamentos compressíveis, a equação da conservação da energia deve ser incorporada ao sistema. Essas equações, em conjunto com a relação constitutiva, formam um sistema de equações diferenciais não-lineares que descrevem o comportamento do escoamento no tempo e no espaço. 
 
 Neste trabalho, são investigados escoamentos incompressíveis, isotérmicos e com contornos móveis. As seções seguintes apresentam a abordagem adotada para a resolução desse tipo de problema, bem como sua implementação computacional. Adota-se uma descrição Euleriana-Lagrangiana Arbitrária (ALE) para representar as equações, e a discretização espacial é realizada por meio do método dos elementos finitos (FEM) ou da análise isogeométrica (AIG).
 
@@ -773,7 +773,7 @@ Para proporcionar a precisão de segunda-ordem de convergência, estabilidade in
 
 O parâmetro $\specRadius$ é o raio espectral da matriz de amplificação quando $\timeStep \rightarrow \infty$, devendo estar contido no intervalo de $[0,1]$. Para $\specRadius = 0$ a dissipação de altas frequências é máxima e para $\specRadius = 1$ não há introdução de difusão numérica ao método.
 
-Para a solução do sistema de equações não lineares compostas pela Equação~\eqref{eq:resid_QM_alpha} e Equação~\eqref{eq:resid_cont_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva \cite{BazilevsTT:2013a}.
+Para a solução do sistema de equações não-lineares compostas pela Equação~\eqref{eq:resid_QM_alpha} e Equação~\eqref{eq:resid_cont_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva \cite{BazilevsTT:2013a}.
 
 Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a solução em $n+1$ com as seguintes equações:
 
@@ -833,13 +833,13 @@ Finalmente, é possível estabelecer o algoritmo para a solução dos problemas 
 	\label{alg:fluid}
 	\begin{algorithmic}[1]
 		\For {o passo de tempo $0$ até $npt-1$} 
-		\State $i=0$;
+		\State $i \gets 0$;
 		\State Predição da solução: aplicação da Equação~\eqref{eq:pred_acel}, Equação~\eqref{eq:pred_vel} e Equação~\eqref{eq:pred_press};
 		\While{($\epsilon$ < tolerância)}
-		\State $i=i+1$;
+		\State $i \gets i+1$;
 		\State Interpolação das variáveis do problema: aplicação da Equação~\eqref{eq:inter_acel_i}, Equação~\eqref{eq:inter_vel_i} e Equação~\eqref{eq:inter_press_i};
 		\State Cálculo do incremento nas variáveis do problema: $\Acceleration_{n+1}$ e $\Press_{n+1}$ de acordo com a Equação~\eqref{eq:eq_lin_QM} e Equação~\eqref{eq:eq_lin_cont};
-		\State Atualização da solução: calculadas de acordo com a Equação~\eqref{eq:atu_acel}, Equação~\eqref{eq:atu_vel} e Equação~\eqref{eq:atu_press}.
+		\State Atualização da solução: calculadas de acordo com a Equação~\eqref{eq:atu_acel}, Equação~\eqref{eq:atu_vel} e Equação~\eqref{eq:atu_press};
 		\State Cálculo do erro:
 		\begin{align}
 		\epsilon =\left\| \NNSM^i \right\|_{L^2}

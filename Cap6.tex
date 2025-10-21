@@ -288,7 +288,7 @@ Considerando $i=0,1$ designando os modelos global e local respectivamente, têm-
 
 Note que na estabilização Arlequin baseada no resíduo (RBSAM) não existem elementos zeros na diagonal da matriz, diferente do mesmo problema na formulação clássica Arlequin. No trabalho de \citeonline{FernandesEtAll:2020} pode-se encontrar a análise de estabilidade dessa técnica e testes numéricos que avaliam o condicionamento do sistema algébrico e a convergência do método.
 
-O problema de Arlequin não linear apresentado na Equação~\eqref{eq:QM_forma_fraca_0_atu} à Equação~\eqref{eq:lag_acopl_tARLQ} pode ser reescrito em sua forma semi-discreta residual, para $i=0,1$, da seguinte maneira:
+O problema de Arlequin não-linear apresentado na Equação~\eqref{eq:QM_forma_fraca_0_atu} à Equação~\eqref{eq:lag_acopl_tARLQ} pode ser reescrito em sua forma semi-discreta residual, para $i=0,1$, da seguinte maneira:
 
 \begin{align}
 	\begin{split}
@@ -343,7 +343,7 @@ Considerando $\Acceleration_i$, $\Velocity_i$, $\Press_i$ e $\LagrangeMultiplier
 
 \subsection{Integração temporal}
 
-Quanto ao procedimento de integração temporal, utiliza-se o método $\alpha$-generalizado. Conforme a metodologia apresentada na \autoref{capitulo:Cap2:IntegTemp}, para a solução do sistema de equações não lineares compostas pela Equação~\eqref{eq:resid_semi_discr_QM_0} à Equação~\eqref{eq:resid_semi_discr_acopla} utiliza-se o método de Newton-Raphson. A solução resulta em uma etapa preditiva e outra iterativa corretiva.
+Quanto ao procedimento de integração temporal, utiliza-se o método $\alpha$-generalizado. Conforme a metodologia apresentada na \autoref{capitulo:Cap2:IntegTemp}, para a solução do sistema de equações não-lineares compostas pela Equação~\eqref{eq:resid_semi_discr_QM_0} à Equação~\eqref{eq:resid_semi_discr_acopla} utiliza-se o método de Newton-Raphson. A solução resulta em uma etapa preditiva e outra iterativa corretiva.
 
 Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a solução no passo seguinte ($n+1$) através das seguintes relações:
 
@@ -592,14 +592,14 @@ O Algoritmo que descreve a implementação computacional é apresentado no Algor
 		\State Cálculo da distância assinalada dos nós e pontos de controle ao contorno $\localBoundary$;
 		\State Determinação da zona de colagem $\gluingZone$;
 		\State Definição da função ponderadora de acordo com Equação~\eqref{eq:funcPondeArleq};
-		\State Busca pela correspondência entre os pontos de integração da malha local na malha global;
+		\State Busca pela correspondência entre os pontos de integração da malha local na malha global para a zona de colagem;
 		\For {o passo de tempo $0$ até $npt-1$} 
 		\State Movimentação da Malha;
-		\State $i=0$;
+		\State $i \gets 0$;
 		\State Predição da solução: aplicação da Equação~\eqref{eq:pred_acel_0}, Equação~\eqref{eq:pred_vel_0}, Equação~\eqref{eq:pred_press_0},
 		Equação~\eqref{eq:pred_acel_1}, Equação~\eqref{eq:pred_vel_1}, Equação~\eqref{eq:pred_press_1} e Equação~\eqref{eq:pred_lag_mult};
 		\While{($\epsilon$ < tolerância)}
-		\State $i$++;
+		\State $i \gets i+1$;
 		\State Atualização da distância assinalada;
 		\State Atualização da função ponderadora;
 		\State Atualização das correspondência entre os pontos de integração da malha local na malha global;
@@ -613,6 +613,7 @@ O Algoritmo que descreve a implementação computacional é apresentado no Algor
 			\epsilon =\left\| \NNSMGlobal^{i} + \NNSMLocal^{i}  \right\|_{L^2}
 		\end{align}
 		\EndWhile
+		\State Atualiza os valores das variáveis do passo anterior;
 		\EndFor
 	\end{algorithmic}
 \end{algorithm}
@@ -710,8 +711,9 @@ Nas Figura \ref{fig:aerofolio_velocidade} e Figura \ref{fig:aerofolio_pressao} e
 
 Para a validação computacional da técnica Arlequin estabilizada em domínios móveis  utilizou-se um problema envolvendo um aerofólio NACA 0012, semelhante ao apresentado na \autoref{capitulo:Cap6:Exemplos:NACA0012}, aplicando-se, entretanto, um movimento de arfagem ao mesmo. O aerofólio apresenta variação do ângulo de ataque em $20^{\circ}$, iniciando o movimento em $10^{\circ}$ e finalizando-o em $30^{\circ}$. 
 
-Para descrever-se tal movimento aplica-se, tendo como centro a corda média do aerofólio, o movimento de rotação de corpo rígido através da seguinte relação:
+\newpage
 
+Para descrever-se tal movimento aplica-se, tendo como centro a corda média do aerofólio, o movimento de rotação de corpo rígido através da seguinte relação:
 \begin{align}
 	\theta = \frac{\theta_{max}+\theta_{min}}{2} - \frac{\theta_{max}-\theta_{min}}{2}\cos{\omega_{f}t} ,
 \end{align}
@@ -720,7 +722,10 @@ Para descrever-se tal movimento aplica-se, tendo como centro a corda média do a
 
 As dimensões da geometria do domínio computacional são alteradas (ver \autoref{fig:aerofolioMov_geometria}) para capturar os efeitos dos desprendimentos de vórtices, que para esse problema, se desprendem em uma faixa mais ampla. Os demais parâmetros de análise foram mantidos iguais aos apresentados no exemplo da \autoref{capitulo:Cap6:Exemplos:NACA0012}. 
 
-\begin{figure}[!htbp]
+Novamente são analisadas 2 discretizações: 1. Monomodelo; 2. Combinação de duas malhas através do método Arlequin estabilizado.
+O monomodelo consiste em uma malha com 12438 elementos triangulares quadráticos e 25188 elementos. As malhas global e local do método Arlequin mantiveram-se com a mesma discretização do problema da \autoref{capitulo:Cap6:Exemplos:NACA0012}, incluindo a quantidade de elementos na zona de colagem.
+
+\begin{figure}[H]
 	\caption{Aerofólio Mov.: Geometria}
 	\centering 
 	{\includegraphics[scale=2.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_geometria.pdf}}	
@@ -728,8 +733,6 @@ As dimensões da geometria do domínio computacional são alteradas (ver \autore
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Novamente são analisadas 2 discretizações: 1. Monomodelo; 2. Combinação de duas malhas através do método Arlequin estabilizado.
-O monomodelo consiste em uma malha com 12438 elementos triangulares quadráticos e 25188 elementos. As malhas global e local do método Arlequin mantiveram-se com a mesma discretização do problema da \autoref{capitulo:Cap6:Exemplos:NACA0012}, incluindo a quantidade de elementos na zona de colagem.
 
 É importante ressaltar que para a simulação desse exemplo, utilizou-se como campo inicial de velocidade e pressão, valores obtidos em uma solução de longo termo do aerofólio na condição de repouso.
 

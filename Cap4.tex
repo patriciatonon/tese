@@ -4,11 +4,11 @@ Assim como no caso da Mecânica dos Fluidos, um sólido é modelado como um corp
 
 As variáveis de interesse na resolução do conjunto de equações que descrevem o comportamento do sólido são os deslocamentos, ou, posições atuais ao longo do tempo, dessa forma, uma descrição do tipo Lagrangiana é mais adequada para essas análises.
 
-Nesse contexto, o comportamento estrutural pode ser classificado como linear ou não linear. No contexto do comportamento não linear, em geral, as não linearidades envolvidas podem ser de natureza geométrica, quando associadas à presença de grandes deslocamentos e rotações que não permitem aproximar a configuração atual pela inicial, ou de natureza física, quando resultam de modificações na relação constitutiva do material.
+Nesse contexto, o comportamento estrutural pode ser classificado como linear ou não-linear. No contexto do comportamento não-linear, em geral, as não-linearidades envolvidas podem ser de natureza geométrica, quando associadas à presença de grandes deslocamentos e rotações que não permitem aproximar a configuração atual pela inicial, ou de natureza física, quando resultam de modificações na relação constitutiva do material.
 
-Para problemas de sólidos com comportamento elástico, quando houver a possibilidade de grandes deslocamentos, a não linearidade geométrica deve ser contemplada no modelo matemático. Para isso, altera-se a forma de consideração do equilíbrio das forças no sólido. Enquanto que em uma modelagem geometricamente linear o equilíbrio é considerado na configuração inicial, que é muito próxima a configuração atual do corpo, em uma análise não linear geométrica, o equilíbrio é considerado na configuração atual (ver, por exemplo  \citeonline{Coda:2018} e \citeonline{Ogden:1984}).
+Para problemas de sólidos com comportamento elástico, quando houver a possibilidade de grandes deslocamentos, a não-linearidade geométrica deve ser contemplada no modelo matemático. Para isso, altera-se a forma de consideração do equilíbrio das forças no sólido. Enquanto que em uma modelagem geometricamente linear o equilíbrio é considerado na configuração inicial, que é muito próxima a configuração atual do corpo, em uma análise não-linear geométrica, o equilíbrio é considerado na configuração atual (ver, por exemplo  \citeonline{Coda:2018} e \citeonline{Ogden:1984}).
 
-Em muitos problemas da IFE, tal como o \textit{flutter}, grandes deslocamentos estão envolvidos. Desse modo, neste estudo utiliza-se uma formulação não linear geométrica dinâmica de cascas baseada em uma descrição Lagrangiana Total para as análise dinâmica de estruturas. 
+Em muitos problemas da IFE, tal como o \textit{flutter}, grandes deslocamentos estão envolvidos. Desse modo, neste estudo utiliza-se uma formulação não-linear geométrica dinâmica de cascas baseada em uma descrição Lagrangiana Total para as análise dinâmica de estruturas. 
 
 A formulação é baseada no método dos elementos finitos com abordagem posicional (Coda, 2003, 2018), onde as variáveis principais são as posições nodais. Escolheu-se trabalhar com elementos de cascas, uma vez que esses podem representar a maioria dos problemas estruturais tridimensionais. 
 
@@ -437,7 +437,7 @@ Partindo do mapeamento apresentado é possível escrever o funcional de energia 
 	\frac{\partial\totalEnergy^{h}}{\partial \ePosition_{l}^{mh}} = \frac{\partial\totalEnergy^{h}}{\partial (\mathbf{e}_y)_l} = \frac{\partial\totalEnergy^{h}}{\partial \eta_l} = \mathbf{0}.
 \end{align}
 
-\subsection{Integração temporal e solução do problema não linear}
+\subsection{Integração temporal e solução do problema não-linear}
 
 Para a tornar o equacionamento mais compacto, reescreve-se o equilíbrio baseado na energia da variável $\SolidPos$, que consiste em um vetor que contém todos os parâmetros nodais da estrutura (posições, vetores generalizados e taxa de variação linear da espessura) de forma que:
 
@@ -495,7 +495,7 @@ Utilizando a Equação~\eqref{eq:accel_newmark} e Equação~\eqref{eq:vel_newmar
 	\label{eq:equilibrio_tn+1}
 \end{gather}
 
-Pode-se escrever ainda o problema não linear definido pela Equação~\eqref{eq:equilibrio_tn+1} em função do resíduo da equação governante
+Pode-se escrever ainda o problema não-linear definido pela Equação~\eqref{eq:equilibrio_tn+1} em função do resíduo da equação governante
 discretizada no espaço e no tempo, como:
 
 \begin{gather}
@@ -503,7 +503,7 @@ discretizada no espaço e no tempo, como:
 	\label{eq:residuo_equilibrio_newmark}
 \end{gather}
 
-O problema não linear da Equação~\eqref{eq:residuo_equilibrio_newmark} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
+O problema não-linear da Equação~\eqref{eq:residuo_equilibrio_newmark} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
 
 \begin{gather}
 	\NNSS\left(\SolidPos_{n+1}^{i+1}\right) \approx \NNSS\left(\SolidPos_{n+1}^{i}\right) + \Delta\NNSS\left(\SolidPos_{n+1}^{i}\right)\Delta\SolidPos_{n+1}^{i} 
@@ -538,7 +538,7 @@ O código empregado para a simulação das estruturas de cascas neste trabalho f
 O código foi desenvolvido em linguagem C++ utilizando paralelização em protocolo MPI e conta com elementos triangulares de 3, 6 ou 10 nós, respectivamente com aproximação linear, quadrática e cúbica. Ressalta-se que a implementação conta com uma estratégia de acoplamento entre elementos não coplanares, que pode ser vista em \citeonline{Coda:2018}. O algoritmo que descreve a implementação computacional pode ser visualizado em Algoritmo \ref{alg:algoritmo_solid}. No algoritmo a variável $\mathbf{X}$ consiste em um vetor das variáveis nodais na configuração inicial.
 
 \begin{algorithm}[H]
-	\caption{Algoritmo para problemas não lineares dinâmicos utilizando MEF posicional}
+	\caption{Algoritmo para problemas não-lineares dinâmicos utilizando MEF posicional}
 	\label{alg:algoritmo_solid}
 	\begin{algorithmic}[1]
 		\State Adota-se $\SolidPos = \mathbf{X}$;
@@ -568,7 +568,7 @@ O código foi desenvolvido em linguagem C++ utilizando paralelização em protoc
 \section{Exemplo de aplicação - casca cilíndrica com \textit{snap through} dinâmico}
 
 Nesta seção apresenta-se um problema clássico que trata-se de uma casca cilíndrica submetida a um carregamento concentrado em seu centro geométrico. Proposto inicialmente no trabalho de 
-\citeonline{KuhlR:1999}, o problema apresenta grande não linearidade geométrica devido ao efeito de \textit{snap-through}. 
+\citeonline{KuhlR:1999}, o problema apresenta grande não-linearidade geométrica devido ao efeito de \textit{snap-through}. 
 
 A geometria do problema em questão é apresentada na Figura \ref{fig:casca_geometria}, sendo a espessura da casca equivalente a 0,1m.  A malha de elementos finitos que representa a superfície média da estrutura utilizada pode ser visualizada na Figura \ref{fig:casca_malha}, a qual é composta por 104 elementos quadráticos e 233 nós. 
 

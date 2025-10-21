@@ -1,7 +1,6 @@
 This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: USPSC-modelo-EESC.aux
-The style file: USPSC-classe/abntex2-alf-USPSC.bst
 A level-1 auxiliary file: USPSC-TA-PreTextual/USPSC-Resumo.aux
 A level-1 auxiliary file: USPSC-TA-PreTextual/USPSC-Abstract.aux
 A level-1 auxiliary file: introducao.aux
@@ -12,20 +11,19 @@ A level-1 auxiliary file: Cap5.aux
 A level-1 auxiliary file: Cap6.aux
 A level-1 auxiliary file: Cap7.aux
 A level-1 auxiliary file: Conclusoes.aux
+The style file: abntex2-alf.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-"t" can't follow a literal---line 1293 of file USPSC-classe/abntex2-alf-USPSC.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
-Reallocated field_info (elt_size=4) to 15971 items from 5000.
+Reallocated field_info (elt_size=4) to 15557 items from 5000.
 Database file #1: abntex2-options.bib
 Database file #2: USPSC-bib/referencias.bib
-Warning--I didn't find a database entry for "FernandesCS:2018"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
@@ -35,45 +33,44 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | Em caso de dúvidas ou problemas com este estilo procure |
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
-You've used 158 entries,
-            6708 wiz_defined-function locations,
-            2186 strings with 36017 characters,
-and the built_in function-call counts, 148552 in all, are:
-= -- 12249
-> -- 5064
-< -- 1187
-+ -- 2695
-- -- 1505
-* -- 10820
-:= -- 18748
-add.period$ -- 507
-call.type$ -- 161
-change.case$ -- 1411
-chr.to.int$ -- 533
-cite$ -- 146
-duplicate$ -- 8992
-empty$ -- 9499
-format.name$ -- 7147
-if$ -- 34265
+You've used 153 entries,
+            6714 wiz_defined-function locations,
+            2157 strings with 35074 characters,
+and the built_in function-call counts, 144230 in all, are:
+= -- 11930
+> -- 4900
+< -- 1172
++ -- 2633
+- -- 1455
+* -- 10491
+:= -- 18195
+add.period$ -- 491
+call.type$ -- 156
+change.case$ -- 1646
+chr.to.int$ -- 516
+cite$ -- 141
+duplicate$ -- 8770
+empty$ -- 9205
+format.name$ -- 6912
+if$ -- 33249
 int.to.chr$ -- 12
 int.to.str$ -- 3
-missing$ -- 2786
-newline$ -- 766
-num.names$ -- 732
-pop$ -- 3465
+missing$ -- 2697
+newline$ -- 740
+num.names$ -- 707
+pop$ -- 3349
 preamble$ -- 1
-purify$ -- 642
+purify$ -- 622
 quote$ -- 0
-skip$ -- 9923
+skip$ -- 9406
 stack$ -- 1
-substring$ -- 6966
-swap$ -- 4435
-text.length$ -- 305
+substring$ -- 6755
+swap$ -- 4315
+text.length$ -- 294
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 24
 warning$ -- 0
-while$ -- 1129
+while$ -- 1091
 width$ -- 0
-write$ -- 2433
-(There was 1 error message)
+write$ -- 2351

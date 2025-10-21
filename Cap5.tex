@@ -110,16 +110,16 @@ Finalmente, o processo de marcha no tempo se inicia da maneira explicitada no Al
 	\begin{algorithmic}[1]
 		\State Cálculo da distância assinalada dos nós e pontos de controle aos contornos;
 		\State Determinação dos elementos e células da zona de superposição;
-		\State Busca da correspondência dos pontos de integração da malha local na malha global;
+		\State Busca da correspondência dos pontos de integração da malha local na malha global na zona de superposição;
 		\State Definição dos nós inativos da malha global;
 		\For {o passo de tempo $0$ até $npt-1$} 
-		\State $i=0$;
+		\State $i \gets 0$;
 		\State Predição da solução: aplicação das Equação~\eqref{eq:pred_acel}, Equação~\eqref{eq:pred_vel} e Equação~\eqref{eq:pred_press};
 		\While{($\epsilon$ < tolerância)}
-		\State $i$++;
+		\State $i \gets i+1$;
 		\State Interpolação das variáveis do problema: aplicação da Equação~\eqref{eq:inter_acel_i}, \autoref {eq:inter_vel_i} e Equação~\eqref{eq:inter_press_i};
 		\State Cálculo do incremento nas variáveis do problema: $\Acceleration_{n+1}$ e $\Press_{n+1}$ de acordo com as Equação~\eqref{eq:eq_lin_QM} e Equação~\eqref{eq:eq_lin_cont};
-		\State Atualização da solução: calculadas de acordo com Equação~\eqref{eq:atu_acel}, Equação~\eqref{eq:atu_vel} e Equação~\eqref{eq:atu_press}.
+		\State Atualização da solução: calculadas de acordo com Equação~\eqref{eq:atu_acel}, Equação~\eqref{eq:atu_vel} e Equação~\eqref{eq:atu_press};
 		\State Cálculo do erro:
 		\begin{align}
 			\epsilon =\left\| \NNSM^i \right\|_{L^2}
