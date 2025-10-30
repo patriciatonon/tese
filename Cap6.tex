@@ -616,11 +616,11 @@ O Algoritmo que descreve a implementação computacional é apresentado no Alg. 
 
 Para a verificação da implementação do método Arlequin estabilizado, dois exemplos amplamente explorados nas bibliografias são simulados. O primeiro exemplo, trata-se de escoamento sobre um aerofólio NACA 0012 fixo, enquanto o segundo, com intuito de verificar o método aplicado a problemas com contornos móveis, trata do mesmo aerofólio NACA 0012, porém com um movimento de arfagem prescrito. 
 
-\parei aqui......
-
 \subsection{Escoamento sobre aerofólio NACA 0012 fixo} \label{capitulo:Cap6:Exemplos:NACA0012}
 
-Para simulação do problema de escoamento sobre um aerofólio NACA 0012, com 1 unidade de corda de dimensão e ângulo de ataque de $10^{\circ}$, utilizou-se o domínio apresentado na \autoref{fig:aerofolio_geometria}. O contorno da entrada de fluxo está localizado a 6 cordas (C) do bordo de ataque do aerofólio, com velocidade de entrada $u_{\infty}$ na direção $y_1$. Os contornos superior e inferior da geometria, com condições de contorno de parede lisa, também estão afastados do aerofólio em 6 unidades de corda. O contorno direito do domínio é localizado a 20 unidades de corda a jusante do bordo de fuga do aerofólio. 
+Considera-se um aerofólio NACA 0012 com corda de comprimento adimensional unitário e ângulo de ataque de $10^{\circ}$, submetido a um escoamento incompressível viscoso com Reynolds ($\Reynolds$) 1000 calculado a partir da dimensão do aerofólio e da velocidade de entrada do escoamento. Foram utilizados ainda como parâmetros de análise: $u_{\infty} = 1,0$,  $\density = 1,0$,  $\timeStep = 0,02$, e $\specRadius = 0,75$. O domínio do problema é apresentado na \autoref{fig:aerofolio_geometria}, onde são indicas as dimensões em termos do comprimento da corda do aerofólio. Na face esquerda o fluido entra com velocidade $u_{\infty}$ na direção $y_1$. Os contornos superior e inferior possuem condição de contorno de parede lisa, enquanto a face da direita considera-se força de superfíce nula ($p_\infty=0$). 
+
+\parei aqui......
 
 \begin{figure}[!htbp]
 	\caption{Aerofólio: Geometria}
@@ -630,7 +630,7 @@ Para simulação do problema de escoamento sobre um aerofólio NACA 0012, com 1 
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-A análise é realizada para um número de Reynolds ($\Reynolds$) 1000 calculado a partir da dimensão do aerofólio e da velocidade de entrada do escoamento. Foram utilizados ainda como parâmetros de análise: $u_{\infty} = 1,0$,  $\density = 1,0$,  $\timeStep = 0,02$, e $\specRadius = 0,75$.
+A análise é realizada para um número de 
 
 Para validação da teoria apresentada nesse capítulo, compararam-se os resultados de coeficientes de arrasto e sustentação ao longo do tempo para duas discretizações distintas: 1. Monomodelo; 2. Combinação de duas malhas através do método Arlequin estabilizado.
 
