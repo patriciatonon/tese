@@ -72,6 +72,8 @@ Por fim, para que o método não adicione energia ao sistema, é necessário que
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
+No caso deste trabalho, adotou-se para $\alpha_0$ e $\alpha_1$ na zona de colagem funções lineares da distância ao contorno $\Gamma_1$, de modo que:... \textcolor{red}{Colocar as funções adotadas em função da distância assinalada...}.
+
 \section{Método Arlequin clássico aplicado a problemas de escoamentos incompressíveis}
 
 O método Arlequin vem sendo aplicado amplamente em diversos trabalhos da mecânica dos sólidos nas últimas décadas. No que diz respeito a materiais incompressíveis, pode-se citar o trabalho de \citeonline{JamondD:2013}, no qual os autores desenvolvem uma técnica para análise empregando elementos do tipo Taylor-Hood, que satisfazem a condição LBB. Essa metodologia é testada também para problemas descritos pelas equações de Stokes.
@@ -341,104 +343,13 @@ Considerando $\Acceleration_i$, $\Velocity_i$, $\Press_i$ e $\LagrangeMultiplier
 \end{align}
 
 
-\textcolor{red}{Parei aqui....}
-\subsection{Integração Temporal}
-
-Quanto ao procedimento de integração temporal, utiliza-se o método $\alpha$-generalizado. Conforme a metodologia apresentada na \autoref{capitulo:Cap2:IntegTemp}, para a solução do sistema de equações não lineares compostas por \autoref{eq:resid_semi_discr_QM_0} à \autoref{eq:resid_semi_discr_acopla} utiliza-se o método de Newton-Raphson. A solução resulta em uma etapa preditiva e outra iterativa corretiva.
-
-Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a solução no passo seguinte ($n+1$) através das seguintes relações:
-
-\begin{align}
-	\Acceleration_{0(n+1)}^{0} = \frac{\gamma-1}{\gamma}\Acceleration_{0(n)} \label{eq:pred_acel_0},
-\end{align}
-
-\begin{align}
-	\Velocity_{0(n+1)}^{0} = \Velocity_{0(n)}, \label{eq:pred_vel_0}
-\end{align}
-
-\begin{align}
-	\Press_{0(n+1)}^{0} = \Press_{0(n)},\label{eq:pred_press_0}
-\end{align}
-
-\begin{align}
-	\Acceleration_{1(n+1)}^{0} = \frac{\gamma-1}{\gamma}\Acceleration_{1(n)} \label{eq:pred_acel_1},
-\end{align}
-
-\begin{align}
-	\Velocity_{1(n+1)}^{0} = \Velocity_{1(n)}, \label{eq:pred_vel_1}
-\end{align}
-
-\begin{align}
-	\Press_{1(n+1)}^{0} = \Press_{1(n)},\label{eq:pred_press_1}
-\end{align}
-
-\begin{align}
-	\LagrangeMultiplier_{(n+1)}^{0} = \LagrangeMultiplier_{(n)},\label{eq:pred_lag_mult}
-\end{align}
-
-\noindent onde o superíndice $0$ representa a iteração de número zero, enquanto que os subíndices $0$ e $1$ representam as variáveis do modelo global e local respectivamente.
-
-Na etapa iterativa corretiva, itera-se sobre a \autoref{eq:resid_semi_discr_QM_0} à \autoref{eq:resid_semi_discr_acopla} até que elas sejam satisfeitas, seja através de uma tolerância prescrita, ou até que se alcance uma quantidade máxima de iterações pré-estabelecida. A etapa iterativa corretiva é constituída por três fases. A fase 1 consiste em determinar os valores no instante intermediário para as variáveis nodais na iteração $i$:
-
-\begin{align}
-	\Acceleration_{0({n+\alpham})}^{i} = \Acceleration_{0(n)} + \alpham \left( \Acceleration_{0(n+1)}^{i} - \Acceleration_{0(n)} \right), \label{eq:inter_acel_0}\\
-	\Velocity_{0(n+\alphaf)}^{i} = \Velocity_{0(n)} + \alphaf \left( \Velocity_{0(n+1)}^{i} - \Velocity_{0(n)} \right), \label{eq:inter_vel_0}\\
-	\Press_{0(n+1)}^{i} = \Press_{0(n+1)}^{i}, \label{eq:inter_press_0} \\
-	\Acceleration_{1(n+\alpham)}^{i} = \Acceleration_{1(n)} + \alpham \left( \Acceleration_{1(n+1)}^{i} - \Acceleration_{1(n)} \right), \label{eq:inter_acel_1}\\
-	\Velocity_{1(n+\alphaf)}^{i} = \Velocity_{1(n)} + \alphaf \left( \Velocity_{1(n+1)}^{i} - \Velocity_{1(n)} \right), \label{eq:inter_vel_1}\\
-	\Press_{1(n+1)}^{i} = \Press_{1(n+1)}^{i},\label{eq:inter_press_1} \\
-	\LagrangeMultiplier_{(n+1)}^{i} = \LagrangeMultiplier_{(n+1)}^{i}. \label{eq:inter_lag_mult}
-\end{align}
-
-Na fase 2, com os valores intermediários das variáveis nodais resolve-se o sistema linear resultante da linearização das equações \autoref{eq:resid_semi_discr_QM_0} à \autoref{eq:resid_semi_discr_acopla} com respeito às variáveis de interesse $\Acceleration_{0(n+1)}$, $\Press_{0(n+1)}$,  $\Acceleration_{1(n+1)}$, $\Press_{1(n+1)}$ e $\LagrangeMultiplier_{(n+1)}$:
-
-\begin{align}
-	\begin{bmatrix}
-		\frac{\partial\NNSMGlobal}{\partial\Acceleration_{0(n+1)}^{i}} & \frac{\partial\NNSMGlobal}{\partial\Press_{0(n+1)}^{i}} & \vzero & \vzero & \frac{\partial\NNSMGlobal}{\partial\LagrangeMultiplier_{(n+1)}^{i}} \\
-		\frac{\partial\NNSCGlobal}{\partial\Acceleration_{0(n+1)}^{i}} & \frac{\partial\NNSCGlobal}{\partial\Press_{0(n+1)}^{i}} & \vzero & \vzero & \frac{\partial\NNSCGlobal}{\partial\LagrangeMultiplier_{(n+1)}^{i}} \\
-		 \vzero & \vzero & \frac{\partial\NNSMLocal}{\partial\Acceleration_{1(n+1)}^{i}} & \frac{\partial\NNSMLocal}{\partial\Press_{1(n+1)}^{i}} & \frac{\partial\NNSMLocal}{\partial\LagrangeMultiplier_{(n+1)}^{i}} \\
-		 \vzero & \vzero & \frac{\partial\NNSCLocal}{\partial\Acceleration_{1(n+1)}^{i}} & \frac{\partial\NNSCLocal}{\partial\Press_{1(n+1)}^{i}} & \frac{\partial\NNSCLocal}{\partial\LagrangeMultiplier_{(n+1)}^{i}} \\
-		  \frac{\partial\NNSL}{\partial\Acceleration_{0(n+1)}^{i}} & \frac{\partial\NNSL}{\partial\Press_{0(n+1)}^{i}} & \frac{\partial\NNSL}{\partial\Acceleration_{1(n+1)}^{i}} & \frac{\partial\NNSL}{\partial\Press_{1(n+1)}^{i}} & \frac{\partial\NNSL}{\partial\LagrangeMultiplier_{(n+1)}^{i}}
-	\end{bmatrix}
-	\begin{bmatrix}
-		\Delta\Acceleration_{0(n+1)}^{i} \\
-		\Delta\Press_{0(n+1)}^{i} \\
-		\Delta\Acceleration_{1(n+1)}^{i} \\
-		\Delta\Press_{1(n+1)}^{i} \\
-		\LagrangeMultiplier_{(n+1)}^{i}
-	\end{bmatrix}
-	&=
-	\begin{bmatrix}
-		-\NNSMGlobal \\
-		-\NNSCGlobal \\
-		-\NNSMLocal \\
-		-\NNSCLocal \\
-		-\NNSL
-	\end{bmatrix}
-	\label{eq:sistema_linear_Arlq}
-\end{align}	
-
-Atualiza-se então na fase 3 a solução através das seguintes relações:
-
-\begin{align}
-	\Acceleration_{0(n+1)}^{i+1} = \Acceleration_{0(n+1)}^{i} + \Delta\Acceleration_{0(n+1)}^{i}, \label{eq:atu_acel_0} \\ 
-	\Velocity_{0(n+1)}^{i+1} = \Velocity_{0(n+1)}^{i} + \gamma \Delta t \Delta\Velocity_{0(n+1)}^{i},\label{eq:atu_vel_0}\\
-	\Press_{0(n+1)}^{i+1} = \Press_{0(n+1)}^{i} + \Delta\Press_{0(n+1)}^{i}, \label{eq:atu_press_0} \\
-	\Acceleration_{1(n+1)}^{i+1} = \Acceleration_{1(n+1)}^{i} + \Delta\Acceleration_{1(n+1)}^{i}, \label{eq:atu_acel_1} \\ 
-	\Velocity_{1(n+1)}^{i+1} = \Velocity_{1(n+1)}^{i} + \gamma \Delta t \Delta\Velocity_{1(n+1)}^{i},\label{eq:atu_vel_1}\\
-	\Press_{1(n+1)}^{i+1} = \Press_{0(n+1)}^{i} + \Delta\Press_{1(n+1)}^{i}, \label{eq:atu_press_1} \\
-	\LagrangeMultiplier_{1(n+1)}^{i+1} = \LagrangeMultiplier_{0(n+1)}^{i} + \Delta\LagrangeMultiplier_{1(n+1)}^{i}. \label{eq:atu_lag_mult}
-\end{align}
-
-Na utilização do método $\alpha$-generalizado as integrais das equações são avaliadas no instante $t = t_{n+\alphaf}$. As relações entre velocidade e aceleração, e os parâmetros utilizados pelo método podem ser consultados na \autoref{capitulo:Cap2:IntegTemp}.
-
 \subsection{Parâmetro de estabilização para técnica RBSAM}
 
-No método Arlequin existe a necessidade de definição do parâmetro de estabilização $\tauArlequin$, o qual deve possuir valor suficiente para estabilizar os campos de multiplicadores de Lagrange, sem, no entanto, comprometer a convergência do método. 
+No método Arlequin estabilizado, há ainda a necessidade de definição do parâmetro de estabilização $\tauArlequin$, o qual deve possuir valor suficiente para estabilizar os campos de multiplicadores de Lagrange sem, no entanto, comprometer a convergência do método. 
 
-Para a definição de $\tauArlequin$ tomou-se como referência os trabalhos de \citeonline{TezduyarO:2000} e \citeonline{TezduyarS:2003} nos quais se apresenta uma vasta quantidade de informação a cerca da obtenção dos parâmetros de estabilização das equações da DFC ($\SUPG$, $\PSPG$, $\LSIC$). 
+Para a definição de $\tauArlequin$ toma-se como referência os trabalhos de \citeonline{TezduyarO:2000} e \citeonline{TezduyarS:2003} nos quais se apresenta uma vasta quantidade de informação a cerca das técnicas para obtenção dos parâmetros de estabilização das equações da DFC ($\SUPG$, $\PSPG$, $\LSIC$). 
  
-Propõe-se como critério a obtenção de termos de estabilização com magnitude próxima aos termos da equação de acoplamento, através da utilização de normas vetoriais. Este parâmetro será definido para cada um dos modelos como:
+Para um bom condicionamento do sistema, busca-se que os termos estabilizantes adicionados possuam magnitude próxima aos termos da equação de acoplamento. Assim, calcula-se $\tauArlequini$ por meio da relação entre normas de vetores que compõem a formulação por elementos finitos, definindo-se um parâmetro para cada um dos modelos por meio de:
 
 \begin{align}
 	\tauArlequini = \left(\frac{1}{\left(\tau_{A_i}\right)^{2}} + \frac{1}{\left(\tau_{B_i}\right)^{2}} +  \frac{1}{\left(\tau_{C_i}\right)^{2}} + 
@@ -447,7 +358,7 @@ Propõe-se como critério a obtenção de termos de estabilização com magnitud
 	\right)^{-\frac{1}{2}},
 \end{align}
 
-\noindent com $i=0,1$ definindo o modelo global e local respectivamente e:
+\noindent com $i=0,1$ definindo os modelos global e local, respectivamente e:
 
 \begin{align}
 	\tau_{A_{i}} = \left(\frac{1}{\left(\tau_{A_i^{0}}\right)^{2} + \left(\tau_{A_i^{1}}\right)^{2}} \right)^{-\frac{1}{2}}, \label{eq:tAi}
@@ -469,7 +380,7 @@ Propõe-se como critério a obtenção de termos de estabilização com magnitud
 	\tau_{E_{i}} = \left(\frac{1}{\left(\tau_{E_i^{0}}\right)^{2} + \left(\tau_{E_i^{1}}\right)^{2}} \right)^{-\frac{1}{2}},\label{eq:tEi}
 \end{align}
 
-\noindent sendo as variáveis das equações \refeq{eq:tAi} à \refeq{eq:tEi} as seguintes normas vetoriais:
+\noindent sendo as variáveis das equações \refeq{eq:tAi} a \refeq{eq:tEi} as seguintes normas vetoriais:
 
 \begin{align}
 	\tau_{A_i^{0}} = \frac{|| \mathbf{M}_{\lambda_0} || }{||\mathbf{t}_{i} ||}; \ \ \ \ \  & \tau_{A_i^{1}} = \frac{|| \mathbf{M}_{\lambda_1} || }{||\mathbf{t}_{i} ||};
@@ -523,13 +434,103 @@ Por fim, os vetores em questão, são definidos através das seguintes relaçõe
 
 \noindent com $k$ representando o índice dos graus de liberdade do campo de multiplicadores de Lagrange.
 
+\subsection{Integração Temporal e processo de solução}
+
+Quanto ao procedimento de integração temporal, utiliza-se o método $\alpha$-generalizado conforme a metodologia apresentada na \autoref{capitulo:Cap2:IntegTemp}, para a solução do sistema de equações não lineares composto por \autoref{eq:resid_semi_discr_QM_0} a \autoref{eq:resid_semi_discr_acopla}, utiliza-se o método de Newton-Raphson. A solução resulta em uma etapa preditiva e outra iterativa corretiva.
+
+Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a solução no passo seguinte ($n+1$) através das seguintes relações:
+
+\begin{align}
+	\Acceleration_{0(n+1)}^{0} = \frac{\gamma-1}{\gamma}\Acceleration_{0(n)} \label{eq:pred_acel_0},
+\end{align}
+
+\begin{align}
+	\Velocity_{0(n+1)}^{0} = \Velocity_{0(n)}, \label{eq:pred_vel_0}
+\end{align}
+
+\begin{align}
+	\Press_{0(n+1)}^{0} = \Press_{0(n)},\label{eq:pred_press_0}
+\end{align}
+
+\begin{align}
+	\Acceleration_{1(n+1)}^{0} = \frac{\gamma-1}{\gamma}\Acceleration_{1(n)} \label{eq:pred_acel_1},
+\end{align}
+
+\begin{align}
+	\Velocity_{1(n+1)}^{0} = \Velocity_{1(n)}, \label{eq:pred_vel_1}
+\end{align}
+
+\begin{align}
+	\Press_{1(n+1)}^{0} = \Press_{1(n)},\label{eq:pred_press_1}
+\end{align}
+
+\begin{align}
+	\LagrangeMultiplier_{(n+1)}^{0} = \LagrangeMultiplier_{(n)},\label{eq:pred_lag_mult}
+\end{align}
+
+\noindent onde o superíndice $0$ representa a iteração de número zero, enquanto que os subíndices $0$ e $1$ representam as variáveis do modelo global e local, respectivamente.
+
+A etapa iterativa corretiva é constituída por três fases. A fase 1 consiste em determinar os valores no instante intermediário para as variáveis nodais na iteração $i$ por meio de:
+
+\begin{align}
+	\Acceleration_{0({n+\alpham})}^{i} = \Acceleration_{0(n)} + \alpham \left( \Acceleration_{0(n+1)}^{i} - \Acceleration_{0(n)} \right), \label{eq:inter_acel_0}\\
+	\Velocity_{0(n+\alphaf)}^{i} = \Velocity_{0(n)} + \alphaf \left( \Velocity_{0(n+1)}^{i} - \Velocity_{0(n)} \right), \label{eq:inter_vel_0}\\
+	\Press_{0(n+1)}^{i} = \Press_{0(n+1)}^{i}, \label{eq:inter_press_0} \\
+	\Acceleration_{1(n+\alpham)}^{i} = \Acceleration_{1(n)} + \alpham \left( \Acceleration_{1(n+1)}^{i} - \Acceleration_{1(n)} \right), \label{eq:inter_acel_1}\\
+	\Velocity_{1(n+\alphaf)}^{i} = \Velocity_{1(n)} + \alphaf \left( \Velocity_{1(n+1)}^{i} - \Velocity_{1(n)} \right), \label{eq:inter_vel_1}\\
+	\Press_{1(n+1)}^{i} = \Press_{1(n+1)}^{i},\label{eq:inter_press_1} \\
+	\LagrangeMultiplier_{(n+1)}^{i} = \LagrangeMultiplier_{(n+1)}^{i}. \label{eq:inter_lag_mult}
+\end{align}
+
+Na fase 2, com os valores intermediários das variáveis nodais resolve-se o sistema resultante da linearização das equações \autoref{eq:resid_semi_discr_QM_0} à \autoref{eq:resid_semi_discr_acopla} com respeito às variáveis de interesse $\Acceleration_{0(n+1)}$, $\Press_{0(n+1)}$,  $\Acceleration_{1(n+1)}$, $\Press_{1(n+1)}$ e $\LagrangeMultiplier_{(n+1)}$, calculando-se uma correção para essas variáveis:
+
+\begin{align}
+	\begin{bmatrix}
+		\frac{\partial\NNSMGlobal}{\partial\Acceleration_{0(n+1)}^{i}} & \frac{\partial\NNSMGlobal}{\partial\Press_{0(n+1)}^{i}} & \vzero & \vzero & \frac{\partial\NNSMGlobal}{\partial\LagrangeMultiplier_{(n+1)}^{i}} \\
+		\frac{\partial\NNSCGlobal}{\partial\Acceleration_{0(n+1)}^{i}} & \frac{\partial\NNSCGlobal}{\partial\Press_{0(n+1)}^{i}} & \vzero & \vzero & \frac{\partial\NNSCGlobal}{\partial\LagrangeMultiplier_{(n+1)}^{i}} \\
+		 \vzero & \vzero & \frac{\partial\NNSMLocal}{\partial\Acceleration_{1(n+1)}^{i}} & \frac{\partial\NNSMLocal}{\partial\Press_{1(n+1)}^{i}} & \frac{\partial\NNSMLocal}{\partial\LagrangeMultiplier_{(n+1)}^{i}} \\
+		 \vzero & \vzero & \frac{\partial\NNSCLocal}{\partial\Acceleration_{1(n+1)}^{i}} & \frac{\partial\NNSCLocal}{\partial\Press_{1(n+1)}^{i}} & \frac{\partial\NNSCLocal}{\partial\LagrangeMultiplier_{(n+1)}^{i}} \\
+		  \frac{\partial\NNSL}{\partial\Acceleration_{0(n+1)}^{i}} & \frac{\partial\NNSL}{\partial\Press_{0(n+1)}^{i}} & \frac{\partial\NNSL}{\partial\Acceleration_{1(n+1)}^{i}} & \frac{\partial\NNSL}{\partial\Press_{1(n+1)}^{i}} & \frac{\partial\NNSL}{\partial\LagrangeMultiplier_{(n+1)}^{i}}
+	\end{bmatrix}
+	\begin{bmatrix}
+		\Delta\Acceleration_{0(n+1)}^{i} \\
+		\Delta\Press_{0(n+1)}^{i} \\
+		\Delta\Acceleration_{1(n+1)}^{i} \\
+		\Delta\Press_{1(n+1)}^{i} \\
+		\LagrangeMultiplier_{(n+1)}^{i}
+	\end{bmatrix}
+	&=
+	\begin{bmatrix}
+		-\NNSMGlobal \\
+		-\NNSCGlobal \\
+		-\NNSMLocal \\
+		-\NNSCLocal \\
+		-\NNSL
+	\end{bmatrix}
+	\label{eq:sistema_linear_Arlq}
+\end{align}	
+
+Atualiza-se então, na fase 3, as variáveis incóginitas por meio de:
+
+\begin{align}
+	\Acceleration_{0(n+1)}^{i+1} = \Acceleration_{0(n+1)}^{i} + \Delta\Acceleration_{0(n+1)}^{i}, \label{eq:atu_acel_0} \\ 
+	\Velocity_{0(n+1)}^{i+1} = \Velocity_{0(n+1)}^{i} + \gamma \Delta t \Delta\Velocity_{0(n+1)}^{i},\label{eq:atu_vel_0}\\
+	\Press_{0(n+1)}^{i+1} = \Press_{0(n+1)}^{i} + \Delta\Press_{0(n+1)}^{i}, \label{eq:atu_press_0} \\
+	\Acceleration_{1(n+1)}^{i+1} = \Acceleration_{1(n+1)}^{i} + \Delta\Acceleration_{1(n+1)}^{i}, \label{eq:atu_acel_1} \\ 
+	\Velocity_{1(n+1)}^{i+1} = \Velocity_{1(n+1)}^{i} + \gamma \Delta t \Delta\Velocity_{1(n+1)}^{i},\label{eq:atu_vel_1}\\
+	\Press_{1(n+1)}^{i+1} = \Press_{0(n+1)}^{i} + \Delta\Press_{1(n+1)}^{i}, \label{eq:atu_press_1} \\
+	\LagrangeMultiplier_{1(n+1)}^{i+1} = \LagrangeMultiplier_{0(n+1)}^{i} + \Delta\LagrangeMultiplier_{1(n+1)}^{i}. \label{eq:atu_lag_mult}
+\end{align}
+
+Na utilização do método $\alpha$-generalizado as integrais das equações são avaliadas no instante $t = t_{n+\alphaf}$. As relações entre velocidade, aceleração, e os parâmetros utilizados pelo método podem ser consultados na \autoref{capitulo:Cap2:IntegTemp}.
+
+
+
 \section{Superposição de modelos móveis}
 
-As equações \autoref{eq:QM_forma_fraca_0_atu} à \autoref{eq:lag_acopl_tARLQ} resolvem problemas de escoamentos incompressíveis em uma discretização Euleriana. Entretanto, como têm-se como alvo à movimentação do domínio local do fluido (ver \autoref{fig:dominioArlequinMovel}) para acomodar a movimentação da estrutura em problemas de IFE ou representar o deslocamento de um objeto imerso na DFC, faz-se o uso de uma descrição Lagrangiana-Euleriana Arbitrária (ALE) no modelo local ($\localModel$) enquanto que o domínio global ($\globalModel$) mantém-se fixo e com descrição Euleriana. 
+As equações \autoref{eq:QM_forma_fraca_0_atu} à \autoref{eq:lag_acopl_tARLQ} resolvem problemas de escoamentos incompressíveis em uma discretização Euleriana. Entretanto, tem-se como objetivo a movimentação do domínio local do fluido (ver \autoref{fig:dominioArlequinMovel}) para acomodar a movimentação da estrutura nos problemas de IFE, ou para representar o deslocamento de um objeto imerso no escoamento. Nota-se que o modelo global mantém sua geometria inalterada na mudança de passo de tempo, enquanto que o modelo local é movimentado para representar uma nova localização de um objeto imerso. Vale ressaltar que o contorno do domínio do modelo local ($\localBoundary$) é conhecido em $t_n$ e em $t_{n+1}$, e que a zona de superposição $\overlappingZone$ é definida em diferentes posições em cada instante.. Assim, faz-se uso de uma descrição Lagrangiana-Euleriana Arbitrária (ALE) no modelo local ($\localModel$) enquanto que o domínio global ($\globalModel$) mantém-se fixo e com descrição Euleriana. 
 
-Para o entendimento da metodologia de superposição de modelos móveis em um esquema Euleriano-ALE, pode-se analisar a \autoref{fig:dominioArlequinMovel}. Nela, pode-se observar a mudança de configuração dos modelos de fluido do passo $t_n$ para o passo $t_{n+1}$. Nota-se que o modelo global mantém sua geometria inalterada na mudança de passo de tempo, enquanto que o modelo local é movimentado para representar uma nova localização de um objeto imerso. Vale ressaltar que o contorno do domínio do modelo local ($\localBoundary$) é conhecido em $t_n$ e em $t_{n+1}$, e que a zona de superposição $\overlappingZone$ é definida em diferentes posições em cada instante.
-
-Para análise de domínios móveis do tipo Euleriano-ALE, a \autoref{eq:QM_forma_fraca_1_atu} será reescrita, levando-se em consideração as definições apresentadas na \autoref{capitulo:Cap2:ALE}, como:
+Para análise de domínios móveis do tipo Euleriano-ALE, a \autoref{eq:QM_forma_fraca_1_atu} é reescrita, levando-se em consideração as definições apresentadas na \autoref{capitulo:Cap2:ALE}, resultando em:
 
 \begin{align}
 	\begin{split}
@@ -546,13 +547,13 @@ Para análise de domínios móveis do tipo Euleriano-ALE, a \autoref{eq:QM_forma
 	\end{split}
 \end{align}
 
-\noindent e o resíduo apresentado na \autoref{eq:res_QM_i} ficará reescrito para i = 1, como:
+\noindent enquanto o resíduo apresentado na \autoref{eq:res_QM_i} passa a ser escrito para i = 1, como:
 
 \begin{align}
 	\resMomLocal \left(\ulocalh,\plocalh,\lagrangeMultiplierh \right)&=\arlequinWFLocal \density\left(\left. \frac{\partial\ulocalh}{\partial t} \right|_{\posALE}+ \left(\ulocalh - \velocityALEh_{1}\right) \cdot \gradient \ulocalh  - \localsbodyforceh\right) - \arlequinWFLocal \divergence \cdot \stressTensor\left(\ulocalh,\plocalh,\right)+ \chi_{1} \lagrangeMultiplierh \label{eq:res_QM_ALE}.
 \end{align}
 
-Além da consideração da descrição ALE para o modelo local, deve-se ressaltar que a função ponderadora $\arlequinWFi$ passa a ser uma variável temporal, ou seja, $\arlequinWFi(t)$, visto que a zona de superposição $\overlappingZone$ é definida em diferentes posições em cada instante de tempo. Dessa forma, a integração temporal utilizando o método $\alpha$-generalizado deve considerar essa variação através da seguinte interpolação no tempo intermediário:
+Além da consideração da descrição ALE para o modelo local, deve-se ressaltar que a função ponderadora $\arlequinWFi$ passa a ser uma variável temporal, ou seja, $\arlequinWFi(t)$, visto que a zona de superposição $\overlappingZone$ é definida em diferentes posições em cada instante de tempo. Dessa forma, a integração temporal utilizando-se o método $\alpha$-generalizado deve considerar essa variação através da seguinte interpolação para o instante intermediário:
 
 \begin{align}
 	\arlequinWF_{i(n+\alphaf)} = \arlequinWF_{i(n)} + \alphaf(\arlequinWF_{i(n+1)} - \arlequinWF_{i(n)}).
@@ -566,23 +567,19 @@ Além da consideração da descrição ALE para o modelo local, deve-se ressalta
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho é conhecida como MJBS (Mesh-Jacobian Based Stiffening) introduzida por \citeonline{TezduyarBSJ:1992f} e será abordada na  \autoref{capitulo:Cap7:CondAcop:MovMalha}.
+A solução de modelos móveis requer a utilização de uma técnica adequada para movimentação da malha local. A técnica utilizada nesse trabalho toma como base o método MJBS (Mesh-Jacobian Based Stiffening) introduzido por \citeonline{TezduyarBSJ:1992f} e será abordada na  \autoref{capitulo:Cap7:CondAcop:MovMalha}. \textcolor{red}{Não é melhor você colocar que está utilizando a versão da técnica desenvolvida no seu artigo? Afinal, é um caso particular ela.}
+
+O campo dos multiplicadores de Lagrange, neste estudo, é definido do espaço de funções da malha local. Tal escolha ocorre pelo fato de que, mesmo em problemas em que se tenham grandes deslocamentos, a quantidade de elementos locais da zona de superposição permanece inalterada, fazendo com que o sistema algébrico mantenha-se com dimensão constante ao longo do tempo, diminuindo assim, o custo computacional. 
 
 \section{Implementação Computacional}
 
-Previamente à explicação a cerca da implementação computacional, é importante indicar que o campo dos multiplicadores de Lagrange é definido neste estudo na malha local. Tal escolha ocorre pelo fato de que mesmo em problemas em que se tenham grandes deslocamentos, a quantidade de elementos locais da zona de superposição permanece inalterada, fazendo com que o sistema algébrico mantenha-se com dimensão constante ao longo do tempo, diminuindo assim, o custo computacional.
+A implementação desse método envolve a realização de algumas etapas adicionais no início de cada iteração, sendo essas: 1. Determinação de distâncias assinaladas; 2. Determinação da zona de colagem;  3. Determinação da função ponderadora; 4. Encontro de correspondência dos pontos de quadratura do modelo local no modelo global.
 
-O uso da técnica Arlequin envolve a realização de algumas etapas de pré-processamento como parte de sua implementação computacional, que podem ser dividas em 4 etapas: 1. Determinação de distâncias assinaladas; 2. Determinação da zona de colagem;  3. Determinação da função ponderadora; 4. Encontro de correspondência entre pontos dos modelos global e local.
+A etapa 1 consiste em determinar a distância assinalada com relação ao contorno $\localBoundary$ de todos os pontos (nós para malha de elementos finitos ou pontos de controle para malha isogeométrica) que compõe cada um dos modelos. Na etapa 2, a partir da distância assinalada, são definidos os elementos locais que fazem parte da zona de colagem em função da espessura adotada para essa região, previamente indicada pelo usuário. A função ponderadora para os modelos (etapa 3) é  determinada em função da função distância assinalada e da espessura da zona de colagem de acordo com \autoref{} \textcolor{red}{Colocar equação}. 
 
-A etapa 1 consiste em determinar a distância assinalada com relação ao contorno $\localBoundary$ de todos os pontos (nós para malha de elementos finitos ou pontos de controle para malha isogeométrica) que compõe cada um dos modelos.
+Uma das maiores dificuldades da técnica Arlequin diz respeito à integração numérica do operador de acoplamento por demandar integral de funções definidas em modelos distintos. Neste estudo, a integração numérica é definida sobre a malha local, desta forma, durante o pré-processamento de cada iteração para solução do sistema, realiza-se um processo de busca de correspondência (etapa 4) na malha global para cada ponto de integração da malha local, determinando-se o vetor de coordenadas locais e o elemento da malha global correspondente a cada ponto de integração da malha local na zona de colagem.
 
-Na etapa 2, a partir da distância assinalada, são definidos os elementos locais que fazem parte da zona de colagem em função da espessura dessa região que foi previamente indicada pelo usuário do código.
-
-A função ponderadora para os modelos (etapa 3) é  determinada conforme \autoref{eq:funcPondeArleq}. Além disso, a função ponderadora ($\arlequinWF$), para os modelos local e global, foi definida como uma função linear nesse trabalho. 
-
-Uma das maiores dificuldades da técnica de Arlequin diz respeito à integração numérica do operador de acoplamento quando se tem na composição da integral funções definidas em modelos distintos. Neste estudo, as integrais são definidas sobre a malha local, desta forma, durante o pré-processamento realiza-se um processo de busca de correspondência (etapa 4) na malha global para cada ponto de integração da malha local. O processo de busca consiste em encontrar a coordenada paramétrica e elemento da malha global correspondente a cada ponto de integração da malha local na zona de colagem.
-
-Para contemplar a solução de problemas com contornos móveis utilizando a técnica Arlequin, a cada passo de tempo, algumas tarefas adicionais devem ser realizadas: atualização da configuração da malha; atualização da distância assinalada com relação ao contorno $\localBoundary$ de todos os pontos (nós para malha de elementos finitos ou pontos de controle para malha isogeométrica) que compõe cada um dos modelos;  Alteração da função ponderadora; e atualização das correspondências entre pontos de integração da malha local na malha global.
+É importante notar que, antes das etapas 1 a 4, é necessário que a malha local tenha sido atualizada, o que é feito ao final de cada iteração.
 
 O Algoritmo que descreve a implementação computacional é apresentado no Alg. \ref{alg:fluidARLQ}. A implementação computacional e resolução do sistema de equações resultantes ocorreu de forma análoga ao monomodelo descrito na \autoref{capitulo:Cap2:DFCComputationalCode}. O índice $i$ apresentado diz respeito à iteração de Newton-Raphson.
 
@@ -590,29 +587,26 @@ O Algoritmo que descreve a implementação computacional é apresentado no Alg. 
 	\caption{Algoritmo para problemas móveis da DFC utilizando técnica ARLEQUIN RBSAM}
 	\label{alg:fluidARLQ}
 	\begin{algorithmic}[1]
-		\State Cálculo da distância assinalada dos nós e pontos de controle ao contorno $\localBoundary$;
-		\State Determinação da zona de colagem $\gluingZone$;
-		\State Definição da função de ponderadora de acordo com \autoref{eq:funcPondeArleq};
-		\State Busca pela correspondência entre os pontos de integração da malha local na malha global;
 		\For {o passo de tempo $0$ até \totalTime} 
-		\State Movimentação da Malha;
-		\State $i=0$;
+		\State $i=0$; \textcolor{red}{defina i}
 		\State Predição da solução: aplicação da \autoref{eq:pred_acel_0}, \autoref{eq:pred_vel_0}, \autoref{eq:pred_press_0},
 		\autoref{eq:pred_acel_1}, \autoref{eq:pred_vel_1}, \autoref{eq:pred_press_1} e \autoref{eq:pred_lag_mult};
 		\While{($\epsilon$ < tolerância)}
 		\State $i$++;
-		\State Atualização da distância assinalada;
-		\State Atualização da função ponderadora;
-		\State Atualização das correspondência entre os pontos de integração da malha local na malha global;
+		\State Cálculo da distância assinalada dos nós e pontos de controle ao contorno $\localBoundary$;
+		\State Determinação da zona de colagem $\gluingZone$;
+		\State Definição da função de ponderadora de acordo com \autoref{eq:funcPondeArleq};
+		\State Busca pela correspondência entre os pontos de integração da malha local na malha global;
 		\State Interpolação das variáveis do problema: aplicação da \autoref{eq:inter_acel_0}, \autoref{eq:inter_vel_0}, \autoref{eq:inter_press_0},
 		\autoref{eq:inter_acel_1}, \autoref{eq:inter_vel_1}, \autoref{eq:inter_press_1} e \autoref{eq:inter_lag_mult}; 
-		\State Cálculo do incremento nas variáveis do problema: Resolução do sistema apresentado na \autoref{eq:sistema_linear_Arlq};
+		\State Cálculo da correção das variáveis do problema: Resolução do sistema apresentado na \autoref{eq:sistema_linear_Arlq};
 		\State Atualização da solução: cálculo de acordo com \eqref{eq:atu_acel_0}, \autoref{eq:atu_vel_0}, \autoref{eq:atu_press_0},
 		\autoref{eq:atu_acel_1}, \autoref{eq:atu_vel_1}, \autoref{eq:atu_press_1} e \autoref{eq:atu_lag_mult};
 		\State Cálculo do erro:
 		\begin{align}
-			\epsilon =\left\| \NNSMGlobal^{i} + \NNSMLocal^{i}  \right\|_{L^2}
+			\epsilon =\left\| \NNSMGlobal^{i} + \NNSMLocal^{i}  \right\|_{L^2};
 		\end{align}
+		\State Movimentação da malha;
 		\EndWhile
 		\EndFor
 	\end{algorithmic}
@@ -620,9 +614,11 @@ O Algoritmo que descreve a implementação computacional é apresentado no Alg. 
 
 \section{Exemplos}\label{capitulo:Cap6:Exemplos}
 
-Para a validação da método Arlequin estabilizado, dois exemplos amplamente explorados nas bibliografias, serão avaliados. O primeiro exemplo, trata-se de um problema de escoamento sobre um aerofólio NACA 0012, e o segundo, com intuito de validação da técnica de movimentação de domínios, consistirá no aerofólio NACA 0012 com um movimento de arfagem prescrito. 
+Para a verificação da implementação do método Arlequin estabilizado, dois exemplos amplamente explorados nas bibliografias são simulados. O primeiro exemplo, trata-se de escoamento sobre um aerofólio NACA 0012 fixo, enquanto o segundo, com intuito de verificar o método aplicado a problemas com contornos móveis, trata do mesmo aerofólio NACA 0012, porém com um movimento de arfagem prescrito. 
 
-\subsection{Escoamento sobre um aerofólio NACA 0012} \label{capitulo:Cap6:Exemplos:NACA0012}
+\parei aqui......
+
+\subsection{Escoamento sobre aerofólio NACA 0012 fixo} \label{capitulo:Cap6:Exemplos:NACA0012}
 
 Para simulação do problema de escoamento sobre um aerofólio NACA 0012, com 1 unidade de corda de dimensão e ângulo de ataque de $10^{\circ}$, utilizou-se o domínio apresentado na \autoref{fig:aerofolio_geometria}. O contorno da entrada de fluxo está localizado a 6 cordas (C) do bordo de ataque do aerofólio, com velocidade de entrada $u_{\infty}$ na direção $y_1$. Os contornos superior e inferior da geometria, com condições de contorno de parede lisa, também estão afastados do aerofólio em 6 unidades de corda. O contorno direito do domínio é localizado a 20 unidades de corda a jusante do bordo de fuga do aerofólio. 
 

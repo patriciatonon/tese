@@ -1,5 +1,5 @@
 \changetocdepth {4}
-\babel@toc {brazil}{}
+\babel@toc {brazil}{}\relax 
 \contentsline {chapter}{\chapternumberline {1}\MakeTextUppercase {Introdução}}{15}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Apresentação do texto}{17}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Estado da Arte}{18}{section.1.2}%
@@ -64,13 +64,13 @@
 \contentsline {section}{\numberline {6.1}Método Arlequin}{117}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado a problemas de escoamentos incompressíveis}{119}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{123}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Integração Temporal}{125}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Parâmetro de estabilização para técnica RBSAM}{127}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.1}Parâmetro de estabilização para técnica RBSAM}{125}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Integração Temporal e processo de solução}{127}{subsection.6.3.2}%
 \contentsline {section}{\numberline {6.4}Superposição de modelos móveis}{128}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Implementação Computacional}{129}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Exemplos}{132}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Escoamento sobre um aerofólio NACA 0012}{132}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{136}{subsection.6.6.2}%
+\contentsline {section}{\numberline {6.5}Implementação Computacional}{130}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Exemplos}{131}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Escoamento sobre aerofólio NACA 0012 fixo}{132}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{134}{subsection.6.6.2}%
 \contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase {Acoplamento Fluido-Estrutura}}{141}{chapter.7}%
 \contentsline {section}{\numberline {7.1}Condições de acoplamento}{142}{section.7.1}%
 \contentsline {subsection}{\numberline {7.1.1}Movimentação da Malha}{143}{subsection.7.1.1}%
