@@ -32,23 +32,21 @@ Para a condição cinemática tem-se:
 
 \noindent atendida através da aplicação dos valores de $\solidVel$ nos nós (ou pontos de controle) que compõe a malha do fluido na interface fluido-estrutura.
 
-A condição dinâmica, preescreve a continuidade da tensão normal no contorno,  conforme a equação abaixo:
+A condição dinâmica, prescreve a continuidade da tensão (da componente normal à interface para o caso de condição de parede lisa, ou de todas as componentes para o caso de condição de aderência). Neste trabalho considera-se apenas a condição de aderência, de modo que a condição dinâmica é dada por:
 
 \begin{align}
 	\stressTensorS \snormalS + \stressTensorF \snormalF = \vzero \ \textrm{no contorno} \ \boundaryFSI,
 \end{align}
 
-parei aqui.....
+\noindent na qual, $\stressTensorS$ representa as tensões de Cauchy da estrutura, $\stressTensorF$ as tensões de Cauchy no fluido, e $\snormalS$ e $\snormalF$ representam os vetores normais no contorno $\boundaryFSI$ apontando para o fluido e para a estrutura,  respectivamente. Essa condição é imposta ao longo do processo bloco-iterativo de solução através da aplicação da força de superfície $\stressTensorF \snormalS$ no contorno da estrutura em contato com o fluido.
 
-\noindent na qual, $\stressTensorS$ representa as tensões de Cauchy da estrutura, $\stressTensorF$ as tensões de Cauchy no fluido, e $\snormalS$ e $\snormalF$ representam o vetor normal no contorno $\boundaryFSI$ apontando para o fluido e para a estrutura respectivamente. Essa condição é atendida através da aplicação de $\stressTensorF \snormalF$ aos nós da malha da estrutura na interface entre os meios.
-
-Já a condição geométrica está relacionada ao fato que os domínios computacionais $\domainS$ da estrutura e $\domainF$ do fluido devem sempre coincidir em $\boundaryFSI$, ou seja, não devem existir superposições ou frestas nessa interface. No contexto desse estudo essa condição é atendida através de uma movimentação adequada da malha local (Método Arlequin), que se deforma para acomodar a mudança de configuração da estrutura. A técnica de movimentação de malha adotada será apresentada na \autoref{capitulo:Cap7:CondAcop:MovMalha}.
+Já a condição geométrica está relacionada ao fato que os domínios computacionais $\domainS$ da estrutura e $\domainF$ do fluido devem sempre coincidir em $\boundaryFSI$, ou seja, não devem existir superposições ou frestas nessa interface. No contexto desse estudo essa condição é atendida através de uma movimentação adequada da malha local (Método Arlequin), que se deforma para acomodar a mudança de configuração da estrutura. A técnica de movimentação de malha adotada é apresentada na \autoref{capitulo:Cap7:CondAcop:MovMalha}.
 
 \subsection{Movimentação da Malha} \label{capitulo:Cap7:CondAcop:MovMalha}
 
-Para a satisfação da condição geométrica nos problemas de IFE desse trabalho, uma técnica adequada de movimentação de malha deve ser aplicada. É necessário que o método de movimentação de malha seja robusto o suficiente para que garanta ao longo de toda a análise dos problemas uma discretização de qualidade.
+Para a satisfação da condição geométrica nos problemas de IFE desse trabalho, uma técnica adequada de movimentação de malha deve ser aplicada. É necessário que o método de movimentação de malha seja robusto o suficiente para que garanta uma discretização adequada (ou seja, com elementos geometricamente aceitáveis, com áreas e volumes maiores do que zero e com ângulos que não estejam próximos de $0^o$ nem de $180^o$) durante toda a análise.
 
-Dentre as técnicas desenvolvidas até o momento, destacam-se aquelas que impõem os deslocamentos da estrutura na malha do fluido ao longo do contorno $\boundaryFSI$, determinando o campo de deslocamentos na malha do fluido por meio da resolução de um problema de valor de contorno (PVC). Neste trabalho, será adotada essa abordagem, formulando o problema com base na equivalência entre a movimentação da malha à um problema de mecânica dos sólidos, e aplicando-se a técnica de movimentação de malhas introduzida em \citeonline{TezduyarBSJ:1992f} e \citeonline{TezduyarABJ:1993} conhecida como MJBS (\textit{Mesh-Jacobian Based Stiffening}).
+Dentre as técnicas constantes na literatura, destacam-se aquelas que impõem os deslocamentos da estrutura na malha do fluido ao longo do contorno $\boundaryFSI$, determinando o campo de deslocamentos no restante da malha do fluido por meio da resolução de um problema de valor de contorno (PVC). Neste trabalho, será adotada essa abordagem, formulando o problema com base na equivalência entre a movimentação da malha e um problema de elasticidade linear, atribuindo-se a cada elemento uma rigidez diferente de acordo com a técnica MJBS  (\textit{Mesh-Jacobian Based Stiffening}), apresentada por  \citeonline{TezduyarBSJ:1992f} e \citeonline{TezduyarABJ:1993}, que visa preservar os aspectos dos elementos menores, impedindo inversão de elementos ou que elementos assumam volume muito pequeno.
 
 Nesse método, o movimento da malha é determinado usando um problema da elasticidade de Dirichlet fictício, descrito como:
 
@@ -57,12 +55,12 @@ Nesse método, o movimento da malha é determinado usando um problema da elastic
 	\label{eq:elasticity}
 \end{align}
 
-\noindent na qual $\testfunction$ é a função peso; $\dispMh$ é o deslocamento medido da configuração de referência, com coordenadas $\posALEh$, até a configuração atual $\posh$ ($\posh = \posALEh +\dispMh $); e 
-$\dispMtth$ representa o deslocamento da configuração de referência até a malha no tempo ${\tildet}$, ou $\postth$ ($\postth = \posALE + \dispMtth$); $\stressTensorM$ representa o tensor de Cauchy aplicado aos deslocamentos da malha.
+\noindent na qual $\testfunction$ é a função teste; $\dispMh$ é o deslocamento medido da configuração de referência, com coordenadas $\posALEh$, até a configuração atual $\posh$ ($\posh = \posALEh +\dispMh $); e 
+$\dispMtth$ representa o deslocamento da configuração de referência até a configuração da malha no instante ${\tildet}$, de modo que $\postth$ ($\postth = \posALE + \dispMtth$); $\stressTensorM$ representa o tensor de tensões segundo a hipótese de pequenos deslocamentos.
 
-A escolha para $\tildet$ é geralmente $\tildet = {t_{n}}$ quando se calcula a configuração da malha no tempo ${t_{n+1}}$ (ver \citeonline{Tononetal:2021} para maiores detalhes). 
+A escolha para $\tildet$ é geralmente $\tildet = {t_{n}}$ quando se calcula a configuração da malha no instante ${t_{n+1}}$ (ver \citeonline{Tononetal:2021} para maiores detalhes). 
 
-O tensor de tensões é calculado através da seguinte relação:
+O tensor de tensão é calculado através da seguinte relação:
 
 \begin{align}
 	\stressTensorM(\dispM)
@@ -76,26 +74,34 @@ O tensor de tensões é calculado através da seguinte relação:
 	\right)
 \end{align}
 
-\noindent com $\elasticityM$ e $\poissonm$ o módulo de Elasticidade e o coeficiente de Poisson fictícios da malha respectivamente. Os valores usados por definição nesse trabalho são $\elasticityM =1,0$ e $\poissonm = 0,3$.
+\noindent com $\elasticityM$ e $\poissonm$ 	sendo respectivamente o módulo de Elasticidade e o coeficiente de Poisson fictícios. 
 
-Nos problemas de IFE, demanda-se maior controle da resolução da malha próxima a interface dos meios fluidos e sólidos, para representar os efeitos de camada limite, e como consequência, a obtenção de soluções mais acuradas nessas regiões críticas. Para fazer com que na deformação da malha se leve em conta o tamanho dos elementos, enrijecendo os menores mais do que os maiores, no método MJBS a equação da elasticidade fica descrita ao final como:
+Nos problemas de IFE, demanda-se maior controle da resolução da malha próxima a interface dos meios fluidos e sólidos, para representar os efeitos de camada limite, e como consequência, a obtenção de soluções mais acuradas nessas regiões críticas. Por outro lado, a discretização mais refinada é mais afetada pela deformação. Assim, visando preservar a geometria dos elementos menores, deve-se aumentar para enrijecendo os menores mais do que os maiores, no método MJBS a equação da elasticidade fica descrita ao final como:
 
 \begin{align}
 	\int_{\domaintt} \straintensor \left(\testfunction\right) : \stressTensorM \left(\dispMh- \dispMtth\right) \left(\frac{\jacM}{\left({\jacM}\right)_0}\right)^{-\chi_M} \deriv \domain = 0, 
 	\label{eq:elasticityMJBS}
 \end{align}
 
-\noindent onde $\jacM$ é o Jacobiano da malha, $(\jacM)_0$ é um parâmetro livre e $\chi_M$ determina a ordem pela qual os elementos menores serão enrijecidos mais do que os maiores.  $\chi_M$ é adotado correntemente como $1,0$. E o Jacobiano da malha calculado da forma que se segue:
-
+\noindent onde $\jacM$ é o determinante Jacobiano do mapeamento do espaço local adimensional para a configuração do elemento em $\tilde{t}$
 \begin{align}
-	\jacM = det\left(\frac{\partial\postth}{\partial\adimensionalcoordinates}\right).
-\end{align}
+	\jacM = det\left(\frac{\partial\postth}{\partial\adimensionalcoordinates}\right),
+\end{align} 
+$(\jacM)_0$ é um parâmetro livre tal que $(\jacM)_0>$, que pode ser adotado como o jacobiano médio na malha inicial, e $\chi_M$ determina a ordem pela qual a rigidez aumenta à medida que o tamanho dos elementos diminui, sendo adotado nas simulações deste trabalho $\chi_M=1,0$. 
 
-\section{Discretizações não coincidentes entre os meios}
 
-Na maioria dos casos a discretização das malhas do fluido e da estrutura são não-coincidentes no contorno $\boundaryFSI$ e podem inclusive ter aproximações matemáticas distintas. Dessa forma, uma metodologia que possibilita a aplicação de condições de contorno em caso de discretizações com nós não coincidentes, é imprescindível. 
 
-O procedimento adotado nesse trabalho pode ser entendido a partir da \autoref{fig:contornoIFE}. Durante o pré-processamento do código computacional, cada nó do contorno da estrutura $\ePosition_E$ é projetado sobre o contorno do fluido, e busca-se a coordenada paramétrica relativa a este ponto definida como $\adimensionalcoordinates_F (\ePosition_E)$. Da mesma forma, cada nó do contorno do fluido $\pos_F$ é projetado sobre o contorno da estrutura, e encontra-se uma coordenada paramétrica equivalente $\adimensionalcoordinates_E(\pos_F)$. 
+\section{Transferência de condições de acoplamento entre as discretizações}
+
+Em diversas situações é interessante que mas malhas do fluido e da estrutura possam ser diferentes no contorno $\boundaryFSI$, inclusive que podendo ter aproximações distintas. Assim, é importante uma metodologia que possibilita o acoplamento de discretizações com nós não coincidentes na interface fluido-estrutura. 
+
+O procedimento adotado nesse trabalho pode ser entendido a partir da \autoref{fig:contornoIFE}. Durante a etapa de pré-processamento, cada nó do contorno da estrutura $\ePosition_E$ é projetado sobre o contorno do fluido, indentificando-se a coordenada local do ponto do fluido  mais próximo $\adimensionalcoordinates_F (\ePosition_E)$, bem como o elemento em que está inserido. Da mesma forma, cada nó do contorno do fluido $\pos_F$ é projetado sobre o contorno da estrutura, e encontra-se uma coordenada paramétrica equivalente $\adimensionalcoordinates_E(\pos_F)$. 
+
+\textcolor{red}{A forma mais correta de fazer é projetar cada ponto de quadratura da estrutura no fluido para poder calcular a força de superfície. Isso está explicado no artigo do Jeferson de 2019. Na forma como você está apresentando (acredito que seja também o que está implementado), as forças de superfície vão ser aproximadas pelas funções de forma do sólido.... (Veja seção 4.1-4.3 do artigo do Jeferson)}
+
+
+\textcolor{red}{Está faltando explicar a transferência das condições de acoplamento (seção 4.3 do artigo do Jeferson)}
+
 
 \begin{figure}[!htbp]
 	\caption{Discretizações não-coincidentes no contorno IFE}
@@ -103,9 +109,12 @@ O procedimento adotado nesse trabalho pode ser entendido a partir da \autoref{fi
 	\includegraphics[scale=1.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/contornoIFE.pdf}	
 	\label{fig:contornoIFE}
 	\legend{Fonte: Elaborada pela autora}
+
+\textcolor{red}{A figura não parece mostrar os pontos mais próximos (projeção normal ao contorno), mas sim uma projeção vertical, isso porque você afastou artificialmente os contornos... Não precisa mudar, mas é bom registrar isso. Os símbolos também estão diferentes do texto.}
 \end{figure}
 
-Dessa forma, as informações que serão transmitidas ao fluido pela estrutura são interpoladas na malha da estrutura em cada uma das coordenadas paramétricas que possuem um nó equivalente na malha de fluido, e após isso aplicadas a este nó. O equivalente ocorre quando os dados são provenientes do fluido e serão transmitidos a estrutura.
+De maneira prática, para cada nó do fluido, é aplicada a velocidade interpolada na malha da estrutura sobre as coordenadas locais referentes ao nó do fluido. O mesmo é feito para o deslocamento da malha do fluido. Já para a estrutura, em cada nó, calcula-se .... \parei aqui....
+em cada uma das coordenadas locais relativas a cada nó na malha de fluido, e após isso aplicadas a este nó. O equivalente ocorre quando os dados são provenientes do fluido e serão transmitidos a estrutura.
 
 \section{Acoplamento Particionado Forte - Bloco-Iterativo}
 
