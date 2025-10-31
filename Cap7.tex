@@ -1,10 +1,10 @@
 \chapter[Acoplamento Fluido-Estrutura]{Interação Fluido-Estrutura} \label{capitulo:Cap7}
 
-Ao longo deste trabalho, conforme apresentado nos capítulos anteriores, foi desenvolvido um código computacional para análise de fluidos incompressíveis que permite a decomposição do domínio para capturar efeitos localizados por meio da técnica Arlequin estabilizada. Além disso, para esta pesquisa, foi disponibilizado pelo pesquisador Rosicley Júnior Rodrigues Rosa um código computacional para a análise não-linear de estruturas pelo método dos elementos finitos posicional, o qual foi desenvolvido durante seu trabalho de mestrado \cite{Rosa:2021}. Com base nesses desenvolvimentos, optou-se por um esquema de acoplamento particionado forte entre fluido e estrutura. Essa abordagem foi escolhida por proporcionar um total desacoplamento entre os \textit{solvers} de fluido e de estrutura, o que facilita a solução dos problemas que aqui serão propostos.
+Ao longo deste trabalho, conforme apresentado nos capítulos anteriores, foi desenvolvido um código computacional para análise de fluidos incompressíveis que permite a decomposição do domínio para capturar efeitos localizados por meio da técnica Arlequin estabilizada. Além disso, para esta pesquisa, foi disponibilizado pelo grupo de pesquisa um código computacional para a análise não-linear de estruturas de cascas pelo método dos elementos finitos posicional. Com base nesses desenvolvimentos, optou-se por um esquema de acoplamento particionado forte entre fluido e estrutura. ENeste capítulo é apresentada a técnica de acoplamento particionado adotada. Essa abordagem foi escolhida por proporcionar uma total modularidade entre os códigos para o fluido e para a estrutura, o que facilita a solução dos problemas que aqui serão propostos.
 
-Nesse contexto, para o acoplamento, utiliza-se a técnica de malhas adaptadas para a malha local do fluido em contato com a estrutura, aplicando-se uma descrição ALE. Vale ressaltar que, embora a malha local possa se mover, a malha global permanece fixa com descrição Euleriana, fazendo com que o método de acoplamento possa ser classificado como uma técnica híbrida.
+Nesse contexto, para o acoplamento, utiliza-se a técnica de malhas móveis para o modelo local do fluido, em contato com a estrutura, o qual baseia-se na descrição ALE, enquanto a malha global permanece fixa, com descrição Euleriana, fazendo com que o método possa ser classificado como uma técnica híbrida.
  
-No texto a seguir descrevem-se as condições de acoplamento necessárias a solução de um problema IFE, a técnica de movimentação de malha utilizada nesse estudo, e a metodologia de transferência de condições de contorno (Dirichlet-Neumann) em uma interface de fluido e sólido com malha não coincidente. Discorre-se na continuação sobre os detalhes a cerca do esquema de acoplamento particionado forte adotado. Por fim, o algoritmo de implementação computacional será apresentado, e exemplos de validação serão exibidos na sequência.
+No texto a seguir descrevem-se as condições de acoplamento e técnica para a solução particionada do problema de IFE, a técnica de movimentação de malha utilizada nesse estudo, e a metodologia de transferência de condições de contorno (Dirichlet-Neumann) com malhas não coincidentes na interface fluido-estrutura. Por fim, o algoritmo de implementação computacional é proposto e exemplos de verificação e de aplicação são propostos e simulados.
 
 \section{Condições de acoplamento}
 
@@ -18,25 +18,27 @@ O domínio computacional para a análise de problemas de interação fluido-estr
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-O domínio computacional não se sobrepõe, por isso, é necessário que em $\boundaryFSI$ existam condições físicas adicionais para se realizar o acoplamento. \citeonline{richter2017fluid} cita que o acoplamento é realizado através de 3 diferentes princípios no contorno $\boundaryFSI$ : condição cinemática, condição dinâmica e condição geométrica.
+O domínio computacional não se sobrepõe, por isso, é necessário que em $\boundaryFSI$ existam condições físicas adicionais para se realizar o acoplamento. \citeonline{richter2017fluid} cita que o acoplamento é garantido ao se atender as seguintes condições no contorno $\boundaryFSI$ : condição cinemática, condição dinâmica e condição geométrica.
 
-A condição cinemática refere-se ao fato de que a velocidade do fluido e do sólido na interface devem ser iguais. A condição dinâmica, refere-se à existência de continuidade do vetor tensão de Cauchy na direção normal ao contorno $\boundaryFSI$.
+A condição cinemática refere-se ao fato de que a velocidade do fluido e do sólido na interface devem ser iguais. A condição dinâmica, refere-se à existência de continuidade do vetor tensão de Cauchy na direção normal ao contorno $\boundaryFSI$, enquanto a condição geométrica refere-se à conformidade entre estrutura e fluido na interface.
 
-Em esquemas de acoplamento monolítico, as condições cinemática e dinâmica são atendidas de maneira implícita, visto que os meios são tratados no mesmo contexto matemático. Para esquemas particionadas, como o desse estudo, essas condições são atendidas através da transferência de condições de contorno apropriadas entre os meios.
+Nos esquemas de acoplamento monolítico, as condições cinemática e dinâmica são atendidas de maneira implícita, visto que os meios são tratados no mesmo contexto matemático. Para esquemas particionadas, como o deste estudo, essas condições são atendidas através da transferência de condições de contorno apropriadas de um meio para outro durante o processo iterativo de solução, ou a cada passo de tempo.
 
-Para a condição cinemática têm-se:
+Para a condição cinemática tem-se:
 
 \begin{align}
 	\velocity = \solidVel \ \textrm{no contorno} \ \boundaryFSI,
 \end{align}
 
-\noindent atendida através da aplicação dos valores de $\solidVel$ nos nós (ou pontos de controle) que compõe a malha do fluido na interface entre os meios.
+\noindent atendida através da aplicação dos valores de $\solidVel$ nos nós (ou pontos de controle) que compõe a malha do fluido na interface fluido-estrutura.
 
-A condição dinâmica, preescreve o balanço da tensão normal no contorno, ao que diz respeito à ação e reação, conforme a equação abaixo:
+A condição dinâmica, preescreve a continuidade da tensão normal no contorno,  conforme a equação abaixo:
 
 \begin{align}
 	\stressTensorS \snormalS + \stressTensorF \snormalF = \vzero \ \textrm{no contorno} \ \boundaryFSI,
 \end{align}
+
+parei aqui.....
 
 \noindent na qual, $\stressTensorS$ representa as tensões de Cauchy da estrutura, $\stressTensorF$ as tensões de Cauchy no fluido, e $\snormalS$ e $\snormalF$ representam o vetor normal no contorno $\boundaryFSI$ apontando para o fluido e para a estrutura respectivamente. Essa condição é atendida através da aplicação de $\stressTensorF \snormalF$ aos nós da malha da estrutura na interface entre os meios.
 
