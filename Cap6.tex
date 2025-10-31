@@ -628,11 +628,10 @@ Considera-se um aerofólio NACA 0012 com corda de comprimento adimensional unit�
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-\parei aqui...
-Para fins de comparação, são adotados duas discretizações, ... resultados de coeficientes de arrasto e sustentação ao longo do tempo para duas discretizações distintas: 1. Monomodelo; 2. Combinação de duas malhas através do método Arlequin estabilizado.
 
-O monomodelo foi discretizado através de elementos finitos (\autoref{fig:aerofolio_malhaMonoFEM}), com malha constituída de 9240 elementos triangulares quadráticos e 18792 nós. 
+Para fins de comparação, simula-se inicialmente o problema com uma malha única de elementos finitos, denominada aqui monomodelo. O monomodelo é discretizado com 9240 elementos triangulares quadráticos e 18792 nós (\autoref{fig:aerofolio_malhaMonoFEM}). 
 
+Para o método Arlequin, utiliza-se uma discretização global isogeométrica (IGA) e uma malha local, mais refinada, em elementos finitos (MEF), como apresentado na Figura \ref{fig:aerofolio_malhaArlequin} com detalhe da discretização local na Fig. \ref{fig:aerofolio_detalheLocal}. A malha global isogeométrica é constituida por 9 $patches$, totalizando 15561 pontos de controle e 14025 células. A discretização em cada \textit{patch} pode ser visualizada na \autoref{tab:aerofolio_discretização_patches}. A malha local por sua vez é composta por 5214 elementos triangulares quadráticos e 10670 nós. 
 \begin{figure}[!htbp]
 	\caption{Aerofólio: Malha Monomodelo (MEF)}
 	\centering 
@@ -641,7 +640,7 @@ O monomodelo foi discretizado através de elementos finitos (\autoref{fig:aerofo
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Para o método Arlequin, duas malhas foram utilizadas, uma malha global com discretização isogeométrica (IGA) e uma malha local, mais refinada, em elementos finitos (MEF). Uma visão global da composição do domínio é apresentada na Figura \ref{fig:aerofolio_malhaArlequin}. Uma vista aproximada do aerofólio e da malha local pode ser visualizada na Figura \ref{fig:aerofolio_detalheLocal}.
+
 
 \begin{figure}[!htbp]
 	\caption{Aerofólio: Discretização das malhas global e local}
@@ -652,7 +651,7 @@ Para o método Arlequin, duas malhas foram utilizadas, uma malha global com disc
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-A malha global isogeométrica foi obtida através da utilização de 9 $patches$, que totalizaram 15561 pontos de controle e 14025 células. A discretização em cada \textit{patch} pode ser visualizada na \autoref{tab:aerofolio_discretização_patches}. A malha local por sua vez é composta por 5214 elementos triangulares quadráticos e 10670 nós. 
+
 
 \begin{table}[h]
 	\caption{Aerofólio: Número de pontos de controle por \textit{patch}}
@@ -687,11 +686,11 @@ A malha global isogeométrica foi obtida através da utilização de 9 $patches$
 	\fonte{Elaborada pelo autor.}%
 \end{table}
 
-Na Figura \ref{fig:aerofolio_detalheLocal} pode observar em vermelho os elementos que fazem parte da zona de colagem. A espessura da zona de colagem foi definida como $0,2$, totalizando 628 elementos triangulares quadráticos e 1428 nós nessa região. A constante do operador de acoplamento $L^{2}$ foi definida como $k_{0} = 10$. 
+Na Figura \ref{fig:aerofolio_detalheLocal} pode-se observar em vermelho os elementos que fazem parte da zona de colagem. A espessura da zona de colagem foi definida como $0,2$, compreendendo 628 elementos triangulares quadráticos e 1428 nós. A constante do operador de acoplamento $L^{2}$ foi definida como $k_{0} = 10$. 
 
-Nesse problema observa-se o surgimento de uma esteira de vórtices a jusante do aerofólio, que resulta em um número de Strouhal ($\Strouhal$) equivalente a 0,877. Esse valor encontra-se em concordância com o obtido por \citeonline{MittalT:1994} de 0,862. 
+Nesse problema, observa-se o surgimento de uma esteira de vórtices a jusante do aerofólio, que resulta em um número de Strouhal ($\Strouhal$) equivalente a 0,877. Esse valor encontra-se em concordância com o obtido por \citeonline{MittalT:1994} de 0,862. 
 
-Nas Figura \ref{fig:aerofolio_CD} e Figura \ref{fig:aerofolio_CL} apresentam-se os resultados de coeficiente de arrasto e sustentação obtidos para as análises realizadas. Pode-se observar que os resultados obtidos com o modelo baseado no método Arlequin estabilizados estão de acordo com os obtidos para o modelo usando monomodelo.
+Nas Figura \ref{fig:aerofolio_CD} e Figura \ref{fig:aerofolio_CL} apresentam-se os resultados de coeficiente de arrasto e sustentação obtidos para as análises realizadas. Pode-se observar que os resultados obtidos com o modelo baseado no método Arlequin estabilizado estão de acordo com os obtidos para o modelo usando monomodelo.
 
 \begin{figure}[!htbp]
 	\caption{Aerofólio: Coeficiente de Arrasto}
@@ -709,7 +708,7 @@ Nas Figura \ref{fig:aerofolio_CD} e Figura \ref{fig:aerofolio_CL} apresentam-se 
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Nas Figura \ref{fig:aerofolio_velocidade} e Figura \ref{fig:aerofolio_pressao} estão apresentados os campos de velocidade e pressão respectivamente para um período de um ciclo das curvas referentes aos coeficientes de arrasto e sustentação. 
+Nas Figuras \ref{fig:aerofolio_velocidade} e \ref{fig:aerofolio_pressao} estão apresentados os campos de velocidade e pressão respectivamente para o período de um ciclo. 
 
 \begin{figure}[!htbp]
 	\caption{Aerofólio: Campo de velocidade}
@@ -737,9 +736,9 @@ Nas Figura \ref{fig:aerofolio_velocidade} e Figura \ref{fig:aerofolio_pressao} e
 
 \subsection{Aerofólio com movimento de arfagem prescrito}
 
-Para a validação computacional da técnica Arlequin estabilizada em domínios móveis  utilizou-se um problema envolvendo um aerofólio NACA 0012, semelhante ao apresentado na \autoref{capitulo:Cap6:Exemplos:NACA0012}, aplicando-se, entretanto, um movimento de arfagem ao mesmo. O aerofólio apresenta variação do ângulo de ataque em $20^{\circ}$, iniciando o movimento em $10^{\circ}$ e finalizando-o em $30^{\circ}$. 
+Para a verificação computacional da técnica Arlequin estabilizada aplicada a problemas com contornos móveis  considera-se o mesmo aerofólioda \autoref{capitulo:Cap6:Exemplos:NACA0012}, porém agora com um movimento de arfagem oscilatório. O aerofólio apresenta variação do ângulo de ataque em $20^{\circ}$, iniciando o movimento em $10^{\circ}$ e finalizando-o em $30^{\circ}$. 
 
-Para descrever-se tal movimento aplica-se, tendo como centro a corda média do aerofólio, o movimento de rotação de corpo rígido através da seguinte relação:
+Para descrever-se tal movimento aplica-se o movimento de rotação de corpo rígido sobre o ponto médio da corda, de acordo com a relação:
 
 \begin{align}
 	\theta = \frac{\theta_{max}+\theta_{min}}{2} - \frac{\theta_{max}-\theta_{min}}{2}\cos{\omega_{f}t} ,
@@ -747,7 +746,7 @@ Para descrever-se tal movimento aplica-se, tendo como centro a corda média do a
 
 \noindent com $\omega_{f} = 2\pi f_{o}$, sendo $f_{o}$ a frequência de oscilação, adotada nesse estudo como 1.0, $\theta_{max} = 30^{\circ}$ e $\theta_{min} = 10^{\circ}$.
 
-As dimensões da geometria do domínio computacional são alteradas (ver \autoref{fig:aerofolioMov_geometria}) para capturar os efeitos dos desprendimentos de vórtices, que para esse problema, se desprendem em uma faixa mais ampla. Os demais parâmetros de análise foram mantidos iguais aos apresentados no exemplo da \autoref{capitulo:Cap6:Exemplos:NACA0012}. 
+As dimensões da geometria do domínio computacional são alteradas (ver \autoref{fig:aerofolioMov_geometria}) para capturar os efeitos dos desprendimentos de vórtices, que para esse problema, ocorrem em uma faixa mais ampla. Os demais parâmetros de análise foram mantidos iguais aos apresentados no exemplo da \autoref{capitulo:Cap6:Exemplos:NACA0012}. 
 
 \begin{figure}[!htbp]
 	\caption{Aerofólio Mov.: Geometria}
@@ -758,9 +757,9 @@ As dimensões da geometria do domínio computacional são alteradas (ver \autore
 \end{figure}
 
 Novamente são analisadas 2 discretizações: 1. Monomodelo; 2. Combinação de duas malhas através do método Arlequin estabilizado.
-O monomodelo consiste em uma malha com 12438 elementos triangulares quadráticos e 25188 elementos. As malhas global e local do método Arlequin mantiveram-se com a mesma discretização do problema da \autoref{capitulo:Cap6:Exemplos:NACA0012}, incluindo a quantidade de elementos na zona de colagem.
+O monomodelo emprega uma malha com 12438 elementos triangulares quadráticos e 25188 elementos \textcolor{red}{Um desses deve ser o número de nós. Corrija.}. As discretizações global e local para o método Arlequin são as mesmas do problema da \autoref{capitulo:Cap6:Exemplos:NACA0012}, incluindo a quantidade de elementos na zona de colagem.
 
-É importante ressaltar que para a simulação desse exemplo, utilizou-se como campo inicial de velocidade e pressão, valores obtidos em uma solução de longo termo do aerofólio na condição de repouso.
+É importante ressaltar que, para iniciar a simulação desse exemplo, utilizou-se como campo inicial de velocidade e pressão, valores obtidos em uma solução de longo termo do aerofólio na condição de repouso.
 
 A variação dos coeficientes de arrasto e sustentação ao longo do tempo são apresentados nas \autoref{fig:aerofolioMov_CD} e \autoref{fig:aerofolioMov_CL}. Nota-se nas imagens que o monomodelo e o modelo Arlequin estão consistentes em suas respostas. Soluções semelhantes podem ser observados no trabalho de \citeonline{Fernandes:2020}.
 
@@ -780,7 +779,7 @@ A variação dos coeficientes de arrasto e sustentação ao longo do tempo são 
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Na Figura \ref{fig:aerofolioMov_velocidade} e Figura \ref{fig:aerofolioMov_pressao} são apresentados os campos de velocidade e pressão em alguns instantes para um ciclo do movimento oscilatório prescrito.
+Nas Figura \ref{fig:aerofolioMov_velocidade} e \ref{fig:aerofolioMov_pressao} são apresentados os campos de velocidade e pressão em diferentes instantes dentro de um ciclo do movimento oscilatório prescrito.
 
 \begin{figure}[!htbp]
 	\caption{Aerofólio Mov.: Campos de velocidade}
