@@ -116,11 +116,11 @@ O procedimento adotado nesse trabalho pode ser entendido a partir da \autoref{fi
 De maneira prática, para cada nó do fluido, é aplicada a velocidade interpolada na malha da estrutura sobre as coordenadas locais referentes ao nó do fluido. O mesmo é feito para o deslocamento da malha do fluido. Já para a estrutura, em cada nó, calcula-se .... \parei aqui....
 em cada uma das coordenadas locais relativas a cada nó na malha de fluido, e após isso aplicadas a este nó. O equivalente ocorre quando os dados são provenientes do fluido e serão transmitidos a estrutura.
 
-\section{Acoplamento Particionado Forte - Bloco-Iterativo}
+\section{Acoplamento particionado forte - bloco-iterativo}
 
 Os problemas de IFE são caracterizados pela interdependência entre o fluido e a estrutura, visto que o comportamento do escoamento depende do formato e do movimento da estrutura, enquanto que o movimento da estrutura e sua deformação dependem das forças do fluido que atuam sobre ela. Matematicamente pode-se dizer que os problemas de IFE são conjuntos de equações e condições de contorno associadas ao fluido e a estrutura que devem ser satisfeitas simultaneamente.
 
-As equações completas discretizadas da formulação IFE conduzem a um sistema de equações não-lineares que devem ser resolvidas a cada passo de tempo e podem ser representadas da seguinte maneira \cite{BazilevsTT:2013}:
+As equações completas discretizadas da formulação IFE conduzem a um sistema de equações não-lineares que devem ser resolvidas a cada passo de tempo e podem ser representadas da seguinte maneira \cite{BazilevsTT:2013a}:
 
 \begin{align}
 	\Nf\left(\df,\ds,\dm\right) = \vzero, \label{eq:N1}\\ 
@@ -128,7 +128,7 @@ As equações completas discretizadas da formulação IFE conduzem a um sistema 
 	\Nm\left(\df,\ds,\dm\right) = \vzero \label{eq:N3},
 \end{align}
 
-\noindent em que $\Nf$, $\Ns$ e $\Nm$ representam as equações que descrevem o fluido, a estrutura e a malha respectivamente, e, $\df$, $\ds$, $\dm$ são vetores com as variáveis nodais de cada meio. 
+\noindent em que $\Nf$, $\Ns$ e $\Nm$ representam as equações que descrevem o fluido, a estrutura e a malha respectivamente; e, $\df$, $\ds$, $\dm$ são vetores com as variáveis nodais de cada meio. 
 A resolução dessas equações através do método de Newton-Raphson conduz ao seguinte sistema linear de equações:
 
 \begin{align}
@@ -151,16 +151,15 @@ A resolução dessas equações através do método de Newton-Raphson conduz ao 
 	\label{eq:sist_lin_IFE}
 \end{align}	
 
-\noindent sendo $\cff = - \Nf$, $\css = - \Ns$, $\cmm = - \Nm$. $\xf$, $\xs$ e $\xm$ são os incrementos às soluções $\df$, $\ds$ e $\dm$ respectivamente e $\mA_{ij} = \frac{\partial\Ni}{\partial\djj}$. 
+\noindent sendo $\cff = - \Nf$, $\css = - \Ns$, $\cmm = - \Nm$; $\xf$, $\xs$ e $\xm$ são os incrementos às soluções $\df$, $\ds$ e $\dm$, respectivamente; e $\mA_{ij} = \frac{\partial\Ni}{\partial\djj}$. 
 
- \citeonline{BazilevsTT:2013} apresentam uma classificação da metodologia de acoplamento segundo a forma de resolver essas equações não-lineares. As categorias definidas pelos autores são: técnica direta, técnica bloco-iterativa e técnica quase-direta. 
+\citeonline{BazilevsTT:2013a} apresentam uma classificação da metodologia de acoplamento segundo a forma de resolver essas equações não-lineares. As categorias definidas pelos autores são: técnica direta, técnica bloco-iterativa e técnica quase-direta. 
 
-A técnica direta seria equivalente aos esquemas de solução monolíticos citados ao longo do texto, e consiste na resolução a cada iteração de Newton-Raphson do sistema apresentado na \autoref{eq:sist_lin_IFE}. Essa técnica apresenta boa convergência, entretanto, devido aos grandes sistemas lineares gerados, ocorre um aumento do custo computacional.
+A técnica direta seria equivalente aos esquemas de solução monolíticos citados ao longo do texto, e consiste na resolução a cada iteração de Newton-Raphson do sistema apresentado na Equação~\eqref{eq:sist_lin_IFE}. Essa técnica apresenta boa convergência, entretanto, devido aos grandes sistemas lineares gerados, ocorre um aumento do custo computacional.
 
-Nesse contexto, e buscando proporcionar um total desacoplamento entre os \textit{solvers} de fluido e de estrutura, adotou-se o um esquema de acoplamento do tipo particionado forte. Dentro da classificação dos autores \citeonline{BazilevsTT:2013} seria equivalente a técnica de acoplamento do tipo bloco iterativo.
+Nesse contexto, e buscando proporcionar um total desacoplamento entre os \textit{solvers} de fluido e de estrutura, adotou-se o um esquema de acoplamento do tipo particionado forte. Dentro da classificação dos autores \citeonline{BazilevsTT:2013a} seria equivalente a técnica de acoplamento do tipo bloco iterativo.
 
 Quando se utiliza um acoplamento do tipo bloco iterativo, os sistemas do fluido, da estrutura e da malha são tratados em blocos separados, e para cada iteração dentro de um passo de tempo, se resolve sequencialmente o seguinte conjunto de equações:
-
 \begin{align}
 	\left .\frac{\partial\Nf}{\partial\df}\right|_{\left(\df^{i},\ds^{i},\dm^{i}\right)} \Delta\df^{i} = - \Nf\left(\df^{i},\ds^{i},\dm^{i}\right)  \label{eq:lin_fluido} \\
 	\df^{i+1} =  \df^{i} + \Delta\df^{i} \label{eq:atu_fluido}	\\
@@ -172,54 +171,57 @@ Quando se utiliza um acoplamento do tipo bloco iterativo, os sistemas do fluido,
 
 Nota-se que o ocorre é apenas uma modificação da matriz tangente com relação ao método direto. Este fato, faz com que a resposta não seja alterada, entretanto, a convergência do problema pode ser afetada. 
 
-Em certos problemas envolvendo estruturas leves, a resposta estrutural pode tornar-se extremamente sensível a pequenas variações nas forças provenientes do fluido. Esse fenômeno pode levar à divergência da técnica de bloco iterativo. Para contornar essa dificuldade, adotou-se a estratégia proposta por \citeonline{Tezduyar:2003d}, chamada de \textit{Augmented A22} na qual a matriz de massa em $\mA_{22}$ é aumentada por um fator dependente do tipo de problema em análise. Essa modificação ocorre sem alterar $\cff$, $\css$ e $\cmm$, ou seja, sem modificar as equações não lineares. Dessa forma, quando a solução pelo método de bloco iterativo converge, a massa estrutural real do problema permanece inalterada.
+Em certos problemas envolvendo estruturas leves, a resposta estrutural pode tornar-se extremamente sensível a pequenas variações nas forças provenientes do fluido. Esse fenômeno pode levar à divergência da técnica de bloco iterativo. Para contornar essa dificuldade, adotou-se a estratégia proposta por \citeonline{Tezduyar:2003d}, chamada de \textit{Augmented A22} na qual a matriz de massa em $\mA_{22}$ é aumentada por um fator dependente do tipo de problema em análise. Essa modificação ocorre sem alterar $\cff$, $\css$ e $\cmm$, ou seja, sem modificar as equações não-lineares. Dessa forma, quando a solução pelo método de bloco iterativo converge, a massa estrutural real do problema permanece inalterada.
 
-\subsection{Implementação Computacional} 
+\subsection{Implementação computacional} 
 
-O Algoritmo que descreve a implementação computacional do problema de IFE de acordo com a técnica de acoplamento forte do tipo bloco-iterativo é apresentada no Alg. \ref{alg:IFE}.
+O Algoritmo que descreve a implementação computacional do problema de IFE de acordo com a técnica de acoplamento forte do tipo bloco-iterativo é apresentada no Algoritmo. \ref{alg:IFE}. No algoritmo apresentado $\boldsymbol{t^{E}}$ representa as forças de superfície no contorno $\boundaryFSI$ aplicadas à estrutura, e as medidas de convergência $\epsilon_F$, $\epsilon_E$ e $\epsilon_M$ são normas vetoriais $L_2$ aplicadas sobre o resíduo das respectivas equações diferenciais.
 
 \begin{algorithm}
 	\caption{Algoritmo para solução de problemas IFE}
 	\label{alg:IFE}
 	\begin{algorithmic}[1]
-		\State Busca por coordenadas paramétricas correspondentes aos nós da malha do fluido na malha da estrutura;
-		\State Busca por coordenadas paramétricas correspondentes aos nós da malha da estrutura na malha do fluido;
-		\For {o passo de tempo $t=0$ até $t=\totalTime$} 
-		\State Atualiza as variáveis do fluido, estrutura e malha no passo de tempo $t = t-1$;
-		\For {número de iterações de Newton Raphson $it=0$ até $it=N_{it}$}
+		\State \textbf{Pré processamento - método Arlequin RBSAM aplicado à DFC}
+		\State Cálculo da distância assinalada dos nós e pontos de controle ao contorno $\localBoundary$;
+		\State Determinação da zona de colagem $\gluingZone$;
+		\State Definição da função ponderadora de acordo com Equação~\eqref{eq:funcPondeArleq};
+		\State Busca pela correspondência entre os pontos de integração da malha local na malha global na zona de colagem;
+		\State \textbf{Pré processamento - IFE}
+		\State Busca por coordenadas paramétricas correspondentes aos nós da malha do fluido na malha da estrutura no contorno $\boundaryFSI$;
+		\State Busca por coordenadas paramétricas correspondentes aos nós da malha da estrutura na malha do fluido no contorno $\boundaryFSI$;
+		\For {o passo de tempo $0$ até $npt-1$} 
+		\State $i \gets 0$;
+		\State Predição da solução fluido (ver Algoritmo \ref{alg:fluidARLQ});
+		\State Predição da solução estrutura (ver Algoritmo \ref{alg:algoritmo_solid});		
+		\While{($\epsilon$ < tolerância)}
+		\State $i\gets i+1$;
 		\State \textbf{Fluido}
-		\State Realiza os passos das linhas 1., 2., 3. e 4. do Algoritmo \ref{alg:fluidARLQ};
-		\State Resolve o problema do fluido (\autoref{eq:lin_fluido});
-		\State Atualiza as variáveis do fluido na iteração $it$ através da \autoref{eq:atu_fluido};
-		\State Calcula medida de convergência $\epsilon_F$;
+		\State Resolve-se o problema da DFC na iteração $i$ (Algoritmo \ref{alg:fluidARLQ});
 		\State Atualiza as forças de superfície no contorno  $\boundaryFSI$ ($\boldsymbol{t^{E}} = -\stressTensorF \cdot \snormalF$) ;
 		\State \textbf{Estrutura}
-		\State Resolve o problema da estrutura (\autoref{eq:lin_est});
-		\State Atualiza as variáveis da estrutura na iteração $it$ através da \autoref{eq:atu_est};
-		\State Calcula medida de convergência $\epsilon_E$;
+		\State Resolve o problema da estrutura na iteração $i$ (Algoritmo \ref{alg:algoritmo_solid})
 		\State Atualiza velocidade e acelerações no fluido no contorno  $\boundaryFSI$;
 		\State Atualiza posição da interface da malha no contorno  $\boundaryFSI$;
 		\State \textbf{Malha}
-		\State Resolve o problema de malha através da \autoref{eq:lin_malha};
-		\State Atualiza as variáveis da malha na iteração $it$ através da \autoref{eq:atu_malha};
+		\State Resolve o problema de malha através da Equação~\eqref{eq:lin_malha};
+		\State Atualiza as variáveis da malha na iteração $i$ através da Equação~\eqref{eq:atu_malha};
 		\State Calcula medida de convergência $\epsilon_M$;
 		\If    {$\epsilon_F$, $\epsilon_E$ e $\epsilon_M$ < $tol$ } 
 		\State Sair do loop;
 		\EndIf
-		\EndFor
+		\EndWhile
+		\State Atualiza os valores das variáveis do fluido, estrutura e malha do passo anterior;
 		\EndFor
 	\end{algorithmic}
 \end{algorithm}
 
-No algoritmo apresentado $\boldsymbol{t^{E}}$ representa as forças de superfície no contorno $\boundaryFSI$ aplicadas à estrutura, e as medidas de convergência $\epsilon_F$, $\epsilon_E$ e $\epsilon_M$ são normas vetoriais $L_2$ aplicadas sobre o resíduo das respectivas equações diferenciais.
-
 \section{Exemplos}
 
-Para a validação da metodologia de análise de problemas de IFE, apresentada nesse capítulo, alguns exemplos serão estudados e analisados.
+Para a validação da metodologia de análise de problemas de IFE, apresentada nesse capítulo, alguns exemplos serão estudados e analisados. Os dois primeiros exemplos dizem respeito a uma cavidade com um fundo flexível composto por uma chapa, com velocidade oscilatória aplicada em seu topo. Esses exemplos são uma extensão do típico problema da DFC de uma cavidade quadrada (apresentado, por exemplo, na \autoref{capitulo:Cap2:VerApl:CavQuad}) e serão apresentados em uma versão bidimensional e tridimensional.
 
-Os dois primeiros exemplos dizem respeito a uma cavidade com um fundo flexível composto por uma chapa, com velocidade oscilatória aplicada em seu topo. Esses exemplos são uma extensão do típico problema da DFC de uma cavidade quadrada (apresentado, por exemplo, na \autoref{capitulo:Cap2:VerApl:CavQuad}) e serão apresentados em uma versão bidimensional e tridimensional.
+O seguinte exemplo consiste em um painel flexível engastado a um bloco prismático rígido. Esse problema é comumente utilizado na validação de códigos de interação fluido-estrutura, pois envolve fenômenos complexos. À medida que ocorre o desprendimento de vórtices devido ao escoamento ao redor do prisma, perturbações são geradas no fluxo, excitando a estrutura, que então sofre grandes deslocamentos.
 
-O seguinte exemplo consiste em um painel flexível engastado a um bloco prismático rígido. Esse problema é comumente utilizado na validação de códigos de Interação Fluido-Estrutura (IFE), pois envolve fenômenos complexos. À medida que ocorre o desprendimento de vórtices devido ao escoamento ao redor do prisma, perturbações são geradas no fluxo, excitando a estrutura, que então sofre grandes deslocamentos.
+O último exemplo, consiste em uma simulação de caráter mais prático. Na primeira parte do exemplo simula-se o escoamento dentro de um tubo incidindo sobre uma turbina hidráulica, utilizando-se para a descrição do fluido um monomodelo constituído por elementos finitos. Na segunda parte do exemplo, com a finalidade de demonstrar a versatilidade da técnica desenvolvida ao longo desta tese, faz-se uso de um modelo Arlequin para a discretização do domínio do fluido, afim de possibilitar a adição de pás diretoras rígidas à montante do rotor da turbina. Na discretização combinam-se elementos finitos e isogeometria.
 
 \subsection{Cavidade com fundo flexível - 2D}
 
@@ -237,9 +239,9 @@ A cavidade com fundo flexível (geometria apresentada na \autoref{fig:cavFF2d_ge
 
 A placa fina possui condições de deslocamentos nulos em suas laterais esquerda e direita, e, na direção perpendicular ao plano da cavidade o vetor generalizado e os deslocamentos, nesta direção, são prescritos como zero em $y_3=0,0$ e $y_3=0,1$.
 
-No que diz respeito a integração temporal utilizou-se $\timeStep = 0,1$, e $\specRadius = 0,0$. A escolha por uma integração temporal com máxima dissipação se deu por conta do trabalho de \citeonline{Forsteretal:2007} que reporta que a regra trapezoidal de integração leva a resultados instáveis para esse problema.
+No que diz respeito a integração temporal utilizou-se $\timeStep = 0,1$, e $\specRadius = 0,0$ (fluido). A escolha por uma integração temporal com máxima dissipação se deu por conta do trabalho de \citeonline{Forsteretal:2007} que reporta que a regra trapezoidal de integração leva a resultados instáveis para esse problema.
 
-Foram utilizadas nas análises três diferentes discretizações para o modelo Arlequin, sendo as malhas globais em discretização isogeométrica com funções de forma quadráticas (IGA) e as malhas locais, mais refinadas e estruturadas, em elementos finitos (MEF) tetraédricos quadráticos. Além disso, os resultados foram comparados com uma discretização somente em elementos finitos tetraédricos quadráticos, chamada de monomodelo. A quantidade de nós, ou pontos de controle (PC), e de elementos ou células, para cada uma dessas discretizações é apresentada na \autoref{tab:CF2DD}, assim como detalhes da discretização da placa, na qual foram utilizados elementos triangulares quadráticos estruturados. Na tabela ML e MG são abreviações para malha local e malha global respectivamente, e El representa os elementos ou células.
+Foram utilizadas nas análises três diferentes discretizações para o modelo Arlequin, sendo as malhas globais em discretização isogeométrica com funções de forma quadráticas (AIG) e as malhas locais, mais refinadas e estruturadas, em elementos finitos (MEF) tetraédricos quadráticos. Além disso, os resultados foram comparados com uma discretização somente em elementos finitos tetraédricos quadráticos, chamada de monomodelo. A quantidade de nós, ou pontos de controle (PC), e de elementos ou células, para cada uma dessas discretizações é apresentada na \autoref{tab:CF2DD}, assim como detalhes da discretização da placa, na qual foram utilizados elementos triangulares quadráticos estruturados. Na tabela ML e MG são abreviações para malha local e malha global respectivamente, e El representa os elementos ou células.
 	
 	\begin{center}
 		\begin{table}[!htbp]
@@ -265,30 +267,30 @@ Foram utilizadas nas análises três diferentes discretizações para o modelo A
 				\midrule
 			\end{tabular}
 			\label{tab:CF2DD}
-			\fonte{Elaborada pelos autores.}%
+			\fonte{Elaborada pela autora.}%
 		\end{table}
 	\end{center}
 
-A malha isogeométrica utilizada foi composta por 2 \textit{patches} (observar Figura \ref{fig:cavFF2d_malhaArlq2} para a Malha 2). Essa discretização usando 2 \textit{patches} foi necessária para gerar pontos de controle interpolatórios posicionados na linha que separa as paredes laterais das aberturas, possibilitando a adequada aplicação das condições de contorno. Na Figura \ref{fig:cavFF2d_malhaArlq2} pode ser observada também a composição do modelo Arlequin. A região em vermelho da malha local corresponde aos elementos que fazem parte da zona de colagem.  A espessura da zona de colagem foi definida como $0,1$. A constante do operador de acoplamento $L^{2}$ foi especificada como $k_{0} = 10$. A quantidade de elementos na zona de colagem para malha 0, 1 e 2  foram respectivamente de 60, 240, 960, e de nós 189, 615 e 2187. Na Figura \ref{fig:cavFF2d_malha_monomodelo} apresenta-se a malha do monomodelo e na Figura \ref{fig:cavFF2d_malha_casca} a malha 2 da casca.
+A malha isogeométrica utilizada foi composta por 2 \textit{patches} (observar Figura \ref{fig:cavFF2d_malhaArlq2}). Essa discretização usando 2 \textit{patches} foi necessária para gerar pontos de controle interpolatórios posicionados na linha que separa as paredes laterais das aberturas, possibilitando a adequada aplicação das condições de contorno. Na Figura \ref{fig:cavFF2d_malhaArlq2} pode ser observada também a composição do modelo Arlequin. A região em vermelho da malha local corresponde aos elementos que fazem parte da zona de colagem.  A espessura da zona de colagem foi definida como $0,1$. A constante do operador de acoplamento $L^{2}$ foi especificada como $k_{0} = 10$. A quantidade de elementos na zona de colagem para malha 0, 1 e 2  foram respectivamente de 60, 240, 960, e de nós 189, 615 e 2187. Na Figura \ref{fig:cavFF2d_malha_monomodelo} apresenta-se a malha do monomodelo e na Figura \ref{fig:cavFF2d_malha_casca} a malha 2 da base.
 
 \begin{figure}[!htbp]
 	\caption{Cavidade fundo flexível 2D: Discretizações}
 	\centering
 	\subfloat[Modelo Arlequin - Malha 2\label{fig:cavFF2d_malhaArlq2}] {\includegraphics[scale=1.0,trim=0.5cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/cavFF2d_malha.pdf}}  \
 	 \subfloat[Monomodelo\label{fig:cavFF2d_malha_monomodelo}]{\includegraphics[scale=1.0,trim=2cm 0cm 2cm 0cm, clip=true]{Imagens/Cap7/cavFF2d_malha_mono.pdf}}  \\
-	 \subfloat[Casca - Malha 2\label{fig:cavFF2d_malha_casca}]{\includegraphics[scale=1.0,trim=2cm 2cm 2cm 2cm, clip=true]{Imagens/Cap7/cavFF2d_malha_casca.pdf}} 
+	 \subfloat[Fundo flexível - Malha 2\label{fig:cavFF2d_malha_casca}]{\includegraphics[scale=1.0,trim=2cm 2cm 2cm 2cm, clip=true]{Imagens/Cap7/cavFF2d_malha_casca.pdf}} 
 	\label{fig:cavFF2d_malha}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 Nesse problema foi necessário para atingir a convergência a utilização da técnica \textit{Augmented A22}, multiplicando-se a parcela da matriz tangente referente à matriz de massa da estrutura por um fator 2,0.
 
-Na \autoref{fig:cavFF2d_Arlq_deslA} são apresentados os deslocamentos da placa no ponto A (ver Figura \ref{fig:cavFF2d_geometria}) para os modelos Arlequin (malha 0, malha 1 e malha 2). Para a comparação com as referências e com o monomodelo, utilizou-se o modelo Arlequin composto pela malha 2, mais refinada, e os resultados são apresentados na \autoref{fig:cavFF2d_deslA}. Pode-se observar nessa última figura, que os dados obtidos com o modelo Arlequin são compatíveis com os obtidos com o monomodelo. As diferenças encontradas entre a amplitude dos deslocamentos obtidos nesse trabalho com as referências podem ser atribuídas para as diferentes formulações e discretizações adotadas para a modelagem do fluido e da chapa. Vale ressaltar, que apesar das discretizações distintas entre o monomodelo e o modelo Arlequin, os resultados obtidos se mostraram muito satisfatórios.
+Na \autoref{fig:cavFF2d_Arlq_deslA} são apresentados os deslocamentos da placa no ponto A (ver Figura \ref{fig:cavFF2d_geometria}) para os modelos Arlequin (malha 0, malha 1 e malha 2). Para a comparação com as referências e com o monomodelo, utilizou-se o modelo Arlequin composto pela malha 2, mais refinada, e os resultados são apresentados na \autoref{fig:cavFF2d_deslA}. Pode-se observar nessa última figura, que os dados obtidos com o modelo Arlequin são compatíveis com os obtidos com o monomodelo. As diferenças encontradas entre a amplitude dos deslocamentos obtidos nesse trabalho com as referências podem ser atribuídas para as diferentes formulações e discretizações adotadas para a modelagem do fluido e da base flexível. Vale ressaltar, que apesar das discretizações distintas entre o monomodelo e o modelo Arlequin, os resultados obtidos se mostraram muito satisfatórios.
 
 \begin{figure}[!htbp]
 	\caption{Cavidade fundo flexível 2D: Deslocamento em A para malhas do modelo Arlequin}
 	\centering 
-	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/cavFF2d_Arlq_deslA.eps}	
+	\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/cavFF2d_Arlq_deslA.pdf}	
 	\label{fig:cavFF2d_Arlq_deslA}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -296,7 +298,7 @@ Na \autoref{fig:cavFF2d_Arlq_deslA} são apresentados os deslocamentos da placa 
 \begin{figure}[!htbp]
 	\caption{Cavidade fundo flexível 2D: Deslocamento em A comparado com as referências e monomodelo}
 	\centering 
-	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/cavFF2d_deslA.eps}	
+	\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/cavFF2d_deslA.pdf}	
 	\label{fig:cavFF2d_deslA}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -327,48 +329,50 @@ Na Figura \ref{fig:cavFF2d_vel} são apresentados os campos de velocidade em dif
 
 \subsection{Cavidade com fundo flexível - 3D}
 
-O problema da cavidade tridimensional com fundo flexível foi proposto inicialmente por \citeonline{Mok:2001} e é muito semelhante ao 2D, entretanto, nessa variação a profundidade da cavidade possui dimensão unitária, conforme pode ser visualizado na \autoref{fig:cavFF3d_geometria}, além disso, a chapa possui restrição de deslocamentos em todos os 4 bordos. Os demais dados necessários à análise são idênticos ao do problema 2D.
+O problema da cavidade tridimensional com fundo flexível foi proposto inicialmente por \citeonline{Mok:2001} e é muito semelhante ao 2D, entretanto, nessa variação a profundidade da cavidade possui dimensão unitária, conforme pode ser visualizado na \autoref{fig:cavFF3d_geometria}, além disso, a base flexível possui restrição de deslocamentos em todos os 4 bordos. Os demais dados necessários à análise são idênticos ao do problema 2D.
 
 \begin{figure}[!htbp]
 	\caption{Cavidade fundo flexível 3D: Geometria}
 	\centering 
-	\includegraphics[scale=2.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/cavFF3d_geometria.pdf}	
+	\includegraphics[scale=1.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/cavFF3d_geometria.pdf}	
 	\label{fig:cavFF3d_geometria}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Foram utilizadas nas análises desse problema duas diferentes discretizações: 1. Modelo Arlequin (ver Figura \ref{fig:cavFF3d_malha}), sendo a malha global em discretização isogeométrica (IGA) com funções base quadráticas e a malha local, mais refinada e estrutura, em elementos finitos (MEF) tetraédricos quadráticos; 2 . Monomodelo (Figura \ref{fig:cavFF3d_malha_mono.pdf}) discretizado com elementos finitos tetraédricos quadráticos. Para ambos modelos utilizou-se uma placa discretizada com elementos finitos triangulares quadráticos, apresentada na Figura \ref{fig:cavFF3d_malhaPlaca}.
+Foram utilizadas nas análises desse problema duas diferentes discretizações: 1. Modelo Arlequin (ver Figura \ref{fig:cavFF3d_malha}), sendo a malha global em discretização isogeométrica (AIG) com funções base quadráticas e a malha local, mais refinada e conforme a estrutura, em elementos finitos (MEF) tetraédricos quadráticos; 2 . Monomodelo (Figura \ref{fig:cavFF3d_malha_mono.pdf}) discretizado com elementos finitos tetraédricos quadráticos. Para ambos modelos utilizou-se uma placa discretizada com elementos finitos triangulares quadráticos de casca, apresentada na Figura \ref{fig:cavFF3d_malhaPlaca}.
 
-\begin{figure}[!htbp]
+\pagebreak
+
+O modelo Arlequin é composto por uma malha global discretizada com 2 \textit{patches} que totalizam 8000 células e 11616 pontos de controle. A malha local possui 9600 elementos e 15129 nós. A zona de colagem (ver área vermelha da Figura \ref{fig:cavFF3d_malha}) é composta por 4800 elementos e 8405 nós.  O monomodelo foi discretizado com 15895 elementos e 25127 nós. A malha da placa é constituída por 1969 nós e 944 elementos.
+
+Na \autoref{fig:cavFF3d_deslA} pode se observar o deslocamento no ponto A que fica no centro da placa flexível para os modelos Arlequin e monomodelo, assim como os resultados dos trabalhos de \citeonline{Mok:2001},\citeonline{Vazquez:2007} e \citeonline{Yokomizo:2024}. As diferenças encontradas entre a amplitude dos deslocamentos obtidos nesse trabalho com as referências podem ser atribuídas para as diferentes formulações e discretizações adotadas para a modelagem do fluido e da placa.
+
+\begin{figure}[H]
 	\caption{Cavidade fundo flexível 3D: Discretização}
 	\centering
 	\subfloat[Malhas do modelo Arlequin \label{fig:cavFF3d_malha}]{\includegraphics[trim=2cm 0.3cm 0.5cm 0cm ,clip=true,scale=1.2]{Imagens/Cap7/cavFF3d_malha.pdf}} \ 
-	\subfloat[Malha do Monomodelo \label{fig:cavFF3d_malha_mono.pdf}]{\includegraphics[scale=1.2,trim=2cm 0cm 2cm 0cm, clip=true]{Imagens/Cap7/cavFF3d_malha_mono.pdf}} \\
+	\subfloat[Malha do Monomodelo \label{fig:cavFF3d_malha_mono.pdf}]{\includegraphics[scale=1.20,trim=2cm 0cm 2cm 0cm, clip=true]{Imagens/Cap7/cavFF3d_malha_mono.pdf}} \\
 	\subfloat[Malha da placa \label{fig:cavFF3d_malhaPlaca}]{\includegraphics[scale=0.18,trim=2cm 4cm 0cm 4cm, clip=true]{Imagens/Cap7/cavFF3d_malhaPlaca.pdf}} 
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-O modelo Arlequin é composto por uma malha global discretizada com 2 \textit{patches} que totalizam 8000 células e 11616 pontos de controle. A malha local possui 9600 elementos e 15129 nós. A zona de colagem (ver área vermelha da Figura \ref{fig:cavFF3d_malha}) é composta por 4800 elementos e 8405 nós.  O monomodelo foi discretizado com 15895 elementos e 25127 nós. A malha da placa é constituída por 1969 nós e 944 elementos.
-
-Na \autoref{fig:cavFF3d_deslA} pode se observar o deslocamento no ponto A que fica no centro da placa flexível para os modelos Arlequin e monomodelo, assim como os resultados dos trabalhos de \citeonline{Mok:2001},\citeonline{Vazquez:2007} e \citeonline{Yokomizo:2024}. As diferenças encontradas entre a amplitude dos deslocamentos obtidos nesse trabalho com as referências podem ser atribuídas para as diferentes formulações e discretizações adotadas para a modelagem do fluido e da chapa.
-
-\begin{figure}[!htbp]
+\begin{figure}[H]
 	\caption{Cavidade fundo flexível 3D: Deslocamento em A}
 	\centering 
-	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/cavFF3d_deslA.eps}	
+	\includegraphics[scale=0.75,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/cavFF3d_deslA.pdf}	
 	\label{fig:cavFF3d_deslA}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Na Figura \ref{fig:cavFF3d_vel} apresenta-se os campos de velocidade em diferentes instantes de tempo da análise; na Figura \ref{fig:cavFF3d_press}, para esses mesmos instantes, apresenta-se os campos de pressão. Por fim, na Figura \ref{fig:casca_campo_desloc} podem ser visualizados os deslocamentos na placa.
+Na Figura \ref{fig:cavFF3d_vel} apresenta-se os campos de velocidade em diferentes instantes de tempo da análise para uma seção $y_1 \times y_3$ em $y_2=0,5$; na Figura \ref{fig:cavFF3d_press}, para esses mesmos instantes e seção, apresentam-se os campos de pressão. Por fim, na Figura \ref{fig:casca_campo_desloc} podem ser visualizados os deslocamentos na placa nestes instantes.
 
 \begin{figure}[!htbp]
 	\caption{Cavidade fundo flexível 3D: Campos de velocidade}
 	\centering
-	\subfloat[$t = 4,0 $]{\includegraphics[scale=1.2,trim=2cm 0.3cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_vel4.pdf}} \
-	\subfloat[$t = 8,0 $]{\includegraphics[scale=1.2,trim=2cm 0.3cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_vel8.pdf}} \
-	\subfloat[$t = 14,0 $]{\includegraphics[scale=1.2,trim=2cm 0.3cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_vel14.pdf}} \
-	\subfloat[$t = 21,0 $]{\includegraphics[trim=2cm 0.3cm 2cm 0.3cm,clip=true,scale=1.2]{Imagens/Cap7/cavFF3d_vel21.pdf}}
+	\subfloat[$t = 4,0 $]{\includegraphics[scale=1.0,trim=2cm 0.4cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_vel4.pdf}} \
+	\subfloat[$t = 8,0 $]{\includegraphics[scale=1.0,trim=2cm 0.4cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_vel8.pdf}} \
+	\subfloat[$t = 14,0 $]{\includegraphics[scale=1.0,trim=2cm 0.4cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_vel14.pdf}} \
+	\subfloat[$t = 21,0 $]{\includegraphics[trim=2cm 0.4cm 2cm 0.3cm,clip=true,scale=1.0]{Imagens/Cap7/cavFF3d_vel21.pdf}}
 	\label{fig:cavFF3d_vel}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -376,10 +380,10 @@ Na Figura \ref{fig:cavFF3d_vel} apresenta-se os campos de velocidade em diferent
 \begin{figure}[!htbp]
 	\caption{Cavidade fundo flexível 3D: Campos de Pressão}
 	\centering
-	\subfloat[$t = 4,0 $]{\includegraphics[scale=1.2,trim=2cm 0.3cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_press4.pdf}} \
-	\subfloat[$t = 8,0 $]{\includegraphics[scale=1.2,trim=2cm 0.3cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_press8.pdf}} \
-	\subfloat[$t = 14,0 $]{\includegraphics[scale=1.2,trim=2cm 0.3cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_press14.pdf}} \
-	\subfloat[$t = 21,0 $]{\includegraphics[trim=2cm 0.3cm 2cm 0.3cm,clip=true,scale=1.2]{Imagens/Cap7/cavFF3d_press21.pdf}}
+	\subfloat[$t = 4,0 $]{\includegraphics[scale=1.0,trim=2cm 0.3cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_press4.pdf}} \
+	\subfloat[$t = 8,0 $]{\includegraphics[scale=1.0,trim=2cm 0.3cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_press8.pdf}} \
+	\subfloat[$t = 14,0 $]{\includegraphics[scale=1.0,trim=2cm 0.3cm 2cm 0.3cm, clip=true]{Imagens/Cap7/cavFF3d_press14.pdf}} \
+	\subfloat[$t = 21,0 $]{\includegraphics[trim=2cm 0.3cm 2cm 0.3cm,clip=true,scale=1.0]{Imagens/Cap7/cavFF3d_press21.pdf}}
 	\label{fig:cavFF3d_press}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -388,7 +392,7 @@ Na Figura \ref{fig:cavFF3d_vel} apresenta-se os campos de velocidade em diferent
 	\caption{Casca: Campos de Deslocamentos}
 	\centering
 	\subfloat[$t = 4,0 $]{\includegraphics[scale=1.2,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap7/casca_desloc_40.pdf}} \ \ \
-	\subfloat[$t = 8,0 $]{\includegraphics[scale=1.2,trim=3cm 0.5cm 3cm 0.3cm, clip=true]{Imagens/Cap7/casca_desloc_80.pdf}} \\
+	\subfloat[$t = 8,0 $]{\includegraphics[scale=1.2,trim=3cm 0.5cm 3cm 0.5cm, clip=true]{Imagens/Cap7/casca_desloc_80.pdf}} \\
 	\subfloat[$t = 14,0 $]{\includegraphics[scale=1.2,trim=3cm 0.3cm 3cm 0.3cm, clip=true]{Imagens/Cap7/casca_desloc_140.pdf}} \ \ \
 	\subfloat[$t = 21,0 $]{\includegraphics[trim=3cm 0.3cm 3cm 0.3cm,clip=true,scale=1.2]{Imagens/Cap7/casca_desloc_210.pdf}}
 	\label{fig:casca_campo_desloc}
@@ -407,7 +411,7 @@ O problema dessa subseção consiste em um painel flexível engastado a um prism
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-A velocidade de entrada do escoamento é definida por $u_{\infty} = 31,5 cm/s$ e o fluido possui propriedades físicas do ar: viscosidade dinâmica de $\viscosity=1,82\times10^{-4} g/(cm.s)$ e massa específica equivalente a $\rho_{f} = 1,18\times10^{-3} g/cm^3 $. Tomando-se por referência o comprimento do prisma obtém-se um número de Reynolds $\Reynolds = 204$. A placa possui espessura de 0,06cm, massa específica de $\rho_{e} =  2,0 g/cm^3 $, e módulo de elasticidade caracterizado por $E = 2,0\times10^{5} g/(cm.s^2)$. Devido ao comportamento bidimensional do problema aplica-se para a placa um coeficiente de poisson  $\nu=0,0$.
+A velocidade de entrada do escoamento é definida por $u_{\infty} = 31,5 cm/s$ e o fluido possui propriedades físicas do ar: viscosidade dinâmica de $\viscosity=1,82\times10^{-4} g/(cm.s)$ e massa específica equivalente a $\rho_{f} = 1,18\times10^{-3} g/cm^3 $. Tomando-se por referência o comprimento do prisma obtém-se um número de Reynolds $\Reynolds = 204$. A placa possui espessura de 0,06cm, massa específica de $\rho_{e} =  2,0 g/cm^3 $, e módulo de elasticidade caracterizado por $\mathbb{E} = 2,0\times10^{5} g/(cm.s^2)$. Devido ao comportamento bidimensional do problema aplica-se para a placa um coeficiente de poisson  $\nu=0,0$.
 
 Para a simulação adotou-se para o campo de velocidade inicial em todo o domínio equivalente a $u_{\infty}$. As condições de contorno para o problema são apresentadas na \autoref{fig:prisma_geometria} (com dimensões em cm). Adicionalmente adotou-se condição de simetria para o fluido na direção $y_3$, e para estrutura, nos contornos frontal e posterior, definiu-se vetor generalizado e os deslocamentos, nesta direção, como nulos.
 
@@ -422,18 +426,18 @@ As simulações foram conduzidas utilizando um Modelo Arlequin (Figura \ref{fig:
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-O modelo Arlequin é composto por uma malha global discretizada com 1800 elementos e 5952 pontos de controle. A malha local possui 12878 elementos e 25934 nós. A zona de colagem, com espessura de 0,2cm, de acordo com a Figura \ref{fig:prisma_malha} é composta por 1821 elementos e 4251 nós.  O monomodelo foi discretizado com 13315 elementos e 26599 nós. A malha da placa é constituída por 273 nós e 108 elementos. No que diz respeito a integração temporal utilizou-se $\timeStep = 5\times10^{-4}$, e $\specRadius = 0,5$.
+O modelo Arlequin é composto por uma malha global discretizada com 1800 elementos e 5952 pontos de controle. A malha local possui 12878 elementos e 25934 nós. A zona de colagem, com espessura de 0,2cm, representada em vermelho na Figura \ref{fig:prisma_malha}, é composta por 1821 elementos e 4251 nós.  O monomodelo foi discretizado com 13315 elementos e 26599 nós. A malha da placa é constituída por 273 nós e 108 elementos. No que diz respeito a integração temporal utilizou-se  $\specRadius = 0,5$ (fluido), e $\timeStep = 5\times10^{-4}s$.
 
 \citeonline{Hubneretal:2004} obtiveram em suas simulações uma frequência de desprendimento de vórtices, considerando a placa como rígida, de $f_f = 3,7Hz$. De acordo com a teoria clássica da dinâmica das estruturas as três primeiras frequências naturais de vibração para essa estrutura de placa são $f_1 = 0,61Hz$, $f_2 = 3,80Hz$ e $f_3 = 10,63Hz$. Dessa forma, espera-se que a frequência de vibração da estrutura para o problema de IFE fique próxima a sua segunda frequência natural.
 
-Na \autoref{fig:prisma_deslA} pode-se observar os resultados de deslocamento vertical na ponta da placa (ponto A) obtidos nesse estudo através do modelo Arlequin e do Monomodelo. Conforme pode ser observado os resultados para o monomodelo não chegam até o tempo final da análise, isto se deve em função do colapso que ocorre na malha devido aos grandes deslocamentos. Na \autoref{fig:prisma_deslA} também podem ser visualizado a envoltória dos deslocamentos obtidos por \citeonline{Hubneretal:2004}. Nota-se que os resultados desse trabalho vão se aproximando com os da referência a medida que o tempo de análise aumenta. A placa desloca-se de maneira crescente até certo ponto da análise, e a partir de então sua amplitude de vibração se mantém aproximadamente constante. 
+Na \autoref{fig:prisma_deslA} pode-se observar os resultados de deslocamento vertical na ponta da placa (ponto A) obtidos nesse estudo através do modelo Arlequin e do monomodelo. Conforme pode ser observado os resultados para o monomodelo não chegam até o tempo final da análise, isto se deve em função do colapso que ocorreu na malha, para a técnica adotada, devido aos grandes deslocamentos da estrutura. Na \autoref{fig:prisma_deslA} também podem ser visualizado a envoltória dos deslocamentos obtidos por \citeonline{Hubneretal:2004}. A placa desloca-se de maneira crescente até certo ponto da análise, e a partir de então sua amplitude de vibração se mantém aproximadamente constante. Nota-se que os resultados desse trabalho vão se aproximando com os da referência a medida que o tempo de análise aumenta. 
  
-\citeonline{Hubneretal:2004} obtiveram a frequência de vibração um valor de $3,1Hz$ enquanto que nesse trabalho obteve-se o valor de $3,07Hz$, calculado a partir da média dos períodos do tempo 8s até 16s. Com relação a amplitude máxima obtiveram-se valores de +0,77 e -0,77. Observa-se que a frequência de vibração da estrutura diferiu da frequência natural calculada em função dos fenômenos que ocorrem no acoplamento entre os dois meios.
+\citeonline{Hubneretal:2004} obtiveram a frequência de vibração um valor de $3,1Hz$ enquanto que nesse trabalho obteve-se o valor de $3,07Hz$, calculado a partir da média dos períodos do tempo para $t=8s$ até $t=16s$. Com relação a amplitude máxima obtiveram-se valores de $+0,77$ e $-0,77$, como deslocamentos máximo e mínimo, respectivamente. Observa-se que a frequência de vibração da estrutura, diferiu da frequência natural calculada para a mesma, em função dos fenômenos que ocorrem no acoplamento entre os dois meios.
 
 \begin{figure}[!htbp]
 	\caption{Painel Flexível: Deslocamento em A}
 	\centering 
-	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/prisma_deslA.eps}	
+	\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/prisma_deslA.pdf}	
 	\label{fig:prisma_deslA}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -473,5 +477,158 @@ Considerando um ciclo de movimento da estrutura $T$ (aproximadamente periódico)
 	\centering 
 	\includegraphics[scale=1.0,trim=1cm 0.2cm 1cm 0.2cm, clip=true]{Imagens/Cap7/prism_malha_def.pdf}	
 	\label{fig:prisma_defor_malha}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\subsection{Turbina}
+
+Este último exemplo tem intuito de expor um caráter mais prático de aplicação da formulação relatada nessa tese. A primeira parte dessa subseção dedica-se a apresentar a simulação de um escoamento hidráulico em um rotor de turbina. Para isso, utiliza-se um tubo, por onde ocorre o escoamento, e que define um dos contornos do domínio do fluido. Dentro desse tubo encontra-se um eixo, encapsulado em um tubo interno, e, acoplado a estrutura do rotor. A estrutura é discretizada através de elementos finitos de cascas, enquanto que, o domínio do fluido por elementos finitos tetraédricos . Durante a rotação da turbina, toda a malha de elementos finitos do fluido se deforma e desloca para acomodar a nova posição da estrutura.
+
+Na segunda parte do exemplo, afim de se apresentar a robustez e aplicabilidade da técnica Arlequin estabilizada, realiza-se a simulação do funcionamento dessa mesma turbina hidráulica, adicionando-se pás diretoras fixas e rígidas ao tubo interno a montante do rotor. Para essa finalidade, a malha global é discretizada através da isogeometria e a malha local, em elementos finitos, encontra-se conforme ao domínio da estrutura do rotor de maneira a permitir que apenas o domínio na região da estrutura gire, enquanto que o restante da malha mantém-se fixa.   
+
+\subsubsection{Turbina - monomodelo}\label{capitulo:Cap7:exemplos:Turbina:Mono}
+
+A simulação do escoamento através de uma turbina hidráulica instalada em um tubo foi realizada com base na geometria ilustrada na \autoref{fig:turbina_mono_geo}, que apresenta as principais características do domínio computacional considerado.
+
+\begin{figure}[!htbp]
+	\caption{Turbina monomodelo: Geometria}
+	\centering 
+	\includegraphics[scale=3.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_geo.pdf}	
+	\label{fig:turbina_mono_geo}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+No que diz respeito ao fluido, o contorno externo do seu domínio é composto por um tubo de comprimento $17L$, com $L = 0,684dm$, e diâmetro $D_t = 1,74dm$. O contorno interno do domínio está delimitado pelo tubo interno, com diâmetro $d = 0,6dm$, e comprimento $8L$; e pela estrutura do rotor. O fluido possui propriedades físicas da água, que consistem em viscosidade dinâmica de $\viscosity=1,00\times10^{-4} kg/(dm.s)$ e massa específica equivalente a $\rho_{f} = 1,00 kg/dm^3 $. Ao domínio do fluido, aplica-se condição de aderência para as paredes do tubo externo e interno. Além disso, uma força de superfície na entrada do domínio equivalente a $100kPa$ é empregada.
+
+A estrutura, consistem em uma turbina de 4 pás de espessura constante, $t_p = 0,02dm$, com diâmetro de ponta (\textit{tip}) $D=1,5dm$. As pás são acopladas a um cubo (\textit{hub}) de diâmetro $d=0,60dm$ e espessura $t_c = 0,1dm$. Considera-se que o cubo se conecta a um eixo, de mesmo diâmetro e espessura do cubo, o qual se prolonga até a entrada do escoamento dentro do tubo interno. A geometria da pás foi gerada utilizando o software CFturbo® \footnote{Disponível em: \url{https://www.cfturbo.com}}. Selecionou-se um aço para compor o material da estrutura, que caracteriza-se por uma massa específica de $\rho_{e} =  8,0 Kg/dm^3 $, e módulo de elasticidade de $\mathbb{E} = 2,0\times10^{10} kg/(dm.s^2)$. Para permitir a rotação da turbina, no nó central ($p_c$) da superfície superior do eixo (ver \autoref{fig:turbina_mono_geo}), travaram-se os deslocamentos em $y_1,y_2$ e $y_3$, enquanto que para os demais nós desta superfície restringiram-se os deslocamentos na direção de $y_3$.
+
+No que diz respeito a integração temporal utilizou-se $\timeStep = 1\times10^{-3}s$, e para o fluido um raio espectral $\specRadius = 0,5$.
+
+A malha utilizada para a discretização do domínio do fluido, apresentada na Figura \ref{fig:turbina_mono_malha_fluido}, é composta por 49239 elementos tetraédricos quadráticos e 76548 nós, enquanto que, a malha da discretização da estrutura (ver Figura \ref{fig:turbina_malha_estrutura}) é composta por 3807 elementos de casca triangulares quadráticos e 7791 nós.
+
+\begin{figure}[!htbp]
+	\caption{Turbina monomodelo: Malhas}
+	\centering 
+	\subfloat[malha fluido \label{fig:turbina_mono_malha_fluido}]{\includegraphics[scale=2.0,trim=0cm 0cm 0.0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_malha.pdf}} \ \
+	\subfloat[malha estrutura \label{fig:turbina_malha_estrutura}]{\includegraphics[scale=2.0,trim=0cm 0cm 0.2cm 0cm, clip=true]{Imagens/Cap7/turbina_malha_estrutura.pdf}} 
+	\label{fig:turbina_mono_malha}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+Afim de se analisar os deslocamentos máximos nas pás ao longo do tempo na direção $y_3$, demarcou-se um ponto $A$ na extremidade de uma das pás do rotor, conforme pode ser visualizado na \autoref{fig:turbina_mono_geo}. Os deslocamentos apresentados nesse nó ao longo do tempo, são apresentados na \autoref{fig:turbina_mono_deslA}. Ao realizar-se a média dos deslocamentos a partir do tempo $t=0,2s$ até o final da análise ($t=0,5s$), obteve-se um valor deslocamento médio de $-0,0127355cm$ neste ponto. 
+
+
+\begin{figure}[!htbp]
+	\caption{Turbina monomodelo: Deslocamento em $y_3$ no ponto A}
+	\centering 
+	\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_deslocamento.pdf}	
+	\label{fig:turbina_mono_deslA}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+Além disso, acompanhou-se a velocidade angular deste mesmo ponto ao longo do tempo. Conforme pode-se observar na \autoref{fig:turbina_mono_velAngA}, a velocidade angular aumenta até o tempo $t=0,2s$ e depois mantém-se com valor aproximadamente constante de $96,25 \ rad/s$.
+
+\begin{figure}[!htbp]
+	\caption{Turbina monomodelo: Velocidade angular no ponto A}
+	\centering 
+	\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_velocidade_angular.eps}	
+	\label{fig:turbina_mono_velAngA}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+Por fim, apresentam-se os campos de velocidade e de pressão obtidos ao longo de uma rotação completa das pás dos rotores. Os campos podem ser visualizados na Figura \ref{fig:turbina_mono_vel} e Figura \ref{fig:turbina_mono_press}. Considerando-se a velocidade média na saída do tubo no final do tempo de análise, obteve-se uma vazão do escoamento de $128,77dm^3/s$.
+
+\begin{figure}[!htbp]
+\caption{Turbina monomodelo: Campos de velocidade}
+\centering
+\subfloat[$t=0,414s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel414.pdf}} \
+\subfloat[$t=0,430s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel430.pdf}} \\
+\subfloat[$t=0,446s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel446.pdf}} \
+\subfloat[$t=0,462s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_vel462.pdf}} 
+\label{fig:turbina_mono_vel}
+\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Turbina monomodelo: Campos de pressão}
+	\centering
+	\subfloat[$t=0,414s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 2.8cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press414.pdf}}\
+	\subfloat[$t=0,430s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press430.pdf}} \\
+	\subfloat[$t=0,446s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press446.pdf}} \
+	\subfloat[$t=0,462s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_mono_press462.pdf}} 
+	\label{fig:turbina_mono_press}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+
+\subsubsection{Turbina - modelo Arlequin}
+
+Na segunda etapa de análise, adicionam-se 4 pás diretoras rígidas e fixas ao tubo interno a montante do rotor, conforme pode ser observado na \autoref{fig:turbina_arlq_geo}. As demais características do domínio do fluido e da estrutura utilizadas para a simulação do monomodelo (\autoref{capitulo:Cap7:exemplos:Turbina:Mono}), assim como as propriedades físicas dos meios apresentados, foram mantidas. Para permitir que as pás diretoras se mantenham fixas ao longo da análise do escoamento, será utilizado o método Arlequin estabilizado para a resolução do problema de IFE, de maneira que, apenas o domínio na região das pás do rotor seja deformado ao longo da simulação.
+
+\
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Geometria}
+	\centering 
+	\includegraphics[scale=3.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_arlq_geo.pdf}	
+	\label{fig:turbina_arlq_geo}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+O domínio local, no qual o rotor está contido, foi discretizado com uma malha em elementos finitos, de 26052 nós e 40766 elementos tetraédricos quadráticos, conforme pode ser observado na Figura \ref{fig:turbina_arlq_malha}. A malha global, foi discretizado com o auxílio de 21 \textit{patches} (ver Figura \ref{fig:turbina_arlq_patches}), e possui 21438 pontos de controle e 9660 células. 
+
+A zona de colagem, que é destacada com a cor vermelha na Figura \ref{fig:turbina_arlq_malha}, possui espessura de 0,129dm, totalizando uma quantidade de 6782 elementos finitos e 3257 nós. A constante do operador de acoplamento $L^{2}$ foi especificada como $k_{0} = 10$.
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Malhas}
+	\centering 
+	\subfloat[Malha modelo Arlequin\label{fig:turbina_arlq_malha}]{\includegraphics[scale=2.0,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_arlq_malha.pdf}}\
+	\subfloat[Malha global - \textit{patches}\label{fig:turbina_arlq_patches}]{\includegraphics[scale=2.0,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap7/turbina_arlq_patches.pdf}}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+Ressalta-se que, para a simulação deste problema, foram utilizados como campo inicial de pressão e velocidade, valores obtidos em uma solução de longo termo da turbina na condição de repouso. Na \autoref{fig:turbina_arlq_deslA} pode ser observado o deslocamento vertical (direção $y_3$) no ponto A da pá do rotor (conforme \autoref{fig:turbina_mono_geo}), cuja a média ao longo do tempo foi de $-0.02436cm$.
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Deslocamento no ponto A}
+	\centering 
+	\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_arlq_deslocamento.pdf}	
+	\label{fig:turbina_arlq_deslA}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+Na \autoref{fig:turbina_arlq_velAngA} pode-se observar a velocidade angular ao longo do tempo. Fazendo-se a média da velocidade angular a partir de $t=0,15s$ até o final da análise ($t=0,35s$), obteve-se uma velocidade de  $119,75 \ rad/s$.
+
+\
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Velocidade angular no ponto A}
+	\centering 
+	\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_arlq_velocidade_angular.eps}
+	\label{fig:turbina_arlq_velAngA}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+Na Figura \ref{fig:turbina_arlq_vel} são apresentados os campos de velocidade do escoamento ao longo de uma rotação das pás da turbina. Realizando-se o cálculo da vazão na seção de saída do escoamento no final do tempo de análise, obteve-se um valor de $139,58dm^3/s$. Nota-se que obteve-se um aumento de aproximadamente $8\%$ na vazão com o auxílio das pás diretoras. Na Figura \ref{fig:turbina_arlq_press} pode-se observar os campos de pressão do escoamento ao longo de uma rotação da turbina.
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Campos de velocidade}
+	\centering
+	\subfloat[$t=0,226s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_vel226.pdf}} \
+	\subfloat[$t=0,229s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_vel229.pdf}} \\
+	\subfloat[$t=0,232s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_vel232.pdf}} \
+	\subfloat[$t=0,235s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_vel235.pdf}} 
+	\label{fig:turbina_arlq_vel}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Turbina modelo Arlequin: Campos de pressão}
+	\centering
+	\subfloat[$t=0,226s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_press226.pdf}} \
+	\subfloat[$t=0,229s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_press229.pdf}} \\
+	\subfloat[$t=0,232s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_press232.pdf}} \
+	\subfloat[$t=0,235s$]{\includegraphics[scale=2.0,trim=0cm 1.0cm 0cm 1.0cm, clip=true]{Imagens/Cap7/turbina_arlq_press235.pdf}} 
+	\label{fig:turbina_arlq_press}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
