@@ -113,12 +113,12 @@ O procedimento adotado nesse trabalho pode ser entendido a partir da \autoref{fi
 \textcolor{red}{A figura não parece mostrar os pontos mais próximos (projeção normal ao contorno), mas sim uma projeção vertical, isso porque você afastou artificialmente os contornos... Não precisa mudar, mas é bom registrar isso. Os símbolos também estão diferentes do texto.}
 \end{figure}
 
-De maneira prática, para cada nó do fluido, é aplicada a velocidade interpolada na malha da estrutura sobre as coordenadas locais referentes ao nó do fluido. O mesmo é feito para o deslocamento da malha do fluido. Já para a estrutura, em cada nó, calcula-se .... \parei aqui....
-em cada uma das coordenadas locais relativas a cada nó na malha de fluido, e após isso aplicadas a este nó. O equivalente ocorre quando os dados são provenientes do fluido e serão transmitidos a estrutura.
+De maneira prática, para cada nó do fluido, é aplicada a velocidade interpolada na malha da estrutura sobre as coordenadas locais referentes ao nó do fluido. O mesmo é feito para o deslocamento da malha do fluido. 
+Já para a estrutura, para cada nó, calcula-se o valor nodal da força de superfície no ponto da malha do fluido correspondente ao nó, e então interpola-se a força de superfície em cada ponto de quadratura no momento da integração para a obtenção do vetor de forças nodais equivalentes.
 
 \section{Acoplamento particionado forte - bloco-iterativo}
 
-Os problemas de IFE são caracterizados pela interdependência entre o fluido e a estrutura, visto que o comportamento do escoamento depende do formato e do movimento da estrutura, enquanto que o movimento da estrutura e sua deformação dependem das forças do fluido que atuam sobre ela. Matematicamente pode-se dizer que os problemas de IFE são conjuntos de equações e condições de contorno associadas ao fluido e a estrutura que devem ser satisfeitas simultaneamente.
+Como discutido nOs problemas de IFE são caracterizados pela interdependência entre o fluido e a estrutura, visto que o comportamento do escoamento depende do formato e do movimento da estrutura, enquanto que o movimento da estrutura e sua deformação dependem das forças do fluido que atuam sobre ela. Matematicamente pode-se dizer que os problemas de IFE são conjuntos de equações e condições de contorno associadas ao fluido e a estrutura que devem ser satisfeitas simultaneamente.
 
 As equações completas discretizadas da formulação IFE conduzem a um sistema de equações não-lineares que devem ser resolvidas a cada passo de tempo e podem ser representadas da seguinte maneira \cite{BazilevsTT:2013a}:
 
