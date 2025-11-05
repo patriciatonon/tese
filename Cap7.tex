@@ -483,16 +483,13 @@ Considerando um ciclo de movimento da estrutura $T$ (aproximadamente periódico)
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-parei aqui...
 \subsection{Turbina}
 
-Este último exemplo tem intuito de expor um caráter mais prático de aplicação da formulação relatada nessa tese. A primeira parte dessa subseção dedica-se a apresentar a simulação de um escoamento hidráulico em um rotor de turbina. Para isso, utiliza-se um tubo, por onde ocorre o escoamento, e que define um dos contornos do domínio do fluido. Dentro desse tubo encontra-se um eixo, encapsulado em um tubo interno, e, acoplado a estrutura do rotor. A estrutura é discretizada através de elementos finitos de cascas, enquanto que, o domínio do fluido por elementos finitos tetraédricos . Durante a rotação da turbina, toda a malha de elementos finitos do fluido se deforma e desloca para acomodar a nova posição da estrutura.
-
-Na segunda parte do exemplo, afim de se apresentar a robustez e aplicabilidade da técnica Arlequin estabilizada, realiza-se a simulação do funcionamento dessa mesma turbina hidráulica, adicionando-se pás diretoras fixas e rígidas ao tubo interno a montante do rotor. Para essa finalidade, a malha global é discretizada através da isogeometria e a malha local, em elementos finitos, encontra-se conforme ao domínio da estrutura do rotor de maneira a permitir que apenas o domínio na região da estrutura gire, enquanto que o restante da malha mantém-se fixa.   
+Como última aplicação, propõe-se um problema tridimensional que não pode ser simulado diretamente com métodos de málhas móveis, e que neste caso pode ser simulado com a aplicação da técnica de superposição proposta. Este problema consiste em uma turbina hidráulica com pás diretoras fixas e um rotor, com uma pressão superior à atmosférica aplicada na entrada. Inicialmente realiza-se um estudo prévio apenas com o rotor, o qual é simulado utilizando um monomodelo de elementos finitos. Posteriormente considera-se a turbina com as pás diretoras representadas por uma discretização isogeométrica global e insere-se o rotor por meio de uma discretização flobal por elementos finitos, o qual pode mover-se e deformar-se de modo a acomodar a rotação e deformação do rotor.
 
 \subsubsection{Turbina - monomodelo}\label{capitulo:Cap7:exemplos:Turbina:Mono}
 
-A simulação do escoamento através de uma turbina hidráulica instalada em um tubo foi realizada com base na geometria ilustrada na \autoref{fig:turbina_mono_geo}, que apresenta as principais características do domínio computacional considerado.
+Considera-se a turbina formada por um tubo cilíndrico por onde ocorre o escoamento, dentro do qual encontra-se um rotor flexível acoplado a um eixo. este eixe extende-se à montante do rotor e é encapsulado por um tubo rígido de diâmetro menor conformo ilustra a \autoref{fig:turbina_mono_geo}. Os parâmetros adotados para a descrição da geometria são: comprimento do tubo $L = 0,684dm$, diâmetro do tubo $D_t = 1,74dm$ e diâmetro do encapsulamento $d = 0,6dm$.
 
 \begin{figure}[!htbp]
 	\caption{Turbina monomodelo: Geometria}
@@ -502,11 +499,13 @@ A simulação do escoamento através de uma turbina hidráulica instalada em um 
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-No que diz respeito ao fluido, o contorno externo do seu domínio é composto por um tubo de comprimento $17L$, com $L = 0,684dm$, e diâmetro $D_t = 1,74dm$. O contorno interno do domínio está delimitado pelo tubo interno, com diâmetro $d = 0,6dm$, e comprimento $8L$; e pela estrutura do rotor. O fluido possui propriedades físicas da água, que consistem em viscosidade dinâmica de $\viscosity=1,00\times10^{-4} kg/(dm.s)$ e massa específica equivalente a $\rho_{f} = 1,00 kg/dm^3 $. Ao domínio do fluido, aplica-se condição de aderência para as paredes do tubo externo e interno. Além disso, uma força de superfície na entrada do domínio equivalente a $100kPa$ é empregada.
+Durante a rotação da turbina, toda a malha de elementos finitos do fluido é deslocada e deformada para acomodar a movimentação da estrutura. Para isso, aplica-se à malha, no contorno externo e no contorno do encapsulamento do eixo, a rotação calculada no centro do rotor. Na interface fluido-estrutura flexível, são aplicados os deslocamentos da estrutura, já na entrada e na saída, considera-se a componente de deslocamento na direção $y_3$ nula e as demais componentes livres. 
 
-A estrutura, consistem em uma turbina de 4 pás de espessura constante, $t_p = 0,02dm$, com diâmetro de ponta (\textit{tip}) $D=1,5dm$. As pás são acopladas a um cubo (\textit{hub}) de diâmetro $d=0,60dm$ e espessura $t_c = 0,1dm$. Considera-se que o cubo se conecta a um eixo, de mesmo diâmetro e espessura do cubo, o qual se prolonga até a entrada do escoamento dentro do tubo interno. A geometria da pás foi gerada utilizando o software CFturbo® \footnote{Disponível em: \url{https://www.cfturbo.com}}. Selecionou-se um aço para compor o material da estrutura, que caracteriza-se por uma massa específica de $\rho_{e} =  8,0 Kg/dm^3 $, e módulo de elasticidade de $\mathbb{E} = 2,0\times10^{10} kg/(dm.s^2)$. Para permitir a rotação da turbina, no nó central ($p_c$) da superfície superior do eixo (ver \autoref{fig:turbina_mono_geo}), travaram-se os deslocamentos em $y_1,y_2$ e $y_3$, enquanto que para os demais nós desta superfície restringiram-se os deslocamentos na direção de $y_3$.
+Para o fluido considera-se velocidade nula no contorno externo do tubo bem como no contorno do encapsulamento e velocidade igual à da estrutura na interface fljuido-estrutura flexível, enquanto na entrada é aplicada uma força de superfície de $100kPa$ no sentido de deslocar o fluido para dentro da turbina, e na saída força de superfície nula. O fluido possui propriedades físicas da água, que consistem em viscosidade dinâmica de $\viscosity=1,00\times10^{-4} kg/(dm.s)$ e massa específica equivalente a $\rho_{f} = 1,00 kg/dm^3 $.
 
-No que diz respeito a integração temporal utilizou-se $\timeStep = 1\times10^{-3}s$, e para o fluido um raio espectral $\specRadius = 0,5$.
+ O rotor consiste em uma hélice de 4 pás com espessura constante $t_p = 0,02dm$, com diâmetro de ponta (\textit{tip}) $D=1,5dm$. As pás são acopladas a um cubo (\textit{hub}) de diâmetro $d=0,60dm$ com parede de espessura $t_c = 0,1dm$. Considera-se que o cubo se conecta a um eixo, de mesmo diâmetro e espessura do cubo, o qual se prolonga até a entrada do escoamento por dentro do encapsulamento rígido. A geometria da pás foi gerada utilizando o software CFturbo® \footnote{Disponível em: \url{https://www.cfturbo.com}}, sendo as coordenadas e conectividades da malha apresentados no Anexo\textcolor{red}{colocar em anexo e referenciair aqui}. Selecionou-se um aço para compor o material da estrutura com densidade de massa $\rho_{e} =  8,0 Kg/dm^3 $, e módulo de elasticidade de $\mathbb{E} = 2,0\times10^{10} kg/(dm.s^2)$. A superfície superior do eixo consiste em um disco com a mesma espessura e material do eixo, onde o nó central possui todas as componentes de deslocamento restritas, enquanto os demais nós dessa superfície possuem apenas os deslocamentos na direção $y_3$ restritos. Dada a rigidez do eixo, os deslocamentos do mesmo são pequenos o suficiente para que seja possível desconsiderar o contato com o encapsulamento.
+
+No que diz respeito a integração temporal considera-se $\timeStep = 1\times10^{-3}s$, e para o fluido um raio espectral $\specRadius = 0,5$.
 
 A malha utilizada para a discretização do domínio do fluido, apresentada na Figura \ref{fig:turbina_mono_malha_fluido}, é composta por 49239 elementos tetraédricos quadráticos e 76548 nós, enquanto que, a malha da discretização da estrutura (ver Figura \ref{fig:turbina_malha_estrutura}) é composta por 3807 elementos de casca triangulares quadráticos e 7791 nós.
 
@@ -519,7 +518,7 @@ A malha utilizada para a discretização do domínio do fluido, apresentada na F
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Afim de se analisar os deslocamentos máximos nas pás ao longo do tempo na direção $y_3$, demarcou-se um ponto $A$ na extremidade de uma das pás do rotor, conforme pode ser visualizado na \autoref{fig:turbina_mono_geo}. Os deslocamentos apresentados nesse nó ao longo do tempo, são apresentados na \autoref{fig:turbina_mono_deslA}. Ao realizar-se a média dos deslocamentos a partir do tempo $t=0,2s$ até o final da análise ($t=0,5s$), obteve-se um valor deslocamento médio de $-0,0127355cm$ neste ponto. 
+Afim de se analisar os deslocamentos máximos nas pás ao longo do tempo na direção $y_3$, demarcou-se um ponto $A$ na extremidade de uma das pás do rotor, conforme pode ser visualizado na \autoref{fig:turbina_mono_geo}. Os deslocamento deste nó ao longo do tempo é apresentado na \autoref{fig:turbina_mono_deslA}. Ao realizar-se a média dos deslocamentos a partir do instante $t=0,2s$ até o final da análise ($t=0,5s$), obteve-se um valor deslocamento médio de $-0,0127355cm$ neste ponto. 
 
 
 \begin{figure}[!htbp]
@@ -530,7 +529,7 @@ Afim de se analisar os deslocamentos máximos nas pás ao longo do tempo na dire
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Além disso, acompanhou-se a velocidade angular deste mesmo ponto ao longo do tempo. Conforme pode-se observar na \autoref{fig:turbina_mono_velAngA}, a velocidade angular aumenta até o tempo $t=0,2s$ e depois mantém-se com valor aproximadamente constante de $96,25 \ rad/s$.
+Além disso, acompanhou-se a velocidade angular deste mesmo ponto ao longo do tempo. Conforme pode-se observar na \autoref{fig:turbina_mono_velAngA}, a velocidade angular aumenta até o instante $t=0,2s$ e depois mantém-se com valor aproximadamente constante de $96,25 \ rad/s$.
 
 \begin{figure}[!htbp]
 	\caption{Turbina monomodelo: Velocidade angular no ponto A}
@@ -540,7 +539,7 @@ Além disso, acompanhou-se a velocidade angular deste mesmo ponto ao longo do te
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Por fim, apresentam-se os campos de velocidade e de pressão obtidos ao longo de uma rotação completa das pás dos rotores. Os campos podem ser visualizados na Figura \ref{fig:turbina_mono_vel} e Figura \ref{fig:turbina_mono_press}. Considerando-se a velocidade média na saída do tubo no final do tempo de análise, obteve-se uma vazão do escoamento de $128,77dm^3/s$.
+Por fim, apresentam-se os campos do módulo de velocidade e da pressão obtidos ao longo de uma rotação completa das pás dos rotores. Os campos podem ser visualizados na Figura \ref{fig:turbina_mono_vel} e Figura \ref{fig:turbina_mono_press}. Considerando-se a velocidade média do fluido na saída do tubo no final do tempo de análise, obtém-se uma vazão de $128,77dm^3/s$.
 
 \begin{figure}[!htbp]
 \caption{Turbina monomodelo: Campos de velocidade}
@@ -567,9 +566,7 @@ Por fim, apresentam-se os campos de velocidade e de pressão obtidos ao longo de
 
 \subsubsection{Turbina - modelo Arlequin}
 
-Na segunda etapa de análise, adicionam-se 4 pás diretoras rígidas e fixas ao tubo interno a montante do rotor, conforme pode ser observado na \autoref{fig:turbina_arlq_geo}. As demais características do domínio do fluido e da estrutura utilizadas para a simulação do monomodelo (\autoref{capitulo:Cap7:exemplos:Turbina:Mono}), assim como as propriedades físicas dos meios apresentados, foram mantidas. Para permitir que as pás diretoras se mantenham fixas ao longo da análise do escoamento, será utilizado o método Arlequin estabilizado para a resolução do problema de IFE, de maneira que, apenas o domínio na região das pás do rotor seja deformado ao longo da simulação.
-
-\
+Na segunda etapa de análise, adicionam-se 4 pás diretoras rígidas e fixas ao tubo interno à montante do rotor, conforme pode ser observado na \autoref{fig:turbina_arlq_geo}. As demais características do domínio do fluido e da estrutura utilizadas para a simulação do monomodelo (\autoref{capitulo:Cap7:exemplos:Turbina:Mono}), assim como as propriedades físicas dos meios apresentados, foram mantidas. \textcolor{red}{as pás foram consideradas rígidas ou flexíveis? Isso precisa ficar claro... Também precisa descrever brevemente a geração da geometria das pás diretoras e acrescentar anexo com a malha utilizada...}. 
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Geometria}
@@ -579,9 +576,8 @@ Na segunda etapa de análise, adicionam-se 4 pás diretoras rígidas e fixas ao 
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-O domínio local, no qual o rotor está contido, foi discretizado com uma malha em elementos finitos, de 26052 nós e 40766 elementos tetraédricos quadráticos, conforme pode ser observado na Figura \ref{fig:turbina_arlq_malha}. A malha global, foi discretizado com o auxílio de 21 \textit{patches} (ver Figura \ref{fig:turbina_arlq_patches}), e possui 21438 pontos de controle e 9660 células. 
-
-A zona de colagem, que é destacada com a cor vermelha na Figura \ref{fig:turbina_arlq_malha}, possui espessura de 0,129dm, totalizando uma quantidade de 6782 elementos finitos e 3257 nós. A constante do operador de acoplamento $L^{2}$ foi especificada como $k_{0} = 10$.
+Uma discretização global isogeométrica é empregada para descrever o domínio do fluido com o encapsulamento e as pás diretoras. Essa discretização é construída com auxílio de 21 \textit{patches}, e possui 21438 pontos de controle e 9660 células, com funções de forma quadráticas, conforme a figura \ref{fig:turbina_arlq_patches}.
+O domínio local, no qual o rotor está contido, é discretizado com uma malha em elementos finitos com 26052 nós e 40766 elementos tetraédricos quadráticos, sendo ilustrada na Figura \ref{fig:turbina_arlq_malha}, onde a zona de colagem, é destacada com a cor vermelha, possuindo espessura de 0,129 dm e compreendendo  6782 elementos finitos e 3257 nós do modelo local. A constante do operador de acoplamento $L^{2}$ foi especificada como $k_{0} = 10$.
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Malhas}
@@ -636,3 +632,5 @@ Na Figura \ref{fig:turbina_arlq_vel} são apresentados os campos de velocidade d
 	\label{fig:turbina_arlq_press}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
+
+Embora de maneira qualitativa, os resultados deste exemplo confirmam o potecial da metodologia proposta para problemas de estruturas com grandes rotações de corpo rígido.
