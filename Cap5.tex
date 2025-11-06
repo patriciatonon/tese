@@ -6,9 +6,9 @@ Essa metodologia foi aplicada com bastante sucesso no campo da mecânica da frat
 
 \section{Técnica de combinação dos espaços de funções}
 
-Para o entendimento da técnica de partição de domínios define-se inicialmente um domínio global $\Omega_G$ e um domínio local, $\Omega_L$, apresentados na Figura \ref{fig:domains}, sendo o domínio local menor que o global e contendo a região com efeitos localizados. O domínio total de estudo é então composto por: $\Omega = \Omega_G \cup \Omega_L$.
+Para o entendimento da técnica de partição de domínios define-se inicialmente um domínio global $\Omega_G$ e um domínio local, $\Omega_L$, apresentados na Figura~\ref{fig:domains}, sendo o domínio local menor que o global e contendo a região com efeitos localizados. O domínio total de estudo é então composto por: $\Omega = \Omega_G \cup \Omega_L$.
 
-Os contornos físicos de $\Omega$  (Figura \ref{fig:dominio_sobreposto}), podem ser divididos em $\Gamma_{G} = (\Gamma_{G})_D \cup (\Gamma_{G})_N$, relacionado ao domínio global, e, $\Gamma_{L} = (\Gamma_{L})_D \cup (\Gamma_{L})_N$ relacionado ao domínio local, sendo os subíndices $D$ e $N$ respectivos aos contornos de Dirichlet e Neumann, respectivamente. É importante ressaltar que os contornos físicos podem ou não estar presentes, ou ainda, podem existir apenas condições de Dirichlet ou apenas condições de Neumann. O contorno não-físico $(\Gamma_{G})_{B}$ define o limite da influência do domínio global na região de superposição, enquanto que, $(\Gamma_{L})_{B}$ é o contorno que define o limite da influência do domínio local. Assim, a zona de superposição, $\Omega_{B}$, é definida como: $ \Omega_{B} = \Omega_G \cap \Omega_L$, sendo limitada pelos contornos $(\Gamma_{L})_{B}$ e $(\Gamma_{G})_{B}$.
+Os contornos físicos de $\Omega$  (Figura~\ref{fig:dominio_sobreposto}), podem ser divididos em $\Gamma_{G} = (\Gamma_{G})_D \cup (\Gamma_{G})_N$, relacionado ao domínio global, e, $\Gamma_{L} = (\Gamma_{L})_D \cup (\Gamma_{L})_N$ relacionado ao domínio local, sendo os subíndices $D$ e $N$ respectivos aos contornos de Dirichlet e Neumann, respectivamente. É importante ressaltar que os contornos físicos podem ou não estar presentes, ou ainda, podem existir apenas condições de Dirichlet ou apenas condições de Neumann. O contorno não-físico $(\Gamma_{G})_{B}$ define o limite da influência do domínio global na região de superposição, enquanto que, $(\Gamma_{L})_{B}$ é o contorno que define o limite da influência do domínio local. Assim, a zona de superposição, $\Omega_{B}$, é definida como: $ \Omega_{B} = \Omega_G \cap \Omega_L$, sendo limitada pelos contornos $(\Gamma_{L})_{B}$ e $(\Gamma_{G})_{B}$.
 
 Considerando um problema cujas funções tentativa nos domínios global e local sejam caracterizadas respectivamente por $u_{G}(\pos)$, definida no espaço finito de funções $\usolution^{G}$, e $u_{L}(\pos)$, definida no espaço finito de funções $\usolution^{L}$, sendo as funções teste global $w_{G}(\pos)$ e local $w_{L}(\pos)$ definidas nos espaços $\uweighting^{G}$ e $\uweighting^{L}$, respectivamente. A união direta dos espaços de funções na zona de superposição obviamente não resulta em um espaço que respeita a partição da unidade das funções de forma e nem garante a independência linear. Dessa forma, utiliza-se uma função ponderadora de combinação $b(\pos)$, de maneira que as funções tentativa e teste sejam:
 
@@ -24,7 +24,7 @@ Considerando um problema cujas funções tentativa nos domínios global e local 
 	\centering
 	\subfloat[\label{fig:dominio_global} Domínio Global]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_global.pdf}} 
 	\subfloat[\label{fig:dominio_local} Domínio Local]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_local.pdf}} \\
-	\subfloat[\label{fig:dominio_sobreposto} Domínios sobrepostos]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_sobreposto.pdf}} 
+	\subfloat[\label{fig:dominio_sobreposto} Domínios superpostos]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_sobreposto.pdf}} 
 	\label{fig:domains}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -51,7 +51,7 @@ Considerando que as funções $b(\pos)(N_{G})$ e $(1-b(\pos))(N_{L})$ sejam line
 Nesse trabalho aplicam-se funções de forma locais e globais de grau polinomial quadrático. Dessa forma, a função ponderadora de combinação foi definida como cúbica e é expressa por:
 
 \begin{align}
-	b(\pos) =  \begin{cases} 2\left(\frac{Y_{L}(\pos)}{\delta(\pos)}\right)^3  -   3\left(\frac{Y_{L}(\pos)}{\delta(\pos)}\right)^2   \mbox{se } Y_{G}(\pos)> 0 \ e \ Y_{L}(\pos)> 0 \\
+	b(\pos) =  \begin{cases} 2\left(\frac{Y_{L}(\pos)}{\delta(\pos)}\right)^3  -   3\left(\frac{Y_{L}(\pos)}{\delta(\pos)}\right)^2 + 1   \mbox{se } Y_{G}(\pos)> 0 \ e \ Y_{L}(\pos)> 0 \\
 		1  \ Y_{L}(\pos) \leq 0  \\
 		0  \ Y_{G}(\pos) \leq 0 \end{cases},
 \end{align}
@@ -68,7 +68,7 @@ Após a definição $(\Gamma_{G})_{B}$ é necessária uma metodologia eficiente 
 
 \noindent e define-se um valor $M_{min}$ para $(M_{G})_{aa}$. Os nós globais são desativados se $(M_{G})_{aa} < M_{min}$. 
 
-Na Figura \ref{fig:funcoes_tecnica_particao} apresenta-se um exemplo unidimensional da técnica de partição de domínios. Na Figura \ref{fig:funcoes_dominio_global} observam-se as funções globais definidas inicialmente sobre todo o domínio, e a função ponderadora de modificação $b(y)$ com valor unitário sobre o domínio global livre e com transição suave sobre a região de superposição. Na Figura \ref{fig:funcoes_dominio_local} representam-se as funções locais definidas somente no domínio local e a função ponderadora de modificação $1-b(y)$ com valor unitário sobre o domínio local livre e com transição suave sobre a zona de superposição. Por fim, na Figura \ref{fig:funcoes_modificadas} apresenta-se o novo espaço de funções independentes que cumprem com a partição da unidade e possuem grau polinomial $5$. Nota-se nessa figura a desativação das funções de forma globais que estão sobre o domínio local livre.
+Na Figura~\ref{fig:funcoes_tecnica_particao} apresenta-se um exemplo unidimensional da técnica de partição de domínios. Na Figura~\ref{fig:funcoes_dominio_global} observam-se as funções globais definidas inicialmente sobre todo o domínio, e a função ponderadora de modificação $b(y)$ com valor unitário sobre o domínio global livre e com transição suave sobre a região de superposição. Na Figura~\ref{fig:funcoes_dominio_local} representam-se as funções locais definidas somente no domínio local e a função ponderadora de modificação $1-b(y)$ com valor unitário sobre o domínio local livre e com transição suave sobre a zona de superposição. Por fim, na Figura~\ref{fig:funcoes_modificadas} apresenta-se o novo espaço de funções independentes que cumprem com a partição da unidade e possuem grau polinomial $5$. Nota-se nessa figura a desativação das funções de forma globais que estão sobre o domínio local livre.
 
 \section{Aplicação da técnica à dinâmica dos fluidos computacional}
 
@@ -130,11 +130,13 @@ Finalmente, o processo de marcha no tempo se inicia da maneira explicitada no Al
 	\end{algorithmic}
 \end{algorithm}
 
-\section{Exemplo - cavidade com partição de domínio e combinação MEF-IGA} \label{capitulo:cap5:Exemplo}
+\section{Verificação e aplicações}
+
+\section{Cavidade com partição de domínio e combinação MEF-AIG} \label{capitulo:cap5:Exemplo}
 
 Para verificar a metodologia de partição de domínios com superposição de malhas, neste item apresenta-se a solução estacionária do problema de Navier Stokes para a cavidade 2D.
 
-A geometria do problema e suas condições contorno são apresentadas na \autoref{fig:cav2d_geometria}. O problema foi avaliado para um número de Reynolds = 100, calculado de acordo com Equação~\eqref{eq:Reynolds} e $\rho = 1,0$.
+A geometria do problema e suas condições contorno são apresentadas na \autoref{fig:cav2d_geometria}. O problema foi avaliado para um número de Reynolds = 100, calculado de acordo com Equação~\eqref{eq:Reynolds} e $\rho = 1\text{,}0$.
 
 \begin{figure}[!htbp]
 	\caption{Cavidade: geometria e condições de contorno} 
@@ -144,9 +146,9 @@ A geometria do problema e suas condições contorno são apresentadas na \autore
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Sabe-se que nas paredes da cavidade podem haver efeitos de camada limite, dessa forma, definiu-se uma malha local que circunda a cavidade de acordo com a Figura \ref{fig:cav2d_malha_local}. A malha local foi discretizada através de uma aproximação isogeométrica e foi definida com 1440 pontos de controle que foram divididos em 8 diferentes \textit{patches}, chamados de $P_{1},P_{2},...,P_{8}$. Os \textit{patches} $P_{1},P_{3},P_{6}$ e $P_{6}$ possuem 64 células e os $P_{2},P_{4},P_{5}$ e $P_{7}$ 192 células.
+Sabe-se que nas paredes da cavidade podem haver efeitos de camada limite, dessa forma, definiu-se uma malha local que circunda a cavidade de acordo com a Figura~\ref{fig:cav2d_malha_local}. A malha local foi discretizada através de uma aproximação isogeométrica e foi definida com 1440 pontos de controle que foram divididos em 8 diferentes \textit{patches}, chamados de $P_{1},P_{2},...,P_{8}$. Os \textit{patches} $P_{1},P_{3},P_{6}$ e $P_{6}$ possuem 64 células e os $P_{2},P_{4},P_{5}$ e $P_{7}$ 192 células.
 
-A malha global por sua vez é definida para toda a seção da cavidade, sendo composta por 800 elementos triangulares quadráticos e 1681 nós, de acordo com Figura \ref{fig:cav2d_malha_global}.
+A malha global por sua vez é definida para toda a seção da cavidade, sendo composta por 800 elementos triangulares quadráticos e 1681 nós, de acordo com Figura~\ref{fig:cav2d_malha_global}.
 
 \begin{figure}[!htbp]
 	\caption{Cavidade 2D: Malhas Global e Local}
@@ -157,17 +159,17 @@ A malha global por sua vez é definida para toda a seção da cavidade, sendo co
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Definiu-se uma espessura para a zona de superposição equivalente a $\delta = 0,1$ e medida paralelamente ao contorno fictício local $(\Gamma_{L})_{B}$. As células e elementos pertencentes à zona de superposição, tanto para a malha local quanto para a malha global, podem ser vistos na Figura \ref{fig:cav2d_elementos_zs_local} e Figura \ref{fig:cav2d_elementos_zs_global}, respectivamente.
+Definiu-se uma espessura para a zona de superposição equivalente a $\delta = 0,1$ e medida paralelamente ao contorno fictício local $(\Gamma_{L})_{B}$. As células pertencentes à zona de superposição na malha local podem ser vistos na Figura~\ref{fig:cav2d_elementos_zs_local}.
 
 \begin{figure}[!htbp]
 	\caption{Cavidade 2D: Zona de superposição}
 	\centering
-	\subfloat[\label{fig:cav2d_elementos_zs_local} Malha Local]{\includegraphics[scale=1.4, trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_elementos_zs_local.pdf}} 
-	\subfloat[\label{fig:cav2d_elementos_zs_global} Malha Global ]{\includegraphics[scale=1.4,trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_elementos_zs_global.pdf}}
+	{\includegraphics[scale=1.4, trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_elementos_zs_local.pdf}} 
+	\label{fig:cav2d_elementos_zs_local}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Os campos de velocidade e pressão obtidos são apresentados nas Figura \ref{fig:cav2d_campo_velocidade} e Figura \ref{fig:cav2d_campo_pressao}. Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) horizontal e vertical ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ da cavidade são apresentados na Figura \ref{fig:cav2d_perfil_vel_Re100} e comparados com os resultados de \citeonline{GhiaGS:1982}.
+Os campos de velocidade e pressão obtidos são apresentados nas Figura~\ref{fig:cav2d_campo_velocidade} e Figura~\ref{fig:cav2d_campo_pressao}. Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) horizontal e vertical ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ da cavidade são apresentados na Figura~\ref{fig:cav2d_perfil_vel_Re100} e comparados com os resultados de \citeonline{GhiaGS:1982}.
 
 \begin{figure}[!htbp]
 	\caption{Cavidade 2D: Solução do problema de Navier Stokes para $Re = 100$}

@@ -1,7 +1,7 @@
 \chapter[Dinâmica dos fluidos computacional]{Dinâmica dos fluidos computacional}
 \label{capitulo:Cap2}
 
-O escoamento isotérmico de um fluido newtoniano é descrito pelas equações advindas da conservação da quantidade de movimento, ou de Navier-Stokes, e da conservação de massa. Nos casos em que ocorram variações significativas de temperatura ou em escoamentos compressíveis, a equação da conservação da energia deve ser incorporada ao sistema. Essas equações, em conjunto com a relação constitutiva, formam um sistema de equações diferenciais não-lineares que descrevem o comportamento do escoamento no tempo e no espaço. 
+O escoamento isotérmico de um fluido newtoniano é descrito pelas equações advindas da conservação da quantidade de movimento, ou de Navier-Stokes, e da conservação de massa. Nos casos em que ocorram variações significativas de temperatura ou em escoamentos compressíveis, a equação da conservação da energia deve ser incorporada ao sistema. Essas equações, em conjunto com a relação constitutiva, formam um sistema de equações diferenciais não lineares que descrevem o comportamento do escoamento no tempo e no espaço. 
 
 Neste trabalho, são investigados escoamentos incompressíveis, isotérmicos e com contornos móveis. As seções seguintes apresentam a abordagem adotada para a resolução desse tipo de problema, bem como sua implementação computacional. Adota-se uma descrição Euleriana-Lagrangiana Arbitrária (ALE) para representar as equações, e a discretização espacial é realizada por meio do método dos elementos finitos (FEM) ou da análise isogeométrica (AIG).
 
@@ -30,7 +30,7 @@ Para obter a equação da conservação da massa na descrição espacial, consid
 \begin{figure}[!htbp]
 	\caption{Volume de controle infinitesimal: Fluxo de massa}
 	\begin{center}
-		\includegraphics[scale=1.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/volInf_fluxoMassa.pdf}	
+		\includegraphics[scale=0.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/volInf_fluxoMassaT.pdf}	
 	\end{center}
 	\legend{Fonte: Elaborada pela autora}
 	\label{fig:volInf_fluxoMassa}
@@ -69,16 +69,6 @@ Para chegar-se à equação da quantidade de movimento em sua forma conservativa
 		q_1 =\frac{\partial \stress_{11}}{\partial y_1} + \frac{\partial \stress_{12}}{\partial y_2} + \frac{\partial \stress_{13}}{\partial y_3} + b_{1}.
 \end{align}	
 
-\begin{figure}[!htbp]
-	\caption{Volume de controle infinitesimal: Componentes de força na direção $y_1$}
-	\begin{center} 
-	%\vspace{-1em} % Diminui o espaço antes da figura
-	\includegraphics[scale=1.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/volInf_tensao.pdf}	
-	\label{fig:volInf_tensao}
-	\end{center}
-	\legend{Fonte: Elaborada pela autora}
-\end{figure}
-
 Seguindo a mesma ideia para as direções $y_2$ e $y_3$, escreve-se:
 
 \begin{align}
@@ -96,6 +86,16 @@ Seguindo a mesma ideia para as direções $y_2$ e $y_3$, escreve-se:
 \begin{align}
 	\mathbf{q} = \divergence \cdot \stressTensor + \mathbf{b}.
 \end{align}
+
+\begin{figure}[H]
+	\caption{Volume de controle infinitesimal: Componentes de força na direção $y_1$}
+	\begin{center} 
+		%\vspace{-1em} % Diminui o espaço antes da figura
+		\includegraphics[scale=0.5,trim=0cm 1.5cm 0cm 0.5cm, clip=true]{Imagens/Cap2/volInf_tensaoT.pdf}	
+		\label{fig:volInf_tensao}
+	\end{center}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
 
 Realizando-se o balanço da quantidade de movimento no volume de controle infinitesimal da \autoref{fig:volInf_consQtdeMov}, e aplicando-se o princípio da conservação da quantidade de movimento, pode-se escrever:
 
@@ -128,7 +128,7 @@ Realizando-se o balanço da quantidade de movimento no volume de controle infini
 \begin{figure}[!htbp]
 	\caption{Volume de controle infinitesimal: Fluxo de quantidade de Movimento}
 	\begin{center}
-	\includegraphics[scale=1.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/volInf_consQtdeMov.pdf}	
+	\includegraphics[scale=0.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/volInf_consQtdeMovT.pdf}	
 	\end{center}
 	\legend{Fonte: Elaborada pela autora}
 	\label{fig:volInf_consQtdeMov}
@@ -454,7 +454,7 @@ Da mesma forma, o contorno de $\domain$ é aproximado da seguinte forma:
 
 No Método dos Elementos Finitos, cada elemento é definido com auxílio de um conjunto de pontos chamados nós. As variáveis de interesse do problema, que incluem a geometria na abordagem isoparamétrica, são aproximadas pela combinação linear de um número finito de funções associadas aos nós, chamadas funções de forma, multiplicadas por variáveis denominadas parâmetros nodais. As funções de forma utilizadas no Método dos Elementos Finitos tradicionalmente satisfazem a propriedade de partição da unidade, ou seja, a soma das funções de forma associadas a todos os nós de um elemento resulta em 1 para qualquer ponto dentro do seu domínio. A técnica de elementos finitos pode ser encontrada nos diversos livros disponíveis sobre o assunto, tais como \citeonline{Reddy:2006} e \citeonline{ZienkiewiczTN:2005a}.
 
-Nesse trabalho, para a mecânica dos fluidos, são utilizadas funções de forma quadráticas do tipo polinômios de Lagrange, sendo empregados elementos isoparamétricos triangulares para o caso 2D e tetraédricos para o caso 3D. Esses elementos são apresentados na Figura \ref{fig:elementoFinito2d} e Figura \ref{fig:elementoFinito3d}, onde são ilustrados também as coordenadas paramétricas adimensionais adotados para definir as funções de forma. 
+Nesse trabalho, para a mecânica dos fluidos, são utilizadas funções de forma quadráticas do tipo polinômios de Lagrange, sendo empregados elementos isoparamétricos triangulares para o caso 2D e tetraédricos para o caso 3D. Esses elementos são apresentados na Figura~\ref{fig:elementoFinito2d} e Figura~\ref{fig:elementoFinito3d}, onde são ilustrados também as coordenadas paramétricas adimensionais adotados para definir as funções de forma. 
 
 \begin{figure}[!htbp]
 	\caption{Elementos Finitos: representação espacial e paramétrica}
@@ -548,7 +548,7 @@ Assim, o problema da dinâmica dos fluidos na formulação estabilizada, passa a
 	\resPre\left(\velocityh\right)&=\divergence \cdot \velocityh.
 \end{align}
 
-Visto que existem funções teste separadas para a velocidade e pressão, pode-se definir dois vetores residuais correspondentes a equação da quantidade de movimento ($\NNSM$) e a equação da continuidade ($\NNSC$). Considerando a arbitrariedade de $\utest_{a}$ e $\ptest_{a}$, têm-se:
+Visto que existem funções teste separadas para a velocidade e pressão, pode-se definir dois vetores residuais correspondentes a equação da quantidade de movimento ($\NNSM$) e a equação da continuidade ($\NNSC$). Considerando a arbitrariedade de $\utest_{a}$ e $\ptest_{a}$, tem-se:
 
 \begin{align}
 	\NNSM  = [\left(\NNSM\right)_{a,i}],
@@ -580,7 +580,7 @@ Visto que existem funções teste separadas para a velocidade e pressão, pode-s
 
 \noindent com $i=1,2$ para problemas 2D e $i=1,3$ para problemas 3D.
 
-Considerando $\Acceleration$, $\Velocity$ e $\Press$ os vetores nodais dos graus de liberdade respectivos a velocidade, aceleração e pressão, pode-se escrever a forma semidiscreta do problema da DFC como: Encontrar $\Acceleration$, $\Velocity$ e $\Press$ de maneira que
+Considerando $\Acceleration$, $\Velocity$ e $\Press$ os vetores nodais dos graus de liberdade respectivos a velocidade, aceleração e pressão, pode-se escrever a forma semi discreta do problema da DFC como: Encontrar $\Acceleration$, $\Velocity$ e $\Press$ de maneira que:
 
 \begin{align}
 	\NNSM(\Acceleration,\Velocity,\Press) = \vzero,\label{eq:resid_semi_discr_QM}
@@ -773,7 +773,7 @@ Para proporcionar a precisão de segunda-ordem de convergência, estabilidade in
 
 O parâmetro $\specRadius$ é o raio espectral da matriz de amplificação quando $\timeStep \rightarrow \infty$, devendo estar contido no intervalo de $[0,1]$. Para $\specRadius = 0$ a dissipação de altas frequências é máxima e para $\specRadius = 1$ não há introdução de difusão numérica ao método.
 
-Para a solução do sistema de equações não-lineares compostas pela Equação~\eqref{eq:resid_QM_alpha} e Equação~\eqref{eq:resid_cont_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva \cite{BazilevsTT:2013a}.
+Para a solução do sistema de equações não lineares compostas pela Equação~\eqref{eq:resid_QM_alpha} e Equação~\eqref{eq:resid_cont_alpha} utiliza-se o método de Newton-Raphson. O método pode ser separado em duas etapas, uma etapa preditiva e outra iterativa corretiva \cite{BazilevsTT:2013a}.
 
 Na etapa preditiva, conhecida a solução em um passo de tempo $n$, prediz-se a solução em $n+1$ com as seguintes equações:
 
@@ -826,6 +826,8 @@ Na utilização do método $\alpha$-generalizado as integrais da Equação~\eqre
 \domainALEN = \left\{\posh \  |\  \posh(\posALEh,t_{(n+\alphaf)}) = \alphaf \posh(\posALEh,t_{n+1}) + (1-\alphaf) \posh(\posALEh,t_n)  \right\}.
 \end{align}
 
+\section{Implementação computacional} \label{capitulo:Cap2:ImpleComput}
+
 Finalmente, é possível estabelecer o algoritmo para a solução dos problemas de escoamentos incompressíveis com a formulação estabilizada do MEF, o qual é apresentado abaixo (Algoritmo. \ref{alg:fluid}).
 
 \begin{algorithm}
@@ -864,16 +866,7 @@ Este exemplo considera um escoamento viscoso incompressível sobre um cilindro r
 
 \noindent onde a dimensão característica do problema $L$ é adotada como sendo o diâmetro do cilindro, e $\kviscosity$ é a viscosidade cinemática do fluido. Tomam-se como parâmetros de análise os coeficientes aerodinâmicos medidos ao longo do tempo, e avalia-se se o modelo é capaz de reproduzir os fenômenos relacionados à formação e desprendimento de vórtices característicos desse problema. 
 
-A geometria e as condições de contorno são apresentadas na Figura \ref{fig:cilindro_geometria}, tratando-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nos limites superior e inferior. No contorno denominado como saída, aplica-se condição de Neumann nula. Na Figura \ref{fig:cilindro_malha} é apresentada a malha utilizada para esse problema, composta por 9122 elementos finitos triangulares de aproximação quadrática e 18508 nós. O problema foi simulado para um velocidade de entrada $u_{\infty} = 1,0$, densidade $\density = 1,0$, passo de tempo $\timeStep = 0,05$, e parâmetro do integrador temporal $\specRadius = 0,5$, variando-se a viscosidade em função do número de Reynolds. 
-
-\begin{figure}[!htbp]
-	\caption{Cilindro: Geometria, condições de contorno e malha de elementos finitos.}
-	\begin{center}
-	\subfloat[Geometria e condições de contorno\label{fig:cilindro_geometria}]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro_geometria.pdf}}\\
-	\subfloat[Discretização espacial\label{fig:cilindro_malha}]{\includegraphics[trim=0cm 1cm 0cm 1cm,clip,scale=0.4]{Imagens/Cap2/cilindro_malha.pdf}}
-	\end{center}
-	\legend{Fonte: Elaborada pela autora}
-\end{figure}
+A geometria e as condições de contorno são apresentadas na Figura~\ref{fig:cilindro_geometria}, tratando-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nos limites superior e inferior. No contorno denominado como saída, aplica-se condição de Neumann nula. Na Figura~\ref{fig:cilindro_malha} é apresentada a malha utilizada para esse problema, composta por 9122 elementos finitos triangulares de aproximação quadrática e 18508 nós. O problema foi simulado para um velocidade de entrada $u_{\infty} = 1\text{,}0$, densidade $\density = 1\text{,}0$, passo de tempo $\timeStep = 0\text{,}05$, e parâmetro do integrador temporal $\specRadius = 0\text{,}5$, variando-se a viscosidade em função do número de Reynolds. 
 
 Para o cálculo dos coeficientes aerodinâmicos é necessário definir-se primeiramente as forças de arrasto ($F_D$) e de sustentação ($F_L$), as quais resultam das tensões de cisalhamento e da pressão, sendo calculadas pelas seguintes expressões:
 
@@ -890,14 +883,23 @@ F_L = \int_{\boundary_{c}} \stressTensor_{2j}n_{j} \deriv\boundary_{c},  \label{
 \noindent onde $\boundary_{c}$ representa o contorno do cilindro e $n_j$ é a componente $j$ do vetor unitário normal a $\boundary_{c}$, com $j=1,2$. Os coeficientes de arrasto e sustentação são definidos respectivamente por:
 
 \begin{align}
-	C_D = \frac{F_D}{0,5\density \lVert \velocinfty \lVert^{2} L},
+	C_D = \frac{F_D}{0\text{,}5\density \lVert \velocinfty \lVert^{2} L},
 \end{align}
 
 \noindent e
 
 \begin{align}
-	C_L = \frac{F_L}{0,5\density \lVert \velocinfty \lVert^{2} L}.
-\end{align}.
+	C_L = \frac{F_L}{0\text{,}5\density \lVert \velocinfty \lVert^{2} L}.
+\end{align}
+
+\begin{figure}[!htbp]
+	\caption{Cilindro: Geometria, condições de contorno e malha de elementos finitos.}
+	\begin{center}
+		\subfloat[Geometria e condições de contorno\label{fig:cilindro_geometria}]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro_geometria.pdf}}\\
+		\subfloat[Discretização espacial\label{fig:cilindro_malha}]{\includegraphics[trim=0cm 1cm 0cm 1cm,clip,scale=0.4]{Imagens/Cap2/cilindro_malha.pdf}}
+	\end{center}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
 
 Para este problema, a frequência do desprendimento de vórtices que ocorre a partir de determinado número de Reynolds pode ser determinada a partir do número adimensional de Strouhal ($\Strouhal$), dado por:
 
@@ -908,7 +910,7 @@ Para este problema, a frequência do desprendimento de vórtices que ocorre a pa
 \noindent com $f_{v}$ sendo a frequência de desprendimento dos vórtices.
 
 
-Como pode-se observar na Figura \ref{fig:cilindro_coefAero}, para $\Reynolds = 40$ os coeficientes de arrasto atinge um valor constante, quando o escoamento fica estacionário, permanecendo assim até o final da análise, enquanto o coeficiente de sustentação permanece nulo. Isso é o que se espera, visto que para Reynolds entre 5 à 50, deve-se observar a formação de dois vórtices simétricos e estacionários na região à jusante do cilindro \cite{Lienhard:1966}. Com o aumento do número de Reynolds o par de vórtices é quebrado gerando a chamada esteira de von Kármán, com formação de vórtices de maneira alternada entre as regiões superior e inferior do cilindro, levando ao comportamento oscilatório observado nos gráficos para $\Reynolds = 100$ e $\Reynolds=1000$. Os valores do coeficiente de Strouhal, para $\Reynolds = 100$ e $\Reynolds=1000$, assim como os valores médios obtidos para o coeficiente de arrasto ($C_{Dmed}$) para $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$ são apresentados na \autoref{tab:cilindro_CD_ST}, onde são comparados com os valores de referência provenientes do trabalho de \citeonline{WANDERLEY2002445}.
+Como pode-se observar na Figura~\ref{fig:cilindro_coefAero}, para $\Reynolds = 40$ os coeficientes de arrasto atinge um valor constante, quando o escoamento fica estacionário, permanecendo assim até o final da análise, enquanto o coeficiente de sustentação permanece nulo. Isso é o que se espera, visto que para Reynolds entre 5 à 50, deve-se observar a formação de dois vórtices simétricos e estacionários na região à jusante do cilindro \cite{Lienhard:1966}. Com o aumento do número de Reynolds o par de vórtices é quebrado gerando a chamada esteira de von Kármán, com formação de vórtices de maneira alternada entre as regiões superior e inferior do cilindro, levando ao comportamento oscilatório observado nos gráficos para $\Reynolds = 100$ e $\Reynolds=1000$. Os valores do coeficiente de Strouhal, para $\Reynolds = 100$ e $\Reynolds=1000$, assim como os valores médios obtidos para o coeficiente de arrasto ($C_{Dmed}$) para $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$ são apresentados na \autoref{tab:cilindro_CD_ST}, onde são comparados com os valores de referência provenientes do trabalho de \citeonline{WANDERLEY2002445}.
 
 \begin{figure}[!htbp]
 	\caption{Cilindro: Coeficientes aerodinâmicos}
@@ -935,7 +937,7 @@ Como pode-se observar na Figura \ref{fig:cilindro_coefAero}, para $\Reynolds = 4
 \end{table}
 
 
-Nas Figura \ref{fig:cilindro_camposVel} e Figura \ref{fig:cilindro_camposPressao} são apresentados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices $nT$ para $\Reynolds = 100$. Pode-se notar nessas imagens, a formação e o desprendimento de vórtices na esteira de Von Karmán.
+Nas Figura~\ref{fig:cilindro_camposVel} e Figura~\ref{fig:cilindro_camposPressao} são apresentados os campos de velocidade e pressão ao longo de um ciclo de desprendimento de vórtices $nT$ para $\Reynolds = 100$. Pode-se notar nessas imagens, a formação e o desprendimento de vórtices na esteira de Von Karmán.
 
 \begin{figure}[!htbp]
 	\caption{Cilindro: Campos de velocidade para $\Reynolds = 100$}
@@ -967,7 +969,7 @@ Nas Figura \ref{fig:cilindro_camposVel} e Figura \ref{fig:cilindro_camposPressao
 
 \subsection{Escoamento sobre cavidade com discretização 3D} \label{capitulo:Cap2:VerApl:CavQuad}
 
-Este exemplo considera uma cavidade hexaédrica com velocidade prescrita horizontal $u_{\infty}$ prescrita em sua face superior. A geometria do problema bem como as condições de contorno são apresentadas na Figura \ref{fig:cavidade_geometria}. As paredes da cavidade são rígidas, com paredes laterais e do fundo com condição de aderência, e adicionalmente, condição de simetria na direção $y_3$. A cavidade possui na direção $y_3$ uma espessura de $0,03$. A discretização espacial em elementos finitos utilizada é apresentada na Figura \ref{fig:cavidade_malha}, a qual consiste em 7252 elementos tetraédricos quadráticos e 14727 nós.  Embora este problema possa ser representado por uma discretização bidimensional, adota-se uma discretização 3D para um primeiro teste das implementações dos elementos finitos tetraédricos.
+Este exemplo considera uma cavidade hexaédrica com velocidade prescrita horizontal $u_{\infty}$ prescrita em sua face superior. A geometria do problema bem como as condições de contorno são apresentadas na Figura~\ref{fig:cavidade_geometria}. As paredes da cavidade são rígidas, com paredes laterais e do fundo com condição de aderência, e adicionalmente, condição de simetria na direção $y_3$. A cavidade possui na direção $y_3$ uma espessura de $0\text{,}03$. A discretização espacial em elementos finitos utilizada é apresentada na Figura~\ref{fig:cavidade_malha}, a qual consiste em 7252 elementos tetraédricos quadráticos e 14727 nós.  Embora este problema possa ser representado por uma discretização bidimensional, adota-se uma discretização 3D para um primeiro teste das implementações dos elementos finitos tetraédricos.
 
 \begin{figure}[H]
 	\caption{Cavidade quadrada: Geometria, condições de contorno e malha de elementos finitos}
@@ -978,9 +980,9 @@ Este exemplo considera uma cavidade hexaédrica com velocidade prescrita horizon
 \end{figure}
 
 
-O problema é estudado para 3 diferentes números de Reynolds (100, 400 e 1000), calculados de acordo com Equação~\eqref{eq:Reynolds}, considerando $L$ como sendo o comprimento do lado da cavidade. O problema foi simulado para uma velocidade na parede superior de $u_{\infty} = 1,0$, $\density = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0$, sendo a viscosidade do fluido variada de modo a alterar o número de Reynolds. A simulação foi mantida até que se atingiu o estado estacionário de escoamento. 
+O problema é estudado para 3 diferentes números de Reynolds (100, 400 e 1000), calculados de acordo com Equação~\eqref{eq:Reynolds}, considerando $L$ como sendo o comprimento do lado da cavidade. O problema foi simulado para uma velocidade na parede superior de $u_{\infty} = 1\text{,}0$, $\density = 1\text{,}0$, $\timeStep = 0\text{,}05$, e $\specRadius = 0$, sendo a viscosidade do fluido variada de modo a alterar o número de Reynolds. A simulação foi mantida até que se atingiu o estado estacionário de escoamento. 
 
-Os perfis de velocidade adimensionalizada ($\velocity/\velocinfty$) ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ posicionadas no centro da espessura da direção $y_3$, são apresentados na Figura \ref{fig:cavidade_graficos} e comparados com a referência de \citeonline{GhiaGS:1982}.
+Os perfis de velocidade adimensionalizada ($\velocity/\velocinfty$) ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ posicionadas no centro da espessura da direção $y_3$, são apresentados na Figura~\ref{fig:cavidade_graficos} e comparados com a referência de \citeonline{GhiaGS:1982}.
 
 \begin{figure}[!htbp]
 	\caption{Cavidade quadrada: Perfis de velocidade adimensionalizados nas direções $y_1$ e $y_2$  }
@@ -992,7 +994,7 @@ Os perfis de velocidade adimensionalizada ($\velocity/\velocinfty$) ao longo de 
 	\label{fig:cavidade_graficos}
 \end{figure}
 
-Os campos de velocidade e de pressão para a situação estacionária são apresentados na Figura \ref{fig:cavidade_vel} e Figura \ref{fig:cavidade_press}, respectivamente. Ressalta-se que para a simulação, por se tratar de um problema com todos os contornos com condição de Dirichlet impostos, a pressão torna-se indefinida. Por esse motivo, prescreveu-se pressão $\press = \press_{ref} =  0,0$ no canto superior direito da cavidade. 
+Os campos de velocidade e de pressão para a situação estacionária são apresentados na Figura~\ref{fig:cavidade_vel} e Figura~\ref{fig:cavidade_press}, respectivamente. Ressalta-se que para a simulação, por se tratar de um problema com todos os contornos com condição de Dirichlet impostos, a pressão torna-se indefinida. Por esse motivo, prescreveu-se pressão $\press = \press_{ref} = 0\text{,}0$ no canto superior direito da cavidade. 
 
 \begin{figure}[!htbp]
 	\caption{Cavidade quadrada: Campos de velocidade -  plano $y_1$$y_2$}

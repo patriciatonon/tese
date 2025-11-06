@@ -1,6 +1,7 @@
 This is BibTeX, Version 0.99d (TeX Live 2023/Debian)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: USPSC-modelo-EESC.aux
+The style file: USPSC-classe/abntex2-alf-USPSC.bst
 A level-1 auxiliary file: USPSC-TA-PreTextual/USPSC-Resumo.aux
 A level-1 auxiliary file: USPSC-TA-PreTextual/USPSC-Abstract.aux
 A level-1 auxiliary file: introducao.aux
@@ -11,12 +12,12 @@ A level-1 auxiliary file: Cap5.aux
 A level-1 auxiliary file: Cap6.aux
 A level-1 auxiliary file: Cap7.aux
 A level-1 auxiliary file: Conclusoes.aux
-The style file: abntex2-alf.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+"t" can't follow a literal---line 1293 of file USPSC-classe/abntex2-alf-USPSC.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -34,8 +35,8 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 | http://www.abntex.net.br/                               |
 +---------------------------------------------------------+
 You've used 153 entries,
-            6714 wiz_defined-function locations,
-            2157 strings with 35074 characters,
+            6708 wiz_defined-function locations,
+            2156 strings with 35155 characters,
 and the built_in function-call counts, 144230 in all, are:
 = -- 11930
 > -- 4900
@@ -46,7 +47,7 @@ and the built_in function-call counts, 144230 in all, are:
 := -- 18195
 add.period$ -- 491
 call.type$ -- 156
-change.case$ -- 1646
+change.case$ -- 1366
 chr.to.int$ -- 516
 cite$ -- 141
 duplicate$ -- 8770
@@ -62,7 +63,7 @@ pop$ -- 3349
 preamble$ -- 1
 purify$ -- 622
 quote$ -- 0
-skip$ -- 9406
+skip$ -- 9686
 stack$ -- 1
 substring$ -- 6755
 swap$ -- 4315
@@ -74,3 +75,4 @@ warning$ -- 0
 while$ -- 1091
 width$ -- 0
 write$ -- 2351
+(There was 1 error message)

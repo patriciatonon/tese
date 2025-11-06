@@ -4,11 +4,11 @@ Assim como no caso da Mecânica dos Fluidos, um sólido é modelado como um corp
 
 As variáveis de interesse na resolução do conjunto de equações que descrevem o comportamento do sólido são os deslocamentos, ou, posições atuais ao longo do tempo, dessa forma, uma descrição do tipo Lagrangiana é mais adequada para essas análises.
 
-Nesse contexto, o comportamento estrutural pode ser classificado como linear ou não-linear. No contexto do comportamento não-linear, em geral, as não-linearidades envolvidas podem ser de natureza geométrica, quando associadas à presença de grandes deslocamentos e rotações que não permitem aproximar a configuração atual pela inicial, ou de natureza física, quando resultam de modificações na relação constitutiva do material.
+Nesse contexto, o comportamento estrutural pode ser classificado como linear ou não linear. No contexto do comportamento não linear, em geral, as não linearidades envolvidas podem ser de natureza geométrica, quando associadas à presença de grandes deslocamentos e rotações que não permitem aproximar a configuração atual pela inicial, ou de natureza física, quando resultam de modificações na relação constitutiva do material.
 
-Para problemas de sólidos com comportamento elástico, quando houver a possibilidade de grandes deslocamentos, a não-linearidade geométrica deve ser contemplada no modelo matemático. Para isso, altera-se a forma de consideração do equilíbrio das forças no sólido. Enquanto que em uma modelagem geometricamente linear o equilíbrio é considerado na configuração inicial, que é muito próxima a configuração atual do corpo, em uma análise não-linear geométrica, o equilíbrio é considerado na configuração atual (ver, por exemplo  \citeonline{Coda:2018} e \citeonline{Ogden:1984}).
+Para problemas de sólidos com comportamento elástico, quando houver a possibilidade de grandes deslocamentos, a não linearidade geométrica deve ser contemplada no modelo matemático. Para isso, altera-se a forma de consideração do equilíbrio das forças no sólido. Enquanto que em uma modelagem geometricamente linear o equilíbrio é considerado na configuração inicial, que é muito próxima a configuração atual do corpo, em uma análise não linear geométrica, o equilíbrio é considerado na configuração atual (ver, por exemplo  \citeonline{Coda:2018} e \citeonline{Ogden:1984}).
 
-Em muitos problemas da IFE, tal como o \textit{flutter}, grandes deslocamentos estão envolvidos. Desse modo, neste estudo utiliza-se uma formulação não-linear geométrica dinâmica de cascas baseada em uma descrição Lagrangiana Total para as análise dinâmica de estruturas. 
+Em muitos problemas da IFE, tal como o \textit{flutter}, grandes deslocamentos estão envolvidos. Desse modo, neste estudo utiliza-se uma formulação não linear geométrica dinâmica de cascas baseada em uma descrição Lagrangiana Total para as análise dinâmica de estruturas. 
 
 A formulação é baseada no método dos elementos finitos com abordagem posicional (Coda, 2003, 2018), onde as variáveis principais são as posições nodais. Escolheu-se trabalhar com elementos de cascas, uma vez que esses podem representar a maioria dos problemas estruturais tridimensionais. 
 
@@ -16,7 +16,7 @@ Considera-se a cinemática de Reissner-Mindlin, e adotam-se como parâmetros nod
 
 Neste capítulo, a formulação é apresentada a partir da descrição da cinemática e das condições de equilíbrio dos corpos deformáveis, com o objetivo de se deduzirem as equações globais de equilíbrio na descrição Lagrangiana, seguida pela introdução do modelo constitutivo de \textit{Saint-Venant–Kirchhoff}. Em seguida, aborda-se a formulação do método dos elementos finitos baseada em posição para ao elemento finito de casca adotado, a técnica de integração temporal e o algoritmo para solução, juntamente com um exemplo. Essa formulação foi desenvolvida, verificada e validada em diversos estudos (Coda; Paccola,
 2007, 2009; Coda; Sanches; Coda, 2013, 2014; Fernandes; Coda;
-Sanches, 2019) e o código computacional já disponível no grupo de pesquisa foi aproveitado, de modo que não se preocupa com validação do código. 
+Sanches, 2019) e o código computacional já disponível no grupo de pesquisa foi aproveitado, de modo que não se preocupa com verificação do código. 
 
 \section{Cinemática dos corpos deformáveis}
 
@@ -103,7 +103,7 @@ Para escrever a relação entre uma área definida na configuração inicial e o
 
 \noindent com $\mathbf{u}$ e $\mathbf{v}$ vetores não coplanares com as áreas inicial e atual, que ligam os centros da base e do topo do cilindro.
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
 	\caption{Mudança de área}
 	\centering
 	\includegraphics[scale=6.0,trim=0cm 0.2cm 0cm 0cm, clip=true]{Imagens/Cap4/sol_def_area.pdf}	
@@ -265,7 +265,7 @@ O princípio da estacionariedade da energia define que um corpo quando em equil�
 	\delta\totalEnergy = \delta\extEnergy + \delta\kinEnergy + \delta\intEnergy.
 \end{align}
 
-Um incremento de energia mecânica específica (energia mecânica por unidade de volume) pode ser obtido pelo produto escalar da Equação~\eqref{eq:equi_local_lagrangeano} por um incremento de posição $\delta\ePosition$, e, integrando-se sobre o domínio inicial, têm-se:
+Um incremento de energia mecânica específica (energia mecânica por unidade de volume) pode ser obtido pelo produto escalar da Equação~\eqref{eq:equi_local_lagrangeano} por um incremento de posição $\delta\ePosition$, e, integrando-se sobre o domínio inicial, tem-se:
 
 \begin{align}
 	\delta\totalEnergy = \int_{V_0} \left(\rho_0 \solidAccel - \lGrad \cdot \mathbf{P}^t -  \ebodyLoad_0 \right) \cdot  \delta\ePosition dV_0 = 0 \label{eq:equi_local_forma_frac}
@@ -277,7 +277,7 @@ Ao integrar-se por partes o segundo termo da Equação~\eqref{eq:equi_local_form
 	\delta\totalEnergy = \int_{V_0} \rho_0 \solidAccel \cdot \delta\ePosition dV_0 - \int_{A_0} \mathbf{P}^t \cdot \mathbf{N} \cdot  \delta\ePosition dA_0  + \int_{V_0} \mathbf{P}^t : \lGrad(\delta\ePosition) dV_0 - \int_{V_0} \mathbf{b_0} \cdot \delta \ePosition dV_0 = 0. \label{eq:equi_local_forma_frac2}
 \end{align}
 
-A \autoref {eq:equi_local_forma_frac2} pode ainda ser reformulada, considerando que $\lGrad (\delta\ePosition) = \delta \gradDeformation$ e que $\mathbf{P}^t \cdot \mathbf{N}$ representa as forças de superfície na configuração inicial ($\ltractionLoad$) como:
+A \autoref{eq:equi_local_forma_frac2} pode ainda ser reformulada, considerando que $\lGrad (\delta\ePosition) = \delta \gradDeformation$ e que $\mathbf{P}^t \cdot \mathbf{N}$ representa as forças de superfície na configuração inicial ($\ltractionLoad$) como:
 
 \begin{align}
 	\delta\totalEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} + \int_{V_{0}} \mathbf{P}^{t} : \delta\gradDeformation dV_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} = 0. \label{eq:equi_local_forma_frac3}
@@ -305,7 +305,7 @@ Utilizando-se a relação apresentada na Equação~\eqref{eq:piola-kircchoff} na
 	\label{eq:equi_local_forma_final}
 \end{align}
 
-Partindo-se da Equação~\eqref{eq:equi_local_forma_final}, encontra-se a relação entre suas componentes e as parcelas de energia mecânica, dessa forma, têm-se que:
+Partindo-se da Equação~\eqref{eq:equi_local_forma_final}, encontra-se a relação entre suas componentes e as parcelas de energia mecânica, dessa forma, tem-se que:
 
 \begin{align}
 	\delta\extEnergy = - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} - \mathbf{F} \cdot \delta\ePosition,
@@ -437,7 +437,7 @@ Partindo do mapeamento apresentado é possível escrever o funcional de energia 
 	\frac{\partial\totalEnergy^{h}}{\partial \ePosition_{l}^{mh}} = \frac{\partial\totalEnergy^{h}}{\partial (\mathbf{e}_y)_l} = \frac{\partial\totalEnergy^{h}}{\partial \eta_l} = \mathbf{0}.
 \end{align}
 
-\subsection{Integração temporal e solução do problema não-linear}
+\subsection{Integração temporal e solução do problema não linear}
 
 Para a tornar o equacionamento mais compacto, reescreve-se o equilíbrio baseado na energia da variável $\SolidPos$, que consiste em um vetor que contém todos os parâmetros nodais da estrutura (posições, vetores generalizados e taxa de variação linear da espessura) de forma que:
 
@@ -495,7 +495,7 @@ Utilizando a Equação~\eqref{eq:accel_newmark} e Equação~\eqref{eq:vel_newmar
 	\label{eq:equilibrio_tn+1}
 \end{gather}
 
-Pode-se escrever ainda o problema não-linear definido pela Equação~\eqref{eq:equilibrio_tn+1} em função do resíduo da equação governante
+Pode-se escrever ainda o problema não linear definido pela Equação~\eqref{eq:equilibrio_tn+1} em função do resíduo da equação governante
 discretizada no espaço e no tempo, como:
 
 \begin{gather}
@@ -503,7 +503,7 @@ discretizada no espaço e no tempo, como:
 	\label{eq:residuo_equilibrio_newmark}
 \end{gather}
 
-O problema não-linear da Equação~\eqref{eq:residuo_equilibrio_newmark} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
+O problema não linear da Equação~\eqref{eq:residuo_equilibrio_newmark} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
 
 \begin{gather}
 	\NNSS\left(\SolidPos_{n+1}^{i+1}\right) \approx \NNSS\left(\SolidPos_{n+1}^{i}\right) + \Delta\NNSS\left(\SolidPos_{n+1}^{i}\right)\Delta\SolidPos_{n+1}^{i} 
@@ -538,7 +538,7 @@ O código empregado para a simulação das estruturas de cascas neste trabalho f
 O código foi desenvolvido em linguagem C++ utilizando paralelização em protocolo MPI e conta com elementos triangulares de 3, 6 ou 10 nós, respectivamente com aproximação linear, quadrática e cúbica. Ressalta-se que a implementação conta com uma estratégia de acoplamento entre elementos não coplanares, que pode ser vista em \citeonline{Coda:2018}. O algoritmo que descreve a implementação computacional pode ser visualizado em Algoritmo \ref{alg:algoritmo_solid}. No algoritmo a variável $\mathbf{X}$ consiste em um vetor das variáveis nodais na configuração inicial.
 
 \begin{algorithm}[H]
-	\caption{Algoritmo para problemas não-lineares dinâmicos utilizando MEF posicional}
+	\caption{Algoritmo para problemas não lineares dinâmicos utilizando MEF posicional}
 	\label{alg:algoritmo_solid}
 	\begin{algorithmic}[1]
 		\State Adota-se $\SolidPos = \mathbf{X}$;
@@ -568,13 +568,13 @@ O código foi desenvolvido em linguagem C++ utilizando paralelização em protoc
 \section{Exemplo de aplicação - casca cilíndrica com \textit{snap through} dinâmico}
 
 Nesta seção apresenta-se um problema clássico que trata-se de uma casca cilíndrica submetida a um carregamento concentrado em seu centro geométrico. Proposto inicialmente no trabalho de 
-\citeonline{KuhlR:1999}, o problema apresenta grande não-linearidade geométrica devido ao efeito de \textit{snap-through}. 
+\citeonline{KuhlR:1999}, o problema apresenta grande não linearidade geométrica devido ao efeito de \textit{snap-through}. 
 
-A geometria do problema em questão é apresentada na Figura \ref{fig:casca_geometria}, sendo a espessura da casca equivalente a 0,1m.  A malha de elementos finitos que representa a superfície média da estrutura utilizada pode ser visualizada na Figura \ref{fig:casca_malha}, a qual é composta por 104 elementos quadráticos e 233 nós. 
+A geometria do problema em questão é apresentada na Figura~\ref{fig:casca_geometria}, sendo a espessura da casca equivalente a $0\text{,}1$~m.  A malha de elementos finitos que representa a superfície média da estrutura utilizada pode ser visualizada na Figura~\ref{fig:casca_malha}, a qual é composta por 104 elementos quadráticos e 233 nós. 
 
-Os contornos esquerdo e direito da chapa são considerados simplesmente apoiados. O carregamento aplicado ao ponto central (ponto A) $P(t)$ é aplicado linearmente no intervalo $t=0s$ até $t=0,2s$, com $P(0)=0kN$ e $P(2s) = 200000kN$, e então mantido constante. As características físicas do material utilizado são: $\elasticModulus = 200GPa$, $\poisonsRatio = 0,25$ e $\rho = 10000 kg/m^3$ e o passo de tempo adotado na simulação é $\Delta_{t} = 0,001s$.
+Os contornos esquerdo e direito da chapa são considerados simplesmente apoiados. O carregamento aplicado ao ponto central (ponto A) $P(t)$ é aplicado linearmente no intervalo $t=0~$~s até $t=0\text{,}2$~s, com $P(0)=0$~kN e $P(2s) = 200000$kN, e então mantido constante. As características físicas do material utilizado são: $\elasticModulus = 200$~GPa, $\poisonsRatio = 0{,}25$ e $\rho = 10000$~kg/m$3$ e o passo de tempo adotado na simulação é $\Delta_{t} = 0{,}001$~s.
 
-O deslocamento vertical do nó central da casca obtido nesse trabalho pode ser visualizado na \autoref{fig:casca_deslocamentoA}, enquanto que, para o autor de referência na \autoref{fig:casca_deslocamento_ref}. O resultado obtido está de acordo com os resultados de \citeonline{ArgyrisPM:2003}. Os campos de deslocamentos para os instantes $t = 140ms$, $t = 165ms$, $t = 174ms$ e $t = 177ms$ são apresentados na Figura \ref{fig:casca_campos_deslocamentos}.
+O deslocamento vertical do nó central da casca obtido nesse trabalho pode ser visualizado na \autoref{fig:casca_deslocamentoA}, enquanto que, para o autor de referência na \autoref{fig:casca_deslocamento_ref}. O resultado obtido está de acordo com os resultados de \citeonline{ArgyrisPM:2003}. Os campos de deslocamentos para os instantes $t = 140$~ms, $t = 165$~ms, $t = 174$~ms e $t = 177$~ms são apresentados na Figura~\ref{fig:casca_campos_deslocamentos}.
 
 \begin{figure}[H]
 	\caption{Casca: Geometria e Malha}
@@ -604,10 +604,10 @@ O deslocamento vertical do nó central da casca obtido nesse trabalho pode ser v
 \begin{figure}[!htbp]
 	\caption{Casca: Campos de deslocamentos}
 	\centering
-	\subfloat[\label{fig:casca_140ms} $t = 140ms$.]{\includegraphics[scale=1.3, trim=0.8cm 0.4cm 0.8cm 0.8cm, clip=true]{Imagens/Cap4/casca_140ms.pdf}}
-	\subfloat[\label{fig:casca_165ms} $t = 165ms$.]{\includegraphics[scale=1.3, trim=0.8cm 0.4cm 0.8cm 0.8cm, clip=true]{Imagens/Cap4/casca_165ms.pdf}} \\
-	\subfloat[\label{fig:casca_174ms} $t = 174ms$.]{\includegraphics[scale=1.3, trim=0.7cm 0.4cm 0.7cm 0.8cm, clip=true]{Imagens/Cap4/casca_174ms.pdf}}
-	\subfloat[\label{fig:casca_177ms} $t = 177ms$.]{\includegraphics[scale=1.3, trim=0.7cm 0.4cm 0.7cm 0.8cm, clip=true]{Imagens/Cap4/casca_177ms.pdf}} \\
+	\subfloat[\label{fig:casca_140ms} $t = 140$~ms]{\includegraphics[scale=1.3, trim=0.8cm 0.4cm 0.8cm 0.8cm, clip=true]{Imagens/Cap4/casca_140ms.pdf}}
+	\subfloat[\label{fig:casca_165ms} $t = 165$~ms]{\includegraphics[scale=1.3, trim=0.8cm 0.4cm 0.8cm 0.8cm, clip=true]{Imagens/Cap4/casca_165ms.pdf}} \\
+	\subfloat[\label{fig:casca_174ms} $t = 174$~ms]{\includegraphics[scale=1.3, trim=0.7cm 0.4cm 0.7cm 0.8cm, clip=true]{Imagens/Cap4/casca_174ms.pdf}}
+	\subfloat[\label{fig:casca_177ms} $t = 177$~ms]{\includegraphics[scale=1.3, trim=0.7cm 0.4cm 0.7cm 0.8cm, clip=true]{Imagens/Cap4/casca_177ms.pdf}} \\
 	{\includegraphics[scale=0.015,trim=0cm 20.0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_legenda.pdf}}
 	\label{fig:casca_campos_deslocamentos}
 	\legend{Fonte: Elaborada pela autora}

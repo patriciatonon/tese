@@ -1,12 +1,12 @@
 \chapter[Análise isogeométrica aplicada à Dinâmica dos Fluidos Computacional]{Análise isogeométrica aplicada à Dinâmica dos Fluidos Computacional} \label{capitulo:Cap3}
 
-A Análise Isogeométrica (AIG) é uma técnica numérica introduzida por \citeonline{HughesCB:2005} para obtenção de soluções aproximadas de equações diferenciais. O método pode ser entendido como uma generalização do método dos elementos finitos clássico a partir do uso de funções base especiais. 
+A Análise Isogeométrica (AIG) é uma técnica numérica introduzida por \citeonline{HughesCB:2005} para obtenção de soluçõ~es aproximadas de equações diferenciais. O método pode ser entendido como uma generalização do método dos elementos finitos clássico a partir do uso de funções base especiais. 
 
 Na Análise isogeométrica, as funções base escolhidas na discretização da geometria do problema e de suas variáveis são aquelas utilizadas nos sistemas CAD (\textit{Computed Aided Desing}), sendo as funções do tipo NURBS (\textit{Non-Uniform Rational B-Splines}) as mais aplicadas (ver, por exemplo, \citeonline{PiegT:1996}). O grande impulso para o desenvolvimento da técnica foi proporcionar a integração entre a engenharia de projeto, com modelos baseados em CAD, e as simulações numéricas, com modelos principalmente baseados no MEF, de forma que ambas trabalhem com somente um modelo geométrico.
 
 A AIG apresenta vantagens significativas, uma vez que permite a representação exata de diversas geometrias comuns, como cônicas, quádricas, círculos, cilindros, esferas e elipsoides, além de dispor de algoritmos eficientes e estáveis para a geração de objetos NURBS. As funções NURBS, em particular, possuem propriedades matemáticas que as tornam adequadas para aplicações numéricas, destacando-se a elevada suavidade, a alta capacidade de aproximação e a possibilidade de refinamento local por meio da inserção de \textit{knots}, os quais correspondem às coordenadas do espaço paramétrico nas quais as funções são definidas.
 
-Este capítulo apresenta uma breve introdução à análise isogeométrica e sua relação com o método dos elementos finitos clássico. Inicialmente, são descritas as funções base \textit{B-splines}, suas principais características e a construção de geometrias associadas. Em seguida, introduzem-se as funções NURBS, destacando sua formulação e aplicações geométricas. A análise isogeométrica é então introduzida no contexto da dinâmica dos fluidos computacional, enfatizando suas particularidades quanto à discretização das variáveis e da geometria, aos métodos de integração numérica e à determinação dos parâmetros de estabilização. Por fim, são apresentados exemplos numéricos que validam a formulação proposta. As principais referências bibliográficas que fundamentam esta construção são \citeonline{HughesCB:2005} e \citeonline{PiegT:1996}. 
+Este capítulo apresenta uma breve introdução à análise isogeométrica e sua relação com o método dos elementos finitos clássico. Inicialmente, são descritas as funções base \textit{B-splines}, suas principais características e a construção de geometrias associadas. Em seguida, introduzem-se as funções NURBS, destacando sua formulação e aplicações geométricas. A análise isogeométrica é então introduzida no contexto da dinâmica dos fluidos computacional, enfatizando suas particularidades quanto à discretização das variáveis e da geometria, aos métodos de integração numérica e à determinação dos parâmetros de estabilização. Por fim, são apresentados exemplos numéricos que verificam a formulação proposta. As principais referências bibliográficas que fundamentam esta construção são \citeonline{HughesCB:2005} e \citeonline{PiegT:1996}. 
  
 
 \section{Representação geométrica com B-splines e NURBS}
@@ -30,7 +30,7 @@ Cada \textit{patch} e suas respectivas células possuem uma representação no e
 
 Por fim, na análise isogeométrica conta-se ainda com o espaço parental, que é o espaço de integração numérica das funções base, em geral, definido de forma adimensional $[-1, 1]$ dentro de uma célula. Na \autoref{fig:espacos_NURBS} pode-se observar os espaços relatados para uma superfície 3D construída por funções base quadráticas e apenas um \textit{patch}. 
 
-\section{\textit{B-Splines}} \label{capitulo:Cap3:Bsplines}´
+\section{\textit{B-Splines}} \label{capitulo:Cap3:Bsplines}
 
 Para a construção de geometriaa NURBS, que serão empregadas neste trabalhos, é fundamental compreender as funções base \textit{B-splines} e suas particularidades. Essas funções servem como o ponto de partida para a definição de curvas, superfícies e sólidos NURBS, sendo essenciais para o entendimento da flexibilidade e controle geométrico oferecido por esse modelo. As \textit{B-splines} são funções construídas através de um vetor de coordenadas paramétricas (vetor de \textit{knots}) e que dependem de um conjunto de pontos de controle, sendo esses elementos responsáveis por estabelecer a forma geométrica e o grau de continuidade da curva ou superfície.
 
@@ -118,7 +118,7 @@ uma curva polinomial por partes \textit{B-Spline} univariada é definida como:
 \mathbf{C} =\pos\left(\xsi\right) = \sum_{i=0}^{n}\Nb_{i,p}(\xsi)\CP_i,
 \end{align}
 
-\noindent com $y_1$, $y_2$ e $y_3$ sendo as componentes do vetor de coordenadas físicas $\pos$. Utilizando as funções \textit{B-Splines} apresentadas na \autoref{fig:bspline_funcoes} e uma malha de $n+1$ pontos de controle, obtém-se a curva apresentada na Figura \ref{fig:bspline_malhaPC}. Na Figura \ref{fig:bspline_curva} pode-se observar as células físicas equivalentes a essa combinação.
+\noindent com $y_1$, $y_2$ e $y_3$ sendo as componentes do vetor de coordenadas físicas $\pos$. Utilizando as funções \textit{B-Splines} apresentadas na \autoref{fig:bspline_funcoes} e uma malha de $n+1$ pontos de controle, obtém-se a curva apresentada na Figura~\ref{fig:bspline_malhaPC}. Na Figura~\ref{fig:bspline_curva} pode-se observar as células físicas equivalentes a essa combinação.
 
 \begin{figure}[!htbp]
 	\caption{Curva \textit{B-Spline}}
@@ -128,10 +128,10 @@ uma curva polinomial por partes \textit{B-Spline} univariada é definida como:
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-A partir da Figura \ref{fig:bspline_malhaPC} nota-se que a curva \textit{B-Spline} interpola o primeiro e o último ponto de controle, o que é uma característica das curvas construídas com funções descritas a partir de vetores de \textit{knots} abertos. Adicionalmente, devido à multiplicidade do \textit{knot} de coordenada paramétrica $\xsi=3$, existe um ponto de controle intermediário também interpolando a curva. 
+A partir da Figura~\ref{fig:bspline_malhaPC} nota-se que a curva \textit{B-Spline} interpola o primeiro e o último ponto de controle, o que é uma característica das curvas construídas com funções descritas a partir de vetores de \textit{knots} abertos. Adicionalmente, devido à multiplicidade do \textit{knot} de coordenada paramétrica $\xsi=3$, existe um ponto de controle intermediário também interpolando a curva. 
 Coordenadas paramétricas com multiplicidade maior ou igual ao grau polinomial $p$ resultam, por definição, em interpolação dos pontos de controle associados. Além disso, a curva possui continuidade $C^{p-1} = C^{1}$ em todos os lugares, exceto em $\xsi = 3$, onde equivale a $C^{p-2} = C^{0}$, que trata-se de uma propriedade herdada das funções base.
 
-Conforme observado nas figuras: Figura \ref{fig:bspline_malhaPC} e Figura \ref{fig:bspline_curva}, muitas das características de curvas \textit{B-Splines} são consequências das propriedades das funções \textit{B-splines}. Outra importante propriedade dessas curvas é a Transformação Afim, que significa que uma transformação afim de uma curva B-spline é obtida aplicando a transformação diretamente aos pontos de controle. Além disso, devido ao suporte compacto das funções base, as curvas \textit{B-Splines} possuem característica denominada de \textit{localidade}, que significa que, movendo-se um ponto de controle, afeta-se não mais do que $p+1$ células na curva. Outras propriedades matemáticas das curvas \textit{B-Splines} podem ser consultadas em detalhes em \citeonline{PiegT:1996}.
+Conforme observado nas figuras: Figura~\ref{fig:bspline_malhaPC} e Figura~\ref{fig:bspline_curva}, muitas das características de curvas \textit{B-Splines} são consequências das propriedades das funções \textit{B-splines}. Outra importante propriedade dessas curvas é a Transformação Afim, que significa que uma transformação afim de uma curva B-spline é obtida aplicando a transformação diretamente aos pontos de controle. Além disso, devido ao suporte compacto das funções base, as curvas \textit{B-Splines} possuem característica denominada de \textit{localidade}, que significa que, movendo-se um ponto de controle, afeta-se não mais do que $p+1$ células na curva. Outras propriedades matemáticas das curvas \textit{B-Splines} podem ser consultadas em detalhes em \citeonline{PiegT:1996}.
 
 Uma superfície \textit{B-spline} é obtida analogamente à curva \textit{B-spline}. Dado uma rede de pontos de controle $\CP_{i,j}$ $\in \nrealspace$ com $i = 0,1,...,n$ e $j = 0,1,..., m$, e vetores de \textit{knots} $\Xsi = \left[\xsi_{0},\xsi_{1},...,\xsi_{p+n+1}\right]$, $\mathcal{H} = \left[\eta_{0},\eta_{1},...,\eta_{q+m+1}\right]$, a superfície é obtida através do produto tensorial entre $(n+1)$ funções univariadas $\Nb_{i,p}$ e $(m+1)$ funções univariadas $\Mb_{j,q}$ da seguinte forma:
 
@@ -183,7 +183,7 @@ O enriquecimento da base de funções utilizando a inserção de \textit{knots} 
 
 \noindent com $i=0,1,...,(n+m)$ e $j=0,1,...,n$.
 
-Considerando uma curva quadrática \textit{B-spline} construída sobre um vetor de \textit{knots} aberto $\Xsi=[0,0,0,1,1,1]$ apresentada na Figura  \ref{fig:bspline_pc_ai} juntamente com sua rede de pontos de controle, nota-se que essa curva, possui apenas uma célula no espaço físico e $3$ funções base no espaço paramétrico (Figura \ref{fig:bspline_base_ai}). 
+Considerando uma curva quadrática \textit{B-spline} construída sobre um vetor de \textit{knots} aberto $\Xsi=[0,0,0,1,1,1]$ apresentada na Figura~\ref{fig:bspline_pc_ai} juntamente com sua rede de pontos de controle, nota-se que essa curva, possui apenas uma célula no espaço físico e $3$ funções base no espaço paramétrico (Figura~\ref{fig:bspline_base_ai}). 
 
 \begin{figure}[H]
 	\caption{Refinamento $h$ para um curva \textit{B-Spline}}
@@ -198,14 +198,14 @@ Considerando uma curva quadrática \textit{B-spline} construída sobre um vetor 
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Ao realizar a inserção de um \textit{knot}, $\xsi=1/2$, o vetor de \textit{knots} estendido fica definido como: $\bar{\Xsi}=[0,0,0,1/2,1,1,1]$. Aplicando-se a Equação~\eqref{eq:bsplines_0} e Equação~\eqref{eq:bsplines_n} à esse vetor de coordenadas paramétricas, obtém-se as $4$ funções base apresentadas na Figura \ref{fig:bspline_base_di} definidas sobre 2 células do espaço paramétrico. Após o emprego do refinamento $h$, a geometria da curva é preservada. No entanto, como ilustrado na Figura \ref{fig:bspline_curva_di}, uma nova célula física é inserida, além de que, de acordo com a Figura \ref{fig:bspline_pc_di}, a malha de pontos de controle é modificada, com o acréscimo de um novo ponto e o reajuste de suas posições.
+Ao realizar a inserção de um \textit{knot}, $\xsi=1/2$, o vetor de \textit{knots} estendido fica definido como: $\bar{\Xsi}=[0,0,0,1/2,1,1,1]$. Aplicando-se a Equação~\eqref{eq:bsplines_0} e Equação~\eqref{eq:bsplines_n} à esse vetor de coordenadas paramétricas, obtém-se as $4$ funções base apresentadas na Figura~\ref{fig:bspline_base_di} definidas sobre 2 células do espaço paramétrico. Após o emprego do refinamento $h$, a geometria da curva é preservada. No entanto, como ilustrado na Figura~\ref{fig:bspline_curva_di}, uma nova célula física é inserida, além de que, de acordo com a Figura~\ref{fig:bspline_pc_di}, a malha de pontos de controle é modificada, com o acréscimo de um novo ponto e o reajuste de suas posições.
 
 Para fins práticos, o processo de refinamento consiste na inserção consecutiva de coordenadas paramétricas ao vetor de \textit(knots) até que se alcance a discretização desejada. Um algoritmo mais eficiente para realizar esse procedimento de refinamento pode ser encontrado em \citeonline{PiegT:1996}. Esse procedimento pode ser aplicado analogamente à superfícies e sólidos, aplicando-se a inserção de \textit{knots} nas direções paramétricas desejadas.
 
 
 \section{NURBS}
 
-Uma geometria NURBS no $\nrealspace$ pode ser entendida, do ponto de vista geométrico, como a transformação projetiva de uma geometria \textit{B-Spline} no $\realspace^{\nsd+1}$. Nesse contexto, geometrias cônicas podem ser construídas exatamente através de curvas quadráticas por partes. Na Figura \ref{fig:NURBS_curva_transProj}, apresenta-se uma curva NURBS $\mathbf{C}\left(\xsi\right)$ no $\realspace^{2}$ , que representa de forma exata uma circunferência, a qual foi obtida a partir da transformação projetiva de uma curva quadrática por partes \textit{B-Spline} ($\mathbf{C}^{w}\left(\xsi\right)$) no  $\realspace^{3}$. A transformação é realizada através da projeção em um plano $y_3 = 1$ de cada ponto da curva projetiva ($\mathbf{C}^{w}\left(\xsi\right)$) através de um raio que passa pela origem.
+Uma geometria NURBS no $\nrealspace$ pode ser entendida, do ponto de vista geométrico, como a transformação projetiva de uma geometria \textit{B-Spline} no $\realspace^{\nsd+1}$. Nesse contexto, geometrias cônicas podem ser construídas exatamente através de curvas quadráticas por partes. Na Figura~\ref{fig:NURBS_curva_transProj}, apresenta-se uma curva NURBS $\mathbf{C}\left(\xsi\right)$ no $\realspace^{2}$ , que representa de forma exata uma circunferência, a qual foi obtida a partir da transformação projetiva de uma curva quadrática por partes \textit{B-Spline} ($\mathbf{C}^{w}\left(\xsi\right)$) no  $\realspace^{3}$. A transformação é realizada através da projeção em um plano $y_3 = 1$ de cada ponto da curva projetiva ($\mathbf{C}^{w}\left(\xsi\right)$) através de um raio que passa pela origem.
 
 \begin{figure}[!htbp]
 	\caption{Projeção transformativa de entidade \textit{B-Spline}}
@@ -215,7 +215,7 @@ Uma geometria NURBS no $\nrealspace$ pode ser entendida, do ponto de vista geom�
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-O mesmo procedimento de transformação pode ser realizado para obtenção dos pontos de controle NURBS (Figura \ref{fig:NURBS_PC_transProj}) a partir de pontos de controle projetivos ($\mathbf{B_i}^w$), usando a seguinte relação:
+O mesmo procedimento de transformação pode ser realizado para obtenção dos pontos de controle NURBS (Figura~\ref{fig:NURBS_PC_transProj}) a partir de pontos de controle projetivos ($\mathbf{B_i}^w$), usando a seguinte relação:
 
 \begin{align}
 	\left(\CP_i\right)_j = \left(\CP^w_i\right)_j/w_i, \ \ j=1,...,\nsd ,
@@ -450,7 +450,7 @@ Os exemplos escolhidos para a verificação do código computacional AIG para es
 
 \subsection {Escoamento sobre um cilindro - discretização isogeométrica}
 
-Este é o mesmo exemplo simulado com elementos finitos na  \autoref{capitulo:Cap2:VerApl:Cilindo}, porém considerando-se discretização tridimensional do domínio como representado na Figura \ref{fig:cilindro_geometria3d}. São adotados os mesmos parâmetros de análise, sendo considerados também os 3 valores de número de Reynolds: $\Reynolds =$ 40, 100 e, 1000. A dimensão $t$ na direção $y_3$ é equivalente à $0,01D$. Aplica-se um perfil de velocidade constante na entrada do domínio, $\velocity=[u_\infty,0,0]$, e condições de parede lisa são atribuídas às paredes superior e inferior, enquanto que para as frontal e dos fundos condições de simetria são aplicadas.
+Este é o mesmo exemplo simulado com elementos finitos na  \autoref{capitulo:Cap2:VerApl:Cilindo}, porém considerando-se discretização tridimensional do domínio como representado na Figura~\ref{fig:cilindro_geometria3d}. São adotados os mesmos parâmetros de análise, sendo considerados também os 3 valores de número de Reynolds: $\Reynolds =$ 40, 100 e, 1000. A dimensão $t$ na direção $y_3$ é equivalente à 0,01D. Aplica-se um perfil de velocidade constante na entrada do domínio, $\velocity=[u_\infty,0,0]$, e condições de parede lisa são atribuídas às paredes superior e inferior, enquanto que para as frontal e dos fundos condições de simetria são aplicadas.
 
 Por se tratar do primeiro exemplo com discretização isogeométrica, descreve-se de maneira detalhada a geração da discretização espacial, enquanto nos demais problemas a discretização é apenas apresentada.
 
@@ -468,11 +468,11 @@ Dada a simplicidade da geometria envolvida, a malha é desenvolvida pela própri
 
 O processo de geração da malha, simplificadamente, consiste em se escolher vetores de $knots$, pontos de controle, e pesos adequados para a descrição da geometria de cada \textit{patch}, assegurando simultaneamente o refinamento necessário para a análise numérica.
 
-Para a geração do primeiro \textit{patch}, $P_0$, que cobre $1/4$ da circunferência do cilindro, inicia-se pela discretização de uma circunferência definida na direção paramétrica $\xsi$. Utilizou-se o número mínimo de pontos de controle necessários para representar exatamente $1/4$ de circunferência de diâmetro D com o uso de funções quadráticas NURBS. O vetor de \textit{knots} aberto adotado é definido por: $\Xsi=\left[0,0,0,1,1,1\right]$, sendo os pontos de controle  $\CP_0=[\frac{\sqrt{2}D}{4},-\frac{\sqrt{2}D}{4},0]$, $\CP_1=[\frac{D}{\sqrt{2}},0,0]$ e $\CP_2=[\frac{\sqrt{2}D}{4},\frac{\sqrt{2}D}{4},0]$, e os pesos: $w_0 = 1$, $w_1 = \frac{\sqrt{2}}{2}$ e $w_2 = 1$. A disposição dos pontos de controle e a curva resultante são apresentados na Figura˜\ref{fig:cilindro_circ_ini}.
+Para a geração do primeiro \textit{patch}, $P_0$, que cobre $1/4$ da circunferência do cilindro, inicia-se pela discretização de uma circunferência definida na direção paramétrica $\xsi$. Utilizou-se o número mínimo de pontos de controle necessários para representar exatamente $1/4$ de circunferência de diâmetro D com o uso de funções quadráticas NURBS. O vetor de \textit{knots} aberto adotado é definido por: $\Xsi=\left[0,0,0,1,1,1\right]$, sendo os pontos de controle  $\CP_0=[\frac{\sqrt{2}D}{4},-\frac{\sqrt{2}D}{4},0]$, $\CP_1=[\frac{D}{\sqrt{2}},0,0]$ e $\CP_2=[\frac{\sqrt{2}D}{4},\frac{\sqrt{2}D}{4},0]$, e os pesos: $w_0 = 1$, $w_1 = \frac{\sqrt{2}}{2}$ e $w_2 = 1$. A disposição dos pontos de controle e a curva resultante são apresentados na Figura~\ref{fig:cilindro_circ_ini}.
 
-Na sequência refina-se a discretização por inserção sucessiva de coordenadas paramétricas no vetor de \textit{knots}. O algoritmo utilizado para este procedimento pode ser encontrado em \citeonline {PiegT:1996}. Na Figura \ref{fig:cilindro_circ_ref} apresenta-se um exemplo dos pontos de controle resultantes após a inserção das coordenadas paramétricas $1/4, 1/2 \ \text{e} \ 3/4$. Essa inserção resulta em três novas células físicas. A quantidade de coordenadas paramétricas a ser inserida depende da discretização desejada para a analise numérica.
+Na sequência refina-se a discretização por inserção sucessiva de coordenadas paramétricas no vetor de \textit{knots}. O algoritmo utilizado para este procedimento pode ser encontrado em \citeonline {PiegT:1996}. Na Figura~\ref{fig:cilindro_circ_ref} apresenta-se um exemplo dos pontos de controle resultantes após a inserção das coordenadas paramétricas $1/4, 1/2 \ \text{e} \ 3/4$. Essa inserção resulta em três novas células físicas. A quantidade de coordenadas paramétricas a ser inserida depende da discretização desejada para a analise numérica.
 
-Para a representação da geometria do \textit{patch} $P_0$, gerou-se uma curva na direção paramétrica $\xsi$ que define o contorno direito do domínio. A curva é definida considerando o vetor de \textit{knots} atualizado $\Xsi=\left[0,0,0,1/4,1/2,3/4,1,1,1\right]$ e  consiste em uma reta cujas coordenadas de suas extremidades inicial e final são: $\pos_0 =[2,-2,0]$ e $\pos_1 =[2, 2 ,0]$, respectivamente. Os $6$ pontos de controle são distribuídos sobre a reta através de um espaçamento não uniforme: nas extremidades, a distância entre pontos consecutivos corresponde à metade do espaçamento adotado no interior, enquanto a região central é subdividida uniformemente, conforme pode ser observado na Figura \ref{fig:cilindro_pc_superficie}. Essa distribuição não uniforme dos pontos de controle proporciona uma distribuição uniforme das células mapeadas no espaço físico. Para essa curva, todos os pesos são definidos como $1$.
+Para a representação da geometria do \textit{patch} $P_0$, gerou-se uma curva na direção paramétrica $\xsi$ que define o contorno direito do domínio. A curva é definida considerando o vetor de \textit{knots} atualizado $\Xsi=\left[0,0,0,1/4,1/2,3/4,1,1,1\right]$ e  consiste em uma reta cujas coordenadas de suas extremidades inicial e final são: $\pos_0 =[2,-2,0]$ e $\pos_1 =[2, 2 ,0]$, respectivamente. Os $6$ pontos de controle são distribuídos sobre a reta através de um espaçamento não uniforme: nas extremidades, a distância entre pontos consecutivos corresponde à metade do espaçamento adotado no interior, enquanto a região central é subdividida uniformemente, conforme pode ser observado na Figura~\ref{fig:cilindro_pc_superficie}. Essa distribuição não uniforme dos pontos de controle proporciona uma distribuição uniforme das células mapeadas no espaço físico. Para essa curva, todos os pesos são definidos como $1$.
 
 \begin{figure}[H]
 	\caption{Cilindro: Obtenção da circunferência}
@@ -485,11 +485,11 @@ Para a representação da geometria do \textit{patch} $P_0$, gerou-se uma curva 
 
 A superfície do domínio é gerada discretizando-se a direção $\eta$ do espaço paramétrico. Para isso, os $m+1$ pontos de controle nessa direção são posicionados ao longo das retas que conectam os pontos de controle da primeira camada (circunferência) aos da última camada (reta). A distribuição desses pontos segue uma progressão geométrica de modo que as células menores fiquem próximas ao cilindro garantindo uma melhor resolução para captar os efeitos de camada limite. 
 
-Esse processo é exemplificado na Figura \ref{fig:cilindro_pc_superficie} com a discretização mínima necessária para o emprego de funções quadráticas, ou seja, são utilizados apenas três pontos de controle na direção $\eta$, com o vetor de \textit{knots} aberto $\mathcal{H}=[0,0,0,1,1,1]$. Na Figura \ref{fig:cilindro_malhafisica_superficie} apresentam-se as células mapeadas do espaço paramétrico para o espaço físico. Salienta-se que os pontos de controle obtidos nessa etapa foram definidos com peso unitário.
+Esse processo é exemplificado na Figura~\ref{fig:cilindro_pc_superficie} com a discretização mínima necessária para o emprego de funções quadráticas, ou seja, são utilizados apenas três pontos de controle na direção $\eta$, com o vetor de \textit{knots} aberto $\mathcal{H}=[0,0,0,1,1,1]$. Na Figura~\ref{fig:cilindro_malhafisica_superficie} apresentam-se as células mapeadas do espaço paramétrico para o espaço físico. Salienta-se que os pontos de controle obtidos nessa etapa foram definidos com peso unitário.
 
 Para a simulação numérica apresentada na sequência, a quantidade de pontos de controle na direção $\eta$ foi definida em função da necessidade de discretização para o problema. Para um vetor de \textit{knots} abertos com coordenadas interiores de multiplicidade unitária, a quantidade de células ($ncel$) está relacionada número de pontos de controle $npc$ por $ncel = npc-deg$, sendo $deg$ o grau das funções na direção paramétrica em questão.
 
-Por fim, para a geração do volume NURBS, adota-se apenas uma camada de células na direção paramétrica $\zeta$, correspondente à direção $y_3$ do espaço físico deste problema. São empregadas funções quadráticas, com vetor de \textit{knots} aberto $\mathcal{Z} = \left[0,0,0,1,1,1\right]$ na direção $\zeta$ e pontos de controle distribuídos uniformemente e com peso unitário. Na Figura \ref{fig:cilindro_pc_solido} e Figura \ref{fig:cilindro_malhafisica_solido} apresenta-se a rede de pontos e a malha física para a geração do volume equivalente ao \textit{patch} $P_0$ para a discretização exemplificada nesta seção.
+Por fim, para a geração do volume NURBS, adota-se apenas uma camada de células na direção paramétrica $\zeta$, correspondente à direção $y_3$ do espaço físico deste problema. São empregadas funções quadráticas, com vetor de \textit{knots} aberto $\mathcal{Z} = \left[0,0,0,1,1,1\right]$ na direção $\zeta$ e pontos de controle distribuídos uniformemente e com peso unitário. Na Figura~\ref{fig:cilindro_pc_solido} e Figura~\ref{fig:cilindro_malhafisica_solido} apresenta-se a rede de pontos e a malha física para a geração do volume equivalente ao \textit{patch} $P_0$ para a discretização exemplificada nesta seção.
 
 \begin{figure}[H]
 	\caption{Cilindro: Obtenção da superfície}
@@ -513,7 +513,7 @@ Para os \textit{patches} $P_1$, $P_2$ e $P_3$, utiliza-se a mesma parametrizaç�
 
 Para a geração dos\textit{patches} retangulares, $P_4$ à $P_{11}$, definiu-se a direção paramétrica $\xsi$ respectiva à direção física $y_1$, $\eta$ correspondente à $y_2$ e $\zeta$ à $y_3$. A quantidade de pontos de controle em cada direção foi definida a partir do número de células desejadas para a análise numérica e para garantir compatibilidade com os \textit{patches} $P_0$ - $P_3$, adotando-se pesos unitários para os pontos de controle, vetores de \textit{knots} abertos e com espaçamento uniforme e funções NURBS quadráticas. 
 
-A malha isogeométrica utilizada é apresentada na Figura \ref{fig:cilindro_malha3d} e na  \autoref{tab:cilindro_discretização_patches} pode-se observar a quantidade de pontos de controle em cada uma das direções paramétricas utilizados na discretização de cada um dos \textit{patches} que compõe a malha, resultando em 30228 pontos de controle e 8728 células físicas.
+A malha isogeométrica utilizada é apresentada na Figura~\ref{fig:cilindro_malha3d} e na  \autoref{tab:cilindro_discretização_patches} pode-se observar a quantidade de pontos de controle em cada uma das direções paramétricas utilizados na discretização de cada um dos \textit{patches} que compõe a malha, resultando em 30228 pontos de controle e 8728 células físicas.
 
 \begin{figure}[!htbp]
 	\caption{Cilindro: Malha de células físicas}
@@ -573,19 +573,19 @@ A malha isogeométrica utilizada é apresentada na Figura \ref{fig:cilindro_malh
 
 \subsubsection {Análise numérica}
 
-O problema é simulado para um velocidade de entrada $u_{\infty} = 1,0$, $\rho = 1,0$, $\timeStep = 0,05$, e $\specRadius = 0,5$, sendo a viscosidade variada de acordo com o número de Reynolds desejado.  Para a discretização 3D, calculam-se os coeficientes aerodinâmicos $C_{D}$ e $C_{L}$ a partir das definições de forças de arrasto e de sustentação através das seguintes equações:
+O problema é simulado para um velocidade de entrada $u_{\infty} = 1\text{,}0$, $\rho = 1\text{,}0$, $\timeStep = 0\text{,}05$, e $\specRadius = 0\text{,}5$, sendo a viscosidade variada de acordo com o número de Reynolds desejado.  Para a discretização 3D, calculam-se os coeficientes aerodinâmicos $C_{D}$ e $C_{L}$ a partir das definições de forças de arrasto e de sustentação através das seguintes equações:
 
 \begin{align}
-	C_D = \frac{F_D}{0,5\density \lVert \velocinfty \lVert^{2} L t},
+	C_D = \frac{F_D}{0\text{,}5\density \lVert \velocinfty \lVert^{2} L t},
 \end{align}
 
 \noindent e 
 
 \begin{align}
-	C_L = \frac{F_L}{0,5\density \lVert \velocinfty \lVert^{2} L t},
-\end{align}.
+	C_L = \frac{F_L}{0\text{,}5\density \lVert \velocinfty \lVert^{2} L t}.
+\end{align}
 
-A Figura \ref{fig:cilindro_cd3d} e a Figura \ref{fig:cilindro_cl3d} apresentam a história de $C_{D}$ e $C_{L}$. Os valores do coeficiente de arrasto médio obtidos com a malha isogeométrica com células 3d foram: $C_{Dmed} = 1,54$ para $\Reynolds = 40$, $C_{Dmed} = 1,36$ para $\Reynolds = 100$ e $C_{Dmed} = 1,49$ para $\Reynolds = 1000$. Ressalta-se, que apesar dos valores de $C_{Dmed}$ estarem bem próximos aos da simulação com MEF tradicional da \autoref{capitulo:Cap2:VerApl:Cilindo}, para as análises utilizando IGA, foram necessários mais passos de tempo para o início do processo de desprendimento de vórtices nos casos de $\Reynolds = 100$ e $\Reynolds = 1000$, o que está associado tanto à melhor uniformidade da discretização quanto à diferença na resolução da malha no plano $y_1\times y_2$. 
+A Figura~\ref{fig:cilindro_cd3d} e a Figura~\ref{fig:cilindro_cl3d} apresentam a história de $C_{D}$ e $C_{L}$. Os valores do coeficiente de arrasto médio obtidos com a malha isogeométrica com células 3d foram: $C_{Dmed} = 1\text{,}54$ para $\Reynolds = 40$, $C_{Dmed} = 1\text{,}36$ para $\Reynolds = 100$ e $C_{Dmed} = 1\text{,}49$ para $\Reynolds = 1000$. Ressalta-se, que apesar dos valores de $C_{Dmed}$ estarem bem próximos aos da simulação com MEF tradicional da \autoref{capitulo:Cap2:VerApl:Cilindo}, para as análises utilizando IGA, foram necessários mais passos de tempo para o início do processo de desprendimento de vórtices nos casos de $\Reynolds = 100$ e $\Reynolds = 1000$, o que está associado tanto à melhor uniformidade da discretização quanto à diferença na resolução da malha no plano $y_1\times y_2$. 
 
 \begin{figure}[!htbp]
 	\caption{Cilindro: Coeficientes aerodinâmicos}
@@ -597,7 +597,7 @@ A Figura \ref{fig:cilindro_cd3d} e a Figura \ref{fig:cilindro_cl3d} apresentam a
 	\label{fig:cilindro_coeficientes3d}
 \end{figure}
 
-Os campos de velocidade e pressão para diferentes instantes ao longo de um ciclo de desprendimento de vórtices para $\Reynolds = 1000$ são apresentados na Figura \ref{fig:cilindro_AIG_camposVel} e Figura \ref{fig:cilindro_AIG_camposPressao}, onde observa-se resultados qualitativamente consistentes com o esperado.
+Os campos de velocidade e pressão para diferentes instantes ao longo de um ciclo de desprendimento de vórtices para $\Reynolds = 1000$ são apresentados na Figura~\ref{fig:cilindro_AIG_camposVel} e Figura~\ref{fig:cilindro_AIG_camposPressao}, onde observa-se resultados qualitativamente consistentes com o esperado.
 
 \begin{figure}[!htbp]
 	\caption{Cilindro: Campos de velocidade para $\Reynolds = 1000$ - plano $y_1$$y_2$}
@@ -629,7 +629,7 @@ Os campos de velocidade e pressão para diferentes instantes ao longo de um cicl
 
 \subsection {Escoamento em um canal com degrau}
 
-Este problema consiste num escoamento em um canal fechado com um degrau à jusante da entrada, causando expansão abrupta da altura do canal, conforme apresentado na \autoref{fig:degrau_geometria}, onde é descrita a geometria do canal em vista no plano $y_1\times y_2$, sendo as dimensões: $h = 1,0m$, $s = 0,94m$, $x_{e}= 1,0m$, $x_{f}= 15m$ e $x_{t} = 30m$. A espessura adotada, na direção $y_3$, é constante e igual a $0,1m$.  
+Este problema consiste num escoamento em um canal fechado com um degrau à jusante da entrada, causando expansão abrupta da altura do canal, conforme apresentado na \autoref{fig:degrau_geometria}, onde é descrita a geometria do canal em vista no plano $y_1\times y_2$, sendo as dimensões: $h = 1\text{,}0m$, $s = 0\text{,}94m$, $x_{e} = 1\text{,}0m$, $x_{f} = 15m$ e $x_{t} = 30m$. A espessura adotada, na direção $y_3$, é constante e igual a $0\text{,}1m$.  
 
 Considera-se condição de aderência nas paredes paralelas aos planos $y_1$$y_3$ e $y_1$$y_3$ com $u_1=u_2=u_3=0$, enquanto que as paredes paralelas ao plano $y_1$$y_2$ são consideradas lisas, com apenas $u_3=0$. Na entrada prescreve-se o perfil parabólico para $u_1$ dado por:
 
@@ -653,9 +653,9 @@ O escoamento sobre o degrau é caracterizado por produzir áreas de recirculaç�
 	\label{fig:degrau_geometria}
 \end{figure}
 
-Embora o problema possua caráter bidimensional, para fins de verificação do código, adota-se discretização isoparamétrica 3d com cinco \textit{patches} e um total de 17640 pontos de controle e 4800 células, conforme pode ser observado na Figura \ref{fig:degrau_malha}. Na \autoref{tab:degrau_discretização_patches} apresenta-se o número de pontos de controle em cada direção paramétrica para cada \textit{patch}. 
+Embora o problema possua caráter bidimensional, para fins de verificação do código, adota-se discretização isoparamétrica 3d com cinco \textit{patches} e um total de 17640 pontos de controle e 4800 células, conforme pode ser observado na Figura~\ref{fig:degrau_malha}. Na \autoref{tab:degrau_discretização_patches} apresenta-se o número de pontos de controle em cada direção paramétrica para cada \textit{patch}. 
 
-São simulados três diferentes número de Reynolds para as análises: $\Reynolds = 100$, $\Reynolds = 400$ e $\Reynolds = 800$, os quais são obtidos a partir da variação da viscosidade do fluido. Considera-se  $\rho = 1kg/m^{3}$, $\timeStep = 0,05s$, e $\specRadius = 0,5$. As simulações são mantidas até que seja atingido o estado estacionário, sobre o qual são feitas as análises.
+São simulados três diferentes número de Reynolds para as análises: $\Reynolds = 100$, $\Reynolds = 400$ e $\Reynolds = 800$, os quais são obtidos a partir da variação da viscosidade do fluido. Considera-se  $\rho = 1kg/m^{3}$, $\timeStep = 0\text{,}05s$, e $\specRadius = 0\text{,}5$. As simulações são mantidas até que seja atingido o estado estacionário, sobre o qual são feitas as análises.
 
 \begin{figure}[!htbp]
 	\caption{Degrau: Malha de células físicas - plano $y_1$$y_2$}
@@ -694,13 +694,13 @@ De acordo com os experimentos realizados por \citeonline{ArmalyDP:1983}, as medi
 
 \citeonline{ArmalyDP:1983} em suas análises constatou o surgimento de uma bolha de separação adicional ao longo do piso do canal, a jusante da separação primária, a qual desaparece para $\Reynolds > 2300$. Outra região de separação secundária também é observada ao longo da parede superior à jusante do degrau. Isso desenvolve-se a partir de Re 400 e permanece durante todo o regime de transição.
 
-Na Figura \ref{fig:degrau_comprimento_vortice_principal} são apresentados os comprimentos de recolamento do vórtice primário adimensionalizados ($x_{r}/s$) obtidos nesse trabalho, juntamente com os valores experimentais reportados por \citeonline{ArmalyDP:1983} e os resultados de análises numéricas 2d e 3d de \citeonline{WilliamsB:1999}. 
+Na Figura~\ref{fig:degrau_comprimento_vortice_principal} são apresentados os comprimentos de recolamento do vórtice primário adimensionalizados ($x_{r}/s$) obtidos nesse trabalho, juntamente com os valores experimentais reportados por \citeonline{ArmalyDP:1983} e os resultados de análises numéricas 2d e 3d de \citeonline{WilliamsB:1999}. 
 
 Com essa figura é possível observar que a medida que o número de Reynolds aumenta, os resultados obtidos do presente estudo se afastam dos valores de referência respectivos ao estudo experimental e da simulação tridimensional. Este fato ocorre visto que o ensaio experimental foi realizado em um canal com $2m$ profundidade na direção $y_3$, enquanto que a simulação atual conta com apenas uma célula nessa direção, sendo então incapaz de captar os fenômenos tridimensionais que ocorrem a medida que o número de Reynolds cresce. 
 
-Na Figura \ref {fig:degrau_campos_velocidade_Re100} pode-se observar a distribuição do módulo da velocidade para o domínio completo e para a região do vórtice primário para $\Reynolds = 100$, enquanto na Figura \ref {fig:degrau_campos_velocidade_Re400} e Figura \ref {fig:degrau_campos_velocidade_Re800} apresenta-se o mesmo para $\Reynolds = 400$ e $\Reynolds = 800$ respectivamente. Para $\Reynolds = 800$ constata-se a formação de um vórtice secundário na parede superior (Figura \ref{fig:degrau_vor_sec_re800}), que está de acordo com o relato dos autores previamente citados.
+Na Figura~\ref {fig:degrau_campos_velocidade_Re100} pode-se observar a distribuição do módulo da velocidade para o domínio completo e para a região do vórtice primário para $\Reynolds = 100$, enquanto na Figura~\ref {fig:degrau_campos_velocidade_Re400} e Figura~\ref {fig:degrau_campos_velocidade_Re800} apresenta-se o mesmo para $\Reynolds = 400$ e $\Reynolds = 800$ respectivamente. Para $\Reynolds = 800$ constata-se a formação de um vórtice secundário na parede superior (Figura~\ref{fig:degrau_vor_sec_re800}), que está de acordo com o relato dos autores previamente citados.
 
-Por fim, na Figura \ref{fig:degrau_campos_pressao} é possível observa-se os campos de pressão para todos os números de Reynolds simulados.
+Por fim, na Figura~\ref{fig:degrau_campos_pressao} é possível observa-se os campos de pressão para todos os números de Reynolds simulados.
 
 \begin{figure}[!htbp]
 	\caption{Degrau: Comprimento do vórtice principal}
