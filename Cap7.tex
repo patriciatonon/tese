@@ -482,7 +482,7 @@ Considerando um ciclo de movimento da estrutura $T$ (aproximadamente periódico)
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-\subsection{Turbina}
+\subsection{Turbina} \label{Cap7:Exemplos:Turbina}
 
 Como última aplicação, propõe-se um problema tridimensional que não pode ser simulado diretamente com métodos de málhas móveis, e que neste caso pode ser simulado com a aplicação da técnica de superposição proposta. Este problema consiste em uma turbina hidráulica com pás diretoras fixas e um rotor, com uma pressão superior à atmosférica aplicada na entrada. Inicialmente realiza-se um estudo prévio apenas com o rotor, o qual é simulado utilizando um monomodelo de elementos finitos. Posteriormente considera-se a turbina com as pás diretoras representadas por uma discretização isogeométrica global e insere-se o rotor por meio de uma discretização local por elementos finitos, a qual pode mover-se e deformar-se de modo a acomodar a rotação e deformação do rotor.
 
@@ -502,20 +502,35 @@ Durante a rotação da turbina, toda a malha de elementos finitos do fluido é d
 
 Para o fluido considera-se velocidade nula no contorno externo do tubo bem como no contorno do encapsulamento e velocidade igual à da estrutura na interface fluido-estrutura flexível, enquanto na entrada é aplicada uma força de superfície de $100$~kPa no sentido de deslocar o fluido para dentro da turbina, e na saída força de superfície nula. O fluido possui propriedades físicas da água, que consistem em viscosidade dinâmica de $\viscosity=1\text{,}00\cdot10^{-4}$~kg/(dm$\cdot$s) e massa específica equivalente a $\rho_{f} = 1\text{,}00 \text{ kg/dm}^3$.
 
-O rotor consiste em uma hélice de 4 pás com espessura constante $t_p = 0\text{,}02$~dm, com diâmetro de ponta (\textit{tip}) $D=1\text{,}5$~dm. As pás são acopladas a um cubo (\textit{hub}) de diâmetro $d=0\text{,}60$~dm com parede de espessura $t_c = 0\text{,}1$~dm. Considera-se que o cubo se conecta a um eixo, de mesmo diâmetro e espessura do cubo, o qual se prolonga até a entrada do escoamento por dentro do encapsulamento rígido. A geometria das pás foi gerada utilizando o software CFturbo® \footnote{Disponível em: \url{https://www.cfturbo.com}}, sendo as coordenadas e conectividades da malha apresentados no Anexo\textcolor{red}{colocar em anexo e referenciair aqui}. Selecionou-se um aço para compor o material da estrutura com densidade de massa $\rho_{e} =  8\text{,}0 \text{ Kg/dm}^3 $, e módulo de elasticidade de $\mathbb{E} = 2\text{,}0\cdot10^{10} \text{ kg/(dm.s}^2)$. A superfície superior do eixo consiste em um disco com a mesma espessura e material do eixo, onde o nó central possui todas as componentes de deslocamento restritas, enquanto os demais nós dessa superfície possuem apenas os deslocamentos na direção $y_3$ restritos. Dada a rigidez do eixo, os deslocamentos do mesmo são pequenos o suficiente para que seja possível desconsiderar o contato com o encapsulamento.
+O rotor consiste em uma hélice de 4 pás com espessura constante $t_p = 0\text{,}02$~dm, com diâmetro de ponta (\textit{tip}) $D=1\text{,}5$~dm. As pás são acopladas a um cubo (\textit{hub}) de diâmetro $d=0\text{,}60$~dm com parede de espessura $t_c = 0\text{,}1$~dm. Considera-se que o cubo se conecta a um eixo, de mesmo diâmetro e espessura do cubo, o qual se prolonga até a entrada do escoamento por dentro do encapsulamento rígido. A geometria das pás foi gerada utilizando o software CFturbo® \footnote{Disponível em: \url{https://www.cfturbo.com}}, enquanto que a discretização em elementos finitos realizada no GMSH (os dados da malha podem ser visualizados no \autoref{apendice:malhaRotor}). Selecionou-se um aço para compor o material da estrutura com densidade de massa $\rho_{e} =  8\text{,}0 \text{ Kg/dm}^3 $, e módulo de elasticidade de $\mathbb{E} = 2\text{,}0\cdot10^{10} \text{ kg/(dm.s}^2)$. A superfície superior do eixo consiste em um disco com a mesma espessura e material do eixo, onde o nó central possui todas as componentes de deslocamento restritas, enquanto os demais nós dessa superfície possuem apenas os deslocamentos na direção $y_3$ restritos. Dada a rigidez do eixo, os deslocamentos do mesmo são pequenos o suficiente para que seja possível desconsiderar o contato com o encapsulamento.
 
 No que diz respeito a integração temporal considera-se $\timeStep = 1\cdot10^{-3}$~s, e para o fluido um raio espectral $\specRadius = 0\text{,}5$.
 
 A malha utilizada para a discretização do domínio do fluido, apresentada na Figura~\ref{fig:turbina_mono_malha_fluido}, é composta por 49239 elementos tetraédricos quadráticos e 76548 nós, enquanto que, a malha da discretização da estrutura (ver Figura~\ref{fig:turbina_malha_estrutura}) é composta por 3807 elementos de casca triangulares quadráticos e 7791 nós.
 
+%\begin{figure}[!htbp]
+%	\caption{Turbina monomodelo: Malhas}
+%	\centering 
+%	\subfloat[\label{fig:turbina_mono_malha_fluido}][malha fluido]{%
+%		\includegraphics[scale=2.0,trim=0cm 0cm 0.0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_malha.pdf}} \quad
+%	\subfloat[\label{fig:turbina_malha_estrutura}][malha estrutura]{%
+%		\includegraphics[scale=2.0,trim=0cm 0.0cm 0.2cm 0.0cm, clip=true]{Imagens/Cap7/turbina_malha_estrutura.pdf}} 
+%	\label{fig:turbina_mono_malha}
+%	\legend{Fonte: Elaborada pela autora}
+%\end{figure}
+
 \begin{figure}[!htbp]
-	\caption{Turbina monomodelo: Malhas}
-	\centering 
-	\subfloat[malha fluido \label{fig:turbina_mono_malha_fluido}]{\includegraphics[scale=2.0,trim=0cm 0cm 0.0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_malha.pdf}} \ \
-	\subfloat[malha estrutura \label{fig:turbina_malha_estrutura}]{\includegraphics[scale=2.0,trim=0cm 0cm 0.2cm 0cm, clip=true]{Imagens/Cap7/turbina_malha_estrutura.pdf}} 
+	\centering
+	\caption{Turbina monomodelo: malhas}
 	\label{fig:turbina_mono_malha}
-	\legend{Fonte: Elaborada pela autora}
+	\subfloat[Malha fluido\label{fig:turbina_mono_malha_fluido}]{%
+		\includegraphics[scale=2.0,trim=0cm 0cm 0.0cm 0cm, clip]{Imagens/Cap7/turbina_mono_malha.pdf}} 
+	\quad
+	\subfloat[Malha estrutura\label{fig:turbina_malha_estrutura}]{%
+		\includegraphics[scale=2.0,trim=0cm 0.0cm 0.2cm 0.0cm, clip]{Imagens/Cap7/turbina_malha_estrutura.pdf}} 
+	\legend{Fonte: Elaborada pela autora.}
 \end{figure}
+
 
 Afim de se analisar os deslocamentos máximos nas pás ao longo do tempo na direção $y_3$, demarcou-se um ponto $A$ na extremidade de uma das pás do rotor, conforme pode ser visualizado na \autoref{fig:turbina_mono_geo}. Os deslocamento deste nó ao longo do tempo é apresentado na \autoref{fig:turbina_mono_deslA}. Ao realizar-se a média dos deslocamentos a partir do instante $t=0,2$~s até o final da análise ($t=0,5$~s), obteve-se um valor deslocamento médio de $-0,0127355$~cm neste ponto. 
 
@@ -523,7 +538,7 @@ Afim de se analisar os deslocamentos máximos nas pás ao longo do tempo na dire
 \begin{figure}[!htbp]
 	\caption{Turbina monomodelo: Deslocamento em $y_3$ no ponto A}
 	\centering 
-	\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_deslocamento.pdf}	
+	\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_deslocamento.pdf}	
 	\label{fig:turbina_mono_deslA}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -533,7 +548,7 @@ Além disso, acompanhou-se a velocidade angular deste mesmo ponto ao longo do te
 \begin{figure}[!htbp]
 	\caption{Turbina monomodelo: Velocidade angular no ponto A}
 	\centering 
-	\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_velocidade_angular.eps}	
+	\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_velocidade_angular.eps}	
 	\label{fig:turbina_mono_velAngA}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -563,9 +578,9 @@ Por fim, apresentam-se os campos do módulo de velocidade e da pressão obtidos 
 \end{figure}
 
 
-\subsubsection{Turbina - modelo Arlequin}
+\subsubsection{Turbina - modelo Arlequin} \label{Cap7:Exemplos:Turbina:Arlq}
 
-Na segunda etapa de análise, adicionam-se 4 pás diretoras rígidas e fixas ao tubo interno à montante do rotor, conforme pode ser observado na \autoref{fig:turbina_arlq_geo}. As demais características do domínio do fluido e da estrutura utilizadas para a simulação do monomodelo (\autoref{capitulo:Cap7:exemplos:Turbina:Mono}), assim como as propriedades físicas dos meios apresentados, foram mantidas.
+Na segunda etapa de análise, adicionam-se 4 pás diretoras rígidas e fixas ao tubo interno à montante do rotor, conforme pode ser observado na \autoref{fig:turbina_arlq_geo}. As demais características do domínio do fluido e da estrutura utilizadas para a simulação do monomodelo (\autoref{capitulo:Cap7:exemplos:Turbina:Mono}), assim como as propriedades físicas dos meios apresentados, foram mantidas. Ressalta-se que, para a simulação deste problema, foram utilizados como campo inicial de pressão e velocidade, valores obtidos em uma solução de longo termo da turbina na condição de repouso. 
 
 Uma discretização global isogeométrica é empregada para descrever o domínio do fluido com o encapsulamento e as pás diretoras. Essa discretização é construída com auxílio de 21 \textit{patches}, e possui 21438 pontos de controle e 9660 células, com funções de forma quadráticas, conforme a figura~\ref{fig:turbina_arlq_patches}.
 O domínio local, no qual o rotor está contido, é discretizado com uma malha em elementos finitos com 26052 nós e 40766 elementos tetraédricos quadráticos, sendo ilustrada na Figura~\ref{fig:turbina_arlq_malha}, onde a zona de colagem, é destacada com a cor vermelha, possuindo espessura de $0\text{,}129$~dm e compreendendo 6782 elementos finitos e 3257 nós do modelo local. 
@@ -578,7 +593,7 @@ O domínio local, no qual o rotor está contido, é discretizado com uma malha e
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-As pás diretoras rígidas estão localizadas nos \textit{patches} P13, P14, P15 e P16 (ver Figura~\ref{fig:turbina_arlq_patches}). Cada pá corresponde à superfície de interface entre dois \textit{patches} adjacentes. Assim, as quatro pás diretoras são formadas pelas interfaces entre os pares de \textit{patches}: P13–P14, P14–P15, P15–P16 e P16–P13. A geração dos \textit{patches} P13, P14, P15 e P16 pode ser compreendida a partir dos cortes DD e CC mostrados na Figura~\ref{fig:turbina_arlq_patches}. O corte DD representa a superfície a montante das pás diretoras, na qual a direção angular é discretizada no espaço paramétrico $\xi$, enquanto a direção radial é definida no espaço paramétrico $\eta$. Já o corte CC representa a superfície a jusante das pás diretoras, sendo obtida a partir da rotação dos pontos de controle do corte DD em $45^\circ$. As superfícies intermediárias, associadas ao espaço paramétrico $\zeta$, são determinadas por interpolação linear entre o plano DD ($0^\circ$) e o plano CC ($45^\circ$). Anexo\textcolor{red}{colocar em anexo e referenciair aqui/ Ver a posição das figuras a partir daqui no final}.
+As pás diretoras rígidas estão localizadas nos \textit{patches} P13, P14, P15 e P16 (ver Figura~\ref{fig:turbina_arlq_patches}). Cada uma das quatro pás, corresponde à superfície de interface entre dois \textit{patches} adjacentes, ou seja, entre as superfícies de: P13–P14, P14–P15, P15–P16 e P16–P13. A geração dos \textit{patches} P13, P14, P15 e P16, e consequentemente das pás diretoras (\autoref{apendice:malhaPasDiretoras}), pode ser compreendida a partir dos cortes DD e CC (Figura~\ref{fig:turbina_arlq_patches}). O corte DD representa a superfície equivalente à montante das pás diretoras, já o corte CC representa a superfície equivalente aquela à jusante das pás diretoras, sendo obtida a partir da rotação dos pontos de controle que geram a superfície do corte DD em $45^\circ$ em torno do eixo $y_3$, mantendo os mesmos pesos da superfície geradora. As superfícies intermediárias, são determinadas por interpolação linear entre o plano DD ($0^\circ$) e o plano CC ($45^\circ$).
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Malhas}
@@ -588,7 +603,7 @@ As pás diretoras rígidas estão localizadas nos \textit{patches} P13, P14, P15
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Ressalta-se que, para a simulação deste problema, foram utilizados como campo inicial de pressão e velocidade, valores obtidos em uma solução de longo termo da turbina na condição de repouso. Na \autoref{fig:turbina_arlq_deslA} pode ser observado o deslocamento vertical (direção $y_3$) no ponto A da pá do rotor (conforme \autoref{fig:turbina_mono_geo}), cuja a média ao longo do tempo foi de $-0\text{,}02436$~cm.
+Na \autoref{fig:turbina_arlq_deslA} pode ser observado o deslocamento na direção $y_3$ no ponto A da pá do rotor, cuja a média ao longo do tempo foi de $-0\text{,}02436$~cm. Na \autoref{fig:turbina_arlq_velAngA} pode-se observar a velocidade angular ao longo do tempo. Fazendo-se a média da velocidade angular a partir de $t=0\text{,}15$~s até o final da análise ($t=0\text{,}35$~s), obteve-se uma velocidade de  $119\text{,}75\text{ rad/s}$.
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Deslocamento no ponto A}
@@ -597,8 +612,6 @@ Ressalta-se que, para a simulação deste problema, foram utilizados como campo 
 	\label{fig:turbina_arlq_deslA}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
-
-Na \autoref{fig:turbina_arlq_velAngA} pode-se observar a velocidade angular ao longo do tempo. Fazendo-se a média da velocidade angular a partir de $t=0\text{,}15$~s até o final da análise ($t=0\text{,}35$~s), obteve-se uma velocidade de  $119\text{,}75\text{ rad/s}$.
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Velocidade angular no ponto A}
@@ -609,6 +622,7 @@ Na \autoref{fig:turbina_arlq_velAngA} pode-se observar a velocidade angular ao l
 \end{figure}
 
 Na Figura~\ref{fig:turbina_arlq_vel} são apresentados os campos de velocidade do escoamento ao longo de uma rotação das pás da turbina. Realizando-se o cálculo da vazão na seção de saída do escoamento no final do tempo de análise, obteve-se um valor de $139\text{,}58\text{ dm}^3\text{/s}$. Nota-se que obteve-se um aumento de aproximadamente $8\%$ na vazão com o auxílio das pás diretoras. Na Figura~\ref{fig:turbina_arlq_press} pode-se observar os campos de pressão do escoamento ao longo de uma rotação da turbina.
+
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Campos de velocidade}
