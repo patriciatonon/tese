@@ -2,7 +2,7 @@
 
 A primeira técnica de partição de domínio considerada para combinar modelos global e local, Elementos Finitos - Isogeométrico, é denominada técnica de combinação de espaços de funções e foi introduzida nos trabalhos \citeonline{Rosa:2022} e Sanches \textit{et al.} (2019). Essa técnica consiste em ponderar os espaços de função local e global sobre uma zona de superposição e combiná-las formando um novo espaço enriquecido de funções base linearmente independentes. 
 
-Essa metodologia foi aplicada com bastante sucesso no campo da mecânica da fratura elástico-linear com grandes deslocamentos como pode ser visto nos trabalhos de \citeonline{Rosa:2021} e \citeonline{Rosa:2022}. Ressalta-se que, embora a técnica se mostre bastante promissora, no contexto da dinâmica dos fluidos computacional, especialmente quando associada às técnicas de estabilização empregadas neste trabalho, ainda é necessário um estudo mais aprofundado para a determinação de parâmetros de estabilização SUPG e PSPG adequados na região de superposição, e por isso foi descartada neste trabalho após alguns estudos. Essa conclusão foi obtida a partir das simulações realizadas ao longo deste doutorado. Para problemas de menor complexidade ou com baixos números de Reynolds, como o caso da cavidade apresentado na \autoref{capitulo:cap5:Exemplo}, os resultados foram bastante satisfatórios; contudo, para problemas mais complexos, foram observadas dificuldades de convergência quando aplicadas as técnicas SUPG e PSPG.
+Essa metodologia foi aplicada com bastante sucesso no campo da mecânica da fratura elástico-linear com grandes deslocamentos como pode ser visto nos trabalhos de \citeonline{Rosa:2021} e \citeonline{Rosa:2022}. Ressalta-se que, embora a técnica se mostre bastante promissora, no contexto da dinâmica dos fluidos computacional, especialmente quando associada às técnicas de estabilização empregadas neste trabalho, ainda é necessário um estudo mais aprofundado para a determinação de parâmetros de estabilização SUPG e PSPG adequados na região de superposição, e por isso foi descartada neste trabalho após alguns estudos. Essa conclusão foi obtida a partir das simulações realizadas ao longo deste doutorado. Para problemas de menor complexidade ou com baixos números de Reynolds, como o caso da cavidade apresentado na \autoref{capitulo:cap5:Cav}, os resultados foram bastante satisfatórios; contudo, para problemas mais complexos, foram observadas dificuldades de convergência quando aplicadas as técnicas SUPG e PSPG.
 
 \section{Técnica de combinação dos espaços de funções}
 
@@ -100,7 +100,7 @@ O método dos espaços de funções combinados foi implementado para a solução
 
 As equações na região de superposição são integradas sobre o elemento local, dessa forma, no pré-processamento, os pontos de integração da malha local são projetados sobre a malha global e o elemento global e suas coordenadas paramétricas correspondentes a cada ponto são armazenados. 
 
-Na etapa de pré-processamento, são determinados ainda os nós inativos da malha global, sejam porque o domínio de suas funções de forma encontram-se fora da zona de superposição, ou, porque possuem pequena influência dentro da mesma, de acordo com a expressão apresentada na Equação~\eqref{eq:influence}.
+Na etapa de pré-processamento, são determinados ainda os nós inativos da malha global, sejam porque o domínio de suas funções de forma encontram-se fora da zona de superposição, ou, porque possuem pequena influência dentro da mesma, de acordo com a expressão apresentada na Equação~\eqref{eq:influence}. 
 
 Finalmente, o processo de marcha no tempo se inicia da maneira explicitada no Algoritmo \ref{alg:fluid} levando-se em consideração que as funções tentativa e peso, e os parâmetros de estabilização são modificados de acordo com o apresentado neste capítulo. O algoritmo que descreve esse processo de solução pode ser visualizado no Algoritmo \ref{alg:overlap}.
 
@@ -132,58 +132,85 @@ Finalmente, o processo de marcha no tempo se inicia da maneira explicitada no Al
 
 \section{Verificação e aplicações}
 
-\section{Cavidade com partição de domínio e combinação MEF-AIG} \label{capitulo:cap5:Exemplo}
+Para a verificação do código baseado na técnica de decomposição de domínios, apresentam-se dois exemplos com discretizações 2D, em que tanto a malha local, quanto a malha global, são discretizados por elementos finitos.
 
-Para verificar a metodologia de partição de domínios com superposição de malhas, neste item apresenta-se a solução estacionária do problema de Navier Stokes para a cavidade 2D.
+O primeiro exemplo, escoamento sobre uma cavidade quadrada, foi simulado para número de Reynolds 100 e apresentou boa concordância com os resultados da literatura. No segundo exemplo, referente a um escoamento sobre aerofólio NACA 0012 fixo, cujo número de Reynolds é mais elevado, foram observadas dificuldades de convergência quando aplicadas as técnicas SUPG e PSPG.
 
-A geometria do problema e suas condições contorno são apresentadas na \autoref{fig:cav2d_geometria}. O problema foi avaliado para um número de Reynolds = 100, calculado de acordo com Equação~\eqref{eq:Reynolds} e $\rho = 1\text{,}0$.
+\section{Cavidade com partição de domínio} \label{capitulo:cap5:Cav}
+
+Para a verificação inicial da metodologia de partição de domínios com superposição de malhas  apresenta-se o problema clássico de escoamento sobre cavidade, a partir de uma discretização 2D. 
+
+A geometria do problema e suas condições contorno são apresentadas na \autoref{fig:cav2d_geometria}. O problema foi avaliado para um número de Reynolds = 100, calculado de acordo com a Equação~\eqref{eq:Reynolds}, considerando $L$ como sendo o comprimento lateral da cavidade. Na simulação considerou-se $\density = 1\text{,}0$, $\timeStep = 0\text{,}05$, e $\specRadius = 0$. 
 
 \begin{figure}[!htbp]
 	\caption{Cavidade: geometria e condições de contorno} 
 	\centering
-	{\includegraphics[scale=1.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/cav2d_geometria.pdf}}
+	{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/cav2d_geometria.pdf}}
 	\label{fig:cav2d_geometria}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Sabe-se que nas paredes da cavidade podem haver efeitos de camada limite, dessa forma, definiu-se uma malha local que circunda a cavidade de acordo com a Figura~\ref{fig:cav2d_malha_local}. A malha local foi discretizada através de uma aproximação isogeométrica e foi definida com 1440 pontos de controle que foram divididos em 8 diferentes \textit{patches}, chamados de $P_{1},P_{2},...,P_{8}$. Os \textit{patches} $P_{1},P_{3},P_{6}$ e $P_{6}$ possuem 64 células e os $P_{2},P_{4},P_{5}$ e $P_{7}$ 192 células.
+Sabe-se que nas paredes da cavidade podem haver efeitos de camada limite, dessa forma, definiu-se uma malha local em elementos finitos que circunda a cavidade de acordo com a Figura~\ref{fig:cav2d_malha_local}, composta por 4352 nós e 2048 elementos. A malha global por sua vez estende-se por toda a seção da cavidade, sendo constituída por 2401 nós e 1152 elementos, de acordo com Figura~\ref{fig:cav2d_malha_global}.
 
-A malha global por sua vez é definida para toda a seção da cavidade, sendo composta por 800 elementos triangulares quadráticos e 1681 nós, de acordo com Figura~\ref{fig:cav2d_malha_global}.
+\pagebreak
+
+Definiu-se uma espessura para a zona de superposição equivalente a $\delta = 0\text{,}1$ medida paralelamente ao contorno fictício local $(\Gamma_{L})_{B}$. Considera-se pertencente a esta zona qualquer elemento da malha local que possua ao menos um nó dentro dessa região, destacados em vermelho na Figura~\ref{fig:cav2d_malha_local}. A mesma consideração aplica-se à malha global, com os elementos correspondentes destacados na Figura~\ref{fig:cav2d_malha_global}. Na \autoref{fig:cav2d_nos_desativados}, podem ser observados em vermelho os nós da malha global que foram desativados da análise.
 
 \begin{figure}[!htbp]
-	\caption{Cavidade 2D: Malhas Global e Local}
+	\caption{Cavidade: Malhas Global e Local}
 	\centering
-	\subfloat[\label{fig:cav2d_malha_local} Malha Local]{\includegraphics[scale=0.2, trim=9cm 3cm 9cm 5cm, clip=true]{Imagens/Cap5/cav2d_malha_local.pdf}} 
-	\subfloat[\label{fig:cav2d_malha_global} Malha Global ]{\includegraphics[scale=0.15,trim=9cm 3cm 9cm 6cm, clip=true]{Imagens/Cap5/cav2d_malha_global.png}}
+	\subfloat[\label{fig:cav2d_malha_local} Malha Local]{\includegraphics[scale=1.2, trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_malha_local.pdf}} 
+	\subfloat[\label{fig:cav2d_malha_global} Malha Global ]{\includegraphics[scale=1.2,trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_malha_global.pdf}}
 	\label{fig:cav2d_discretização}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Definiu-se uma espessura para a zona de superposição equivalente a $\delta = 0,1$ e medida paralelamente ao contorno fictício local $(\Gamma_{L})_{B}$. As células pertencentes à zona de superposição na malha local podem ser vistos na Figura~\ref{fig:cav2d_elementos_zs_local}.
-
 \begin{figure}[!htbp]
-	\caption{Cavidade 2D: Zona de superposição}
+	\caption{Cavidade: nós desativados malha global} 
 	\centering
-	{\includegraphics[scale=1.4, trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_elementos_zs_local.pdf}} 
-	\label{fig:cav2d_elementos_zs_local}
+	{\includegraphics[scale=1.3,trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_nosDesativos.pdf}}
+	\label{fig:cav2d_nos_desativados}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Os campos de velocidade e pressão obtidos são apresentados nas Figura~\ref{fig:cav2d_campo_velocidade} e Figura~\ref{fig:cav2d_campo_pressao}. Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) horizontal e vertical ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ da cavidade são apresentados na Figura~\ref{fig:cav2d_perfil_vel_Re100} e comparados com os resultados de \citeonline{GhiaGS:1982}.
-
-\begin{figure}[!htbp]
-	\caption{Cavidade 2D: Solução do problema de Navier Stokes para $Re = 100$}
-	\centering
-	\subfloat[\label{fig:cav2d_campo_velocidade} Campo de Velocidade]{\includegraphics[scale=0.21, trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/cav2d_campo_vel.pdf}} 
-	\subfloat[\label{fig:cav2d_campo_pressao} Campo de Pressão ]{\includegraphics[scale=0.47,trim=3cm 3cm 6cm 3cm, clip=true]{Imagens/Cap5/cav2d_campo_pressao.pdf}}
-	\legend{Fonte: Elaborada pela autora}
-\end{figure}
+A simulação foi mantida até que se atingiu o estado estacionário de escoamento. Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) horizontal e vertical ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ da cavidade são apresentados na Figura~\ref{fig:cav2d_perfil_vel_Re100} e comparados com os resultados de \citeonline{GhiaGS:1982}, mostrando boa concordância. Na Figura~\ref{fig:cav2d_campo_velocidade} e Figura~\ref{fig:cav2d_campo_pressao} são apresentados os campos de velocidade e pressão para a cavidade.
 
 \begin{figure}[!!htbp]
-	\caption{Cavidade 2D: Perfis de velocidade} 
+	\caption{Cavidade: Perfil de velocidade} 
 	\centering
-	{\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/cav2d_perfil_vel_Re100.pdf}}\\
-	{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/cav2d_legenda.pdf}}
+	{\includegraphics[scale=0.85,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/cav2d_perfil.pdf}}
 	\label{fig:cav2d_perfil_vel_Re100}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\begin{figure}[!htbp]
+	\caption{Cavidade: Campos de velocidade e pressão - $Re = 100$}
+	\centering
+	\subfloat[\label{fig:cav2d_campo_velocidade} Campo de Velocidade]{\includegraphics[scale=1.3, trim=2cm 0.5cm 2.0cm 0cm, clip=true]{Imagens/Cap5/cav2d_vel.pdf}} 
+	\subfloat[\label{fig:cav2d_campo_pressao} Campo de Pressão ]{\includegraphics[scale=1.3,trim=2cm 0.0cm 2.0cm 0.4cm, clip=true]{Imagens/Cap5/cav2d_press.pdf}}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+\section{Escoamento sobre aerofólio NACA 0012 fixo com partição de domínios} \label{capitulo:cap5:Aerofolio}
+
+Com intuito de apresentar-se brevemente os problemas de convergência observados na metodologia de partição de domínios por combinação dos espaços de funções, irá se considerar o problema de um aerofólio NACA 0012, cuja descrição detalhada (geometria, condições de contorno  e parâmetros de análise) é apresentada na \autoref{capitulo:Cap6:Exemplos:NACA0012}. 
+
+Para essa análise, foi adotada a mesma discretização local da apresentada na \autoref{capitulo:Cap6:Exemplos:NACA0012}, incluindo a espessura da zona de superposição e quantidade de elementos e nós locais nesta região. Quanto a malha global, a mesma foi discretizada em elementos finitos e é composta por 17090 nós e 8442 elementos, conforme \autoref{fig:aero_malha}.
+
+\begin{figure}[!htbp]
+	\caption{Aerofólio: Malhas Global e Local} 
+	\centering
+	{\includegraphics[scale=1.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/aerofolio_malha.pdf}}
+	\label{fig:aero_malha}
+	\legend{Fonte: Elaborada pela autora}
+\end{figure}
+
+Na Figura~\ref{fig:aero_vel} e Figura~\ref{fig:aero_press} são apresentados os campos de velocidade e pressão, respectivamente, em um tempo avançado da análise. Nessas figuras, podem ser observadas as oscilações que ocorrem na zona de superposição quando têm-se um número de Reynolds mais elevado.
+
+\begin{figure}[!htbp]
+	\caption{Aerofólio: Campos de velocidade e pressão}
+	\centering
+	\subfloat[\label{fig:aero_vel} Campo de Velocidade]{\includegraphics[scale=1.3, trim=2cm 0.5cm 2.0cm 0cm, clip=true]{Imagens/Cap5/aerofolio_vel.pdf}} \\ 
+	\subfloat[\label{fig:aero_press} Campo de Pressão ]{\includegraphics[scale=1.3,trim=2cm 0.0cm 2.0cm 0.4cm, clip=true]{Imagens/Cap5/aerofolio_press.pdf}}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
