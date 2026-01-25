@@ -17,7 +17,7 @@ O método Arlequin foi introduzido por \citeonline{Dhia:1998}, e é baseado em t
 Dessa forma, o domínio computacional do problema é definido por:
 
 \begin{align}
-	\domain = \globalModel + \localModel, 
+	\domain = \globalModel \cup \localModel, 
 \end{align}
 
 \noindent e a zona de superposição $\overlappingZone$ é definida da seguinte forma:
@@ -25,7 +25,7 @@ Dessa forma, o domínio computacional do problema é definido por:
 \begin{align}
 	\overlappingZone = \globalModel \cap \localModel, \\
 	\overlappingZone = \gluingZone \cup \freeZone, \\
-	\overlappingZone > 0, 
+	\gluingZone > 0, 
 \end{align}
 
 \noindent sendo  $\freeZone$ a chamada zona livre.
@@ -41,7 +41,7 @@ Dessa forma, o domínio computacional do problema é definido por:
 Umas das formas mais comuns de se realizar o acoplamento entre domínios é através de campos de multiplicadores de Lagrange. Uma forma generalizada de representar os operadores de acoplamento, conforme \citeonline{DhiaR:2002}, é:
 
 \begin{align}
-	(\lagrangeMultiplier,\Delta \velocity) =  \int_{\gluingZone} k_{0}[\lagrangeMultiplier \cdot \Delta \velocity ] + k_{1}[\straintensor (\lagrangeMultiplier) : \straintensor (\Delta \velocity)] \ \deriv \gluingZone,
+	(\lagrangeMultiplier,\Delta \velocity)_{\gluingZone} =  \int_{\gluingZone} k_{0}[\lagrangeMultiplier \cdot \Delta \velocity ] + k_{1}[\straintensor (\lagrangeMultiplier) : \straintensor (\Delta \velocity)] \ \deriv \gluingZone,
 \end{align}
 
 \noindent onde $\lagrangeMultiplier$ é o campo de multiplicadores de Lagrange, $\Delta \velocity = \uglobal |_{\gluingZone} - \ulocal |_{\gluingZone}$ é a diferença entre os campos acoplados na zona de colagem. $k_{0}$ e $k_{1}$ são constantes estritamente positivas. 
@@ -55,7 +55,7 @@ A definição do espaço de funções para o multiplicador de Lagrange é muito 
 Por fim, para que o método não adicione energia ao sistema, é necessário que seja definida uma função ponderadora, denominada ($\arlequinWF$), que garanta a distribução da energia do sistema ao longo dos modelos sobrepostos. Em geral, essa função é definida da seguinte forma:
 
 \begin{align}
-	\begin{cases} \arlequinWFGlobal \in [ka;1] \ em \ \domain, \\ 
+	\begin{cases} \arlequinWFGlobal \in [k_a;1] \ em \ \domain, \\ 
 		\arlequinWFGlobal = 1 \ em \ \globalModel \textbackslash \localModel,  \\
 		\arlequinWFGlobal  = k_a > 0 \ em \ \freeZone, \\
 		\arlequinWFGlobal + \arlequinWFLocal = 1 \ em \ \domain,
@@ -198,7 +198,7 @@ A aplicação do operador de acoplamento $L^{2}$ à formulação clássica Arleq
 		0 \ se \ \pos \notin \gluingZone. \end{cases}						. 
 \end{align}
 
-O problema descrito pela Equação~\eqref{eq:QM_forma_fraca_0} à Equação~\eqref{eq:lag_acopl} é à versão clássica do método de Arlequin para o problema de Navier-Stokes estabilizado pela técnica PSPG/SUPG. Matematicamente trata-se de um problema de ponto de sela decorrente de uma formulação mista. Entretanto, desde que a condição LBB seja satisfeita, existe solução para o problema e ela é única. 
+O problema descrito pela Equação~\eqref{eq:QM_forma_fraca_0} à Equação~\eqref{eq:lag_acopl} é a versão clássica do método de Arlequin para o problema de Navier-Stokes estabilizado pela técnica PSPG/SUPG. Matematicamente trata-se de um problema de ponto de sela decorrente de uma formulação mista. Entretanto, desde que a condição LBB seja satisfeita, existe solução para o problema e ela é única. 
 
 Em \citeonline{GuidaultAndBelytschko2007} pode-se encontrar uma vasta análise matemática acerca das questões relacionadas com estabilidade, convergência e relevância do método. Os autores relatam, por exemplo, a necessidade de emprego de funções ponderadoras contínuas quando utilizado o operador de acoplamento $L^{2}$, o que não ocorre com o operador $H^{1}$. Além disso,  os autores destacam que espaços muito refinados para os multiplicadores de Lagrange podem levar a uma solução não convergente, independente do tipo de operador de acoplamento. Esse problema ocorre devido à forte dependência da discretização do modelo global na solução.
 
@@ -528,8 +528,8 @@ Atualiza-se então, na fase 3, as variáveis incóginitas por meio de:
 	\Press_{0(n+1)}^{i+1} = \Press_{0(n+1)}^{i} + \Delta\Press_{0(n+1)}^{i}, \label{eq:atu_press_0} \\
 	\Acceleration_{1(n+1)}^{i+1} = \Acceleration_{1(n+1)}^{i} + \Delta\Acceleration_{1(n+1)}^{i}, \label{eq:atu_acel_1} \\ 
 	\Velocity_{1(n+1)}^{i+1} = \Velocity_{1(n+1)}^{i} + \gamma \Delta t \Delta\Velocity_{1(n+1)}^{i},\label{eq:atu_vel_1}\\
-	\Press_{1(n+1)}^{i+1} = \Press_{0(n+1)}^{i} + \Delta\Press_{1(n+1)}^{i}, \label{eq:atu_press_1} \\
-	\LagrangeMultiplier_{1(n+1)}^{i+1} = \LagrangeMultiplier_{0(n+1)}^{i} + \Delta\LagrangeMultiplier_{1(n+1)}^{i}. \label{eq:atu_lag_mult}
+	\Press_{1(n+1)}^{i+1} = \Press_{1(n+1)}^{i} + \Delta\Press_{1(n+1)}^{i}, \label{eq:atu_press_1} \\
+	\LagrangeMultiplier_{(n+1)}^{i+1} = \LagrangeMultiplier_{(n+1)}^{i} + \Delta\LagrangeMultiplier_{(n+1)}^{i}. \label{eq:atu_lag_mult}
 \end{align}
 
 Na utilização do método $\alpha$-generalizado as integrais das equações são avaliadas no instante $t = t_{n+\alphaf}$. As relações entre velocidade, aceleração, e os parâmetros utilizados pelo método podem ser consultados na \autoref{capitulo:Cap2:IntegTemp}.
@@ -749,7 +749,7 @@ A variação dos coeficientes de arrasto e sustentação ao longo do tempo são 
 \begin{figure}[!htbp]
 	\caption{Aerofólio Mov.: Coeficiente de Sustentação}
 	\centering 
-	\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_CL.eps}	
+	\includegraphics[scale=0.8,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap6/aerofolioMov_CL.pdf}	
 	\label{fig:aerofolioMov_CL}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}

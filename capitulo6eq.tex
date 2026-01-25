@@ -1,0 +1,64 @@
+\begin{align}
+	\mathbf{N}_{1}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = \mathbf{0}, \label{eq:N1}\\ 
+	\mathbf{N}_{2}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = \mathbf{0},\label{eq:N2}\\
+	\mathbf{N}_{3}\left(\mathbf{d}_{1},\mathbf{d}_{2},\mathbf{d}_{3}\right) = \mathbf{0} \label{eq:N3},
+\end{align}
+
+\begin{align}
+	\begin{bmatrix}
+		\mathbf{A}_{11} & \mathbf{A}_{12} & \mathbf{A}_{13} \\
+		\mathbf{A}_{21} & \mathbf{A}_{22} & \mathbf{A}_{23} \\
+		\mathbf{A}_{31} & \mathbf{A}_{32} & \mathbf{A}_{33}
+	\end{bmatrix}
+	\begin{bmatrix}
+		\mathbf{x}_{1} \\
+		\mathbf{x}_{2} \\
+		\mathbf{x}_{3}
+	\end{bmatrix}
+	&=
+	\begin{bmatrix}
+		\mathbf{c}_{1} \\
+		\mathbf{c}_{2} \\
+		\mathbf{c}_{3}
+	\end{bmatrix}.
+	\label{eq:sist_lin_IFE}
+\end{align}	
+
+\mathbf{c}_{1} = - \mathbf{N}_{1}$, $\mathbf{c}_{2} = - \mathbf{N}_{2}$, $\mathbf{c}_{3} = - \mathbf{N}_{3}$;
+
+\mathbf{A}_{ij} = \frac{\partial\mathbf{N}_{i}}{\partial\mathbf{d}_{j}}
+
+
+\begin{align}
+	\left .\frac{\partial\mathbf{N}_{1}}{\partial\mathbf{d}_{1}}\right|_{\left(\mathbf{d}_{1}^{i},\mathbf{d}_{2}^{i},\mathbf{d}_{3}^{i}\right)} \Delta\mathbf{d}_{1}^{i} = - \mathbf{N}_{1}\left(\mathbf{d}_{1}^{i},\mathbf{d}_{2}^{i},\mathbf{d}_{3}^{i}\right)  \label{eq:lin_fluido} \\
+	\mathbf{d}_{1}^{i+1} =  \mathbf{d}_{1}^{i} + \Delta\mathbf{d}_{1}^{i} \label{eq:atu_fluido}	\\
+	\left.\frac{\partial\mathbf{N}_{2}}{\partial\mathbf{d}_{2}}\right|_{\left(\mathbf{d}_{1}^{i+1},\mathbf{d}_{2}^{i},\mathbf{d}_{3}^{i}\right)} \Delta\mathbf{d}_{2}^{i} = - \mathbf{N}_{2}\left(\mathbf{d}_{1}^{i+1},\mathbf{d}_{2}^{i},\mathbf{d}_{3}^{i}\right) \label{eq:lin_est}\\
+	\mathbf{d}_{2}^{i+1} =  \mathbf{d}_{2}^{i} + \Delta\mathbf{d}_{2}^{i} \label{eq:atu_est}\\
+	\left.\frac{\partial\mathbf{N}_{3}}{\partial\mathbf{d}_{3}}\right|_{\left(\mathbf{d}_{1}^{i+1},\mathbf{d}_{2}^{i+1},\mathbf{d}_{3}^{i}\right)} \Delta\mathbf{d}_{3}^{i} = - \mathbf{N}_{3}\left(\mathbf{d}_{1}^{i+1},\mathbf{d}_{2}^{i+1},\mathbf{d}_{3}^{i}\right) \label{eq:lin_malha}\\
+	\mathbf{d}_{3}^{i+1} =  \mathbf{d}_{3}^{i} + \Delta\mathbf{d}_{3}^{i}.  \label{eq:atu_malha}
+\end{align}
+
+\begin{align}
+	\int_{\Omega_{\tilde{t}}} \bm{\varepsilon} \left(\mathbf{w}_{M}^h\right) : \boldsymbol{\sigma}_MM \left(\bar{\mathbf{z}}^h - \bar{\mathbf{z}}_{\tilde{t}}^h \right) \mathrm{d} \domain = 0,
+	\label{eq:elasticity}
+\end{align}
+
+\begin{align}
+	\boldsymbol{\sigma}_MM(\dispM)
+	&=
+	\frac{\elasticityM}{1+\poissonm}
+	\left(
+	\frac{\poissonm}{(1 - 2 \poissonm)}
+	\trace\left(\bm{\varepsilon}(\dispM)\right)\unittensor
+	+
+	\bm{\varepsilon}(\dispM)
+	\right)
+\end{align}
+
+
+\begin{align}
+	\int_{\Omega_{\tilde{t}}} \bm{\varepsilon} \left(\mathbf{w}_{M}^h\right) : \boldsymbol{\sigma}_MM \left(\bar{\mathbf{z}}^h- \bar{\mathbf{z}}_{\tilde{t}}^h\right) \left(\frac{\jacM}{\left({\jacM}\right)_0}\right)^{-\chi_M} \mathrm{d} \domain = 0, 
+	\label{eq:elasticityMJBS}
+\end{align}
+
+\jacM = det\left(\frac{\partial\postth}{\partial\adimensionalcoordinates}\right),

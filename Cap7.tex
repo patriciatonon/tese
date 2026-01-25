@@ -1,6 +1,6 @@
-\chapter[Acoplamento Fluido-Estrutura]{Interação Fluido-Estrutura} \label{capitulo:Cap7}
+\chapter[Acoplamento Fluido-Estrutura]{Interação Fluido-Estrutura - IFE} \label{capitulo:Cap7}
 
-Ao longo deste trabalho, conforme apresentado nos capítulos anteriores, foi desenvolvido um código computacional para análise de fluidos incompressíveis que permite a decomposição do domínio para capturar efeitos localizados por meio da técnica Arlequin estabilizada. Além disso, para esta pesquisa, foi disponibilizado pelo grupo de pesquisa um código computacional para a análise não linear de estruturas de cascas pelo método dos elementos finitos posicional. Com base nesses desenvolvimentos, optou-se por um esquema de acoplamento particionado forte entre fluido e estrutura. Neste capítulo é apresen~tada a técnica de acoplamento particionado adotada. Essa abordagem foi escolhida por proporcionar uma total modularidade entre os códigos para o fluido e para a estrutura, o que facilita a solução dos problemas que aqui serão propostos.
+Ao longo deste trabalho, conforme apresentado nos capítulos anteriores, foi desenvolvido um código computacional para análise de fluidos incompressíveis que permite a decomposição do domínio para capturar efeitos localizados por meio da técnica Arlequin estabilizada. Além disso, para esta pesquisa, foi disponibilizado pelo grupo de pesquisa um código computacional para a análise não linear de estruturas de cascas pelo método dos elementos finitos posicional. Com base nesses desenvolvimentos, optou-se por um esquema de acoplamento particionado forte entre fluido e estrutura. Neste capítulo é apresentada a técnica de acoplamento particionado adotada. Essa abordagem foi escolhida por proporcionar uma total modularidade entre os códigos para o fluido e para a estrutura, o que facilita a solução dos problemas que aqui serão propostos.
 
 Nesse contexto, para o acoplamento, utiliza-se a técnica de malhas móveis para o modelo local do fluido, em contato com a estrutura, o qual baseia-se na descrição ALE, enquanto a malha global permanece fixa, com descrição Euleriana, fazendo com que o método possa ser classificado como uma técnica híbrida.
 
@@ -10,7 +10,7 @@ No texto a seguir descrevem-se as condições de acoplamento e técnica para a s
 
 O domínio computacional para a análise de problemas de interação fluido-estrutura (\autoref{fig:dominioIFE}), denominado de $\domainFSI$, é composto pela união entre os domínios da estrutura $\domainS$ e do fluido $\domainF$, ou seja, $\domainFSI = \domainF \cup \domainS$, com $\boundaryFSI$ representando o contorno que define a interface fluido-estrutura.
 
-O domínio computacional não se sobrepõe, por isso, é necessário que em $\boundaryFSI$ existam condições físicas adicionais para se realizar o acoplamento. \citeonline{richter2017fluid} cita que o acoplamento é garantido ao se atender as seguintes condições no contorno $\boundaryFSI$ : condição cinemática, condição dinâmica e condição geométrica.
+Devido ao domínio computacional não se sobrepor é necessário que em $\boundaryFSI$ existam condições físicas adicionais para se realizar o acoplamento. \citeonline{richter2017fluid} cita que o acoplamento é garantido ao se atender as seguintes condições no contorno $\boundaryFSI$ : condição cinemática, condição dinâmica e condição geométrica.
 
 A condição cinemática refere-se ao fato de que a velocidade do fluido e do sólido na interface devem ser iguais. A condição dinâmica, refere-se à existência de continuidade do vetor tensão de Cauchy na direção normal ao contorno $\boundaryFSI$, enquanto que a condição geométrica refere-se à conformidade entre estrutura e fluido na interface.
 
@@ -58,7 +58,7 @@ O procedimento adotado neste trabalho pode ser compreendido a partir da \autoref
 De forma prática, a cada iteração do processo de solução, em cada nó $\pos_F$ pertencente ao contorno de interface $\boundaryFSI$, as velocidades da estrutura são interpoladas na posição $\adimensionalcoordinates_E(\pos_F)$ e então transferidas para o fluido, de modo que
 
 \begin{align}
-\pos_F = \adimensionalcoordinates_E(\pos_F), \label{eq:cond_cine}
+	\mathbf{u}(\mathbf{y}_F) = \dot{\mathbf{y}}(\boldsymbol{\xi}_E(\mathbf{y}_F)), \label{eq:cond_cine}
 \end{align}
 
 \noindent garantindo o atendimento da condição cinemática.
@@ -114,7 +114,7 @@ A técnica direta é equivalente à solução monolítica, e consiste na resolu�
 
 Na técnica quase-direta, a solução da malha é desacoplada da solução dos problemas físicos, de forma que a cada iteração fluido e estrutura são resolvidos de maneira monolítica, enquanto que a malha é atualizada por meio de um sistema separado.
 
-Por fim, a técnica bloco-iterativa consiste em desprezar as submatrizes da matriz tangente que estão fora da diagonal na Equação~\eqref{eq:sist_lin_IFE}, o que resulta em 3 sistemas que podem ser resolvidos de forma independente. Assim, a cada iteração, inicia-se com a solução do sistema referente ao fluido, atualizando-se as variáveis do fluido antes de partir para a solução da estrutura. Então, atualiza-se as variáveis da estrutura e soluciona-se o sistema referente à malha, atualizando-se as posições da malha do fluido e partindo para a próxima iteração. Dessa forma, o problema a ser resolvido a cada iteração $i$ do método de Newton-Raphson consiste na solução sequencial do seguinte conjunto de equações:
+Por fim, a técnica bloco-iterativa consiste em desprezar as submatrizes da matriz tangente que estão fora da diagonal na Equação~\eqref{eq:sist_lin_IFE}, o que resulta em 3 sistemas que podem ser resolvidos de forma independente. Assim, a cada iteração, inicia-se com a solução do sistema referente ao fluido, atualizando-se as variáveis do fluido antes de partir para a solução da estrutura. Então, atualizam-se as variáveis da estrutura e soluciona-se o sistema referente à malha, atualizando-se as posições da malha do fluido e partindo para a próxima iteração. Dessa forma, o problema a ser resolvido a cada iteração $i$ do método de Newton-Raphson consiste na solução sequencial do seguinte conjunto de equações:
 
 \begin{align}
 	\left .\frac{\partial\Nf}{\partial\df}\right|_{\left(\df^{i},\ds^{i},\dm^{i}\right)} \Delta\df^{i} = - \Nf\left(\df^{i},\ds^{i},\dm^{i}\right)  \label{eq:lin_fluido} \\
@@ -127,7 +127,7 @@ Por fim, a técnica bloco-iterativa consiste em desprezar as submatrizes da matr
 
 Nota-se que o ocorre é apenas uma modificação da matriz tangente com relação ao método direto, de forma semelhante ao método de Gauss-Seidel. Este fato, faz com que a resposta obtida após a convergência não seja alterada em relação à técnica direta, entretanto, a convergência do problema pode ser afetada devido às modificações na matriz tangente. 
 
-Em certos problemas envolvendo estruturas leves, a resposta estrutural pode tornar-se extremamente sensível a pequenas variações nas forças provenientes do fluido. Esse fenômeno pode levar à divergência da técnica de bloco iterativo. Para contornar essa dificuldade adota-se, neste trabalho, a estratégia proposta por \citeonline{Tezduyar:2003d}, denominada \textit{Augmented A22}, na qual a matriz de massa da estrutura (que compõe $\mA_{22}$) é aumentada por um fator ponderador especificado pelo usuário. Essa modificação ocorre sem alterar $\cff$, $\css$ e $\cmm$, ou seja, sem modificar as equações não-lineares. Dessa forma, a consistência fica garantida e a massa estrutural real do problema permanece inalterada.
+Em certos problemas envolvendo estruturas leves, a resposta estrutural pode tornar-se extremamente sensível a pequenas variações nas forças provenientes do fluido. Esse fenômeno pode levar à divergência da técnica de bloco iterativo. Para contornar essa dificuldade adota-se, neste trabalho, a estratégia proposta por \citeonline{Tezduyar:2003d}, denominada \textit{Augmented A22}, na qual a matriz de massa da estrutura (que compõe $\mA_{22}$, ou seja, contida na matriz tangente) é aumentada por um fator ponderador especificado pelo usuário. Essa modificação ocorre sem alterar $\cff$, $\css$ e $\cmm$, ou seja, sem modificar as equações não-lineares. Dessa forma, a consistência fica garantida e a massa estrutural real do problema permanece inalterada.
 
 \subsection{Implementação computacional} 
 
@@ -214,7 +214,7 @@ Nos problemas de IFE, demanda-se maior controle da resolução da malha próxima
 
 \noindent onde $\jacM$ é o determinante Jacobiano do mapeamento do espaço local adimensional para a configuração do elemento em $\tilde{t}$:
 \begin{align}
-	\jacM = det\left(\frac{\partial\postth}{\partial\adimensionalcoordinates}\right),
+	\jacM = \det\left(\frac{\partial\postth}{\partial\adimensionalcoordinates}\right),
 \end{align}
  
 \noindent com $(\jacM)_0$ um parâmetro livre tal que $(\jacM)_0>$, que pode ser adotado como o jacobiano médio na malha inicial, e $\chi_M$ determina a ordem pela qual a rigidez aumenta à medida que o tamanho dos elementos diminui, sendo adotado nas simulações deste trabalho $\chi_M=1\text{,}0$. 
@@ -348,7 +348,7 @@ O modelo Arlequin é composto por uma malha global discretizada com 2 \textit{pa
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Na \autoref{fig:cavFF3d_deslA} observa-se o deslocamento do ponto A, localizado no centro da placa flexível, ao longo do tempo, onde são comparados os resultados deste trabalho com os de \citeonline{Mok:2001},\citeonline{Vazquez:2007} e \citeonline{Yokomizo:2024}. As diferenças encontradas entre a amplitude dos deslocamentos obtidos nesse trabalho com as referências podem ser atribuídas para as diferentes formulações e discretizações adotadas para a modelagem do fluido e da placa. Na Figura~\ref{fig:cavFF3d_vel} apresenta-se os campos de velocidade em diferentes instantes ao longo da análise para uma seção $y_1 \times y_3$ em $y_2=0\text{,}5$; na Figura~\ref{fig:cavFF3d_press}, para esses mesmos instantes e seção, são apresentados os campos de pressão. Por fim, na Figura~\ref{fig:casca_campo_desloc} podem ser visualizados os deslocamentos na placa nesses instantes.
+Na \autoref{fig:cavFF3d_deslA} observa-se o deslocamento do ponto A, localizado no centro da placa flexível, ao longo do tempo, onde são comparados os resultados deste trabalho com os de \citeonline{Mok:2001},\citeonline{Vazquez:2007} e \citeonline{Yokomizo:2024}. As diferenças encontradas entre a amplitude dos deslocamentos obtidos nesse trabalho com as referências podem ser atribuídas para as diferentes formulações e discretizações adotadas para a modelagem do fluido e da placa. Na Figura~\ref{fig:cavFF3d_vel} apresentam-se os campos de velocidade em diferentes instantes ao longo da análise para uma seção $y_1 \times y_3$ em $y_2=0\text{,}5$; na Figura~\ref{fig:cavFF3d_press}, para esses mesmos instantes e seção, são apresentados os campos de pressão. Por fim, na Figura~\ref{fig:casca_campo_desloc} podem ser visualizados os deslocamentos na placa nesses instantes.
 
 
 \begin{figure}[!htbp]
@@ -442,7 +442,7 @@ A partir da \autoref{fig:prisma_deslA} pode-se notar que a placa apresenta uma a
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-A frequência de vibração calculada a partir da média dos períodos entre $t=8$~s e $t=16$~s resultante da simulação com o modelo Arlequin é de $3,07$~Hz, próxima aos ~$3,1$~Hz reportado por \citeonline{Hubneretal:2004}. Observa-se que a frequência de vibração da estrutura, difere tanto da frequência natural quanto da frequência de desprendimento de vórtices para a placa rígida, o que é devido aos fenômenos que ocorrem no acoplamento entre os dois meios.
+A frequência de vibração calculada a partir da média dos períodos entre $t=8$~s e $t=16$~s resultante da simulação com o modelo Arlequin é de $3\text{,}07$~Hz, próxima aos ~$3\text{,}1$~Hz reportado por \citeonline{Hubneretal:2004}. Observa-se que a frequência de vibração da estrutura, difere tanto da frequência natural quanto da frequência de desprendimento de vórtices para a placa rígida, o que é devido aos fenômenos que ocorrem no acoplamento entre os dois meios.
 
 Considerando um ciclo de movimento da estrutura $T$ (aproximadamente periódico) apresentam-se a distribuição do módulo da velocidade (Figura~\ref{fig:prism_campos_vel} ) e a distribuição de pressão (Figura~\ref{fig:prism_campos_press}) para alguns instantes. Na \autoref{fig:prisma_defor_malha} apresenta-se a configuração da malha local para o instante de maior deslocamento do problema.
 
@@ -488,7 +488,7 @@ Como última aplicação, propõe-se um problema tridimensional que não pode se
 
 \subsubsection{Turbina - monomodelo}\label{capitulo:Cap7:exemplos:Turbina:Mono}
 
-Considera-se a turbina formada por um tubo cilíndrico por onde ocorre o escoamento, dentro do qual encontra-se um rotor flexível acoplado a um eixo. Este eixe estende-se à montante do rotor e é encapsulado por um tubo rígido de diâmetro menor conforme ilustra a \autoref{fig:turbina_mono_geo}. Os parâmetros adotados para a descrição da geometria são: comprimento do tubo $L = 0,684$~dm, diâmetro do tubo $D_t = 1,74$~dm e diâmetro do encapsulamento $d = 0,6$dm.
+Considera-se a turbina formada por um tubo cilíndrico por onde ocorre o escoamento, dentro do qual encontra-se um rotor flexível acoplado a um eixo. Este eixo estende-se a montante do rotor e é encapsulado por um tubo rígido de diâmetro menor conforme ilustra a \autoref{fig:turbina_mono_geo}. Os parâmetros adotados para a descrição da geometria são: comprimento do tubo $L = 0,684$~dm, diâmetro do tubo $D_t = 1,74$~dm e diâmetro do encapsulamento $d = 0,6$dm.
 
 \begin{figure}[!htbp]
 	\caption{Turbina monomodelo: Geometria}
@@ -532,7 +532,7 @@ A malha utilizada para a discretização do domínio do fluido, apresentada na F
 \end{figure}
 
 
-Afim de se analisar os deslocamentos máximos nas pás ao longo do tempo na direção $y_3$, demarcou-se um ponto $A$ na extremidade de uma das pás do rotor, conforme pode ser visualizado na \autoref{fig:turbina_mono_geo}. Os deslocamento deste nó ao longo do tempo é apresentado na \autoref{fig:turbina_mono_deslA}. Ao realizar-se a média dos deslocamentos a partir do instante $t=0,2$~s até o final da análise ($t=0,5$~s), obteve-se um valor deslocamento médio de $-0,0127355$~cm neste ponto. 
+Afim de se analisar os deslocamentos máximos nas pás ao longo do tempo na direção $y_3$, demarcou-se um ponto $A$ na extremidade de uma das pás do rotor, conforme pode ser visualizado na \autoref{fig:turbina_mono_geo}. Os deslocamento deste nó ao longo do tempo é apresentado na \autoref{fig:turbina_mono_deslA}. Ao realizar-se a média dos deslocamentos a partir do instante $t=0\text{,}2$~s até o final da análise ($t=0\text{,}5$~s), obteve-se um valor deslocamento médio de $-0\text{,}0127355$~cm neste ponto. 
 
 
 \begin{figure}[!htbp]
@@ -543,7 +543,7 @@ Afim de se analisar os deslocamentos máximos nas pás ao longo do tempo na dire
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Além disso, acompanhou-se a velocidade angular deste mesmo ponto ao longo do tempo. Conforme pode-se observar na \autoref{fig:turbina_mono_velAngA}, a velocidade angular aumenta até o instante $t=0,2$~s e depois mantém-se com valor aproximadamente constante de $96,25\text{ rad/s}$.
+Além disso, acompanhou-se a velocidade angular deste mesmo ponto ao longo do tempo. Conforme pode-se observar na \autoref{fig:turbina_mono_velAngA}, a velocidade angular aumenta até o instante $t=0\text{,}2$~s e depois mantém-se com valor aproximadamente constante de $96\text{,}25\text{ rad/s}$.
 
 \begin{figure}[!htbp]
 	\caption{Turbina monomodelo: Velocidade angular no ponto A}
@@ -583,7 +583,7 @@ Por fim, apresentam-se os campos do módulo de velocidade e da pressão obtidos 
 Na segunda etapa de análise, adicionam-se 4 pás diretoras rígidas e fixas ao tubo interno à montante do rotor, conforme pode ser observado na \autoref{fig:turbina_arlq_geo}. As demais características do domínio do fluido e da estrutura utilizadas para a simulação do monomodelo (\autoref{capitulo:Cap7:exemplos:Turbina:Mono}), assim como as propriedades físicas dos meios apresentados, foram mantidas. Ressalta-se que, para a simulação deste problema, foram utilizados como campo inicial de pressão e velocidade, valores obtidos em uma solução de longo termo da turbina na condição de repouso. 
 
 Uma discretização global isogeométrica é empregada para descrever o domínio do fluido com o encapsulamento e as pás diretoras. Essa discretização é construída com auxílio de 21 \textit{patches}, e possui 21438 pontos de controle e 9660 células, com funções de forma quadráticas, conforme a figura~\ref{fig:turbina_arlq_patches}.
-O domínio local, no qual o rotor está contido, é discretizado com uma malha em elementos finitos com 26052 nós e 40766 elementos tetraédricos quadráticos, sendo ilustrada na Figura~\ref{fig:turbina_arlq_malha}, onde a zona de colagem, é destacada com a cor vermelha, possuindo espessura de $0\text{,}129$~dm e compreendendo 6782 elementos finitos e 3257 nós do modelo local. 
+O domínio local, no qual o rotor está contido, é discretizado com uma malha em elementos finitos com 26052 elementos  tetraédricos quadráticos e 40766 nós, sendo ilustrada na Figura~\ref{fig:turbina_arlq_malha}, onde a zona de colagem, é destacada com a cor vermelha, possuindo espessura de $0\text{,}129$~dm e compreendendo 3257 elementos finitos e 6782 nós.
 
 \begin{figure}[!htbp]
 	\caption{Turbina modelo Arlequin: Geometria}

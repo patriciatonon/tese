@@ -83,6 +83,27 @@ brazil				% o último idioma é o principal do documento
 \usepackage{microtype} 			% para melhorias de justificação
 \usepackage{pdfpages}
 \usepackage{makeidx}            % para gerar índice remissivo
+% Gerar lista de símbolos
+\usepackage{nomencl}
+\makenomenclature
+\usepackage{makeidx}            % para gerar índice remissivo
+
+%% Gerar lista de símbolos
+%\usepackage{nomencl}
+%\makenomenclature
+%\renewcommand{\nomname}{Lista de Símbolos}
+%\usepackage{etoolbox}
+%
+%\renewcommand{\nomgroup}[1]{%
+%	\item[\bfseries
+%	\ifstrequal{#1}{A}{Capítulo 2 — Fundamentação Teórica}{%
+%		\ifstrequal{#1}{B}{Capítulo 3 — Formulação Matemática}{%
+%			\ifstrequal{#1}{C}{Capítulo 4 — Método Numérico}{}}%
+%	}%
+%	]%
+%}
+%% Fim lista de símbolos
+
 \usepackage{hyphenat}          % Pacote para retirar a hifenizacao do texto
 \usepackage[absolute]{textpos} % Pacote permite o posicionamento do texto
 \usepackage{eso-pic}           % Pacote para incluir imagem de fundo
@@ -133,6 +154,7 @@ brazil				% o último idioma é o principal do documento
 \algrenewtext{EndFunction}{\algorithmicend\ \algorithmicfunction}
 
 \input{grumecSymbols.tex}
+%\input{Simbolos.tex}
 % ---
 % Pacotes de citações
 % Citações padrão ABNT
@@ -473,7 +495,7 @@ brazil				% o último idioma é o principal do documento
 % ---
 % inserir lista de símbolos
 % ---
-%\include{USPSC-TA-PreTextual/USPSC-Simbolos}
+\include{USPSC-TA-PreTextual/USPSC-Simbolos}
 % ---
 % ---
 % inserir o sumario

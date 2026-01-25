@@ -2,25 +2,24 @@
 
 Assim como no caso da Mecânica dos Fluidos, um sólido é modelado como um corpo contínuo, com seu movimento governado por um conjunto de equações provenientes da lei da conservação da quantidade de movimento, lei da conservação da massa e lei da conservação de energia. Entretanto, diferentemente dos fluidos, os sólidos possuem resistência às solicitações tangenciais até que alcance seu limite resistente, e por isso, apresentam deslocamentos e deformações finitos. 
 
-As variáveis de interesse na resolução do conjunto de equações que descrevem o comportamento do sólido são os deslocamentos, ou, posições atuais ao longo do tempo, dessa forma, uma descrição do tipo Lagrangiana é mais adequada para essas análises.
+As variáveis de interesse na resolução do conjunto de equações que descrevem o comportamento do sólido são os deslocamentos, ou posições atuais ao longo do tempo; dessa forma, uma descrição do tipo lagrangiana é mais adequada para essas análises.
 
-Nesse contexto, o comportamento estrutural pode ser classificado como linear ou não linear. No contexto do comportamento não linear, em geral, as não linearidades envolvidas podem ser de natureza geométrica, quando associadas à presença de grandes deslocamentos e rotações que não permitem aproximar a configuração atual pela inicial, ou de natureza física, quando resultam de modificações na relação constitutiva do material.
+Nesse contexto, o comportamento estrutural pode ser classificado como linear ou não linear. No que diz respeito ao comportamento não linear, em geral, as não linearidades envolvidas podem ser de natureza geométrica, quando associadas à presença de grandes deslocamentos e rotações que não permitem aproximar a configuração atual pela inicial, ou de natureza física, quando resultam de modificações na relação constitutiva do material.
 
-Para problemas de sólidos com comportamento elástico, quando houver a possibilidade de grandes deslocamentos, a não linearidade geométrica deve ser contemplada no modelo matemático. Para isso, altera-se a forma de consideração do equilíbrio das forças no sólido. Enquanto que em uma modelagem geometricamente linear o equilíbrio é considerado na configuração inicial, que é muito próxima a configuração atual do corpo, em uma análise não linear geométrica, o equilíbrio é considerado na configuração atual (ver, por exemplo  \citeonline{Coda:2018} e \citeonline{Ogden:1984}).
+Para problemas de sólidos com comportamento elástico, quando houver a possibilidade de grandes deslocamentos, a não linearidade geométrica deve ser contemplada no modelo matemático. Para isso, altera-se a forma de consideração do equilíbrio das forças no sólido. Enquanto em uma modelagem geometricamente linear o equilíbrio é considerado na configuração inicial, que é muito próxima à configuração atual do corpo, em uma análise não linear geométrica, o equilíbrio é considerado na configuração atual (ver, por exemplo  \citeonline{Coda:2018} e \citeonline{Ogden:1984}).
 
-Em muitos problemas da IFE, tal como o \textit{flutter}, grandes deslocamentos estão envolvidos. Desse modo, neste estudo utiliza-se uma formulação não linear geométrica dinâmica de cascas baseada em uma descrição Lagrangiana Total para as análise dinâmica de estruturas. 
+Em muitos problemas da IFE, tal como a instabilidade por \textit{flutter}, grandes deslocamentos estão envolvidos. Desse modo, neste estudo utiliza-se uma formulação não linear geométrica dinâmica de cascas baseada em uma descrição lagrangiana total para a análise dinâmica de estruturas. 
 
-A formulação é baseada no método dos elementos finitos com abordagem posicional (Coda, 2003, 2018), onde as variáveis principais são as posições nodais. Escolheu-se trabalhar com elementos de cascas, uma vez que esses podem representar a maioria dos problemas estruturais tridimensionais. 
+A formulação é baseada no MEF com abordagem posicional (Coda, 2003, 2018), onde as variáveis principais são as posições nodais. Escolheu-se trabalhar com elementos de cascas, uma vez que esses podem representar a maioria dos problemas estruturais tridimensionais. 
 
 Considera-se a cinemática de Reissner-Mindlin, e adotam-se como parâmetros nodais as posições da superfície média, vetores generalizados, inicialmente unitários e perpendiculares à superfície média, e um termo de enriquecimento que permite considerar variação linear de deformação na direção da espessura, de acordo com \citeonline{SanchesC:2013}. Isso permite um mapeamento completo e flexível do elemento deformado. 
 
-Neste capítulo, a formulação é apresentada a partir da descrição da cinemática e das condições de equilíbrio dos corpos deformáveis, com o objetivo de se deduzirem as equações globais de equilíbrio na descrição Lagrangiana, seguida pela introdução do modelo constitutivo de \textit{Saint-Venant–Kirchhoff}. Em seguida, aborda-se a formulação do método dos elementos finitos baseada em posição para ao elemento finito de casca adotado, a técnica de integração temporal e o algoritmo para solução, juntamente com um exemplo. Essa formulação foi desenvolvida, verificada e validada em diversos estudos (Coda; Paccola,
-2007, 2009; Coda; Sanches; Coda, 2013, 2014; Fernandes; Coda;
-Sanches, 2019) e o código computacional já disponível no grupo de pesquisa foi aproveitado, de modo que não se preocupa com verificação do código. 
+Neste capítulo, a formulação é apresentada a partir da descrição da cinemática e das condições de equilíbrio dos corpos deformáveis, com o objetivo de se deduzirem as equações globais de equilíbrio na descrição lagrangiana, seguida pela introdução do modelo constitutivo de \textit{Saint-Venant–Kirchhoff}. Na sequência, aborda-se a formulação do MEF baseada em posições para ao elemento finito de casca adotado, a técnica de integração temporal e o algoritmo para solução, juntamente com um exemplo numérico. Essa formulação foi desenvolvida, verificada e validada em diversos estudos (Coda; Paccola,
+2007, 2009; Sanches; Coda, 2013, 2014; Fernandes; Coda; Sanches, 2019) e o código computacional já disponível no grupo de pesquisa foi aproveitado, de modo que não é necessária a sua verificação. 
 
 \section{Cinemática dos corpos deformáveis}
 
-Um sólido deformável quando sujeito à ações externas, sofre uma mudança de configuração. Nesta seção busca-se definir medidas pontuais para a deformação. Na \autoref{fig:solido_cinematica}, pode-se observar um sólido na sua configuração inicial $\Omega_{0}$, com coordenadas materiais descritas por $\lPosition$, e o mesmo sólido no instante atual, representado por $\Omega$, com coordenadas espaciais $\ePosition$. 
+Um sólido deformável quando sujeito a ações externas, sofre uma mudança de configuração. Nesta seção busca-se definir medidas pontuais para a deformação. Na \autoref{fig:solido_cinematica}, pode-se observar um sólido na sua configuração inicial $\Omega_{0}$, com coordenadas materiais descritas por $\lPosition$, e o mesmo sólido no instante atual, representado por $\Omega$, com coordenadas espaciais $\ePosition$. 
 
 \begin{figure}[!htbp]
 	\caption{Cinemática de um sólido deformável}
@@ -31,98 +30,78 @@ Um sólido deformável quando sujeito à ações externas, sofre uma mudança de
 \end{figure}
 
 A função mudança de configuração, denominada de $\fmap$, mapeia cada ponto da posição inicial para a atual, de modo que:
-
 \begin{align}
 	\ePosition = \fmap(\lPosition,t).
 \end{align}
 
-Uma medida de deformação Lagrangeana deve quantificar a mudança de forma em cada ponto do contínuo em relação ao estado inicial. Para o caso de grandes deslocamentos, assunto deste estudo, a medida de deformação deve ser independente de movimento de corpo rígido ou da escolha dos eixos de referência, ou seja, deve ser uma medida objetiva. A medida de deformação é descrita em termos do gradiente da função mudança de configuração, $\gradDeformation$, definido como:
-
+Uma medida de deformação lagrangeana deve quantificar a mudança de forma em cada ponto do contínuo em relação ao estado inicial. Para o caso de grandes deslocamentos, assunto deste estudo, a medida de deformação deve ser independente de movimento de corpo rígido ou da escolha dos eixos de referência, ou seja, deve ser uma medida objetiva. A medida de deformação é descrita em termos do gradiente da função mudança de configuração, $\gradDeformation$, definido como:
 \begin{align}
-	\gradDeformation = \lGrad\left(\fmap\right) = \lGrad\ePosition.
+	\gradDeformation = \lGrad\left(\fmap\right) = \lGrad\ePosition,
 \end{align}
-
 \noindent onde o subscrito $\lPosition$ indica que o gradiente é tomado segundo as coordenadas da configuração material inicial.
 
-A partir de $\gradDeformation$, é possível definir o tensor de deformações de Green-Lagrange (ver por exemplo \citeonline{Ogden:1984}), que é uma medida de deformação objetiva e normalizada dada por: 
-
+A partir de $\gradDeformation$, é possível definir o tensor de deformações de Green-Lagrange (ver, por exemplo, \citeonline{Ogden:1984}), que é uma medida de deformação objetiva e normalizada dada por: 
 \begin{align}
 	\greenStrain = \frac{1}{2}\left(\cauchyStretch - \unittensor\right),
 \end{align}
-
-\noindent com $\cauchyStretch$ um tensor simétrico denominado de tensor de alongamento à direita de Cauchy-Green dado por:
-
+\noindent com $\cauchyStretch$ um tensor simétrico denominado de tensor de alongamento à direita de Cauchy-Green, dado por:
 \begin{align}
 	\cauchyStretch = \gradDeformation^{t} \cdot \gradDeformation =  \gradDeformation \cdot \gradDeformation^{t}.
 \end{align}
 
 A partir do gradiente da função mudança de configuração pode-se estabelecer uma relação entre um vetor qualquer $\mathbf{u}$ definido na configuração inicial e seu equivalente na configuração atual $\mathbf{v}$ através da seguinte expressão:
-
 \begin{align}
-	\mathbf{v} = \gradDeformation \cdot \mathbf{u} \label{eq:rel_vet}
+	\mathbf{v} = \gradDeformation \cdot \mathbf{u} \label{eq:rel_vet}.
 \end{align}
 
-Para a obtenção posteriormente das equações de equilíbrio em descrição Lagrangiana, faz-se necessário abordar as relações de mudança de volume e de área que ocorrem da configuração inicial para a atual. 
-
-No estabelecimento de uma relação entre o volume inicial e final, definem-se dois volumes infinitesimais, um inicial $dV_{0}$ e um final $dV$, apresentados na \autoref{fig:solido_def_vol}. O volume infinitesimal inicial $dV_{0}$ pode ser calculado por:
-
+Para a obtenção posteriormente das equações de equilíbrio em descrição lagrangiana, faz-se necessário abordar as relações de mudança de volume e de área que ocorrem da configuração inicial para a atual. No estabelecimento de uma relação entre o volume inicial e final, definem-se dois volumes infinitesimais, um inicial $dV_{0}$ e um final $dV$, apresentados na \autoref{fig:solido_def_vol}. O volume infinitesimal inicial $dV_{0}$ pode ser calculado por:
 \begin{align}
 	dV_{0} = (\mathbf{dx}_{1} \wedge \mathbf{dx}_{2}) \cdot \mathbf{dx}_{3} = \det{(\mathbf{dx_1},\mathbf{dx_2},\mathbf{dx_3})},
 \end{align}
-
-\noindent com $\mathbf{dx}_1,\mathbf{dx}_2$ e $\mathbf{dx}_3$ vetores materiais que definem o volume inicial. O volume atual pode ser expresso então, por:
-
+\noindent com $\mathbf{dx}_1,\mathbf{dx}_2$ e $\mathbf{dx}_3$ sendo vetores materiais que definem o volume inicial. O volume atual pode ser expresso, então, por:
 \begin{align}
 	dV = (\mathbf{dy}_{1} \wedge \mathbf{dy}_{2}) \cdot \mathbf{dy}_{3} = \det{(\mathbf{dy_1},\mathbf{dy_2},\mathbf{dy_3})}, \label{eq:vol_atual}
 \end{align}
-
-\noindent  sendo $\mathbf{dy}_1,\mathbf{dy}_2$ e $\mathbf{dy}_3$ os mesmos vetores $\mathbf{dx}_1,\mathbf{dx}_2$ e $\mathbf{dx}_3$ após a mudança de configuração.
-
-Tendo em vista a Equação~\eqref{eq:rel_vet}, pode-se reescrever a Equação~\eqref{eq:vol_atual}, como:
-
-\begin{align}
-	dV = \det{\left(\gradDeformation\right)} \cdot \det{(\mathbf{dx_1},\mathbf{dx_2},\mathbf{dx_3})}  = JdV_{0} \label {eq:vol_atual2},
-\end{align}
-
-\noindent na qual $J$ representa o determinante Jacobiano da função mudança de configuração.
+\noindent com $\mathbf{dy}_1,\mathbf{dy}_2$ e $\mathbf{dy}_3$ respectivos aos mesmos vetores $\mathbf{dx}_1,\mathbf{dx}_2$ e $\mathbf{dx}_3$ após a mudança de configuração.
 
 \begin{figure}[!htbp]
 	\caption{Mudança no volume}
 	\centering
-	\includegraphics[scale=2.0]{Imagens/Cap4/sol_def_vol.pdf}	
+	\includegraphics[scale=2.0,trim=0cm 0.0cm 0cm 0.2cm, clip=true]{Imagens/Cap4/sol_def_vol.pdf}	
 	\label{fig:solido_def_vol}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Para escrever a relação entre uma área definida na configuração inicial e o seu valor na configuração atual, considera-se o cilindro apresentado na \autoref{fig:solido_def_area} em suas configurações inicial e atual. Sendo $\mathbf{N}$ e $\mathbf{n}$ os versores unitários normais às áreas inicial $dA_{0}$ e atual $dA$. Os volumes na configuração inicial ($dV_{0}$) e na configuração atual ($dV$) são calculados por:
+Tendo em vista a Equação~\eqref{eq:rel_vet}, pode-se reescrever a Equação~\eqref{eq:vol_atual}, como:
+\begin{align}
+	dV = \det{\left(\gradDeformation\right)} \cdot \det{(\mathbf{dx_1},\mathbf{dx_2},\mathbf{dx_3})}  = JdV_{0} \label {eq:vol_atual2},
+\end{align}
+\noindent na qual $J$ representa o jacobiano da função mudança de configuração.
 
+Para escrever a relação entre uma área definida na configuração inicial e o seu valor na configuração atual, considera-se o cilindro apresentado na \autoref{fig:solido_def_area} em suas configurações inicial e atual. Sendo $\mathbf{N}$ e $\mathbf{n}$ os versores unitários normais às áreas inicial $dA_{0}$ e atual $dA$, os volumes na configuração inicial ($dV_{0}$) e na atual ($dV$) são calculados por:
 \begin{align}
 	dV_{0} = \mathbf{u} \cdot \mathbf{dA}_{0} = \mathbf{u} \cdot \mathbf{N} dA_0 ,\\
 	dV = \mathbf{v} \cdot \mathbf{dA} = \mathbf{v} \cdot \mathbf{n} dA \label{eq:vol_func_area},
 \end{align}
+\noindent com $\mathbf{u}$ e $\mathbf{v}$ sendo vetores não coplanares com as áreas inicial e atual, que ligam os centros da base e do topo do cilindro.
 
-\noindent com $\mathbf{u}$ e $\mathbf{v}$ vetores não coplanares com as áreas inicial e atual, que ligam os centros da base e do topo do cilindro.
-
-\begin{figure}[H]
+\begin{figure}[!htbp]
 	\caption{Mudança de área}
 	\centering
-	\includegraphics[scale=6.0,trim=0cm 0.2cm 0cm 0cm, clip=true]{Imagens/Cap4/sol_def_area.pdf}	
+	\includegraphics[scale=6.0,trim=0cm 0.2cm 0cm 0.2cm, clip=true]{Imagens/Cap4/sol_def_area.pdf}	
 	\label{fig:solido_def_area}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 Considerando a relação da Equação~\eqref{eq:rel_vet}, pode-se escrever o volume na configuração atual, $dV$, como:
-
 \begin{align}
 	dV = \mathbf{u} \cdot \gradDeformation^{t} \cdot \mathbf{n} dA = J dV_0 = J \mathbf{u} \cdot \mathbf{N} dA_0. \label{eq:dv}
 \end{align}
 
-Pré-multiplicando-se a Equação~\eqref{eq:dv} por $(\gradDeformation^{t})^{-1}$ e considerando-se a arbitrariedade de $\mathbf{u}$, chega-se a conhecida fórmula de Nanson, descrita como:
-
+Pré-multiplicando-se a Equação~\eqref{eq:dv} por $(\gradDeformation^{t})^{-1}$ e considerando-se a arbitrariedade de $\mathbf{u}$, chega-se à conhecida fórmula de Nanson, descrita como:
 \begin{align}
 	\mathbf{n}dA = J \gradDeformation^{-t} \cdot \mathbf{N} dA_{0}. \label{eq:Nanson}
 \end{align}
-
 
 \section{Equilíbrio de corpos deformáveis} \label{capitulo:Cap3:EquilibrioCorposDeformaveis}
 
@@ -132,20 +111,7 @@ Um corpo contínuo, ao ser submetido a ações externas, desenvolve forças inte
 
 Considerando um corpo qualquer, na configuração atual, sujeito a um conjunto equilibrado de forças externas, ao fazer-se a extração de um volume elementar infinitesimal, conforme pode ser observado na \autoref{fig:sol_equi}, considerando as forças que o restante do corpo exerce de forma distribuída sobre cada uma de suas faces, são obtidas as componentes cartesianas de tensão, com uma componente normal e duas componentes tangenciais (de cisalhamento) em cada face. Essa medida de tensão é denominada tensão de Cauchy, sendo suas componentes designadas por $\sigma_{ij}$, com $i$ referindo-se ao plano de atuação e $j$ indicando a direção de atuação da componente.
 
-O tensor de tensões de Cauchy ($\cauchyStress$) contém todas as informações de tensão em um ponto, sendo representado por:
-
-\begin{align}
-	\cauchyStress =
-	\begin{bmatrix}
-		\sigma_{11} & \sigma_{12} & \sigma_{13} \\
-		\sigma_{21} & \sigma_{22} & \sigma_{23} \\
-		\sigma_{31} & \sigma_{32} & \sigma_{33}
-	\end{bmatrix}
-	.
-\end{align}
-
-
-\begin{figure}[H]
+\begin{figure}[!htbp]
 	\caption{Volume infinitesimal: componentes de tensão}
 	\centering
 	\includegraphics[scale=0.5,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap4/sol_vol_equi.pdf}	
@@ -153,33 +119,34 @@ O tensor de tensões de Cauchy ($\cauchyStress$) contém todas as informações 
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Ao realizar-se o equilíbrio de momentos sobre um elemento infinitesimal, nota-se que $\cauchyStress$ é simétrico (Teorema de Cauchy), e pode ser reescrito como:
+O tensor de tensões de Cauchy contém todas as informações de tensão em um ponto, sendo representado por:
+\begin{align}
+	\cauchyStress =
+	\begin{bmatrix}
+		\sigma_{11} & \sigma_{12} & \sigma_{13} \\
+		\sigma_{21} & \sigma_{22} & \sigma_{23} \\
+		\sigma_{31} & \sigma_{32} & \sigma_{33}
+	\end{bmatrix}.
+\end{align}
 
+Ao realizar-se o equilíbrio de momentos sobre um elemento infinitesimal, nota-se que $\cauchyStress$ é simétrico (Teorema de Cauchy), e pode ser reescrito como:
 \begin{align}
 	\cauchyStress =
 	\begin{bmatrix}
 		\sigma_{11} & \sigma_{12} & \sigma_{13} \\
 		\sigma_{12} & \sigma_{22} & \sigma_{23} \\
 		\sigma_{13} & \sigma_{23} & \sigma_{33}
-	\end{bmatrix}
-	.
+	\end{bmatrix}.
 \end{align}
 
-Vale ressaltar que, a tensão de Cauchy é definida na configuração atual do contínuo, e por isso, trata-se de uma medida Euleriana de tensão, portanto inadequada para a formulação pretendida.
+Vale ressaltar que a tensão de Cauchy é definida na configuração atual do contínuo, e por isso, trata-se de uma medida euleriana de tensão, portanto inadequada para a formulação pretendida.
 
-Extraindo-se do corpo contínuo um volume tetraédrico (\autoref{fig:sol_tetra}), no plano inclinado, cujo versor normal é $\mathbf{n}$, surge o vetor tensão de Cauchy designado por $\mathbf{t}$. Considerando que a área do plano inclinado seja $dA$, enquanto que as áreas correspondentes aos planos coordenados são suas projeções, pode-se calcular o equilíbrio do tetraedro em cada direção, chegando-se a seguinte expressão:
-
+Extraindo-se do corpo contínuo um volume tetraédrico (\autoref{fig:sol_tetra}), no plano inclinado, cujo versor normal é $\mathbf{n}$, surge o vetor tensão de Cauchy designado por $\mathbf{t}$. Considerando que a área do plano inclinado seja $dA$, enquanto que as áreas correspondentes aos planos coordenados são suas projeções, pode-se calcular o equilíbrio do tetraedro em cada direção, chegando-se à seguinte expressão:
 \begin{align}
 	\mathbf{t} = \cauchyStress^{t} \cdot \mathbf{n} =  \cauchyStress \cdot \mathbf{n}.
 \end{align}
 
-Essa expressão é conhecida por fórmula de Cauchy. Caso o plano inclinado esteja no contorno do corpo (superfície externa), $\mathbf{t}$ se iguala às forças de superfície ($\mathbf{p}$) que atuam no ponto considerado do contorno, ou seja:
-
-\begin{align}
-	\mathbf{p} = \cauchyStress^{t} \cdot \mathbf{n} =  \cauchyStress \cdot \mathbf{n}.
-\end{align}
-
-\begin{figure}[H]
+\begin{figure}[!htbp]
 	\caption{Tetraedro elementar}
 	\centering
 	\includegraphics[scale=0.5,,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap4/sol_tetra_equi.pdf}	
@@ -187,188 +154,155 @@ Essa expressão é conhecida por fórmula de Cauchy. Caso o plano inclinado este
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
+Essa expressão é conhecida por fórmula de Cauchy. Caso o plano inclinado esteja no contorno do corpo (superfície externa), $\mathbf{t}$ se iguala às forças de superfície ($\mathbf{p}$) que atuam no ponto considerado do contorno, ou seja:
+\begin{align}
+	\mathbf{p} = \cauchyStress^{t} \cdot \mathbf{n} =  \cauchyStress \cdot \mathbf{n}.
+\end{align}
 
-\subsection{Equilíbrio em descrição Lagrangiana}
+\subsection{Equilíbrio em descrição lagrangiana}
 
-Para a obtenção das equações de equilíbrio em descrição Lagrangiana, será utilizada como ponto de partida a equação de equilíbrio local na descrição Euleriana. Para isso, considere o sólido apresentado na \autoref{fig:sol_cargas}, o qual está submetido a forças de corpo, $\ebodyLoad$, e a forças de superfície, $\tractionLoad$. Extraindo-se um elemento infinitesimal deste corpo que sofreu mudança de configuração, e aplicando-se a segunda Lei de Newton, chega-se à equação do movimento de Cauchy, que define o  equilíbrio de forma local (forma local da primeira Lei do movimento de Euler), também chamada de equação da quantidade de movimento:
-
+Para a obtenção das equações de equilíbrio em descrição lagrangiana, será utilizada como ponto de partida a equação de equilíbrio local na descrição euleriana. Para isso, considere o sólido apresentado na \autoref{fig:sol_cargas}, o qual está submetido a forças de corpo, $\ebodyLoad$, e a forças de superfície, $\tractionLoad$. Extraindo-se um elemento infinitesimal deste corpo, que sofreu mudança de configuração, e aplicando-se a segunda Lei de Newton, chega-se à equação do movimento de Cauchy, que define o  equilíbrio de forma local (forma local da primeira Lei do movimento de Euler), também chamada de equação da quantidade de movimento:
 \begin{align}
 	\gradient \cdot \stressTensor^{t} + \ebodyLoad = \rho  \solidAccel, \label{eq:equi_local_euleriano}
 \end{align}
-
 \noindent ou ainda, em notação indicial:
-
 \begin{align}
 	\sigma_{ji,j} + b_i  = \rho  \ddot{y_i},
 \end{align}
-
 \noindent com $\rho$ representando a massa específica do material na configuração atual e $\solidAccel$ é a derivada material da velocidade do ponto material (aceleração do corpo).
 
 \begin{figure}[!htbp]
 	\caption{Sólido sob carregamento externo}
 	\centering
-	\includegraphics[scale=4,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap4/sol_cargas.pdf}	
+	\includegraphics[scale=4,trim=0cm 0.0cm 0cm 0.2cm, clip=true]{Imagens/Cap4/sol_cargas.pdf}	
 	\label{fig:sol_cargas}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 Ao integrar-se a Equação~\eqref{eq:equi_local_euleriano} no volume do sólido, utilizando o Teorema da Divergência, chega-se a:
-
 \begin{align}
-	\int_{A} {\stressTensor}^{t} \cdot \mathbf{n} dA + \int_{V} \ebodyLoad dV = \int_{V} \rho  \solidAccel dV \label{eq:eq_global_euleriano}
+	\int_{A} {\stressTensor}^{t} \cdot \mathbf{n} dA + \int_{V} \ebodyLoad dV = \int_{V} \rho  \solidAccel dV\label{eq:eq_global_euleriano}
 \end{align}
-
 \noindent ou, ainda:
-
 \begin{align}
-	\int_{A} \mathbf{p} dA + \int_{V} \ebodyLoad dV = \int_{V} \rho  \solidAccel dV 
+	\int_{A} \mathbf{p} dA + \int_{V} \ebodyLoad dV = \int_{V} \rho  \solidAccel dV.
 \end{align}
 
-Considerando as relações de mudança de área e volume, apresentadas na Equação~\eqref{eq:vol_atual2} e Equação~\eqref{eq:Nanson}, e que da equação da conservação da massa ($M$) tem-se que:
-
+Considerando as relações de mudança de área e volume, apresentadas na Equação~\eqref{eq:vol_atual2} e na Equação~\eqref{eq:Nanson}, da equação da conservação da massa ($M$) tem-se que:
 \begin{align}
-	M = \int_{V_{0}} \rho_{0}dV_{0} = \int_{V(t)} \rho(t)dV, \label{eq:conser_massa}
+	M = \int_{V_{0}} \rho_{0}dV_{0} = \int_{V(t)} \rho(t)dV. \label{eq:conser_massa}
 \end{align}
 
-\noindent pode-se escreve-se a forma global da equação da quantidade de movimento na descrição Lagrangiana total, a partir da Equação~\eqref{eq:eq_global_euleriano}, como:
-
+Pode-se escrever a forma global da equação da quantidade de movimento na descrição lagrangiana total, a partir da Equação~\eqref{eq:eq_global_euleriano}, como:
 \begin{align}
 	\int_{A_0} \mathbf{P}^t \cdot \mathbf{N} dA_0 + \int_{V_0} \bodyLoad dV_0 = \int_{V_0} \rho_0  \solidAccel dV_0, \label{eq:equi_global_lagrangeano}
 \end{align}
+\noindent na qual o primeiro tensor de tensão de Piola-Kirchhoff ($\mathbf{P}$) é definido como $\mathbf{P}^t = J \stressTensor^t \cdot \gradDeformation^{-t}$, e o subíndice $0$ refere-se à configuração inicial.
 
-\noindent na qual o primeiro tensor de tensão de Piola-Kirchhoff ($\mathbf{P}$) é definido como $\mathbf{P}^t = J \stressTensor^t \cdot \gradDeformation^{-t}$, e o subíndice $0$, refere-se à configuração inicial.
-
-Considerando-se o Teorema da Divergência à Equação~\eqref{eq:equi_global_lagrangeano} e a arbitrariedade do volume, chega-se à versão local da equação de equilíbrio em descrição Lagrangiana, expressa por:
-
+Considerando-se o Teorema da Divergência aplicado à Equação~\eqref{eq:equi_global_lagrangeano} e a arbitrariedade do volume, chega-se à versão local da equação de equilíbrio em descrição lagrangiana, expressa por:
 \begin{align}
 	\lGrad \cdot \mathbf{P}^t +  \bodyLoad = \rho_0  \solidAccel. \label{eq:equi_local_lagrangeano}
 \end{align}
 
-
 \subsection{Conservação da energia e equilíbrio}
 
 No estudo do equilíbrio de corpos deformáveis a análise da energia mecânica é um assunto de grande importância. A energia mecânica é formada basicamente por três parcelas: energia potencial das forças externas ($\extEnergy$), energia de deformação ($\intEnergy$) e energia cinética ($\kinEnergy$). A energia total mecânica ($\totalEnergy$) é um funcional obtido pela soma dessas três parcelas, sendo escrita da seguinte maneira:
-
 \begin{align}
 	\totalEnergy = \extEnergy + \kinEnergy + \intEnergy.
 \end{align}
 
 O princípio da estacionariedade da energia define que um corpo quando em equilíbrio apresenta a primeira variação do funcional de energia mecânica nula, sendo o equilíbrio estável quando a posição de equilíbrio representa um mínimo local para a energia mecânica total. Este princípio, para uma descrição das equações de equilíbrio em posições, pode ser expresso matematicamente da seguinte forma:
-
 \begin{align}
-	\delta\totalEnergy = \frac{\partial{\totalEnergy}}{\partial{\ePosition}} \cdot \delta\ePosition = \mathbf{0}, \label{eq:princ_esta}
+	\delta\totalEnergy = \frac{\partial{\totalEnergy}}{\partial{\ePosition}} \cdot \delta\ePosition = 0, \label{eq:princ_esta}
 \end{align}
-
 \noindent ou, dada a arbitrariedade de $\delta\ePosition$, como: 
-
 \begin{align}
 	\delta\totalEnergy = \delta\extEnergy + \delta\kinEnergy + \delta\intEnergy.
 \end{align}
 
-Um incremento de energia mecânica específica (energia mecânica por unidade de volume) pode ser obtido pelo produto escalar da Equação~\eqref{eq:equi_local_lagrangeano} por um incremento de posição $\delta\ePosition$, e, integrando-se sobre o domínio inicial, tem-se:
-
+Um incremento de energia mecânica específica (energia mecânica por unidade de volume) pode ser obtido pelo produto escalar da Equação~\eqref{eq:equi_local_lagrangeano} por um incremento de posição $\delta\ePosition$; integrando-se sobre o domínio inicial, tem-se:
 \begin{align}
-	\delta\totalEnergy = \int_{V_0} \left(\rho_0 \solidAccel - \lGrad \cdot \mathbf{P}^t -  \ebodyLoad_0 \right) \cdot  \delta\ePosition dV_0 = 0 \label{eq:equi_local_forma_frac}
+	\delta\totalEnergy = \int_{V_0} \left(\rho_0 \solidAccel - \lGrad \cdot \mathbf{P}^t -  \ebodyLoad_0 \right) \cdot  \delta\ePosition dV_0 = 0. \label{eq:equi_local_forma_frac}
 \end{align}
 
-Ao integrar-se por partes o segundo termo da Equação~\eqref{eq:equi_local_forma_frac} e utilizar-se o Teorema da Divergência, chega-se a seguinte expressão:
-
+Ao integrar-se por partes o segundo termo da Equação~\eqref{eq:equi_local_forma_frac} e utilizar-se o Teorema da Divergência, chega-se à seguinte expressão:
 \begin{align}
 	\delta\totalEnergy = \int_{V_0} \rho_0 \solidAccel \cdot \delta\ePosition dV_0 - \int_{A_0} \mathbf{P}^t \cdot \mathbf{N} \cdot  \delta\ePosition dA_0  + \int_{V_0} \mathbf{P}^t : \lGrad(\delta\ePosition) dV_0 - \int_{V_0} \mathbf{b_0} \cdot \delta \ePosition dV_0 = 0. \label{eq:equi_local_forma_frac2}
 \end{align}
 
-A \autoref{eq:equi_local_forma_frac2} pode ainda ser reformulada, considerando que $\lGrad (\delta\ePosition) = \delta \gradDeformation$ e que $\mathbf{P}^t \cdot \mathbf{N}$ representa as forças de superfície na configuração inicial ($\ltractionLoad$) como:
-
+A \autoref{eq:equi_local_forma_frac2} pode ainda ser reformulada, considerando que $\lGrad (\delta\ePosition) = \delta \gradDeformation$ e que $\mathbf{P}^t \cdot \mathbf{N}$ representa as forças de superfície na configuração inicial ($\ltractionLoad$), como:
 \begin{align}
 	\delta\totalEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} + \int_{V_{0}} \mathbf{P}^{t} : \delta\gradDeformation dV_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} = 0. \label{eq:equi_local_forma_frac3}
 \end{align}
 
-Conforme relatou-se, o tensor de Piola-Kirchhoff de primeira espécie não é necessariamente simétrico, desta forma, torna-se mais conveniente adotar uma medida de tensão que resulte em um tensor simétrico. Com essa finalidade, adota-se um tensor $\piolaStress$, de forma que:
-
+O tensor de Piola-Kirchhoff de primeira espécie não é necessariamente simétrico; desta forma, torna-se mais conveniente adotar uma medida de tensão que resulte em um tensor simétrico. Com essa finalidade, adota-se um tensor $\piolaStress$, de forma que:
 \begin{align}
 	\mathbf{P} = \piolaStress^{t} \cdot \gradDeformation^{t}, \label{eq:piola-kircchoff}
 \end{align}
-
 \noindent com $\piolaStress$ conhecido como tensor de Piola-Kirchhoff de segunda espécie. 
 
 Utilizando-se a relação apresentada na Equação~\eqref{eq:piola-kircchoff} na Equação~\eqref{eq:equi_local_forma_frac3}, chega-se a:
-
 \begin{align}
 	\delta\totalEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} +  \int_{V_{0}} \piolaStress : \delta\greenStrain dV_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} = 0.
 	\label{eq:equi_local_forma_final0}
 \end{align}
 
 À Equação~\eqref{eq:equi_local_forma_final0}, será adicionada ainda uma parcela referente a possibilidade de carregamentos pontuais, sendo expressa então, por:
-
 \begin{align}
 	\delta\totalEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0} - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} +  \int_{V_{0}} \piolaStress : \delta\greenStrain dV_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} - \mathbf{F} \cdot \delta\ePosition = 0.
 	\label{eq:equi_local_forma_final}
 \end{align}
 
 Partindo-se da Equação~\eqref{eq:equi_local_forma_final}, encontra-se a relação entre suas componentes e as parcelas de energia mecânica, dessa forma, tem-se que:
-
 \begin{align}
 	\delta\extEnergy = - \int_{A_{0}} \ltractionLoad \cdot \delta\ePosition dA_{0} - \int_{V_{0}}  \bodyLoad \cdot \delta\ePosition dV_{0} - \mathbf{F} \cdot \delta\ePosition,
 \end{align}
-
 \begin{align}
-	\delta\kinEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0},
+	\delta\kinEnergy = \int_{V_{0}} \rho_{0} \solidAccel \cdot \delta\ePosition dV_{0}
 \end{align}
-
-\noindent e,
-
+\noindent e
 \begin{align}
 	\delta\intEnergy = \int_{V_{0}} \piolaStress : \delta\greenStrain dV_{0}.
 \end{align}
 
 \subsection{Modelo constitutivo de Saint-Venant-Kirchhoff}
 
-A lei constitutiva hiperelástica de Saint-Venant-Kirchhoff estabelece uma relação linear entre o tensor das tensões de Piola Kirchhoff de segunda espécie e o tensor de deformação de Green, e pode ser escrita pela expressão generalizada da energia de deformação por:
-
+A lei constitutiva hiperelástica de Saint-Venant-Kirchhoff estabelece uma relação linear entre o tensor das tensões de Piola Kirchhoff de segunda espécie e o tensor de deformação de Green, podendo ser escrita pela expressão generalizada da energia de deformação por:
 \begin{align}
 	u_{e} = \frac{1}{2} \greenStrain : \constitutiveTensor : \greenStrain,
 \end{align}
-
 \noindent ou, em notação indicial:
-
 \begin{align}
-	u_{e} = \frac{1}{2} E_{kl} C_{klij} E_{ij}
+	u_{e} = \frac{1}{2} E_{kl} C_{klij} E_{ij},
 \end{align}
-
 \noindent com $\constitutiveTensor$ representando o tensor constitutivo elástico isotrópico, que é um tensor de quarta ordem definido como:
-
 \begin{gather}
-	\constitutiveTensor_{ijkl}=\left(\bulkModulus - \frac{2}{3}\shearModulus \right)\delta_{ij}\delta_{kl} + \shearModulus(\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}),
+	C_{ijkl}=\left(\bulkModulus - \frac{2}{3}\shearModulus \right)\delta_{ij}\delta_{kl} + \shearModulus(\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}),
 \end{gather}
-
-\noindent sendo $\delta_{ij}$ o delta de Kronocker, $\bulkModulus$ e $\shearModulus$ os módulos volumétrico e de cisalhamento respectivamente, os quais são calculados através das seguintes relações:
-
+\noindent sendo $\delta_{ij}$ o delta de Kronocker e $\bulkModulus$ e $\shearModulus$ os módulos volumétrico e de cisalhamento, respectivamente, os quais são calculados através das seguintes relações:
 \begin{gather}
 	\bulkModulus=\lameParameter+\frac{2}{3}\shearModulus,\\
 	\shearModulus=\frac{\elasticModulus}{2(1+\poisonsRatio)},\\
 	\lameParameter=\frac{\poisonsRatio \elasticModulus}{(1+\poisonsRatio)(1-2\poisonsRatio)},
 \end{gather}
-
 \noindent com $\elasticModulus$ sendo o módulo de elasticidade longitudinal e $\poisonsRatio$ o coeficiente de Poisson. Ressalta-se que essa lei constitutiva aqui utilizada é adequada para grandes deslocamentos, entretanto, a mesma é adequada somente para deformações pequenas a moderadas por permitir a inversão do material.
 
 \section{Método dos Elementos Finitos}
 
-Conforme discutido na \autoref{capitulo:Cap2:FormaFraca:ElementosFinitos}, o método dos elementos finitos baseia-se na substituição do contínuo por um conjunto finito de subdomínios, denominados elementos finitos. Em cada um desses elementos, as variáveis de interesse — incluindo a própria geometria — são aproximadas, de modo que o problema contínuo é convertido em um problema discreto, caracterizado por um número finito de incógnitas.
+Conforme discutido na \autoref{capitulo:Cap2:FormaFraca:ElementosFinitos}, o MEF baseia-se na substituição do contínuo por um conjunto finito de subdomínios, denominados elementos finitos. Em cada um desses elementos, as variáveis de interesse — incluindo a própria geometria — são aproximadas, de modo que o problema contínuo é convertido em um problema discreto, caracterizado por um número finito de incógnitas.
 
-Nesta subseção será apresentada formulação do método dos elementos finitos baseada em posições aplicada à cinemática de cascas.
+Nesta seção será apresentada a formulação do Método dos Elementos Finitos baseada em posições aplicada à cinemática de cascas.
 
 \subsection{Elemento finito de casca} \label{capitulo:Cap4:Mef:Casca}
 
-Esta formulação foi desenvolvida por \citeonline{CodaP:2007}, e consistia inicialmente em 6 graus de liberdade por nó, sendo 3 referentes à posições e 3 referentes às componentes do vetor generalizado. Em \citeonline{CodaP:2008} incluí-se à formulação um sétimo parâmetro, que considera a taxa de variação linear da espessura, para lidar com o fenômeno de travamento volumétrico. \citeonline{SanchesC:2013} apresentam a formulação dinâmica empregando a cinemática com 7 graus de liberdade  aplicada ao problema de interação fluido-estrutura, sendo essa a abordagem adotada aqui.
+Esta formulação foi desenvolvida por \citeonline{CodaP:2007} consistindo inicialmente em 6 graus de liberdade por nó, sendo 3 referentes a posições e 3 referentes às componentes do vetor generalizado. Em \citeonline{CodaP:2008} inclui-se um sétimo parâmetro, que considera a taxa de variação linear da espessura para lidar com o fenômeno de travamento volumétrico. \citeonline{SanchesC:2013} apresentam a formulação dinâmica empregando a cinemática com 7 graus de liberdade  aplicada ao problema de interação fluido-estrutura, sendo essa a abordagem adotada aqui.
 
-As cascas são sólidos que possuem uma de suas dimensões muito menor do que as outras, assim o mapeamento do seu domínio pode ser facilitado tomando-se a superfície média como referência. Os mapeamentos das configurações inicial e atual dos pontos da superfície média, conforme pode ser observado na \autoref{fig:casca:map_super_media}, são definidos respectivamente como:
-
+As cascas são sólidos que possuem uma de suas dimensões muito menor do que as outras, assim, o mapeamento do seu domínio pode ser facilitado tomando-se a superfície média como referência. Os mapeamentos das configurações inicial e atual dos pontos da superfície média, conforme pode ser observado na \autoref{fig:casca:map_super_media}, são definidos respectivamente como:
 \begin{align}
-	\fmap^{mh}_{0}(\xi_{1},\xi_{2}) = \lPosition^{mh}(\xi_{1},\xi_{2}) = N_{l} (\xi_{1},\xi_{2}) \lPosition_{l}^{mh}\label{eq:casca_Lposition_m}\\
+	\fmap^{mh}_{0}(\xi_{1},\xi_{2}) = \lPosition^{mh}(\xi_{1},\xi_{2}) = N_{l} (\xi_{1},\xi_{2}) \lPosition_{l}^{mh}\label{eq:casca_Lposition_m} \text{,}\\
 	\fmap^{mh}_{1}(\xi_{1},\xi_{2}) = \ePosition^{mh}(\xi_{1},\xi_{2}) = N_{l} (\xi_{1},\xi_{2}) \ePosition_{l}^{mh}, \label{eq:casca_Eposition_m}
 \end{align}
-
-\noindent onde $\lPosition_{l}^{mh}$ e $\ePosition_{l}^{mh}$ representam, respectivamente, os vetores dos parâmetros de posição inicial e atual da superfície média respectivos ao nó $l$, com $N_{l} (\xi_{1},\xi_{2})$ sendo a função de forma do nó $l$ calculada no ponto de coordenadas paramétricas $(\xi_{1},\xi_{2})$.
+\noindent onde $\lPosition_{l}^{mh}$ e $\ePosition_{l}^{mh}$ representam, respectivamente, os vetores dos parâmetros de posição inicial e atual da superfície média relativos ao nó $l$, com $N_{l} (\xi_{1},\xi_{2})$ sendo a função de forma do nó $l$ calculada no ponto de coordenadas paramétricas $(\xi_{1},\xi_{2})$.
 
 \begin{figure}[!htbp]
 	\caption{Mapeamento da superfície média da casca}
@@ -379,12 +313,10 @@ As cascas são sólidos que possuem uma de suas dimensões muito menor do que as
 \end{figure}
 
 Os demais pontos do domínio são mapeados por meio da soma da posição de um ponto na superfície média com um vetor generalizado $\mathbf{g}^{h}_{0}$ para a configuração inicial ou $\mathbf{g}^{h}_{1}$ para a configuração atual. Observa-se que $\mathbf{g}^{h}_{0}$ é normal à superfície média na configuração inicial, conforme pode ser observado na \autoref{fig:casca_vetores_generalizados}, enquanto $\mathbf{g}^{h}_{1}$ pode não ser normal à superfície média deformada. Desta forma, o mapeamento completo de um elemento de casca é:
-
 \begin{align}
-	\fmap^{h}_{0}(\xi_{1},\xi_{2},\xi_{3}) = \lPosition^{h}(\xi_{1},\xi_{2},\xi_{3}) = \fmap^{mh}_{0}(\xi_{1},\xi_{2}) + \mathbf{g}^{h}_{0} (\xi_{1},\xi_{2}, \xi_{3}) \label{eq:fmap0}\\
+	\fmap^{h}_{0}(\xi_{1},\xi_{2},\xi_{3}) = \lPosition^{h}(\xi_{1},\xi_{2},\xi_{3}) = \fmap^{mh}_{0}(\xi_{1},\xi_{2}) + \mathbf{g}^{h}_{0} (\xi_{1},\xi_{2}, \xi_{3}) \label{eq:fmap0} \text{,}\\
 	\fmap^{h}_{1}(\xi_{1},\xi_{2},\xi_{3}) = \ePosition^{h}(\xi_{1},\xi_{2},\xi_{3}) = \fmap^{mh}_{1}(\xi_{1},\xi_{2}) + \mathbf{g}^{h}_{1} (\xi_{1},\xi_{2}, \xi_{3}),  \label{eq:fmap1}
 \end{align}
-
 \noindent em que $\xi_3$ é a coordenada adimensional na direção da espessura da casca, variando de -1 a 1.
 
 \begin{figure}[!htbp]
@@ -396,100 +328,77 @@ Os demais pontos do domínio são mapeados por meio da soma da posição de um p
 \end{figure}
 
 Os vetores generalizados $\mathbf{g}^{h}_{0}$ e $\mathbf{g}^{h}_{1}$ podem ser expressos por:
-
 \begin{align}
 	\mathbf{g}^{h}_{0} (\xi_{1},\xi_{2}, \xi_{3}) = \frac{h_{0}}{2}\xi_{3} N_{l}\left(\xi_{1},\xi_{2}\right) \cdot  (\mathbf{e}_x)_l, \\
 	\mathbf{g}^{h}_{1} (\xi_{1},\xi_{2}, \xi_{3}) = \frac{h_{0}}{2}\left[\xi_{3} + \eta_l N_l\left(\xi_{1},\xi_{2}\right)\xi_{3}^2\right]N_{l}\left(\xi_{1},\xi_{2}\right) \cdot (\mathbf{e}_y)_l,
 \end{align}
-
-\noindent onde $h_{0}$ representa a espessura média inicial do elemento de casca, $(\mathbf{e}_x)_l$ é o $l$-ésimo valor nodal do vetor unitário normal à linha de referência inicial, $(\mathbf{e}_y)_l$ o l-ésimo valor nodal do vetor generalizado, de norma irrestrita, na configuração atual e $\eta_l$ é o $l$-ésimo valor nodal da chamada de taxa linear de variação da espessura.
+\noindent onde $h_{0}$ representa a espessura média inicial do elemento de casca, $(\mathbf{e}_x)_l$ é o $l$-ésimo valor nodal do vetor unitário normal à superfície média inicial, $(\mathbf{e}_y)_l$ o l-ésimo valor nodal do vetor generalizado, de norma irrestrita, na configuração atual, e $\eta_l$ é o $l$-ésimo valor nodal da chamada de taxa linear de variação da espessura.
 
 Dessa forma, a função mudança de configuração pode ser definida através da seguinte relação:
-
 \begin{align}
 	\fmap^{h} = \fmap^{h}_{1} \circ  (\fmap^{h}_{0})^{-1} \label{eq:eq_mud_conf}.
 \end{align}
 
-De forma análoga pode-se representar o gradiente de  $\fmap^{h}$ como:
-
+De forma análoga, pode-se representar o gradiente de  $\fmap^{h}$ como:
 \begin{align}
 	\gradDeformation^{h} = \gradDeformation^{h}_{1} \cdot \left(\gradDeformation^{h}_{0}\right)^{-1} \label{eq:gradDeformation},
 \end{align}
-
 \noindent em que $\gradDeformation^{h} = \lGrad \fmap^{h}$, $\gradDeformation^{h}_{0} = \frac{\partial  \fmap^{h}_{0}} {\partial \adimensionalcoordinates}$ e  $\gradDeformation^{h}_{1} =  \frac{\partial  \fmap^{h}_{1}} {\partial \adimensionalcoordinates}$.
 
 Assim, o alongamento à direta de Cauchy-Green e a deformação de Green podem ser escritos em função de $\gradDeformation^{h}_{0}$ e $\gradDeformation^{h}_{1}$, como:
-
 \begin{align}
 	\cauchyStretch = \gradDeformation^{t} \cdot \gradDeformation = \left(\gradDeformation^{h}_{1} \cdot (\gradDeformation^{h}_{0})^{-1}\right)^{t} \cdot \left(\gradDeformation^{h}_{1} \cdot (\gradDeformation^{h}_{0})^{-1}\right),
 \end{align}
-
-\noindent e,
-
+\noindent e
 \begin{align}
 	\greenStrain = \frac{1}{2}\left(\cauchyStretch - \unittensor\right) = \frac{1}{2}\left(\left(\gradDeformation^{h}_{1} \cdot (\gradDeformation^{h}_{0})^{-1}\right)^{t} \cdot \left(\gradDeformation^{h}_{1} \cdot (\gradDeformation^{h}_{0})^{-1}\right) - \unittensor\right).
 \end{align}
 
-
-Partindo do mapeamento apresentado é possível escrever o funcional de energia mecânica em função dos parâmetros nodais apresentados, e ao discretizar-se as equações no tempo, a solução do problema consiste encontrar os parâmetros nodais que satisfaçam:
-
+Partindo do mapeamento apresentado é possível escrever o funcional de energia mecânica em função dos parâmetros nodais e, ao discretizar-se as equações no tempo, a solução do problema consiste em encontrar os parâmetros nodais que satisfaçam:
 \begin{align}
 	\frac{\partial\totalEnergy^{h}}{\partial \ePosition_{l}^{mh}} = \frac{\partial\totalEnergy^{h}}{\partial (\mathbf{e}_y)_l} = \frac{\partial\totalEnergy^{h}}{\partial \eta_l} = \mathbf{0}.
 \end{align}
 
 \subsection{Integração temporal e solução do problema não linear}
 
-Para a tornar o equacionamento mais compacto, reescreve-se o equilíbrio baseado na energia da variável $\SolidPos$, que consiste em um vetor que contém todos os parâmetros nodais da estrutura (posições, vetores generalizados e taxa de variação linear da espessura) de forma que:
-
+Para a tornar o equacionamento mais compacto, reescreve-se o equilíbrio baseado na energia da variável $\SolidPos$, que consiste em um vetor que contém todos os parâmetros nodais da estrutura (posições, vetores generalizados e taxa de variação linear da espessura), de forma que:
 \begin{align}
 	\frac{\partial\totalEnergy}{\partial\SolidPos} = \frac{\partial\extEnergy}{\partial \SolidPos} + \frac{\partial\kinEnergy}{\partial \SolidPos} + \frac{\partial\intEnergy}{\partial \SolidPos} = \mathbf{0},
 \end{align}
-
 \noindent ou ainda,
-
 \begin{align}
 	- \concLoad^{ext}(t) + \solidMass\SolidAccel_{}+ \concLoad^{int}(\SolidPos) + \solidDamping\SolidVel_{} = \mathbf{0}, \label{eq:equi_forma_matricial}
 \end{align}
+\noindent onde $ \concLoad^{int}(\SolidPos)$ representa as forças internas provenientes da variação da energia potencial interna, $\solidMass$ é a conhecida matriz de massa e $\mathbf{F}^{ext}$ advém da variação da energia potencial das forças externas. O termo $\solidDamping$ representa uma matriz de amortecimento viscoso e os pontos sobrescritos indicam derivadas materiais no tempo.
 
-\noindent onde $ \concLoad^{int}(\SolidPos)$ representa as forças internas provenientes da variação da energia potencial interna, $\solidMass$ é a conhecida como matriz de massa e $\mathbf{F}^{ext}$ advém da variação da energia potencial das forças externas. O termo $\solidDamping$ representa uma matriz de amortecimento viscoso e os pontos sobrescritos indicam derivadas materiais no tempo.
-
-Neste trabalho, para a discretização temporal das equações, será utilizado o integrador de Newmark, visto que o mesmo demonstrou estabilidade e eficácia na vasta gama de trabalhos envolvendo o MEF posicional com sua aplicação (Carrazedo; Coda, 2010;
+Neste trabalho, para a discretização temporal das equações, será utilizado o integrador de Newmark, visto que o mesmo demonstrou estabilidade e eficácia na vasta gama de trabalhos envolvendo o MEF posicional (Carrazedo; Coda, 2010;
 Coda; Paccola, 2010, 2011; Greco; Coda, 2004; Sanches; Coda, 2016).
 
 A integração temporal das equações inicia-se com a discretização do tempo de maneira que:
-
 \begin{align}
 	t_{n+1} = t_{n} + \Delta t, \label{eq:disc_tempo}
 \end{align}
-
 \noindent onde $t_{n+1}$ representa o instante atual, $t_{n}$ o instante final do passo de tempo anterior e  $\Delta t$ o intervalo do passo de tempo utilizado na discretização. Utilizando as aproximações de Newmark, posição, velocidade e aceleração nos instantes $n+1$ e $n$ são relacionados por:
-
 \begin{gather}
 	\SolidPos_{n+1}=\SolidPos_{n} + \timeStep \SolidVel_{n}+\left(\frac{1}{2}-\beta\right) \timeStep^2 \SolidAccel_{n}+ \beta \timeStep^2 \SolidAccel_{n+1},\label{eq:newmark1}\\
 	\SolidVel_{n+1} = \SolidVel_{n}+(1-\gamma)\timeStep \SolidAccel_{n}+\gamma \timeStep \SolidAccel_{n+1},\label{eq:newmark2}
 \end{gather}
-
 \noindent em que $\beta$ e $\gamma$ são parâmetros dependentes do comportamento assumido para a aceleração. Para um aceleração constante, hipótese adotada neste trabalho, $\gamma=\sfrac{1}{2}$ e $\beta=\sfrac{1}{4}$.
 
-Partindo da Equação~\eqref{eq:newmark1} e Equação~\eqref{eq:newmark2} é possível escrever a aceleração e a velocidade atual em função das posições no instante $n+1$, as incógnitas do problema, e das demais variáveis do passo anterior:
-
+Partindo da Equação~\eqref{eq:newmark1} e da Equação~\eqref{eq:newmark2} é possível escrever a aceleração e a velocidade atual em função das posições no instante $n+1$, as incógnitas do problema, e das demais variáveis do passo anterior:
 \begin{align}
-	\SolidAccel_{n+1} = \frac{1}{\beta \Delta_{t}^2}\SolidPos_{n+1} - \mathbf{Q}(t_n), \label{eq:accel_newmark}
+	\SolidAccel_{n+1} = \frac{1}{\beta \Delta{t}^2}\SolidPos_{n+1} - \mathbf{Q}_n, \label{eq:accel_newmark}
 \end{align}
-
 \begin{align}
-	\SolidVel_{n+1} = \frac{\gamma}{\beta \Delta_{t}}\SolidPos_{n+1} + \mathbf{R}(t_n) - \gamma \Delta_{t} \mathbf{Q}(t_n), \label{eq:vel_newmark}
+	\SolidVel_{n+1} = \frac{\gamma}{\beta \Delta{t}}\SolidPos_{n+1} + \mathbf{R}_n - \gamma \Delta{t} \mathbf{Q}_n, \label{eq:vel_newmark}
 \end{align}
-
 \noindent em que:
-
 \begin{gather}
-	\mathbf{Q}(t_n) = \frac{\SolidPos_n}{\beta \timeStep^2} + \frac{\SolidVel_n}{\beta \timeStep} + \left(\frac{1}{2\beta} -1 \right)\SolidAccel_n,\label{eq:Qn}\\
-	\mathbf{R}(t_n) = \SolidVel_n+\timeStep(1-\gamma)\SolidAccel_n.\label{eq:Rn}
+	\mathbf{Q}_n = \frac{\SolidPos_n}{\beta \timeStep^2} + \frac{\SolidVel_n}{\beta \timeStep} + \left(\frac{1}{2\beta} -1 \right)\SolidAccel_n,\label{eq:Qn}\\
+	\mathbf{R}_n = \SolidVel_n+\timeStep(1-\gamma)\SolidAccel_n.\label{eq:Rn}
 \end{gather}
 
-Utilizando a Equação~\eqref{eq:accel_newmark} e Equação~\eqref{eq:vel_newmark} na equação do equilíbrio em forma matricial (Equação~\eqref{eq:equi_forma_matricial}), tem-se para o instante $t_{n+1}$ a seguinte relação:
-
+Utilizando a Equação~\eqref{eq:accel_newmark} e a Equação~\eqref{eq:vel_newmark} na equação do equilíbrio em forma matricial (Equação~\eqref{eq:equi_forma_matricial}), tem-se para o instante $t_{n+1}$ a seguinte relação:
 \begin{gather}
 	\concLoad^{int}_{n+1}- \concLoad^{ext}_{n+1} + \frac{\solidMass}{\beta \timeStep^2} \SolidPos_{n+1}-\solidMass \mathbf{Q}_n+ \solidDamping\mathbf{R}_n + \frac{\gamma \solidDamping}{\beta \timeStep}\SolidPos_{n+1} - \gamma\timeStep \solidDamping\mathbf{Q}_n = \mathbf{0},
 	\label{eq:equilibrio_tn+1}
@@ -497,39 +406,32 @@ Utilizando a Equação~\eqref{eq:accel_newmark} e Equação~\eqref{eq:vel_newmar
 
 Pode-se escrever ainda o problema não linear definido pela Equação~\eqref{eq:equilibrio_tn+1} em função do resíduo da equação governante
 discretizada no espaço e no tempo, como:
-
 \begin{gather}
 	\NNSS\left(\SolidPos_{n+1}\right) = \concLoad^{int}_{n+1}- \concLoad^{ext}_{n+1} + \frac{\solidMass}{\beta \timeStep^2} \SolidPos_{n+1}-\solidMass \mathbf{Q}_n+ \solidDamping\mathbf{R}_n + \frac{\gamma \solidDamping}{\beta \timeStep}\SolidPos_{n+1} - \gamma\timeStep \solidDamping\mathbf{Q}_n= \mathbf{0}.
 	\label{eq:residuo_equilibrio_newmark}
 \end{gather}
 
 O problema não linear da Equação~\eqref{eq:residuo_equilibrio_newmark} é resolvido por meio do método iterativo de Newton-Raphson. Para isso, realiza-se uma expansão em série de Taylor de primeira ordem:
-
 \begin{gather}
 	\NNSS\left(\SolidPos_{n+1}^{i+1}\right) \approx \NNSS\left(\SolidPos_{n+1}^{i}\right) + \Delta\NNSS\left(\SolidPos_{n+1}^{i}\right)\Delta\SolidPos_{n+1}^{i} 
 \end{gather}
-
-\noindent em que $i$ indica o índice da iteração atual. Na primeira iteração para o cálculo de $\SolidPos_{n+1}$ utiliza-se como predição da iteração anterior os valores das variáveis no passo de tempo $n$. O método de Newton-Raphson consiste em resolver o seguinte sistema:
-
+\noindent em que $i$ indica o índice da iteração atual. Na primeira iteração para o cálculo de $\SolidPos_{n+1}$ ,utiliza-se como predição os valores das variáveis no passo de tempo $n$. O método de Newton-Raphson consiste em resolver o seguinte sistema:
 \begin{gather}
 	\Delta\NNSS\left(\SolidPos_{n+1}^{i}\right)\Delta\SolidPos_{n+1}^{i} = -\NNSS\left(\SolidPos_{n+1}^{i}\right) \label{eq:NR}
 \end{gather}
-
 \noindent com:
-
 \begin{gather}
 	\Delta\NNSS\left(\SolidPos_{n+1}^{i}\right) = \frac{\partial^{2}\totalEnergy}{\partial\SolidPos^{2}} = \frac{\partial^{2}\intEnergy}{\partial \SolidPos^{2}} + \frac{\solidMass}{\beta \timeStep^2} + \frac{\gamma \solidDamping}{\beta \timeStep}.
 \end{gather}
 
 A cada iteração de Newton-Raphson atualiza-se a posição, a aceleração e a velocidade de acordo com as seguintes equações:
+\begin{align}
+	\SolidPos_{n+1}^{i+1} = \SolidPos_{n+1}^{i} + \Delta\SolidPos_{n+1}^{i} \label{eq:UD1},\\
+	\SolidAccel_{n+1}^{i+1} = \frac{\SolidPos_{n+1}^{i+1}}{\beta \timeStep^2} + \mathbf{Q}_n  \label{eq:UD2}, \\
+	\SolidVel_{n+1}^{i+1} = \frac{\gamma \SolidPos_{n+1}^{i+1}}{\beta \timeStep} + \mathbf{R}_n - \gamma\Delta t \mathbf{Q}_n.  \label{eq:UD3}
+\end{align}
 
-\begin{gather}
-	\SolidPos_{n+1}^{i+1} = \SolidPos_{n+1}^{i} + \Delta\SolidPos_{n+1}^{i} \label{eq:UD1}\\
-	\SolidAccel_{n+1}^{i+1} = \frac{\SolidPos_{n+1}^{i+1}}{\beta \timeStep^2} + \mathbf{Q}_n  \label{eq:UD2} \\
-	\SolidVel_{n+1}^{i+1} = \frac{\gamma \SolidPos_{n+1}^{i+1}}{\beta \timeStep} + \mathbf{R}_n - \gamma\Delta t \mathbf{Q}_n  \label{eq:UD3}
-\end{gather}
-
-Para mais detalhes a cerca da obtenção das matrizes e vetores do método, recomenda-se a consulta de \citeonline{Coda:2018}.
+Para mais detalhes cerca da obtenção das matrizes e vetores do método, recomenda-se a consulta de \citeonline{Coda:2018}.
 
 \subsection{Implementação computacional}
 
@@ -537,7 +439,7 @@ O código empregado para a simulação das estruturas de cascas neste trabalho f
 
 O código foi desenvolvido em linguagem C++ utilizando paralelização em protocolo MPI e conta com elementos triangulares de 3, 6 ou 10 nós, respectivamente com aproximação linear, quadrática e cúbica. Ressalta-se que a implementação conta com uma estratégia de acoplamento entre elementos não coplanares, que pode ser vista em \citeonline{Coda:2018}. O algoritmo que descreve a implementação computacional pode ser visualizado em Algoritmo \ref{alg:algoritmo_solid}. No algoritmo a variável $\mathbf{X}$ consiste em um vetor das variáveis nodais na configuração inicial.
 
-\begin{algorithm}[H]
+\begin{algorithm}[!htbp]
 	\caption{Algoritmo para problemas não lineares dinâmicos utilizando MEF posicional}
 	\label{alg:algoritmo_solid}
 	\begin{algorithmic}[1]
@@ -567,17 +469,17 @@ O código foi desenvolvido em linguagem C++ utilizando paralelização em protoc
 
 \section{Exemplo de aplicação - casca cilíndrica com \textit{snap through} dinâmico}
 
-Nesta seção apresenta-se um problema clássico que trata-se de uma casca cilíndrica submetida a um carregamento concentrado em seu centro geométrico. Proposto inicialmente no trabalho de 
+Nesta seção apresenta-se um problema clássico que trata de uma casca cilíndrica submetida a um carregamento concentrado em seu centro geométrico. Proposto inicialmente no trabalho de 
 \citeonline{KuhlR:1999}, o problema apresenta grande não linearidade geométrica devido ao efeito de \textit{snap-through}. 
 
 A geometria do problema em questão é apresentada na Figura~\ref{fig:casca_geometria}, sendo a espessura da casca equivalente a $0\text{,}1$~m.  A malha de elementos finitos que representa a superfície média da estrutura utilizada pode ser visualizada na Figura~\ref{fig:casca_malha}, a qual é composta por 104 elementos quadráticos e 233 nós. 
 
-Os contornos esquerdo e direito da chapa são considerados simplesmente apoiados. O carregamento aplicado ao ponto central (ponto A) $P(t)$ é aplicado linearmente no intervalo $t=0~$~s até $t=0\text{,}2$~s, com $P(0)=0$~kN e $P(2s) = 200000$kN, e então mantido constante. As características físicas do material utilizado são: $\elasticModulus = 200$~GPa, $\poisonsRatio = 0{,}25$ e $\rho = 10000$~kg/m$3$ e o passo de tempo adotado na simulação é $\Delta_{t} = 0{,}001$~s.
+Os contornos esquerdo e direito da chapa são considerados simplesmente apoiados. O carregamento aplicado ao ponto central (ponto A) $P(t)$ é aplicado linearmente no intervalo $t=0~$~s até $t=0\text{,}2$~s, com $P(0)=0$~kN e $P(0\text{,}2\text{s}) = 200000$~kN, e então mantido constante. As características físicas do material utilizado são: $\elasticModulus = 200$~GPa, $\poisonsRatio = 0{,}25$ e $\rho = 10000$~kg/m$^3$~; o passo de tempo adotado na simulação é $\Delta{t} = 0{,}001$~s.
 
-O deslocamento vertical do nó central da casca obtido nesse trabalho pode ser visualizado na \autoref{fig:casca_deslocamentoA}, enquanto que, para o autor de referência na \autoref{fig:casca_deslocamento_ref}. O resultado obtido está de acordo com os resultados de \citeonline{ArgyrisPM:2003}. Os campos de deslocamentos para os instantes $t = 140$~ms, $t = 165$~ms, $t = 174$~ms e $t = 177$~ms são apresentados na Figura~\ref{fig:casca_campos_deslocamentos}.
+O deslocamento vertical do nó central da casca obtido neste trabalho pode ser visualizado na \autoref{fig:casca_deslocamentoA}, enquanto, para o autor de referência na \autoref{fig:casca_deslocamento_ref}. O resultado obtido está de acordo com os resultados de \citeonline{ArgyrisPM:2003}. Os campos de deslocamentos para os instantes $t = 140$~ms, $t = 165$~ms, $t = 174$~ms e $t = 177$~ms são apresentados na Figura~\ref{fig:casca_campos_deslocamentos}.
 
-\begin{figure}[H]
-	\caption{Casca: Geometria e Malha}
+\begin{figure}[!htbp]
+	\caption{Casca: geometria e malha}
 	\centering
 	\subfloat[\label{fig:casca_geometria} Geometria ]{\includegraphics[scale=0.23, trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_geometria.pdf}} 
 	\subfloat[\label{fig:casca_malha} Malha ]{\includegraphics[scale=1.1,trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap4/casca_malha.pdf}}
@@ -586,7 +488,7 @@ O deslocamento vertical do nó central da casca obtido nesse trabalho pode ser v
 \end{figure}
 
 \begin{figure}[!htbp]
-	\caption{Casca: Deslocamento vertical nó central A}
+	\caption{Casca: deslocamento vertical nó central A}
 	\centering
 	{\includegraphics[scale=.6, trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_deslocamentoA.pdf}}
 	\label{fig:casca_deslocamentoA}
@@ -594,7 +496,7 @@ O deslocamento vertical do nó central da casca obtido nesse trabalho pode ser v
 \end{figure}
 
 \begin{figure}[!htbp]
-	\caption{Casca: Deslocamento vertical nó central A - referência}
+	\caption{Casca: deslocamento vertical nó central A - referência}
 	\centering
 	{\includegraphics[scale=0.25,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap4/casca_deslocamento_referencia.png}}
 	\legend{Fonte: \citeonline{ArgyrisPM:2003}}

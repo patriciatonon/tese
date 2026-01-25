@@ -1,0 +1,41 @@
+\mathbf{\dot{U}}_{n+\alpha_m} = \mathbf{\dot{U}}_n + \alpha_m \left( \mathbf{\dot{U}}_{n+1} - \mathbf{\dot{U}}_n \right)
+
+\mathbf{U}_{n+\alpha_f} = \mathbf{U}_n + \alpha_f \left( \mathbf{U}_{n+1} - \mathbf{U}_n \right)
+
+
+\mathbf{U}_{n+1} = \mathbf{U}_n + \Delta t\left(\left(1-\gamma\right)\mathbf{\dot{U}}_n + \gamma\mathbf{\dot{U}}_{n+1} \right)
+\gamma = 1/2 + \alpha_m - \alpha_f
+\alpha_m \ge \alpha_f \ge 1/2
+
+\alpha_m = \frac{1}{2}\left(\frac{3 - \rho_\infty}{1+\rho_\infty}\right)
+\alpha_f = \frac{1}{1+\rho_\infty}
+
+
+
+SOLUÇÃO
+
+PREDITIVA
+\mathbf{\dot{U}}_{n+1}^{0} = \frac{\gamma-1}{\gamma}\mathbf{\dot{U}}_{n}
+
+\mathbf{U}_{n+1}^{0} = \mathbf{U}_{n}
+\mathbf{P}_{n+1}^{0} = \mathbf{P}_{n}
+
+
+\mathbf{\dot{U}}_{n+\alpha_m}^{i} = \mathbf{\dot{U}}_n + \alpha_m \left( \mathbf{\dot{U}}_{n+1}^{i} - \mathbf{\dot{U}}_n \right)
+\mathbf{U}_{n+\alpha_f}^{i} = \mathbf{U}_n + \alpha_f \left( \mathbf{U}_{n+1}^{i} - \mathbf{U}_n \right)
+\mathbf{P}_{n+1}^{i} = \mathbf{P}_{n+1}^{i}
+
+
+\begin{align}
+	\left .\frac{\partial\mathbf{R}_\mathrm{M}}{\partial\mathbf{\dot{U}}_{n+1}}\right|_{i} \Delta \mathbf{\dot{U}}_{n+1}^{i} + \left .\frac{\partial\mathbf{R}_\mathrm{M}}{\partial\mathbf{P}_{n+1}}\right|_{i} \Delta \mathbf{P}_{n+1}^{i} = -\mathbf{R}_\mathrm{M}^{i}, \label{eq:eq_lin_QM} \\
+	\left .\frac{\partial\mathbf{R}_\mathrm{C}}{\partial\mathbf{\dot{U}}_{n+1}}\right|_{i} \Delta \mathbf{\dot{U}}_{n+1}^{i} + \left .\frac{\partial\mathbf{R}_\mathrm{C}}{\partial\mathbf{P}_{n+1}}\right|_{i} \Delta \mathbf{P}_{n+1}^{i} = -\mathbf{R}_\mathrm{C}^{i}.\label{eq:eq_lin_cont}
+\end{align}
+
+\mathbf{\dot{U}}_{n+1}^{i+1} = \mathbf{\dot{U}}_{n+1}^{i} + \Delta\mathbf{\dot{U}}_{n+1}^{i}
+\mathbf{U}_{n+1}^{i+1} = \mathbf{U}_{n+1}^{i} + \gamma \Delta t \Delta\mathbf{U}_{n+1}^{i}
+\mathbf{P}_{n+1}^{i+1} = \mathbf{P}_{n+1}^{i} + \Delta\mathbf{P}_{n+1}^{i}
+
+\int_{\Omega} \left(.\right) \mathrm{d} \Omega = \int_{\OmegaALEN} \left(.\right) \mathrm{d} \Omega
+
+
+\OmegaALEN = \left\{\mathbf{y}^{h} \  |\  \mathbf{y}^{h}(\bar{\mathbf{x}^{h}},t_{(n+\alpha_f)}) = \alpha_f \mathbf{y}^{h}(\bar{\mathbf{x}^{h}},t_{n+1}) + (1-\alpha_f) \mathbf{y}^{h}(\bar{\mathbf{x}^{h}},t_n)  \right\}

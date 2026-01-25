@@ -4,6 +4,7 @@ The top-level auxiliary file: USPSC-modelo-EESC.aux
 The style file: USPSC-classe/abntex2-alf-USPSC.bst
 A level-1 auxiliary file: USPSC-TA-PreTextual/USPSC-Resumo.aux
 A level-1 auxiliary file: USPSC-TA-PreTextual/USPSC-Abstract.aux
+A level-1 auxiliary file: USPSC-TA-PreTextual/USPSC-Simbolos.aux
 A level-1 auxiliary file: introducao.aux
 A level-1 auxiliary file: Cap2.aux
 A level-1 auxiliary file: Cap3.aux
@@ -37,27 +38,27 @@ Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 +---------------------------------------------------------+
 You've used 155 entries,
             6708 wiz_defined-function locations,
-            2169 strings with 35590 characters,
-and the built_in function-call counts, 146195 in all, are:
-= -- 12075
+            2168 strings with 35670 characters,
+and the built_in function-call counts, 146121 in all, are:
+= -- 12063
 > -- 4985
 < -- 1180
 + -- 2664
 - -- 1480
-* -- 10651
-:= -- 18440
-add.period$ -- 497
+* -- 10645
+:= -- 18434
+add.period$ -- 495
 call.type$ -- 158
-change.case$ -- 1387
+change.case$ -- 1385
 chr.to.int$ -- 524
 cite$ -- 143
-duplicate$ -- 8867
-empty$ -- 9329
+duplicate$ -- 8861
+empty$ -- 9325
 format.name$ -- 7029
-if$ -- 33711
+if$ -- 33693
 int.to.chr$ -- 12
 int.to.str$ -- 3
-missing$ -- 2734
+missing$ -- 2732
 newline$ -- 750
 num.names$ -- 717
 pop$ -- 3397
@@ -66,8 +67,8 @@ purify$ -- 631
 quote$ -- 0
 skip$ -- 9788
 stack$ -- 1
-substring$ -- 6851
-swap$ -- 4372
+substring$ -- 6841
+swap$ -- 4368
 text.length$ -- 300
 text.prefix$ -- 0
 top$ -- 0
@@ -75,5 +76,5 @@ type$ -- 24
 warning$ -- 0
 while$ -- 1108
 width$ -- 0
-write$ -- 2386
+write$ -- 2384
 (There was 1 error message)
