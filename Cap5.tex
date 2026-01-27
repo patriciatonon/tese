@@ -140,12 +140,12 @@ A geometria do problema e suas condições de contorno são apresentadas na \aut
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Sabe-se que nas paredes da cavidade há efeitos de camada limite; dessa forma, definiu-se uma malha local em elementos finitos que circunda a cavidade, de acordo com a Figura~\ref{fig:cav2d_malha_local}, composta por 4352 nós e 2048 elementos. A malha global, por sua vez, estende-se por toda a seção da cavidade, sendo constituída por 2401 nós e 1152 elementos, de acordo com Figura~\ref{fig:cav2d_malha_global}.
+Sabe-se que nas paredes da cavidade há efeitos de camada limite; dessa forma, definiu-se uma malha local em elementos finitos que circunda a cavidade, de acordo com a Figura~\ref{fig:cav2d_malha_local}, composta por 4352 nós e 2048 elementos. A malha global, por sua vez, também foi definida em elementos finitos, e estende-se por toda a seção da cavidade, sendo constituída por 2401 nós e 1152 elementos, de acordo com Figura~\ref{fig:cav2d_malha_global}.
 
 Definiu-se uma espessura para a zona de superposição equivalente a $\delta = 0\text{,}1$~m medida paralelamente ao contorno fictício local $(\Gamma_{L})_{B}$. Considera-se pertencente a essa zona qualquer elemento da malha local que possua ao menos um nó dentro dessa região, destacados em vermelho na Figura~\ref{fig:cav2d_malha_local}. A mesma consideração aplica-se à malha global, com os elementos correspondentes destacados na Figura~\ref{fig:cav2d_malha_global}. Na \autoref{fig:cav2d_nos_desativados}, podem ser observados em vermelho os nós da malha global que foram desativados da análise.
 
 \begin{figure}[!htbp]
-	\caption{Cavidade: malhas global e local}
+	\caption{Cavidade: malhas global (MEF) e local (MEF)}
 	\centering
 	\subfloat[\label{fig:cav2d_malha_local} Malha local]{\includegraphics[scale=1.5, trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_malha_local.pdf}} 
 	\subfloat[\label{fig:cav2d_malha_global} Malha global ]{\includegraphics[scale=1.5,trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_malha_global.pdf}}
@@ -186,7 +186,7 @@ Com intuito de apresentar-se brevemente os problemas de convergência observados
 Para essa análise, foi adotada a mesma discretização local da apresentada na \autoref{capitulo:Cap6:Exemplos:NACA0012}, incluindo a espessura da zona de superposição, quantidade de elementos e nós locais nesta região. Quanto à malha global, a mesma foi discretizada em elementos finitos sendo composta por 17090 nós e 8442 elementos, conforme \autoref{fig:aero_malha}.
 
 \begin{figure}[!htbp]
-	\caption{Aerofólio: malhas global e local} 
+	\caption{Aerofólio: malhas global (MEF) e local (MEF)} 
 	\centering
 	{\includegraphics[scale=1.5,trim=0cm 0.3cm 0cm 0.3cm, clip=true]{Imagens/Cap5/aerofolio_malha.pdf}}
 	\label{fig:aero_malha}

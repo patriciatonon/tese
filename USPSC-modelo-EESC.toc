@@ -78,44 +78,44 @@
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {6}\MakeTextUppercase []{Método Arlequin estabilizado}}{137}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Método Arlequin}{137}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado a problemas de escoamentos incompressíveis}{140}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Método Arlequin estabilizado aplicado à problemas de escoamentos incompressíveis}{143}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}Parâmetro de estabilização para técnica RBSAM}{146}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}Integração temporal e processo de solução}{148}{subsection.6.3.2}%
-\contentsline {section}{\numberline {6.4}Superposição de modelos móveis}{150}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Implementação computacional}{152}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Verificação e aplicações}{153}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}Escoamento sobre aerofólio NACA 0012 fixo}{154}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{156}{subsection.6.6.2}%
+\contentsline {section}{\numberline {6.2}Método Arlequin clássico aplicado a problemas de escoamentos incompressíveis}{139}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Método Arlequin estabilizado aplicado a problemas de escoamentos incompressíveis}{142}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}Parâmetro de estabilização para técnica RBSAM}{145}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Integração temporal e processo de solução}{147}{subsection.6.3.2}%
+\contentsline {section}{\numberline {6.4}Superposição de modelos móveis}{149}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Implementação computacional}{150}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Verificação e aplicações}{152}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}Escoamento sobre aerofólio NACA 0012 fixo}{152}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}Aerofólio com movimento de arfagem prescrito}{155}{subsection.6.6.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Acoplamento Fluido-Estrutura}}{163}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Condições de acoplamento}{163}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Acoplamento com malhas não coincidentes}{165}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Acoplamento particionado forte - bloco-iterativo}{166}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Implementação computacional}{168}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Movimentação da Malha}{168}{subsection.7.3.2}%
-\contentsline {section}{\numberline {7.4}Verificação e aplicações}{170}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}Cavidade com fundo flexível - 2D}{171}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Cavidade com fundo flexível - 3D}{173}{subsection.7.4.2}%
-\contentsline {subsection}{\numberline {7.4.3}Painel flexível submetido a escoamento com desprendimento de vórtices}{177}{subsection.7.4.3}%
-\contentsline {subsection}{\numberline {7.4.4}Turbina}{182}{subsection.7.4.4}%
-\contentsline {subsubsection}{\numberline {7.4.4.1}Turbina - monomodelo}{185}{subsubsection.7.4.4.1}%
-\contentsline {subsubsection}{\numberline {7.4.4.2}Turbina - modelo Arlequin}{188}{subsubsection.7.4.4.2}%
+\contentsline {chapter}{\chapternumberline {7}\MakeTextUppercase []{Acoplamento Fluido-Estrutura}}{161}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Condições de acoplamento}{161}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Acoplamento com malhas não coincidentes}{163}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Acoplamento particionado forte - bloco-iterativo}{164}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Implementação computacional}{165}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Movimentação da Malha}{167}{subsection.7.3.2}%
+\contentsline {section}{\numberline {7.4}Verificação e aplicações}{168}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}Cavidade com fundo flexível - 2D}{168}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Cavidade com fundo flexível - 3D}{172}{subsection.7.4.2}%
+\contentsline {subsection}{\numberline {7.4.3}Painel flexível submetido a escoamento com desprendimento de vórtices}{176}{subsection.7.4.3}%
+\contentsline {subsection}{\numberline {7.4.4}Turbina}{183}{subsection.7.4.4}%
+\contentsline {subsubsection}{\numberline {7.4.4.1}Turbina - monomodelo}{183}{subsubsection.7.4.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.4.2}Turbina - modelo Arlequin}{186}{subsubsection.7.4.4.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
-\contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase []{Conclusão}}{195}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Sugestão para trabalhos futuros}{198}{section.8.1}%
+\contentsline {chapter}{\chapternumberline {8}\MakeTextUppercase []{Conclusão}}{193}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Sugestão para trabalhos futuros}{196}{section.8.1}%
 \vspace {\cftbeforechapterskip }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
-\contentsline {chapter}{\uppercase {Refer\^encias}}{201}{section*.119}%
+\contentsline {chapter}{\uppercase {Refer\^encias}}{199}{section*.119}%
 \renewcommand *{\cftappendixname }{AP\^ENDICE \space }
 \setlength {\cftpartindent }{\cftlastnumwidth } \setlength {\cftpartnumwidth }{2em}
 \cftinsert {A}
-\contentsline {part}{\uppercase {AP\^ENDICES}}{213}{section*.120}%
+\contentsline {part}{\uppercase {AP\^ENDICES}}{211}{section*.120}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Malha pás rotor}}{215}{appendix.A}%
+\contentsline {appendix}{\chapternumberline {A}\MakeTextUppercase []{Malha pás rotor}}{213}{appendix.A}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \setlength {\cftchapterindent }{\cftlastnumwidth } \setlength {\cftchapternumwidth }{2em}
 \cftinsert {A}
-\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Malha pás diretoras}}{229}{appendix.B}%
+\contentsline {appendix}{\chapternumberline {B}\MakeTextUppercase []{Malha pás diretoras}}{227}{appendix.B}%

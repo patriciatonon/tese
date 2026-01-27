@@ -52,7 +52,7 @@
 \item[$\nel$] Número de subdomínios (elementos/células) do domínio discreto;
 \item[$\boundary^{b}$] Domínio computacional de um elemento/célula no contorno;
 \item[$\neb$] Número de subdomínios (elementos/células) do domínio discreto no contorno;
-\item[$\coordAdimen$] Coordenadas paramétricas adimensionais ($\xi$, $\eta$ $\zeta$);
+\item[$\coordAdimen$] Coordenadas do espaço paramétrico do elemento finito ($\xi$, $\eta$, $\zeta$);
 \item[$\nnos$] Número de nós do domínio discreto em elementos finitos;
 \item[$\shapef$] Função de forma da discretização do domínio;
 \item[$\SUPG$] Parâmetro de estabilização do método SUPG;
@@ -66,7 +66,7 @@
 \item[$\Velocity$] Vetor nodal dos graus de liberdade respectivo a velocidade;
 \item[$\Press$] Vetor nodal dos graus de liberdade respectivo a pressão;
 \item[$\matrixQ$] Matriz jacobiana;
-\item[$\matrixD$] Matriz de transformação;
+\item[$\matrixD$] Matriz de transformação do elemento;
 \item[$\matrixQhat$] Matriz jacobiana transformada;
 \item[$\matrixG$] Tensor métrico do elemento;
 \item[$\hat{\coordAdimen}$] Coordenadas do espaço paramétrico de preferência ($\hat{\xi}$, $\hat{\eta}$ $\hat{\zeta}$);
@@ -87,7 +87,7 @@
 \item[$t_{n+\alpha_f}$,$t_{n+\alpha_m}$] Instantes de tempo intermediários do esquema de integração temporal $\alpha$-generalizado;
 \item[$\Reynolds$] Número de Reynolds;
 \item[$\velocinfty$] Campo de velocidade de referência;
-\item[$u_{\infty}$] Valor de velocidade prescrito;
+\item[$u_{\infty}$] Valor de velocidade de referência;
 \item[$L$] Comprimento característico do escoamento;
 \item[$\kviscosity$] Viscosidade cinemática do fluido;
 \item[$D$] Diâmetro do cilindro;
@@ -104,7 +104,7 @@
 
 \vspace{0.5cm}
 \item[]\textbf{Capítulo 3 — Análise Isogeométrica aplicada à Dinâmica dos Fluidos Computacional}
-   \item[$\coordAdimen$] Coordenadas do espaço paramétrico (${\xi}$, ${\eta}$ ${\zeta}$);
+   \item[$\coordAdimen$] Coordenadas do espaço paramétrico (${\xi}$, ${\eta}$, ${\zeta}$);
   \item[$\Xsi$] Vetor de \textit{knots} na direção paramétrica $\xsi$;
   \item[$\xsi_i$] i-ésima coordenada paramétrica do vetor de \textit{knots} $\Xsi$;
   \item[$p$] Grau polinomial das funções-base na direção paramétrica $\xsi$;
@@ -143,39 +143,21 @@
   \item[$\tilde{\Omega}^{e}$] Domínio de uma célula no espaço de integração;
   \item[$\boldsymbol{\tilde{\xsi}}$] Coordenadas do espaço de integração ($\tilde{\xi}$, $\tilde{\eta}$ $\tilde{\zeta}$);
   \item[$\matrixG$] Tensor métrico da célula;
-  \item[$\matrixQ$] Matriz jacobiana;
-  \item[$\matrixD$] Matriz de transformação;
-  \item[$\matrixQhat$] Matriz jacobiana transformada;
-  \item[$\hat{\coordAdimen}$] Coordenadas do espaço paramétrico de preferência ($\hat{\xi}$, $\hat{\eta}$ $\hat{\zeta}$);
+  \item[$\matrixD$] Matriz de transformação da célula;
   \item[$B$] Polinômio de Bernstein;
   \item[$\Delta\hat{\xsi}$] Comprimento paramétrico da célula de Bézier;
   \item[$\matrixC$] Operador de extração de Bézier;
   \item[$\Delta\tilde{\xsi}$] Comprimento efetivo da célula;
   \item[$D_u$] Valor unidirecional que compõe a matriz de transformação $\matrixD$;
   \item[$n_{pd}$] Dimensão do espaço paramétrico;
-  \item[$\Reynolds$] Número de Reynolds;
   \item[$e$] Espessura do domínio computacional;
-  \item[$D$] Diâmetro do cilindro;
-  \item[$\velocity$] Campos de velocidade;
-  \item[$u_{\infty}$] Valor de velocidade prescrito; 
   \item[$P_i$] i-ésimo \textit{patch};
   \item[$npc$] Número unidirecional de pontos de controle;
   \item[$ncel$] Número unidirecional de células;
   \item[$deg$] Grau polinomial das funções-base;
-  \item[$C_D$] Coeficiente de arrasto;
-  \item[$F_D$] Força de arrasto;
-  \item[$\density$] Massa específica do fluido;
-  \item[$L$] Comprimento característico do escoamento;
-  \item[$C_L$] Coeficiente de sustentação;
-  \item[$F_L$] Força de sustentação;
-  \item[$C_{Dmed}$] Coeficiente de arrasto médio;
-  \item[$nT$] n-ésimo período de um ciclo de movimento periódico;
   \item[$h$, $s$, $x_e$, $x_f$, $x_{t}$] Dimensões que compõe a geometria do problema de escoamento em um canal com degrau;
   \item[$V_{max}$] Velocidade máxima do perfil parabólico na entrada do problema do escoamento sobre canal com degrau;
   \item[$x_{r}$] Dimensão do vórtice primário que se forma no problema de escoamento sobre canal com degrau;
-  \item[$\kviscosity$] Viscosidade cinemática do fluido;
-  \item[$\Delta \tempo$] Passo de tempo da análise do escoamento do fluido;
-  \item[$\specRadius$] Raio espectral do esquema de integração temporal $\alpha$-generalizado; 
 
   \vspace{0.5cm}
   \item[]\textbf{Capítulo 4 — Dinâmica dos Sólidos Computacional}
@@ -203,7 +185,6 @@
   \item[$\mathbf{t}$] Vetor tensão de Cauchy;
   \item[$\tractionLoad$] Forças de superfície na configuração atual;
   \item[$\ebodyLoad$] Forças de corpo na configuração atual;
-  \item[$\gradient$] Operador diferencial com respeito as coordenadas atuais;
   \item[$\rho$] Massa específica do sólido;
   \item[$\solidAccel$] Aceleração do corpo;
   \item[$M$] Massa de um corpo;
@@ -225,7 +206,6 @@
   \item[$\elasticModulus$] Módulo de elasticidade;
   \item[$\poisonsRatio$] Coeficiente de Poisson;
   \item[$\lameParameter$] Constante de Lamé;
-  \item[$(\bullet)^h$] Indica a discretização pelo MEF da variável;
    \item[$\fmap^{mh}_{0}$] Função mapeamento do elemento paramétrico de casca para a superfície média inicial;
    \item[$\bm{\xi}$] Coordenadas adimensionais paramétricas $(\xsi_1, \xsi_2, \xsi_3)$;
    \item[$\lPosition^{mh}$] Posições discretas inicias da superfície média do elemento de casca;
@@ -249,21 +229,16 @@
    \item[$\concLoad^{int}$] Vetor discreto nodal que define as forças internas atuantes em um sólido;
    \item[$\mathbf{C}_v$] Matriz de amortecimento viscoso;
    \item[$\SolidVel_{}$] Vetor discreto nodal que define a velocidade;
-   \item[$t_{n}$] Instante de tempo anterior; 
-   \item[$t_{n+1}$] Instante de tempo atual;
-   \item[$\Delta t$] Intervalo de tempo da discretização temporal;
    \item[$\beta,\gamma$] Parâmetros da aproximação temporal de Newmark;
    \item[$\mathbf{Q}_n$,$\mathbf{R}_n$] Termos da aproximação de Newmark somente com variáveis do instante de tempo anterior;
    \item[$\NNSS$] Vetor discreto que representa o resíduo da equação de equilíbrio discretizada no espaço e tempo;
    \item[$\mathbf{X}$] Vetor das variáveis nodais da discretização na configuração inicial;
-   \item[$npt$] Número de subintervalos em que o tempo é discretizado;
-   
    
    \vspace{0.5cm}
    \item[]\textbf{Capítulo 5 — Técnica de partição de domínios por combinação dos espaços de funções}
    \item[$\Omega_G$] Domínio global;
    \item[$\Omega_L$] Domínio local;
-   \item[$\Omega$] Domínio total;
+   \item[$\Omega$] Domínio total computacional;
    \item[$\Gamma_{G}$] Contorno físico do domínio global;
    \item[$(\Gamma_{G})_D$] Contorno físico do domínio global com condições de Dirichlet;
    \item[$(\Gamma_{G})_N$] Contorno físico do domínio global com condições de Neumann;
@@ -272,9 +247,9 @@
    \item[$(\Gamma_{L})_N$] Contorno físico do domínio local com condições de Neumann;
    \item[$(\Gamma_{G})_B$] Contorno não-físico do domínio global;
    \item[$(\Gamma_{L})_B$] Contorno não-físico do domínio local;
-   \item[$\Omega_B$] Domínio da zona de superposição;
+   \item[$\Omega_B$] Zona de superposição;
    \item[$u_{G}$] Função-tentativa do espaço global;
-   \item[$\xsi$] Espaço paramétrico adimensional;
+   \item[$\xsi$] Coordenada do espaço paramétrico;
    \item[$\usolution^{G}$] Espaço vetorial das funções aproximadoras do campo global $u_{G}$;
    \item[$u_{L}$] Função-tentativa do espaço local;
    \item[$\usolution^{L}$] Espaço vetorial das funções aproximadoras do campo local $u_{L}$;
@@ -287,7 +262,6 @@
    \item[$w$] Função-peso;
    \item[$\mathcal{S}_{enr}$] Espaço vetorial das funções aproximadoras enriquecido na região de superposição;
    \item[$\mathcal{V}_{enr}$] Espaço vetorial das funções ponderadoras enriquecido na região de superposição;
-   \item[$(\bullet)^h$] Indica a discretização pelo MEF ou AIG da variável;
    \item[$(n_{np})_G$] Número de nós, ou pontos de controle, da discretização global;
    \item[$N_G$] Funções de forma da discretização global;
    \item[$(n_{np})_L$] Número de nós, ou pontos de controle, da discretização local;
@@ -298,60 +272,69 @@
    \item[$Y_{G}$] Função distância assinalada medida a partir de $(\Gamma_{G})_B$;
    \item[$(M_{G})_{aa}$] Parâmetro que mede a influência da função de forma global \textit{a} sobre o domínio de superposição;
    \item[$M_{min}$] Valor mínimo de referência para $(M_{G})_{aa}$;
-   \item[$\SUPG$] Parâmetro de estabilização da técnica SUPG; 
    \item[$(\SUPG)^{G}$] Parâmetro de estabilização da técnica SUPG na malha global;
    \item[$(\SUPG)^{L}$] Parâmetro de estabilização da técnica SUPG na malha local;
-   \item[$\PSPG$] Parâmetro de estabilização da técnica PSPG; 
    \item[$(\PSPG)^{G}$] Parâmetro de estabilização da técnica PSPG na malha global;
    \item[$(\PSPG)^{L}$] Parâmetro de estabilização da técnica PSPG na malha local;
-   \item[$\LSIC$] Parâmetro de estabilização da técnica LSIC; 
    \item[$(\LSIC)^{G}$] Parâmetro de estabilização da técnica LSIC na malha global;
    \item[$(\LSIC)^{L}$] Parâmetro de estabilização da técnica LSIC na malha local;
-   \item[$npt$] Número de subintervalos em que o tempo é discretizado;
-   \item[$L$] Comprimento característico do escoamento;
-   \item[$\density$] Massa específica do fluido;
-   \item[$\Delta \tempo$] Passo de tempo da análise do escoamento do fluido;
-   \item[$\specRadius$] Raio espectral do esquema de integração temporal $\alpha$-generalizado; 
-   \item[$\velocinfty$] Campo de velocidade de referência;
-   \item[$\velocity$] Campo de velocidade;
-   \item[$u_{\infty}$] Valor de velocidade prescrito;
-   \item[$\pos$] Coordenadas dos pontos espaciais ou atuais;
-
-%	\nomenclature[F,01]{$(\bullet)_{0}, (\bullet)_{1}$}{Subíndices que designam o modelo Global e o modelo Local respectivamente;}
-%	\nomenclature[F,02]{$\overlappingZone$}{Zona de superposição;}
-%	\nomenclature[F,03]{$\gluingZone$}{Zona de colagem;}
-%	\nomenclature[F,04]{$\freeZone$}{Zona livre;}
-%	\nomenclature[F,05]{$\lagrangeMultiplier$}{Campo de multiplicadores de Lagrange;}
-%	\nomenclature[F,06]{$k_{0},k_{1}$}{Constantes dos operadores de acoplamento;}
-%	\nomenclature[F,07]{$L^{2}$}{Operador de acoplamento de ordem 0;}
-%	\nomenclature[F,08]{$H^{1}$}{Operador de acoplamento de ordem 1;}
-%	\nomenclature[F,09]{$\arlequinWF$}{Função ponderadora;}
-%	\nomenclature[F,10]{$k_{a}$}{Constante arbitrária do método de Arlequin;}
-%	\nomenclature[F,11]{$\lagSolution$}{Espaço vetorial das funções aproximadoras do campo de multiplicadores de Lagrange;}
-%	\nomenclature[F,12]{$\lagTest$}{Espaço vetorial das funções ponderadoras do campo de multiplicadores de Lagrange;}
-%	\nomenclature[F,13]{$\lagrangeMultiplierWFh$}{Função ponderadora pertencente ao espaço $\lagTest$;}
-%	\nomenclature[F,14]{$\chi$}{Função lógica para determinação do pertencimento de um ponto à $\gluingZone$;}
-%	\nomenclature[F,15]{$\tauArlequin$}{Parâmetro de estabilização da técnica RBSAM;}
-%	\nomenclature[F,16]{$\mathbf{K}_{i}$}{Matriz que representa os termos provenientes das matrizes referentes as equações da quantidade de movimento e da continuidade para o modelo $i$;}
-%	\nomenclature[F,17]{$\mathbf{\hat{L}}_{i}$}{Matriz que representa os termos oriundos do acoplamento do modelo $i$;;}
-%	\nomenclature[F,18]{$\mathbf{L}_{i}^{T}$}{Matriz procedente dos termos da equação de restrição e de componentes da estabilização RBSAM do modelo $i$;}
-%	\nomenclature[F,19]{$\mathbf{E}$}{Matriz com termos oriundos da estabilização RBSAM;}
-%	\nomenclature[F,20]{$\mathbf{\bar{U}}_{i}$}{Representa os vetores nodais dos graus de liberdade respectivos a velocidade e pressão do modelo $i$;}
-%	\nomenclature[F,21]{$\LagrangeMultiplier$}{Representa os graus de liberdade respectivos aos multiplicadores de Lagrange;}
-%	\nomenclature[F,22]{$\mathbf{F}_{i}$}{Representam os vetores provenientes das equações da quantidade de movimento e da continuidade do modelo $i$;}
-%	\nomenclature[F,23]{$\mathbf{F}_{\LagrangeMultiplier}$}{Representa os termos vetoriais advindos da estabilização RBSAM;}
-%	\nomenclature[F,24]{$\NNSL$}{Resíduo da versão semidiscreta da equação de restrição}
-%	\nomenclature[F,25]{$\tau_{A},\tau_{A}^{0},\tau_{A}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-%	\nomenclature[F,26]{$\tau_{B},\tau_{B}^{0},\tau_{B}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-%	\nomenclature[F,27]{$\tau_{C},\tau_{C}^{0},\tau_{C}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-%	\nomenclature[F,28]{$\tau_{D},\tau_{D}^{0},\tau_{D}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-%	\nomenclature[F,29]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}
-%	\nomenclature[F,30]{$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}}{Parâmetros auxiliares para a determinação de $\tauArlequin$;}	
-%	\nomenclature[F,31]{$\mathbf{M}_{\lambda},\mathbf{t}, \mathbf{j}, \mathbf{k}, \mathbf{p}, \mathbf{\boundary}$}{Vetores elementares da formulação usadas na definição de $\tauArlequin$, relativo aos termos de restrição, convectivos, inerciais, viscosos, pressão e de acoplamento respectivamente;}
-%	\nomenclature[F,32]{$C$}{Corda: distância entre o bordo ataque e de fuga do aerofólio;}	
-%	\nomenclature[F,33]{$\theta, \theta_{max}, \theta_{min}$}{Ângulo de ataque; Ângulo de ataque máximo; Ângulo de ataque mínimo;}	
-%	\nomenclature[F,34]{$f_{o}$}{Frequência de oscilação;}
-%	\nomenclature[G,01]{$\domainFSI$}{Domínio computacional de problemas de Interação Fluido Estrutura;}
+   
+   \vspace{0.5cm}
+   \item[]\textbf{Capítulo 6 — Método Arlequin Estabilizado}
+   \item[$\Omega_1$] Domínio local;
+   \item[$\Omega_0$] Domínio global;
+   \item[$\overlappingZone$] Zona de superposição;
+   \item[$\gluingZone$] Zona de colagem;
+   \item[$\Omega$] Domínio total computacional;
+   \item[$\freeZone$] Zona livre;
+   \item[$\Gamma_0$] Contorno físico do domínio global;
+   \item[$\Gamma_1$] Contorno físico do domínio local;
+   \item[$\lagrangeMultiplier$] Campo de multiplicadores de Lagrange;
+   \item[$\Delta\velocity$] Diferença entre campos acoplados na zona de colagem;
+   \item[$k_{0},k_{1}$] Constantes dos operadores de acoplamento;
+   \item[$L^{2}$] Operador de acoplamento de ordem 0;
+   \item[$H^{1}$] Operador de acoplamento de ordem 1;
+   \item[$\arlequinWF$] Função ponderadora;
+   \item[$\arlequinWFGlobal$] Função ponderadora global;
+   \item[$\arlequinWFLocal$] Função ponderadora local;
+   \item[$k_{a}$] Constante arbitrária do Método de Arlequin;
+   \item[$Y_{1}$] Função distância assinalada medida a partir de $\Gamma_1$;
+   \item[$\delta_s$] Espessura da zona de colagem;
+   \item[$(\bullet)_{0}$] Variável respectiva ao modelo global;
+   \item[$(\bullet)_{1}$] Variável respectiva ao modelo local;
+   \item[$\lagSolution$] Espaço vetorial das funções aproximadoras do campo de multiplicadores de Lagrange;
+   \item[$\lagTest$] Espaço vetorial das funções ponderadoras do campo de multiplicadores de Lagrange;
+   \item[$\lagrangeMultiplierWFh$] Função ponderadora pertencente ao espaço $\lagTest$;
+   \item[$\chi$] Função lógica para determinação do pertencimento de um ponto à $\gluingZone$;
+   \item[$\tauArlequin$] Parâmetro de estabilização da técnica RBSAM;
+   \item[$\mathbf{K}$] Matriz que representa os termos provenientes das matrizes referentes as equações da quantidade de movimento e da continuidade;
+   \item[$\mathbf{\hat{L}}$] Matriz que representa os termos oriundos do acoplamento;
+   \item[$\mathbf{L}^{T}$]{Matriz procedente dos termos da equação de restrição e de componentes da estabilização RBSAM;}
+   \item[$\mathbf{E}$] Matriz com termos oriundos da estabilização RBSAM;
+   \item[$\mathbf{\bar{U}}$] Vetor nodal dos graus de liberdade respectivos a velocidade e pressão;
+   \item[$\LagrangeMultiplier$] Vetor nodal dos graus de liberdade respectivos aos multiplicadores de Lagrange;
+   \item[$\mathbf{F}_i$] Vetor proveniente das equações da quantidade de movimento e da continuidade do modelo $i$;
+   \item[$\mathbf{F}_{\LagrangeMultiplier}$] Vetor respectivo aos termos advindos da estabilização RBSAM;
+   \item[$\NNSL$] Resíduo da versão semi discreta da equação de restrição;
+   \item[$\tau_{A},\tau_{A}^{0},\tau_{A}^{1}$] Parâmetros auxiliares que expressam a relação entre termos de restrição e termos convectivos;
+   \item[$\tau_{B},\tau_{B}^{0},\tau_{B}^{1}$] Parâmetros auxiliares que expressam a relação entre termos de restrição e termos inerciais;
+   \item[$\tau_{C},\tau_{C}^{0},\tau_{C}^{1}$] Parâmetros auxiliares que expressam a relação entre termos de restrição e termos viscosos;
+   \item[$\tau_{D},\tau_{D}^{0},\tau_{D}^{1}$] Parâmetros auxiliares que expressam a relação entre termos de restrição e termos de pressão;
+   \item[$\tau_{E},\tau_{E}^{0},\tau_{E}^{1}$] Parâmetros auxiliares que expressam a relação entre termos de restrição e termos de acoplamento;
+   \item[$\mathbf{M}_{\lambda}$] Vetor elementar relativo ao termo de restrição;
+   \item[$\mathbf{t}$] Vetor elementar relativo ao termo convectivo;
+   \item[$\mathbf{j}$]  Vetor elementar relativo ao termo inercial;
+   \item[$\mathbf{k}$] Vetor elementar relativo ao termo viscoso;
+   \item[$\mathbf{p}$] Vetor elementar relativo ao termo de pressão;
+   \item[$\mathbf{\boundary}$] Vetor elementar relativo ao termo de acoplamento;
+   \item[$C$] Corda do aerofólio;	
+   \item[$\theta$] Ângulo de ataque;;
+   \item[$\theta_{max}$] Ângulo de ataque máximo;;
+   \item[$\theta_{min}$] Ângulo de ataque mínimo;
+   \item[$f_{o}$] Frequência de oscilação;
+   
+   
+%    Interação Fluido Estrutura;}
 %	\nomenclature[G,02]{$(\bullet)_{F}, (\bullet)_{E}, (\bullet)_{M}$}{Subíndices que designam fluido, estrutura e malha respectivamente;}
 %	\nomenclature[G,03]{$\boundaryFSI$}{Contorno que define a interface fluido-estrutura;}
 %	\nomenclature[G,04]{$._{\tildet}$}{Subíndice que designa tempo de referência$;}
