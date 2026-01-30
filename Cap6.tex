@@ -542,7 +542,7 @@ O algoritmo que descreve a implementação computacional é apresentado no Algor
 
 Para a verificação da implementação do Método Arlequin estabilizado, dois exemplos amplamente explorados nas bibliografias são simulados. O primeiro exemplo trata do escoamento sobre um aerofólio NACA 0012 fixo, enquanto o segundo, com intuito de verificar o método aplicado a problemas com contornos móveis, consiste no mesmo aerofólio NACA 0012, porém com um movimento de arfagem prescrito. 
 
-\subsection{Escoamento sobre aerofólio NACA 0012 fixo} \label{capitulo:Cap6:Exemplos:NACA0012}
+\subsection{Escoamento sobre aerofólio NACA 0012 fixo - Método Arlequin} \label{capitulo:Cap6:Exemplos:NACA0012}
 
 Considera-se um aerofólio NACA 0012 com corda de comprimento adimensional unitário e ângulo de ataque de $10^{\circ}$, submetido a um escoamento incompressível viscoso com Reynolds ($\Reynolds$) 1000, calculado a partir da dimensão do aerofólio e da velocidade de entrada do escoamento. Foram utilizados ainda como parâmetros de análise: $u_{\infty} = 1\text{,}0$,  $\density = 1\text{,}0$,  $\timeStep = 0\text{,}02$ e $\specRadius = 0\text{,}75$. O domínio do problema é apresentado na \autoref{fig:aerofolio_geometria}, onde são indicadas as dimensões em termos do comprimento da corda do aerofólio. Na face esquerda o fluido entra com velocidade $u_{\infty}$ na direção $y_1$. Os contornos superior e inferior possuem condição de contorno de parede lisa, enquanto na face da direita considera-se força de superfície nula ($p_\infty=0$). 
 
@@ -569,7 +569,7 @@ Na Figura~\ref{fig:aerofolio_detalheLocal} pode-se observar em vermelho os eleme
 \end{figure}
 
 \begin{figure}[!htbp]
-	\caption{Aerofólio: discretização das malhas global e local}
+	\caption{Aerofólio: malhas global e local}
 	\centering
 	\subfloat[Discretização da malha global (AIG) e local (MEF)\label{fig:aerofolio_malhaArlequin}]{\includegraphics[scale=3.0,trim=0cm 1cm 0cm 0.8cm, clip=true]{Imagens/Cap6/aerofolio_malhaArlequin.pdf}}\\
 	\subfloat[Discretização da malha local\label{fig:aerofolio_detalheLocal}]{\includegraphics[trim=0 0 0 0,clip=true,scale=1.2]{Imagens/Cap6/aerofolio_detalheLocal.pdf}}
@@ -623,7 +623,7 @@ Na Figura~\ref{fig:aerofolio_velocidade} e na Figura~\ref{fig:aerofolio_pressao}
 	\label{fig:aerofolio_pressao}
 \end{figure}
 
-\subsection{Aerofólio com movimento de arfagem prescrito}
+\subsection{Escoamento sobre aerofólio com movimento de arfagem prescrito}
 
 Para a verificação computacional da técnica Arlequin estabilizada aplicada a problemas com contornos móveis  considera-se o mesmo aerofólio~da \autoref{capitulo:Cap6:Exemplos:NACA0012}, porém agora com um movimento de arfagem oscilatório. O aerofólio apresenta variação do ângulo de ataque em $20^{\circ}$, iniciando o movimento em $10^{\circ}$ e finalizando-o em $30^{\circ}$. 
 

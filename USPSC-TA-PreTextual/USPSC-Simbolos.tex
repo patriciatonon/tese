@@ -29,7 +29,7 @@
 \item[$\FmapAI$] Matriz jacobiana da função de mapeamento $\fmapAI(\posMat,t)$;
 \item[$\FmapAR$] Matriz jacobiana da função de mapeamento $\fmapAR(\posALE,t)$;
 \item[$\FmapRI$] Matriz jacobiana da função de mapeamento $\fmapRI(\posMat,t)$;
-\item[$\mathbf{w}$] $\left. \frac{\partial \posALE}{\partial t} \right|_{\posMat}$;
+\item[$\mathbf{w}$] Variável que designa $\left. \frac{\partial \posALE}{\partial t} \right|_{\posMat}$;
 \item[$g$] Grandeza física escalar na configuração espacial;
 \item[$g^{*}$] Grandeza física escalar na configuração de referência;
 \item[$g^{**}$] Grandeza física escalar na configuração material;
@@ -39,8 +39,8 @@
 \item[$\boundaryN$] Porção do contorno espacial com condições de contorno de Neumann;
 \item[$\totalTime$] Intervalo de tempo total da análise do escoamento do fluido;
 \item[$\velocityD$] Campo de velocidade prescrita;
-\item[$\surfaceLoad$] Força de superfície prescritas;
-\item[$\snormal$] Vetor unitário normal ao contorno $\boundaryN$;
+\item[$\surfaceLoad$] Força de superfície prescrita;
+\item[$\snormal$] Vetor unitário normal à porção do contorno $\boundaryN$;
 \item[$\usolution$] Espaço vetorial das funções aproximadoras do campo de velocidades;
 \item[$\psolution$] Espaço vetorial das funções aproximadoras do campo de pressões;
  \item[$\uweighting$] Espaço vetorial das funções ponderadoras do campo de velocidades;
@@ -111,7 +111,7 @@
   \item[$n$] Índice da última função-base na direção paramétrica $\xsi$;
   \item[$\Nb$] Função-base \textit {B-Spline} na direção paramétrica $\xsi$;
   \item[$m_u$] Multiplicidade de uma coordenada paramétrica;
-  \item[$C^{p-m_u}$] Função com continuidade $p-m_u$ sobre uma coordenada paramétrica;
+  \item[$C^{p-m_u}$] Define que a continuidade da função sobre uma coordenada paramétrica é $p-m_u$;
    \item[$\CP$] Ponto de controle que descreve uma geometria \textit{B-Spline} ou NURBS;
   \item[$\mathbf{C}$] Curva \textit {B-Spline} ou NURBS;
   \item[$\pos$] Coordenadas físicas;
@@ -162,9 +162,9 @@
   \vspace{0.5cm}
   \item[]\textbf{Capítulo 4 — Dinâmica dos Sólidos Computacional}
   \item[$\Omega_{0}$] Domínio inicial de um sólido deformável;
-  \item[$\lPosition$] Coordenadas materiais;
+  \item[$\lPosition$] Coordenadas materiais do sólido;
   \item[$\Omega$] Domínio atual de um sólido deformável;
-  \item[$\ePosition$] Coordenadas atuais;
+  \item[$\ePosition$] Coordenadas atuais do sólido;
   \item[$\fmap$] Função mudança de configuração;
   \item[$\gradDeformation$] Gradiente da função mudança de configuração;
   \item[$\lGrad$] Operador diferencial com respeito as coordenadas iniciais;
@@ -183,22 +183,22 @@
   \item[$dA$] Área atual de uma seção transversal;
   \item[$\stressTensor$] Tensor de tensões de Cauchy de componentes $\sigma_{ij}$ com $i,j = 1,2,3$;
   \item[$\mathbf{t}$] Vetor tensão de Cauchy;
-  \item[$\tractionLoad$] Forças de superfície na configuração atual;
-  \item[$\ebodyLoad$] Forças de corpo na configuração atual;
-  \item[$\rho$] Massa específica do sólido;
-  \item[$\solidAccel$] Aceleração do corpo;
+  \item[$\tractionLoad$] Força de superfície na configuração atual;
+  \item[$\ebodyLoad$] Força de corpo na configuração atual;
+  \item[$\rho$] Massa específica de um corpo;
+  \item[$\solidAccel$] Aceleração do sólido;
   \item[$M$] Massa de um corpo;
   \item[$\rho_{0}$] Massa específica do corpo na configuração inicial;
   \item[$\tempo$] Instante de tempo arbitrário;
   \item[$\mathbf{P}$] Tensor de tensões de Piola Kirchhoff de primeira espécie;
-  \item[$\ebodyLoad_{0}$] Forças de corpo na configuração inicial;
+  \item[$\ebodyLoad_{0}$] Força de corpo na configuração inicial;
   \item[$\totalEnergy$] Energia total mecânica;
   \item[$\extEnergy$] Energia potencial das forças externas;
   \item[$\intEnergy$] Energia de deformação;
   \item[$\kinEnergy$] Energia cinética;
-  \item[$\tractionLoad_{0}$] Forças de superfície na configuração inicial;
+  \item[$\tractionLoad_{0}$] Força de superfície na configuração inicial;
   \item[$\piolaStress$] Tensor de Piola Kirchhoff de segunda espécie;
-  \item[$\mathbf{F}$] Carregamentos pontuais;
+  \item[$\mathbf{F}$] Carregamento pontual;
   \item[$u_{e}$] Energia de deformação;
   \item[$\constitutiveTensor$] Tensor constitutivo elástico isotrópico;
   \item[$\bulkModulus$] Módulo volumétrico;
@@ -207,9 +207,9 @@
   \item[$\poisonsRatio$] Coeficiente de Poisson;
   \item[$\lameParameter$] Constante de Lamé;
    \item[$\fmap^{mh}_{0}$] Função mapeamento do elemento paramétrico de casca para a superfície média inicial;
-   \item[$\bm{\xi}$] Coordenadas adimensionais paramétricas $(\xsi_1, \xsi_2, \xsi_3)$;
+   \item[$\bm{\xi}$] Coordenadas paramétricas $(\xsi_1, \xsi_2, \xsi_3)$;
    \item[$\lPosition^{mh}$] Posições discretas inicias da superfície média do elemento de casca;
-   \item[$N$] Funções de forma;
+   \item[$N$] Função de forma;
    \item[$\fmap^{mh}_{1}$] Função mapeamento do elemento paramétrico de casca para a superfície média atual;
    \item[$\ePosition^{mh}$] Posições discretas atuais da superfície média do elemento de casca;
    \item[$\fmap^{h}_{0}$] Função mapeamento do elemento paramétrico de casca para o domínio inicial;
@@ -224,11 +224,11 @@
    \item[$\gradDeformation_1$] Gradiente da função mudança de configuração na configuração atual;
    \item[$\SolidPos$] Vetor discreto dos parâmetros nodais da estrutura;
    \item[$\mathbf{\ddot{Y}}$] Vetor discreto da aceleração dos parâmetros nodais da estrutura;
-   \item[$\concLoad^{ext}$] Vetor discreto nodal que define as forças externas atuantes em um sólido;
+   \item[$\concLoad^{ext}$] Vetor discreto nodal que define as forças externas atuantes na estrutura;
    \item[$\solidMass$] Matriz de massa;
-   \item[$\concLoad^{int}$] Vetor discreto nodal que define as forças internas atuantes em um sólido;
+   \item[$\concLoad^{int}$] Vetor discreto nodal que define as forças internas atuantes na estrutura;
    \item[$\mathbf{C}_v$] Matriz de amortecimento viscoso;
-   \item[$\SolidVel_{}$] Vetor discreto nodal que define a velocidade;
+   \item[$\SolidVel_{}$] Vetor discreto da velocidade dos parâmetros nodais da estrutura;
    \item[$\beta,\gamma$] Parâmetros da aproximação temporal de Newmark;
    \item[$\mathbf{Q}_n$,$\mathbf{R}_n$] Termos da aproximação de Newmark somente com variáveis do instante de tempo anterior;
    \item[$\NNSS$] Vetor discreto que representa o resíduo da equação de equilíbrio discretizada no espaço e tempo;
@@ -267,9 +267,9 @@
    \item[$(n_{np})_L$] Número de nós, ou pontos de controle, da discretização local;
    \item[$N_L$] Funções de forma da discretização local;
    \item[$p$] Grau polinomial das funções-base;
-   \item[$Y_{L}$] Função distância assinalada medida a partir de $(\Gamma_{L})_B$;
+   \item[$Y_{L}$] Função distância assinalada medida a partir do contorno não-físico local $(\Gamma_{L})_B$;
    \item[$\delta$] Espessura da zona de superposição;
-   \item[$Y_{G}$] Função distância assinalada medida a partir de $(\Gamma_{G})_B$;
+   \item[$Y_{G}$] Função distância assinalada medida a partir do contorno não-físico global $(\Gamma_{G})_B$;
    \item[$(M_{G})_{aa}$] Parâmetro que mede a influência da função de forma global \textit{a} sobre o domínio de superposição;
    \item[$M_{min}$] Valor mínimo de referência para $(M_{G})_{aa}$;
    \item[$(\SUPG)^{G}$] Parâmetro de estabilização da técnica SUPG na malha global;
@@ -280,7 +280,7 @@
    \item[$(\LSIC)^{L}$] Parâmetro de estabilização da técnica LSIC na malha local;
    
    \vspace{0.5cm}
-   \item[]\textbf{Capítulo 6 — Método Arlequin Estabilizado}
+   \item[]\textbf{Capítulo 6 — Método Arlequin estabilizado}
    \item[$\Omega_1$] Domínio local;
    \item[$\Omega_0$] Domínio global;
    \item[$\overlappingZone$] Zona de superposição;
@@ -297,17 +297,17 @@
    \item[$\arlequinWF$] Função ponderadora;
    \item[$\arlequinWFGlobal$] Função ponderadora global;
    \item[$\arlequinWFLocal$] Função ponderadora local;
-   \item[$k_{a}$] Constante arbitrária do Método de Arlequin;
-   \item[$Y_{1}$] Função distância assinalada medida a partir de $\Gamma_1$;
+   \item[$k_{a}$] Constante arbitrária do Método Arlequin;
+   \item[$Y_{1}$] Função distância assinalada medida a partir do contorno local $\Gamma_1$;
    \item[$\delta_s$] Espessura da zona de colagem;
-   \item[$(\bullet)_{0}$] Variável respectiva ao modelo global;
-   \item[$(\bullet)_{1}$] Variável respectiva ao modelo local;
+   \item[$(\bullet)_{0}$] O subíndice $0$ indica variável respectiva ao modelo global;
+   \item[$(\bullet)_{1}$] O subíndice $1$ indica variável respectiva ao modelo local;
    \item[$\lagSolution$] Espaço vetorial das funções aproximadoras do campo de multiplicadores de Lagrange;
    \item[$\lagTest$] Espaço vetorial das funções ponderadoras do campo de multiplicadores de Lagrange;
    \item[$\lagrangeMultiplierWFh$] Função ponderadora pertencente ao espaço $\lagTest$;
-   \item[$\chi$] Função lógica para determinação do pertencimento de um ponto à $\gluingZone$;
+   \item[$\chi$] Função lógica para determinação do pertencimento de um ponto a zona de colagem $\gluingZone$;
    \item[$\tauArlequin$] Parâmetro de estabilização da técnica RBSAM;
-   \item[$\mathbf{K}$] Matriz que representa os termos provenientes das matrizes referentes as equações da quantidade de movimento e da continuidade;
+   \item[$\mathbf{K}$] Matriz que representa os termos provenientes das submatrizes referentes as equações da quantidade de movimento e da continuidade;
    \item[$\mathbf{\hat{L}}$] Matriz que representa os termos oriundos do acoplamento;
    \item[$\mathbf{L}^{T}$]{Matriz procedente dos termos da equação de restrição e de componentes da estabilização RBSAM;}
    \item[$\mathbf{E}$] Matriz com termos oriundos da estabilização RBSAM;
@@ -328,32 +328,54 @@
    \item[$\mathbf{p}$] Vetor elementar relativo ao termo de pressão;
    \item[$\mathbf{\boundary}$] Vetor elementar relativo ao termo de acoplamento;
    \item[$C$] Corda do aerofólio;	
-   \item[$\theta$] Ângulo de ataque;;
-   \item[$\theta_{max}$] Ângulo de ataque máximo;;
+   \item[$\theta$] Ângulo de ataque;
+   \item[$\theta_{max}$] Ângulo de ataque máximo;
    \item[$\theta_{min}$] Ângulo de ataque mínimo;
    \item[$f_{o}$] Frequência de oscilação;
    
+   \vspace{0.5cm}
+   \item[]\textbf{Capítulo 7 — Interação fluido-estrutura}
+   \item[$\Omega_{IFE}$] Domínio do problema de interação fluido-estrutura;
+   \item[$\Omega_{F}$] Domínio do fluido;
+   \item[$\Omega_{E}$] Domínio da estrutura;
+   \item[$\boundaryFSI$] Contorno que define a interface fluido-estrutura;
+   \item[$\stressTensor_E$] Tensor de tensões de Cauchy da estrutura;
+   \item[$\mathbf{n}_E$] Vetor normal ao contorno $\boundaryFSI$ na estrutura;
+   \item[$\stressTensor_F$] Tensor de tensões de Cauchy do fluido;
+   \item[$\mathbf{n}_F$] Vetor normal ao contorno $\boundaryFSI$ no fluido;
+   \item[$\ePosition_E$] Coordenada de um nó pertencente a malha da estrutura no contorno $\boundaryFSI$;
+   \item[$\adimensionalcoordinates_F(\ePosition_E)$] Coordenada adimensional do fluido no contorno $\boundaryFSI$ respectiva à $\ePosition_E$;
+   \item[$\pos_F$] Coordenada de um nó pertencente a malha do fluido no contorno $\boundaryFSI$;
+   \item[$\adimensionalcoordinates_E(\pos_F)$] Coordenada adimensional da estrutura no contorno $\boundaryFSI$ respectiva à $\pos_F$;
+   \item[$\mathbf{t}_{E}$] Força nodal equivalente aplicada na estrutura;
+   \item[$\Nf,\Ns,\Nm$] Equações que descrevem o comportamento do fluido, estrutura e malha, respectivamente;
+   \item[$\df,\ds,\dm$] Vetores das variáveis nodais incógnitas do fluido, estrutura e malha, respectivamente;
+   \item[$\mA_{ij}$] Submatriz do problema de IFE equivalente a $\frac{\partial\Ni}{\partial\djj}$;
+   \item[$\cff,\css,\cmm$] $-\Nf,-\Ns,-\Nm$, respectivamente;
+   \item[$\xf$, $\xs$ e $\xm$] Incrementos às soluções $\df,\ds,\dm$, respectivamente;
+   \item[$\tildet$] Instante de referência;
+   \item[$\Omega$] Domínio computacional do problema de movimentação da malha;
+   \item[$(\bullet)_{\tildet}$] Subíndice que designa a variável no instante de referência;
+   \item[$\mathbf{w}_M$] Função-peso respectiva ao problema de movimentação da malha;
+   \item[$\stressTensorM$] Tensor de tensões de Cauchy para o problema de movimentação da malha;
+   \item[$\bar{\mathbf{z}}$] Deslocamento da malha no tempo atual medido a partir da configuração de referência;
+   \item[$\bar{\mathbf{z}}_{\tilde{t}}$] Deslocamento da malha no tempo $\tilde{t}$ medido a partir de uma configuração de referência;
+   \item[$\dispM$] Campo de deslocamento da malha;
+   \item[$\elasticityM$] Módulo de elasticidade fictício da malha;
+   \item[$\poissonm$] Coeficiente de poisson fictício da malha;
+   \item[$\jacM$] Jacobiano do mapeamento do espaço paramétrico adimensional para a configuração do elemento no tempo $\tildet$ na malha;
+   \item[$(\jacM)_{0}$] Parâmetro livre do método MJBS;
+   \item[$\chi_M$] Parâmetro que determina a ordem pelo qual os elementos menores serão enrijecidos mais do que os maiores;
+   \item[$\rho_f$] Massa específica do fluido;
+   \item[$\rho_e$] Massa específica da estrutura;
+   \item[$f_{v}$] Frequência de desprendimento de vórtices do fluido;
+   \item[$f_{i}$] i-ésima frequência natural da estrutura;
+   \item[$L_t$] Comprimento paramétrico com o qual se descreve a dimensão do tubo;
+   \item[$D_t$] Diâmetro do tubo;
+   \item[$d$] Diâmetro do encapsulamento e do cubo;
+   \item[$D_p$] Diâmetro de ponta do rotor;
+   \item[$t_p$] Espessura das pás do rotor;
+   \item[$t_c$] Espessura do cubo;
    
-%    Interação Fluido Estrutura;}
-%	\nomenclature[G,02]{$(\bullet)_{F}, (\bullet)_{E}, (\bullet)_{M}$}{Subíndices que designam fluido, estrutura e malha respectivamente;}
-%	\nomenclature[G,03]{$\boundaryFSI$}{Contorno que define a interface fluido-estrutura;}
-%	\nomenclature[G,04]{$._{\tildet}$}{Subíndice que designa tempo de referência$;}
-%	\nomenclature[G,05]{$\testfunction$}{Função peso respectiva ao deslocamento da malha;}
-%	\nomenclature[G,06]{$\dispMh$}{Vetor de deslocamento da malha medido a partir de uma configuração de referência;}
-%	\nomenclature[G,07]{$\dispMtth}$}{Vetor de deslocamento da malha no tempo $\tilde{t}$ medido a partir de uma configuração de referência;}
-%\nomenclature[G,08]{$\dispM$}{Vetor de deslocamentos da malha;}
-%\nomenclature[G,09]{$elasticityM$}{Módulo de elasticidade fictício da malha;}
-%\nomenclature[G,10]{$poissonm$}{Coeficiente de poisson fictício da malha;}
-%\nomenclature[G,11]{$\jacM$}{Jacobiano da malha;}
-%\nomenclature[G,12]{$(\jacM)_{0}$}{Parâmetro livre;}
-%\nomenclature[G,12]{$\chi_M$}{Parâmetro que determina a ordem pelo qual os elementos menores serão enrijecidos mais do que os maiores;}
-%\nomenclature[G,14]{$\Ni$}{Equação que descreve o comportamento do problema de IFE com i = 1,3 (1- fluido, 2-estrutura e 3-malha);}
-%\nomenclature[G,15]{$\mathbf{d}_{i}$}{Vetores com as variáveis nodais do problema de IFE com i = 1,3 (1- fluido, 2-estrutura e 3-malha);}
-%\nomenclature[G,16]{$\mA_{ij}$}{$\mA{ij} = \frac{\partial\Ni}{\partial\djj}$;}
-%\nomenclature[G,17]{$\mathbf{x}_{i}$}{Incremento às soluções  $\mathbf{d}_{i}$;}
-%\nomenclature[G,18]{$\mathbf{c}_{i}$}{$\mathbf{c}_{i} = -\Ni$}
-%\nomenclature[G,19]{$\mathbf{t^{E}}$}{Forças de superfície no contorno $\boundaryFSI$ aplicadas a estrutura;}
-%\nomenclature[G,20]{$h$}{Espessura da placa;}
-%\nomenclature[G,21]{$f_{f}$}{Frequência de desprendimento de vórtices do fluido;}
-%\nomenclature[G,22]{$f_{i}$}{i-ésima frequência natural da estrutura;}
+   
 \end{simbolos}

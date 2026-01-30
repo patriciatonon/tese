@@ -16,7 +16,7 @@ No contexto do MEF isoparamétrico, a formulação é construída a partir da de
 Dentro da AIG têm-se duas noções de malha: uma malha de pontos de controle e uma malha física. A malha de pontos de controle é muito semelhante a uma malha de elementos finitos; entretanto, ela não define a geometria, ela é apenas um esqueleto que controla o formato da geometria (ver \autoref{fig:espacos_NURBS}), visto que as funções de forma baseadas em \textit{B-Splines} não são necessariamente interpolatórias. Dessa forma, os graus de liberdade do problema são associados aos pontos de controle, cujas posições não coincidem, necessariamente, com a geometria representada.
 
 \begin{figure}[!htbp]
-	\caption{NURBS: espaço físico, espaço paramétrico, espaço indicial e espaço parental}
+	\caption{NURBS: representação geométrica}
 	\begin{center}
 	\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/espacos_NURBS.pdf}	
 	\end{center}
@@ -60,7 +60,7 @@ Essa equação é conhecida como fórmula recursiva de \textit{Cox-de Boor} \cit
 Na \autoref{fig:bspline_funcoes}, pode-se observar funções \textit{B-Splines} quadráticas construídas sobre o vetor de \textit{knots} não-uniforme aberto $\Xsi=\left[0, 0, 0, 1, 2, 3, 3, 4, 4, 4\right]$. A figura evidencia que, devido à repetição de $p+1$ vezes dos \textit{knots} nas extremidades do vetor, as funções-base se tornam interpolatórias nesses pontos. Ademais, a presença de um \textit{knot} com multiplicidade 2 em $\xsi=3$ reduz a regularidade da função-base nesse ponto, resultando na descontinuidade da sua derivada. Em termos gerais, a continuidade de uma função \textit{B-Spline} em uma coordenada paramétrica é dada por $C^{p-m_u}$, onde $m_u$ é a multiplicidade do \textit{knot}.
 
 \begin{figure}[!htbp]
-	\caption{\textit{B-Splines quadráticas}}
+	\caption{Funções \textit{B-Splines}}
 	\centering 
 	\includegraphics[scale=0.7,trim=1.5cm 11.5cm 1.5cm 13cm, clip=true]{Imagens/Cap3/bspline_funcoes.pdf}	
 	\legend{Fonte: Elaborada pela autora}
@@ -174,7 +174,7 @@ O enriquecimento da base de funções utilizando a inserção de \textit{knots} 
 Considerando uma curva quadrática \textit{B-spline} construída sobre um vetor de \textit{knots} aberto $\Xsi=[0,0,0,1,1,1]$, apresentada na Figura~\ref{fig:bspline_pc_ai} juntamente com sua rede de pontos de controle, nota-se que essa curva possui apenas uma célula no espaço físico (Figura~\ref{fig:bspline_curva_ai}) e $3$ funções-base no espaço paramétrico (Figura~\ref{fig:bspline_base_ai}). 
 
 \begin{figure}[!htbp]
-	\caption{Refinamento $h$ para um curva \textit{B-Spline}}
+	\caption{Refinamento $h$ de uma curva \textit{B-Spline}}
 	\centering
 	\subfloat[\label{fig:bspline_pc_ai}Curva original e pontos de controle]{\includegraphics[scale=0.65,trim=0cm 0cm 0cm 1cm, clip=true]{Imagens/Cap3/bspline_pc_ai.pdf}} \ \ \ \ 
 	\subfloat[\label{fig:bspline_pc_di}Curva refinada e pontos de controle]{\includegraphics[scale=0.65,trim=0cm 0cm 0cm 1cm, clip=true]{Imagens/Cap3/bspline_pc_di.pdf}} \\ 
@@ -198,7 +198,7 @@ Uma geometria NURBS no espaço $\nrealspace$ pode ser entendida, do ponto de vis
 \begin{figure}[!htbp]
 	\caption{Projeção transformativa de entidade \textit{B-Spline}}
 	\centering
-	\subfloat[\label{fig:NURBS_curva_transProj}Projeção transformativa:  \textit{B-Spline}]{\includegraphics[scale=0.44,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap3/NURBS_curva_projetiva.pdf}} 
+	\subfloat[\label{fig:NURBS_curva_transProj}Projeção transformativa:  curva \textit{B-Spline}]{\includegraphics[scale=0.44,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap3/NURBS_curva_projetiva.pdf}} 
 	\subfloat[\label{fig:NURBS_PC_transProj} Projeção transformativa: pontos de controle]{\includegraphics[scale=0.44,trim=0cm 0.0cm 0cm 0cm, clip=true]{Imagens/Cap3/NURBS_PC_projetiva.pdf}}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -300,7 +300,7 @@ A utilização de múltiplos \textit{patches} implica a necessidade de compatibi
 Ressalta-se, ainda, que na interface entre os \textit{patches}, devido à natureza interpolatória dos vetores de \textit{knots} abertos, as funções-base possuem continuidade $C^0$, conforme pode ser observado na \autoref{fig:multiplos_patches}, onde apresentam-se as funções-base univariadas na interface entre dois \textit{patches}.
 
 \begin{figure}[!htbp]
-	\caption{Funções-base univariadas na interface entre \textit{patches}}
+	\caption{Funções-base na interface entre \textit{patches}}
 	\centering 
 	\includegraphics[scale=0.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/patches.pdf}	
 	\label{fig:multiplos_patches}
@@ -392,7 +392,7 @@ Para múltiplas dimensões, o coeficiente de transformação $D_{u}$ é obtido i
 
 Os exemplos escolhidos para a verificação do código computacional AIG para escoamentos incompressíveis são o escoamento sobre um cilindro e o escoamento sobre canal com degrau. Em ambas as análises empregou-se discretização tridimensional para uma verificação mais completa do código. 
 
-\subsection {Escoamento sobre um cilindro - discretização isogeométrica}
+\subsection {Escoamento sobre um cilindro com discretização isogeométrica}
 
 Este é o mesmo exemplo simulado com elementos finitos na  \autoref{capitulo:Cap2:VerApl:Cilindo}, porém considerando-se discretização tridimensional do domínio, como representado na Figura~\ref{fig:cilindro_geometria3d}, com dimensões parametrizadas em função do diâmetro do cilindro. São adotados os mesmos parâmetros de análise, sendo considerados também os três valores de número de Reynolds: $\Reynolds =$ 40, 100 e 1000. A dimensão $e$ na direção $y_3$ é equivalente à $0\text{,}01D$. Aplica-se um perfil de velocidade constante na entrada do domínio, $\velocity=[u_\infty,0,0]$, e condições de parede lisa são atribuídas às paredes superior e inferior, enquanto para as paredes frontal e dos fundos são aplicadas condições de simetria.
 
@@ -463,10 +463,10 @@ Para os \textit{patches} $P_1$, $P_2$ e $P_3$, utiliza-se a mesma parametrizaç�
 
 Para a geração dos \textit{patches} retangulares, $P_4$ a $P_{11}$, definiu-se a direção paramétrica $\xsi$ respectiva à direção física $y_1$, $\eta$ correspondente a $y_2$ e $\zeta$ a $y_3$. A quantidade de pontos de controle em cada direção foi definida a partir do número de células desejadas para a análise numérica e para garantir compatibilidade com os \textit{patches} $P_0$ - $P_3$, adotando-se pesos unitários para os pontos de controle, vetores de \textit{knots} abertos e com espaçamento uniforme e funções NURBS quadráticas. 
 
-A malha isogeométrica utilizada é apresentada na Figura~\ref{fig:cilindro_malha3d} e na  \autoref{tab:cilindro_discretização_patches} pode-se observar a quantidade de pontos de controle em cada uma das direções paramétricas utilizados na discretização de cada um dos \textit{patches} que compõe a malha, resultando em 30228 pontos de controle e 8728 células físicas.
+A malha isogeométrica utilizada é apresentada, em um plano $y_1$$y_2$, na Figura~\ref{fig:cilindro_malha3d} e na  \autoref{tab:cilindro_discretização_patches} pode-se observar a quantidade de pontos de controle em cada uma das direções paramétricas utilizados na discretização de cada um dos \textit{patches} que compõe a malha, resultando em 30228 pontos de controle e 8728 células físicas.
 
 \begin{figure}[!htbp]
-	\caption{Cilindro: malha de células físicas - plano $y_1$$y_2$ }
+	\caption{Cilindro: malha de células físicas}
 	\centering
 	\label{fig:cilindro_malha3d}
 	\includegraphics[trim=0cm 0cm 0cm 0cm,clip,scale=1.5]{Imagens/Cap3/cilindro_malha.pdf}
@@ -546,10 +546,10 @@ Ressalta-se que apesar dos valores de $C_{Dmed}$ estarem bem próximos aos da si
 	\label{fig:cilindro_coeficientes3d}
 \end{figure}
 
-Os campos de velocidade e pressão para diferentes instantes ao longo de um período de um ciclo de desprendimento de vórtices para $\Reynolds = 1000$ são apresentados na Figura~\ref{fig:cilindro_AIG_camposVel} e na Figura~\ref{fig:cilindro_AIG_camposPressao}, onde observa-se resultados qualitativamente consistentes com o esperado.
+Os campos de velocidade e pressão, em um plano $y_1\times y_2$, para diferentes instantes ao longo de um período de um ciclo de desprendimento de vórtices para $\Reynolds = 1000$ são apresentados na Figura~\ref{fig:cilindro_AIG_camposVel} e na Figura~\ref{fig:cilindro_AIG_camposPressao}, onde observa-se resultados qualitativamente consistentes com o esperado.
 
 \begin{figure}[!htbp]
-	\caption{Cilindro: campo de velocidade para $\Reynolds = 1000$ - plano $y_1$$y_2$}
+	\caption{Cilindro: campo de velocidade para $\Reynolds = 1000$}
 	\centering
 	\subfloat[$nT$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_vel_tn.pdf}} \
 	\subfloat[$nT + T/6$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_vel_tn6.pdf}} \\
@@ -563,7 +563,7 @@ Os campos de velocidade e pressão para diferentes instantes ao longo de um per�
 \end{figure}
 
 \begin{figure}[!htbp]
-	\caption{Cilindro: campo de pressão para $\Reynolds = 1000$ - plano $y_1$$y_2$}
+	\caption{Cilindro: campo de pressão para $\Reynolds = 1000$}
 	\centering
 	\subfloat[$nT$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_press_tn.pdf}} \
 	\subfloat[$nT + T/6$]{\includegraphics[scale=0.7,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/cilindro_press_tn6.pdf}} \\
@@ -581,14 +581,14 @@ Os campos de velocidade e pressão para diferentes instantes ao longo de um per�
 Este problema consiste num escoamento em um canal fechado com um degrau a jusante da entrada, causando expansão abrupta da altura do canal, conforme apresentado na \autoref{fig:degrau_geometria}, onde é descrita a geometria do canal em vista no plano $y_1\times y_2$, sendo as dimensões: $h = 1\text{,}0$~m, $s = 0\text{,}94$~m, $x_{e} = 1\text{,}0$~m, $x_{f} = 15$~m e $x_{t} = 30$~m. A espessura adotada, na direção $y_3$, é constante e igual a $0\text{,}1$~m.  
 
 \begin{figure}[!htbp]
-	\caption{Degrau: geometria - plano $y_1$$y_2$}
+	\caption{Degrau: geometria}
 	\centering
 	\includegraphics[scale=1.2,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_geometria.pdf}
 	\legend{Fonte: Elaborada pela autora}
 	\label{fig:degrau_geometria}
 \end{figure}
 
-Considera-se condição de aderência nas paredes paralelas aos planos $y_1$$y_3$ e $y_2$$y_3$ com $\velocity = 0$, enquanto as paredes paralelas ao plano $y_1$$y_2$ são consideradas lisas, com apenas $u_3=0$. Na entrada prescreve-se o perfil parabólico para $u_1$ dado por:
+Considera-se condição de aderência nas paredes paralelas aos planos $y_1\times$$y_3$ e $y_2\times$$y_3$ com $\velocity = 0$, enquanto as paredes paralelas ao plano $y_1\times y_2$ são consideradas lisas, com apenas $u_3=0$. Na entrada prescreve-se o perfil parabólico para $u_1$ dado por:
 \begin{align}
 	u_{1} = V_{max} \left(1-\left(\frac{\left(y_2-s\right)-h/2}{h/2}\right)^{2}\right),
 \end{align}
@@ -600,10 +600,10 @@ O escoamento sobre o degrau é caracterizado por produzir áreas de recirculaç�
 	\Reynolds =\frac{\rho\left(\frac{2V_{max}}{3}\right)2h}{\viscosity}.
 \end{align}
 
-Embora o problema possua caráter bidimensional, para fins de verificação do código, adota-se discretização isoparamétrica 3D com cinco \textit{patches} e um total de 17640 pontos de controle e 4800 células, conforme pode ser observado na Figura~\ref{fig:degrau_malha}. Na \autoref{tab:degrau_discretização_patches} apresenta-se o número de pontos de controle em cada direção paramétrica para cada \textit{patch}. 
+Embora o problema possua caráter bidimensional, para fins de verificação do código, adota-se discretização isoparamétrica 3D com cinco \textit{patches} e um total de 17640 pontos de controle e 4800 células, conforme pode ser observado na Figura~\ref{fig:degrau_malha} para um plano $y_1\times$$y_2$. Na \autoref{tab:degrau_discretização_patches} apresenta-se o número de pontos de controle em cada direção paramétrica para cada \textit{patch}. 
 
 \begin{figure}[!htbp]
-	\caption{Degrau: malha de células físicas - plano $y_1$$y_2$}
+	\caption{Degrau: malha de células físicas}
 	\centering
 	\includegraphics[scale=2.0,trim=0cm 0.1cm 0cm 0.3cm, clip=true]{Imagens/Cap3/degrau_malha.pdf}
 	\vspace{-0.5cm} 
@@ -653,10 +653,10 @@ Na Figura~\ref{fig:degrau_comprimento_vortice_principal} são apresentados os co
 
 Com essa figura é possível observar que à medida que o número de Reynolds aumenta, os resultados obtidos do presente estudo se afastam dos valores de referência respectivos ao estudo experimental e da simulação tridimensional. Esse fato pode ter ocorrido tendo em vista que o ensaio experimental foi realizado em um canal com $2$~m de profundidade na direção $y_3$, enquanto a simulação atual conta com apenas uma célula nessa direção, sendo então incapaz de captar os fenômenos tridimensionais que ocorrem à medida que o número de Reynolds cresce. 
 
-Na Figura~\ref {fig:degrau_campos_velocidade_Re100} pode-se observar a distribuição do módulo da velocidade para o domínio completo e para a região do vórtice primário para $\Reynolds = 100$, enquanto na Figura~\ref {fig:degrau_campos_velocidade_Re400} e na Figura~\ref {fig:degrau_campos_velocidade_Re800} apresenta-se o mesmo para $\Reynolds = 400$ e $\Reynolds = 800$, respectivamente. Para $\Reynolds = 800$ constata-se a formação de um vórtice secundário na parede superior (Figura~\ref{fig:degrau_vor_sec_re800}), que está de acordo com o relato dos autores previamente citados.
+Na Figura~\ref {fig:degrau_campos_velocidade_Re100} pode-se observar a distribuição do módulo da velocidade para o domínio completo e para a região do vórtice primário para $\Reynolds = 100$, enquanto na Figura~\ref {fig:degrau_campos_velocidade_Re400} e na Figura~\ref {fig:degrau_campos_velocidade_Re800} apresenta-se o mesmo para $\Reynolds = 400$ e $\Reynolds = 800$, respectivamente. Para $\Reynolds = 800$ constata-se a formação de um vórtice secundário na parede superior (Figura~\ref{fig:degrau_vor_sec_re800}), que está de acordo com o relato dos autores previamente citados. Em todas as figuras citadas, as imagens são apresentas em um plano $y_1\times$$y_2$.
 
 \begin{figure}[!htb]
-	\caption{Degrau: campo de velocidade para $\Reynolds = 100$ }
+	\caption{Degrau: campo de velocidade para $\Reynolds = 100$}
 	\centering
 	\subfloat[\label{fig:degrau_vel_re100} Domínio Completo]{\includegraphics[scale=1.55,trim=0.0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_vel_100.pdf}} \\
 	\subfloat[\label{fig:degrau_vor_re100} Vórtice primário ]{\includegraphics[scale=1.55,trim=0.0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap3/degrau_vor_100.pdf}}
@@ -664,7 +664,7 @@ Na Figura~\ref {fig:degrau_campos_velocidade_Re100} pode-se observar a distribui
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-Por fim, na Figura~\ref{fig:degrau_campos_pressao} é possível observar os campos de pressão para todos os números de Reynolds simulados.
+Por fim, na Figura~\ref{fig:degrau_campos_pressao} é possível observar os campos de pressão (plano $y_1\times$$y_2$) para todos os números de Reynolds simulados.
 
 \begin{figure}[!htb]
 	\caption{Degrau: campo de velocidade para $\Reynolds = 400$}

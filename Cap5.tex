@@ -126,7 +126,7 @@ Para a verificação do código baseado na técnica de decomposição de domíni
 
 O primeiro exemplo, escoamento sobre uma cavidade quadrada, foi simulado para número de Reynolds 100 e apresentou boa concordância com os resultados da literatura. No segundo exemplo, referente a um escoamento sobre aerofólio NACA 0012 fixo, cujo número de Reynolds é mais elevado, foram observadas dificuldades de convergência quando aplicadas as técnicas SUPG e PSPG.
 
-\section{Cavidade com partição de domínio} \label{capitulo:cap5:Cav}
+\section{Cavidade - Técnica de partição por combinação dos espaços de funções} \label{capitulo:cap5:Cav}
 
 Para a verificação inicial da metodologia de partição de domínios com superposição de malhas  apresenta-se o problema clássico de escoamento sobre cavidade, a partir de uma discretização 2D. 
 
@@ -145,16 +145,16 @@ Sabe-se que nas paredes da cavidade há efeitos de camada limite; dessa forma, d
 Definiu-se uma espessura para a zona de superposição equivalente a $\delta = 0\text{,}1$~m medida paralelamente ao contorno fictício local $(\Gamma_{L})_{B}$. Considera-se pertencente a essa zona qualquer elemento da malha local que possua ao menos um nó dentro dessa região, destacados em vermelho na Figura~\ref{fig:cav2d_malha_local}. A mesma consideração aplica-se à malha global, com os elementos correspondentes destacados na Figura~\ref{fig:cav2d_malha_global}. Na \autoref{fig:cav2d_nos_desativados}, podem ser observados em vermelho os nós da malha global que foram desativados da análise.
 
 \begin{figure}[!htbp]
-	\caption{Cavidade: malhas global (MEF) e local (MEF)}
+	\caption{Cavidade: malhas global e local}
 	\centering
-	\subfloat[\label{fig:cav2d_malha_local} Malha local]{\includegraphics[scale=1.5, trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_malha_local.pdf}} 
-	\subfloat[\label{fig:cav2d_malha_global} Malha global ]{\includegraphics[scale=1.5,trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_malha_global.pdf}}
+	\subfloat[\label{fig:cav2d_malha_local} Malha local (MEF)]{\includegraphics[scale=1.5, trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_malha_local.pdf}} 
+	\subfloat[\label{fig:cav2d_malha_global} Malha global (MEF) ]{\includegraphics[scale=1.5,trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_malha_global.pdf}}
 	\label{fig:cav2d_discretização}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
 \begin{figure}[!htbp]
-	\caption{Cavidade: nós desativados malha global} 
+	\caption{Cavidade: nós desativados da malha global} 
 	\centering
 	{\includegraphics[scale=1.5,trim=2cm 0.5cm 2cm 0.5cm, clip=true]{Imagens/Cap5/cav2d_nosDesativos.pdf}}
 	\label{fig:cav2d_nos_desativados}
@@ -164,7 +164,7 @@ Definiu-se uma espessura para a zona de superposição equivalente a $\delta = 0
 A simulação foi mantida até que se atingiu o estado estacionário de escoamento. Os perfis de velocidade adimensionalizados ($\velocity/\velocinfty$) horizontal e vertical ao longo de duas linhas centrais nas direções $y_1$ e $y_2$ da cavidade são apresentados na Figura~\ref{fig:cav2d_perfil_vel_Re100} e comparados com os resultados de \citeonline{GhiaGS:1982}, mostrando boa concordância. Na Figura~\ref{fig:cav2d_campo_velocidade} e na Figura~\ref{fig:cav2d_campo_pressao} são apresentados os campos de velocidade e pressão para a cavidade.
 
 \begin{figure}[!!htbp]
-	\caption{Cavidade: perfil de velocidade} 
+	\caption{Cavidade: perfil de velocidade adimensionalizado} 
 	\centering
 	{\includegraphics[scale=0.85,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/cav2d_perfil.pdf}}
 	\label{fig:cav2d_perfil_vel_Re100}
@@ -179,7 +179,7 @@ A simulação foi mantida até que se atingiu o estado estacionário de escoamen
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-\section{Escoamento sobre aerofólio NACA 0012 fixo com partição de domínios} \label{capitulo:cap5:Aerofolio}
+\section{Escoamento sobre aerofólio NACA 0012 fixo - Técnica de partição por combinação dos espaços de funções} \label{capitulo:cap5:Aerofolio}
 
 Com intuito de apresentar-se brevemente os problemas de convergência observados na metodologia de partição de domínios por combinação dos espaços de funções, será considerado o problema de um aerofólio NACA 0012, cuja descrição detalhada (geometria, condições de contorno  e parâmetros de análise) é apresentada na \autoref{capitulo:Cap6:Exemplos:NACA0012}. 
 

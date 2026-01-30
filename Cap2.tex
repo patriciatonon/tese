@@ -91,7 +91,7 @@ Realizando-se o balanço da quantidade de movimento no volume de controle infini
 \end{align}	
 
 \begin{figure}[!htbp]
-	\caption{Volume de controle infinitesimal: fluxo de quantidade de Movimento}
+	\caption{Volume de controle infinitesimal: fluxo de quantidade de movimento}
 	\begin{center}
 		\includegraphics[scale=0.5,trim=0cm 0.0cm 0cm 0.0cm, clip=true]{Imagens/Cap2/volInf_consQtdeMovT.pdf}	
 	\end{center}
@@ -138,7 +138,7 @@ A descrição lagrangiana-euleriana arbitrária \cite{DoneaGH:1982,HughesLZ:1981
 Para a aplicação dessa metodologia às equações governantes da mecânica dos fluidos, consideram-se três domínios contínuos, de acordo com a \autoref{fig:dominioAle}: (i) o domínio inicial, chamado de \textbf{domínio material} ($\domainMat$), definido pelas coordenadas dos pontos materiais $\posMat$ na configuração inicial; (ii) o domínio atual, chamado de \textbf{domínio espacial} ($\domain$), definido pelas coordenadas espaciais $\pos$; e, por fim, (iii) o \textbf{domínio de referência} ($\domainRef$), associado às coordenadas dos pontos de referência $\posALE$.
 
 \begin{figure}[!htbp]
-	\caption{Descrição lagrangiana-euleriana arbitrária}
+	\caption{Domínios na descrição lagrangiana-euleriana arbitrária}
 	\begin{center}
 		\includegraphics[scale=1.0]{Imagens/Cap2/dominioALE.pdf}	
 	\end{center}
@@ -312,7 +312,7 @@ Nesta seção é apresentado o problema para escoamentos incompressíveis com co
 Seja $\domain \in \nrealspace$, com $\nsd = 1,2,3$ definindo a dimensão do domínio espacial do escoamento com contorno $\boundary = \boundaryD \cup \boundaryN$, no instante $t \in (0,\totalTime)$ (ver \autoref{fig:dominioFluido}).
 
 \begin{figure}[!htbp]
-	\caption{Domínio para o problema da DFC}
+	\caption{Domínio para um problema da DFC}
 	\begin{center}
 		\includegraphics[scale=3.0,trim=0cm 0.1cm 0cm 0.05cm, clip=true]{Imagens/Cap2/dominioFluido.pdf}	
 	\end{center}
@@ -383,10 +383,10 @@ No MEF, cada elemento é definido com auxílio de um conjunto de pontos chamados
 Neste trabalho, para a Mecânica dos Fluidos no contexto do MEF, são utilizadas funções de forma quadráticas do tipo polinômios de Lagrange, sendo empregados elementos isoparamétricos triangulares para o caso 2D e tetraédricos para o caso 3D. Esses elementos são apresentados na Figura~\ref{fig:elementoFinito2d} e Figura~\ref{fig:elementoFinito3d}, onde são ilustrados também as coordenadas paramétricas adimensionais adotadas para definir as funções de forma. 
 
 \begin{figure}[!htbp]
-	\caption{Elementos Finitos: representação espacial e paramétrica}
+	\caption{Elementos finitos: representação espacial e paramétrica}
 	\centering	
-	\subfloat[Elemento Finito 2d\label{fig:elementoFinito2d}]{\includegraphics[scale=0.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/elementoFinito2d.pdf}}\\
-	\subfloat[Elemento Finito 3d\label{fig:elementoFinito3d}]{\includegraphics[trim=0 0 0 0,clip,scale=0.65]{Imagens/Cap2/elementoFinito3d.pdf}}
+	\subfloat[Elemento finito 2D\label{fig:elementoFinito2d}]{\includegraphics[scale=0.5,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/elementoFinito2d.pdf}}\\
+	\subfloat[Elemento finito 3D\label{fig:elementoFinito3d}]{\includegraphics[trim=0 0 0 0,clip,scale=0.65]{Imagens/Cap2/elementoFinito3d.pdf}}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
@@ -717,10 +717,10 @@ Este exemplo considera um escoamento viscoso incompressível sobre um cilindro r
 A geometria e as condições de contorno são apresentadas na Figura~\ref{fig:cilindro_geometria}, tratando-se de um domínio retangular, parametrizado em função do diâmetro do cilindro, com um perfil constante de velocidade na entrada e condição de parede lisa nos limites superior e inferior. No contorno denominado como saída, aplica-se condição de Neumann nula. Na Figura~\ref{fig:cilindro_malha} é apresentada a malha utilizada para esse problema, composta por 9122 elementos finitos triangulares de aproximação quadrática e 18508 nós. O problema foi simulado para valores unitários adimensionais para $D$, $u_{\infty}$ e $\density$. Adotou-se passo de tempo $\timeStep = 0\text{,}05$ e parâmetro do integrador temporal $\specRadius = 0\text{,}5$, variando-se a viscosidade em função do número de Reynolds.
 
 \begin{figure}[!htbp]
-	\caption{Cilindro: geometria, condições de contorno e malha de elementos finitos.}
+	\caption{Cilindro: geometria, condições de contorno e malha}
 	\begin{center}
 		\subfloat[Geometria e condições de contorno\label{fig:cilindro_geometria}]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cilindro_geometria.pdf}}\\
-		\subfloat[Discretização espacial\label{fig:cilindro_malha}]{\includegraphics[trim=0cm 1cm 0cm 1cm,clip,scale=0.4]{Imagens/Cap2/cilindro_malha.pdf}}
+		\subfloat[Malha \label{fig:cilindro_malha}]{\includegraphics[trim=0cm 1cm 0cm 1cm,clip,scale=0.4]{Imagens/Cap2/cilindro_malha.pdf}}
 	\end{center}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -761,7 +761,7 @@ Como pode-se observar na Figura~\ref{fig:cilindro_coefAero}, para $\Reynolds = 4
 
 \begin{table}[!htbp]
 	\centering
-	\caption{Comparação entre valores obtidos e valores de referência}
+	\caption{Comparação entre valores obtidos e os da referência}
 	\begin{tabular}{ccccc}
 		\toprule
 		\multirow{2}{*}{$Re$} & \multicolumn{2}{c}{$C_{Dmed}$} & \multicolumn{2}{c}{$St$} \\ \cline{2-5}
@@ -804,12 +804,12 @@ Na Figura~\ref{fig:cilindro_camposVel} e na Figura~\ref{fig:cilindro_camposPress
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
 
-\subsection{Escoamento sobre cavidade com discretização 3D} \label{capitulo:Cap2:VerApl:CavQuad}
+\subsection{Escoamento sobre cavidade} \label{capitulo:Cap2:VerApl:CavQuad}
 
 Este exemplo considera uma cavidade hexaédrica com velocidade prescrita horizontal $u_{\infty}$ em sua face superior. A geometria do problema bem como as condições de contorno são apresentadas na Figura~\ref{fig:cavidade_geometria}. As paredes da cavidade são rígidas, com paredes laterais e do fundo com condição de aderência e, adicionalmente, condição de simetria na direção $y_3$. A discretização espacial em elementos finitos utilizada é apresentada na Figura~\ref{fig:cavidade_malha}, a qual consiste em 7252 elementos tetraédricos quadráticos e 14727 nós.  Embora este problema possa ser representado por uma discretização bidimensional, adota-se uma discretização 3D para um primeiro teste das implementações dos elementos finitos tetraédricos.
 
 \begin{figure}[!htbp]
-	\caption{Cavidade quadrada: geometria, condições de contorno e malha de elementos finitos}
+	\caption{Cavidade: geometria, condições de contorno e malha}
 	\centering
 	\subfloat[Geometria e condições de contorno\label{fig:cavidade_geometria}]{\includegraphics[scale=1.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap2/cavidade_geometria.pdf}}  \ \ \ \ \ \ \ \ \
 	\subfloat[Malha\label{fig:cavidade_malha}]{\includegraphics[trim=0 0 0 0,clip,scale=0.18]{Imagens/Cap2/cavidade_malha.png}}
@@ -821,7 +821,7 @@ O problema é estudado para três diferentes números de Reynolds (100, 400 e 10
 Os perfis de velocidade adimensionalizada ($\velocity/\velocinfty$) ao longo de duas linhas centrais nas direções $y_1$ e $y_2$, posicionadas no centro da espessura na direção $y_3$, são apresentados na Figura~\ref{fig:cavidade_graficos} e comparados com a referência de \citeonline{GhiaGS:1982}.
 
 \begin{figure}[!htbp]
-	\caption{Cavidade quadrada: perfis de velocidade adimensionalizados - plano $y_1$$y_2$}
+	\caption{Cavidade: perfis de velocidade adimensionalizados}
 	\centering
 	\subfloat[\label{fig:cavidade_Re100}$Re$=100]{\includegraphics[scale=0.7,trim=0.cm 0cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re100.pdf}} \ \ \ \ \subfloat[\label{fig:cavidade_Re400}$Re$=400]{\includegraphics[scale=0.7,trim=0.cm 0cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re400.pdf}} \
 	\subfloat[\label{fig:cavidade_Re1000}$Re$=1000]{\includegraphics[scale=0.7,trim=0.cm 0cm 0.3cm 0.2cm, clip=true]{Imagens/Cap2/cavidade_Re1000.pdf}} \\ 
@@ -830,10 +830,10 @@ Os perfis de velocidade adimensionalizada ($\velocity/\velocinfty$) ao longo de 
 	\label{fig:cavidade_graficos}
 \end{figure}
 
-Os campos de velocidade e de pressão para a situação estacionária são apresentados na Figura~\ref{fig:cavidade_vel} e na Figura~\ref{fig:cavidade_press}, respectivamente. Ressalta-se que para a simulação, por se tratar de um problema com todos os contornos com condição de Dirichlet impostos, a pressão torna-se indefinida. Por esse motivo, prescreveu-se pressão $\press = \press_{\infty} = 0\text{,}0$ no canto superior direito da cavidade. 
+Os campos de velocidade e de pressão, em um plano $y_1\times$$y_2$, para a situação estacionária são apresentados na Figura~\ref{fig:cavidade_vel} e na Figura~\ref{fig:cavidade_press}, respectivamente. Ressalta-se que para a simulação, por se tratar de um problema com todos os contornos com condição de Dirichlet impostos, a pressão torna-se indefinida. Por esse motivo, prescreveu-se pressão $\press = \press_{\infty} = 0\text{,}0$ no canto superior direito da cavidade. 
 
 \begin{figure}[!htbp]
-	\caption{Cavidade quadrada: campo de velocidade -  plano $y_1$$y_2$}
+	\caption{Cavidade: campo de velocidade}
 	\centering
 	\setlength{\lineskip}{-10pt}
 	\subfloat[\label{fig:cavidade_vel_Re100}$Re$=100]{\includegraphics[scale=0.20,trim=12cm 5.5cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_velRe100.pdf}} 
@@ -846,7 +846,7 @@ Os campos de velocidade e de pressão para a situação estacionária são apres
 \end{figure}
 
 \begin{figure}[!htbp]
-	\caption{Cavidade quadrada: campo de pressão - plano $y_1$$y_2$}
+	\caption{Cavidade: campo de pressão}
 	\centering
 	\subfloat[\label{fig:cavidade_press_Re100}$Re$=100]{\includegraphics[scale=0.20,trim=12cm 2cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_pressRe100.pdf}} 
 	\subfloat[\label{fig:cavidade_press_Re400}$Re$=400]{\includegraphics[scale=0.20,trim=12cm 2cm 12cm 5cm, clip=true]{Imagens/Cap2/cavidade_pressRe400.pdf}}
