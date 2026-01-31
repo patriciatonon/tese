@@ -159,7 +159,7 @@ A implementação computacional para a solução do problema de IFE de acordo co
 	\end{algorithmic}
 \end{algorithm}
 
-\subsection{Movimentação da Malha} \label{capitulo:Cap7:CondAcop:MovMalha}
+\subsection{Movimentação da malha} \label{capitulo:Cap7:CondAcop:MovMalha}
 
 Para a satisfação da condição geométrica nos problemas de IFE desse trabalho, uma técnica adequada de movimentação de malha deve ser aplicada. É necessário que o método de movimentação de malha seja robusto o suficiente para que garanta uma discretização adequada (ou seja, com elementos geometricamente aceitáveis, com áreas e volumes maiores do que zero e com ângulos que não estejam próximos de $0^o$ nem de $180^o$) durante toda a análise.
 
@@ -465,7 +465,9 @@ Na Figura~\ref{fig:prism_campos_vel} e na Figura~\ref{fig:prism_campos_press} ap
 
 \subsection{Turbina} \label{Cap7:Exemplos:Turbina}
 
-Como última aplicação, propõe-se um problema tridimensional que não pode ser simulado diretamente com métodos de malhas móveis e que, neste caso, pode ser simulado com a aplicação da técnica de superposição proposta. Este problema consiste em uma turbina hidráulica com pás diretoras fixas e um rotor, com uma pressão superior à atmosférica aplicada na entrada. Inicialmente, realiza-se um estudo prévio apenas com o rotor, o qual é simulado utilizando um monomodelo de elementos finitos. Posteriormente, considera-se a turbina com as pás diretoras representadas por uma discretização isogeométrica global e insere-se o rotor por meio de uma discretização local por elementos finitos, a qual pode mover-se e deformar-se de modo a acomodar a rotação e deformação do rotor.
+Como última aplicação, propõe-se um problema tridimensional que não pode ser simulado diretamente com métodos de malhas móveis e que, neste caso, pode ser simulado com a aplicação da técnica de superposição proposta. Este problema consiste em uma turbina hidráulica com pás diretoras fixas e um rotor, com uma pressão superior à atmosférica aplicada na entrada. 
+
+Inicialmente, realiza-se um estudo prévio apenas com o rotor, o qual é simulado utilizando um monomodelo de elementos finitos. Posteriormente, considera-se a turbina com as pás diretoras representadas por uma discretização isogeométrica global e insere-se o rotor por meio de uma discretização local por elementos finitos, a qual pode mover-se e deformar-se de modo a acomodar a rotação e deformação do rotor.
 
 \subsubsection{Turbina - monomodelo}\label{capitulo:Cap7:exemplos:Turbina:Mono}
 
@@ -474,7 +476,7 @@ Considera-se a turbina formada por um tubo cilíndrico por onde ocorre o escoame
 \begin{figure}[!htbp]
 	\caption{Turbina monomodelo: geometria}
 	\centering 
-	\includegraphics[scale=3.0,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_geo2.pdf}	
+	\includegraphics[scale=3.3,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap7/turbina_mono_geo2.pdf}	
 	\label{fig:turbina_mono_geo}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -485,9 +487,7 @@ Para o fluido considera-se velocidade nula no contorno externo do tubo, bem como
 
 O rotor consiste em uma hélice de 4 pás com espessura constante $t_p = 0\text{,}02$~dm, com diâmetro de ponta (\textit{tip}) $D_{p}=1\text{,}5$~dm. As pás são acopladas a um cubo (\textit{hub}) de diâmetro $d=0\text{,}60$~dm com parede de espessura $t_c = 0\text{,}1$~dm. Considera-se que o cubo se conecta a um eixo, de mesmo diâmetro e espessura do cubo, o qual se prolonga até a entrada do escoamento por dentro do encapsulamento rígido. A geometria das pás foi gerada utilizando o software CFturbo® \footnote{Disponível em: \url{https://www.cfturbo.com}}, enquanto a discretização em elementos finitos realizada no GMSH (os dados da malha podem ser visualizados no \autoref{apendice:malhaRotor}). Selecionou-se um aço para compor o material da estrutura com densidade de massa $\rho_{e} =  8\text{,}0 \text{ kg/dm}^3 $ e módulo de elasticidade de $\mathbb{E} = 2\text{,}0\cdot10^{10}$~kg/dm.s$^2$. A superfície superior do eixo consiste em um disco com a mesma espessura e material do eixo, onde o nó central possui todas as componentes de deslocamento restritas, enquanto os demais nós dessa superfície possuem apenas os deslocamentos na direção $y_3$ restritos. Dada a rigidez do eixo, os deslocamentos do mesmo são pequenos o suficiente para que seja possível desconsiderar o contato com o encapsulamento.
 
-No que diz respeito à integração temporal, considera-se $\timeStep = 1\cdot10^{-3}$~s, e para o fluido um raio espectral $\specRadius = 0\text{,}5$.
-
-A malha utilizada para a discretização do domínio do fluido, apresentada na Figura~\ref{fig:turbina_mono_malha_fluido}, é composta por 49239 elementos tetraédricos quadráticos e 76548 nós, enquanto a malha da discretização da estrutura (ver Figura~\ref{fig:turbina_malha_estrutura}) é composta por 3807 elementos de casca triangulares quadráticos e 7791 nós.
+A malha utilizada para a discretização do domínio do fluido, apresentada na Figura~\ref{fig:turbina_mono_malha_fluido}, é composta por 49239 elementos tetraédricos quadráticos e 76548 nós, enquanto a malha da discretização da estrutura (ver Figura~\ref{fig:turbina_malha_estrutura}) é composta por 3807 elementos de casca triangulares quadráticos e 7791 nós. No que diz respeito à integração temporal, considera-se $\timeStep = 1\cdot10^{-3}$~s, e para o fluido um raio espectral $\specRadius = 0\text{,}5$.
 
 %\begin{figure}[!htbp]
 %	\caption{Turbina monomodelo: Malhas}
@@ -522,6 +522,7 @@ A fim de se analisar os deslocamentos máximos nas pás ao longo do tempo na dir
 	\label{fig:turbina_mono_deslA}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
+
 
 Além disso, acompanhou-se a velocidade angular deste mesmo ponto ao longo do tempo. Conforme pode-se observar na \autoref{fig:turbina_mono_velAngA}, a velocidade angular aumenta até o instante $t=0\text{,}2$~s e depois mantém-se com valor aproximadamente constante de $96\text{,}25\text{ rad/s}$.
 

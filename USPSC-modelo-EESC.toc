@@ -34,7 +34,7 @@
 \contentsline {section}{\numberline {2.5}Implementação computacional}{77}{section.2.5}%
 \contentsline {section}{\numberline {2.6}Verificação e aplicações}{78}{section.2.6}%
 \contentsline {subsection}{\numberline {2.6.1}Escoamento sobre um cilindro}{78}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Escoamento sobre cavidade}{80}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.2}Escoamento sobre cavidade}{84}{subsection.2.6.2}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
 \contentsline {chapter}{\chapternumberline {3}\MakeTextUppercase []{Análise isogeométrica aplicada à Dinâmica dos Fluidos Computacional}}{87}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Representação geométrica com B-splines e NURBS}{87}{section.3.1}%
@@ -73,7 +73,7 @@
 \contentsline {section}{\numberline {5.2}Função de combinação}{137}{section.5.2}%
 \contentsline {section}{\numberline {5.3}Aplicação da técnica à Dinâmica dos Fluidos Computacional}{138}{section.5.3}%
 \contentsline {section}{\numberline {5.4}Implementação computacional}{139}{section.5.4}%
-\contentsline {section}{\numberline {5.5}Verificação e aplicações}{141}{section.5.5}%
+\contentsline {section}{\numberline {5.5}Verificação e aplicações}{140}{section.5.5}%
 \contentsline {section}{\numberline {5.6}Cavidade - Técnica de partição por combinação dos espaços de funções}{141}{section.5.6}%
 \contentsline {section}{\numberline {5.7}Escoamento sobre aerofólio NACA 0012 fixo - Técnica de partição por combinação dos espaços de funções}{144}{section.5.7}%
 \setlength {\cftchapterindent }{0em} \setlength {\cftchapternumwidth }{\cftlastnumwidth }
@@ -94,7 +94,7 @@
 \contentsline {section}{\numberline {7.2}Acoplamento com malhas não coincidentes}{173}{section.7.2}%
 \contentsline {section}{\numberline {7.3}Acoplamento particionado forte - bloco-iterativo}{174}{section.7.3}%
 \contentsline {subsection}{\numberline {7.3.1}Implementação computacional}{175}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Movimentação da Malha}{177}{subsection.7.3.2}%
+\contentsline {subsection}{\numberline {7.3.2}Movimentação da malha}{177}{subsection.7.3.2}%
 \contentsline {section}{\numberline {7.4}Verificação e aplicações}{178}{section.7.4}%
 \contentsline {subsection}{\numberline {7.4.1}Cavidade com fundo flexível - 2D}{178}{subsection.7.4.1}%
 \contentsline {subsection}{\numberline {7.4.2}Cavidade com fundo flexível - 3D}{182}{subsection.7.4.2}%

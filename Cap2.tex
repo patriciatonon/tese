@@ -678,7 +678,7 @@ Na utilização do método $\alpha$-generalizado, as integrais da Equação~\eqr
 
 \section{Implementação computacional} \label{capitulo:Cap2:ImpleComput}
 
-Finalmente, é possível estabelecer o algoritmo para a solução dos problemas de escoamentos incompressíveis com a formulação estabilizada do MEF, o qual é apresentado abaixo (Algoritmo. \ref{alg:fluid}).
+Finalmente, é possível estabelecer o algoritmo para a solução dos problemas de escoamentos incompressíveis com a formulação estabilizada do MEF, o qual é apresentado abaixo no Algoritmo \ref{alg:fluid}.
 
 \begin{algorithm}
 	\caption{Algoritmo para problemas da DFC}
@@ -748,7 +748,11 @@ Para este problema, a frequência do desprendimento de vórtices que ocorre a pa
 \end{align}
 \noindent com $f_{v}$ sendo a frequência de desprendimento dos vórtices.
 
-Como pode-se observar na Figura~\ref{fig:cilindro_coefAero}, para $\Reynolds = 40$ o coeficiente de arrasto atinge um valor constante, quando o escoamento fica estacionário, permanecendo assim até o final da análise, enquanto o coeficiente de sustentação permanece nulo. Isso é o que se espera, visto que para Reynolds entre 5 à 50, deve-se observar a formação de dois vórtices simétricos e estacionários na região a jusante do cilindro \cite{Lienhard:1966}. Com o aumento do número de Reynolds, o par de vórtices é quebrado, gerando a chamada esteira de von Kármán, com formação de vórtices de maneira alternada entre as regiões superior e inferior do cilindro, levando ao comportamento oscilatório observado nos gráficos para $\Reynolds = 100$ e $\Reynolds=1000$. Os valores do coeficiente de Strouhal, para $\Reynolds = 100$ e $\Reynolds=1000$, assim como os valores médios obtidos para o coeficiente de arrasto ($C_{Dmed}$) para $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$ são apresentados na \autoref{tab:cilindro_CD_ST}, onde são comparados com os valores de referência provenientes do trabalho numérico de \citeonline{WANDERLEY2002445}. Vale ressaltar que os resultados apresentados para $\Reynolds=1000$ são idealizados, buscando reproduzir e verificar resultados numéricos de outros autores, visto que nesta faixa de número de Reynolds já existem efeitos de turbulência, que só poderiam ser captados com um modelo 3D.
+Como pode-se observar na Figura~\ref{fig:cilindro_coefAero}, para $\Reynolds = 40$ o coeficiente de arrasto atinge um valor constante, quando o escoamento fica estacionário, permanecendo assim até o final da análise, enquanto o coeficiente de sustentação permanece nulo. Isso é o que se espera, visto que para Reynolds entre 5 à 50, deve-se observar a formação de dois vórtices simétricos e estacionários na região a jusante do cilindro \cite{Lienhard:1966}. 
+
+Com o aumento do número de Reynolds, o par de vórtices é quebrado, gerando a chamada esteira de von Kármán, com formação de vórtices de maneira alternada entre as regiões superior e inferior do cilindro (\cite{Lienhard:1966}), levando ao comportamento oscilatório observado nos gráficos para $\Reynolds = 100$ e $\Reynolds=1000$. Os valores do coeficiente de Strouhal, para $\Reynolds = 100$ e $\Reynolds=1000$, assim como os valores médios obtidos para o coeficiente de arrasto ($C_{Dmed}$) para $\Reynolds = 40$, $\Reynolds = 100$ e $\Reynolds = 1000$ são apresentados na \autoref{tab:cilindro_CD_ST}, onde são comparados com os valores de referência provenientes do trabalho numérico de \citeonline{WANDERLEY2002445}. 
+
+Vale ressaltar que os resultados apresentados para $\Reynolds=1000$ são idealizados, buscando reproduzir e verificar resultados numéricos de outros autores, visto que nesta faixa de número de Reynolds já existem efeitos de turbulência, que só poderiam ser captados com um modelo 3D.
 
 \begin{figure}[!htbp]
 	\caption{Cilindro: coeficientes aerodinâmicos}

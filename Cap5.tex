@@ -11,9 +11,9 @@ Para o entendimento da técnica de partição de domínios define-se inicialment
 \begin{figure}[!htbp]
 	\caption{Partição de domínios}
 	\centering
-	\subfloat[\label{fig:dominio_global} Domínio Global]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_global.pdf}} 
-	\subfloat[\label{fig:dominio_local} Domínio Local]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_local.pdf}} \\
-	\subfloat[\label{fig:dominio_sobreposto} Domínios superpostos]{\includegraphics[scale=0.6,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_sobreposto.pdf}} 
+	\subfloat[\label{fig:dominio_global} Domínio Global]{\includegraphics[scale=0.50,trim=0cm 0cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_global.pdf}} \ \ \ \ \
+	\subfloat[\label{fig:dominio_local} Domínio Local]{\includegraphics[scale=0.50,trim=0cm 0cm 3cm 0cm, clip=true]{Imagens/Cap5/dominio_local.pdf}} \\
+	\subfloat[\label{fig:dominio_sobreposto} Domínios superpostos]{\includegraphics[scale=0.50,trim=0cm 1.2cm 0cm 0cm, clip=true]{Imagens/Cap5/dominio_sobreposto.pdf}} 
 	\label{fig:domains}
 	\legend{Fonte: Elaborada pela autora}
 \end{figure}
@@ -82,7 +82,9 @@ Conforme relatado, os parâmetros de estabilização utilizados na técnica da D
 	\PSPG(\xsi) =  b(\xsi)(\PSPG)^{G}(\xsi) + (1-b(\xsi))(\PSPG)^{L}(\xsi),\\
 	\LSIC(\xsi) =  b(\xsi)(\LSIC)^{G}(\xsi) + (1-b(\xsi))(\LSIC)^{L}(\xsi),
 \end{align}
-\noindent com $(\SUPG)^{G}$, $(\PSPG)^{G}$ e $(\LSIC)^{G}$ sendo os parâmetros de estabilização calculados na malha global;$(\SUPG)^{L}$, $(\PSPG)^{L}$ e  $(\LSIC)^{L}$ os parâmetros de estabilização calculados na malha local, todos conforme a Equação~\eqref{eq:tsupg_tpspg_cap2} e a Equação~\eqref{eq:tlsic_cap2}.
+\noindent com $(\SUPG)^{G}$, $(\PSPG)^{G}$ e $(\LSIC)^{G}$ sendo os parâmetros de estabilização calculados na malha global; $(\SUPG)^{L}$, $(\PSPG)^{L}$ e  $(\LSIC)^{L}$ os parâmetros de estabilização calculados na malha local, todos conforme a Equação~\eqref{eq:tsupg_tpspg_cap2} e a Equação~\eqref{eq:tlsic_cap2}.
+
+\
 
 \section{Implementação computacional}
 
